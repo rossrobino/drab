@@ -13,7 +13,7 @@ A reusable component library by Ross Robino.
     import { ComponentName } from "@rossrobino/components";
 </script>
 
-<Components />
+<ComponentName />
 ```
 
 ## Component List
