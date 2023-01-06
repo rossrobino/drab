@@ -18,4 +18,4 @@ A reusable component library by Ross Robino.
 
 ## Component List
 
-- ShareButton
+- [ShareButton](https://github.com/rossrobino/components/blob/main/src/lib/svelte/ShareButton.svelte)
