@@ -325,7 +325,7 @@
 			and
 			<code>src/info.js</code>
 			with your information. Run
-			<code>npm run build</code>
+			<code>npm run packageBuild</code>
 			to build your package.
 		</li>
 		<li>
