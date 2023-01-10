@@ -16,6 +16,7 @@
   "scripts": {
     "dev": "vite dev",
     "build": "svelte-kit sync && svelte-package",
+	"siteBuild": "vite build",
     "prepublishOnly": "echo 'Did you mean to publish `./package/`, instead of `./`?' && exit 1",
     "check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
