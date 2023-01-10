@@ -1,10 +1,9 @@
 <script>
 	import "../app.postcss";
+	import { info } from "./info";
 </script>
 
-<header
-	class="bg-zinc-900 text-zinc-50 p-4 flex justify-center"
->
+<header class="bg-zinc-900 text-zinc-50 p-4 flex justify-center">
 	<div
 		class="flex flex-col md:flex-row justify-between gap-2 basis-full md:basis-[768px]"
 	>
@@ -23,11 +22,9 @@
 	</div>
 </main>
 
-<footer
-	class="bg-zinc-900 text-zinc-50 mt-4 flex justify-center"
->
+<footer class="bg-zinc-900 text-zinc-50 mt-4 flex justify-center">
 	<div class="p-4 flex justify-between basis-full md:basis-[768px]">
-		<a href="https://robino.dev">Ross Robino</a>
-		<span>MIT License</span>
+		<a href={info.authorHomepage}>{info.author}</a>
+		<span>{info.license} License</span>
 	</div>
 </footer>

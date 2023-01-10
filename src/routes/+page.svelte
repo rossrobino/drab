@@ -29,9 +29,9 @@
 				},
 			],
 			example: {
-				url: "https://robino.dev",
-				title: "Ross Robino",
-				text: "Check out my website: ",
+				url: `${info.projectHomepage}`,
+				title: "@rossrobino/components",
+				text: "Check out this page: ",
 				class: "px-4 py-2 bg-zinc-300 dark:bg-zinc-700",
 			},
 			references: [
@@ -101,7 +101,7 @@
 </script>
 
 <svelte:head>
-	<title>Components</title>
+	<title>{info.packageName}</title>
 	<meta
 		name="description"
 		content="An unstyled, reusable Svelte component library."
@@ -114,11 +114,10 @@
 
 	<p class="mb-2">
 		The purpose of this library is to provide accessible, reusable, unstyled
-		Svelte components for anyone to use. Docs are generated from an array of
-		objects called <code>componentList</code>
-		on
-		<a href="{info.gitHub}/blob/main/src/routes/%2Bpage.svelte">this</a>
-		page.
+		<a rel="external" href="https://svelte.dev">Svelte</a>
+		components for anyone to use. This project can also be forked to easily
+		<a href="#create">create your own</a>
+		library and documentation.
 	</p>
 	<ul>
 		<li>
@@ -287,10 +286,10 @@
 <section>
 	<h2 id="create">Create / Contribute</h2>
 	<p>
-		If you would like to contribute or create your own component library
-		with this documentation framework follow these steps.
+		If you would like to create your own component library with this
+		documentation page or contribute to this project, follow these steps.
 	</p>
-	<ol class="list-decimal">
+	<ul>
 		<li>
 			<a
 				rel="external"
@@ -305,23 +304,38 @@
 			Add your component to <code>src/lib/svelte/</code>
 		</li>
 		<li>
-			Add an object documenting your component to the <code>
+			Import and add an object documenting your component to the <code>
 				componentList
 			</code>
-			array located in
+			array located at
 			<code>src/routes/+page.svelte</code>
 		</li>
 		<li>
 			Test your component by running <code>npm run dev</code>
 		</li>
 		<li>
-			Optional: if you want to add your component to this repo instead of
-			maintaining your own, create a <a
+			Import component and export from <code>src/lib/index.js</code>
+		</li>
+		<li>
+			If you are creating your own library, update <code>
+				package.json
+			</code>
+			,
+			<code>README.md</code>
+			and
+			<code>src/info.js</code>
+			with your information. Run
+			<code>npm run build</code>
+			to build your package.
+		</li>
+		<li>
+			If you want to contribute to this repo instead of maintaining your
+			own, create a <a
 				rel="external"
 				href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork"
 			>
 				pull request
 			</a>
 		</li>
-	</ol>
+	</ul>
 </section>
