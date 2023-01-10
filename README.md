@@ -1,6 +1,10 @@
 # Components
 
-A reusable component library by Ross Robino.
+A reusable Svelte component library. Fork to create your own or contribute by adding the component to `src/lib/svelte` and documenting on `src/routes/+page.svelte`.
+
+License: MIT
+
+[Read the full documentation](https://components.robino.dev)
 
 ## Install
 
@@ -15,7 +19,3 @@ A reusable component library by Ross Robino.
 
 <ComponentName />
 ```
-
-## Component List
-
-- [ShareButton](https://github.com/rossrobino/components/blob/main/src/lib/svelte/ShareButton.svelte)
