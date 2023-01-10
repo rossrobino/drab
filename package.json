@@ -1,10 +1,12 @@
 {
   "name": "@rossrobino/components",
-  "version": "1.0.1",
-  "description": "A reusable component library by Ross Robino",
+  "version": "1.0.2",
+  "description": "A reusable Svelte component library",
   "keywords": [
     "components",
-    "svelte"
+	"documentation",
+    "Svelte",
+	"SvelteKit"
   ],
   "homepage": "https://components.robino.dev",
   "license": "MIT",

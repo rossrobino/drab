@@ -1,12 +1,14 @@
 # Components
 
-A reusable Svelte component library. Fork to create your own or contribute
+## A reusable Svelte component library
+
+### Fork to create your own or contribute
 
 - Add component to `src/lib/svelte`
 - Export in `src/lib/index.js`
 - Document on `src/routes/+page.svelte`
 
-License: MIT
+MIT License
 
 [Read the full documentation](https://components.robino.dev)
 
