@@ -1,12 +1,12 @@
 {
   "name": "@rossrobino/components",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A reusable component library by Ross Robino",
   "keywords": [
     "components",
     "svelte"
   ],
-  "homepage": "https://github.com/rossrobino/components",
+  "homepage": "https://components.robino.dev",
   "license": "MIT",
   "author": {
     "name": "Ross Robino",
