@@ -1,6 +1,5 @@
 <script>
-	import { info } from "./info";
-	import { componentList } from "./docs";
+	import { info } from "./docs";
 	import ComponentDocs from "./ComponentDocs.svelte";
 </script>
 

@@ -25,7 +25,7 @@ export const info = {
  * purpose: string,
  * component: *,
  * example: object,
- * props: {name: string, purpose: string, default: *}[],
+ * props: {name: string, purpose: string, type: string, default: *}[],
  * slots: {name: string, purpose: string, default: *}[],
  * references: {name:string, href: string}[]
  * }[]} componentList
@@ -37,21 +37,24 @@ export const componentList = [
 		purpose:
 			"Uses the navigator api to share or copy a url link depending on browser support.",
 		props: [
-			{ name: "class", purpose: "class", default: "" },
-			{ name: "id", purpose: "id", default: "" },
+			{ name: "class", purpose: "class", type: "string", default: "" },
+			{ name: "id", purpose: "id", type: "string", default: "" },
 			{
 				name: "url",
 				purpose: "Link to share",
+				type: "string",
 				default: "",
 			},
 			{
 				name: "title",
 				purpose: "title",
+				type: "string",
 				default: "end of url",
 			},
 			{
 				name: "text",
 				purpose: "Additional text in share message",
+				type: "string",
 				default: "",
 			},
 		],
@@ -81,16 +84,18 @@ export const componentList = [
 		name: "YouTube",
 		purpose: "Embed a YouTube video into a website with the video uid.",
 		props: [
-			{ name: "class", purpose: "class", default: "" },
-			{ name: "id", purpose: "id", default: "" },
+			{ name: "class", purpose: "class", type: "string", default: "" },
+			{ name: "id", purpose: "id", type: "string", default: "" },
 			{
 				name: "uid",
 				purpose: "Unique id found in url of the YouTube video",
+				type: "string",
 				default: "",
 			},
 			{
 				name: "title",
 				purpose: "iframe title",
+				type: "string",
 				default: "",
 			},
 		],

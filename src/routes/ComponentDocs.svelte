@@ -107,6 +107,7 @@
 						<tr>
 							<th>name</th>
 							<th>purpose</th>
+							<th>type</th>
 							<th>default value</th>
 						</tr>
 					</thead>
@@ -115,6 +116,7 @@
 							<tr>
 								<td>{prop.name}</td>
 								<td>{prop.purpose}</td>
+								<td>{prop.type}</td>
 								<td>
 									{#if prop.default === ""}
 										""

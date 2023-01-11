@@ -1,6 +1,6 @@
 <script>
 	import "../app.postcss";
-	import { info } from "./info";
+	import { info } from "./docs";
 </script>
 
 <svelte:head>
