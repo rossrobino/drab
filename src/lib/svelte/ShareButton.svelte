@@ -1,11 +1,22 @@
 <script>
+	/** @type {string} */
 	let className = "";
+
+	/** @type {string} */
 	let idName = "";
-	export { className as class, idName as id };
+	
+	/** @type {string} */
 	export let text = "";
+	
+	/** @type {string} */
 	export let url = "";
+	
+	/** @type {string} */
 	export let title = url.split("/").splice(-1)[0]; // default end of url
 
+	export { className as class, idName as id };
+	
+	/** @type {boolean} */
 	let complete = false;
 
 	async function handleClick() {

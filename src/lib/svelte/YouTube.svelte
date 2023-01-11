@@ -1,9 +1,17 @@
 <script>
+	/** @type {string} */
 	let className = "";
+
+	/** @type {string} */
 	let idName = "";
-	export { className as class, idName as id };
-	export let uid = "";
+
+	/** @type {*} */
+	export let uid;
+	
+	/** @type {string} */
 	export let title = "";
+
+	export { className as class, idName as id };
 </script>
 
 <iframe

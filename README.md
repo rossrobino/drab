@@ -6,7 +6,7 @@
 
 - Add component to `src/lib/svelte`
 - Export in `src/lib/index.js`
-- Document on `src/routes/+page.svelte`
+- Document on `src/routes/doc.js`
 
 MIT License
 
