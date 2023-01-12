@@ -1,16 +1,16 @@
 import ShareButton from "$lib/svelte/ShareButton.svelte";
 import YouTube from "$lib/svelte/YouTube.svelte";
 
-/**
- * @type {{
- * packageName: string,
- * gitHub: string,
- * projectHomepage: string,
- * author: string,
- * authorHomepage: string,
- * license: string}} info
- */
-export const info = {
+interface Info {
+	packageName: string;
+	gitHub: string;
+	projectHomepage: string;
+	author: string;
+	authorHomepage: string;
+	license: string;
+}
+
+export const info: Info = {
 	packageName: "@rossrobino/components",
 	gitHub: "https://github.com/rossrobino/components",
 	projectHomepage: "https://components.robino.dev",
@@ -19,18 +19,34 @@ export const info = {
 	license: "MIT",
 };
 
-/**
- * @type {{
- * name: string,
- * purpose: string,
- * component: *,
- * example: object,
- * props: {name: string, purpose: string, type: string, default: *}[],
- * slots: {name: string, purpose: string, default: *}[],
- * references: {name:string, href: string}[]
- * }[]} componentList
- */
-export const componentList = [
+interface Prop {
+	name: string;
+	purpose: string;
+	type: string;
+	default: any;
+}
+
+interface Slot {
+	name: string;
+	purpose: string;
+	default: any;
+}
+
+interface Reference {
+	name: string;
+	href: string;
+}
+
+interface Component {
+	name: string;
+	purpose: string;
+	component: any;
+	example: object;
+	props: Prop[];
+	slots: Slot[];
+	references: Reference[];
+}
+export const componentList: Component[] = [
 	{
 		component: ShareButton,
 		name: "ShareButton",

@@ -1,19 +1,11 @@
-<script>
+<script lang="ts">
 	import { info, componentList } from "./docs";
 
-	/**
-	 * @param {string} name
-	 * @return {string}
-	 */
-	function importString(name) {
+	function importString(name: string) {
 		return `import { ${name} } from "${info.packageName}";`;
 	}
 
-	/**
-	 * @param {*} prop
-	 * @return {string}
-	 */
-	function exampleString(prop) {
+	function exampleString(prop: any) {
 		if (typeof prop === "string") {
 			return `"${prop}"`;
 		} else if (typeof prop === "object") {
