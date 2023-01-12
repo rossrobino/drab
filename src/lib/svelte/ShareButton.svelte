@@ -1,25 +1,14 @@
-<script>
+<script lang="ts">
 	import { clickOutside } from "../utilities/clickOutside";
 
-	/** @type {string} */
-	let className = "";
-
-	/** @type {string} */
-	let idName = "";
-
-	/** @type {string} */
-	export let text = "";
-
-	/** @type {string} */
-	export let url = "";
-
-	/** @type {string} */
-	export let title = url.split("/").splice(-1)[0]; // default end of url
-
+	let className: string = "";
+	let idName: string = "";
 	export { className as class, idName as id };
+	export let text: string = "";
+	export let url: string = "";
+	export let title: string = url.split("/").splice(-1)[0]; // default end of url
 
-	/** @type {boolean} */
-	let complete = false;
+	let complete: boolean = false;
 
 	async function handleClick() {
 		try {

@@ -1,17 +1,9 @@
-<script>
-	/** @type {string} */
-	let className = "";
-
-	/** @type {string} */
-	let idName = "";
-
-	/** @type {*} */
-	export let uid;
-	
-	/** @type {string} */
-	export let title = "";
-
+<script lang="ts">
+	let className: string = "";
+	let idName: string = "";
 	export { className as class, idName as id };
+	export let uid: string;
+	export let title: string = "";
 </script>
 
 <iframe
