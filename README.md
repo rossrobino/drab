@@ -5,8 +5,8 @@
 ### Fork to create your own or contribute
 
 - Add component to `src/lib/svelte`
-- Export in `src/lib/index.js`
-- Document on `src/routes/doc.js`
+- Export in `src/lib/index.ts`
+- Document on `src/routes/doc.ts`
 
 MIT License
 

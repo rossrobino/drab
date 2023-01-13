@@ -23,13 +23,13 @@ interface Prop {
 	name: string;
 	purpose: string;
 	type: string;
-	default: any;
+	default: unknown;
 }
 
 interface Slot {
 	name: string;
 	purpose: string;
-	default: any;
+	default: unknown;
 }
 
 interface Reference {
@@ -40,12 +40,14 @@ interface Reference {
 interface Component {
 	name: string;
 	purpose: string;
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	component: any;
 	example: object;
 	props: Prop[];
 	slots: Slot[];
 	references: Reference[];
 }
+
 export const componentList: Component[] = [
 	{
 		component: ShareButton,

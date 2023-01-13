@@ -75,7 +75,7 @@
 				componentList
 			</code>
 			array located at
-			<code>src/routes/docs.js</code>
+			<code>src/routes/docs.ts</code>
 		</li>
 		<li>
 			Test your component by running <code>npm run dev</code>
@@ -90,7 +90,7 @@
 			,
 			<code>README.md</code>
 			and
-			<code>src/docs.js</code>
+			<code>src/docs.ts</code>
 			with your information
 		</li>
 		<li>
