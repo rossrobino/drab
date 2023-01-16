@@ -41,3 +41,5 @@
 		<slot>Share</slot>
 	{/if}
 </button>
+
+<noscript>{url}</noscript>
