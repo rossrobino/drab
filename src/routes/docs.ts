@@ -6,8 +6,8 @@ interface Info {
 	gitHub: string;
 	projectHomepage: string;
 	author: string;
-	authorHomepage: string;
-	license: string;
+	authorHomepage?: string;
+	license?: string;
 }
 
 export const info: Info = {
@@ -42,10 +42,10 @@ interface Component {
 	purpose: string;
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	component: any;
-	example: object;
-	props: Prop[];
-	slots: Slot[];
-	references: Reference[];
+	example: { [propName: string]: unknown };
+	props?: Prop[];
+	slots?: Slot[];
+	references?: Reference[];
 }
 
 export const componentList: Component[] = [
@@ -122,7 +122,5 @@ export const componentList: Component[] = [
 			title: "Renegade - Kevin Olusola",
 			class: "w-full aspect-video border-4 border-zinc-500",
 		},
-		references: [],
-		slots: [],
 	},
 ];

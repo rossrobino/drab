@@ -91,7 +91,7 @@
 				{...component.example}
 			/>
 		</div>
-		{#if component.props.length}
+		{#if component.props?.length}
 			<h3>Props</h3>
 			<div class="overflow-x-auto">
 				<table>
@@ -122,7 +122,7 @@
 				</table>
 			</div>
 		{/if}
-		{#if component.slots.length}
+		{#if component.slots?.length}
 			<h3>Slots</h3>
 			<table>
 				<thead>
@@ -145,7 +145,7 @@
 				</tbody>
 			</table>
 		{/if}
-		{#if component.references.length}
+		{#if component.references?.length}
 			<h3>References</h3>
 			<ul>
 				{#each component.references as ref}
