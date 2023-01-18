@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Info, Component } from "./types";
+	import type { Info, Component } from "../types";
 
 	/** project information */
 	export let info: Info;
@@ -74,7 +74,7 @@
 				<a
 					rel="external"
 					class="flex gap-1.5 w-fit pr-8 hover:pr-2 group"
-					href="{info.gitHub}/blob/main/src/lib/svelte/{component.name}.svelte"
+					href="{info.gitHub}/blob/main/src/lib/components/{component.name}.svelte"
 				>
 					<h2 id={component.name}>{component.name}</h2>
 					<span class="hidden group-hover:flex items-center">

@@ -1,5 +1,5 @@
-import ShareButton from "$lib/svelte/ShareButton.svelte";
-import YouTube from "$lib/svelte/YouTube.svelte";
+import ShareButton from "$lib/components/ShareButton.svelte";
+import YouTube from "$lib/components/YouTube.svelte";
 import type { Info, Component } from "$lib/types";
 
 export const info: Info = {

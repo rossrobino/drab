@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { info, componentList } from "./docs";
-	import Docs from "$lib/Docs.svelte";
+	import Docs from "$lib/components/Docs.svelte";
 </script>
 
 <svelte:head>
