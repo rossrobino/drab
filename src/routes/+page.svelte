@@ -25,19 +25,6 @@
 				<a href="#create">create your own</a>
 				library and documentation.
 			</p>
-			<ul>
-				<li>
-					<a
-						rel="external"
-						href="https://www.npmjs.com/package/{info.packageName}"
-					>
-						npm
-					</a>
-				</li>
-				<li>
-					<a rel="external" href={info.gitHub}>GitHub</a>
-				</li>
-			</ul>
 		</section>
 
 		<section>

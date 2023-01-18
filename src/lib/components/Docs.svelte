@@ -55,6 +55,19 @@
 	<div class="basis-full md:basis-[768px]">
 		<section>
 			<h2 id="install">Install</h2>
+			<ul>
+				<li>
+					<a
+						rel="external"
+						href="https://www.npmjs.com/package/{info.packageName}"
+					>
+						npm
+					</a>
+				</li>
+				<li>
+					<a rel="external" href={info.gitHub}>GitHub</a>
+				</li>
+			</ul>
 			<div class="codeblock">
 				<code>npm install -D {info.packageName}</code>
 			</div>
