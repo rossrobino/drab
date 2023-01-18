@@ -1,6 +1,6 @@
 {
 	"name": "@rossrobino/components",
-	"version": "1.1.1",
+	"version": "1.2.9",
 	"description": "A reusable Svelte component library",
 	"keywords": [
 		"components",
@@ -25,13 +25,13 @@
 		"lint": "eslint ."
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-auto": "^1.0.0",
-		"@sveltejs/kit": "^1.0.11",
+		"@sveltejs/adapter-auto": "^1.0.1",
+		"@sveltejs/kit": "^1.1.3",
 		"@sveltejs/package": "^1.0.2",
-		"@typescript-eslint/eslint-plugin": "^5.48.1",
-		"@typescript-eslint/parser": "^5.48.1",
+		"@typescript-eslint/eslint-plugin": "^5.48.2",
+		"@typescript-eslint/parser": "^5.48.2",
 		"autoprefixer": "^10.4.13",
-		"eslint": "^8.31.0",
+		"eslint": "^8.32.0",
 		"eslint-plugin-svelte3": "^4.0.0",
 		"postcss": "^8.4.21",
 		"postcss-load-config": "^4.0.1",

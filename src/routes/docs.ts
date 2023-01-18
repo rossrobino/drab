@@ -1,14 +1,6 @@
 import ShareButton from "$lib/svelte/ShareButton.svelte";
 import YouTube from "$lib/svelte/YouTube.svelte";
-
-interface Info {
-	packageName: string;
-	gitHub: string;
-	projectHomepage: string;
-	author: string;
-	authorHomepage?: string;
-	license?: string;
-}
+import type { Info, Component } from "$lib/types";
 
 export const info: Info = {
 	packageName: "@rossrobino/components",
@@ -18,35 +10,6 @@ export const info: Info = {
 	authorHomepage: "https://robino.dev",
 	license: "MIT",
 };
-
-interface Prop {
-	name: string;
-	purpose: string;
-	type: string;
-	default: unknown;
-}
-
-interface Slot {
-	name: string;
-	purpose: string;
-	default: unknown;
-}
-
-interface Reference {
-	name: string;
-	href: string;
-}
-
-interface Component {
-	name: string;
-	purpose: string;
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	component: any;
-	example: { [propName: string]: unknown };
-	props?: Prop[];
-	slots?: Slot[];
-	references?: Reference[];
-}
 
 export const componentList: Component[] = [
 	{

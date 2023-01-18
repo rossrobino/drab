@@ -1,8 +1,16 @@
 <script lang="ts">
+	/** iframe class */
 	let className: string = "";
+
+	/** iframe id */
 	let idName: string = "";
+
 	export { className as class, idName as id };
+
+	/** unique YouTube id*/
 	export let uid: string;
+
+	/** iframe title */
 	export let title: string = "";
 </script>
 
