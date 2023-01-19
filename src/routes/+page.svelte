@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { info, componentList } from "./docs";
-	import Docs from "$lib/components/Docs.svelte";
+	import Docs from "$lib/docs/Docs.svelte";
 </script>
 
 <svelte:head>
@@ -43,7 +43,7 @@
 	</div>
 </div>
 
-<Docs {info} {componentList} layout={false} />
+<Docs {info} {componentList} />
 
 <div class="md:mx-4 flex justify-center mt-4">
 	<div class="basis-full md:basis-[768px]">

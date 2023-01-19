@@ -6,11 +6,14 @@
 /**
  * usage: use:clickOutside={onEvent}
  * @param element - html element
- * @param callbackFunction 
+ * @param callbackFunction
  * @returns void
  */
-export function clickOutside(element: HTMLElement, callbackFunction: { (): void; (): void; }) {
-	function onClick(event: { target: any; }) {
+export function clickOutside(
+	element: HTMLElement,
+	callbackFunction: { (): void; (): void }
+) {
+	function onClick(event: { target: any }) {
 		if (!element.contains(event.target)) {
 			callbackFunction();
 		}

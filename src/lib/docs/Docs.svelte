@@ -1,4 +1,5 @@
 <script lang="ts">
+	import "./docs.css";
 	import type { Info, Component } from "../types";
 
 	/** project information */
@@ -6,9 +7,6 @@
 
 	/** documentation of components in package */
 	export let componentList: Component[];
-
-	/** controls whether or not to render the header / footer */
-	export let layout: boolean = true;
 
 	/**
 	 * returns an import statement string given the name of the component
@@ -35,22 +33,6 @@
 	}
 </script>
 
-{#if layout}
-	<header class="bg-zinc-900 text-zinc-50 p-4 flex justify-center">
-		<div
-			class="flex flex-col md:flex-row justify-between gap-2 basis-full md:basis-[768px]"
-		>
-			<h2 class="mt-0">{info.packageName}</h2>
-			<ul class="flex items-center list-none mt-0">
-				<li class="ml-0"><a href="/#install">Install</a></li>
-				<li class="ml-4"><a href="/#components">Components</a></li>
-				{#if !layout}
-					<li class="ml-4"><a href="/#create">Create</a></li>
-				{/if}
-			</ul>
-		</div>
-	</header>
-{/if}
 <div class="md:mx-4 flex justify-center mt-4">
 	<div class="basis-full md:basis-[768px]">
 		<section>
@@ -203,122 +185,3 @@
 		{/each}
 	</div>
 </div>
-{#if layout}
-	<footer class="bg-zinc-900 text-zinc-50 mt-4 flex justify-center">
-		<div class="p-4 flex justify-between basis-full md:basis-[768px]">
-			<a href={info.authorHomepage}>{info.author}</a>
-			<a href={`${info.gitHub}/blob/main/LICENSE.md`}>
-				{info.license} License
-			</a>
-		</div>
-	</footer>
-{/if}
-
-<style>
-	.bg-zinc-900 {
-		--tw-bg-opacity: 1;
-		background-color: rgb(24 24 27 / var(--tw-bg-opacity));
-	}
-	.text-zinc-50 {
-		--tw-text-opacity: 1;
-		color: rgb(250 250 250 / var(--tw-text-opacity));
-	}
-	.hidden {
-		display: none;
-	}
-	.flex {
-		display: flex;
-	}
-	.group:hover .group-hover\:flex {
-		display: flex;
-	}
-	.justify-center {
-		justify-content: center;
-	}
-	.flex-col {
-		flex-direction: column;
-	}
-	.justify-between {
-		justify-content: space-between;
-	}
-	.basis-full {
-		flex-basis: 100%;
-	}
-	.items-center {
-		align-items: center;
-	}
-	.gap-2 {
-		gap: 0.5rem /* 8px */;
-	}
-	.gap-1\.5 {
-		gap: 0.375rem /* 6px */;
-	}
-	.p-4 {
-		padding: 1rem /* 16px */;
-	}
-	.pr-8 {
-		padding-right: 2rem /* 32px */;
-	}
-	.hover\:pr-2:hover {
-		padding-right: 0.5rem /* 8px */;
-	}
-	.mt-0 {
-		margin-top: 0px;
-	}
-	.ml-0 {
-		margin-left: 0px;
-	}
-	.ml-4 {
-		margin-left: 1rem /* 16px */;
-	}
-	.mb-2 {
-		margin-bottom: 0.5rem /* 8px */;
-	}
-	.mt-4 {
-		margin-top: 1rem /* 16px */;
-	}
-	.list-none {
-		list-style-type: none;
-	}
-	.w-fit {
-		width: fit-content;
-	}
-	.w-5 {
-		width: 1.25rem /* 20px */;
-	}
-	.h-5 {
-		height: 1.25rem /* 20px */;
-	}
-	.codeblock {
-		margin-top: 0.5rem /* 8px */;
-		margin-bottom: 0.5rem /* 8px */;
-		--tw-bg-opacity: 1;
-		background-color: rgb(24 24 27 / var(--tw-bg-opacity));
-		--tw-text-opacity: 1;
-		color: rgb(250 250 250 / var(--tw-text-opacity));
-		padding: 1rem /* 16px */;
-		overflow-x: auto;
-		font-size: 0.875rem /* 14px */;
-		line-height: 1.25rem /* 20px */;
-	}
-	.codeblock code {
-		background-color: transparent;
-		padding: 0px;
-	}
-	@media (min-width: 768px) {
-		.md\:flex-row {
-			flex-direction: row;
-		}
-	}
-	@media (min-width: 768px) {
-		.md\:mx-4 {
-			margin-left: 1rem /* 16px */;
-			margin-right: 1rem /* 16px */;
-		}
-	}
-	@media (min-width: 768px) {
-		.md\:basis-\[768px\] {
-			flex-basis: 768px;
-		}
-	}
-</style>
