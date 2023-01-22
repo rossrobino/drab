@@ -72,6 +72,9 @@
 .h-5 {
 	height: 1.25rem /* 20px */;
 }
+.no-underline {
+	text-decoration-line: none;
+}
 .codeblock {
 	margin-top: 0.5rem /* 8px */;
 	margin-bottom: 0.5rem /* 8px */;
