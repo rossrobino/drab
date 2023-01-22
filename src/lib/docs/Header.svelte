@@ -10,13 +10,9 @@
 	<div
 		class="flex flex-col md:flex-row justify-between gap-2 basis-full md:basis-[768px]"
 	>
-		<h2 class="mt-0">{info.packageName}</h2>
+		<h2 class="mt-0"><a href="/" class="no-underline">{info.packageName}</a></h2>
 		<ul class="flex items-center list-none mt-0">
-			<li class="ml-0"><a href="/#install">Install</a></li>
-			<li class="ml-4">
-				<a href="/#components">Components</a>
-			</li>
-			<li class="ml-4"><a href="/#create">Create</a></li>
+			<slot />
 		</ul>
 	</div>
 </header>

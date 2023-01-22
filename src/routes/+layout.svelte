@@ -15,7 +15,13 @@
 	<meta name="theme-color" content="#18181b" />
 </svelte:head>
 
-<Header {info} />
+<Header {info}>
+	<li class="ml-0"><a href="/#install">Install</a></li>
+	<li class="ml-4">
+		<a href="/#components">Components</a>
+	</li>
+	<li class="ml-4"><a href="/#create">Create</a></li>
+</Header>
 
 <main>
 	<slot />

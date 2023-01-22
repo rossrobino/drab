@@ -81,7 +81,7 @@
 				</li>
 				<li>
 					Import component and export from <code>
-						src/lib/index.js
+						src/lib/index.ts
 					</code>
 				</li>
 				<li>
