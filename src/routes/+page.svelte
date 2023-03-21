@@ -57,7 +57,7 @@
 					<a rel="external" href={info.gitHub}>repository</a>
 				</li>
 				<li>
-					Add your component to <code>src/lib/svelte</code>
+					Add your component to <code>src/lib/components</code>
 				</li>
 				<li>
 					Import and add an object documenting your component to the <code> componentList </code>
@@ -68,7 +68,7 @@
 					Test your component by running <code>npm run dev</code>
 				</li>
 				<li>
-					Import component and export from <code> src/lib/index.ts </code>
+					Import component and export from <code> src/lib/index.js </code>
 				</li>
 				<li>
 					If you are creating your own library, update <code> package.json </code>
@@ -79,11 +79,7 @@
 					with your information
 				</li>
 				<li>
-					Since the same project is used for the package and the docs website,
-					<code>npm run packageBuild</code>
-					will build your package to preserve
-					<code>npm run build</code>
-					for easy deployment to services like Vercel and Netlify
+					Run <code>npm run package</code>
 				</li>
 				<li>
 					If you want to contribute to this repo instead of maintaining your own, create a <a
