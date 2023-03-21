@@ -20,7 +20,7 @@ MIT License
 
 ```svelte
 <script>
-    import { ComponentName } from "@rossrobino/components";
+	import { ComponentName } from "@rossrobino/components";
 </script>
 
 <ComponentName />

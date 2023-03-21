@@ -40,12 +40,7 @@
 	}
 </script>
 
-<button
-	on:click={handleClick}
-	use:clickOutside={onBlur}
-	class={className}
-	id={idName}
->
+<button on:click={handleClick} use:clickOutside={onBlur} class={className} id={idName}>
 	{#if complete}
 		<slot name="complete">Copied</slot>
 	{:else}

@@ -1,4 +1,3 @@
-/* Write your global styles here, in PostCSS syntax */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,7 +10,7 @@
 		@apply bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-200;
 	}
 	section {
-		@apply bg-zinc-100 dark:bg-zinc-800 p-4 mb-4 last:mb-0;
+		@apply mb-4 bg-zinc-100 p-4 last:mb-0 dark:bg-zinc-800;
 	}
 	h1,
 	h2,
@@ -22,28 +21,28 @@
 		@apply font-bold;
 	}
 	h1 {
-		@apply text-3xl my-4;
+		@apply my-4 text-3xl;
 	}
 	h2 {
 		@apply text-2xl;
 	}
 	h3 {
-		@apply text-xl mt-3;
+		@apply mt-3 text-xl;
 	}
 	h4 {
-		@apply text-lg mt-2;
+		@apply mt-2 text-lg;
 	}
 	h5 {
-		@apply text-base mt-1;
+		@apply mt-1 text-base;
 	}
 	h6 {
-		@apply text-sm mt-1;
+		@apply mt-1 text-sm;
 	}
 	a {
-		@apply underline underline-offset-2 font-bold decoration-blue-500;
+		@apply font-bold underline decoration-blue-500 underline-offset-2;
 	}
 	table {
-		@apply w-full border border-zinc-300 dark:border-zinc-700 mt-3;
+		@apply mt-3 w-full border border-zinc-300 dark:border-zinc-700;
 	}
 	thead {
 		@apply bg-zinc-300 dark:bg-zinc-700;
@@ -70,7 +69,7 @@
 		@apply border border-zinc-500;
 	}
 	code {
-		@apply bg-zinc-300 dark:bg-zinc-700 px-1 py-0.5;
+		@apply bg-zinc-300 px-1 py-0.5 dark:bg-zinc-700;
 	}
 	.codeblock code {
 		@apply bg-transparent p-0;
@@ -79,6 +78,6 @@
 
 @layer components {
 	.codeblock {
-		@apply my-2 bg-zinc-900 text-zinc-50 p-4 overflow-x-auto text-sm;
+		@apply my-2 overflow-x-auto bg-zinc-900 p-4 text-sm text-zinc-50;
 	}
 }

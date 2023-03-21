@@ -1,6 +1,6 @@
 <script lang="ts">
 	import "./docs.css";
-	import type { Info, Component } from "../types";
+	import type { Info, Component } from "../types/types";
 
 	/** project information */
 	export let info: Info;
@@ -33,18 +33,13 @@
 	}
 </script>
 
-<div class="md:mx-4 flex justify-center mt-4">
+<div class="mt-4 flex justify-center md:mx-4">
 	<div class="basis-full md:basis-[768px]">
 		<section>
 			<h2 id="install">Install</h2>
 			<ul>
 				<li>
-					<a
-						rel="external"
-						href="https://www.npmjs.com/package/{info.packageName}"
-					>
-						npm
-					</a>
+					<a rel="external" href="https://www.npmjs.com/package/{info.packageName}"> npm </a>
 				</li>
 				<li>
 					<a rel="external" href={info.gitHub}>GitHub</a>
@@ -68,16 +63,16 @@
 			<section>
 				<a
 					rel="external"
-					class="flex gap-1.5 w-fit pr-8 hover:pr-2 group"
+					class="group flex w-fit gap-1.5 pr-8 hover:pr-2"
 					href="{info.gitHub}/blob/main/src/lib/components/{component.name}.svelte"
 				>
 					<h2 id={component.name}>{component.name}</h2>
-					<span class="hidden group-hover:flex items-center">
+					<span class="hidden items-center group-hover:flex">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 20 20"
 							fill="currentColor"
-							class="w-5 h-5"
+							class="h-5 w-5"
 						>
 							<path
 								fill-rule="evenodd"
@@ -95,18 +90,14 @@
 					<code>
 						<div>&lt;script&gt;</div>
 						<div>
-							&nbsp;&nbsp;&nbsp;&nbsp;{importString(
-								component.name
-							)}
+							&nbsp;&nbsp;&nbsp;&nbsp;{importString(component.name)}
 						</div>
 						<div>&lt;/script&gt;</div>
 						<br />
 						<div>&lt;{component.name}</div>
 						{#each Object.keys(component.example) as prop, i}
 							<div>
-								&nbsp;&nbsp;&nbsp;&nbsp;{prop}={exampleString(
-									Object.values(component.example)[i]
-								)}
+								&nbsp;&nbsp;&nbsp;&nbsp;{prop}={exampleString(Object.values(component.example)[i])}
 							</div>
 						{/each}
 						<div>/&gt;</div>
@@ -114,10 +105,7 @@
 				</div>
 				<h3 class="mb-2">Preview</h3>
 				<div>
-					<svelte:component
-						this={component.component}
-						{...component.example}
-					/>
+					<svelte:component this={component.component} {...component.example} />
 				</div>
 				{#if component.props?.length}
 					<h3>Props</h3>

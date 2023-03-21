@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Footer from "$lib/docs/Footer.svelte";
 	import Header from "$lib/docs/Header.svelte";
-	import "../app.postcss";
+	import "../app.css";
 	import { info } from "./docs";
 </script>
 

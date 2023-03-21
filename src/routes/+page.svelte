@@ -5,23 +5,18 @@
 
 <svelte:head>
 	<title>{info.packageName}</title>
-	<meta
-		name="description"
-		content="An unstyled, reusable Svelte component library."
-	/>
+	<meta name="description" content="An unstyled, reusable Svelte component library." />
 	<meta name="keywords" content="Ross, Robino, Svelte, components" />
 </svelte:head>
 
-<div class="md:mx-4 flex justify-center">
+<div class="flex justify-center md:mx-4">
 	<div class="basis-full md:basis-[768px]">
-		<section class="bg-transparent md:-mx-4 my-0 pt-0">
+		<section class="my-0 bg-transparent pt-0 md:-mx-4">
 			<h1>Documentation</h1>
 			<p class="mb-2">
-				The purpose of this library is to provide accessible, reusable,
-				unstyled
+				The purpose of this library is to provide accessible, reusable, unstyled
 				<a rel="external" href="https://svelte.dev">Svelte</a>
-				components for anyone to use. This project can also be forked to
-				easily
+				components for anyone to use. This project can also be forked to easily
 				<a href="#create">create your own</a>
 				library and documentation.
 			</p>
@@ -45,21 +40,17 @@
 
 <Docs {info} {componentList} />
 
-<div class="md:mx-4 flex justify-center mt-4">
+<div class="mt-4 flex justify-center md:mx-4">
 	<div class="basis-full md:basis-[768px]">
 		<section>
 			<h2 id="create">Create / Contribute</h2>
 			<p>
-				If you would like to create your own component library with this
-				documentation page or contribute to this project, follow these
-				steps.
+				If you would like to create your own component library with this documentation page or
+				contribute to this project, follow these steps.
 			</p>
 			<ul>
 				<li>
-					<a
-						rel="external"
-						href="https://docs.github.com/en/get-started/quickstart/fork-a-repo"
-					>
+					<a rel="external" href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">
 						Fork
 					</a>
 					this
@@ -69,10 +60,7 @@
 					Add your component to <code>src/lib/svelte</code>
 				</li>
 				<li>
-					Import and add an object documenting your component to the <code
-					>
-						componentList
-					</code>
+					Import and add an object documenting your component to the <code> componentList </code>
 					array located at
 					<code>src/routes/docs.ts</code>
 				</li>
@@ -80,14 +68,10 @@
 					Test your component by running <code>npm run dev</code>
 				</li>
 				<li>
-					Import component and export from <code>
-						src/lib/index.ts
-					</code>
+					Import component and export from <code> src/lib/index.ts </code>
 				</li>
 				<li>
-					If you are creating your own library, update <code>
-						package.json
-					</code>
+					If you are creating your own library, update <code> package.json </code>
 					,
 					<code>README.md</code>
 					and
@@ -95,16 +79,14 @@
 					with your information
 				</li>
 				<li>
-					Since the same project is used for the package and the docs
-					website,
+					Since the same project is used for the package and the docs website,
 					<code>npm run packageBuild</code>
 					will build your package to preserve
 					<code>npm run build</code>
 					for easy deployment to services like Vercel and Netlify
 				</li>
 				<li>
-					If you want to contribute to this repo instead of
-					maintaining your own, create a <a
+					If you want to contribute to this repo instead of maintaining your own, create a <a
 						rel="external"
 						href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork"
 					>

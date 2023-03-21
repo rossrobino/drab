@@ -1,6 +1,6 @@
 import ShareButton from "$lib/components/ShareButton.svelte";
 import YouTube from "$lib/components/YouTube.svelte";
-import type { Info, Component } from "$lib/types";
+import type { Info, Component } from "$lib";
 
 export const info: Info = {
 	packageName: "@rossrobino/components",
@@ -8,15 +8,14 @@ export const info: Info = {
 	projectHomepage: "https://components.robino.dev",
 	author: "Ross Robino",
 	authorHomepage: "https://robino.dev",
-	license: "MIT",
+	license: "MIT"
 };
 
 export const componentList: Component[] = [
 	{
 		component: ShareButton,
 		name: "ShareButton",
-		purpose:
-			"Uses the navigator api to share or copy a url link depending on browser support.",
+		purpose: "Uses the navigator api to share or copy a url link depending on browser support.",
 		props: [
 			{ name: "class", purpose: "class", type: "string", default: "" },
 			{ name: "id", purpose: "id", type: "string", default: "" },
@@ -24,41 +23,41 @@ export const componentList: Component[] = [
 				name: "url",
 				purpose: "Link to share",
 				type: "string",
-				default: "",
+				default: ""
 			},
 			{
 				name: "title",
 				purpose: "title",
 				type: "string",
-				default: "end of url",
+				default: "end of url"
 			},
 			{
 				name: "text",
 				purpose: "Additional text in share message",
 				type: "string",
-				default: "",
-			},
+				default: ""
+			}
 		],
 		example: {
 			url: `${info.projectHomepage}`,
 			title: "@rossrobino/components",
 			text: "Check out this page: ",
-			class: "px-4 py-2 bg-zinc-300 dark:bg-zinc-700",
+			class: "px-4 py-2 bg-zinc-300 dark:bg-zinc-700"
 		},
 		references: [
 			{
 				name: "Blog Post",
-				href: "https://blog.robino.dev/posts/navigator-share-svelte",
-			},
+				href: "https://blog.robino.dev/posts/navigator-share-svelte"
+			}
 		],
 		slots: [
 			{ name: "default", purpose: "default", default: "Share" },
 			{
 				name: "complete",
 				purpose: "displays after copy is complete",
-				default: "Copied",
-			},
-		],
+				default: "Copied"
+			}
+		]
 	},
 	{
 		component: YouTube,
@@ -71,19 +70,19 @@ export const componentList: Component[] = [
 				name: "uid",
 				purpose: "Unique id found in url of the YouTube video",
 				type: "string",
-				default: "",
+				default: ""
 			},
 			{
 				name: "title",
 				purpose: "iframe title",
 				type: "string",
-				default: "",
-			},
+				default: ""
+			}
 		],
 		example: {
 			uid: "gouiY85kD2o",
 			title: "Renegade - Kevin Olusola",
-			class: "w-full aspect-video border-4 border-zinc-500",
-		},
-	},
+			class: "w-full aspect-video border-4 border-zinc-500"
+		}
+	}
 ];
