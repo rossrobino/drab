@@ -1,6 +1,6 @@
 {
 	"name": "@rossrobino/components",
-	"version": "1.4.0",
+	"version": "1.4.1",
 	"description": "A reusable Svelte component library",
 	"keywords": [
 		"components",
@@ -24,7 +24,8 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
-		"format": "prettier --plugin-search-dir . --write ."
+		"format": "prettier --plugin-search-dir . --write .",
+		"publish": "npm publish --access public"
 	},
 	"exports": {
 		".": {
@@ -35,7 +36,7 @@
 	"files": [
 		"dist"
 	],
-	"peerDependencies": {
+	"dependencies": {
 		"svelte": "^3.54.0"
 	},
 	"devDependencies": {
