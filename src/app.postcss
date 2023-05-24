@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	html {
+		@apply scroll-smooth;
+	}
+	table {
+		@apply block max-w-fit overflow-x-auto;
+	}
+	pre {
+		@apply -mx-4 sm:mx-0;
+	}
+
+	/* prism syntax highlighting */
+	.token.comment,
+	.token.prolog,
+	.token.cdata {
+		@apply text-gray-400;
+	}
+
+	.token.punctuation,
+	.token.selector,
+	.token.doctype {
+		@apply text-gray-50;
+	}
+
+	.namespace,
+	.token.regex,
+	.token.important,
+	.token.variable,
+	.token.symbol,
+	.token.property,
+	.token.tag,
+	.token.operator,
+	.token.keyword {
+		@apply text-blue-400;
+	}
+
+	.token.number,
+	.token.class-name,
+	.token.atrule,
+	.token.attr-value {
+		@apply text-red-400;
+	}
+
+	.token.constant,
+	.token.function,
+	.token.builtin,
+	.token.char,
+	.token.deleted,
+	.token.boolean {
+		@apply text-purple-400;
+	}
+
+	.token.attr-name,
+	.token.inserted,
+	.token.string,
+	.token.url,
+	.token.entity,
+	.language-css .token.string,
+	.style .token.string {
+		@apply text-green-400;
+	}
+
+	.token.important,
+	.token.bold {
+		@apply font-bold;
+	}
+}

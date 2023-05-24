@@ -21,7 +21,8 @@
 	/** changes button text after message is successfully copied */
 	let complete: boolean = false;
 
-	async function handleClick(): Promise<void> {
+	/** tries to share if supported, copies the text otherwise */
+	const onClick = async () => {
 		try {
 			// @ts-ignore - this is not defined in certain browsers
 			if (navigator.canShare) {
@@ -33,14 +34,20 @@
 		} catch (error) {
 			console.log(error);
 		}
-	}
+	};
 
-	function onBlur(): void {
+	/** resets the text of the button */
+	const reset = () => {
 		complete = false;
-	}
+	};
 </script>
 
-<button on:click={handleClick} use:clickOutside={onBlur} class={className} id={idName}>
+<button
+	on:click={onClick}
+	use:clickOutside={reset}
+	class={className}
+	id={idName}
+>
 	{#if complete}
 		<slot name="complete">Copied</slot>
 	{:else}

@@ -9,7 +9,10 @@
  * @param callbackFunction
  * @returns void
  */
-export function clickOutside(element: HTMLElement, callbackFunction: { (): void; (): void }) {
+export function clickOutside(
+	element: HTMLElement,
+	callbackFunction: { (): void; (): void }
+) {
 	function onClick(event: { target: any }) {
 		if (!element.contains(event.target)) {
 			callbackFunction();
@@ -22,6 +25,6 @@ export function clickOutside(element: HTMLElement, callbackFunction: { (): void;
 		},
 		destroy() {
 			document.body.removeEventListener("click", onClick);
-		}
+		},
 	};
 }
