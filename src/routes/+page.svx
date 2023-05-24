@@ -192,6 +192,10 @@ Text editor with controls to add elements and keyboard shortcuts.
 | `textAreaClass`       | `class` of the text area               | `string`           | `""`          |
 | `textAreaId`          | `id` of the text area                  | `string`           | `""`          |
 
+#### References
+
+- [md.robino.dev](https://md.robino.dev)
+
 ### ShareButton
 
 #### Purpose
