@@ -2,7 +2,8 @@
 	import Chord from "$lib/components/Chord.svelte"; import ShareButton from
 	"$lib/components/ShareButton.svelte"; import YouTube from
 	"$lib/components/YouTube.svelte"; import Editor from
-	"$lib/components/Editor.svelte";
+	"$lib/components/Editor.svelte"; import FullscreenButton from
+	"$lib/components/FullscreenButton.svelte"; let fullscreenDiv: HTMLDivElement;
 </script>
 
 # @rossrobino/components
@@ -21,6 +22,7 @@ npm install -D @rossrobino/components
 
 - [Chord](#chord)
 - [Editor](#editor)
+- [FullscreenButton](#fullscreenbutton)
 - [ShareButton](#sharebutton)
 - [YouTube](#youtube)
 
@@ -195,6 +197,60 @@ Text editor with controls to add elements and keyboard shortcuts.
 #### References
 
 - [md.robino.dev](https://md.robino.dev)
+
+### FullscreenButton
+
+#### Purpose
+
+Make the document or a specific element fullscreen.
+
+#### Use
+
+```svelte
+<script lang="ts">
+	import { FullscreenButton } from "@rossrobino/components";
+
+	let fullscreenDiv: HTMLDivElement;
+</script>
+
+<FullscreenButton class="mb-4 bg-gray-200 px-4 py-2" />
+
+<div bind:this={fullscreenDiv} class="bg-gray-800 p-4">
+	<div class="mb-2 text-gray-50">Target element fullscreen</div>
+	<FullscreenButton targetElement={fullscreenDiv} class="bg-gray-200 px-4 py-2">
+		<span slot="enabled">Exit Element Fullscreen</span>
+		<span slot="disabled">Enable Element Fullscreen</span>
+	</FullscreenButton>
+</div>
+```
+
+#### Preview
+
+<FullscreenButton class="mb-4 bg-gray-200 px-4 py-2" />
+
+<div bind:this={fullscreenDiv} class="bg-gray-800 p-4">
+	<div class="mb-2 text-gray-50">Target element fullscreen</div>
+	<FullscreenButton targetElement={fullscreenDiv} class="bg-gray-200 px-4 py-2">
+		<span slot="enabled">Exit Element Fullscreen</span>
+		<span slot="disabled">Enable Element Fullscreen</span>
+	</FullscreenButton>
+</div>
+
+#### Props
+
+| name              | purpose                                                                                                | type          | default value              |
+| ----------------- | ------------------------------------------------------------------------------------------------------ | ------------- | -------------------------- |
+| `class`           | `class`                                                                                                | `string`      | `""`                       |
+| `id`              | `id`                                                                                                   | `string`      | `""`                       |
+| `confirmMesssage` | Message to display in the `confirm` popup, set this to empty string `""` to disable `confirm` entirely | `string`      | `""`                       |
+| `targetElement`   | element to make fullscreen                                                                             | `HTMLElement` | `document.documentElement` |
+
+#### Slots
+
+| name       | purpose                                        | default value        |
+| ---------- | ---------------------------------------------- | -------------------- |
+| `enabled`  | content to display when fullscreen is enabled  | `Exit Fullscreen`    |
+| `disabled` | content to display when fullscreen is disabled | `Enabled Fullscreen` |
 
 ### ShareButton
 

@@ -10,7 +10,7 @@
 	class="m-4 selection:bg-yellow-300 selection:text-gray-950 sm:m-8 sm:flex md:justify-center"
 >
 	<div
-		class="prose prose-blue prose-h1:text-2xl prose-pre:rounded-none prose-h1:sm:text-4xl"
+		class="prose prose-blue prose-h1:text-2xl prose-h3:underline prose-pre:rounded-none prose-h1:sm:text-4xl"
 	>
 		<slot />
 	</div>
