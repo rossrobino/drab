@@ -4,8 +4,8 @@
 	/** element to make fullscreen (defaults to `document.documentElement` upon mount) */
 	export let targetElement: HTMLElement | null = null;
 
-	/** message to display in the `confirm` popup, set this to empty string `""` to disable `confirm` entirely */
-	export let confirmMessage = "Enable fullscreen mode? (Press `ESC` to exit)";
+	/** message to display in the `confirm` popup, set this to empty string `""` to disable `confirm` */
+	export let confirmMessage = "";
 
 	let className = "";
 	let idName = "";

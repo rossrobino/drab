@@ -46,6 +46,24 @@
 
 	let textArea: HTMLTextAreaElement;
 
+	/** keys that will auto-close if typed */
+	const keyPairs: { [key: string]: string } = {
+		"(": ")",
+		"{": "}",
+		"[": "]",
+		"<": ">",
+		'"': '"',
+		"`": "`",
+	};
+
+	// add any `display: "wrap"` text from `contentElements` to `keyPairs`
+	contentElements.forEach((el) => {
+		if (el.display === "wrap") keyPairs[el.text] = el.text;
+	});
+
+	/** array of keyPair characters that have been opened */
+	let openChars: string[] = [];
+
 	/**
 	 * - Inserts text into the `textarea` based on the `display` property of
 	 * the `ContentElement`.
@@ -71,6 +89,7 @@
 			textAreaValue = `${textAreaValue.slice(0, carSelEnd + el.text.length)}${
 				el.text
 			}${textAreaValue.slice(carSelEnd + el.text.length)}`;
+			openChars.push(el.text);
 		} else {
 			const splitContent = textAreaValue.split("\n");
 			let characterCount = 0;
@@ -144,13 +163,51 @@
 
 	/**
 	 * - Runs the keyboard shortcut for any element that matches the event
+	 * - Closes opening characters, types over instead of inserting
 	 *
 	 * @param keyboardEvent - KeyboardEvent
 	 */
-	const onKeyDown = ({ ctrlKey, key }: KeyboardEvent) => {
-		if (ctrlKey && key) {
-			const matchedEl = contentElements.find((el) => el.key === key);
-			if (matchedEl) addContent(matchedEl);
+	const onKeyDown = async (e: KeyboardEvent) => {
+		const closingKeys = ["ArrowUp", "ArrowDown", "Delete"];
+		if (closingKeys.includes(e.key)) {
+			// reset
+			openChars = [];
+		} else {
+			const nextChar = textAreaValue[textArea.selectionEnd];
+			const nextCharEqualsKey = nextChar === e.key;
+			const nextCharIsClosing = Object.values(keyPairs).includes(nextChar);
+
+			if (e.ctrlKey && e.key) {
+				// keyboard shortcut
+				const matchedEl = contentElements.find((el) => el.key === e.key);
+				if (matchedEl) addContent(matchedEl);
+			} else if (
+				nextCharIsClosing &&
+				(nextCharEqualsKey || e.key === "ArrowRight") &&
+				openChars.length
+			) {
+				// type over the next character instead of inserting
+				e.preventDefault();
+				textArea.setSelectionRange(
+					textArea.selectionStart + 1,
+					textArea.selectionEnd + 1
+				);
+				openChars.pop();
+			} else if (e.key in keyPairs) {
+				// add the corresponding key to close
+				await addContent({
+					display: "inline",
+					text: keyPairs[e.key],
+					icon: "",
+					name: "",
+				});
+				// move back one character
+				textArea.setSelectionRange(
+					textArea.selectionStart - 1,
+					textArea.selectionEnd - 1
+				);
+				openChars.push(e.key);
+			}
 		}
 	};
 </script>
@@ -162,10 +219,15 @@
 	on:keydown={onKeyDown}
 	bind:value={textAreaValue}
 	bind:this={textArea}
+	on:click={() => (openChars = [])}
 />
 <div id={controlsId} class={controlsClass}>
 	{#each contentElements as el}
-		<button class={buttonClass} on:click={() => addContent(el)}>
+		<button
+			class={buttonClass}
+			on:click={() => addContent(el)}
+			aria-label={el.name}
+		>
 			{#if typeof el.icon !== "string"}
 				<svelte:component this={el.icon} />
 			{:else}

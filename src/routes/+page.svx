@@ -207,10 +207,10 @@ Make the document or a specific element fullscreen.
 #### Use
 
 ```svelte
-<script lang="ts">
+<script>
 	import { FullscreenButton } from "@rossrobino/components";
 
-	let fullscreenDiv: HTMLDivElement;
+	let fullscreenDiv;
 </script>
 
 <FullscreenButton class="mb-4 bg-gray-200 px-4 py-2" />
