@@ -9,8 +9,8 @@ const config = {
 	// for more information about preprocessors
 	extensions: [".svelte", ".svx"],
 	preprocess: [
-		vitePreprocess(),
 		mdsvex({ extensions: [".md", ".svx"], rehypePlugins: [rehypeSlug] }),
+		vitePreprocess(),
 	],
 
 	kit: {

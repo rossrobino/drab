@@ -1,6 +1,6 @@
 {
 	"name": "@rossrobino/components",
-	"version": "1.7.0",
+	"version": "1.7.1",
 	"description": "A reusable Svelte component library",
 	"keywords": [
 		"components",
@@ -8,7 +8,7 @@
 		"Svelte",
 		"SvelteKit"
 	],
-	"homepage": "https://components/robino.dev",
+	"homepage": "https://components.robino.dev",
 	"license": "MIT",
 	"author": {
 		"name": "Ross Robino",
@@ -39,21 +39,20 @@
 	"dependencies": {
 		"@vercel/analytics": "^1.0.1",
 		"rehype-slug": "^5.1.0",
-		"svelte": "^3.59.2"
+		"svelte": "^4.0.0"
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-auto": "^2.1.0",
 		"@sveltejs/adapter-vercel": "^3.0.1",
-		"@sveltejs/kit": "^1.20.4",
-		"@sveltejs/package": "^2.0.2",
+		"@sveltejs/kit": "^1.20.5",
+		"@sveltejs/package": "^2.1.0",
 		"@tailwindcss/typography": "^0.5.9",
 		"@typescript-eslint/eslint-plugin": "^5.60.0",
 		"@typescript-eslint/parser": "^5.60.0",
 		"autoprefixer": "^10.4.14",
 		"eslint": "^8.43.0",
 		"eslint-config-prettier": "^8.8.0",
-		"eslint-plugin-svelte3": "^4.0.0",
-		"mdsvex": "^0.10.6",
+		"eslint-plugin-svelte": "^2.31.1",
+		"mdsvex": "^0.11.0",
 		"postcss": "^8.4.24",
 		"prettier": "^2.8.8",
 		"prettier-plugin-svelte": "^2.10.1",
