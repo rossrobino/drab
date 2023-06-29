@@ -35,6 +35,9 @@
 	/** `id` of the `textarea` element */
 	export let textAreaId = "";
 
+	/** `name` of the `textarea` element */
+	export let textAreaName = "";
+
 	/** `class` of all the `button` elements */
 	export let buttonClass = "";
 
@@ -44,10 +47,8 @@
 	/** `id` of the `div` that wraps the controls */
 	export let controlsId = "";
 
-	let textArea: HTMLTextAreaElement;
-
-	/** keys that will auto-close if typed */
-	const keyPairs: { [key: string]: string } = {
+	/** keys that will auto-close if typed, value is their closing character */
+	export let keyPairs: { [key: string]: string } = {
 		"(": ")",
 		"{": "}",
 		"[": "]",
@@ -56,6 +57,8 @@
 		"`": "`",
 	};
 
+	let textArea: HTMLTextAreaElement;
+
 	// add any `display: "wrap"` text from `contentElements` to `keyPairs`
 	contentElements.forEach((el) => {
 		if (el.display === "wrap") keyPairs[el.text] = el.text;
@@ -63,6 +66,27 @@
 
 	/** array of keyPair characters that have been opened */
 	let openChars: string[] = [];
+
+	/**
+	 * - insert character into string at index
+	 *
+	 * @param str - string to insert into
+	 * @param char - characters to insert into `str`
+	 * @param index - where to insert the characters
+	 */
+	const insertChar = (str: string, char: string, index: number) => {
+		return str.slice(0, index) + char + str.slice(index);
+	};
+
+	/**
+	 * - remove char from string at index
+	 *
+	 * @param str - string to remove the character from
+	 * @param index - index of character to remove
+	 */
+	const removeChar = (str: string, index: number) => {
+		return str.slice(0, index) + str.slice(index + 1);
+	};
 
 	/**
 	 * - Inserts text into the `textarea` based on the `display` property of
@@ -83,13 +107,14 @@
 				el.text
 			}${textAreaValue.slice(carSelEnd)}`;
 		} else if (el.display === "wrap") {
-			textAreaValue = `${textAreaValue.slice(0, carSelStart)}${
-				el.text
-			}${textAreaValue.slice(carSelStart)}`;
-			textAreaValue = `${textAreaValue.slice(0, carSelEnd + el.text.length)}${
-				el.text
-			}${textAreaValue.slice(carSelEnd + el.text.length)}`;
-			openChars.push(el.text);
+			textAreaValue = insertChar(textAreaValue, el.text, carSelStart);
+			textAreaValue = insertChar(
+				textAreaValue,
+				keyPairs[el.text],
+				carSelEnd + el.text.length
+			);
+			// if single char, add to opened
+			if (el.text.length < 2) openChars.push(el.text);
 		} else {
 			const splitContent = textAreaValue.split("\n");
 			let characterCount = 0;
@@ -168,14 +193,27 @@
 	 * @param keyboardEvent - KeyboardEvent
 	 */
 	const onKeyDown = async (e: KeyboardEvent) => {
-		const closingKeys = ["ArrowUp", "ArrowDown", "Delete"];
-		if (closingKeys.includes(e.key)) {
+		const resetKeys = ["ArrowUp", "ArrowDown", "Delete"];
+		const nextChar = textAreaValue[textArea.selectionEnd];
+		if (resetKeys.includes(e.key)) {
 			// reset
 			openChars = [];
+		} else if (e.key === "Backspace") {
+			const prevChar = textAreaValue[textArea.selectionStart - 1];
+			if (prevChar in keyPairs && nextChar === keyPairs[prevChar]) {
+				e.preventDefault();
+				const start = textArea.selectionStart - 1;
+				const end = textArea.selectionEnd - 1;
+				textAreaValue = removeChar(textAreaValue, start);
+				textAreaValue = removeChar(textAreaValue, end);
+				setTimeout(() => {
+					textArea.setSelectionRange(start, end);
+				}, 0);
+				openChars.pop();
+			}
 		} else {
-			const nextChar = textAreaValue[textArea.selectionEnd];
-			const nextCharEqualsKey = nextChar === e.key;
 			const nextCharIsClosing = Object.values(keyPairs).includes(nextChar);
+			const highlighted = textArea.selectionStart !== textArea.selectionEnd;
 
 			if (e.ctrlKey && e.key) {
 				// keyboard shortcut
@@ -183,8 +221,9 @@
 				if (matchedEl) addContent(matchedEl);
 			} else if (
 				nextCharIsClosing &&
-				(nextCharEqualsKey || e.key === "ArrowRight") &&
-				openChars.length
+				(nextChar === e.key || e.key === "ArrowRight") &&
+				openChars.length &&
+				!highlighted
 			) {
 				// type over the next character instead of inserting
 				e.preventDefault();
@@ -194,18 +233,13 @@
 				);
 				openChars.pop();
 			} else if (e.key in keyPairs) {
-				// add the corresponding key to close
+				e.preventDefault();
 				await addContent({
-					display: "inline",
-					text: keyPairs[e.key],
+					display: "wrap",
+					text: e.key,
 					icon: "",
 					name: "",
 				});
-				// move back one character
-				textArea.setSelectionRange(
-					textArea.selectionStart - 1,
-					textArea.selectionEnd - 1
-				);
 				openChars.push(e.key);
 			}
 		}
@@ -215,6 +249,7 @@
 <textarea
 	id={textAreaId}
 	class={textAreaClass}
+	name={textAreaName}
 	placeholder={textAreaPlaceholder}
 	on:keydown={onKeyDown}
 	bind:value={textAreaValue}
