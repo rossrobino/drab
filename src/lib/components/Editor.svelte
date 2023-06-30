@@ -93,25 +93,25 @@
 	 * the `ContentElement`.
 	 *
 	 * @param el - the content element
-	 * @param carSelStart - current start position the selection
-	 * @param carSelEnd - current end position of the selection
+	 * @param selectionStart - current start position the selection
+	 * @param selectionEnd - current end position of the selection
 	 */
 	const insertText = async (
 		el: ContentElement,
-		carSelStart: number,
-		carSelEnd: number
+		selectionStart: number,
+		selectionEnd: number
 	) => {
 		if (el.display === "inline") {
 			// insert at current position
-			textAreaValue = `${textAreaValue.slice(0, carSelEnd)}${
+			textAreaValue = `${textAreaValue.slice(0, selectionEnd)}${
 				el.text
-			}${textAreaValue.slice(carSelEnd)}`;
+			}${textAreaValue.slice(selectionEnd)}`;
 		} else if (el.display === "wrap") {
-			textAreaValue = insertChar(textAreaValue, el.text, carSelStart);
+			textAreaValue = insertChar(textAreaValue, el.text, selectionStart);
 			textAreaValue = insertChar(
 				textAreaValue,
 				keyPairs[el.text],
-				carSelEnd + el.text.length
+				selectionEnd + el.text.length
 			);
 			// if single char, add to opened
 			if (el.text.length < 2) openChars.push(el.text);
@@ -123,7 +123,7 @@
 				characterCount++; // account for removed "\n" due to .split()
 				characterCount += splitContent[i].length;
 				// find the line that the cursor is on
-				if (characterCount > carSelEnd) {
+				if (characterCount > selectionEnd) {
 					// add the string to the beginning of the line
 					splitContent[i] = el.text + splitContent[i];
 					textAreaValue = splitContent.join("\n");
@@ -139,19 +139,19 @@
 	 * - Highlights text if the content contains any letters.
 	 *
 	 * @param el - the content element
-	 * @param carSelStart - current start position the selection
-	 * @param carSelEnd - current end position of the selection
+	 * @param selectionStart - current start position the selection
+	 * @param selectionEnd - current end position of the selection
 	 */
 	const setCaretPosition = async (
 		el: ContentElement,
-		carSelStart: number,
-		carSelEnd: number
+		selectionStart: number,
+		selectionEnd: number
 	) => {
 		let startPos = 0;
 		let endPos = 0;
 		if (/[a-z]/i.test(el.text)) {
 			// if string contains letters, highlight the first word
-			for (let i = carSelEnd; i < textAreaValue.length; i++) {
+			for (let i = selectionEnd; i < textAreaValue.length; i++) {
 				if (textAreaValue[i].match(/[a-z]/i)) {
 					if (!startPos) {
 						startPos = i;
@@ -164,8 +164,8 @@
 			}
 		} else {
 			// leave the cursor in place
-			startPos = carSelStart + el.text.length;
-			endPos = carSelEnd + el.text.length;
+			startPos = selectionStart + el.text.length;
+			endPos = selectionEnd + el.text.length;
 		}
 
 		textArea.setSelectionRange(startPos, endPos);
@@ -179,11 +179,11 @@
 	 * @param el - the selected content element
 	 */
 	const addContent = async (el: ContentElement) => {
-		const carSelEnd = textArea.selectionEnd;
-		const carSelStart = textArea.selectionStart;
+		const selectionEnd = textArea.selectionEnd;
+		const selectionStart = textArea.selectionStart;
 
-		await insertText(el, carSelStart, carSelEnd);
-		setCaretPosition(el, carSelStart, carSelEnd);
+		await insertText(el, selectionStart, selectionEnd);
+		setCaretPosition(el, selectionStart, selectionEnd);
 	};
 
 	/**
@@ -244,6 +244,24 @@
 			}
 		}
 	};
+
+	/** trim the selection if there is an extra space around it*/
+	const trimSelection = () => {
+		if (textArea.selectionStart !== textArea.selectionEnd) {
+			if (textAreaValue[textArea.selectionStart] === " ") {
+				textArea.setSelectionRange(
+					textArea.selectionStart + 1,
+					textArea.selectionEnd
+				);
+			}
+			if (textAreaValue[textArea.selectionEnd - 1] === " ") {
+				textArea.setSelectionRange(
+					textArea.selectionStart,
+					textArea.selectionEnd - 1
+				);
+			}
+		}
+	};
 </script>
 
 <textarea
@@ -252,6 +270,7 @@
 	name={textAreaName}
 	placeholder={textAreaPlaceholder}
 	on:keydown={onKeyDown}
+	on:dblclick={trimSelection}
 	bind:value={textAreaValue}
 	bind:this={textArea}
 	on:click={() => (openChars = [])}
