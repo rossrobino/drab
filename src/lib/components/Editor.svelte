@@ -116,6 +116,7 @@
 			// if single char, add to opened
 			if (el.text.length < 2) openChars.push(el.text);
 		} else {
+			// "block"
 			const splitContent = textAreaValue.split("\n");
 			let characterCount = 0;
 			for (let i = 0; i < splitContent.length; i++) {
@@ -125,7 +126,12 @@
 				// find the line that the cursor is on
 				if (characterCount > selectionEnd) {
 					// add the string to the beginning of the line
-					splitContent[i] = el.text + splitContent[i];
+					if (splitContent[i].startsWith(el.text[0])) {
+						// avoids `# # # `, instead adds trimmed => `### `
+						splitContent[i] = el.text.trim() + splitContent[i];
+					} else {
+						splitContent[i] = el.text + splitContent[i];
+					}
 					textAreaValue = splitContent.join("\n");
 					break;
 				}
