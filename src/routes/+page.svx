@@ -138,6 +138,7 @@ Text editor with controls to add elements and keyboard shortcuts.
 			display: "wrap",
 			icon: "Asterisk",
 			key: "i",
+			class: "italic"
 		},
 		{
 			name: "anchor",
@@ -170,6 +171,7 @@ Text editor with controls to add elements and keyboard shortcuts.
 			display: "wrap",
 			icon: "Asterisk",
 			key: "i",
+			class: "italic"
 		},
 		{
 			name: "anchor",

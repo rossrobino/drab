@@ -14,6 +14,9 @@
 
 		/** keyboard shortcut */
 		key?: string;
+
+		/** class to apply to the specific button */
+		class?: string;
 	}
 </script>
 
@@ -284,7 +287,7 @@
 <div id={controlsId} class={controlsClass}>
 	{#each contentElements as el}
 		<button
-			class={buttonClass}
+			class={el.class ? `${buttonClass} ${el.class}` : buttonClass}
 			on:click={() => addContent(el)}
 			aria-label={el.name}
 		>

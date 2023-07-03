@@ -1,6 +1,6 @@
 {
 	"name": "@rossrobino/components",
-	"version": "1.7.4",
+	"version": "1.7.5",
 	"description": "A reusable Svelte component library",
 	"keywords": [
 		"components",
@@ -38,7 +38,7 @@
 	],
 	"dependencies": {
 		"@vercel/analytics": "^1.0.1",
-		"svelte": "^4.0.1"
+		"svelte": "^4.0.2"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-vercel": "^3.0.1",
