@@ -289,7 +289,7 @@
 		<button
 			class={el.class ? `${buttonClass} ${el.class}` : buttonClass}
 			on:click={() => addContent(el)}
-			aria-label={el.name}
+			title={el.name}
 		>
 			{#if typeof el.icon !== "string"}
 				<svelte:component this={el.icon} />

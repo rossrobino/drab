@@ -127,13 +127,13 @@ Text editor with controls to add elements and keyboard shortcuts.
 	textAreaPlaceholder="asterisk: ctrl+i, anchor: ctrl+["
 	contentElements={[
 		{
-			name: "bullet",
+			name: "Bullet",
 			text: "- ",
 			display: "block",
 			icon: "Bullet",
 		},
 		{
-			name: "asterisk",
+			name: "Asterisk",
 			text: "*",
 			display: "wrap",
 			icon: "Asterisk",
@@ -141,7 +141,7 @@ Text editor with controls to add elements and keyboard shortcuts.
 			class: "italic"
 		},
 		{
-			name: "anchor",
+			name: "Anchor",
 			text: "[text](href)",
 			display: "inline",
 			icon: "Anchor",
@@ -160,13 +160,13 @@ Text editor with controls to add elements and keyboard shortcuts.
 	textAreaPlaceholder="asterisk: ctrl+i, anchor: ctrl+["
 	contentElements={[
 		{
-			name: "bullet",
+			name: "Bullet",
 			text: "- ",
 			display: "block",
 			icon: "Bullet",
 		},
 		{
-			name: "asterisk",
+			name: "Asterisk",
 			text: "*",
 			display: "wrap",
 			icon: "Asterisk",
@@ -174,7 +174,7 @@ Text editor with controls to add elements and keyboard shortcuts.
 			class: "italic"
 		},
 		{
-			name: "anchor",
+			name: "Anchor",
 			text: "[text](href)",
 			display: "inline",
 			icon: "Anchor",
