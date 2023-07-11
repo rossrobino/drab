@@ -283,6 +283,7 @@
 	bind:value={textAreaValue}
 	bind:this={textArea}
 	on:click={() => (openChars = [])}
+	on:input
 />
 <div id={controlsId} class={controlsClass}>
 	{#each contentElements as el}
