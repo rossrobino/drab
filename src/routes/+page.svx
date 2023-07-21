@@ -138,7 +138,7 @@ Text editor with controls to add elements and keyboard shortcuts.
 			display: "wrap",
 			icon: "Asterisk",
 			key: "i",
-			class: "italic"
+			class: "italic",
 		},
 		{
 			name: "Anchor",
@@ -171,7 +171,7 @@ Text editor with controls to add elements and keyboard shortcuts.
 			display: "wrap",
 			icon: "Asterisk",
 			key: "i",
-			class: "italic"
+			class: "italic",
 		},
 		{
 			name: "Anchor",
@@ -185,18 +185,19 @@ Text editor with controls to add elements and keyboard shortcuts.
 
 #### Props
 
-| name                  | purpose                                                              | type                        | default value                                                    |
-| --------------------- | -------------------------------------------------------------------- | --------------------------- | ---------------------------------------------------------------- |
-| `buttonClass`         | `class` of the button controls                                       | `string`                    | `""`                                                             |
-| `contentElements`     | Elements to add in the controls                                      | `ContentElement[]`          | `undefined`                                                      |
-| `controlsClass`       | `class` of the div around the controls                               | `string`                    | `""`                                                             |
-| `controlsId`          | `id` of the div around the controls                                  | `string`                    | `""`                                                             |
-| `keyPairs`            | keys that will auto-close if typed, value is their closing character | `{ [key: string]: string }` | `{ "(": ")", "{": "}", "[": "]", "<": ">", '"': '"', "`": "`" }` |
-| `textAreaClass`       | `class` of the text area                                             | `string`                    | `""`                                                             |
-| `textAreaId`          | `id` of the text area                                                | `string`                    | `""`                                                             |
-| `textAreaName`        | `name` of the text area                                              | `string`                    | `""`                                                             |
-| `textAreaPlaceholder` | `placeholder` of the text area                                       | `string`                    | `""`                                                             |
-| `textAreaValue`       | `value` of the text area                                             | `string`                    | `""`                                                             |
+| name                  | purpose                                                                | type                        | default value                                                    |
+| --------------------- | ---------------------------------------------------------------------- | --------------------------- | ---------------------------------------------------------------- |
+| `buttonClass`         | `class` of the button controls                                         | `string`                    | `""`                                                             |
+| `contentElements`     | Elements to add in the controls                                        | `ContentElement[]`          | `undefined`                                                      |
+| `controlsClass`       | `class` of the div around the controls                                 | `string`                    | `""`                                                             |
+| `controlsId`          | `id` of the div around the controls                                    | `string`                    | `""`                                                             |
+| `keyPairs`            | keys that will auto-close if typed, value is their closing character   | `{ [key: string]: string }` | `{ "(": ")", "{": "}", "[": "]", "<": ">", '"': '"', "`": "`" }` |
+| `textAreaClass`       | `class` of the text area                                               | `string`                    | `""`                                                             |
+| `textAreaId`          | `id` of the text area                                                  | `string`                    | `""`                                                             |
+| `textAreaName`        | `name` of the text area                                                | `string`                    | `""`                                                             |
+| `textAreaPlaceholder` | `placeholder` of the text area                                         | `string`                    | `""`                                                             |
+| `textAreaValue`       | `value` of the text area                                               | `string`                    | `""`                                                             |
+| `selectionStart`      | Equal to `textArea.selectionStart`, bind to this prop to get the value | `number`                    | `0`                                                              |
 
 #### References
 

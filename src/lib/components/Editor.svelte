@@ -50,6 +50,8 @@
 	/** `id` of the `div` that wraps the controls */
 	export let controlsId = "";
 
+	export let selectionStart = 0;
+
 	/** keys that will auto-close if typed, value is their closing character */
 	export let keyPairs: { [key: string]: string } = {
 		"(": ")",
@@ -271,6 +273,10 @@
 			}
 		}
 	};
+
+	const updateSelectionStart = () => {
+		selectionStart = textArea.selectionStart;
+	};
 </script>
 
 <textarea
@@ -279,10 +285,14 @@
 	name={textAreaName}
 	placeholder={textAreaPlaceholder}
 	on:keydown={onKeyDown}
+	on:keyup={updateSelectionStart}
 	on:dblclick={trimSelection}
 	bind:value={textAreaValue}
 	bind:this={textArea}
-	on:click={() => (openChars = [])}
+	on:click={() => {
+		openChars = [];
+		updateSelectionStart();
+	}}
 	on:input
 />
 <div id={controlsId} class={controlsClass}>
