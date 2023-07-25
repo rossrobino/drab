@@ -1,6 +1,6 @@
 {
 	"name": "@rossrobino/components",
-	"version": "1.7.9",
+	"version": "1.7.10",
 	"description": "A reusable Svelte component library",
 	"keywords": [
 		"components",
@@ -22,8 +22,8 @@
 		"prepublishOnly": "npm run package",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"lint": "prettier --plugin-search-dir . --check . && eslint .",
-		"format": "prettier --plugin-search-dir . --write . && prettier --write src/routes/+page.svx",
+		"lint": "prettier --check . && eslint .",
+		"format": "prettier --write . && prettier --write src/routes/+page.svx",
 		"pub": "npm publish --access public"
 	},
 	"exports": {
@@ -37,31 +37,31 @@
 	],
 	"dependencies": {
 		"@vercel/analytics": "^1.0.1",
-		"svelte": "^4.0.2"
+		"svelte": "^4.1.1"
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-vercel": "^3.0.1",
-		"@sveltejs/kit": "^1.21.0",
-		"@sveltejs/package": "^2.1.0",
+		"@sveltejs/adapter-vercel": "^3.0.2",
+		"@sveltejs/kit": "^1.22.3",
+		"@sveltejs/package": "^2.2.0",
 		"@tailwindcss/typography": "^0.5.9",
-		"@typescript-eslint/eslint-plugin": "^5.60.1",
-		"@typescript-eslint/parser": "^5.60.1",
+		"@typescript-eslint/eslint-plugin": "^6.2.0",
+		"@typescript-eslint/parser": "^6.2.0",
 		"autoprefixer": "^10.4.14",
-		"eslint": "^8.44.0",
+		"eslint": "^8.45.0",
 		"eslint-config-prettier": "^8.8.0",
-		"eslint-plugin-svelte": "^2.32.2",
+		"eslint-plugin-svelte": "^2.32.4",
 		"mdsvex": "^0.11.0",
-		"postcss": "^8.4.24",
-		"prettier": "^2.8.8",
-		"prettier-plugin-svelte": "^2.10.1",
-		"prettier-plugin-tailwindcss": "^0.3.0",
-		"publint": "^0.1.15",
+		"postcss": "^8.4.27",
+		"prettier": "^3.0.0",
+		"prettier-plugin-svelte": "^3.0.0",
+		"prettier-plugin-tailwindcss": "^0.4.1",
+		"publint": "^0.1.16",
 		"rehype-slug": "^5.1.0",
-		"svelte-check": "^3.4.4",
-		"tailwindcss": "^3.3.2",
-		"tslib": "^2.6.0",
+		"svelte-check": "^3.4.6",
+		"tailwindcss": "^3.3.3",
+		"tslib": "^2.6.1",
 		"typescript": "^5.1.6",
-		"vite": "^4.3.9"
+		"vite": "^4.4.7"
 	},
 	"svelte": "./dist/index.js",
 	"types": "./dist/index.d.ts",

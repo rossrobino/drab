@@ -50,6 +50,7 @@
 	/** `id` of the `div` that wraps the controls */
 	export let controlsId = "";
 
+	/** `selectionStart` value of the text area */
 	export let selectionStart = 0;
 
 	/** keys that will auto-close if typed, value is their closing character */
@@ -221,6 +222,28 @@
 					textArea.setSelectionRange(start, end);
 				}, 0);
 				openChars.pop();
+			}
+		} else if (e.key === "Tab") {
+			const getCurrentBlock = () => {
+				const blocks = textAreaValue.split("```");
+				let totalChars = 0;
+				for (const [i, block] of blocks.entries()) {
+					totalChars += block.length + 3;
+					if (textArea.selectionStart < totalChars) {
+						return i;
+					}
+				}
+				return 0;
+			};
+			if (getCurrentBlock() % 2 !== 0) {
+				// if caret is inside of a codeblock, indent
+				e.preventDefault();
+				await addContent({
+					display: "inline",
+					text: "\t",
+					icon: "tab",
+					name: "tab",
+				});
 			}
 		} else {
 			const nextCharIsClosing = Object.values(keyPairs).includes(nextChar);

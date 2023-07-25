@@ -24,7 +24,7 @@
 	/** tries to share if supported, copies the text otherwise */
 	const onClick = async () => {
 		try {
-			// @ts-ignore - this is not defined in certain browsers
+			// @ts-expect-error - is is not defined in certain browsers
 			if (navigator.canShare) {
 				await navigator.share({ text, url, title });
 			} else {
