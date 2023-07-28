@@ -201,7 +201,7 @@ Text editor with controls to add elements and keyboard shortcuts.
 
 #### References
 
-- [md.robino.dev](https://md.robino.dev)
+- [Typo](https://typo.robino.dev)
 
 ### FullscreenButton
 
