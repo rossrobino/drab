@@ -248,7 +248,7 @@
 				// only the repeat and no content - remove
 				e.preventDefault();
 				const selectionEnd = textArea.selectionEnd;
-				const newPos = selectionEnd - original.length + 1;
+				const newPos = selectionEnd - original.length;
 				for (let i = 0; i < original.length; i++) {
 					textAreaValue = removeChar(
 						textAreaValue,
@@ -256,14 +256,14 @@
 					);
 				}
 				setTimeout(async () => {
+					textArea.setSelectionRange(newPos, newPos);
+					textArea.focus();
 					await addContent({
 						display: "inline",
 						text: `\n`,
 						icon: "",
 						name: "",
 					});
-					textArea.setSelectionRange(newPos, newPos);
-					textArea.focus();
 				}, 0);
 			}
 		} else {
