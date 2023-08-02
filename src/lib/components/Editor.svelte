@@ -364,9 +364,18 @@
 				return repeatString;
 			}
 		}
-		const repeatNum = parseInt(str);
+		const repeatNum = startsWithNumberAndPeriod(str);
 		if (repeatNum) return `${repeatNum}. `;
 		return "";
+	};
+
+	/**
+	 * @param str
+	 * @returns the number, if the string starts with a number and a period
+	 */
+	const startsWithNumberAndPeriod = (str: string) => {
+		const result = str.match(/^(\d+)\./);
+		return result ? Number(result[1]) : null;
 	};
 </script>
 
