@@ -230,12 +230,13 @@
 			const lines = textAreaValue.split("\n");
 			const currentLine = lines[index];
 			let repeat = getRepeat(currentLine);
+			const original = repeat;
 
 			const num = parseInt(repeat);
 			// line starts with number? - increment
 			if (num) repeat = `${num + 1}. `;
 
-			if (repeat && currentLine.length > repeat.length) {
+			if (repeat && currentLine.length > original.length) {
 				e.preventDefault();
 				await addContent({
 					display: "inline",
@@ -245,7 +246,7 @@
 				});
 			} else if (repeat) {
 				// only the repeat and no content - remove
-				for (let i = 0; i < repeat.length; i++) {
+				for (let i = 0; i < original.length; i++) {
 					textAreaValue = removeChar(
 						textAreaValue,
 						textArea.selectionEnd - (i + 1),
@@ -364,7 +365,7 @@
 			}
 		}
 		const repeatNum = parseInt(str);
-		if (repeatNum) return String(repeatNum);
+		if (repeatNum) return `${repeatNum}. `;
 		return "";
 	};
 </script>
