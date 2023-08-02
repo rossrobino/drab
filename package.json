@@ -1,6 +1,6 @@
 {
 	"name": "@rossrobino/components",
-	"version": "1.7.10",
+	"version": "1.7.11",
 	"description": "A reusable Svelte component library",
 	"keywords": [
 		"components",
@@ -23,7 +23,7 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check . && eslint .",
-		"format": "prettier --write . && prettier --write src/routes/+page.svx",
+		"format": "prettier --write . --plugin=prettier-plugin-svelte --plugin=prettier-plugin-tailwindcss && prettier --write src/routes/+page.svx",
 		"pub": "npm publish --access public"
 	},
 	"exports": {

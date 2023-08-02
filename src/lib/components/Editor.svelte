@@ -76,9 +76,9 @@
 	/**
 	 * - insert character into string at index
 	 *
-	 * @param str - string to insert into
-	 * @param char - characters to insert into `str`
-	 * @param index - where to insert the characters
+	 * @param str string to insert into
+	 * @param char characters to insert into `str`
+	 * @param index where to insert the characters
 	 */
 	const insertChar = (str: string, char: string, index: number) => {
 		return str.slice(0, index) + char + str.slice(index);
@@ -87,8 +87,8 @@
 	/**
 	 * - remove char from string at index
 	 *
-	 * @param str - string to remove the character from
-	 * @param index - index of character to remove
+	 * @param str string to remove the character from
+	 * @param index index of character to remove
 	 */
 	const removeChar = (str: string, index: number) => {
 		return str.slice(0, index) + str.slice(index + 1);
@@ -98,14 +98,14 @@
 	 * - Inserts text into the `textarea` based on the `display` property of
 	 * the `ContentElement`.
 	 *
-	 * @param el - the content element
-	 * @param selectionStart - current start position the selection
-	 * @param selectionEnd - current end position of the selection
+	 * @param el the content element
+	 * @param selectionStart current start position the selection
+	 * @param selectionEnd current end position of the selection
 	 */
 	const insertText = async (
 		el: ContentElement,
 		selectionStart: number,
-		selectionEnd: number
+		selectionEnd: number,
 	) => {
 		if (el.display === "inline") {
 			// insert at current position
@@ -117,31 +117,21 @@
 			textAreaValue = insertChar(
 				textAreaValue,
 				keyPairs[el.text],
-				selectionEnd + el.text.length
+				selectionEnd + el.text.length,
 			);
 			// if single char, add to opened
 			if (el.text.length < 2) openChars.push(el.text);
-		} else {
-			// "block"
-			const splitContent = textAreaValue.split("\n");
-			let characterCount = 0;
-			for (let i = 0; i < splitContent.length; i++) {
-				// for each line
-				characterCount++; // account for removed "\n" due to .split()
-				characterCount += splitContent[i].length;
-				// find the line that the cursor is on
-				if (characterCount > selectionEnd) {
-					// add the string to the beginning of the line
-					if (splitContent[i].startsWith(el.text[0])) {
-						// avoids `# # # `, instead adds trimmed => `### `
-						splitContent[i] = el.text.trim() + splitContent[i];
-					} else {
-						splitContent[i] = el.text + splitContent[i];
-					}
-					textAreaValue = splitContent.join("\n");
-					break;
-				}
+		} else if (el.display === "block") {
+			const index = getCurrentLineNumber();
+			const lines = textAreaValue.split("\n");
+			// add the string to the beginning of the line
+			if (lines[index].startsWith(el.text[0])) {
+				// avoids `# # # `, instead adds trimmed => `### `
+				lines[index] = el.text.trim() + lines[index];
+			} else {
+				lines[index] = el.text + lines[index];
 			}
+			textAreaValue = lines.join("\n");
 		}
 	};
 
@@ -150,14 +140,14 @@
 	 * the length of the text.
 	 * - Highlights text if the content contains any letters.
 	 *
-	 * @param el - the content element
-	 * @param selectionStart - current start position the selection
-	 * @param selectionEnd - current end position of the selection
+	 * @param el the content element
+	 * @param selectionStart current start position the selection
+	 * @param selectionEnd current end position of the selection
 	 */
 	const setCaretPosition = async (
 		el: ContentElement,
 		selectionStart: number,
-		selectionEnd: number
+		selectionEnd: number,
 	) => {
 		let startPos = 0;
 		let endPos = 0;
@@ -188,7 +178,7 @@
 	 * - Inserts the text and then sets the caret position
 	 * based on the `ContentElement` selected.
 	 *
-	 * @param el - the selected content element
+	 * @param el selected content element
 	 */
 	const addContent = async (el: ContentElement) => {
 		const selectionEnd = textArea.selectionEnd;
@@ -202,7 +192,7 @@
 	 * - Runs the keyboard shortcut for any element that matches the event
 	 * - Closes opening characters, types over instead of inserting
 	 *
-	 * @param keyboardEvent - KeyboardEvent
+	 * @param keyboardEvent KeyboardEvent
 	 */
 	const onKeyDown = async (e: KeyboardEvent) => {
 		const resetKeys = ["ArrowUp", "ArrowDown", "Delete"];
@@ -224,17 +214,6 @@
 				openChars.pop();
 			}
 		} else if (e.key === "Tab") {
-			const getCurrentBlock = () => {
-				const blocks = textAreaValue.split("```");
-				let totalChars = 0;
-				for (const [i, block] of blocks.entries()) {
-					totalChars += block.length + 3;
-					if (textArea.selectionStart < totalChars) {
-						return i;
-					}
-				}
-				return 0;
-			};
 			if (getCurrentBlock() % 2 !== 0) {
 				// if caret is inside of a codeblock, indent
 				e.preventDefault();
@@ -245,10 +224,37 @@
 					name: "tab",
 				});
 			}
+		} else if (e.key === "Enter") {
+			// autocomplete start of next line if block or number
+			const index = getCurrentLineNumber();
+			const lines = textAreaValue.split("\n");
+			const currentLine = lines[index];
+			let repeat = getRepeat(currentLine);
+
+			const num = parseInt(repeat);
+			// line starts with number? - increment
+			if (num) repeat = `${num + 1}. `;
+
+			if (repeat && currentLine.length > repeat.length) {
+				e.preventDefault();
+				await addContent({
+					display: "inline",
+					text: `\n${repeat}`,
+					icon: "",
+					name: "",
+				});
+			} else if (repeat) {
+				// only the repeat and no content - remove
+				for (let i = 0; i < repeat.length; i++) {
+					textAreaValue = removeChar(
+						textAreaValue,
+						textArea.selectionEnd - (i + 1),
+					);
+				}
+			}
 		} else {
 			const nextCharIsClosing = Object.values(keyPairs).includes(nextChar);
 			const highlighted = textArea.selectionStart !== textArea.selectionEnd;
-
 			if (e.ctrlKey && e.key) {
 				// keyboard shortcut
 				const matchedEl = contentElements.find((el) => el.key === e.key);
@@ -263,7 +269,7 @@
 				e.preventDefault();
 				textArea.setSelectionRange(
 					textArea.selectionStart + 1,
-					textArea.selectionEnd + 1
+					textArea.selectionEnd + 1,
 				);
 				openChars.pop();
 			} else if (e.key in keyPairs) {
@@ -279,19 +285,21 @@
 		}
 	};
 
-	/** trim the selection if there is an extra space around it*/
+	/**
+	 * - trims the selection if there is an extra space around it
+	 */
 	const trimSelection = () => {
 		if (textArea.selectionStart !== textArea.selectionEnd) {
 			if (textAreaValue[textArea.selectionStart] === " ") {
 				textArea.setSelectionRange(
 					textArea.selectionStart + 1,
-					textArea.selectionEnd
+					textArea.selectionEnd,
 				);
 			}
 			if (textAreaValue[textArea.selectionEnd - 1] === " ") {
 				textArea.setSelectionRange(
 					textArea.selectionStart,
-					textArea.selectionEnd - 1
+					textArea.selectionEnd - 1,
 				);
 			}
 		}
@@ -299,6 +307,65 @@
 
 	const updateSelectionStart = () => {
 		selectionStart = textArea.selectionStart;
+	};
+
+	/**
+	 * @returns the index of the line that selectionEnd falls on
+	 */
+	const getCurrentLineNumber = () => {
+		const lines = textAreaValue.split("\n");
+		let characterCount = 0;
+		for (let i = 0; i < lines.length; i++) {
+			// for each line
+			characterCount++; // account for removed "\n" due to .split()
+			characterCount += lines[i].length;
+			// find the line that the cursor is on
+			if (characterCount > textArea.selectionEnd) {
+				return i;
+			}
+		}
+		return 0;
+	};
+
+	/**
+	 * - splits the content by "```" and finds the current index
+	 * of the selectionStart
+	 *
+	 * @returns current block (index) of selectionStart
+	 */
+	const getCurrentBlock = () => {
+		const blocks = textAreaValue.split("```");
+		let totalChars = 0;
+		for (const [i, block] of blocks.entries()) {
+			totalChars += block.length + 3;
+			if (textArea.selectionStart < totalChars) {
+				return i;
+			}
+		}
+		return 0;
+	};
+
+	/**
+	 * - checks if there is a block element or a number
+	 * at the beginning of the string
+	 *
+	 * @param str
+	 * @returns what is found, or the empty string
+	 */
+	const getRepeat = (str: string) => {
+		const blockStrings: string[] = [];
+		contentElements.forEach((el) => {
+			if (el.display === "block") blockStrings.push(el.text);
+		});
+		for (let i = 0; i < blockStrings.length; i++) {
+			const repeatString = blockStrings[i];
+			if (str.startsWith(repeatString)) {
+				return repeatString;
+			}
+		}
+		const repeatNum = parseInt(str);
+		if (repeatNum) return String(repeatNum);
+		return "";
 	};
 </script>
 

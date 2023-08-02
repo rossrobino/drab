@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { clickOutside } from "../utilities/clickOutside";
-
 	/** button class */
 	let className: string = "";
 
@@ -30,24 +28,15 @@
 			} else {
 				await navigator.clipboard.writeText(url);
 				complete = true;
+				setTimeout(() => (complete = false), 800);
 			}
 		} catch (error) {
 			console.log(error);
 		}
 	};
-
-	/** resets the text of the button */
-	const reset = () => {
-		complete = false;
-	};
 </script>
 
-<button
-	on:click={onClick}
-	use:clickOutside={reset}
-	class={className}
-	id={idName}
->
+<button on:click={onClick} class={className} id={idName}>
 	{#if complete}
 		<slot name="complete">Copied</slot>
 	{:else}
