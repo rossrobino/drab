@@ -140,18 +140,18 @@
 	 * the length of the text.
 	 * - Highlights text if the content contains any letters.
 	 *
-	 * @param el the content element
+	 * @param text
 	 * @param selectionStart current start position the selection
 	 * @param selectionEnd current end position of the selection
 	 */
 	const setCaretPosition = async (
-		el: ContentElement,
+		text: string,
 		selectionStart: number,
 		selectionEnd: number,
 	) => {
 		let startPos = 0;
 		let endPos = 0;
-		if (/[a-z]/i.test(el.text)) {
+		if (/[a-z]/i.test(text)) {
 			// if string contains letters, highlight the first word
 			for (let i = selectionEnd; i < textAreaValue.length; i++) {
 				if (textAreaValue[i].match(/[a-z]/i)) {
@@ -166,8 +166,8 @@
 			}
 		} else {
 			// leave the cursor in place
-			startPos = selectionStart + el.text.length;
-			endPos = selectionEnd + el.text.length;
+			startPos = selectionStart + text.length;
+			endPos = selectionEnd + text.length;
 		}
 
 		textArea.setSelectionRange(startPos, endPos);
@@ -185,7 +185,7 @@
 		const selectionStart = textArea.selectionStart;
 
 		await insertText(el, selectionStart, selectionEnd);
-		setCaretPosition(el, selectionStart, selectionEnd);
+		setCaretPosition(el.text, selectionStart, selectionEnd);
 	};
 
 	/**
@@ -246,12 +246,25 @@
 				});
 			} else if (repeat) {
 				// only the repeat and no content - remove
+				e.preventDefault();
+				const selectionEnd = textArea.selectionEnd;
+				const newPos = selectionEnd - original.length;
 				for (let i = 0; i < original.length; i++) {
 					textAreaValue = removeChar(
 						textAreaValue,
 						textArea.selectionEnd - (i + 1),
 					);
 				}
+				setTimeout(async () => {
+					textArea.setSelectionRange(newPos, newPos);
+					textArea.focus();
+					await addContent({
+						display: "inline",
+						text: `\n`,
+						icon: "",
+						name: "",
+					});
+				}, 0);
 			}
 		} else {
 			const nextCharIsClosing = Object.values(keyPairs).includes(nextChar);
