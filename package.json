@@ -1,6 +1,6 @@
 {
 	"name": "@rossrobino/components",
-	"version": "1.7.16",
+	"version": "1.7.17",
 	"description": "A reusable Svelte component library",
 	"keywords": [
 		"components",

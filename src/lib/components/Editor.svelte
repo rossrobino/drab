@@ -1,4 +1,9 @@
 <script context="module" lang="ts">
+	/**
+	 * - ContentElement to pass into the `contentElements` array prop
+	 * - `contentElements` prop creates a list of button controls to insert
+	 * text into the `TextAreaElement`
+	 */
 	export interface ContentElement {
 		/** name of element */
 		name: string;
@@ -79,6 +84,7 @@
 	 * @param str string to insert into
 	 * @param char characters to insert into `str`
 	 * @param index where to insert the characters
+	 * @returns the new string
 	 */
 	const insertChar = (str: string, char: string, index: number) => {
 		return str.slice(0, index) + char + str.slice(index);
@@ -89,6 +95,7 @@
 	 *
 	 * @param str string to remove the character from
 	 * @param index index of character to remove
+	 * @returns the new string
 	 */
 	const removeChar = (str: string, index: number) => {
 		return str.slice(0, index) + str.slice(index + 1);
@@ -122,14 +129,14 @@
 			// if single char, add to opened
 			if (el.text.length < 2) openChars.push(el.text);
 		} else if (el.display === "block") {
-			const index = getCurrentLineNumber();
+			const { lineNumber } = getCaretPosition();
 			const lines = textAreaValue.split("\n");
 			// add the string to the beginning of the line
-			if (lines[index].startsWith(el.text[0])) {
+			if (lines[lineNumber].startsWith(el.text[0])) {
 				// avoids `# # # `, instead adds trimmed => `### `
-				lines[index] = el.text.trim() + lines[index];
+				lines[lineNumber] = el.text.trim() + lines[lineNumber];
 			} else {
-				lines[index] = el.text + lines[index];
+				lines[lineNumber] = el.text + lines[lineNumber];
 			}
 			textAreaValue = lines.join("\n");
 		}
@@ -226,9 +233,9 @@
 			}
 		} else if (e.key === "Enter") {
 			// autocomplete start of next line if block or number
-			const index = getCurrentLineNumber();
+			const { lineNumber, columnNumber } = getCaretPosition();
 			const lines = textAreaValue.split("\n");
-			const currentLine = lines[index];
+			const currentLine = lines[lineNumber];
 			let repeat = getRepeat(currentLine);
 			const original = repeat;
 
@@ -236,16 +243,17 @@
 			// line starts with number? - increment
 			if (num) repeat = `${num + 1}. `;
 
-			if (repeat && currentLine.length > original.length) {
+			if (repeat && original.length < columnNumber) {
 				e.preventDefault();
+				if (num) incrementFollowing(lineNumber);
 				await addContent({
 					display: "inline",
 					text: `\n${repeat}`,
 					icon: "",
 					name: "",
 				});
-			} else if (repeat) {
-				// only the repeat and no content - remove
+			} else if (repeat && original.length === columnNumber) {
+				// remove if the repeat and caret at the end of the original
 				e.preventDefault();
 				const selectionEnd = textArea.selectionEnd;
 				const newPos = selectionEnd - original.length;
@@ -326,7 +334,7 @@
 	/**
 	 * @returns the index of the line that selectionEnd falls on
 	 */
-	const getCurrentLineNumber = () => {
+	const getCaretPosition = () => {
 		const lines = textAreaValue.split("\n");
 		let characterCount = 0;
 		for (let i = 0; i < lines.length; i++) {
@@ -335,10 +343,14 @@
 			characterCount += lines[i].length;
 			// find the line that the cursor is on
 			if (characterCount > textArea.selectionEnd) {
-				return i;
+				return {
+					lineNumber: i,
+					columnNumber:
+						textArea.selectionEnd - (characterCount - lines[i].length - 1),
+				};
 			}
 		}
-		return 0;
+		return { lineNumber: 0, columnNumber: 0 };
 	};
 
 	/**
@@ -389,6 +401,42 @@
 	const startsWithNumberAndPeriod = (str: string) => {
 		const result = str.match(/^(\d+)\./);
 		return result ? Number(result[1]) : null;
+	};
+
+	/**
+	 * - increments the start of following lines if they are numbers
+	 *
+	 * prevents this:
+	 *
+	 * ```
+	 * 1. presses enter here when two items in list
+	 * 2.
+	 * 2.
+	 * ```
+	 *
+	 * instead increments:
+	 *
+	 * ```
+	 * 1.
+	 * 2.
+	 * 3.
+	 * ```
+	 *
+	 * @param currentLineNumber
+	 */
+	const incrementFollowing = (currentLineNumber: number) => {
+		const lines = textAreaValue.split("\n");
+		for (let i = currentLineNumber + 1; i < lines.length; i++) {
+			const num = parseInt(lines[i]);
+			if (!num) {
+				break;
+			} else {
+				const newNum = num + 1;
+				lines[i] = lines[i].slice(String(num).length); // remove number from start
+				lines[i] = String(newNum) + lines[i];
+			}
+		}
+		textAreaValue = lines.join("\n");
 	};
 </script>
 
