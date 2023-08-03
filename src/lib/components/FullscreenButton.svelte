@@ -33,6 +33,11 @@
 	};
 </script>
 
+<!--
+@component
+Make the document or a specific element fullscreen.
+-->
+
 <svelte:window on:fullscreenchange={() => (fullscreen = !fullscreen)} />
 
 <button on:click={onClick} class={className} id={idName}>

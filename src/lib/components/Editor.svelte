@@ -25,6 +25,11 @@
 	}
 </script>
 
+<!--
+@component
+Text editor with controls to add elements and keyboard shortcuts.
+-->
+
 <script lang="ts">
 	import type { ComponentType } from "svelte";
 
@@ -219,7 +224,10 @@
 				}, 0);
 				openChars.pop();
 			}
-			if (prevChar === "\n") {
+			if (
+				prevChar === "\n" &&
+				textArea.selectionStart === textArea.selectionEnd
+			) {
 				e.preventDefault();
 				const newPos = textArea.selectionStart - 1;
 				const { lineNumber } = getLineInfo();

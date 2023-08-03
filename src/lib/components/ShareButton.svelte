@@ -36,6 +36,11 @@
 	};
 </script>
 
+<!--
+@component
+Uses the navigator api to share or copy a url link depending on browser support.
+-->
+
 <button on:click={onClick} class={className} id={idName}>
 	{#if complete}
 		<slot name="complete">Copied</slot>

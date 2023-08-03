@@ -133,6 +133,11 @@
 	};
 </script>
 
+<!--
+@component
+Generates a guitar chord `svg`.
+-->
+
 {#if notes.length}
 	<svg
 		width={size}
