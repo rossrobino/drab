@@ -129,8 +129,7 @@
 			// if single char, add to opened
 			if (el.text.length < 2) openChars.push(el.text);
 		} else if (el.display === "block") {
-			const { lineNumber } = getCaretPosition();
-			const lines = textAreaValue.split("\n");
+			const { lines, lineNumber } = getLineInfo();
 			// add the string to the beginning of the line
 			if (lines[lineNumber].startsWith(el.text[0])) {
 				// avoids `# # # `, instead adds trimmed => `### `
@@ -220,6 +219,16 @@
 				}, 0);
 				openChars.pop();
 			}
+			if (prevChar === "\n") {
+				e.preventDefault();
+				const newPos = textArea.selectionStart - 1;
+				const { lineNumber } = getLineInfo();
+				correctFollowing(lineNumber, true);
+				textAreaValue = removeChar(textAreaValue, newPos);
+				setTimeout(async () => {
+					textArea.setSelectionRange(newPos, newPos);
+				}, 0);
+			}
 		} else if (e.key === "Tab") {
 			if (getCurrentBlock() % 2 !== 0) {
 				// if caret is inside of a codeblock, indent
@@ -233,19 +242,18 @@
 			}
 		} else if (e.key === "Enter") {
 			// autocomplete start of next line if block or number
-			const { lineNumber, columnNumber } = getCaretPosition();
-			const lines = textAreaValue.split("\n");
+			const { lines, lineNumber, columnNumber } = getLineInfo();
 			const currentLine = lines[lineNumber];
 			let repeat = getRepeat(currentLine);
 			const original = repeat;
 
-			const num = parseInt(repeat);
-			// line starts with number? - increment
+			const num = startsWithNumberAndPeriod(repeat);
+			// line starts with number and period? - increment
 			if (num) repeat = `${num + 1}. `;
 
 			if (repeat && original.length < columnNumber) {
 				e.preventDefault();
-				if (num) incrementFollowing(lineNumber);
+				if (num) correctFollowing(lineNumber);
 				await addContent({
 					display: "inline",
 					text: `\n${repeat}`,
@@ -332,9 +340,15 @@
 	};
 
 	/**
-	 * @returns the index of the line that selectionEnd falls on
+	 * @returns lines as an array, current line number, current column number
+	 *
+	 * @example
+	 *
+	 * ```js
+	 * const { lines, lineNumber, columnNumber } = getLineInfo();
+	 * ```
 	 */
-	const getCaretPosition = () => {
+	const getLineInfo = () => {
 		const lines = textAreaValue.split("\n");
 		let characterCount = 0;
 		for (let i = 0; i < lines.length; i++) {
@@ -344,13 +358,14 @@
 			// find the line that the cursor is on
 			if (characterCount > textArea.selectionEnd) {
 				return {
+					lines,
 					lineNumber: i,
 					columnNumber:
 						textArea.selectionEnd - (characterCount - lines[i].length - 1),
 				};
 			}
 		}
-		return { lineNumber: 0, columnNumber: 0 };
+		return { lines, lineNumber: 0, columnNumber: 0 };
 	};
 
 	/**
@@ -404,9 +419,9 @@
 	};
 
 	/**
-	 * - increments the start of following lines if they are numbers
+	 * - increments/decrements the start of following lines if they are numbers
 	 *
-	 * prevents this:
+	 * ### prevents this:
 	 *
 	 * ```
 	 * 1. presses enter here when two items in list
@@ -414,7 +429,7 @@
 	 * 2.
 	 * ```
 	 *
-	 * instead increments:
+	 * ### instead:
 	 *
 	 * ```
 	 * 1.
@@ -423,15 +438,25 @@
 	 * ```
 	 *
 	 * @param currentLineNumber
+	 * @param decrement if following lines should be decremented instead of incremented
 	 */
-	const incrementFollowing = (currentLineNumber: number) => {
-		const lines = textAreaValue.split("\n");
+	const correctFollowing = (currentLineNumber: number, decrement = false) => {
+		const { lines } = getLineInfo();
 		for (let i = currentLineNumber + 1; i < lines.length; i++) {
-			const num = parseInt(lines[i]);
+			const num = startsWithNumberAndPeriod(lines[i]);
 			if (!num) {
 				break;
 			} else {
-				const newNum = num + 1;
+				let newNum: number;
+				if (decrement) {
+					if (num > 1) {
+						newNum = num - 1;
+					} else {
+						break;
+					}
+				} else {
+					newNum = num + 1;
+				}
 				lines[i] = lines[i].slice(String(num).length); // remove number from start
 				lines[i] = String(newNum) + lines[i];
 			}
