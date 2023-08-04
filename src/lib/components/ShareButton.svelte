@@ -11,7 +11,7 @@
 	export let text: string = "";
 
 	/** url to be shared */
-	export let url: string = "";
+	export let url: string;
 
 	/** title of share message */
 	export let title: string = url.split("/").splice(-1)[0]; // default end of url
@@ -39,6 +39,27 @@
 <!--
 @component
 Uses the navigator api to share or copy a url link depending on browser support.
+
+#### Slots
+
+| name       | purpose                         | default value |
+| ---------- | ------------------------------- | ------------- |
+| `default`  | default                         | `Share`       |
+| `complete` | displays after copy is complete | `Copied`      |
+
+#### Example
+
+```svelte
+<script>
+    import { ShareButton } from "@rossrobino/components";
+</script>
+
+<ShareButton
+	text="Check out this page: "
+	title="@rossrobino/components"
+    url="https://components.robino.dev"
+/>
+```
 -->
 
 <button on:click={onClick} class={className} id={idName}>

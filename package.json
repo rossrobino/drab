@@ -1,11 +1,16 @@
 {
 	"name": "@rossrobino/components",
-	"version": "1.7.19",
-	"description": "A reusable Svelte component library",
+	"version": "1.7.20",
+	"description": "An unstyled Svelte component library",
 	"keywords": [
 		"components",
 		"Svelte",
-		"SvelteKit"
+		"SvelteKit",
+		"Chord",
+		"Editor",
+		"Fullscreen",
+		"Share",
+		"YouTube"
 	],
 	"homepage": "https://components.robino.dev",
 	"license": "MIT",
@@ -23,7 +28,7 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check . && eslint .",
-		"format": "prettier --write . --plugin=prettier-plugin-svelte --plugin=prettier-plugin-tailwindcss && prettier --write src/routes/+page.svx",
+		"format": "prettier --write . --plugin=prettier-plugin-svelte --plugin=prettier-plugin-tailwindcss",
 		"pub": "npm publish --access public"
 	},
 	"exports": {
@@ -36,7 +41,6 @@
 		"dist"
 	],
 	"dependencies": {
-		"@vercel/analytics": "^1.0.1",
 		"svelte": "^4.1.2"
 	},
 	"devDependencies": {
@@ -48,15 +52,13 @@
 		"@typescript-eslint/parser": "^6.2.1",
 		"autoprefixer": "^10.4.14",
 		"eslint": "^8.46.0",
-		"eslint-config-prettier": "^8.9.0",
+		"eslint-config-prettier": "^8.10.0",
 		"eslint-plugin-svelte": "^2.32.4",
-		"mdsvex": "^0.11.0",
 		"postcss": "^8.4.27",
-		"prettier": "^3.0.0",
+		"prettier": "^3.0.1",
 		"prettier-plugin-svelte": "^3.0.3",
 		"prettier-plugin-tailwindcss": "^0.4.1",
 		"publint": "^0.2.0",
-		"rehype-slug": "^5.1.0",
 		"svelte-check": "^3.4.6",
 		"tailwindcss": "^3.3.3",
 		"tslib": "^2.6.1",

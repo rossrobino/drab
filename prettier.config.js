@@ -11,11 +11,5 @@ export default {
 				parser: "svelte",
 			},
 		},
-		{
-			files: "*.svx",
-			options: {
-				parser: "mdx",
-			},
-		},
 	],
 };

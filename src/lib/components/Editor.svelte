@@ -25,16 +25,11 @@
 	}
 </script>
 
-<!--
-@component
-Text editor with controls to add elements and keyboard shortcuts.
--->
-
 <script lang="ts">
 	import type { ComponentType } from "svelte";
 
 	/** an array of content elements for the controls */
-	export let contentElements: ContentElement[];
+	export let contentElements: ContentElement[] = [];
 
 	/** `value` of the `textarea` element */
 	export let textAreaValue = "";
@@ -472,6 +467,44 @@ Text editor with controls to add elements and keyboard shortcuts.
 		textAreaValue = lines.join("\n");
 	};
 </script>
+
+<!--
+@component
+Text editor with controls to add elements and keyboard shortcuts.
+
+#### Example
+
+```svelte
+<script>
+	import { Editor } from "@rossrobino/components";
+</script>
+
+<Editor contentElements={[
+		{
+			name: "Bullet",
+			text: "- ",
+			display: "block",
+			icon: "Bullet",
+		},
+		{
+			name: "Asterisk",
+			text: "*",
+			display: "wrap",
+			icon: "Asterisk",
+			key: "i",
+			class: "italic",
+		},
+		{
+			name: "Anchor",
+			text: "[text](href)",
+			display: "inline",
+			icon: "Anchor",
+			key: "[",
+		},
+	]}
+/>
+```
+-->
 
 <textarea
 	id={textAreaId}

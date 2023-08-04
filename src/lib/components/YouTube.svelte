@@ -23,6 +23,16 @@
 <!--
 @component
 Embeds a YouTube video into a website with the video `uid`, using [www.youtube-nocookie.com](https://support.google.com/youtube/answer/171780?hl=en#zippy=%2Cturn-on-privacy-enhanced-mode).
+
+#### Example
+
+```svelte
+<script>
+	import { YouTube } from "@rossrobino/components";
+</script>
+
+<YouTube title="Video Title" uid="youtube_uid" />
+```
 -->
 
 <iframe

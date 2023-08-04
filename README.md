@@ -1,7 +1,31 @@
 # @rossrobino/components
 
-## A reusable Svelte component library
+## An unstyled Svelte component library
 
-MIT License
+### MIT License
 
-[Documentation](https://components.robino.dev)
+### Install
+
+```bash
+npm i -D @rossrobino/components
+```
+
+### Use
+
+```svelte
+<script>
+	import { ShareButton } from "@rossrobino/components";
+</script>
+
+<ShareButton
+	text="Check out this page: "
+	title="@rossrobino/components"
+	url="https://components.robino.dev"
+/>
+```
+
+### Preview
+
+[components.robino.dev](https://components.robino.dev)
+
+### Open to contributions
