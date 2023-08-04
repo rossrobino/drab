@@ -1,5 +1,8 @@
 <!--
 @component
+
+### Editor
+
 Text editor with controls to add elements and keyboard shortcuts.
 
 #### Example

@@ -1,5 +1,8 @@
 <!--
 @component
+
+### FullscreenButton
+
 Make the document or a specific element fullscreen.
 
 #### Slots

@@ -2,6 +2,7 @@
 	import "../app.postcss";
 
 	import Chord from "$lib/components/Chord.svelte";
+	import CopyButton from "$lib/components/CopyButton.svelte";
 	import ShareButton from "$lib/components/ShareButton.svelte";
 	import YouTube from "$lib/components/YouTube.svelte";
 	import Editor from "$lib/components/Editor.svelte";
@@ -29,6 +30,7 @@
 
 	<ul>
 		<li><a href="#chord">Chord</a></li>
+		<li><a href="#copybutton">CopyButton</a></li>
 		<li><a href="#editor">Editor</a></li>
 		<li><a href="#fullscreenbutton">FullscreenButton</a></li>
 		<li><a href="#sharebutton">ShareButton</a></li>
@@ -64,10 +66,14 @@
 		]}
 	/>
 
+	<h3 id="copybutton">CopyButton</h3>
+
+	<CopyButton class="btn" text="Text to copy" />
+
 	<h3 id="editor">Editor</h3>
 
 	<Editor
-		buttonClass="bg-gray-200 px-2"
+		buttonClass="btn"
 		controlsClass="flex gap-2"
 		textAreaClass="border w-full h-36 p-2"
 		textAreaPlaceholder="asterisk: ctrl+i, anchor: ctrl+["
@@ -98,14 +104,11 @@
 
 	<h3 id="fullscreenbutton">FullscreenButton</h3>
 
-	<FullscreenButton class="mb-4 bg-gray-200 px-4 py-2" />
+	<FullscreenButton class="mb-4 btn" />
 
 	<div bind:this={fullscreenDiv} class="bg-gray-800 p-4">
 		<div class="mb-2 text-gray-50">Target element fullscreen</div>
-		<FullscreenButton
-			targetElement={fullscreenDiv}
-			class="bg-gray-200 px-4 py-2"
-		>
+		<FullscreenButton targetElement={fullscreenDiv} class="btn">
 			<span slot="enabled">Exit Element Fullscreen</span>
 			<span slot="disabled">Enable Element Fullscreen</span>
 		</FullscreenButton>
@@ -114,7 +117,7 @@
 	<h3 id="sharebutton">ShareButton</h3>
 
 	<ShareButton
-		class="bg-gray-200 px-4 py-2"
+		class="btn"
 		text="Check out this page: "
 		title="@rossrobino/components"
 		url="https://components.robino.dev"
@@ -128,3 +131,9 @@
 		uid="gouiY85kD2o"
 	/>
 </main>
+
+<style lang="postcss">
+	:global(.btn) {
+		@apply bg-gray-200 px-4 py-2;
+	}
+</style>

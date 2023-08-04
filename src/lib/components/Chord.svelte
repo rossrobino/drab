@@ -1,5 +1,8 @@
 <!--
 @component
+
+### Chord
+
 Generates a guitar chord `svg`.
 
 #### Example

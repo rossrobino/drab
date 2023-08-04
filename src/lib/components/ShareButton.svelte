@@ -1,5 +1,8 @@
 <!--
 @component
+
+### ShareButton
+
 Uses the navigator api to share or copy a url link depending on browser support.
 
 #### Slots
