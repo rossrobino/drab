@@ -1,3 +1,40 @@
+<!--
+@component
+Generates a guitar chord `svg`.
+
+#### Example
+
+```svelte
+<script>
+	import { Chord } from "@rossrobino/components";
+</script>
+
+<Chord name="D" notes={[
+		{
+			finger: 0,
+			string: 4,
+			fret: 0,
+		},
+		{
+			finger: 1,
+			string: 3,
+			fret: 2,
+		},
+		{
+			finger: 2,
+			string: 1,
+			fret: 2,
+		},
+		{
+			finger: 3,
+			string: 2,
+			fret: 3,
+		},
+	]}
+/>
+```
+-->
+
 <script lang="ts">
 	/** svg class */
 	let className: string = "";
@@ -132,43 +169,6 @@
 		return (boxSize / fretRange) * fret + offset / 2 - boxSize / fretRange / 2;
 	};
 </script>
-
-<!--
-@component
-Generates a guitar chord `svg`.
-
-#### Example
-
-```svelte
-<script>
-	import { Chord } from "@rossrobino/components";
-</script>
-
-<Chord name="D" notes={[
-		{
-			finger: 0,
-			string: 4,
-			fret: 0,
-		},
-		{
-			finger: 1,
-			string: 3,
-			fret: 2,
-		},
-		{
-			finger: 2,
-			string: 1,
-			fret: 2,
-		},
-		{
-			finger: 3,
-			string: 2,
-			fret: 3,
-		},
-	]}
-/>
-```
--->
 
 {#if notes.length}
 	<svg

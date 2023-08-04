@@ -1,3 +1,35 @@
+<!--
+@component
+Make the document or a specific element fullscreen.
+
+#### Slots
+
+| name       | purpose                                        | default value        |
+| ---------- | ---------------------------------------------- | -------------------- |
+| `enabled`  | content to display when fullscreen is enabled  | `Exit Fullscreen`    |
+| `disabled` | content to display when fullscreen is disabled | `Enabled Fullscreen` |
+
+#### Example
+
+```svelte
+<script>
+	import { FullscreenButton } from "@rossrobino/components";
+
+	let fullscreenDiv;
+</script>
+
+<FullscreenButton />
+
+<div bind:this={fullscreenDiv}>
+	<div>Target element fullscreen</div>
+	<FullscreenButton targetElement={fullscreenDiv}>
+		<span slot="enabled">Exit Element Fullscreen</span>
+		<span slot="disabled">Enable Element Fullscreen</span>
+	</FullscreenButton>
+</div>
+```
+-->
+
 <script lang="ts">
 	import { onMount } from "svelte";
 
@@ -32,38 +64,6 @@
 		}
 	};
 </script>
-
-<!--
-@component
-Make the document or a specific element fullscreen.
-
-#### Slots
-
-| name       | purpose                                        | default value        |
-| ---------- | ---------------------------------------------- | -------------------- |
-| `enabled`  | content to display when fullscreen is enabled  | `Exit Fullscreen`    |
-| `disabled` | content to display when fullscreen is disabled | `Enabled Fullscreen` |
-
-#### Example
-
-```svelte
-<script>
-	import { FullscreenButton } from "@rossrobino/components";
-
-	let fullscreenDiv;
-</script>
-
-<FullscreenButton />
-
-<div bind:this={fullscreenDiv}>
-	<div>Target element fullscreen</div>
-	<FullscreenButton targetElement={fullscreenDiv}>
-		<span slot="enabled">Exit Element Fullscreen</span>
-		<span slot="disabled">Enable Element Fullscreen</span>
-	</FullscreenButton>
-</div>
-```
--->
 
 <svelte:window on:fullscreenchange={() => (fullscreen = !fullscreen)} />
 

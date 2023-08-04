@@ -1,3 +1,29 @@
+<!--
+@component
+Uses the navigator api to share or copy a url link depending on browser support.
+
+#### Slots
+
+| name       | purpose                         | default value |
+| ---------- | ------------------------------- | ------------- |
+| `default`  | default                         | `Share`       |
+| `complete` | displays after copy is complete | `Copied`      |
+
+#### Example
+
+```svelte
+<script>
+    import { ShareButton } from "@rossrobino/components";
+</script>
+
+<ShareButton
+	text="Check out this page: "
+	title="@rossrobino/components"
+    url="https://components.robino.dev"
+/>
+```
+-->
+
 <script lang="ts">
 	/** button class */
 	let className: string = "";
@@ -35,32 +61,6 @@
 		}
 	};
 </script>
-
-<!--
-@component
-Uses the navigator api to share or copy a url link depending on browser support.
-
-#### Slots
-
-| name       | purpose                         | default value |
-| ---------- | ------------------------------- | ------------- |
-| `default`  | default                         | `Share`       |
-| `complete` | displays after copy is complete | `Copied`      |
-
-#### Example
-
-```svelte
-<script>
-    import { ShareButton } from "@rossrobino/components";
-</script>
-
-<ShareButton
-	text="Check out this page: "
-	title="@rossrobino/components"
-    url="https://components.robino.dev"
-/>
-```
--->
 
 <button on:click={onClick} class={className} id={idName}>
 	{#if complete}

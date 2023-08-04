@@ -1,3 +1,41 @@
+<!--
+@component
+Text editor with controls to add elements and keyboard shortcuts.
+
+#### Example
+
+```svelte
+<script>
+	import { Editor } from "@rossrobino/components";
+</script>
+
+<Editor contentElements={[
+		{
+			name: "Bullet",
+			text: "- ",
+			display: "block",
+			icon: "Bullet",
+		},
+		{
+			name: "Asterisk",
+			text: "*",
+			display: "wrap",
+			icon: "Asterisk",
+			key: "i",
+			class: "italic",
+		},
+		{
+			name: "Anchor",
+			text: "[text](href)",
+			display: "inline",
+			icon: "Anchor",
+			key: "[",
+		},
+	]}
+/>
+```
+-->
+
 <script context="module" lang="ts">
 	/**
 	 * - ContentElement to pass into the `contentElements` array prop
@@ -467,44 +505,6 @@
 		textAreaValue = lines.join("\n");
 	};
 </script>
-
-<!--
-@component
-Text editor with controls to add elements and keyboard shortcuts.
-
-#### Example
-
-```svelte
-<script>
-	import { Editor } from "@rossrobino/components";
-</script>
-
-<Editor contentElements={[
-		{
-			name: "Bullet",
-			text: "- ",
-			display: "block",
-			icon: "Bullet",
-		},
-		{
-			name: "Asterisk",
-			text: "*",
-			display: "wrap",
-			icon: "Asterisk",
-			key: "i",
-			class: "italic",
-		},
-		{
-			name: "Anchor",
-			text: "[text](href)",
-			display: "inline",
-			icon: "Anchor",
-			key: "[",
-		},
-	]}
-/>
-```
--->
 
 <textarea
 	id={textAreaId}
