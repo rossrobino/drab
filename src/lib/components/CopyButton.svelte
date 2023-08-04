@@ -32,6 +32,9 @@ Uses the navigator api to copy text to the clipboard.
 
 	export { className as class, idName as id };
 
+	/** button title */
+	export let title = "Copy";
+
 	/** text to copy */
 	export let text: string;
 
@@ -50,7 +53,7 @@ Uses the navigator api to copy text to the clipboard.
 	};
 </script>
 
-<button on:click={copyText} class={className} id={idName}>
+<button on:click={copyText} class={className} id={idName} {title}>
 	{#if complete}
 		<slot name="complete">Copied</slot>
 	{:else}

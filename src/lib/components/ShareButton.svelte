@@ -42,7 +42,7 @@ Uses the navigator api to share or copy a url link depending on browser support.
 	/** url to be shared */
 	export let url: string;
 
-	/** title of share message */
+	/** title of share message and button attribute */
 	export let title: string = url.split("/").splice(-1)[0]; // default end of url
 
 	/** changes button text after message is successfully copied */
@@ -65,7 +65,7 @@ Uses the navigator api to share or copy a url link depending on browser support.
 	};
 </script>
 
-<button on:click={onClick} class={className} id={idName}>
+<button on:click={onClick} class={className} id={idName} {title}>
 	{#if complete}
 		<slot name="complete">Copied</slot>
 	{:else}

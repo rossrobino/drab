@@ -42,9 +42,15 @@ Make the document or a specific element fullscreen.
 	/** message to display in the `confirm` popup, set this to empty string `""` to disable `confirm` */
 	export let confirmMessage = "";
 
+	/** button class */
 	let className = "";
+
+	/** button id */
 	let idName = "";
+
 	export { className as class, idName as id };
+
+	export let title = "Fullscreen";
 
 	let fullscreen = false;
 
@@ -70,7 +76,7 @@ Make the document or a specific element fullscreen.
 
 <svelte:window on:fullscreenchange={() => (fullscreen = !fullscreen)} />
 
-<button on:click={onClick} class={className} id={idName}>
+<button on:click={onClick} class={className} id={idName} {title}>
 	{#if fullscreen}
 		<slot name="enabled">Exit Fullscreen</slot>
 	{:else}
