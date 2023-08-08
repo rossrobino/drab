@@ -3,15 +3,18 @@
 
 	import Chord from "$lib/components/Chord.svelte";
 	import CopyButton from "$lib/components/CopyButton.svelte";
-	import ShareButton from "$lib/components/ShareButton.svelte";
-	import YouTube from "$lib/components/YouTube.svelte";
+	import DataTable from "$lib/components/DataTable.svelte";
 	import Editor from "$lib/components/Editor.svelte";
 	import FullscreenButton from "$lib/components/FullscreenButton.svelte";
+	import ShareButton from "$lib/components/ShareButton.svelte";
+	import YouTube from "$lib/components/YouTube.svelte";
 
 	let fullscreenDiv: HTMLDivElement;
 </script>
 
-<main class="prose prose-teal prose-h1:text-2xl prose-h1:sm:text-4xl m-4">
+<main
+	class="prose prose-teal prose-h1:text-2xl prose-h1:sm:text-4xl prose-h3:pt-8 prose-h3:mb-6 prose-h3:mt-12 prose-h3:border-t m-4"
+>
 	<h1>@rossrobino/components</h1>
 
 	<ul>
@@ -69,6 +72,23 @@
 	<h3 id="copybutton">CopyButton</h3>
 
 	<CopyButton class="btn" text="Text to copy" />
+
+	<h3 id="datatable">DataTable</h3>
+
+	<DataTable
+		data={[
+			{ make: "Honda", model: "CR-V", year: 2011, awd: true },
+			{ make: "Volvo", model: "XC-40", year: 2024, awd: true },
+			{ make: "Ferrari", model: "458 Italia", year: 2015, awd: false },
+			{ make: "Chevrolet", model: "Silverado", year: 2022, awd: true },
+			{ make: "Ford", model: "Model A", year: 1931, awd: false },
+		]}
+		sortBy="year"
+		tableClass="tabular-nums"
+		thClass="cursor-pointer uppercase"
+		sortedThClass="underline"
+		tBodyTrClass="transition hover:bg-gray-50"
+	/>
 
 	<h3 id="editor">Editor</h3>
 

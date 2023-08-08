@@ -5,7 +5,7 @@
 
 Text editor with controls to add elements and keyboard shortcuts.
 
-#### Example
+@example
 
 ```svelte
 <script>
@@ -41,11 +41,11 @@ Text editor with controls to add elements and keyboard shortcuts.
 
 <script context="module" lang="ts">
 	/**
-	 * - ContentElement to pass into the `contentElements` array prop
+	 * - `EditorContentElement` to pass into the `contentElements` array prop
 	 * - `contentElements` prop creates a list of button controls to insert
 	 * text into the `TextAreaElement`
 	 */
-	export interface ContentElement {
+	export interface EditorContentElement {
 		/** name of element */
 		name: string;
 
@@ -70,7 +70,7 @@ Text editor with controls to add elements and keyboard shortcuts.
 	import type { ComponentType } from "svelte";
 
 	/** an array of content elements for the controls */
-	export let contentElements: ContentElement[] = [];
+	export let contentElements: EditorContentElement[] = [];
 
 	/** `value` of the `textarea` element */
 	export let textAreaValue = "";
@@ -151,7 +151,7 @@ Text editor with controls to add elements and keyboard shortcuts.
 	 * @param selectionEnd current end position of the selection
 	 */
 	const insertText = async (
-		el: ContentElement,
+		el: EditorContentElement,
 		selectionStart: number,
 		selectionEnd: number,
 	) => {
@@ -227,7 +227,7 @@ Text editor with controls to add elements and keyboard shortcuts.
 	 *
 	 * @param el selected content element
 	 */
-	const addContent = async (el: ContentElement) => {
+	const addContent = async (el: EditorContentElement) => {
 		const selectionEnd = textArea.selectionEnd;
 		const selectionStart = textArea.selectionStart;
 

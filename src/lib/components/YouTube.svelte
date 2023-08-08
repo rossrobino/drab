@@ -5,7 +5,7 @@
 
 Embeds a YouTube video into a website with the video `uid`, using [www.youtube-nocookie.com](https://support.google.com/youtube/answer/171780?hl=en#zippy=%2Cturn-on-privacy-enhanced-mode).
 
-#### Example
+@example
 
 ```svelte
 <script>

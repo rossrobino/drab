@@ -5,7 +5,7 @@
 
 Generates a guitar chord `svg`.
 
-#### Example
+@example
 
 ```svelte
 <script>

@@ -5,14 +5,14 @@
 
 Make the document or a specific element fullscreen.
 
-#### Slots
+@slots
 
 | name       | purpose                                        | default value        |
 | ---------- | ---------------------------------------------- | -------------------- |
 | `enabled`  | content to display when fullscreen is enabled  | `Exit Fullscreen`    |
 | `disabled` | content to display when fullscreen is disabled | `Enabled Fullscreen` |
 
-#### Example
+@example
 
 ```svelte
 <script>

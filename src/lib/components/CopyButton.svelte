@@ -5,14 +5,14 @@
 
 Uses the navigator api to copy text to the clipboard.
 
-#### Slots
+@slots
 
 | name       | purpose                         | default value |
 | ---------- | ------------------------------- | ------------- |
 | `default`  | default                         | `Copy`       |
 | `complete` | displays after copy is complete | `Copied`      |
 
-#### Example
+@example
 
 ```svelte
 <script>

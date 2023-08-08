@@ -5,14 +5,14 @@
 
 Uses the navigator api to share or copy a url link depending on browser support.
 
-#### Slots
+@slots
 
 | name       | purpose                         | default value |
 | ---------- | ------------------------------- | ------------- |
 | `default`  | default                         | `Share`       |
 | `complete` | displays after copy is complete | `Copied`      |
 
-#### Example
+@example
 
 ```svelte
 <script>
