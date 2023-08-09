@@ -19,15 +19,18 @@
 	<div class="lg:flex gap-12">
 		<nav class="prose prose-teal hidden lg:block -my-4">
 			<ul class="sticky top-0 list-none py-4 pr-6 h-screen overflow-y-auto">
+				<h1 class="mb-6">
+					<a class="text-gray-950 no-underline font-bold" href="/">drab</a>
+				</h1>
 				<NavItems />
 			</ul>
 		</nav>
 		<div
 			class="prose prose-teal prose-h1:sm:text-4xl prose-h3:pt-8 prose-h3:mb-6 prose-h3:mt-12 prose-h3:border-t lg:min-w-[65ch]"
 		>
-			<h1>drab</h1>
+			<h1 class="lg:hidden">drab</h1>
 
-			<h2>An unstyled Svelte component library</h2>
+			<h2 class="lg:mt-2">An unstyled Svelte component library</h2>
 
 			<ul>
 				<li><a href="https://github.com/rossrobino/drab">GitHub</a></li>
@@ -45,6 +48,8 @@
 
 			<pre>npm i -D drab</pre>
 
+			<pre>import &#123; Component &#125; from "drab";</pre>
+
 			<p>
 				Each component is documented inline. View the
 				<a
@@ -57,12 +62,11 @@
 			</p>
 
 			<p>
-				Style the components with global styles, each component exports <code>
-					class
-				</code>
+				Components are not shipped with any styles. Style the components with
+				global styles, each component exports <code>class</code>
 				and
 				<code>id</code>
-				props to utilize. View the
+				props. View the
 				<a
 					href="https://github.com/rossrobino/drab/blob/main/src/routes/%2Bpage.svelte"
 				>
@@ -73,9 +77,9 @@
 				styles used.
 			</p>
 
-			<ul class="lg:hidden">
-				<NavItems />
-			</ul>
+			<h2>Components</h2>
+
+			<ul><NavItems /></ul>
 
 			<h3 id="chord">Chord</h3>
 

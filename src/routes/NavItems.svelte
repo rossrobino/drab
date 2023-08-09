@@ -1,7 +1,18 @@
-<li><a href="#chord">Chord</a></li>
-<li><a href="#copybutton">CopyButton</a></li>
-<li><a href="#datatable">DataTable</a></li>
-<li><a href="#editor">Editor</a></li>
-<li><a href="#fullscreenbutton">FullscreenButton</a></li>
-<li><a href="#sharebutton">ShareButton</a></li>
-<li><a href="#youtube">YouTube</a></li>
+<script lang="ts">
+	const components = [
+		"Chord",
+		"ContextMenu",
+		"CopyButton",
+		"DataTable",
+		"Editor",
+		"FullscreenButton",
+		"ShareButton",
+		"YouTube",
+	];
+
+	components.sort();
+</script>
+
+{#each components as component}
+	<li><a href="#{component.toLowerCase()}">{component}</a></li>
+{/each}

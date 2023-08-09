@@ -2,6 +2,8 @@
 
 ## An unstyled Svelte component library
 
+[drab.robino.dev](https://drab.robino.dev)
+
 ### MIT License
 
 ### Install
@@ -27,9 +29,5 @@ npm i -D drab
 	url="https://drab.robino.dev"
 />
 ```
-
-### Preview
-
-[drab.robino.dev](https://drab.robino.dev)
 
 ### Open to contributions
