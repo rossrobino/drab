@@ -1,4 +1,4 @@
-# @rossrobino/components
+# drab
 
 ## An unstyled Svelte component library
 
@@ -7,25 +7,29 @@
 ### Install
 
 ```bash
-npm i -D @rossrobino/components
+npm create svelte@latest
+```
+
+```bash
+npm i -D drab
 ```
 
 ### Use
 
 ```svelte
 <script>
-	import { ShareButton } from "@rossrobino/components";
+	import { ShareButton } from "drab";
 </script>
 
 <ShareButton
 	text="Check out this page: "
-	title="@rossrobino/components"
-	url="https://components.robino.dev"
+	title="drab"
+	url="https://drab.robino.dev"
 />
 ```
 
 ### Preview
 
-[components.robino.dev](https://components.robino.dev)
+[drab.robino.dev](https://drab.robino.dev)
 
 ### Open to contributions

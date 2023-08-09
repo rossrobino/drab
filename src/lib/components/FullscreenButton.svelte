@@ -24,7 +24,7 @@ Make the document or a specific element fullscreen.
 
 ```svelte
 <script>
-	import { FullscreenButton } from "@rossrobino/components";
+	import { FullscreenButton } from "drab";
 
 	let fullscreenDiv;
 </script>

@@ -24,13 +24,13 @@ Uses the navigator api to share or copy a url link depending on browser support.
 
 ```svelte
 <script>
-    import { ShareButton } from "@rossrobino/components";
+    import { ShareButton } from "drab";
 </script>
 
 <ShareButton
 	text="Check out this page: "
-	title="@rossrobino/components"
-    url="https://components.robino.dev"
+	title="drab"
+    url="https://drab.robino.dev"
 />
 ```
 -->
@@ -77,5 +77,3 @@ Uses the navigator api to share or copy a url link depending on browser support.
 		<slot>Share</slot>
 	{/if}
 </button>
-
-<noscript>{url}</noscript>

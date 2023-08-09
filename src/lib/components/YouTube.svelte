@@ -18,7 +18,7 @@ Embeds a YouTube video into a website with the video `uid`, using [www.youtube-n
 
 ```svelte
 <script>
-	import { YouTube } from "@rossrobino/components";
+	import { YouTube } from "drab";
 </script>
 
 <YouTube title="Video Title" uid="youtube_uid" />

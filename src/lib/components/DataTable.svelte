@@ -26,7 +26,7 @@ Data table to display an array of JS objects. Click a column header to sort.
 
 ```svelte
 <script>
-	import { DataTable } from "@rossrobino/components";
+	import { DataTable } from "drab";
 </script>
 
 <DataTable 

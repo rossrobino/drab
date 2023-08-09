@@ -23,10 +23,10 @@ Uses the navigator api to copy text to the clipboard.
 
 ```svelte
 <script>
-    import { CopyButton } from "@rossrobino/components";
+    import { CopyButton } from "drab";
 </script>
 
-<CopyButton	text="Text to copy" />
+<CopyButton text="Text to copy" />
 ```
 -->
 
@@ -63,5 +63,3 @@ Uses the navigator api to copy text to the clipboard.
 		<slot>Copy</slot>
 	{/if}
 </button>
-
-<noscript>{text}</noscript>

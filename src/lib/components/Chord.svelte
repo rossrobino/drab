@@ -18,7 +18,7 @@ Generates a guitar chord `svg`.
 
 ```svelte
 <script>
-	import { Chord } from "@rossrobino/components";
+	import { Chord } from "drab";
 </script>
 
 <Chord name="D" notes={[

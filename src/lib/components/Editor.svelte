@@ -23,7 +23,7 @@ Text editor with controls to add elements and keyboard shortcuts.
 
 ```svelte
 <script>
-	import { Editor } from "@rossrobino/components";
+	import { Editor } from "drab";
 </script>
 
 <Editor contentElements={[
