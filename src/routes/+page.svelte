@@ -26,7 +26,7 @@
 			</ul>
 		</nav>
 		<div
-			class="prose prose-teal prose-h1:sm:text-4xl prose-h3:pt-8 prose-h3:mb-6 prose-h3:mt-12 prose-h3:border-t lg:min-w-[65ch]"
+			class="prose prose-teal prose-h1:sm:text-4xl prose-h3:pt-8 prose-h3:mb-6 prose-h3:mt-12 prose-h3:border-t lg:min-w-[65ch] mb-16"
 		>
 			<h1 class="lg:hidden">drab</h1>
 
@@ -42,31 +42,59 @@
 						MIT License
 					</a>
 				</li>
+
+				<li>
+					One dependency -
+					<a href="https://svelte.dev">Svelte</a>
+				</li>
 			</ul>
 
+			<h2>Install</h2>
+
 			<pre>npm create svelte@latest</pre>
+
+			<p>
+				Copy and paste the <a
+					href="https://github.com/rossrobino/drab/tree/main/src/lib/components"
+				>
+					components
+				</a>
+				or install the package.
+			</p>
 
 			<pre>npm i -D drab</pre>
 
 			<pre>import &#123; Component &#125; from "drab";</pre>
 
+			<h2>Getting Started</h2>
+
 			<p>
-				Each component is documented inline. View the
+				Components are documented inline. View the
 				<a
 					href="https://github.com/rossrobino/drab/tree/main/src/lib/components"
 				>
 					source
 				</a>
-				or hover over the component in a text editor to see available props, slots,
-				and examples.
+				or hover over the component in a text editor after importing to see available
+				props, slots, and examples.
 			</p>
 
 			<p>
-				Components are not shipped with any styles. Style the components with
-				global styles, each component exports <code>class</code>
+				This library aims to provide JavaScript functionality. Anything that can
+				be handled by HTML or CSS, such as a select dropdown, is not included.
+				Each component includes all elements needed for the component.
+			</p>
+
+			<p>
+				Style the components with global styles, each component exports
+				<code>class</code>
 				and
 				<code>id</code>
-				props. View the
+				props. If the component has multiple elements, multiple props are available
+				for each element.
+			</p>
+			<p>
+				View the
 				<a
 					href="https://github.com/rossrobino/drab/blob/main/src/routes/%2Bpage.svelte"
 				>
@@ -79,7 +107,7 @@
 
 			<h2>Components</h2>
 
-			<ul><NavItems /></ul>
+			<ul class="pl-0 lg:hidden"><NavItems /></ul>
 
 			<h3 id="chord">Chord</h3>
 
@@ -150,7 +178,7 @@
 			<Editor
 				buttonClass="btn"
 				controlsClass="flex gap-2"
-				textAreaClass="border w-full h-36 p-2"
+				textAreaClass="border w-full h-36 p-2 rounded"
 				textAreaPlaceholder="asterisk: ctrl+i, anchor: ctrl+["
 				contentElements={[
 					{

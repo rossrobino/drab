@@ -1,4 +1,6 @@
 <script lang="ts">
+	import CodeIcon from "./CodeIcon.svelte";
+
 	const components = [
 		"Chord",
 		"ContextMenu",
@@ -14,5 +16,15 @@
 </script>
 
 {#each components as component}
-	<li><a href="#{component.toLowerCase()}">{component}</a></li>
+	<li class="flex items-center gap-2">
+		<a
+			class="m-0"
+			title="View Source"
+			target="_blank"
+			href="https://github.com/rossrobino/drab/tree/main/src/lib/components/{component}.svelte"
+		>
+			<CodeIcon />
+		</a>
+		<a class="m-0" href="#{component.toLowerCase()}">{component}</a>
+	</li>
 {/each}
