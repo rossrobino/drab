@@ -81,8 +81,8 @@
 
 			<p>
 				This library aims to provide JavaScript functionality. Anything that can
-				be handled by HTML or CSS, such as a select dropdown, is not included.
-				Each component includes all elements needed for the component.
+				be handled by HTML or CSS, such as a label, is not included. Each
+				component includes all elements needed for the component.
 			</p>
 
 			<p>
