@@ -8,8 +8,6 @@ import FullscreenButton from "./components/FullscreenButton.svelte";
 import ShareButton from "./components/ShareButton.svelte";
 import YouTube from "./components/YouTube.svelte";
 
-import { documentProps, documentPropsDir } from "./util/documentProps";
-
 export {
 	Chord,
 	CopyButton,
@@ -20,6 +18,4 @@ export {
 	FullscreenButton,
 	ShareButton,
 	YouTube,
-	documentProps,
-	documentPropsDir,
 };
