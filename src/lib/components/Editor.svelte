@@ -5,6 +5,20 @@
 
 Text editor with controls to add elements and keyboard shortcuts.
 
+@props
+
+- `buttonClass` - `class` of all the `button` elements
+- `contentElements` - an array of content elements for the controls
+- `controlsClass` - `class` of the `div` that wraps the controls
+- `controlsId` - `id` of the `div` that wraps the controls
+- `keyPairs` - keys that will auto-close if typed, value is their closing character
+- `selectionStart` - `selectionStart` value of the text area
+- `textAreaClass` - `class` of the `textarea` element
+- `textAreaId` - `id` of the `textarea` element
+- `textAreaName` - `name` of the `textarea` element
+- `textAreaPlaceholder` - `placeholder` of the `textarea` element
+- `textAreaValue` - `value` of the `textarea` element
+
 @example
 
 ```svelte

@@ -5,6 +5,14 @@
 
 Make the document or a specific element fullscreen.
 
+@props
+
+- `class` 
+- `confirmMessage` - message to display in the `confirm` popup, set this to empty string `""` to disable `confirm`
+- `id` 
+- `targetElement` - element to make fullscreen (defaults to `document.documentElement` upon mount)
+- `title` 
+
 @slots
 
 | name       | purpose                                        | default value        |
@@ -36,21 +44,18 @@ Make the document or a specific element fullscreen.
 <script lang="ts">
 	import { onMount } from "svelte";
 
+	let className = "";
+	export { className as class };
+
+	export let id = "";
+
+	export let title = "Fullscreen";
+
 	/** element to make fullscreen (defaults to `document.documentElement` upon mount) */
 	export let targetElement: HTMLElement | null = null;
 
 	/** message to display in the `confirm` popup, set this to empty string `""` to disable `confirm` */
 	export let confirmMessage = "";
-
-	/** button class */
-	let className = "";
-
-	/** button id */
-	let idName = "";
-
-	export { className as class, idName as id };
-
-	export let title = "Fullscreen";
 
 	let fullscreen = false;
 
@@ -76,7 +81,7 @@ Make the document or a specific element fullscreen.
 
 <svelte:window on:fullscreenchange={() => (fullscreen = !fullscreen)} />
 
-<button on:click={onClick} class={className} id={idName} {title}>
+<button on:click={onClick} class={className} {id} {title}>
 	{#if fullscreen}
 		<slot name="enabled">Exit Fullscreen</slot>
 	{:else}

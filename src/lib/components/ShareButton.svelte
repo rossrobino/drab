@@ -5,6 +5,14 @@
 
 Uses the navigator api to share or copy a url link depending on browser support.
 
+@props
+
+- `class` 
+- `id` 
+- `text` - prefixed text in share message
+- `title` - title of share message and button attribute
+- `url` - url to be shared
+
 @slots
 
 | name       | purpose                         | default value |
@@ -28,13 +36,10 @@ Uses the navigator api to share or copy a url link depending on browser support.
 -->
 
 <script lang="ts">
-	/** button class */
 	let className: string = "";
+	export { className as class };
 
-	/** button id */
-	let idName: string = "";
-
-	export { className as class, idName as id };
+	export let id: string = "";
 
 	/** prefixed text in share message */
 	export let text: string = "";
@@ -65,7 +70,7 @@ Uses the navigator api to share or copy a url link depending on browser support.
 	};
 </script>
 
-<button on:click={onClick} class={className} id={idName} {title}>
+<button on:click={onClick} class={className} {id} {title}>
 	{#if complete}
 		<slot name="complete">Copied</slot>
 	{:else}

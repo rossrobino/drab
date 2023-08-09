@@ -5,6 +5,15 @@
 
 Generates a guitar chord `svg`.
 
+@props
+
+- `class` 
+- `id` 
+- `name` - name of chord
+- `notes` - list of the positioning of the notes required for the chord
+- `size` - total size of chord square
+- `strings` - total number of strings for the instrument
+
 @example
 
 ```svelte
@@ -39,13 +48,10 @@ Generates a guitar chord `svg`.
 -->
 
 <script lang="ts">
-	/** svg class */
 	let className: string = "";
+	export { className as class };
 
-	/** svg id */
-	let idName: string = "";
-
-	export { className as class, idName as id };
+	export let id: string = "";
 
 	/** total number of strings for the instrument */
 	export let strings: number = 6;
@@ -180,7 +186,7 @@ Generates a guitar chord `svg`.
 		stroke="currentColor"
 		fill="currentColor"
 		class={className}
-		id={idName}
+		{id}
 	>
 		<title>{name}</title>
 

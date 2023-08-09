@@ -5,11 +5,18 @@
 
 Uses the navigator api to copy text to the clipboard.
 
+@props
+
+- `class` 
+- `id` 
+- `text` - text to copy
+- `title` 
+
 @slots
 
 | name       | purpose                         | default value |
 | ---------- | ------------------------------- | ------------- |
-| `default`  | default                         | `Copy`       |
+| `default`  | default                         | `Copy`        |
 | `complete` | displays after copy is complete | `Copied`      |
 
 @example
@@ -24,15 +31,11 @@ Uses the navigator api to copy text to the clipboard.
 -->
 
 <script lang="ts">
-	/** button class */
 	let className: string = "";
+	export { className as class };
 
-	/** button id */
-	let idName: string = "";
+	export let id: string = "";
 
-	export { className as class, idName as id };
-
-	/** button title */
 	export let title = "Copy";
 
 	/** text to copy */
@@ -53,7 +56,7 @@ Uses the navigator api to copy text to the clipboard.
 	};
 </script>
 
-<button on:click={copyText} class={className} id={idName} {title}>
+<button on:click={copyText} class={className} {id} {title}>
 	{#if complete}
 		<slot name="complete">Copied</slot>
 	{:else}

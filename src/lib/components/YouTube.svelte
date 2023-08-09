@@ -5,6 +5,15 @@
 
 Embeds a YouTube video into a website with the video `uid`, using [www.youtube-nocookie.com](https://support.google.com/youtube/answer/171780?hl=en#zippy=%2Cturn-on-privacy-enhanced-mode).
 
+@props
+
+- `autoplay` - auto-plays the video
+- `class` 
+- `id` 
+- `start` - start time (seconds)
+- `title` 
+- `uid` - unique YouTube id
+
 @example
 
 ```svelte
@@ -17,18 +26,14 @@ Embeds a YouTube video into a website with the video `uid`, using [www.youtube-n
 -->
 
 <script lang="ts">
-	/** iframe class */
 	let className: string = "";
+	export { className as class };
 
-	/** iframe id */
-	let idName: string = "";
+	export let id: string = "";
 
-	export { className as class, idName as id };
-
-	/** unique YouTube id*/
+	/** unique YouTube id */
 	export let uid: string;
 
-	/** iframe title */
 	export let title: string = "";
 
 	/** auto-plays the video */
@@ -40,7 +45,7 @@ Embeds a YouTube video into a website with the video `uid`, using [www.youtube-n
 
 <iframe
 	class={className}
-	id={idName}
+	{id}
 	src="https://www.youtube-nocookie.com/embed/{uid}?start={start}{autoplay
 		? '&autoplay=1'
 		: ''}"

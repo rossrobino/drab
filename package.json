@@ -1,12 +1,14 @@
 {
 	"name": "@rossrobino/components",
-	"version": "1.9.0",
+	"version": "1.9.1",
 	"description": "An unstyled Svelte component library",
 	"keywords": [
 		"components",
 		"Svelte",
 		"SvelteKit",
 		"Chord",
+		"Copy",
+		"DataTable",
 		"Editor",
 		"Fullscreen",
 		"Share",
@@ -21,7 +23,7 @@
 	"repository": "github:rossrobino/components",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "vite build && npm run package",
+		"build": "node src/lib/util/buildDocs.js && vite build && npm run package",
 		"preview": "vite preview",
 		"package": "svelte-kit sync && svelte-package && publint",
 		"prepublishOnly": "npm run package",
@@ -48,6 +50,7 @@
 		"@sveltejs/kit": "^1.22.4",
 		"@sveltejs/package": "^2.2.0",
 		"@tailwindcss/typography": "^0.5.9",
+		"@types/node": "^20.4.9",
 		"@typescript-eslint/eslint-plugin": "^6.3.0",
 		"@typescript-eslint/parser": "^6.3.0",
 		"autoprefixer": "^10.4.14",

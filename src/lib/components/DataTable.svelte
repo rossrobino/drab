@@ -5,6 +5,23 @@
 
 Data table to display an array of JS objects. Click a column header to sort.
 
+@props
+
+- `ascending` - default sort order
+- `columns` - table columns, in order
+- `data` - a list of objects to render in the table
+- `sortBy` - column to sort by--defaults to first column
+- `sortedTdClass` - currently sorted td
+- `sortedThClass` - currently sorted th
+- `tBodyClass` - tbody class
+- `tBodyTrClass` - tbody tr class
+- `tHeadClass` - thead class
+- `tHeadTrClass` - thead tr class
+- `tableClass` - table class
+- `tableId` - table id
+- `tdClass` - td class
+- `thClass` - th class
+
 @example
 
 ```svelte
