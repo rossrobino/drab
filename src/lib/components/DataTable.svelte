@@ -8,25 +8,25 @@ Data table to display an array of JS objects. Click a column header to sort.
 @props
 
 - `ascending` - default sort order
-- `buttonClass` - button class
+- `classButton` - button class
+- `classFooter` - footer class
+- `classPageControls` - class of `div` that wraps the "Previous" and "Next" buttons
+- `classPageNumber` - class of `div` wrapping page numbers
+- `classTable` - table class
+- `classTbodyTr` - tbody tr class
+- `classTbody` - tbody class
+- `classTdSorted` - currently sorted td
+- `classTd` - td class
+- `classThSorted` - currently sorted th
+- `classTh` - th class
+- `classTheadTr` - thead tr class
+- `classThead` - thead class
 - `columns` - table columns, in order
 - `currentPage` - current page, defaults to `1`
 - `data` - a list of objects to render in the table
-- `footerClass` - footer class
-- `pageControlsClass` - class of `div` that wraps the "Previous" and "Next" buttons
-- `pageNumberClass` - class of `div` wrapping page numbers
+- `idTable` - table id
 - `paginate` - number of rows to show on each page, defaults to `0` - no pagination
 - `sortBy` - column to sort by--defaults to first column
-- `sortedTdClass` - currently sorted td
-- `sortedThClass` - currently sorted th
-- `tBodyClass` - tbody class
-- `tBodyTrClass` - tbody tr class
-- `tHeadClass` - thead class
-- `tHeadTrClass` - thead tr class
-- `tableClass` - table class
-- `tableId` - table id
-- `tdClass` - td class
-- `thClass` - th class
 
 @slots
 
@@ -79,46 +79,46 @@ Data table to display an array of JS objects. Click a column header to sort.
 	export let ascending = true;
 
 	/** table class */
-	export let tableClass = "";
+	export let classTable = "";
 
 	/** table id */
-	export let tableId = "";
+	export let idTable = "";
 
 	/** thead class */
-	export let tHeadClass = "";
+	export let classThead = "";
 
 	/** tbody class */
-	export let tBodyClass = "";
+	export let classTbody = "";
 
 	/** thead tr class */
-	export let tHeadTrClass = "";
+	export let classTheadTr = "";
 
 	/** tbody tr class */
-	export let tBodyTrClass = "";
+	export let classTbodyTr = "";
 
 	/** th class */
-	export let thClass = "";
+	export let classTh = "";
 
 	/** td class */
-	export let tdClass = "";
+	export let classTd = "";
 
 	/** currently sorted th */
-	export let sortedThClass = "";
+	export let classThSorted = "";
 
 	/** currently sorted td */
-	export let sortedTdClass = "";
+	export let classTdSorted = "";
 
 	/** button class */
-	export let buttonClass = "";
+	export let classButton = "";
 
 	/** footer class */
-	export let footerClass = "";
+	export let classFooter = "";
 
 	/** class of `div` wrapping page numbers */
-	export let pageNumberClass = "";
+	export let classPageNumber = "";
 
 	/** class of `div` that wraps the "Previous" and "Next" buttons */
-	export let pageControlsClass = "";
+	export let classPageControls = "";
 
 	/** number of rows to show on each page, defaults to `0` - no pagination */
 	export let paginate = 0;
@@ -171,12 +171,12 @@ Data table to display an array of JS objects. Click a column header to sort.
 	sort(sortBy, false);
 </script>
 
-<table class={tableClass} id={tableId}>
-	<thead class={tHeadClass}>
-		<tr class={tHeadTrClass}>
+<table class={classTable} id={idTable}>
+	<thead class={classThead}>
+		<tr class={classTheadTr}>
 			{#each columns as column}
 				<th
-					class="{thClass} {sortBy === column ? sortedThClass : ''}"
+					class="{classTh} {sortBy === column ? classThSorted : ''}"
 					on:click={() => sort(column)}
 				>
 					{column}
@@ -184,14 +184,14 @@ Data table to display an array of JS objects. Click a column header to sort.
 			{/each}
 		</tr>
 	</thead>
-	<tbody class={tBodyClass}>
+	<tbody class={classTbody}>
 		{#each data as row, i}
 			{@const showRow =
 				i < paginate * currentPage && i >= paginate * (currentPage - 1)}
 			{#if paginate ? showRow : true}
-				<tr class={tBodyTrClass}>
+				<tr class={classTbodyTr}>
 					{#each columns as column}
-						<td class="{tdClass} {sortBy === column ? sortedTdClass : ''}">
+						<td class="{classTd} {sortBy === column ? classTdSorted : ''}">
 							{row[column]}
 						</td>
 					{/each}
@@ -202,18 +202,18 @@ Data table to display an array of JS objects. Click a column header to sort.
 </table>
 
 {#if paginate}
-	<div class={footerClass}>
-		<div class={pageNumberClass}>{currentPage} / {numberOfPages}</div>
-		<div class={pageControlsClass}>
+	<div class={classFooter}>
+		<div class={classPageNumber}>{currentPage} / {numberOfPages}</div>
+		<div class={classPageControls}>
 			<button
-				class={buttonClass}
+				class={classButton}
 				disabled={currentPage < 2}
 				on:click={() => currentPage--}
 			>
 				<slot name="previous">Previous</slot>
 			</button>
 			<button
-				class={buttonClass}
+				class={classButton}
 				disabled={currentPage >= numberOfPages}
 				on:click={() => currentPage++}
 			>

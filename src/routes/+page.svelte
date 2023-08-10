@@ -173,21 +173,21 @@
 					]}
 					sortBy="make"
 					paginate={4}
-					thClass="cursor-pointer uppercase"
-					sortedThClass="underline"
-					tBodyTrClass="transition hover:bg-gray-50"
-					footerClass="flex justify-between items-center"
-					buttonClass="btn"
+					classTh="cursor-pointer uppercase"
+					classThSorted="underline"
+					classTbodyTr="transition hover:bg-gray-50"
+					classFooter="flex justify-between items-center"
+					classButton="btn"
 				/>
 			</div>
 
 			<h3 id="editor">Editor</h3>
 
 			<Editor
-				buttonClass="btn"
-				controlsClass="flex gap-2"
-				textAreaClass="border w-full h-36 p-2 rounded"
-				textAreaPlaceholder="asterisk: ctrl+i, anchor: ctrl+["
+				classButton="btn"
+				classControls="flex gap-2"
+				classTextarea="border w-full h-36 p-2 rounded"
+				placeholderTextarea="asterisk: ctrl+i, anchor: ctrl+["
 				contentElements={[
 					{
 						name: "Bullet",

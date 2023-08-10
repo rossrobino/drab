@@ -1,6 +1,6 @@
 {
 	"name": "drab",
-	"version": "1.10.1",
+	"version": "2.0.0",
 	"description": "An unstyled Svelte component library",
 	"keywords": [
 		"components",

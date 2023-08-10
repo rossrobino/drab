@@ -7,17 +7,17 @@ Text editor with controls to add elements and keyboard shortcuts.
 
 @props
 
-- `buttonClass` - `class` of all the `button` elements
+- `classButton` - `class` of all the `button` elements
+- `classControls` - `class` of the `div` that wraps the controls
+- `classTextarea` - `class` of the `textarea` element
 - `contentElements` - an array of content elements for the controls
-- `controlsClass` - `class` of the `div` that wraps the controls
-- `controlsId` - `id` of the `div` that wraps the controls
+- `idControls` - `id` of the `div` that wraps the controls
+- `idTextarea` - `id` of the `textarea` element
 - `keyPairs` - keys that will auto-close if typed, value is their closing character
+- `nameTextarea` - `name` of the `textarea` element
+- `placeholderTextarea` - `placeholder` of the `textarea` element
 - `selectionStart` - `selectionStart` value of the text area
-- `textAreaClass` - `class` of the `textarea` element
-- `textAreaId` - `id` of the `textarea` element
-- `textAreaName` - `name` of the `textarea` element
-- `textAreaPlaceholder` - `placeholder` of the `textarea` element
-- `textAreaValue` - `value` of the `textarea` element
+- `valueTextarea` - `value` of the `textarea` element
 
 @example
 
@@ -87,28 +87,28 @@ Text editor with controls to add elements and keyboard shortcuts.
 	export let contentElements: EditorContentElement[] = [];
 
 	/** `value` of the `textarea` element */
-	export let textAreaValue = "";
+	export let valueTextarea = "";
 
 	/** `placeholder` of the `textarea` element */
-	export let textAreaPlaceholder = "";
+	export let placeholderTextarea = "";
 
 	/** `class` of the `textarea` element */
-	export let textAreaClass = "";
+	export let classTextarea = "";
 
 	/** `id` of the `textarea` element */
-	export let textAreaId = "";
+	export let idTextarea = "";
 
 	/** `name` of the `textarea` element */
-	export let textAreaName = "";
+	export let nameTextarea = "";
 
 	/** `class` of all the `button` elements */
-	export let buttonClass = "";
+	export let classButton = "";
 
 	/** `class` of the `div` that wraps the controls */
-	export let controlsClass = "";
+	export let classControls = "";
 
 	/** `id` of the `div` that wraps the controls */
-	export let controlsId = "";
+	export let idControls = "";
 
 	/** `selectionStart` value of the text area */
 	export let selectionStart = 0;
@@ -171,13 +171,13 @@ Text editor with controls to add elements and keyboard shortcuts.
 	) => {
 		if (el.display === "inline") {
 			// insert at current position
-			textAreaValue = `${textAreaValue.slice(0, selectionEnd)}${
+			valueTextarea = `${valueTextarea.slice(0, selectionEnd)}${
 				el.text
-			}${textAreaValue.slice(selectionEnd)}`;
+			}${valueTextarea.slice(selectionEnd)}`;
 		} else if (el.display === "wrap") {
-			textAreaValue = insertChar(textAreaValue, el.text, selectionStart);
-			textAreaValue = insertChar(
-				textAreaValue,
+			valueTextarea = insertChar(valueTextarea, el.text, selectionStart);
+			valueTextarea = insertChar(
+				valueTextarea,
 				keyPairs[el.text],
 				selectionEnd + el.text.length,
 			);
@@ -192,7 +192,7 @@ Text editor with controls to add elements and keyboard shortcuts.
 			} else {
 				lines[lineNumber] = el.text + lines[lineNumber];
 			}
-			textAreaValue = lines.join("\n");
+			valueTextarea = lines.join("\n");
 		}
 	};
 
@@ -214,8 +214,8 @@ Text editor with controls to add elements and keyboard shortcuts.
 		let endPos = 0;
 		if (/[a-z]/i.test(text)) {
 			// if string contains letters, highlight the first word
-			for (let i = selectionEnd; i < textAreaValue.length; i++) {
-				if (textAreaValue[i].match(/[a-z]/i)) {
+			for (let i = selectionEnd; i < valueTextarea.length; i++) {
+				if (valueTextarea[i].match(/[a-z]/i)) {
 					if (!startPos) {
 						startPos = i;
 					} else {
@@ -257,18 +257,18 @@ Text editor with controls to add elements and keyboard shortcuts.
 	 */
 	const onKeyDown = async (e: KeyboardEvent) => {
 		const resetKeys = ["ArrowUp", "ArrowDown", "Delete"];
-		const nextChar = textAreaValue[textArea.selectionEnd];
+		const nextChar = valueTextarea[textArea.selectionEnd];
 		if (resetKeys.includes(e.key)) {
 			// reset
 			openChars = [];
 		} else if (e.key === "Backspace") {
-			const prevChar = textAreaValue[textArea.selectionStart - 1];
+			const prevChar = valueTextarea[textArea.selectionStart - 1];
 			if (prevChar in keyPairs && nextChar === keyPairs[prevChar]) {
 				e.preventDefault();
 				const start = textArea.selectionStart - 1;
 				const end = textArea.selectionEnd - 1;
-				textAreaValue = removeChar(textAreaValue, start);
-				textAreaValue = removeChar(textAreaValue, end);
+				valueTextarea = removeChar(valueTextarea, start);
+				valueTextarea = removeChar(valueTextarea, end);
 				setTimeout(() => {
 					textArea.setSelectionRange(start, end);
 				}, 0);
@@ -282,7 +282,7 @@ Text editor with controls to add elements and keyboard shortcuts.
 				const newPos = textArea.selectionStart - 1;
 				const { lineNumber } = getLineInfo();
 				correctFollowing(lineNumber, true);
-				textAreaValue = removeChar(textAreaValue, newPos);
+				valueTextarea = removeChar(valueTextarea, newPos);
 				setTimeout(async () => {
 					textArea.setSelectionRange(newPos, newPos);
 				}, 0);
@@ -324,8 +324,8 @@ Text editor with controls to add elements and keyboard shortcuts.
 				const selectionEnd = textArea.selectionEnd;
 				const newPos = selectionEnd - original.length;
 				for (let i = 0; i < original.length; i++) {
-					textAreaValue = removeChar(
-						textAreaValue,
+					valueTextarea = removeChar(
+						valueTextarea,
 						textArea.selectionEnd - (i + 1),
 					);
 				}
@@ -378,13 +378,13 @@ Text editor with controls to add elements and keyboard shortcuts.
 	 */
 	const trimSelection = () => {
 		if (textArea.selectionStart !== textArea.selectionEnd) {
-			if (textAreaValue[textArea.selectionStart] === " ") {
+			if (valueTextarea[textArea.selectionStart] === " ") {
 				textArea.setSelectionRange(
 					textArea.selectionStart + 1,
 					textArea.selectionEnd,
 				);
 			}
-			if (textAreaValue[textArea.selectionEnd - 1] === " ") {
+			if (valueTextarea[textArea.selectionEnd - 1] === " ") {
 				textArea.setSelectionRange(
 					textArea.selectionStart,
 					textArea.selectionEnd - 1,
@@ -407,7 +407,7 @@ Text editor with controls to add elements and keyboard shortcuts.
 	 * ```
 	 */
 	const getLineInfo = () => {
-		const lines = textAreaValue.split("\n");
+		const lines = valueTextarea.split("\n");
 		let characterCount = 0;
 		for (let i = 0; i < lines.length; i++) {
 			// for each line
@@ -433,7 +433,7 @@ Text editor with controls to add elements and keyboard shortcuts.
 	 * @returns current block (index) of selectionStart
 	 */
 	const getCurrentBlock = () => {
-		const blocks = textAreaValue.split("```");
+		const blocks = valueTextarea.split("```");
 		let totalChars = 0;
 		for (const [i, block] of blocks.entries()) {
 			totalChars += block.length + 3;
@@ -519,19 +519,19 @@ Text editor with controls to add elements and keyboard shortcuts.
 				lines[i] = String(newNum) + lines[i];
 			}
 		}
-		textAreaValue = lines.join("\n");
+		valueTextarea = lines.join("\n");
 	};
 </script>
 
 <textarea
-	id={textAreaId}
-	class={textAreaClass}
-	name={textAreaName}
-	placeholder={textAreaPlaceholder}
+	id={idTextarea}
+	class={classTextarea}
+	name={nameTextarea}
+	placeholder={placeholderTextarea}
 	on:keydown={onKeyDown}
 	on:keyup={updateSelectionStart}
 	on:dblclick={trimSelection}
-	bind:value={textAreaValue}
+	bind:value={valueTextarea}
 	bind:this={textArea}
 	on:click={() => {
 		openChars = [];
@@ -539,10 +539,10 @@ Text editor with controls to add elements and keyboard shortcuts.
 	}}
 	on:input
 />
-<div id={controlsId} class={controlsClass}>
+<div id={idControls} class={classControls}>
 	{#each contentElements as el}
 		<button
-			class={el.class ? `${buttonClass} ${el.class}` : buttonClass}
+			class={el.class ? `${classButton} ${el.class}` : classButton}
 			on:click={() => addContent(el)}
 			title={el.name}
 			aria-label={el.name}
