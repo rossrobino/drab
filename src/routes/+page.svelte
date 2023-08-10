@@ -158,20 +158,28 @@
 
 			<h3 id="datatable">DataTable</h3>
 
-			<DataTable
-				data={[
-					{ make: "Honda", model: "CR-V", year: 2011, awd: true },
-					{ make: "Volvo", model: "XC-40", year: 2024, awd: true },
-					{ make: "Ferrari", model: "458 Italia", year: 2015, awd: false },
-					{ make: "Chevrolet", model: "Silverado", year: 2022, awd: true },
-					{ make: "Ford", model: "Model A", year: 1931, awd: false },
-				]}
-				sortBy="year"
-				tableClass="tabular-nums"
-				thClass="cursor-pointer uppercase"
-				sortedThClass="underline"
-				tBodyTrClass="transition hover:bg-gray-50"
-			/>
+			<div class="tabular-nums">
+				<DataTable
+					data={[
+						{ make: "Honda", model: "CR-V", year: 2011, awd: true },
+						{ make: "Volvo", model: "XC-40", year: 2024, awd: true },
+						{ make: "Ferrari", model: "458 Italia", year: 2015, awd: false },
+						{ make: "Chevrolet", model: "Silverado", year: 2022, awd: true },
+						{ make: "Ford", model: "Model A", year: 1931, awd: false },
+						{ make: "Subaru", model: "Outback", year: 2021, awd: true },
+						{ make: "Ford", model: "Bronco", year: 1970, awd: true },
+						{ make: "GMC", model: "Acadia", year: 2008, awd: true },
+						{ make: "BMW", model: "X3", year: 2023, awd: true },
+					]}
+					sortBy="make"
+					paginate={4}
+					thClass="cursor-pointer uppercase"
+					sortedThClass="underline"
+					tBodyTrClass="transition hover:bg-gray-50"
+					footerClass="flex justify-between items-center"
+					buttonClass="btn"
+				/>
+			</div>
 
 			<h3 id="editor">Editor</h3>
 
@@ -239,6 +247,6 @@
 
 <style lang="postcss">
 	:global(.btn) {
-		@apply rounded bg-teal-700 px-3 py-1 text-white transition hover:bg-teal-800 active:scale-95;
+		@apply rounded bg-teal-700 px-3 py-1 text-white transition hover:bg-teal-800 active:scale-95 disabled:cursor-not-allowed disabled:bg-gray-500;
 	}
 </style>

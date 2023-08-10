@@ -8,8 +8,14 @@ Data table to display an array of JS objects. Click a column header to sort.
 @props
 
 - `ascending` - default sort order
+- `buttonClass` - button class
 - `columns` - table columns, in order
+- `currentPage` - current page, defaults to `1`
 - `data` - a list of objects to render in the table
+- `footerClass` - footer class
+- `pageControlsClass` - class of `div` that wraps the "Previous" and "Next" buttons
+- `pageNumberClass` - class of `div` wrapping page numbers
+- `paginate` - number of rows to show on each page, defaults to `0` - no pagination
 - `sortBy` - column to sort by--defaults to first column
 - `sortedTdClass` - currently sorted td
 - `sortedThClass` - currently sorted th
@@ -21,6 +27,13 @@ Data table to display an array of JS objects. Click a column header to sort.
 - `tableId` - table id
 - `tdClass` - td class
 - `thClass` - th class
+
+@slots
+
+| name       | purpose                  | default value |
+| ---------- | ------------------------ | ------------- |
+| `previous` | previous button contents | `Previous`    |
+| `next`     | next button contents     | `Next`        |
 
 @example
 
@@ -37,7 +50,7 @@ Data table to display an array of JS objects. Click a column header to sort.
 		{ make: "Chevrolet", model: "Silverado", year: 2022, awd: true },
 		{ make: "Ford", model: "Model A", year: 1931, awd: false },
 	]}
-	sortBy="year"
+	sortBy="make"
 />
 ```
 -->
@@ -49,8 +62,6 @@ Data table to display an array of JS objects. Click a column header to sort.
 </script>
 
 <script lang="ts">
-	import { onMount } from "svelte";
-
 	/** a list of objects to render in the table */
 	export let data: DataTableRow<any>[];
 
@@ -97,6 +108,26 @@ Data table to display an array of JS objects. Click a column header to sort.
 	/** currently sorted td */
 	export let sortedTdClass = "";
 
+	/** button class */
+	export let buttonClass = "";
+
+	/** footer class */
+	export let footerClass = "";
+
+	/** class of `div` wrapping page numbers */
+	export let pageNumberClass = "";
+
+	/** class of `div` that wraps the "Previous" and "Next" buttons */
+	export let pageControlsClass = "";
+
+	/** number of rows to show on each page, defaults to `0` - no pagination */
+	export let paginate = 0;
+
+	/** current page, defaults to `1` */
+	export let currentPage = 1;
+
+	$: numberOfPages = Math.floor(data.length / paginate) + 1;
+
 	/**
 	 * - sorts the data the specified column
 	 *
@@ -137,9 +168,7 @@ Data table to display an array of JS objects. Click a column header to sort.
 		sortBy = column;
 	};
 
-	onMount(() => {
-		sort(sortBy, false);
-	});
+	sort(sortBy, false);
 </script>
 
 <table class={tableClass} id={tableId}>
@@ -156,14 +185,40 @@ Data table to display an array of JS objects. Click a column header to sort.
 		</tr>
 	</thead>
 	<tbody class={tBodyClass}>
-		{#each data as row}
-			<tr class={tBodyTrClass}>
-				{#each columns as column}
-					<td class="{tdClass} {sortBy === column ? sortedTdClass : ''}">
-						{row[column]}
-					</td>
-				{/each}
-			</tr>
+		{#each data as row, i}
+			{@const showRow =
+				i < paginate * currentPage && i >= paginate * (currentPage - 1)}
+			{#if paginate ? showRow : true}
+				<tr class={tBodyTrClass}>
+					{#each columns as column}
+						<td class="{tdClass} {sortBy === column ? sortedTdClass : ''}">
+							{row[column]}
+						</td>
+					{/each}
+				</tr>
+			{/if}
 		{/each}
 	</tbody>
 </table>
+
+{#if paginate}
+	<div class={footerClass}>
+		<div class={pageNumberClass}>{currentPage} / {numberOfPages}</div>
+		<div class={pageControlsClass}>
+			<button
+				class={buttonClass}
+				disabled={currentPage < 2}
+				on:click={() => currentPage--}
+			>
+				<slot name="previous">Previous</slot>
+			</button>
+			<button
+				class={buttonClass}
+				disabled={currentPage >= numberOfPages}
+				on:click={() => currentPage++}
+			>
+				<slot name="next">Next</slot>
+			</button>
+		</div>
+	</div>
+{/if}
