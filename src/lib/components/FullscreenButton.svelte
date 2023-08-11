@@ -62,8 +62,8 @@ Make the document or a specific element fullscreen.
 	/** noscript class */
 	export let classNoscript = "";
 
-	/** set to true on the client */
-	let clientJs = false;
+	/** set to true on the client if supported */
+	let supported = false;
 
 	let fullscreen = false;
 
@@ -83,14 +83,15 @@ Make the document or a specific element fullscreen.
 	};
 
 	onMount(() => {
-		clientJs = true;
+		// @ts-expect-error - not supported on some devices
+		if (document.documentElement.requestFullscreen) supported = true;
 		if (!targetElement) targetElement = document.documentElement;
 	});
 </script>
 
 <svelte:window on:fullscreenchange={() => (fullscreen = !fullscreen)} />
 
-<button disabled={!clientJs} on:click={onClick} class={className} {id} {title}>
+<button disabled={!supported} on:click={onClick} class={className} {id} {title}>
 	{#if fullscreen}
 		<slot name="enabled">Exit Fullscreen</slot>
 	{:else}

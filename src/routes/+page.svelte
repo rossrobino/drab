@@ -13,6 +13,8 @@
 	import ShareButton from "$lib/components/ShareButton.svelte";
 	import YouTube from "$lib/components/YouTube.svelte";
 
+	export let data;
+
 	let fullscreenDiv: HTMLDivElement;
 </script>
 
@@ -33,109 +35,9 @@
 
 			<h2 class="lg:mt-2">An unstyled Svelte component library</h2>
 
-			<ul>
-				<li><a href="https://github.com/rossrobino/drab">GitHub</a></li>
-				<li>
-					<a href="https://www.npmjs.com/package/drab">npm</a>
-				</li>
-				<li>
-					<a href="https://github.com/rossrobino/drab/blob/main/LICENSE.md">
-						MIT License
-					</a>
-				</li>
-
-				<li>
-					One dependency -
-					<a href="https://svelte.dev">Svelte</a>
-				</li>
-			</ul>
-
-			<h2>About</h2>
-
-			<p>
-				JavaScript fuels the operation of the web and this library is designed
-				to provide that functionality where it makes sense. Components that can
-				be more easily created by using HTML, such as a label or a text input,
-				are not included. Components are progressively enhanced wherever
-				feasible, or provide a fallback
-				<a
-					href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript"
-				>
-					noscript
-				</a>
-				message. Disable JavaScript on this page to test them out!
-			</p>
-
-			<p>
-				While components without styles can appear rather plain, having many
-				websites look similar can also lead to a monotonous visual experience.
-				In both cases, the word "drab" becomes quite fitting. You bring the
-				styles for these components! Components can be styled by
-				<a href="https://joyofcode.xyz/global-styles-in-sveltekit"
-					>using global styles</a
-				>. This can be fast-tracked by using a CSS framework like
-				<a href="https://tailwindcss.com/">TailwindCSS</a>, Tailwind builds a
-				global stylesheet based on the classes utilized in the project. Each
-				component exports <code>class</code> and <code>id</code> props to
-				utilize for this purpose. If the component has multiple elements,
-				multiple <code>class</code> and
-				<code>id</code> props are available for each element.
-			</p>
-
-			<h2>Getting Started</h2>
-
-			<p>Pick a framework.</p>
-
-			<h4><a href="https://kit.svelte.dev">SvelteKit</a></h4>
-
-			<pre>npm create svelte@latest</pre>
-
-			<h4>
-				<a href="https://docs.astro.build/en/tutorial/1-setup/2/">Astro</a>
-			</h4>
-
-			<pre>npm create astro@latest</pre>
-
-			<h4><a href="https://vitejs.dev/guide/">Vite</a></h4>
-
-			<pre>npm create vite@latest</pre>
-
-			<p>
-				Install the package (recommended) or copy and paste the <a
-					href="https://github.com/rossrobino/drab/tree/main/src/lib/components"
-					>components</a
-				>.
-			</p>
-
-			<pre>npm install -D drab</pre>
-
-			<pre>import &#123; Component &#125; from "drab";</pre>
-
-			<h2>Components</h2>
+			{@html data.html}
 
 			<ul class="pl-0 lg:hidden"><NavItems /></ul>
-
-			<p>
-				Components are documented inline. View the
-				<a
-					href="https://github.com/rossrobino/drab/tree/main/src/lib/components"
-				>
-					source
-				</a>
-				or hover over the component in a text editor after importing to see the documentation.
-			</p>
-
-			<p>
-				View the
-				<a
-					href="https://github.com/rossrobino/drab/blob/main/src/routes/%2Bpage.svelte"
-				>
-					source
-				</a>
-				for this page to see the
-				<a href="https://tailwindcss.com/">TailwindCSS</a>
-				styles used.
-			</p>
 
 			<h3 id="chord">Chord</h3>
 
