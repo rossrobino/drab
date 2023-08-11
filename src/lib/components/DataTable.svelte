@@ -10,6 +10,7 @@ Data table to display an array of JS objects. Click a column header to sort.
 - `ascending` - default sort order
 - `classButton` - button class
 - `classFooter` - footer class
+- `classNoscript` - noscript class
 - `classPageControls` - class of `div` that wraps the "Previous" and "Next" buttons
 - `classPageNumber` - class of `div` wrapping page numbers
 - `classTable` - table class
@@ -62,6 +63,9 @@ Data table to display an array of JS objects. Click a column header to sort.
 </script>
 
 <script lang="ts">
+	import { messageNoScript } from "$lib/util/messages";
+	import { onMount } from "svelte";
+
 	/** a list of objects to render in the table */
 	export let data: DataTableRow<any>[];
 
@@ -126,6 +130,12 @@ Data table to display an array of JS objects. Click a column header to sort.
 	/** current page, defaults to `1` */
 	export let currentPage = 1;
 
+	/** noscript class */
+	export let classNoscript = "";
+
+	/** set to true on the client */
+	let clientJs = false;
+
 	$: numberOfPages = Math.floor(data.length / paginate) + 1;
 
 	/**
@@ -169,6 +179,8 @@ Data table to display an array of JS objects. Click a column header to sort.
 	};
 
 	sort(sortBy, false);
+
+	onMount(() => (clientJs = true));
 </script>
 
 <table class={classTable} id={idTable}>
@@ -207,18 +219,24 @@ Data table to display an array of JS objects. Click a column header to sort.
 		<div class={classPageControls}>
 			<button
 				class={classButton}
-				disabled={currentPage < 2}
+				disabled={!clientJs || currentPage < 2}
 				on:click={() => currentPage--}
 			>
 				<slot name="previous">Previous</slot>
 			</button>
 			<button
 				class={classButton}
-				disabled={currentPage >= numberOfPages}
+				disabled={!clientJs || currentPage >= numberOfPages}
 				on:click={() => currentPage++}
 			>
 				<slot name="next">Next</slot>
 			</button>
 		</div>
 	</div>
+
+	<noscript>
+		<div class={classNoscript}>
+			{messageNoScript}
+		</div>
+	</noscript>
 {/if}

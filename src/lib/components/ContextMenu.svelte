@@ -7,6 +7,7 @@ Displays when the parent element is right clicked.
 
 @props
 
+- `classNoscript` - noscript class
 - `class` 
 - `display` - controls `display` css property
 - `id` 
@@ -49,22 +50,32 @@ Displays when the parent element is right clicked.
 	/** controls `display` css property */
 	export let display = false;
 
+	/** noscript class */
+	export let classNoscript = "";
+
 	let contextMenu: HTMLDivElement;
 
-	let position: { x: number; y: number } = { x: 0, y: 0 };
+	let coordinates: { x: number; y: number } = { x: 0, y: 0 };
 
 	const hide = () => (display = false);
 
-	onMount(() => {
-		const parent = contextMenu.parentElement;
+	const onKeyDown = (e: KeyboardEvent) => {
+		if (e.key === "Escape") {
+			display = false;
+		}
+	};
 
-		if (parent) {
-			parent.addEventListener("contextmenu", async (e) => {
+	onMount(() => {
+		const parentElement = contextMenu.parentElement;
+
+		if (parentElement) {
+			parentElement.addEventListener("contextmenu", async (e) => {
 				if (contextMenu) {
 					e.preventDefault();
 					const scrollY = window.scrollY;
-					position.x = e.clientX;
-					position.y = e.clientY + scrollY;
+					const scrollX = window.scrollX;
+					coordinates.x = e.clientX + scrollX;
+					coordinates.y = e.clientY + scrollY;
 					display = true;
 
 					await tick(); // wait for menu to show
@@ -75,11 +86,11 @@ Displays when the parent element is right clicked.
 					const innerHeight = window.innerHeight;
 
 					// ensure menu is within view
-					if (position.x + offsetWidth > innerWidth) {
-						position.x = innerWidth - offsetWidth;
+					if (coordinates.x + offsetWidth > scrollX + innerWidth) {
+						coordinates.x = scrollX + innerWidth - offsetWidth;
 					}
-					if (position.y + offsetHeight > scrollY + innerHeight) {
-						position.y = scrollY + innerHeight - offsetHeight;
+					if (coordinates.y + offsetHeight > scrollY + innerHeight) {
+						coordinates.y = scrollY + innerHeight - offsetHeight;
 					}
 				}
 			});
@@ -87,21 +98,29 @@ Displays when the parent element is right clicked.
 	});
 </script>
 
-<svelte:document on:click={hide} />
+<svelte:document on:click={hide} on:keydown={onKeyDown} />
 
 <div
 	class={className}
 	{id}
 	bind:this={contextMenu}
-	style="display: {display
-		? 'block'
-		: 'none'}; top: {position.y}px; left: {position.x}px;"
+	style:z-index={display ? "10" : "-10"}
+	style:opacity={display ? "100%" : "0%"}
+	style:top="{coordinates.y}px"
+	style:left="{coordinates.x}px"
 >
 	<slot>Context Menu</slot>
 </div>
 
+<noscript>
+	<div class={classNoscript}>
+		<slot />
+	</div>
+</noscript>
+
 <style>
 	div {
 		position: absolute;
+		z-index: 1;
 	}
 </style>

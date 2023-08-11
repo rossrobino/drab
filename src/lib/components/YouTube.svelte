@@ -26,15 +26,15 @@ Embeds a YouTube video into a website with the video `uid`, using [www.youtube-n
 -->
 
 <script lang="ts">
-	let className: string = "";
+	let className = "";
 	export { className as class };
 
-	export let id: string = "";
+	export let id = "";
 
 	/** unique YouTube id */
 	export let uid: string;
 
-	export let title: string = "";
+	export let title = "";
 
 	/** auto-plays the video */
 	export let autoplay = false;

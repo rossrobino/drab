@@ -47,34 +47,8 @@ Generates a guitar chord `svg`.
 ```
 -->
 
-<script lang="ts">
-	let className: string = "";
-	export { className as class };
-
-	export let id: string = "";
-
-	/** total number of strings for the instrument */
-	export let strings: number = 6;
-
-	/** name of chord */
-	export let name: string = "";
-
-	/** total size of chord square */
-	export let size: number = 200;
-
-	/** size of inner box */
-	const boxSize: number = size * 0.61;
-
-	/** offset the inner box */
-	const offset: number = (size - boxSize) / 2;
-
-	/** line width */
-	const strokeWidth: number = size / 60;
-
-	/** list of strings to calculate positioning */
-	const stringList: number[] = Array.from(Array(strings).keys());
-
-	interface Note {
+<script lang="ts" context="module">
+	export interface ChordNote {
 		/** recommended finger to use */
 		finger: number | string;
 
@@ -84,15 +58,43 @@ Generates a guitar chord `svg`.
 		/** fret number */
 		fret: number;
 	}
+</script>
+
+<script lang="ts">
+	let className = "";
+	export { className as class };
+
+	export let id = "";
+
+	/** total number of strings for the instrument */
+	export let strings = 6;
+
+	/** name of chord */
+	export let name = "";
+
+	/** total size of chord square */
+	export let size = 200;
+
+	/** size of inner box */
+	const boxSize = size * 0.61;
+
+	/** offset the inner box */
+	const offset = (size - boxSize) / 2;
+
+	/** line width */
+	const strokeWidth = size / 60;
+
+	/** list of strings to calculate positioning */
+	const stringList = Array.from(Array(strings).keys());
 
 	/** list of the positioning of the notes required for the chord */
-	export let notes: Note[] = [];
+	export let notes: ChordNote[] = [];
 
 	/** deep copy of notes to edit -- necessary when high frets are used */
-	let notesList: Note[] = structuredClone(notes);
+	let notesList = structuredClone(notes);
 
 	/** used to determine if unused need to be added */
-	const usedStrings: number[] = notesList.map((note) => note.string);
+	const usedStrings = notesList.map((note) => note.string);
 
 	// add missing missing strings
 	for (let i = 1; i < strings + 1; i++) {
@@ -106,25 +108,23 @@ Generates a guitar chord `svg`.
 	}
 
 	/** map of just the frets required for the chord */
-	const frets: number[] = notesList
-		.map((note) => note.fret)
-		.filter((fret) => fret !== 0); // filter out open strings
+	const frets = notesList.map((note) => note.fret).filter((fret) => fret !== 0); // filter out open strings
 
 	// in case of open notes only
 	if (!frets.length) frets.push(0);
 
 	/** highest fret required for the chord */
-	const highFret: number = Math.max(...frets);
+	const highFret = Math.max(...frets);
 
 	/** lowest fret required for the chord */
-	const lowFret: number = Math.min(...frets);
+	const lowFret = Math.min(...frets);
 
 	/** number of frets shown on the chart */
-	let fretRange: number = highFret - lowFret + 1;
+	let fretRange = highFret - lowFret + 1;
 	if (fretRange < 5) fretRange = 5; // minimum = 5
 
 	/** first (upper most) fret on the chord chart */
-	let firstFret: number = lowFret;
+	let firstFret = lowFret;
 
 	if (firstFret < 4 && highFret < 5) {
 		firstFret = 1; // default to 1
@@ -140,14 +140,14 @@ Generates a guitar chord `svg`.
 	}
 
 	/** how large each note circle is */
-	const circleRadius: number = boxSize / fretRange / 2.3;
+	const circleRadius = boxSize / fretRange / 2.3;
 
 	/**
 	 * - calculates X position based on the string number
 	 *
 	 * @param string - string number
 	 */
-	const stringX = (string: number): number => {
+	const stringX = (string: number) => {
 		return (boxSize / (strings - 1)) * string + offset;
 	};
 
@@ -156,7 +156,7 @@ Generates a guitar chord `svg`.
 	 *
 	 * @param fret - fret number
 	 */
-	const fretY = (fret: number): number => {
+	const fretY = (fret: number) => {
 		return (boxSize / fretRange) * fret + offset;
 	};
 
@@ -165,7 +165,7 @@ Generates a guitar chord `svg`.
 	 *
 	 * @param string - string number
 	 */
-	const noteX = (string: number): number => {
+	const noteX = (string: number) => {
 		return boxSize + offset - (boxSize / (strings - 1)) * (string - 1);
 	};
 
@@ -174,7 +174,7 @@ Generates a guitar chord `svg`.
 	 *
 	 * @param fret - fret number
 	 */
-	const noteY = (fret: number): number => {
+	const noteY = (fret: number) => {
 		return (boxSize / fretRange) * fret + offset / 2 - boxSize / fretRange / 2;
 	};
 </script>

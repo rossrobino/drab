@@ -7,10 +7,11 @@ Uses the navigator api to share or copy a url link depending on browser support.
 
 @props
 
+- `classNoscript` - noscript class
 - `class` 
 - `id` 
 - `text` - prefixed text in share message
-- `title` - title of share message and button attribute
+- `title` - title of share message and button attribute, defaults to end of url
 - `url` - url to be shared
 
 @slots
@@ -36,22 +37,30 @@ Uses the navigator api to share or copy a url link depending on browser support.
 -->
 
 <script lang="ts">
-	let className: string = "";
+	import { onMount } from "svelte";
+
+	let className = "";
 	export { className as class };
 
-	export let id: string = "";
+	export let id = "";
 
 	/** prefixed text in share message */
-	export let text: string = "";
+	export let text = "";
 
 	/** url to be shared */
 	export let url: string;
 
-	/** title of share message and button attribute */
-	export let title: string = url.split("/").splice(-1)[0]; // default end of url
+	/** title of share message and button attribute, defaults to end of url */
+	export let title = url.split("/").splice(-1)[0];
+
+	/** noscript class */
+	export let classNoscript = "";
+
+	/** set to true on the client */
+	let clientJs = false;
 
 	/** changes button text after message is successfully copied */
-	let complete: boolean = false;
+	let complete = false;
 
 	/** tries to share if supported, copies the text otherwise */
 	const onClick = async () => {
@@ -68,12 +77,16 @@ Uses the navigator api to share or copy a url link depending on browser support.
 			console.log(error);
 		}
 	};
+
+	onMount(() => (clientJs = true));
 </script>
 
-<button on:click={onClick} class={className} {id} {title}>
+<button disabled={!clientJs} on:click={onClick} class={className} {id} {title}>
 	{#if complete}
 		<slot name="complete">Copied</slot>
 	{:else}
 		<slot>Share</slot>
 	{/if}
 </button>
+
+<noscript><span class={classNoscript}>{url}</span></noscript>

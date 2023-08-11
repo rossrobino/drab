@@ -9,6 +9,7 @@
 	import DataTable from "$lib/components/DataTable.svelte";
 	import Editor from "$lib/components/Editor.svelte";
 	import FullscreenButton from "$lib/components/FullscreenButton.svelte";
+	import Popover from "$lib/components/Popover.svelte";
 	import ShareButton from "$lib/components/ShareButton.svelte";
 	import YouTube from "$lib/components/YouTube.svelte";
 
@@ -16,17 +17,17 @@
 </script>
 
 <main class="m-4 lg:flex lg:justify-center">
-	<div class="lg:flex gap-12">
-		<nav class="prose prose-teal hidden lg:block -my-4">
-			<ul class="sticky top-0 list-none py-4 pr-6 h-screen overflow-y-auto">
+	<div class="gap-12 lg:flex">
+		<nav class="prose prose-teal -my-4 hidden lg:block">
+			<ul class="sticky top-0 h-screen list-none overflow-y-auto py-4 pr-6">
 				<h1 class="mb-6">
-					<a class="text-gray-950 no-underline font-bold" href="/">drab</a>
+					<a class="font-bold text-gray-950 no-underline" href="/">drab</a>
 				</h1>
 				<NavItems />
 			</ul>
 		</nav>
 		<div
-			class="prose prose-teal prose-h1:sm:text-4xl prose-h3:pt-8 prose-h3:mb-6 prose-h3:mt-12 prose-h3:border-t lg:min-w-[65ch] mb-16"
+			class="prose prose-teal mb-16 prose-h3:mb-6 prose-h3:mt-12 prose-h3:border-t prose-h3:pt-8 prose-h1:sm:text-4xl lg:min-w-[65ch]"
 		>
 			<h1 class="lg:hidden">drab</h1>
 
@@ -49,24 +50,70 @@
 				</li>
 			</ul>
 
-			<h2>Install</h2>
+			<h2>About</h2>
+
+			<p>
+				JavaScript fuels the operation of the web and this library is designed
+				to provide that functionality where it makes sense. Components that can
+				be more easily created by using HTML, such as a label or a text input,
+				are not included. Components are progressively enhanced wherever
+				feasible, or provide a fallback
+				<a
+					href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript"
+				>
+					noscript
+				</a>
+				message. Disable JavaScript on this page to test them out!
+			</p>
+
+			<p>
+				While components without styles can appear rather plain, having many
+				websites look similar can also lead to a monotonous visual experience.
+				In both cases, the word "drab" becomes quite fitting. You bring the
+				styles for these components! Components can be styled by
+				<a href="https://joyofcode.xyz/global-styles-in-sveltekit"
+					>using global styles</a
+				>. This can be fast-tracked by using a CSS framework like
+				<a href="https://tailwindcss.com/">TailwindCSS</a>, Tailwind builds a
+				global stylesheet based on the classes utilized in the project. Each
+				component exports <code>class</code> and <code>id</code> props to
+				utilize for this purpose. If the component has multiple elements,
+				multiple <code>class</code> and
+				<code>id</code> props are available for each element.
+			</p>
+
+			<h2>Getting Started</h2>
+
+			<p>Pick a framework.</p>
+
+			<h4><a href="https://kit.svelte.dev">SvelteKit</a></h4>
 
 			<pre>npm create svelte@latest</pre>
 
+			<h4>
+				<a href="https://docs.astro.build/en/tutorial/1-setup/2/">Astro</a>
+			</h4>
+
+			<pre>npm create astro@latest</pre>
+
+			<h4><a href="https://vitejs.dev/guide/">Vite</a></h4>
+
+			<pre>npm create vite@latest</pre>
+
 			<p>
-				Copy and paste the <a
+				Install the package (recommended) or copy and paste the <a
 					href="https://github.com/rossrobino/drab/tree/main/src/lib/components"
-				>
-					components
-				</a>
-				or install the package.
+					>components</a
+				>.
 			</p>
 
-			<pre>npm i -D drab</pre>
+			<pre>npm install -D drab</pre>
 
 			<pre>import &#123; Component &#125; from "drab";</pre>
 
-			<h2>Getting Started</h2>
+			<h2>Components</h2>
+
+			<ul class="pl-0 lg:hidden"><NavItems /></ul>
 
 			<p>
 				Components are documented inline. View the
@@ -75,24 +122,9 @@
 				>
 					source
 				</a>
-				or hover over the component in a text editor after importing to see available
-				props, slots, and examples.
+				or hover over the component in a text editor after importing to see the documentation.
 			</p>
 
-			<p>
-				This library aims to provide JavaScript functionality. Anything that can
-				be handled by HTML or CSS, such as a label, is not included. Each
-				component includes all elements needed for the component.
-			</p>
-
-			<p>
-				Style the components with global styles, each component exports
-				<code>class</code>
-				and
-				<code>id</code>
-				props. If the component has multiple elements, multiple props are available
-				for each element.
-			</p>
 			<p>
 				View the
 				<a
@@ -104,10 +136,6 @@
 				<a href="https://tailwindcss.com/">TailwindCSS</a>
 				styles used.
 			</p>
-
-			<h2>Components</h2>
-
-			<ul class="pl-0 lg:hidden"><NavItems /></ul>
 
 			<h3 id="chord">Chord</h3>
 
@@ -140,10 +168,10 @@
 
 			<h3 id="contextmenu">Context Menu</h3>
 
-			<div class="p-12 border border-dashed flex justify-center rounded">
+			<div class="flex justify-center rounded border border-dashed p-12">
 				<div>Right click here</div>
-				<ContextMenu class="rounded shadow p-2 bg-white">
-					<div class="flex flex-col gap-2 not-prose w-48">
+				<ContextMenu class="transition">
+					<div class="card flex w-48 flex-col gap-2">
 						<div class="font-bold">Context Menu</div>
 						<button class="btn">Button</button>
 						<button class="btn">Button</button>
@@ -215,14 +243,45 @@
 
 			<h3 id="fullscreenbutton">FullscreenButton</h3>
 
-			<FullscreenButton class="mb-4 btn" />
+			<FullscreenButton class="btn" />
 
-			<div bind:this={fullscreenDiv} class="bg-gray-800 p-4 rounded">
-				<div class="mb-2 text-gray-50">Target element fullscreen</div>
+			<div
+				bind:this={fullscreenDiv}
+				class="mt-4 rounded bg-gray-800 p-4 text-gray-50"
+			>
+				<div class="mb-2">Target element fullscreen</div>
 				<FullscreenButton targetElement={fullscreenDiv} class="btn">
+					<span>Enable Element Fullscreen</span>
 					<span slot="enabled">Exit Element Fullscreen</span>
-					<span slot="disabled">Enable Element Fullscreen</span>
 				</FullscreenButton>
+			</div>
+
+			<h3 id="popover">Popover</h3>
+
+			<div class="flex gap-4">
+				<Popover classButton="btn" classPopover="p-2 transition">
+					<span slot="button">Hover</span>
+					<div class="card flex w-48 flex-col gap-2">
+						<div class="font-bold">Bottom</div>
+						<button class="btn">Button</button>
+						<button class="btn">Button</button>
+						<button class="btn">Button</button>
+					</div>
+				</Popover>
+				<Popover
+					classButton="btn"
+					classPopover="p-2 transition"
+					eventType="click"
+					position="right"
+				>
+					<span slot="button">Click</span>
+					<div class="card flex w-48 flex-col gap-2">
+						<div class="font-bold">Right</div>
+						<button class="btn">Button</button>
+						<button class="btn">Button</button>
+						<button class="btn">Button</button>
+					</div>
+				</Popover>
 			</div>
 
 			<h3 id="sharebutton">ShareButton</h3>
@@ -244,9 +303,3 @@
 		</div>
 	</div>
 </main>
-
-<style lang="postcss">
-	:global(.btn) {
-		@apply rounded bg-teal-700 px-3 py-1 text-white transition hover:bg-teal-800 active:scale-95 disabled:cursor-not-allowed disabled:bg-gray-500;
-	}
-</style>

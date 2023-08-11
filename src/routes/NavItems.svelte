@@ -8,6 +8,7 @@
 		"DataTable",
 		"Editor",
 		"FullscreenButton",
+		"Popover",
 		"ShareButton",
 		"YouTube",
 	];

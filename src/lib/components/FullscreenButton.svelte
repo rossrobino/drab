@@ -7,6 +7,7 @@ Make the document or a specific element fullscreen.
 
 @props
 
+- `classNoscript` - noscript class
 - `class` 
 - `confirmMessage` - message to display in the `confirm` popup, set this to empty string `""` to disable `confirm`
 - `id` 
@@ -17,8 +18,8 @@ Make the document or a specific element fullscreen.
 
 | name       | purpose                                        | default value        |
 | ---------- | ---------------------------------------------- | -------------------- |
+| `default`  | content to display when fullscreen is disabled | `Enabled Fullscreen` |
 | `enabled`  | content to display when fullscreen is enabled  | `Exit Fullscreen`    |
-| `disabled` | content to display when fullscreen is disabled | `Enabled Fullscreen` |
 
 @example
 
@@ -43,6 +44,7 @@ Make the document or a specific element fullscreen.
 
 <script lang="ts">
 	import { onMount } from "svelte";
+	import { messageNoScript } from "$lib/util/messages";
 
 	let className = "";
 	export { className as class };
@@ -57,11 +59,13 @@ Make the document or a specific element fullscreen.
 	/** message to display in the `confirm` popup, set this to empty string `""` to disable `confirm` */
 	export let confirmMessage = "";
 
-	let fullscreen = false;
+	/** noscript class */
+	export let classNoscript = "";
 
-	onMount(() => {
-		if (!targetElement) targetElement = document.documentElement;
-	});
+	/** set to true on the client */
+	let clientJs = false;
+
+	let fullscreen = false;
 
 	const onClick = () => {
 		if (fullscreen) {
@@ -77,14 +81,25 @@ Make the document or a specific element fullscreen.
 			}
 		}
 	};
+
+	onMount(() => {
+		clientJs = true;
+		if (!targetElement) targetElement = document.documentElement;
+	});
 </script>
 
 <svelte:window on:fullscreenchange={() => (fullscreen = !fullscreen)} />
 
-<button on:click={onClick} class={className} {id} {title}>
+<button disabled={!clientJs} on:click={onClick} class={className} {id} {title}>
 	{#if fullscreen}
 		<slot name="enabled">Exit Fullscreen</slot>
 	{:else}
-		<slot name="disabled">Enable Fullscreen</slot>
+		<slot>Enable Fullscreen</slot>
 	{/if}
 </button>
+
+<noscript>
+	<div class={classNoscript}>
+		{messageNoScript}
+	</div>
+</noscript>

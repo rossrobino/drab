@@ -9,6 +9,7 @@ Text editor with controls to add elements and keyboard shortcuts.
 
 - `classButton` - `class` of all the `button` elements
 - `classControls` - `class` of the `div` that wraps the controls
+- `classNoscript` - noscript class
 - `classTextarea` - `class` of the `textarea` element
 - `contentElements` - an array of content elements for the controls
 - `idControls` - `id` of the `div` that wraps the controls
@@ -81,7 +82,8 @@ Text editor with controls to add elements and keyboard shortcuts.
 </script>
 
 <script lang="ts">
-	import type { ComponentType } from "svelte";
+	import { onMount, type ComponentType } from "svelte";
+	import { messageNoScript } from "$lib/util/messages";
 
 	/** an array of content elements for the controls */
 	export let contentElements: EditorContentElement[] = [];
@@ -122,6 +124,12 @@ Text editor with controls to add elements and keyboard shortcuts.
 		'"': '"',
 		"`": "`",
 	};
+
+	/** noscript class */
+	export let classNoscript = "";
+
+	/** set to true on the client */
+	let clientJs = false;
 
 	let textArea: HTMLTextAreaElement;
 
@@ -521,6 +529,8 @@ Text editor with controls to add elements and keyboard shortcuts.
 		}
 		valueTextarea = lines.join("\n");
 	};
+
+	onMount(() => (clientJs = true));
 </script>
 
 <textarea
@@ -539,13 +549,14 @@ Text editor with controls to add elements and keyboard shortcuts.
 	}}
 	on:input
 />
+
 <div id={idControls} class={classControls}>
 	{#each contentElements as el}
 		<button
 			class={el.class ? `${classButton} ${el.class}` : classButton}
 			on:click={() => addContent(el)}
 			title={el.name}
-			aria-label={el.name}
+			disabled={!clientJs}
 		>
 			{#if typeof el.icon !== "string"}
 				<svelte:component this={el.icon} />
@@ -555,3 +566,9 @@ Text editor with controls to add elements and keyboard shortcuts.
 		</button>
 	{/each}
 </div>
+
+<noscript>
+	<div class={classNoscript}>
+		{messageNoScript}
+	</div>
+</noscript>

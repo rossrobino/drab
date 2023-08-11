@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+	.btn {
+		@apply rounded bg-teal-700 px-3 py-1 text-white transition hover:bg-teal-800 active:scale-95 disabled:cursor-not-allowed disabled:bg-gray-500;
+	}
+	.card {
+		@apply rounded border bg-white p-2 shadow;
+	}
+}
