@@ -7,7 +7,7 @@ Displays a list of `details` elements.
 
 @props
 
-- `autoClose` - if true, other items close when a new one is opened
+- `autoClose` - if `true`, other items close when a new one is opened
 - `classDetails` - class of the `div` around each `details` element
 - `classIcon` - class of the `div` around the icon
 - `classSlot` - class of all the `slot` elements
@@ -100,10 +100,10 @@ Pass components into the `content` prop if needed. `AccordionContent` has `summa
 	/** rotates the icon, slides the content, defaults to empty object, set to false to remove */
 	export let transition: SlideParams | false = {};
 
-	/** if true, other items close when a new one is opened */
+	/** if `true`, other items close when a new one is opened */
 	export let autoClose = true;
 
-	/** set to true on the client */
+	/** set to `true` on the client */
 	let clientJs = false;
 
 	for (const item of content) {
@@ -193,6 +193,12 @@ Pass components into the `content` prop if needed. `AccordionContent` has `summa
 </div>
 
 <style>
+	summary {
+		list-style: none;
+	}
+	summary::-webkit-details-marker {
+		display: none;
+	}
 	.db-rotate-180 {
 		transform: rotate(180deg);
 	}

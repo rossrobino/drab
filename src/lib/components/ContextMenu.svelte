@@ -7,7 +7,7 @@ Displays when the parent element is right clicked.
 
 @props
 
-- `classNoscript` - noscript class
+- `classNoscript` - `noscript` class
 - `class` 
 - `display` - controls `display` css property
 - `id` 
@@ -25,14 +25,14 @@ Displays when the parent element is right clicked.
     import { ContextMenu } from "drab";
 </script>
 
-<div class="p-12 border border-dashed flex justify-center">
+<div>
 	<div>Right click here</div>
-	<ContextMenu class="rounded shadow p-2 bg-white">
-		<div class="flex flex-col gap-2 not-prose w-48">
-			<div class="font-bold">Context Menu</div>
-			<button class="btn">Button</button>
-			<button class="btn">Button</button>
-			<button class="btn">Button</button>
+	<ContextMenu>
+		<div>
+			<div>Context Menu</div>
+			<button>Button</button>
+			<button>Button</button>
+			<button>Button</button>
 		</div>
 	</ContextMenu>
 </div>
@@ -50,7 +50,7 @@ Displays when the parent element is right clicked.
 	/** controls `display` css property */
 	export let display = false;
 
-	/** noscript class */
+	/** `noscript` class */
 	export let classNoscript = "";
 
 	let contextMenu: HTMLDivElement;

@@ -7,11 +7,11 @@ Uses the navigator api to share or copy a url link depending on browser support.
 
 @props
 
-- `classNoscript` - noscript class
+- `classNoscript` - `noscript` class
 - `class` 
 - `id` 
 - `text` - prefixed text in share message
-- `title` - title of share message and button attribute, defaults to end of url
+- `title` - title of share message and `button` attribute, defaults to end of url
 - `url` - url to be shared
 
 @slots
@@ -50,16 +50,16 @@ Uses the navigator api to share or copy a url link depending on browser support.
 	/** url to be shared */
 	export let url: string;
 
-	/** title of share message and button attribute, defaults to end of url */
+	/** title of share message and `button` attribute, defaults to end of url */
 	export let title = url.split("/").splice(-1)[0];
 
-	/** noscript class */
+	/** `noscript` class */
 	export let classNoscript = "";
 
-	/** set to true on the client */
+	/** set to `true` on the client */
 	let clientJs = false;
 
-	/** changes button text after message is successfully copied */
+	/** changes `button` text after message is successfully copied */
 	let complete = false;
 
 	/** tries to share if supported, copies the text otherwise */

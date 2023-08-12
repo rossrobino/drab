@@ -8,24 +8,24 @@ Data table to display an array of JS objects. Click a column header to sort.
 @props
 
 - `ascending` - default sort order
-- `classButton` - button class
-- `classFooter` - footer class
-- `classNoscript` - noscript class
+- `classButton` - `button` class
+- `classFooter` - `footer` class
+- `classNoscript` - `noscript` class
 - `classPageControls` - class of `div` that wraps the "Previous" and "Next" buttons
 - `classPageNumber` - class of `div` wrapping page numbers
-- `classTable` - table class
-- `classTbodyTr` - tbody tr class
-- `classTbody` - tbody class
-- `classTdSorted` - currently sorted td
-- `classTd` - td class
-- `classThSorted` - currently sorted th
-- `classTh` - th class
-- `classTheadTr` - thead tr class
-- `classThead` - thead class
+- `classTable` - `table` class
+- `classTbodyTr` - `tbody tr` class
+- `classTbody` - `tbody` class
+- `classTdSorted` - currently sorted `td`
+- `classTd` - `td` class
+- `classThSorted` - currently sorted `th`
+- `classTh` - `th` class
+- `classTheadTr` - `thead tr` class
+- `classThead` - `thead` class
 - `columns` - table columns, in order
 - `currentPage` - current page, defaults to `1`
 - `data` - a list of objects to render in the table
-- `idTable` - table id
+- `idTable` - `table` id
 - `paginate` - number of rows to show on each page, defaults to `0` - no pagination
 - `sortBy` - column to sort by--defaults to first column
 
@@ -82,40 +82,40 @@ Data table to display an array of JS objects. Click a column header to sort.
 	/** default sort order */
 	export let ascending = true;
 
-	/** table class */
+	/** `table` class */
 	export let classTable = "";
 
-	/** table id */
+	/** `table` id */
 	export let idTable = "";
 
-	/** thead class */
+	/** `thead` class */
 	export let classThead = "";
 
-	/** tbody class */
+	/** `tbody` class */
 	export let classTbody = "";
 
-	/** thead tr class */
+	/** `thead tr` class */
 	export let classTheadTr = "";
 
-	/** tbody tr class */
+	/** `tbody tr` class */
 	export let classTbodyTr = "";
 
-	/** th class */
+	/** `th` class */
 	export let classTh = "";
 
-	/** td class */
+	/** `td` class */
 	export let classTd = "";
 
-	/** currently sorted th */
+	/** currently sorted `th` */
 	export let classThSorted = "";
 
-	/** currently sorted td */
+	/** currently sorted `td` */
 	export let classTdSorted = "";
 
-	/** button class */
+	/** `button` class */
 	export let classButton = "";
 
-	/** footer class */
+	/** `footer` class */
 	export let classFooter = "";
 
 	/** class of `div` wrapping page numbers */
@@ -130,10 +130,10 @@ Data table to display an array of JS objects. Click a column header to sort.
 	/** current page, defaults to `1` */
 	export let currentPage = 1;
 
-	/** noscript class */
+	/** `noscript` class */
 	export let classNoscript = "";
 
-	/** set to true on the client */
+	/** set to `true` on the client */
 	let clientJs = false;
 
 	$: numberOfPages = Math.floor(data.length / paginate) + 1;

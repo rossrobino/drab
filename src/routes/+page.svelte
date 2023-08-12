@@ -13,6 +13,7 @@
 	import FullscreenButton from "$lib/components/FullscreenButton.svelte";
 	import Popover from "$lib/components/Popover.svelte";
 	import ShareButton from "$lib/components/ShareButton.svelte";
+	// import Tabs from "$lib/components/Tabs.svelte";
 	import YouTube from "$lib/components/YouTube.svelte";
 
 	export let data;
@@ -41,14 +42,12 @@
 
 			<ul class="pl-0 lg:hidden"><NavItems /></ul>
 
-			<!-- COMPONENTS -->
-
 			<h3 id="accordion">Accordion</h3>
 
 			<Accordion
 				icon={Chevron}
 				classDetails="border-b"
-				classSummary="hover:underline flex items-center justify-between font-bold py-4 cursor-pointer"
+				classSummary="flex cursor-pointer items-center justify-between py-4 font-bold hover:underline"
 				classSlot="pb-4"
 				content={[
 					{ summary: "Is it accessible?", slot: "Yes." },
@@ -219,6 +218,24 @@
 				title="drab"
 				url="https://drab.robino.dev"
 			/>
+
+			<!-- <h3 id="tabs">Tabs</h3>
+
+			<Tabs
+				classHeader="grid grid-flow-col grid-rows-1 gap-1 rounded bg-gray-200 p-1"
+				classButton="btn rounded-sm p-0.5"
+				classButtonActive="bg-white text-gray-950"
+				classButtonInactive="bg-gray-200 text-gray-500"
+				classSlot="py-2"
+				content={[
+					{ name: "String", slot: "Slot" },
+					{
+						name: "Component",
+						slot: FullscreenButton,
+						classContentSlot: "btn",
+					},
+				]}
+			/> -->
 
 			<h3 id="youtube">YouTube</h3>
 

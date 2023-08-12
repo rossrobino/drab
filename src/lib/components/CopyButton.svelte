@@ -7,7 +7,7 @@ Uses the navigator api to copy text to the clipboard.
 
 @props
 
-- `classNoscript` - noscript class
+- `classNoscript` - `noscript` class
 - `class` 
 - `id` 
 - `text` - text to copy
@@ -44,13 +44,13 @@ Uses the navigator api to copy text to the clipboard.
 	/** text to copy */
 	export let text: string;
 
-	/** noscript class */
+	/** `noscript` class */
 	export let classNoscript = "";
 
-	/** set to true on the client */
+	/** set to `true` on the client */
 	let clientJs = false;
 
-	/** changes button text after message is successfully copied */
+	/** changes `button` text after message is successfully copied */
 	let complete = false;
 
 	/** copies the text to the clipboard */

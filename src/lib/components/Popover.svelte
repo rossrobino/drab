@@ -7,12 +7,12 @@ Displays a popover relatively positioned to the button.
 
 @props
 
-- `classButton` - button class
+- `classButton` - `button` class
 - `classPopover` - popover class
 - `class` 
 - `display` - if `eventType="click"`, controls the display
 - `eventType` - controls if hovering or clicking the button displays the popover
-- `idButton` - button id
+- `idButton` - `button` id
 - `idPopover` - popover id
 - `id` 
 - `position` - where the popover is displayed in relation to the button
@@ -51,13 +51,13 @@ Displays a popover relatively positioned to the button.
 
 	export let id = "";
 
-	/** button class */
+	/** `button` class */
 	export let classButton = "";
 
 	/** popover class */
 	export let classPopover = "";
 
-	/** button id */
+	/** `button` id */
 	export let idButton = "";
 
 	/** popover id */

@@ -9,9 +9,9 @@ Text editor with controls to add elements and keyboard shortcuts.
 
 - `classButton` - `class` of all the `button` elements
 - `classControls` - `class` of the `div` that wraps the controls
-- `classNoscript` - noscript class
+- `classNoscript` - `noscript` class
 - `classTextarea` - `class` of the `textarea` element
-- `contentElements` - an array of content elements for the controls
+- `contentElements` - an array of `EditorContentElement`s for the controls
 - `idControls` - `id` of the `div` that wraps the controls
 - `idTextarea` - `id` of the `textarea` element
 - `keyPairs` - keys that will auto-close if typed, value is their closing character
@@ -72,13 +72,13 @@ Text editor with controls to add elements and keyboard shortcuts.
 		/** controls how the text is added */
 		display: "inline" | "block" | "wrap";
 
-		/** contents of the button */
+		/** contents of the `button` */
 		icon: string | ComponentType;
 
 		/** keyboard shortcut */
 		key?: string;
 
-		/** class to apply to the specific button */
+		/** class to apply to the specific `button` */
 		class?: string;
 	}
 </script>
@@ -87,7 +87,7 @@ Text editor with controls to add elements and keyboard shortcuts.
 	import { onMount } from "svelte";
 	import { messageNoScript } from "$lib/util/messages";
 
-	/** an array of content elements for the controls */
+	/** an array of `EditorContentElement`s for the controls */
 	export let contentElements: EditorContentElement[] = [];
 
 	/** `value` of the `textarea` element */
@@ -127,10 +127,10 @@ Text editor with controls to add elements and keyboard shortcuts.
 		"`": "`",
 	};
 
-	/** noscript class */
+	/** `noscript` class */
 	export let classNoscript = "";
 
-	/** set to true on the client */
+	/** set to `true` on the client */
 	let clientJs = false;
 
 	let textArea: HTMLTextAreaElement;

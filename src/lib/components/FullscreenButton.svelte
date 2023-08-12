@@ -7,7 +7,7 @@ Make the document or a specific element fullscreen.
 
 @props
 
-- `classNoscript` - noscript class
+- `classNoscript` - `noscript` class
 - `class` 
 - `confirmMessage` - message to display in the `confirm` popup, set this to empty string `""` to disable `confirm`
 - `id` 
@@ -59,10 +59,10 @@ Make the document or a specific element fullscreen.
 	/** message to display in the `confirm` popup, set this to empty string `""` to disable `confirm` */
 	export let confirmMessage = "";
 
-	/** noscript class */
+	/** `noscript` class */
 	export let classNoscript = "";
 
-	/** set to true on the client if supported */
+	/** set to `true` on the client if supported */
 	let supported = false;
 
 	let fullscreen = false;
