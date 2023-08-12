@@ -163,6 +163,7 @@ Displays a popover relatively positioned to the button.
 		class:db-type-hover={clientEventType === "hover"}
 		style:top="{coordinates.y}px"
 		style:left="{coordinates.x}px"
+		inert={clientEventType === "hover" || display ? false : true}
 	>
 		<slot>Popover</slot>
 	</div>

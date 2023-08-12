@@ -1,3 +1,5 @@
+import Accordion from "./components/Accordion.svelte";
+import type { AccordionContent } from "./components/Accordion.svelte";
 import Chord from "./components/Chord.svelte";
 import type { ChordNote } from "./components/Chord.svelte";
 import ContextMenu from "./components/ContextMenu.svelte";
@@ -12,6 +14,8 @@ import ShareButton from "./components/ShareButton.svelte";
 import YouTube from "./components/YouTube.svelte";
 
 export {
+	Accordion,
+	type AccordionContent,
 	Chord,
 	type ChordNote,
 	ContextMenu,

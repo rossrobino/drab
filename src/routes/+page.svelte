@@ -2,7 +2,9 @@
 	import "../app.postcss";
 
 	import NavItems from "./NavItems.svelte";
+	import Chevron from "../svg/Chevron.svelte";
 
+	import Accordion from "$lib/components/Accordion.svelte";
 	import Chord from "$lib/components/Chord.svelte";
 	import ContextMenu from "$lib/components/ContextMenu.svelte";
 	import CopyButton from "$lib/components/CopyButton.svelte";
@@ -38,6 +40,29 @@
 			{@html data.html}
 
 			<ul class="pl-0 lg:hidden"><NavItems /></ul>
+
+			<!-- COMPONENTS -->
+
+			<h3 id="accordion">Accordion</h3>
+
+			<Accordion
+				icon={Chevron}
+				classDetails="border-b"
+				classSummary="hover:underline flex items-center justify-between font-bold py-4 cursor-pointer"
+				classSlot="pb-4"
+				content={[
+					{ summary: "Is it accessible?", slot: "Yes." },
+					{
+						summary: "Is it styled?",
+						slot: "Nope, style with global styles.",
+					},
+					{
+						summary: "Is it animated?",
+						slot: "Yes, with the transition prop.",
+					},
+					{ summary: "Does it work without Javascript?", slot: "Yes." },
+				]}
+			/>
 
 			<h3 id="chord">Chord</h3>
 

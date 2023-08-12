@@ -2,6 +2,7 @@
 	import CodeIcon from "./CodeIcon.svelte";
 
 	const components = [
+		"Accordion",
 		"Chord",
 		"ContextMenu",
 		"CopyButton",

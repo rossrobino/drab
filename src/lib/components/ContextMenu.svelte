@@ -108,6 +108,7 @@ Displays when the parent element is right clicked.
 	style:opacity={display ? "100%" : "0%"}
 	style:top="{coordinates.y}px"
 	style:left="{coordinates.x}px"
+	inert={display ? false : true}
 >
 	<slot>Context Menu</slot>
 </div>

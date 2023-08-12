@@ -55,6 +55,8 @@ Text editor with controls to add elements and keyboard shortcuts.
 -->
 
 <script context="module" lang="ts">
+	import type { ComponentType } from "svelte";
+
 	/**
 	 * - `EditorContentElement` to pass into the `contentElements` array prop
 	 * - `contentElements` prop creates a list of button controls to insert
@@ -82,7 +84,7 @@ Text editor with controls to add elements and keyboard shortcuts.
 </script>
 
 <script lang="ts">
-	import { onMount, type ComponentType } from "svelte";
+	import { onMount } from "svelte";
 	import { messageNoScript } from "$lib/util/messages";
 
 	/** an array of content elements for the controls */

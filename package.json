@@ -1,11 +1,12 @@
 {
 	"name": "drab",
-	"version": "2.1.1",
+	"version": "2.2.0",
 	"description": "An unstyled Svelte component library",
 	"keywords": [
 		"components",
 		"Svelte",
 		"SvelteKit",
+		"Accordion",
 		"Chord",
 		"ContextMenu",
 		"Copy",
@@ -34,7 +35,7 @@
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write . --plugin=prettier-plugin-svelte --plugin=prettier-plugin-tailwindcss",
 		"pub": "npm publish --access public",
-		"doc": "node src/lib/util/buildDocs.js"
+		"doc": "node scripts/buildDocs.js"
 	},
 	"exports": {
 		".": {
