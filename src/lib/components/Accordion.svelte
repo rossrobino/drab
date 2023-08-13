@@ -8,19 +8,24 @@ Displays a list of `details` elements.
 @props
 
 - `autoClose` - if `true`, other items close when a new one is opened
+- `classContent` - class of all the `div`s that wrap the `content` slot
 - `classDetails` - class of the `div` around each `details` element
-- `classIcon` - class of the `div` around the icon
-- `classSlot` - class of all the `slot` elements
-- `classSummary` - class of all the `summary` elements
+- `classHeader` - class of all the `summary` elements
+- `classIcon` - class of the `div` that wrap the icon if displayed
+- `classSummary` - class of all the `div`s that wrap the `summary` slot
 - `class` 
-- `content` - array of `AccordionContent` elements
 - `icon` 
 - `id` 
+- `items` - array of `AccordionItem` elements
 - `transition` - rotates the icon, slides the content, defaults to empty object, set to false to remove
 
 @slots
 
-Pass components into the `content` prop if needed. `AccordionContent` has `summary` and `slot` attributes of type `string | ComponentType`.
+| name       | purpose                       | default value  |
+| ---------- | ----------------------------- | -------------- |
+| `summary`  | summary element               | `item.summary` |
+| `icon`     | icon element                  | `icon` prop    |
+| `content`  | content of the accordion item | `item.content` |
 
 @example
 
@@ -29,49 +34,73 @@ Pass components into the `content` prop if needed. `AccordionContent` has `summa
     import { Accordion } from "drab";
 </script>
 
-<Accordion
-	content={[
-		{ summary: "Is it accessible?", slot: "Yes." },
+<Accordion 
+	items={[
+		{ summary: "Is it accessible?", content: "Yes." },
 		{
 			summary: "Is it styled?",
-			slot: "Nope, style with global styles.",
+			content: "Nope, style with global styles.",
 		},
 		{
 			summary: "Is it animated?",
-			slot: "Yes, with the transition prop.",
+			content: "Yes, with the transition prop.",
 		},
-		{ summary: "Does it work without Javascript?", slot: "Yes." },
+		{ summary: "Does it work without Javascript?", content: "Yes." },
 	]}
-/>
+>
+	<div slot="content" let:item let:index>
+		<span>{index + 1}.</span>
+		<span>{item.content}</span>
+	</div>
+</Accordion>
+```
+
+To render a component on unique items, pass it into the `data` prop and utilize `<svelte:component this={item.data.component}>` inside of the slot.
+
+```svelte
+<script>
+    import { Accordion, FullScreenButton } from "drab";
+</script>
+
+<Accordion
+	items={[
+		{
+			summary: "A Component",
+			content: "Rendered only on this item.",
+			data: { component: FullscreenButton },
+		},
+		{ summary: "Summary", content: "Some other content" },
+	]}
+>
+	<div slot="content" let:item>
+		{item.content}
+		{#if item.data?.component}
+			<svelte:component this={item.data.component} />
+		{/if}
+	</div>
+</Accordion>
 ```
 -->
 
 <script context="module" lang="ts">
-	import type { ComponentType } from "svelte";
+	/** use `data` to pass anything back to the parent */
+	export interface AccordionItem<T = any> {
+		/** text summary of the item */
+		summary?: string;
 
-	export interface AccordionContent {
-		/** `details` element class */
-		classContentDetails?: string;
+		/** text content of the item */
+		content?: string;
 
-		/** content of the `summary` element */
-		summary: string | ComponentType;
-
-		/** `summary` element class */
-		classContentSummary?: string;
-
-		/** content of the `slot` */
-		slot: string | ComponentType;
-
-		/** `slot` element class */
-		classContentSlot?: string;
-
-		/** controls whether the slotted content is displayed */
+		/** controls whether the content is displayed */
 		open?: boolean;
+
+		/** any data to pass back */
+		data?: T;
 	}
 </script>
 
 <script lang="ts">
-	import { onMount } from "svelte";
+	import { onMount, type ComponentType } from "svelte";
 	import { slide, type SlideParams } from "svelte/transition";
 	import { prefersReducedMotion } from "$lib/util/accessibility";
 
@@ -80,8 +109,8 @@ Pass components into the `content` prop if needed. `AccordionContent` has `summa
 
 	export let id = "";
 
-	/** array of `AccordionContent` elements */
-	export let content: AccordionContent[];
+	/** array of `AccordionItem` elements */
+	export let items: AccordionItem[];
 
 	export let icon: string | ComponentType = "";
 
@@ -89,12 +118,15 @@ Pass components into the `content` prop if needed. `AccordionContent` has `summa
 	export let classDetails = "";
 
 	/** class of all the `summary` elements */
+	export let classHeader = "";
+
+	/** class of all the `div`s that wrap the `summary` slot */
 	export let classSummary = "";
 
-	/** class of all the `slot` elements */
-	export let classSlot = "";
+	/** class of all the `div`s that wrap the `content` slot */
+	export let classContent = "";
 
-	/** class of the `div` around the icon */
+	/** class of the `div` that wrap the icon if displayed */
 	export let classIcon = "";
 
 	/** rotates the icon, slides the content, defaults to empty object, set to false to remove */
@@ -106,17 +138,11 @@ Pass components into the `content` prop if needed. `AccordionContent` has `summa
 	/** set to `true` on the client */
 	let clientJs = false;
 
-	for (const item of content) {
-		if (!item.classContentDetails) item.classContentDetails = "";
-		if (!item.classContentSlot) item.classContentSlot = "";
-		if (!item.classContentSummary) item.classContentSummary = "";
-	}
-
 	const toggleOpen = (i: number) => {
-		content[i].open = !content[i].open;
+		items[i].open = !items[i].open;
 		if (autoClose) {
-			for (let j = 0; j < content.length; j++) {
-				const item = content[j];
+			for (let j = 0; j < items.length; j++) {
+				const item = items[j];
 				if (j !== i) item.open = false;
 			}
 		}
@@ -128,64 +154,51 @@ Pass components into the `content` prop if needed. `AccordionContent` has `summa
 	});
 </script>
 
-<div class="transition"></div>
-
 <div class={className} {id}>
-	{#each content as { classContentDetails, summary, classContentSummary, slot, classContentSlot, open }, i}
-		<div class="{classDetails} {classContentDetails}">
-			<details bind:open>
+	{#each items as item, index}
+		<div class={classDetails}>
+			<details bind:open={item.open}>
 				<!-- svelte-ignore a11y-no-redundant-roles -->
 				<summary
 					role="button"
 					tabindex="0"
-					class={classSummary}
-					on:click={(e) => {
-						e.preventDefault();
-						toggleOpen(i);
-					}}
+					class={classHeader}
+					on:click|preventDefault={() => toggleOpen(index)}
 					on:keydown={(e) => {
 						if (e.key === "Enter") {
 							e.preventDefault();
-							toggleOpen(i);
+							toggleOpen(index);
 						}
 					}}
 				>
-					{#if typeof summary !== "string"}
-						<svelte:component this={summary} class={classContentSummary} />
-					{:else}
-						<span class={classContentSummary}>{summary}</span>
-					{/if}
-					{#if icon}
-						<div
-							class={classIcon}
-							class:db-rotate-180={open}
-							class:db-transition={transition}
-						>
-							{#if typeof icon !== "string"}
-								<svelte:component this={icon} />
-							{:else}
-								<span>{icon}</span>
-							{/if}
-						</div>
-					{/if}
+					<div class={classSummary}>
+						<slot name="summary" {item} {index}>{item.summary}</slot>
+					</div>
+					<slot name="icon" {item} {index}>
+						{#if icon}
+							<div
+								class={classIcon}
+								class:d-rotate-180={item.open}
+								class:d-transition={transition}
+							>
+								{#if typeof icon !== "string"}
+									<svelte:component this={icon} />
+								{:else}
+									<span>{icon}</span>
+								{/if}
+							</div>
+						{/if}
+					</slot>
 				</summary>
 				{#if !clientJs || !transition}
-					<div class={classSlot}>
-						{#if typeof slot !== "string"}
-							<svelte:component this={slot} class={classContentSlot} />
-						{:else}
-							<div class={classContentSlot}>{slot}</div>
-						{/if}
+					<div class={classContent}>
+						<slot name="content" {item} {index}>{item.content}</slot>
 					</div>
 				{/if}
 			</details>
-			{#if clientJs && open && transition}
-				<div transition:slide={transition} class={classSlot}>
-					{#if typeof slot !== "string"}
-						<svelte:component this={slot} class={classContentSlot} />
-					{:else}
-						<div class={classContentSlot}>{slot}</div>
-					{/if}
+			{#if clientJs && item.open && transition}
+				<div class={classContent} transition:slide={transition}>
+					<slot name="content" {item} {index}>{item.content}</slot>
 				</div>
 			{/if}
 		</div>
@@ -199,10 +212,10 @@ Pass components into the `content` prop if needed. `AccordionContent` has `summa
 	summary::-webkit-details-marker {
 		display: none;
 	}
-	.db-rotate-180 {
+	.d-rotate-180 {
 		transform: rotate(180deg);
 	}
-	.db-transition {
+	.d-transition {
 		transition-property: transform;
 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 		transition-duration: 150ms;

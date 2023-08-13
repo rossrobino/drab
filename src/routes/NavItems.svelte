@@ -11,6 +11,7 @@
 		"FullscreenButton",
 		"Popover",
 		"ShareButton",
+		// "Tabs",
 		"YouTube",
 	];
 

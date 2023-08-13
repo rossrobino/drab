@@ -47,19 +47,19 @@
 			<Accordion
 				icon={Chevron}
 				classDetails="border-b"
-				classSummary="flex cursor-pointer items-center justify-between py-4 font-bold hover:underline"
-				classSlot="pb-4"
-				content={[
-					{ summary: "Is it accessible?", slot: "Yes." },
+				classHeader="flex cursor-pointer items-center justify-between py-4 font-bold hover:underline"
+				classContent="pb-4"
+				items={[
+					{ summary: "Is it accessible?", content: "Yes." },
 					{
 						summary: "Is it styled?",
-						slot: "Nope, style with global styles.",
+						content: "Nope, style with global styles.",
 					},
 					{
 						summary: "Is it animated?",
-						slot: "Yes, with the transition prop.",
+						content: "Yes, with the transition prop.",
 					},
-					{ summary: "Does it work without Javascript?", slot: "Yes." },
+					{ summary: "Does it work without Javascript?", content: "Yes." },
 				]}
 			/>
 
