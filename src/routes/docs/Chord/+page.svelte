@@ -1,10 +1,10 @@
 <script>
-	import Chord from "$lib/components/Chord.svelte"
+	import Chord from "$lib/components/Chord.svelte";
 </script>
 
 <Chord
 	class="text-gray-950"
-	name="D" 
+	name="D"
 	notes={[
 		{
 			finger: 0,

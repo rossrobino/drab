@@ -1,5 +1,5 @@
 <script>
-	import Popover from "$lib/components/Popover.svelte"
+	import Popover from "$lib/components/Popover.svelte";
 </script>
 
 <Popover classButton="btn" classPopover="p-2 transition">

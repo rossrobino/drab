@@ -1,6 +1,6 @@
 <script>
-    import Accordion from "$lib/components/Accordion.svelte";
-    import FullscreenButton from "$lib/components/FullscreenButton.svelte";
+	import Accordion from "$lib/components/Accordion.svelte";
+	import FullscreenButton from "$lib/components/FullscreenButton.svelte";
 	import Chevron from "$site/svg/Chevron.svelte";
 </script>
 
@@ -33,7 +33,7 @@
 			<span>{item.content}</span>
 		</div>
 		{#if item.data?.component}
-			<svelte:component class="btn" this={item.data.component} />
+			<svelte:component this={item.data.component} class="btn" />
 		{/if}
 	</svelte:fragment>
 </Accordion>

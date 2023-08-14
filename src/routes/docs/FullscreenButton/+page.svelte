@@ -1,5 +1,5 @@
 <script>
-	import FullscreenButton from "$lib/components/FullscreenButton.svelte"
+	import FullscreenButton from "$lib/components/FullscreenButton.svelte";
 
 	let fullscreenDiv;
 </script>

@@ -1,5 +1,5 @@
 <script>
-	import Tabs from "$lib/components/Tabs.svelte"
+	import Tabs from "$lib/components/Tabs.svelte";
 	import FullscreenButton from "$lib/components/FullscreenButton.svelte";
 </script>
 
@@ -37,6 +37,6 @@
 	</svelte:fragment>
 	<div>{activeTab.content}</div>
 	{#if activeTab.data?.component}
-		<svelte:component class="btn" this={activeTab.data.component} />
+		<svelte:component this={activeTab.data.component} class="btn" />
 	{/if}
 </Tabs>

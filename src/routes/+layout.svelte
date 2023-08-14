@@ -3,7 +3,7 @@
 	import NavItems from "../site/NavItems.svelte";
 </script>
 
-<main class="m-6 lg:flex lg:justify-center">
+<main class="m-4 lg:flex lg:justify-center">
 	<div class="gap-12 lg:flex">
 		<nav class="prose prose-teal -my-4 hidden lg:block">
 			<ul class="sticky top-0 h-screen list-none overflow-y-auto py-4 pr-6">

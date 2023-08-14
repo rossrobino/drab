@@ -1,5 +1,5 @@
 <script>
-	import ShareButton from "$lib/components/ShareButton.svelte"
+	import ShareButton from "$lib/components/ShareButton.svelte";
 </script>
 
 <div>
