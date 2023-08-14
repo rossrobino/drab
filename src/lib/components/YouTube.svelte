@@ -21,7 +21,11 @@ Embeds a YouTube video into a website with the video `uid`, using [www.youtube-n
 	import { YouTube } from "drab";
 </script>
 
-<YouTube title="Video Title" uid="youtube_uid" />
+<YouTube
+	class="aspect-video w-full rounded"
+	title="Renegade - Kevin Olusola"
+	uid="gouiY85kD2o"
+/>
 ```
 -->
 

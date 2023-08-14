@@ -25,14 +25,14 @@ Displays when the parent element is right clicked.
     import { ContextMenu } from "drab";
 </script>
 
-<div>
+<div class="flex justify-center rounded border border-dashed p-12">
 	<div>Right click here</div>
-	<ContextMenu>
-		<div>
-			<div>Context Menu</div>
-			<button>Button</button>
-			<button>Button</button>
-			<button>Button</button>
+	<ContextMenu class="transition">
+		<div class="card flex w-48 flex-col gap-2">
+			<div class="font-bold">Context Menu</div>
+			<button class="btn">Button</button>
+			<button class="btn">Button</button>
+			<button class="btn">Button</button>
 		</div>
 	</ContextMenu>
 </div>

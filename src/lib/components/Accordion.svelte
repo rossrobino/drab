@@ -31,10 +31,16 @@ Displays a list of `details` elements.
 
 ```svelte
 <script>
-    import { Accordion } from "drab";
+    import Accordion from "$lib/components/Accordion.svelte";
+    import FullscreenButton from "$lib/components/FullscreenButton.svelte";
+	import Chevron from "$site/svg/Chevron.svelte";
 </script>
 
-<Accordion 
+<Accordion
+	icon={Chevron}
+	classDetails="border-b"
+	classHeader="flex gap-8 cursor-pointer items-center justify-between py-4 font-bold hover:underline"
+	classContent="pb-4"
 	items={[
 		{ summary: "Is it accessible?", content: "Yes." },
 		{
@@ -46,28 +52,20 @@ Displays a list of `details` elements.
 			content: "Yes, with the transition prop.",
 		},
 		{ summary: "Does it work without Javascript?", content: "Yes." },
-	]}
->
-	<div slot="content" let:item let:index>
-		<span>{index + 1}.</span>
-		<span>{item.content}</span>
-	</div>
-</Accordion>
-
-<Accordion
-	items={[
 		{
-			summary: "A Component",
+			summary: "Component",
 			content: "Rendered only on this item.",
 			data: { component: FullscreenButton },
 		},
-		{ summary: "Summary", content: "Some other content" },
 	]}
 >
-	<svelte:fragment slot="content" let:item>
-		{item.content}
+	<svelte:fragment slot="content" let:item let:index>
+		<div class="mb-4">
+			<span>{index + 1}.</span>
+			<span>{item.content}</span>
+		</div>
 		{#if item.data?.component}
-			<svelte:component this={item.data.component} />
+			<svelte:component class="btn" this={item.data.component} />
 		{/if}
 	</svelte:fragment>
 </Accordion>

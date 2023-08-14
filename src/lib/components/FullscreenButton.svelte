@@ -30,13 +30,18 @@ Make the document or a specific element fullscreen.
 	let fullscreenDiv;
 </script>
 
-<FullscreenButton />
+<div>
+	<FullscreenButton class="btn" />
+</div>
 
-<div bind:this={fullscreenDiv}>
-	<div>Target element fullscreen</div>
-	<FullscreenButton targetElement={fullscreenDiv}>
+<div
+	bind:this={fullscreenDiv}
+	class="mt-4 rounded bg-gray-800 p-4 text-gray-50"
+>
+	<div class="mb-2">Target element fullscreen</div>
+	<FullscreenButton targetElement={fullscreenDiv} class="btn">
+		<span>Enable Element Fullscreen</span>
 		<span slot="enabled">Exit Element Fullscreen</span>
-		<span slot="disabled">Enable Element Fullscreen</span>
 	</FullscreenButton>
 </div>
 ```

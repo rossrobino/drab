@@ -27,7 +27,12 @@ Text editor with controls to add elements and keyboard shortcuts.
 	import { Editor } from "drab";
 </script>
 
-<Editor contentElements={[
+<Editor
+	classButton="btn"
+	classControls="flex gap-2"
+	classTextarea="border w-full h-36 p-2 rounded"
+	placeholderTextarea="asterisk: ctrl+i, anchor: ctrl+["
+	contentElements={[
 		{
 			name: "Bullet",
 			text: "- ",

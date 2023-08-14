@@ -1,5 +1,5 @@
 <script lang="ts">
-	import CodeIcon from "./svg/CodeIcon.svelte";
+	import Code from "$site/svg/Code.svelte";
 
 	const components = [
 		"Accordion",
@@ -19,15 +19,10 @@
 </script>
 
 {#each components as component}
-	<li class="flex items-center gap-2">
-		<a
-			class="m-0"
-			title="View Source"
-			target="_blank"
-			href="https://github.com/rossrobino/drab/tree/main/src/lib/components/{component}.svelte"
-		>
-			<CodeIcon />
+	<li>
+		<a class="m-0 flex items-center gap-2" href="/docs/{component}">
+			<Code />
+			<span>{component}</span>
 		</a>
-		<a class="m-0" href="#{component.toLowerCase()}">{component}</a>
 	</li>
 {/each}

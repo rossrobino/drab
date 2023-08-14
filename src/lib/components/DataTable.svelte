@@ -22,10 +22,12 @@ Data table to display an array of JS objects. Click a column header to sort.
 - `classTh` - `th` class
 - `classTheadTr` - `thead tr` class
 - `classThead` - `thead` class
+- `class` 
 - `columns` - table columns, in order
 - `currentPage` - current page, defaults to `1`
 - `data` - a list of objects to render in the table
 - `idTable` - `table` id
+- `id` 
 - `paginate` - number of rows to show on each page, defaults to `0` - no pagination
 - `sortBy` - column to sort by--defaults to first column
 
@@ -43,15 +45,26 @@ Data table to display an array of JS objects. Click a column header to sort.
 	import { DataTable } from "drab";
 </script>
 
-<DataTable 
+<DataTable
 	data={[
 		{ make: "Honda", model: "CR-V", year: 2011, awd: true },
 		{ make: "Volvo", model: "XC-40", year: 2024, awd: true },
 		{ make: "Ferrari", model: "458 Italia", year: 2015, awd: false },
 		{ make: "Chevrolet", model: "Silverado", year: 2022, awd: true },
 		{ make: "Ford", model: "Model A", year: 1931, awd: false },
+		{ make: "Subaru", model: "Outback", year: 2021, awd: true },
+		{ make: "Ford", model: "Bronco", year: 1970, awd: true },
+		{ make: "GMC", model: "Acadia", year: 2008, awd: true },
+		{ make: "BMW", model: "X3", year: 2023, awd: true },
 	]}
 	sortBy="make"
+	paginate={4}
+	class="tabular-nums"
+	classTh="cursor-pointer uppercase"
+	classThSorted="underline"
+	classTbodyTr="transition hover:bg-gray-50"
+	classFooter="flex justify-between items-center"
+	classButton="btn"
 />
 ```
 -->
@@ -65,6 +78,11 @@ Data table to display an array of JS objects. Click a column header to sort.
 <script lang="ts">
 	import { messageNoScript } from "$lib/util/messages";
 	import { onMount } from "svelte";
+
+	let className = "";
+	export { className as class };
+
+	export let id = "";
 
 	/** a list of objects to render in the table */
 	export let data: DataTableRow<any>[];
@@ -183,60 +201,62 @@ Data table to display an array of JS objects. Click a column header to sort.
 	onMount(() => (clientJs = true));
 </script>
 
-<table class={classTable} id={idTable}>
-	<thead class={classThead}>
-		<tr class={classTheadTr}>
-			{#each columns as column}
-				<th
-					class="{classTh} {sortBy === column ? classThSorted : ''}"
-					on:click={() => sort(column)}
-				>
-					{column}
-				</th>
+<div class={className} {id}>
+	<table class={classTable} id={idTable}>
+		<thead class={classThead}>
+			<tr class={classTheadTr}>
+				{#each columns as column}
+					<th
+						class="{classTh} {sortBy === column ? classThSorted : ''}"
+						on:click={() => sort(column)}
+					>
+						{column}
+					</th>
+				{/each}
+			</tr>
+		</thead>
+		<tbody class={classTbody}>
+			{#each data as row, i}
+				{@const showRow =
+					i < paginate * currentPage && i >= paginate * (currentPage - 1)}
+				{#if paginate ? showRow : true}
+					<tr class={classTbodyTr}>
+						{#each columns as column}
+							<td class="{classTd} {sortBy === column ? classTdSorted : ''}">
+								{row[column]}
+							</td>
+						{/each}
+					</tr>
+				{/if}
 			{/each}
-		</tr>
-	</thead>
-	<tbody class={classTbody}>
-		{#each data as row, i}
-			{@const showRow =
-				i < paginate * currentPage && i >= paginate * (currentPage - 1)}
-			{#if paginate ? showRow : true}
-				<tr class={classTbodyTr}>
-					{#each columns as column}
-						<td class="{classTd} {sortBy === column ? classTdSorted : ''}">
-							{row[column]}
-						</td>
-					{/each}
-				</tr>
-			{/if}
-		{/each}
-	</tbody>
-</table>
+		</tbody>
+	</table>
 
-{#if paginate}
-	<div class={classFooter}>
-		<div class={classPageNumber}>{currentPage} / {numberOfPages}</div>
-		<div class={classPageControls}>
-			<button
-				class={classButton}
-				disabled={!clientJs || currentPage < 2}
-				on:click={() => currentPage--}
-			>
-				<slot name="previous">Previous</slot>
-			</button>
-			<button
-				class={classButton}
-				disabled={!clientJs || currentPage >= numberOfPages}
-				on:click={() => currentPage++}
-			>
-				<slot name="next">Next</slot>
-			</button>
+	{#if paginate}
+		<div class={classFooter}>
+			<div class={classPageNumber}>{currentPage} / {numberOfPages}</div>
+			<div class={classPageControls}>
+				<button
+					class={classButton}
+					disabled={!clientJs || currentPage < 2}
+					on:click={() => currentPage--}
+				>
+					<slot name="previous">Previous</slot>
+				</button>
+				<button
+					class={classButton}
+					disabled={!clientJs || currentPage >= numberOfPages}
+					on:click={() => currentPage++}
+				>
+					<slot name="next">Next</slot>
+				</button>
+			</div>
 		</div>
-	</div>
 
-	<noscript>
-		<div class={classNoscript}>
-			{messageNoScript}
-		</div>
-	</noscript>
-{/if}
+		<noscript>
+			<div class={classNoscript}>
+				{messageNoScript}
+			</div>
+		</noscript>
+	{/if}
+</div>

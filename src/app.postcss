@@ -1,3 +1,5 @@
+@import url("$site/highlight.postcss");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,5 +10,11 @@
 	}
 	.card {
 		@apply rounded border bg-white p-2 shadow;
+	}
+}
+
+@layer utilities {
+	.text-balance {
+		text-wrap: balance;
 	}
 }

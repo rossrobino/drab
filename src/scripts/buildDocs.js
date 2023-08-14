@@ -1,3 +1,3 @@
 import { documentPropsDir } from "./documentProps.js";
 
-documentPropsDir("./src/lib/components");
+await documentPropsDir("./src/lib/components");

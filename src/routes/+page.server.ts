@@ -1,9 +1,7 @@
-import md from "../site/docs.md?raw";
-import { parse } from "marked";
-
-export const prerender = true;
+import md from "$site/docs.md?raw";
+import { mdToHtml } from "$site/util";
 
 export const load = async () => {
-	const html = parse(md);
+	const html = mdToHtml(md);
 	return { html };
 };

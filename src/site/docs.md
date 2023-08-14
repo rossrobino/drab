@@ -13,40 +13,16 @@ Components can be styled by [using global styles](https://joyofcode.xyz/global-s
 
 Each component exports `class` and `id` props to utilize for this purpose. If the component has multiple elements, multiple `class` and `id` props are available for each element.
 
-## Getting Started
+## Install
 
-Pick a framework.
-
-[SvelteKit](https://kit.svelte.dev)
-
-```bash
-npm create svelte@latest
-```
-
-[Astro](https://docs.astro.build/en/tutorial/1-setup/2/)
-
-```bash
-npm create astro@latest
-```
-
-[Vite](https://vitejs.dev/guide/)
-
-```bash
-npm create vite@latest
-```
-
-Install the package (recommended) or copy and paste the [components](https://github.com/rossrobino/drab/tree/main/src/lib/components).
+- [SvelteKit](https://kit.svelte.dev)
+- [Astro](https://docs.astro.build/en/tutorial/1-setup/2/)
+- [Vite](https://vitejs.dev/guide/)
 
 ```bash
 npm install -D drab
 ```
 
-```bash
-import { Component } from "drab";
-```
+## Documentation
 
-## Components
-
-Components are documented inline. View the [source](https://github.com/rossrobino/drab/tree/main/src/lib/components) or hover over the component in a text editor after importing to see the documentation. Each prop is documented with JSDoc and TypeScript, hover over the prop to get the type and description.
-
-_View the [source](https://github.com/rossrobino/drab/blob/main/src/routes/%2Bpage.svelte) for this page to see the [TailwindCSS](https://tailwindcss.com/) styles used._
+Components are documented inline, hover over the component in a text editor after importing to see the documentation. Each prop is documented with JSDoc and TypeScript, hover over the prop to get the type and description.

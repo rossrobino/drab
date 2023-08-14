@@ -28,11 +28,14 @@ Uses the navigator api to share or copy a url link depending on browser support.
     import { ShareButton } from "drab";
 </script>
 
-<ShareButton
-	text="Check out this page: "
-	title="drab"
-    url="https://drab.robino.dev"
-/>
+<div>
+	<ShareButton
+		class="btn"
+		text="Check out this page: "
+		title="drab"
+		url="https://drab.robino.dev"
+	/>
+</div>
 ```
 -->
 

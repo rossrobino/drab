@@ -21,7 +21,10 @@ Generates a guitar chord `svg`.
 	import { Chord } from "drab";
 </script>
 
-<Chord name="D" notes={[
+<Chord
+	class="text-gray-950"
+	name="D" 
+	notes={[
 		{
 			finger: 0,
 			string: 4,

@@ -27,7 +27,9 @@ Uses the navigator api to copy text to the clipboard.
     import { CopyButton } from "drab";
 </script>
 
-<CopyButton text="Text to copy" />
+<div>
+	<CopyButton class="btn" text="Text to copy" />
+</div>
 ```
 -->
 
