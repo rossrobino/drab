@@ -11,6 +11,8 @@ import type { EditorContentElement } from "./components/Editor.svelte";
 import FullscreenButton from "./components/FullscreenButton.svelte";
 import Popover from "./components/Popover.svelte";
 import ShareButton from "./components/ShareButton.svelte";
+import Tabs from "./components/Tabs.svelte";
+import type { TabsTab } from "./components/Tabs.svelte";
 import YouTube from "./components/YouTube.svelte";
 
 export {
@@ -27,5 +29,7 @@ export {
 	FullscreenButton,
 	Popover,
 	ShareButton,
+	Tabs,
+	type TabsTab,
 	YouTube,
 };

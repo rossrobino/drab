@@ -1,5 +1,5 @@
 <script lang="ts">
-	import CodeIcon from "./CodeIcon.svelte";
+	import CodeIcon from "./svg/CodeIcon.svelte";
 
 	const components = [
 		"Accordion",
@@ -11,7 +11,7 @@
 		"FullscreenButton",
 		"Popover",
 		"ShareButton",
-		// "Tabs",
+		"Tabs",
 		"YouTube",
 	];
 

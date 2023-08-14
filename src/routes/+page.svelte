@@ -1,8 +1,8 @@
 <script lang="ts">
 	import "../app.postcss";
 
-	import NavItems from "./NavItems.svelte";
-	import Chevron from "../svg/Chevron.svelte";
+	import NavItems from "../site/NavItems.svelte";
+	import Chevron from "../site/svg/Chevron.svelte";
 
 	import Accordion from "$lib/components/Accordion.svelte";
 	import Chord from "$lib/components/Chord.svelte";
@@ -13,7 +13,7 @@
 	import FullscreenButton from "$lib/components/FullscreenButton.svelte";
 	import Popover from "$lib/components/Popover.svelte";
 	import ShareButton from "$lib/components/ShareButton.svelte";
-	// import Tabs from "$lib/components/Tabs.svelte";
+	import Tabs from "$lib/components/Tabs.svelte";
 	import YouTube from "$lib/components/YouTube.svelte";
 
 	export let data;
@@ -62,6 +62,24 @@
 					{ summary: "Does it work without Javascript?", content: "Yes." },
 				]}
 			/>
+
+			<Accordion
+				items={[
+					{
+						summary: "A Component",
+						content: "Rendered only on this item.",
+						data: { component: FullscreenButton },
+					},
+					{ summary: "Summary", content: "Some other content" },
+				]}
+			>
+				<svelte:fragment slot="content" let:item>
+					{item.content}
+					{#if item.data?.component}
+						<svelte:component this={item.data.component} />
+					{/if}
+				</svelte:fragment>
+			</Accordion>
 
 			<h3 id="chord">Chord</h3>
 
@@ -219,23 +237,19 @@
 				url="https://drab.robino.dev"
 			/>
 
-			<!-- <h3 id="tabs">Tabs</h3>
+			<h3 id="tabs">Tabs</h3>
 
 			<Tabs
 				classHeader="grid grid-flow-col grid-rows-1 gap-1 rounded bg-gray-200 p-1"
-				classButton="btn rounded-sm p-0.5"
-				classButtonActive="bg-white text-gray-950"
-				classButtonInactive="bg-gray-200 text-gray-500"
-				classSlot="py-2"
-				content={[
-					{ name: "String", slot: "Slot" },
-					{
-						name: "Component",
-						slot: FullscreenButton,
-						classContentSlot: "btn",
-					},
+				classTitle="btn rounded-sm p-0.5"
+				classTitleActive="bg-white text-gray-950"
+				classTitleInactive="bg-gray-200 text-gray-500"
+				classContent="py-2"
+				tabs={[
+					{ title: "Tab 1", content: "Content 1" },
+					{ title: "Tab 2", content: "Content 2" },
 				]}
-			/> -->
+			/>
 
 			<h3 id="youtube">YouTube</h3>
 

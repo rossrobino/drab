@@ -21,11 +21,11 @@ Displays a list of `details` elements.
 
 @slots
 
-| name       | purpose                       | default value  |
-| ---------- | ----------------------------- | -------------- |
-| `summary`  | summary element               | `item.summary` |
-| `icon`     | icon element                  | `icon` prop    |
-| `content`  | content of the accordion item | `item.content` |
+| name      | purpose                       | default value  | slot props      |
+| --------- | ----------------------------- | -------------- | --------------- |
+| `summary` | summary element               | `item.summary` | `item`, `index` |
+| `icon`    | icon element                  | `icon` prop    | `item`, `index` |
+| `content` | content of the accordion item | `item.content` | `item`, `index` |
 
 @example
 
@@ -53,14 +53,6 @@ Displays a list of `details` elements.
 		<span>{item.content}</span>
 	</div>
 </Accordion>
-```
-
-To render a component on unique items, pass it into the `data` prop and utilize `<svelte:component this={item.data.component}>` inside of the slot.
-
-```svelte
-<script>
-    import { Accordion, FullScreenButton } from "drab";
-</script>
 
 <Accordion
 	items={[
@@ -72,18 +64,17 @@ To render a component on unique items, pass it into the `data` prop and utilize 
 		{ summary: "Summary", content: "Some other content" },
 	]}
 >
-	<div slot="content" let:item>
+	<svelte:fragment slot="content" let:item>
 		{item.content}
 		{#if item.data?.component}
 			<svelte:component this={item.data.component} />
 		{/if}
-	</div>
+	</svelte:fragment>
 </Accordion>
 ```
 -->
 
 <script context="module" lang="ts">
-	/** use `data` to pass anything back to the parent */
 	export interface AccordionItem<T = any> {
 		/** text summary of the item */
 		summary?: string;
@@ -94,7 +85,7 @@ To render a component on unique items, pass it into the `data` prop and utilize 
 		/** controls whether the content is displayed */
 		open?: boolean;
 
-		/** any data to pass back */
+		/** any data to pass back to the parent */
 		data?: T;
 	}
 </script>
