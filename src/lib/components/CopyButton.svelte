@@ -24,7 +24,7 @@ Uses the navigator api to copy text to the clipboard.
 
 ```svelte
 <script>
-    import { CopyButton } from "drab";
+	import { CopyButton } from "drab";
 </script>
 
 <div>

@@ -25,7 +25,7 @@ Uses the navigator api to share or copy a url link depending on browser support.
 
 ```svelte
 <script>
-    import { ShareButton } from "drab";
+	import { ShareButton } from "drab";
 </script>
 
 <div>

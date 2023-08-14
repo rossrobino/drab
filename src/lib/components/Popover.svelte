@@ -28,7 +28,7 @@ Displays a popover relatively positioned to the button.
 
 ```svelte
 <script>
-    import { Popover } from "drab";
+	import { Popover } from "drab";
 </script>
 
 <Popover classButton="btn" classPopover="p-2 transition">
@@ -156,7 +156,7 @@ Displays a popover relatively positioned to the button.
 	});
 </script>
 
-<svelte:document on:keydown={onKeyDown} on:click={clickOutside} />
+<svelte:body on:keydown={onKeyDown} on:click={clickOutside} />
 
 <div class="db-relative {className}" {id}>
 	<button

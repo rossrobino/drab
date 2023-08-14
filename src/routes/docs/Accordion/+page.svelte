@@ -1,6 +1,5 @@
 <script>
 	import Accordion from "$lib/components/Accordion.svelte";
-	import FullscreenButton from "$lib/components/FullscreenButton.svelte";
 	import Chevron from "$site/svg/Chevron.svelte";
 </script>
 
@@ -20,11 +19,6 @@
 			content: "Yes, with the transition prop.",
 		},
 		{ summary: "Does it work without Javascript?", content: "Yes." },
-		{
-			summary: "Component",
-			content: "Rendered only on this item.",
-			data: { component: FullscreenButton },
-		},
 	]}
 >
 	<svelte:fragment slot="content" let:item let:index>
@@ -32,8 +26,5 @@
 			<span>{index + 1}.</span>
 			<span>{item.content}</span>
 		</div>
-		{#if item.data?.component}
-			<svelte:component this={item.data.component} class="btn" />
-		{/if}
 	</svelte:fragment>
 </Accordion>

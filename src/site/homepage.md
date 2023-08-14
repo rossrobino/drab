@@ -1,3 +1,5 @@
+# An unstyled Svelte component library
+
 - [GitHub](https://github.com/rossrobino/drab)
 - [npm](https://www.npmjs.com/package/drab)
 - [MIT License](https://github.com/rossrobino/drab/blob/main/LICENSE.md)

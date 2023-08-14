@@ -29,8 +29,8 @@ Displays tabs and the active tab's content.
 
 ```svelte
 <script>
-    import { Tabs } from "drab";
-	import FullscreenButton from "$lib/components/FullscreenButton.svelte";
+	import { Tabs } from "drab";
+	import { FullscreenButton } from "drab";
 </script>
 
 <Tabs
@@ -67,7 +67,7 @@ Displays tabs and the active tab's content.
 	</svelte:fragment>
 	<div>{activeTab.content}</div>
 	{#if activeTab.data?.component}
-		<svelte:component class="btn" this={activeTab.data.component} />
+		<svelte:component this={activeTab.data.component} class="btn" />
 	{/if}
 </Tabs>
 ```

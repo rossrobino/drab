@@ -22,7 +22,7 @@ Displays when the parent element is right clicked.
 
 ```svelte
 <script>
-    import { ContextMenu } from "drab";
+	import { ContextMenu } from "drab";
 </script>
 
 <div class="flex justify-center rounded border border-dashed p-12">
@@ -98,7 +98,7 @@ Displays when the parent element is right clicked.
 	});
 </script>
 
-<svelte:document on:click={hide} on:keydown={onKeyDown} />
+<svelte:body on:click={hide} on:keydown={onKeyDown} />
 
 <div
 	class={className}

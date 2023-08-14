@@ -42,7 +42,7 @@ export const documentProps = async (path) => {
 					// join back together
 					const documented = lines.join("\n");
 					await fs.writeFile(path, documented);
-					console.log("Documented " + path);
+					console.log("Documented props for " + path);
 					break;
 				}
 			}

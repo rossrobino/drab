@@ -17,7 +17,7 @@ Displays a list of `details` elements.
 - `icon` 
 - `id` 
 - `items` - array of `AccordionItem` elements
-- `transition` - rotates the icon, slides the content, defaults to empty object, set to false to remove
+- `transition` - rotates the icon, slides the content, set to `false` to remove
 
 @slots
 
@@ -31,9 +31,8 @@ Displays a list of `details` elements.
 
 ```svelte
 <script>
-    import Accordion from "$lib/components/Accordion.svelte";
-    import FullscreenButton from "$lib/components/FullscreenButton.svelte";
-	import Chevron from "$site/svg/Chevron.svelte";
+	import { Accordion } from "drab";
+	import { Chevron } from "$site/svg/Chevron.svelte";
 </script>
 
 <Accordion
@@ -52,11 +51,6 @@ Displays a list of `details` elements.
 			content: "Yes, with the transition prop.",
 		},
 		{ summary: "Does it work without Javascript?", content: "Yes." },
-		{
-			summary: "Component",
-			content: "Rendered only on this item.",
-			data: { component: FullscreenButton },
-		},
 	]}
 >
 	<svelte:fragment slot="content" let:item let:index>
@@ -64,9 +58,6 @@ Displays a list of `details` elements.
 			<span>{index + 1}.</span>
 			<span>{item.content}</span>
 		</div>
-		{#if item.data?.component}
-			<svelte:component class="btn" this={item.data.component} />
-		{/if}
 	</svelte:fragment>
 </Accordion>
 ```
@@ -92,6 +83,7 @@ Displays a list of `details` elements.
 	import { onMount, type ComponentType } from "svelte";
 	import { slide, type SlideParams } from "svelte/transition";
 	import { prefersReducedMotion } from "$lib/util/accessibility";
+	import { duration } from "$lib/util/transition";
 
 	let className = "";
 	export { className as class };
@@ -118,8 +110,10 @@ Displays a list of `details` elements.
 	/** class of the `div` that wrap the icon if displayed */
 	export let classIcon = "";
 
-	/** rotates the icon, slides the content, defaults to empty object, set to false to remove */
-	export let transition: SlideParams | false = {};
+	/** rotates the icon, slides the content, set to `false` to remove */
+	export let transition: SlideParams | false = { duration };
+
+	const cssDuration = transition ? transition.duration : 0;
 
 	/** if `true`, other items close when a new one is opened */
 	export let autoClose = true;
@@ -169,6 +163,7 @@ Displays a list of `details` elements.
 								class={classIcon}
 								class:d-rotate-180={item.open}
 								class:d-transition={transition}
+								style="--duration: {cssDuration}ms;"
 							>
 								{#if typeof icon !== "string"}
 									<svelte:component this={icon} />
@@ -207,6 +202,6 @@ Displays a list of `details` elements.
 	.d-transition {
 		transition-property: transform;
 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-		transition-duration: 150ms;
+		transition-duration: var(--duration);
 	}
 </style>

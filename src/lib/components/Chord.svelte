@@ -23,7 +23,7 @@ Generates a guitar chord `svg`.
 
 <Chord
 	class="text-gray-950"
-	name="D" 
+	name="D"
 	notes={[
 		{
 			finger: 0,
