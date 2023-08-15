@@ -5,7 +5,7 @@
 	import "../app.postcss";
 	import NavItems from "../site/NavItems.svelte";
 
-	let display = false;
+	let display = true;
 </script>
 
 <main class="m-4 lg:flex lg:justify-center">
@@ -35,24 +35,24 @@
 				>
 					<Bars />
 				</button>
-				<Sheet
-					bind:display
-					onClickClose={true}
-					class="bg-gray-50/80 backdrop-blur"
-					classSheet="p-4 shadow bg-white"
-					position="left"
-				>
-					<div class="flex items-center justify-between gap-4">
-						<h2 class="my-0">Components</h2>
-						<button title="Close" class="btn btn-g"><X /></button>
-					</div>
-					<ul class="mb-8 w-60 list-none pl-0"><NavItems /></ul>
-				</Sheet>
 				<h2 class="my-0 !lowercase">
 					<a class="font-extrabold text-gray-900 no-underline" href="/">drab</a>
 				</h2>
 			</nav>
 			<slot />
+			<Sheet
+				bind:display
+				onClickClose={true}
+				class="bg-gray-50/80 backdrop-blur"
+				classSheet="p-4 shadow bg-white"
+				position="left"
+			>
+				<div class="flex items-center justify-between gap-4">
+					<h2 class="my-0">Components</h2>
+					<button title="Close" class="btn btn-g"><X /></button>
+				</div>
+				<ul class="mb-8 w-60 list-none pl-0"><NavItems /></ul>
+			</Sheet>
 		</div>
 	</div>
 </main>

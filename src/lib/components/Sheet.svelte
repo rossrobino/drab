@@ -164,7 +164,7 @@ Creates a sheet element based on the `position` provided.
 	.d-backdrop {
 		position: fixed;
 		display: grid;
-		z-index: 10;
+		z-index: 40;
 		top: 0;
 		bottom: 0;
 		left: 0;
