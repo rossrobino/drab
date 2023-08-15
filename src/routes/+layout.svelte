@@ -5,7 +5,7 @@
 	import "../app.postcss";
 	import NavItems from "../site/NavItems.svelte";
 
-	let display = true;
+	let display = false;
 </script>
 
 <main class="m-4 lg:flex lg:justify-center">
