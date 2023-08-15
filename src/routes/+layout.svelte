@@ -26,7 +26,7 @@
 			class="prose-h1:text-balance prose prose-teal mb-16 prose-headings:capitalize lg:min-w-[65ch]"
 		>
 			<nav
-				class="sticky top-0 -mx-4 -mt-4 mb-6 flex items-center gap-4 bg-white p-2 lg:hidden"
+				class="sticky top-0 -mx-4 -mt-4 mb-6 flex items-center gap-4 bg-white p-4 lg:hidden"
 			>
 				<button
 					class="btn btn-g"
