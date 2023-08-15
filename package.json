@@ -1,6 +1,6 @@
 {
 	"name": "drab",
-	"version": "2.5.0",
+	"version": "2.6.0",
 	"description": "An unstyled Svelte component library",
 	"keywords": [
 		"components",
@@ -27,7 +27,7 @@
 	"repository": "github:rossrobino/drab",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "npm run doc && vite build && npm run package",
+		"build": "vite build && npm run package",
 		"preview": "vite preview",
 		"package": "svelte-kit sync && svelte-package && publint",
 		"prepublishOnly": "npm run package",
@@ -36,7 +36,7 @@
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write . --plugin=prettier-plugin-svelte --plugin=prettier-plugin-tailwindcss",
 		"pub": "npm publish --access public",
-		"doc": "node src/scripts/buildDocs.js"
+		"doc": "node src/scripts/documentProps.js && node src/scripts/documentExamples.js"
 	},
 	"exports": {
 		".": {

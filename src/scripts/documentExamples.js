@@ -15,8 +15,6 @@ export const documentExampleDir = async (dir) => {
 	}
 };
 
-console.log(await fs.readdir("src/routes/docs"));
-
 /**
  * - Finds "@props" in a component
  * - If found, overwrites the docs with the generated docs
@@ -66,3 +64,5 @@ export const documentExample = async (file) => {
 		}
 	}
 };
+
+await documentExampleDir("src/lib/components");

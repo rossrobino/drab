@@ -3,6 +3,7 @@
 
 	const components = [
 		"Accordion",
+		"Breakpoint",
 		"Chord",
 		"ContextMenu",
 		"CopyButton",

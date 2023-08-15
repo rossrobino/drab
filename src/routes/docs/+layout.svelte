@@ -18,7 +18,7 @@
 	</a>
 </p>
 
-<div class="flex justify-center rounded border p-8">
+<div class="flex justify-center rounded border border-dashed p-8">
 	<div class="flex w-full flex-col gap-8">
 		<slot />
 	</div>

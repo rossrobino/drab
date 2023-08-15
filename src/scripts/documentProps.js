@@ -6,7 +6,7 @@ import path from "path";
  *
  * @param {string} dir path to directory
  */
-export const documentPropsDir = async (dir) => {
+const documentPropsDir = async (dir) => {
 	const files = await fs.readdir(dir);
 	for (const file of files) {
 		if (path.extname(file) === ".svelte") {
@@ -21,7 +21,7 @@ export const documentPropsDir = async (dir) => {
  *
  * @param {string} path path to component
  */
-export const documentProps = async (path) => {
+const documentProps = async (path) => {
 	const code = await fs.readFile(path, "utf-8");
 	const lines = code.split("\n");
 	const docs = getPropDocs(lines);
@@ -84,3 +84,5 @@ const getPropDocs = (lines) => {
 	docs.sort();
 	return docs.join("");
 };
+
+await documentPropsDir("src/lib/components");

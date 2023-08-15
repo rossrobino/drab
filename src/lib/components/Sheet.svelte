@@ -11,6 +11,7 @@ Creates a sheet element based on the `position` provided.
 - `class` 
 - `display` - controls whether the sheet is displayed
 - `id` 
+- `onClickClose` - close on click, defaults to `false` - only closes if clicked outside
 - `position` - determines the position of sheet
 - `size` - size of sheet based on position - can also use css instead
 - `transitionSheet` - slides the sheet, set to `false` to remove
@@ -75,7 +76,7 @@ Creates a sheet element based on the `position` provided.
 	export let classSheet = "";
 
 	/** controls whether the sheet is displayed*/
-	export let display = true;
+	export let display = false;
 
 	/** fades the entire component, set to `false` to remove */
 	export let transition: FadeParams | false = { duration };
@@ -89,10 +90,16 @@ Creates a sheet element based on the `position` provided.
 	/** slides the sheet, set to `false` to remove */
 	export let transitionSheet: FlyParams | false = { duration };
 
+	/** close on click, defaults to `false` - only closes if clicked outside */
+	export let onClickClose = false;
+
 	let sheet: HTMLDivElement;
 
 	const clickOutside = (e: MouseEvent) => {
-		if (e.target instanceof Node && !sheet.contains(e.target)) {
+		if (
+			(e.target instanceof Node && !sheet.contains(e.target)) ||
+			onClickClose
+		) {
 			display = false;
 		}
 	};

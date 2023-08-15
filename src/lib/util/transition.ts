@@ -1,1 +1,1 @@
-export const duration = 200;
+export const duration = 250;
