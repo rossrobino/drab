@@ -1,42 +1,44 @@
 <script lang="ts">
+	import "../app.postcss";
+
 	import Sheet from "$lib/components/Sheet.svelte";
+	import NavItems from "$site/components/NavItems.svelte";
+
 	import Bars from "$site/svg/Bars.svelte";
 	import X from "$site/svg/X.svelte";
-	import "../app.postcss";
-	import NavItems from "../site/NavItems.svelte";
 
 	let display = false;
 </script>
 
-<main class="m-4 lg:flex lg:justify-center">
+<main
+	class="prose-h1:text-balance prose m-4 max-w-none selection:bg-gray-400/30 prose-headings:capitalize prose-a:underline-offset-2 hover:prose-a:decoration-dotted prose-pre:rounded lg:flex lg:justify-center"
+>
 	<div class="gap-12 lg:flex">
-		<nav class="prose prose-teal -my-4 hidden lg:block">
-			<ul class="sticky top-0 h-screen list-none overflow-y-auto py-4 pr-6">
+		<nav class="-my-4 hidden lg:block">
+			<ul
+				class="sticky top-0 my-0 h-screen list-none overflow-y-auto px-0 py-4"
+			>
 				<li>
-					<h2 class="mb-6 mt-0">
-						<a class="font-extrabold text-gray-900 no-underline" href="/">
-							drab
-						</a>
+					<h2 class="mb-6 mt-0 !lowercase">
+						<a class="font-extrabold no-underline" href="/">drab</a>
 					</h2>
 				</li>
 				<NavItems />
 			</ul>
 		</nav>
-		<div
-			class="prose-h1:text-balance prose prose-teal mb-16 prose-headings:capitalize lg:min-w-[65ch]"
-		>
+		<div class="mb-16 max-w-[80ch] lg:w-[80ch]">
 			<nav
-				class="sticky top-0 -mx-4 -mt-4 mb-6 flex items-center gap-4 bg-white p-4 lg:hidden"
+				class="sticky top-0 -mx-4 -mt-4 mb-6 flex items-center gap-4 bg-gray-50 p-4 lg:hidden"
 			>
 				<button
-					class="btn btn-g"
+					class="btn btn-s"
 					title="Components"
 					on:click={() => (display = true)}
 				>
 					<Bars />
 				</button>
 				<h2 class="my-0 !lowercase">
-					<a class="font-extrabold text-gray-900 no-underline" href="/">drab</a>
+					<a class="font-extrabold no-underline" href="/">drab</a>
 				</h2>
 			</nav>
 			<slot />
@@ -44,14 +46,16 @@
 				bind:display
 				onClickClose={true}
 				class="bg-gray-50/80 backdrop-blur"
-				classSheet="p-4 shadow bg-white"
-				position="left"
+				classSheet="p-4 shadow bg-white overflow-y-auto"
+				side="left"
 			>
 				<div class="flex items-center justify-between gap-4">
 					<h2 class="my-0">Components</h2>
-					<button title="Close" class="btn btn-g"><X /></button>
+					<button title="Close" class="btn btn-s"><X /></button>
 				</div>
-				<ul class="mb-8 w-60 list-none pl-0"><NavItems /></ul>
+				<ul class="mb-8 w-60 list-none pl-0">
+					<NavItems />
+				</ul>
 			</Sheet>
 		</div>
 	</div>

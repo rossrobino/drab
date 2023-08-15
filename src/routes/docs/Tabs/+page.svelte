@@ -4,8 +4,9 @@
 </script>
 
 <Tabs
+	class="mb-4"
 	classTabList="grid grid-flow-col grid-rows-1 gap-1 rounded bg-gray-200 p-1"
-	classTab="btn rounded-sm p-0.5"
+	classTab="btn btn-s rounded-sm p-1"
 	classTabActive="bg-white text-gray-950"
 	classTabInactive="bg-gray-200 text-gray-500"
 	classTabPanel="py-2"
@@ -17,7 +18,7 @@
 
 <Tabs
 	classTabList="grid grid-flow-col grid-rows-1 gap-1 rounded bg-gray-200 p-1"
-	classTab="btn rounded-sm p-0.5"
+	classTab="btn btn-s rounded-sm p-1"
 	classTabActive="bg-white text-gray-950"
 	classTabInactive="bg-gray-200 text-gray-500"
 	classTabPanel="py-2"
@@ -35,7 +36,7 @@
 		{item.tab}
 		{index + 1}
 	</svelte:fragment>
-	<div>{selectedTab.panel}</div>
+	<div class="mb-2">{selectedTab.panel}</div>
 	{#if selectedTab.data?.component}
 		<svelte:component this={selectedTab.data.component} class="btn" />
 	{/if}

@@ -39,7 +39,6 @@ Displays a list of `details` elements.
 	icon={Chevron}
 	classDetails="border-b"
 	classHeader="flex gap-8 cursor-pointer items-center justify-between py-4 font-bold hover:underline"
-	classContent="pb-4"
 	items={[
 		{ summary: "Is it accessible?", content: "Yes." },
 		{
@@ -54,7 +53,7 @@ Displays a list of `details` elements.
 	]}
 >
 	<svelte:fragment slot="content" let:item let:index>
-		<div class="mb-4">
+		<div class="pb-4">
 			<span>{index + 1}.</span>
 			<span>{item.content}</span>
 		</div>

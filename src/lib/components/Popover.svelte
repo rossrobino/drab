@@ -31,29 +31,31 @@ Displays a popover relatively positioned to the button.
 	import { Popover } from "drab";
 </script>
 
-<Popover classButton="btn" classPopover="p-2 transition">
-	<span slot="button">Hover</span>
-	<div class="card flex w-48 flex-col gap-2">
-		<div class="font-bold">Bottom</div>
-		<button class="btn">Button</button>
-		<button class="btn">Button</button>
-		<button class="btn">Button</button>
-	</div>
-</Popover>
-<Popover
-	classButton="btn"
-	classPopover="p-2 transition"
-	eventType="click"
-	position="right"
->
-	<span slot="button">Click</span>
-	<div class="card flex w-48 flex-col gap-2">
-		<div class="font-bold">Right</div>
-		<button class="btn">Button</button>
-		<button class="btn">Button</button>
-		<button class="btn">Button</button>
-	</div>
-</Popover>
+<div class="grid gap-4">
+	<Popover classButton="btn" classPopover="p-2 transition">
+		<span slot="button">Hover</span>
+		<div class="flex w-48 flex-col gap-2 rounded border bg-white p-2 shadow">
+			<div class="font-bold">Bottom</div>
+			<button class="btn">Button</button>
+			<button class="btn">Button</button>
+			<button class="btn">Button</button>
+		</div>
+	</Popover>
+	<Popover
+		classButton="btn"
+		classPopover="p-2 transition"
+		eventType="click"
+		position="right"
+	>
+		<span slot="button">Click</span>
+		<div class="flex w-48 flex-col gap-2 rounded border bg-white p-2 shadow">
+			<div class="font-bold">Right</div>
+			<button class="btn">Button</button>
+			<button class="btn">Button</button>
+			<button class="btn">Button</button>
+		</div>
+	</Popover>
+</div>
 ```
 -->
 
@@ -98,7 +100,8 @@ Displays a popover relatively positioned to the button.
 	let coordinates: { x: number; y: number } = { x: 0, y: 0 };
 
 	/** corrects the position if the popover is out of the viewport */
-	const correctPosition = async () => {
+	const setPosition = async () => {
+		// position according to the prop
 		if (position === "top" || position === "bottom") {
 			coordinates.x = button.offsetWidth / 2 - popover.offsetWidth / 2;
 			if (position === "top") {
@@ -115,10 +118,11 @@ Displays a popover relatively positioned to the button.
 			}
 		}
 
-		await tick();
+		await tick(); // wait for popover to display
 
 		const rect = popover.getBoundingClientRect();
 
+		// correct position if not visible
 		if (rect.x < 0) {
 			coordinates.x += Math.abs(rect.x);
 		} else if (rect.x + popover.offsetWidth > window.innerWidth) {
@@ -152,7 +156,7 @@ Displays a popover relatively positioned to the button.
 
 	onMount(() => {
 		clientEventType = eventType; // no js = "hover"
-		correctPosition();
+		setPosition();
 	});
 </script>
 
@@ -165,8 +169,8 @@ Displays a popover relatively positioned to the button.
 		id={idButton}
 		class={classButton}
 		on:click={openPopover}
-		on:mouseover={correctPosition}
-		on:focus={correctPosition}
+		on:mouseover={setPosition}
+		on:focus={setPosition}
 	>
 		<slot name="button">Open</slot>
 	</button>

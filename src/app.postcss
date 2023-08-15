@@ -2,15 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/** uses the TailwindCSS Typography plugin for base styles */
+
 @layer components {
 	.btn {
-		@apply rounded bg-teal-700 px-3 py-1 font-semibold text-white transition hover:bg-opacity-90 active:scale-95 disabled:cursor-not-allowed disabled:bg-gray-400 disabled:text-white;
+		@apply rounded bg-gray-700 px-3 py-2 font-semibold capitalize leading-4 tracking-wide text-gray-50 transition hover:bg-gray-600 active:scale-95 disabled:cursor-not-allowed disabled:bg-gray-400 disabled:text-gray-50;
 	}
-	.btn-g {
+	.btn-s {
 		@apply bg-transparent text-gray-900 hover:bg-gray-100;
-	}
-	.card {
-		@apply rounded border bg-white p-2 shadow;
 	}
 }
 

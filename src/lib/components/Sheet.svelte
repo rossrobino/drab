@@ -12,8 +12,8 @@ Creates a sheet element based on the `position` provided.
 - `display` - controls whether the sheet is displayed
 - `id` 
 - `onClickClose` - close on click, defaults to `false` - only closes if clicked outside
-- `position` - determines the position of sheet
-- `size` - size of sheet based on position - can also use css instead
+- `side` - determines the position of sheet
+- `size` - width/height of sheet based on the `side` - can also use css instead
 - `transitionSheet` - slides the sheet, set to `false` to remove
 - `transition` - fades the entire component, set to `false` to remove
 
@@ -28,12 +28,15 @@ Creates a sheet element based on the `position` provided.
 ```svelte
 <script lang="ts">
 	import { Sheet } from "drab";
+	import { X } from "$site/svg/X.svelte";
 
 	let display = false;
 </script>
 
 <div>
-	<button class="btn" on:click={() => (display = true)}>Open</button>
+	<button type="button" class="btn" on:click={() => (display = true)}>
+		Open
+	</button>
 </div>
 
 <Sheet
@@ -42,8 +45,15 @@ Creates a sheet element based on the `position` provided.
 	classSheet="p-4 shadow bg-white"
 >
 	<div class="mb-4 flex items-center justify-between">
-		<div class="text-lg font-bold">Sheet</div>
-		<button class="btn" on:click={() => (display = false)}>Close</button>
+		<h2 class="my-0">Sheet</h2>
+		<button
+			type="button"
+			title="Close"
+			class="btn btn-s"
+			on:click={() => (display = false)}
+		>
+			<X />
+		</button>
 	</div>
 	<div>
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -82,9 +92,9 @@ Creates a sheet element based on the `position` provided.
 	export let transition: FadeParams | false = { duration };
 
 	/** determines the position of sheet */
-	export let position: "top" | "bottom" | "left" | "right" = "right";
+	export let side: "top" | "bottom" | "left" | "right" = "right";
 
-	/** size of sheet based on position - can also use css instead */
+	/** width/height of sheet based on the `side` - can also use css instead */
 	export let size: number = 488;
 
 	/** slides the sheet, set to `false` to remove */
@@ -112,11 +122,11 @@ Creates a sheet element based on the `position` provided.
 
 	if (transitionSheet && !transitionSheet.x && !transitionSheet.y) {
 		// if there isn't a user assigned value for `x` or `y`
-		if (position === "bottom") {
+		if (side === "bottom") {
 			transitionSheet.y = size;
-		} else if (position === "top") {
+		} else if (side === "top") {
 			transitionSheet.y = -size;
-		} else if (position === "right") {
+		} else if (side === "right") {
 			transitionSheet.x = size;
 		} else {
 			transitionSheet.x = -size;
@@ -147,14 +157,14 @@ Creates a sheet element based on the `position` provided.
 			role="dialog"
 			bind:this={sheet}
 			transition:fly={transitionSheet ? transitionSheet : { duration: 0 }}
-			style={position === "top" || position === "bottom"
+			style={side === "top" || side === "bottom"
 				? `max-height: ${size}px;`
 				: `max-width: ${size}px`}
 			class="d-sheet {classSheet}"
-			class:d-bottom={position === "bottom"}
-			class:d-top={position === "top"}
-			class:d-left={position === "left"}
-			class:d-right={position === "right"}
+			class:d-bottom={side === "bottom"}
+			class:d-top={side === "top"}
+			class:d-left={side === "left"}
+			class:d-right={side === "right"}
 		>
 			<slot>Content</slot>
 		</div>

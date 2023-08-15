@@ -1,11 +1,14 @@
 <script lang="ts">
 	import Sheet from "$lib/components/Sheet.svelte";
+	import X from "$site/svg/X.svelte";
 
 	let display = false;
 </script>
 
 <div>
-	<button class="btn" on:click={() => (display = true)}>Open</button>
+	<button type="button" class="btn" on:click={() => (display = true)}>
+		Open
+	</button>
 </div>
 
 <Sheet
@@ -14,8 +17,15 @@
 	classSheet="p-4 shadow bg-white"
 >
 	<div class="mb-4 flex items-center justify-between">
-		<div class="text-lg font-bold">Sheet</div>
-		<button class="btn" on:click={() => (display = false)}>Close</button>
+		<h2 class="my-0">Sheet</h2>
+		<button
+			type="button"
+			title="Close"
+			class="btn btn-s"
+			on:click={() => (display = false)}
+		>
+			<X />
+		</button>
 	</div>
 	<div>
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod

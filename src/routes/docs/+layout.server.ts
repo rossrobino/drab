@@ -1,4 +1,4 @@
-import { mdToHtml } from "$site/util.js";
+import { mdToHtml } from "$site/util/mdToHtml";
 
 export const load = async ({ route }) => {
 	const title = route.id.split("/").at(-1);

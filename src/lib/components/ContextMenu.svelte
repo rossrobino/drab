@@ -11,6 +11,7 @@ Displays when the parent element is right clicked.
 - `class` 
 - `display` - controls `display` css property
 - `id` 
+- `transition` - fades the content, set to `false` to remove
 
 @slots
 
@@ -27,8 +28,8 @@ Displays when the parent element is right clicked.
 
 <div class="flex justify-center rounded border border-dashed p-12">
 	<div>Right click here</div>
-	<ContextMenu class="transition">
-		<div class="card flex w-48 flex-col gap-2">
+	<ContextMenu>
+		<div class="flex w-48 flex-col gap-2 rounded border bg-white p-2 shadow">
 			<div class="font-bold">Context Menu</div>
 			<button role="menuitem" class="btn">Button</button>
 			<button role="menuitem" class="btn">Button</button>
@@ -41,6 +42,9 @@ Displays when the parent element is right clicked.
 
 <script lang="ts">
 	import { onMount, tick } from "svelte";
+	import { fade, type FadeParams } from "svelte/transition";
+	import { duration } from "$lib/util/transition";
+	import { messageNoScript } from "$lib/util/messages";
 
 	let className = "";
 	export { className as class };
@@ -53,7 +57,12 @@ Displays when the parent element is right clicked.
 	/** `noscript` class */
 	export let classNoscript = "";
 
+	/** fades the content, set to `false` to remove */
+	export let transition: FadeParams | false = { duration };
+
 	let contextMenu: HTMLDivElement;
+
+	let base: HTMLSpanElement;
 
 	let coordinates: { x: number; y: number } = { x: 0, y: 0 };
 
@@ -66,32 +75,30 @@ Displays when the parent element is right clicked.
 	};
 
 	onMount(() => {
-		const parentElement = contextMenu.parentElement;
+		const parentElement = base.parentElement;
 
 		if (parentElement) {
 			parentElement.addEventListener("contextmenu", async (e) => {
-				if (contextMenu) {
-					e.preventDefault();
-					const scrollY = window.scrollY;
-					const scrollX = window.scrollX;
-					coordinates.x = e.clientX + scrollX;
-					coordinates.y = e.clientY + scrollY;
-					display = true;
+				e.preventDefault();
+				const scrollY = window.scrollY;
+				const scrollX = window.scrollX;
+				coordinates.x = e.clientX + scrollX;
+				coordinates.y = e.clientY + scrollY;
+				display = true;
 
-					await tick(); // wait for menu to show
+				await tick(); // wait for menu to show
 
-					const offsetWidth = contextMenu.offsetWidth + 24;
-					const offsetHeight = contextMenu.offsetHeight + 6;
-					const innerWidth = window.innerWidth;
-					const innerHeight = window.innerHeight;
+				const offsetWidth = contextMenu.offsetWidth + 24;
+				const offsetHeight = contextMenu.offsetHeight + 6;
+				const innerWidth = window.innerWidth;
+				const innerHeight = window.innerHeight;
 
-					// ensure menu is within view
-					if (coordinates.x + offsetWidth > scrollX + innerWidth) {
-						coordinates.x = scrollX + innerWidth - offsetWidth;
-					}
-					if (coordinates.y + offsetHeight > scrollY + innerHeight) {
-						coordinates.y = scrollY + innerHeight - offsetHeight;
-					}
+				// ensure menu is within view
+				if (coordinates.x + offsetWidth > scrollX + innerWidth) {
+					coordinates.x = scrollX + innerWidth - offsetWidth;
+				}
+				if (coordinates.y + offsetHeight > scrollY + innerHeight) {
+					coordinates.y = scrollY + innerHeight - offsetHeight;
 				}
 			});
 		}
@@ -100,29 +107,32 @@ Displays when the parent element is right clicked.
 
 <svelte:body on:click={hide} on:keydown={onKeyDown} />
 
-<div
-	role="menu"
-	class={className}
-	{id}
-	bind:this={contextMenu}
-	style:z-index={display ? "10" : "-10"}
-	style:opacity={display ? "100%" : "0%"}
-	style:top="{coordinates.y}px"
-	style:left="{coordinates.x}px"
-	inert={display ? false : true}
->
-	<slot>Context Menu</slot>
-</div>
+<span bind:this={base} role="presentation"></span>
 
-<noscript>
-	<div class={classNoscript}>
-		<slot />
+{#if display}
+	<div
+		role="menu"
+		class={className}
+		{id}
+		bind:this={contextMenu}
+		style:top="{coordinates.y}px"
+		style:left="{coordinates.x}px"
+		transition:fade={transition ? transition : { duration: 0 }}
+	>
+		<slot>Context Menu</slot>
 	</div>
-</noscript>
+{/if}
+
+<noscript><div class={classNoscript}>{messageNoScript}</div></noscript>
 
 <style>
+	span {
+		width: 0;
+		height: 0;
+		opacity: 0;
+	}
 	div {
 		position: absolute;
-		z-index: 1;
+		z-index: 10;
 	}
 </style>

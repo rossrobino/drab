@@ -1,6 +1,4 @@
 <script lang="ts">
-	import Code from "$site/svg/Code.svelte";
-
 	const components = [
 		"Accordion",
 		"Breakpoint",
@@ -22,9 +20,8 @@
 
 {#each components as component}
 	<li>
-		<a class="m-0 flex items-center gap-2" href="/docs/{component}">
-			<Code />
-			<span>{component}</span>
+		<a class="mb-4 leading-4" href="/docs/{component}">
+			{component}
 		</a>
 	</li>
 {/each}

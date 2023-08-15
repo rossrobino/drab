@@ -41,7 +41,7 @@ Uses the navigator api to copy text to the clipboard.
 
 	export let id = "";
 
-	export let title = "Copy";
+	export let title = "";
 
 	/** text to copy */
 	export let text: string;
