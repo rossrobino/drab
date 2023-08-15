@@ -560,6 +560,7 @@ Text editor with controls to add elements and keyboard shortcuts.
 <div id={idControls} class={classControls}>
 	{#each contentElements as el}
 		<button
+			type="button"
 			class={el.class ? `${classButton} ${el.class}` : classButton}
 			on:click={() => addContent(el)}
 			title={el.name}

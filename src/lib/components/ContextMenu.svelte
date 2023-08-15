@@ -30,9 +30,9 @@ Displays when the parent element is right clicked.
 	<ContextMenu class="transition">
 		<div class="card flex w-48 flex-col gap-2">
 			<div class="font-bold">Context Menu</div>
-			<button class="btn">Button</button>
-			<button class="btn">Button</button>
-			<button class="btn">Button</button>
+			<button role="menuitem" class="btn">Button</button>
+			<button role="menuitem" class="btn">Button</button>
+			<button role="menuitem" class="btn">Button</button>
 		</div>
 	</ContextMenu>
 </div>
@@ -101,6 +101,7 @@ Displays when the parent element is right clicked.
 <svelte:body on:click={hide} on:keydown={onKeyDown} />
 
 <div
+	role="menu"
 	class={className}
 	{id}
 	bind:this={contextMenu}

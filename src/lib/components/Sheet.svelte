@@ -144,6 +144,7 @@ Creates a sheet element based on the `position` provided.
 		{id}
 	>
 		<div
+			role="dialog"
 			bind:this={sheet}
 			transition:fly={transitionSheet ? transitionSheet : { duration: 0 }}
 			style={position === "top" || position === "bottom"

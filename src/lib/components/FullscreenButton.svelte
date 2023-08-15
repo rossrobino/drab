@@ -56,7 +56,7 @@ Make the document or a specific element fullscreen.
 
 	export let id = "";
 
-	export let title = "Fullscreen";
+	export let title = "";
 
 	/** element to make fullscreen (defaults to `document.documentElement` upon mount) */
 	export let targetElement: HTMLElement | null = null;
@@ -96,7 +96,14 @@ Make the document or a specific element fullscreen.
 
 <svelte:window on:fullscreenchange={() => (fullscreen = !fullscreen)} />
 
-<button disabled={!supported} on:click={onClick} class={className} {id} {title}>
+<button
+	type="button"
+	disabled={!supported}
+	on:click={onClick}
+	class={className}
+	{id}
+	{title}
+>
 	{#if fullscreen}
 		<slot name="enabled">Exit Fullscreen</slot>
 	{:else}

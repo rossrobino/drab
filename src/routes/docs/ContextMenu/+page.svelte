@@ -7,9 +7,9 @@
 	<ContextMenu class="transition">
 		<div class="card flex w-48 flex-col gap-2">
 			<div class="font-bold">Context Menu</div>
-			<button class="btn">Button</button>
-			<button class="btn">Button</button>
-			<button class="btn">Button</button>
+			<button role="menuitem" class="btn">Button</button>
+			<button role="menuitem" class="btn">Button</button>
+			<button role="menuitem" class="btn">Button</button>
 		</div>
 	</ContextMenu>
 </div>

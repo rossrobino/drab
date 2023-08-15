@@ -69,7 +69,14 @@ Uses the navigator api to copy text to the clipboard.
 	onMount(() => (clientJs = true));
 </script>
 
-<button disabled={!clientJs} on:click={copyText} class={className} {id} {title}>
+<button
+	type="button"
+	disabled={!clientJs}
+	on:click={copyText}
+	class={className}
+	{id}
+	{title}
+>
 	{#if complete}
 		<slot name="complete">Copied</slot>
 	{:else}

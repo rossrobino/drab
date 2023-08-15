@@ -84,7 +84,14 @@ Uses the navigator api to share or copy a url link depending on browser support.
 	onMount(() => (clientJs = true));
 </script>
 
-<button disabled={!clientJs} on:click={onClick} class={className} {id} {title}>
+<button
+	type="button"
+	disabled={!clientJs}
+	on:click={onClick}
+	class={className}
+	{id}
+	{title}
+>
 	{#if complete}
 		<slot name="complete">Copied</slot>
 	{:else}

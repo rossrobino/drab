@@ -4,39 +4,39 @@
 </script>
 
 <Tabs
-	classHeader="grid grid-flow-col grid-rows-1 gap-1 rounded bg-gray-200 p-1"
-	classTitle="btn rounded-sm p-0.5"
-	classTitleActive="bg-white text-gray-950"
-	classTitleInactive="bg-gray-200 text-gray-500"
-	classContent="py-2"
+	classTabList="grid grid-flow-col grid-rows-1 gap-1 rounded bg-gray-200 p-1"
+	classTab="btn rounded-sm p-0.5"
+	classTabActive="bg-white text-gray-950"
+	classTabInactive="bg-gray-200 text-gray-500"
+	classTabPanel="py-2"
 	tabs={[
-		{ title: "Tab 1", content: "Content 1" },
-		{ title: "Tab 2", content: "Content 2" },
+		{ tab: "Tab", panel: "Content" },
+		{ tab: "Another Tab", panel: "Some more content" },
 	]}
 />
 
 <Tabs
-	classHeader="grid grid-flow-col grid-rows-1 gap-1 rounded bg-gray-200 p-1"
-	classTitle="btn rounded-sm p-0.5"
-	classTitleActive="bg-white text-gray-950"
-	classTitleInactive="bg-gray-200 text-gray-500"
-	classContent="py-2"
+	classTabList="grid grid-flow-col grid-rows-1 gap-1 rounded bg-gray-200 p-1"
+	classTab="btn rounded-sm p-0.5"
+	classTabActive="bg-white text-gray-950"
+	classTabInactive="bg-gray-200 text-gray-500"
+	classTabPanel="py-2"
 	tabs={[
-		{ title: "Tab", content: "Generated indexes" },
+		{ tab: "Tab", panel: "Generated indexes" },
 		{
-			title: "Tab",
-			content: "A tab with a component",
+			tab: "Tab",
+			panel: "A tab with a component",
 			data: { component: FullscreenButton },
 		},
 	]}
-	let:activeTab
+	let:selectedTab
 >
-	<svelte:fragment slot="title" let:item let:index>
-		{item.title}
+	<svelte:fragment slot="tab" let:item let:index>
+		{item.tab}
 		{index + 1}
 	</svelte:fragment>
-	<div>{activeTab.content}</div>
-	{#if activeTab.data?.component}
-		<svelte:component this={activeTab.data.component} class="btn" />
+	<div>{selectedTab.panel}</div>
+	{#if selectedTab.data?.component}
+		<svelte:component this={selectedTab.data.component} class="btn" />
 	{/if}
 </Tabs>

@@ -7,23 +7,23 @@ Displays tabs and the active tab's content.
 
 @props
 
-- `activeIndex` - index of active tab, defaults to 0
-- `classContent` - class of `div` that wraps the slotted content
-- `classHeader` - class of the `div` that wraps the `button`s
 - `classNoscript` - `noscript` class
-- `classTitleActive` - class of the active tab's `button`
-- `classTitleInactive` - class of all the inactive tabs' `button`s
-- `classTitle` - class of all title `button`s
+- `classTabActive` - class of the active tab's `button`
+- `classTabInactive` - class of all the inactive tabs' `button`s
+- `classTabList` - class of the `div` that wraps the `button`s
+- `classTabPanel` - class of `div` that wraps the slotted content
+- `classTab` - class of all title `button`s
 - `class` 
 - `id` 
+- `selectedIndex` - index of selected tab, defaults to 0
 - `tabs` - array of tabs
 
 @slots
 
-| name      | purpose               | default value        | slot props      |
-| --------- | --------------------- | -------------------- | --------------- |
-| `default` | active item's content | `activeItem.content` | `activeItem`    |
-| `title`   | title of each tab     | `item.title`         | `item`, `index` |
+| name      | purpose               | default value      | slot props      |
+| --------- | --------------------- | ------------------ | --------------- |
+| `default` | active item's content | `activeItem.panel` | `activeItem`    |
+| `tab`     | title of each tab     | `item.tab`         | `item`, `index` |
 
 @example
 
@@ -34,40 +34,40 @@ Displays tabs and the active tab's content.
 </script>
 
 <Tabs
-	classHeader="grid grid-flow-col grid-rows-1 gap-1 rounded bg-gray-200 p-1"
-	classTitle="btn rounded-sm p-0.5"
-	classTitleActive="bg-white text-gray-950"
-	classTitleInactive="bg-gray-200 text-gray-500"
-	classContent="py-2"
+	classTabList="grid grid-flow-col grid-rows-1 gap-1 rounded bg-gray-200 p-1"
+	classTab="btn rounded-sm p-0.5"
+	classTabActive="bg-white text-gray-950"
+	classTabInactive="bg-gray-200 text-gray-500"
+	classTabPanel="py-2"
 	tabs={[
-		{ title: "Tab 1", content: "Content 1" },
-		{ title: "Tab 2", content: "Content 2" },
+		{ tab: "Tab", panel: "Content" },
+		{ tab: "Another Tab", panel: "Some more content" },
 	]}
 />
 
 <Tabs
-	classHeader="grid grid-flow-col grid-rows-1 gap-1 rounded bg-gray-200 p-1"
-	classTitle="btn rounded-sm p-0.5"
-	classTitleActive="bg-white text-gray-950"
-	classTitleInactive="bg-gray-200 text-gray-500"
-	classContent="py-2"
+	classTabList="grid grid-flow-col grid-rows-1 gap-1 rounded bg-gray-200 p-1"
+	classTab="btn rounded-sm p-0.5"
+	classTabActive="bg-white text-gray-950"
+	classTabInactive="bg-gray-200 text-gray-500"
+	classTabPanel="py-2"
 	tabs={[
-		{ title: "Tab", content: "Generated indexes" },
+		{ tab: "Tab", panel: "Generated indexes" },
 		{
-			title: "Tab",
-			content: "A tab with a component",
+			tab: "Tab",
+			panel: "A tab with a component",
 			data: { component: FullscreenButton },
 		},
 	]}
-	let:activeTab
+	let:selectedTab
 >
-	<svelte:fragment slot="title" let:item let:index>
-		{item.title}
+	<svelte:fragment slot="tab" let:item let:index>
+		{item.tab}
 		{index + 1}
 	</svelte:fragment>
-	<div>{activeTab.content}</div>
-	{#if activeTab.data?.component}
-		<svelte:component this={activeTab.data.component} class="btn" />
+	<div>{selectedTab.panel}</div>
+	{#if selectedTab.data?.component}
+		<svelte:component this={selectedTab.data.component} class="btn" />
 	{/if}
 </Tabs>
 ```
@@ -76,10 +76,10 @@ Displays tabs and the active tab's content.
 <script context="module" lang="ts">
 	export interface TabsTab<T = any> {
 		/** tab title, displayed in `button` element */
-		title?: string;
+		tab?: string;
 
 		/** slotted content, displayed once tab is clicked */
-		content?: string;
+		panel?: string;
 
 		/** any data to pass back to the parent */
 		data?: T;
@@ -96,53 +96,57 @@ Displays tabs and the active tab's content.
 	export let id = "";
 
 	/** class of the `div` that wraps the `button`s */
-	export let classHeader = "";
+	export let classTabList = "";
 
 	/** class of all title `button`s */
-	export let classTitle = "";
+	export let classTab = "";
 
 	/** class of the active tab's `button` */
-	export let classTitleActive = "";
+	export let classTabActive = "";
 
 	/** class of all the inactive tabs' `button`s */
-	export let classTitleInactive = "";
+	export let classTabInactive = "";
 
 	/** `noscript` class */
 	export let classNoscript = "";
 
 	/** class of `div` that wraps the slotted content */
-	export let classContent = "";
+	export let classTabPanel = "";
 
 	/** array of tabs */
 	export let tabs: TabsTab[];
 
-	/** index of active tab, defaults to 0 */
-	export let activeIndex = 0;
+	/** index of selected tab, defaults to 0 */
+	export let selectedIndex = 0;
 
 	/** sets to `true` on the client */
 	let clientJs = false;
 
-	$: activeTab = tabs[activeIndex];
+	$: selectedTab = tabs[selectedIndex];
 
 	onMount(() => (clientJs = true));
 </script>
 
 <div class={className} {id}>
-	<div class={classHeader}>
+	<div class={classTabList} role="tablist">
 		{#each tabs as item, index}
 			<button
+				role="tab"
+				tabindex={index === selectedIndex ? 0 : -1}
+				aria-selected={index === selectedIndex}
+				aria-controls="tabpanel"
 				disabled={!clientJs}
-				class="{classTitle} {activeIndex === index
-					? classTitleActive
-					: ''} {activeIndex !== index ? classTitleInactive : ''}"
-				on:click={() => (activeIndex = index)}
+				class="{classTab} {selectedIndex === index
+					? classTabActive
+					: ''} {selectedIndex !== index ? classTabInactive : ''}"
+				on:click={() => (selectedIndex = index)}
 			>
-				<slot name="title" {item} {index}>{item.title}</slot>
+				<slot name="tab" {item} {index}>{item.tab}</slot>
 			</button>
 		{/each}
 	</div>
-	<div class={classContent}>
-		<slot {activeTab}>{activeTab.content}</slot>
+	<div class={classTabPanel} role="tabpanel" id="tabpanel">
+		<slot {selectedTab}>{selectedTab.panel}</slot>
 	</div>
 	<noscript>
 		<div class={classNoscript}>{messageNoScript}</div>

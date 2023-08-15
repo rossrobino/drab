@@ -160,6 +160,7 @@ Displays a popover relatively positioned to the button.
 
 <div class="db-relative {className}" {id}>
 	<button
+		type="button"
 		bind:this={button}
 		id={idButton}
 		class={classButton}
@@ -170,6 +171,7 @@ Displays a popover relatively positioned to the button.
 		<slot name="button">Open</slot>
 	</button>
 	<div
+		role="dialog"
 		bind:this={popover}
 		id={idPopover}
 		class="db-popover {classPopover}"

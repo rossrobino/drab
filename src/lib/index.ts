@@ -1,5 +1,6 @@
 import Accordion from "./components/Accordion.svelte";
 import type { AccordionItem } from "./components/Accordion.svelte";
+import Breakpoint from "./components/Breakpoint.svelte";
 import Chord from "./components/Chord.svelte";
 import type { ChordNote } from "./components/Chord.svelte";
 import ContextMenu from "./components/ContextMenu.svelte";
@@ -19,6 +20,7 @@ import YouTube from "./components/YouTube.svelte";
 export {
 	Accordion,
 	type AccordionItem,
+	Breakpoint,
 	Chord,
 	type ChordNote,
 	ContextMenu,
