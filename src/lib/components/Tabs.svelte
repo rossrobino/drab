@@ -3,7 +3,7 @@
 
 ### Tabs
 
-Displays tabs and the active tab's content.
+Displays tabs and the selected tab's content.
 
 @props
 
