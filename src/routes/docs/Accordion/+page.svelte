@@ -8,8 +8,8 @@
 	icon={Chevron}
 	class="mb-12"
 	classDetails="border-b"
-	classHeader="flex gap-8 cursor-pointer items-center justify-between py-4 font-bold underline hover:decoration-dotted"
-	classContent="pb-4"
+	classHeader="flex gap-8 cursor-pointer items-center justify-between p-4 font-bold underline hover:decoration-dotted"
+	classContent="pb-4 px-4"
 	items={[
 		{ summary: "Is it accessible?", content: "Yes." },
 		{
@@ -27,8 +27,9 @@
 <Accordion
 	icon={Chevron}
 	classDetails="border-b"
-	classHeader="flex gap-8 cursor-pointer items-center justify-between py-4 font-bold underline hover:decoration-dotted"
-	classContent="pb-4"
+	classHeader="flex gap-8 cursor-pointer items-center justify-between p-4 font-bold underline hover:decoration-dotted"
+	classContent="pb-4 px-4"
+	autoClose={false}
 	items={[
 		{ summary: "Summary", content: "Content" },
 		{ summary: "Summary", content: "Content", data: { uppercase: true } },

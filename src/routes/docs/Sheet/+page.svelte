@@ -17,12 +17,7 @@
 >
 	<div class="mb-4 flex items-center justify-between">
 		<h2 class="my-0">Sheet</h2>
-		<button
-			type="button"
-			title="Close"
-			class="btn btn-s"
-			on:click={() => (display = false)}
-		>
+		<button type="button" class="btn btn-s" on:click={() => (display = false)}>
 			Close
 		</button>
 	</div>

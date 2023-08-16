@@ -16,11 +16,13 @@
 	];
 
 	components.sort();
+
+	export let linkClick = () => {};
 </script>
 
 {#each components as component}
 	<li>
-		<a class="mb-4 leading-4" href="/docs/{component}">
+		<a on:click={linkClick} class="mb-4 leading-4" href="/docs/{component}">
 			{component}
 		</a>
 	</li>

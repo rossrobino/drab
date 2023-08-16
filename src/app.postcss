@@ -3,6 +3,15 @@
 @tailwind utilities;
 
 /** uses the TailwindCSS Typography plugin for base styles */
+@layer base {
+	a,
+	button,
+	input,
+	textarea,
+	summary {
+		@apply outline-offset-2;
+	}
+}
 
 @layer components {
 	.btn {

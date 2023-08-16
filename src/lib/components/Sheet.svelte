@@ -11,9 +11,8 @@ Creates a sheet element based on the `position` provided.
 - `class` 
 - `display` - controls whether the sheet is displayed
 - `id` 
-- `onClickClose` - close on click, defaults to `false` - only closes if clicked outside
+- `maxSize` - max width/height of sheet based on the `side` - can also use css instead
 - `position` - determines the position of sheet
-- `size` - width/height of sheet based on the `side` - can also use css instead
 - `transitionSheet` - slides the sheet, set to `false` to remove
 - `transition` - fades the entire component, set to `false` to remove
 
@@ -45,12 +44,7 @@ Creates a sheet element based on the `position` provided.
 >
 	<div class="mb-4 flex items-center justify-between">
 		<h2 class="my-0">Sheet</h2>
-		<button
-			type="button"
-			title="Close"
-			class="btn btn-s"
-			on:click={() => (display = false)}
-		>
+		<button type="button" class="btn btn-s" on:click={() => (display = false)}>
 			Close
 		</button>
 	</div>
@@ -93,25 +87,13 @@ Creates a sheet element based on the `position` provided.
 	/** determines the position of sheet */
 	export let position: "top" | "bottom" | "left" | "right" = "right";
 
-	/** width/height of sheet based on the `side` - can also use css instead */
-	export let size: number = 488;
+	/** max width/height of sheet based on the `side` - can also use css instead */
+	export let maxSize: number = 488;
 
 	/** slides the sheet, set to `false` to remove */
 	export let transitionSheet: FlyParams | false = { duration };
 
-	/** close on click, defaults to `false` - only closes if clicked outside */
-	export let onClickClose = false;
-
 	let sheet: HTMLDivElement;
-
-	const clickOutside = (e: MouseEvent) => {
-		if (
-			(e.target instanceof Node && !sheet.contains(e.target)) ||
-			onClickClose
-		) {
-			display = false;
-		}
-	};
 
 	const onKeyDown = (e: KeyboardEvent) => {
 		if (e.key === "Escape") {
@@ -122,13 +104,13 @@ Creates a sheet element based on the `position` provided.
 	if (transitionSheet && !transitionSheet.x && !transitionSheet.y) {
 		// if there isn't a user assigned value for `x` or `y`
 		if (position === "bottom") {
-			transitionSheet.y = size;
+			transitionSheet.y = maxSize;
 		} else if (position === "top") {
-			transitionSheet.y = -size;
+			transitionSheet.y = -maxSize;
 		} else if (position === "right") {
-			transitionSheet.x = size;
+			transitionSheet.x = maxSize;
 		} else {
-			transitionSheet.x = -size;
+			transitionSheet.x = -maxSize;
 		}
 	}
 
@@ -144,12 +126,11 @@ Creates a sheet element based on the `position` provided.
 
 {#if display}
 	<div
-		role="button"
-		tabindex="0"
-		on:click={clickOutside}
-		on:keydown={onKeyDown}
 		transition:fade={transition ? transition : { duration: 0 }}
 		class="d-backdrop {className}"
+		class:d-backdrop-bottom={position === "bottom"}
+		class:d-backdrop-top={position === "top"}
+		class:d-backdrop-right={position === "right"}
 		{id}
 	>
 		<div
@@ -157,47 +138,59 @@ Creates a sheet element based on the `position` provided.
 			bind:this={sheet}
 			transition:fly={transitionSheet ? transitionSheet : { duration: 0 }}
 			style={position === "top" || position === "bottom"
-				? `max-height: ${size}px;`
-				: `max-width: ${size}px`}
+				? `max-height: ${maxSize}px;`
+				: `max-width: ${maxSize}px`}
 			class="d-sheet {classSheet}"
-			class:d-bottom={position === "bottom"}
-			class:d-top={position === "top"}
-			class:d-left={position === "left"}
-			class:d-right={position === "right"}
+			class:d-sheet-bottom={position === "bottom"}
+			class:d-sheet-top={position === "top"}
+			class:d-sheet-left={position === "left"}
+			class:d-sheet-right={position === "right"}
 		>
 			<slot>Content</slot>
 		</div>
+		<button title="Close" on:click={() => (display = false)}></button>
 	</div>
 {/if}
 
 <style>
+	button {
+		flex-grow: 1;
+	}
 	.d-backdrop {
 		position: fixed;
-		display: grid;
+		display: flex;
 		z-index: 40;
 		top: 0;
 		bottom: 0;
 		left: 0;
 		right: 0;
 		overflow: hidden;
-		cursor: default;
+	}
+	.d-backdrop-bottom {
+		flex-direction: column-reverse;
+	}
+	.d-backdrop-top {
+		flex-direction: column;
+	}
+	.d-backdrop-right {
+		flex-direction: row-reverse;
 	}
 	.d-sheet {
 		margin: auto;
 	}
-	.d-bottom {
+	.d-sheet-bottom {
 		margin-bottom: 0;
 		width: 100%;
 	}
-	.d-top {
+	.d-sheet-top {
 		margin-top: 0;
 		width: 100%;
 	}
-	.d-right {
+	.d-sheet-right {
 		margin-right: 0;
 		height: 100%;
 	}
-	.d-left {
+	.d-sheet-left {
 		margin-left: 0;
 		height: 100%;
 	}
