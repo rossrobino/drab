@@ -13,7 +13,7 @@
 	</a>
 </p>
 
-<div class="flex justify-center rounded border border-dashed bg-white p-8">
+<div class="flex justify-center rounded-md border border-dashed bg-white p-8">
 	<div class="w-full">
 		<slot />
 	</div>

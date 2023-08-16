@@ -3,7 +3,7 @@
 
 ### ContextMenu
 
-Displays when the parent element is right clicked.
+Displays when the parent element is right clicked, or long pressed on mobile.
 
 @props
 
@@ -41,7 +41,7 @@ Displays when the parent element is right clicked.
 -->
 
 <script lang="ts">
-	import { onMount, tick } from "svelte";
+	import { onDestroy, onMount, tick } from "svelte";
 	import { fade, type FadeParams } from "svelte/transition";
 	import { duration } from "$lib/util/transition";
 	import { messageNoScript } from "$lib/util/messages";
@@ -74,33 +74,52 @@ Displays when the parent element is right clicked.
 		}
 	};
 
+	const displayMenu = async (e: MouseEvent | TouchEvent) => {
+		e.preventDefault();
+		const scrollY = window.scrollY;
+		const scrollX = window.scrollX;
+		const clientX = e instanceof MouseEvent ? e.clientX : e.touches[0].clientX;
+		const clientY = e instanceof MouseEvent ? e.clientY : e.touches[0].clientY;
+		coordinates.x = clientX + scrollX;
+		coordinates.y = clientY + scrollY;
+		display = true;
+
+		await tick(); // wait for menu to show
+
+		const offsetWidth = contextMenu.offsetWidth + 24;
+		const offsetHeight = contextMenu.offsetHeight + 6;
+		const innerWidth = window.innerWidth;
+		const innerHeight = window.innerHeight;
+
+		// ensure menu is within view
+		if (coordinates.x + offsetWidth > scrollX + innerWidth) {
+			coordinates.x = scrollX + innerWidth - offsetWidth;
+		}
+		if (coordinates.y + offsetHeight > scrollY + innerHeight) {
+			coordinates.y = scrollY + innerHeight - offsetHeight;
+		}
+	};
+
+	let timer: NodeJS.Timeout;
+
+	const onTouchStart = (e: TouchEvent) => {
+		timer = setTimeout(() => {
+			displayMenu(e);
+		}, 800);
+	};
+
+	const onTouchEnd = () => {
+		clearTimeout(timer);
+	};
+
 	onMount(() => {
 		const parentElement = base.parentElement;
 
 		if (parentElement) {
-			parentElement.addEventListener("contextmenu", async (e) => {
-				e.preventDefault();
-				const scrollY = window.scrollY;
-				const scrollX = window.scrollX;
-				coordinates.x = e.clientX + scrollX;
-				coordinates.y = e.clientY + scrollY;
-				display = true;
-
-				await tick(); // wait for menu to show
-
-				const offsetWidth = contextMenu.offsetWidth + 24;
-				const offsetHeight = contextMenu.offsetHeight + 6;
-				const innerWidth = window.innerWidth;
-				const innerHeight = window.innerHeight;
-
-				// ensure menu is within view
-				if (coordinates.x + offsetWidth > scrollX + innerWidth) {
-					coordinates.x = scrollX + innerWidth - offsetWidth;
-				}
-				if (coordinates.y + offsetHeight > scrollY + innerHeight) {
-					coordinates.y = scrollY + innerHeight - offsetHeight;
-				}
-			});
+			parentElement.addEventListener("contextmenu", displayMenu);
+			parentElement.addEventListener("touchstart", onTouchStart);
+			parentElement.addEventListener("touchend", onTouchEnd);
+			parentElement.addEventListener("touchcancel", onTouchEnd);
 		}
 	});
 </script>

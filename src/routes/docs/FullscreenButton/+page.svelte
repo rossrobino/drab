@@ -10,10 +10,13 @@
 
 <div
 	bind:this={fullscreenDiv}
-	class="mt-4 rounded bg-gray-800 p-4 text-gray-50"
+	class="mt-4 rounded bg-neutral-800 p-4 text-neutral-50"
 >
 	<div class="mb-2">Target element fullscreen</div>
-	<FullscreenButton targetElement={fullscreenDiv} class="btn btn-s bg-gray-50">
+	<FullscreenButton
+		targetElement={fullscreenDiv}
+		class="btn btn-s bg-neutral-50"
+	>
 		<span>Enable Element Fullscreen</span>
 		<span slot="enabled">Exit Element Fullscreen</span>
 	</FullscreenButton>

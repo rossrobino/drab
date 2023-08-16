@@ -19,7 +19,7 @@
 	class="tabular-nums"
 	classTh="cursor-pointer uppercase"
 	classThSorted="underline"
-	classTbodyTr="transition hover:bg-gray-50"
+	classTbodyTr="transition hover:bg-neutral-50"
 	classFooter="flex justify-between items-center"
 	classButton="btn"
 />

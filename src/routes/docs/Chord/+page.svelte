@@ -3,7 +3,7 @@
 </script>
 
 <Chord
-	class="text-gray-950"
+	class="text-neutral-950"
 	name="D"
 	notes={[
 		{

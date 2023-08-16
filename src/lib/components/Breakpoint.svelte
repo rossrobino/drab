@@ -5,6 +5,18 @@
 
 Displays the current breakpoint and `window.innerWidth`, based on the `breakpoints` provided. Defaults to [TailwindCSS breakpoint sizes](https://tailwindcss.com/docs/responsive-design).
 
+```svelte
+<script lang="ts">
+	import { dev } from "$app/environment"; // SvelteKit Example
+</script>
+
+{#if dev}
+	<Breakpoint
+		class="fixed bottom-4 right-4 rounded border bg-white px-2 py-1 font-mono tabular-nums shadow"
+	/>
+{/if}
+```
+
 @props
 
 - `breakpoints` - array of objects representing the breakpoints of the application

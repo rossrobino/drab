@@ -35,10 +35,10 @@ Displays tabs and the active tab's content.
 
 <Tabs
 	class="mb-4"
-	classTabList="grid grid-flow-col grid-rows-1 gap-1 rounded bg-gray-200 p-1"
+	classTabList="grid grid-flow-col grid-rows-1 gap-1 rounded bg-neutral-200 p-1"
 	classTab="btn btn-s rounded-sm p-1"
-	classTabActive="bg-white text-gray-950"
-	classTabInactive="bg-gray-200 text-gray-500"
+	classTabActive="bg-white text-neutral-950"
+	classTabInactive="bg-neutral-200 text-neutral-500"
 	classTabPanel="py-2"
 	tabs={[
 		{ tab: "Tab", panel: "Content" },
@@ -47,10 +47,10 @@ Displays tabs and the active tab's content.
 />
 
 <Tabs
-	classTabList="grid grid-flow-col grid-rows-1 gap-1 rounded bg-gray-200 p-1"
+	classTabList="grid grid-flow-col grid-rows-1 gap-1 rounded bg-neutral-200 p-1"
 	classTab="btn btn-s rounded-sm p-1"
-	classTabActive="bg-white text-gray-950"
-	classTabInactive="bg-gray-200 text-gray-500"
+	classTabActive="bg-white text-neutral-950"
+	classTabInactive="bg-neutral-200 text-neutral-500"
 	classTabPanel="py-2"
 	tabs={[
 		{ tab: "Tab", panel: "Generated indexes" },

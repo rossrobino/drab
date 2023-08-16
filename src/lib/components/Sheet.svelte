@@ -41,7 +41,7 @@ Creates a sheet element based on the `position` provided.
 
 <Sheet
 	bind:display
-	class="bg-gray-50/80 backdrop-blur"
+	class="bg-neutral-50/80 backdrop-blur"
 	classSheet="p-4 shadow bg-white"
 >
 	<div class="mb-4 flex items-center justify-between">
