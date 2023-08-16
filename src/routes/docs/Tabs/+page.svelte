@@ -30,14 +30,15 @@
 			data: { component: FullscreenButton },
 		},
 	]}
-	let:selectedTab
 >
-	<svelte:fragment slot="tab" let:item let:index>
-		{item.tab}
+	<svelte:fragment slot="tab" let:tab let:index>
+		{tab.tab}
 		{index + 1}
 	</svelte:fragment>
-	<div class="mb-2">{selectedTab.panel}</div>
-	{#if selectedTab.data?.component}
-		<svelte:component this={selectedTab.data.component} class="btn" />
-	{/if}
+	<svelte:fragment slot="panel" let:selectedTab>
+		<div class="mb-2">{selectedTab.panel}</div>
+		{#if selectedTab.data?.component}
+			<svelte:component this={selectedTab.data.component} class="btn" />
+		{/if}
+	</svelte:fragment>
 </Tabs>

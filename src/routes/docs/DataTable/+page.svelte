@@ -29,7 +29,7 @@
 		{ make: "GMC", model: "Acadia", year: 2008, awd: true },
 		{ make: "BMW", model: "X3", year: 2023, awd: true },
 	]}
-	sortBy="make"
+	sortBy="year"
 	maxRows={4}
 	class="tabular-nums"
 	classTh="cursor-pointer"

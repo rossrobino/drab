@@ -3,7 +3,7 @@
 
 ### ShareButton
 
-Uses the navigator api to share or copy a url link depending on browser support.
+Uses the [Navigator API](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share) or the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText) to share or copy a url link depending on browser support.
 
 @props
 

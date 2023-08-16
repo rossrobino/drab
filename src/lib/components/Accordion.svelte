@@ -3,7 +3,7 @@
 
 ### Accordion
 
-Displays a list of `details` elements.
+Displays a list of `details` elements with helpful defaults and transitions.
 
 @props
 

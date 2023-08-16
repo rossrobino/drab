@@ -3,7 +3,7 @@
 
 ### CopyButton
 
-Uses the navigator api to copy text to the clipboard.
+Uses the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText) to copy text to the clipboard.
 
 @props
 

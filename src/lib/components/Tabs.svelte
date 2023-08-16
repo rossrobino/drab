@@ -15,15 +15,16 @@ Displays tabs and the active tab's content.
 - `classTab` - class of all title `button`s
 - `class` 
 - `id` 
-- `selectedIndex` - index of selected tab, defaults to 0
-- `tabs` - array of tabs
+- `selectedIndex` - index of selected tab, defaults to `0`
+- `tabs` - array of `TabsTab` objects
+- `transition` - fades the panel content, set to `false` to remove
 
 @slots
 
-| name      | purpose               | default value      | slot props      |
-| --------- | --------------------- | ------------------ | --------------- |
-| `default` | active item's content | `activeItem.panel` | `activeItem`    |
-| `tab`     | title of each tab     | `item.tab`         | `item`, `index` |
+| name    | purpose            | default value       | slot props             |
+| ------- | ------------------ | ------------------- | ---------------------- |
+| `panel` | active tab's panel | `selectedTab.panel` | `selectedTab`, `index` |
+| `tab`   | title of each tab  | `tab.tab`           | `tab`, `index`         |
 
 @example
 
@@ -60,16 +61,17 @@ Displays tabs and the active tab's content.
 			data: { component: FullscreenButton },
 		},
 	]}
-	let:selectedTab
 >
-	<svelte:fragment slot="tab" let:item let:index>
-		{item.tab}
+	<svelte:fragment slot="tab" let:tab let:index>
+		{tab.tab}
 		{index + 1}
 	</svelte:fragment>
-	<div class="mb-2">{selectedTab.panel}</div>
-	{#if selectedTab.data?.component}
-		<svelte:component this={selectedTab.data.component} class="btn" />
-	{/if}
+	<svelte:fragment slot="panel" let:selectedTab>
+		<div class="mb-2">{selectedTab.panel}</div>
+		{#if selectedTab.data?.component}
+			<svelte:component this={selectedTab.data.component} class="btn" />
+		{/if}
+	</svelte:fragment>
 </Tabs>
 ```
 -->
@@ -90,6 +92,9 @@ Displays tabs and the active tab's content.
 <script lang="ts">
 	import { onMount } from "svelte";
 	import { messageNoScript } from "$lib/util/messages";
+	import { fade, type FadeParams } from "svelte/transition";
+	import { duration } from "$lib/util/transition";
+	import { prefersReducedMotion } from "$lib/util/accessibility";
 
 	let className = "";
 	export { className as class };
@@ -114,23 +119,29 @@ Displays tabs and the active tab's content.
 	/** class of `div` that wraps the slotted content */
 	export let classTabPanel = "";
 
-	/** array of tabs */
+	/** array of `TabsTab` objects */
 	export let tabs: TabsTab[];
 
-	/** index of selected tab, defaults to 0 */
+	/** index of selected tab, defaults to `0` */
 	export let selectedIndex = 0;
+
+	/** fades the panel content, set to `false` to remove */
+	export let transition: FadeParams | false = { duration };
 
 	/** sets to `true` on the client */
 	let clientJs = false;
 
-	$: selectedTab = tabs[selectedIndex];
-
-	onMount(() => (clientJs = true));
+	onMount(() => {
+		if (prefersReducedMotion()) {
+			if (transition) transition.duration = 0;
+		}
+		clientJs = true;
+	});
 </script>
 
 <div class={className} {id}>
 	<div class={classTabList} role="tablist">
-		{#each tabs as item, index}
+		{#each tabs as tab, index}
 			<button
 				role="tab"
 				tabindex={index === selectedIndex ? 0 : -1}
@@ -142,13 +153,22 @@ Displays tabs and the active tab's content.
 					: ''} {selectedIndex !== index ? classTabInactive : ''}"
 				on:click={() => (selectedIndex = index)}
 			>
-				<slot name="tab" {item} {index}>{item.tab}</slot>
+				<slot name="tab" {tab} {index}>{tab.tab}</slot>
 			</button>
 		{/each}
 	</div>
-	<div class={classTabPanel} role="tabpanel" id="tabpanel">
-		<slot {selectedTab}>{selectedTab.panel}</slot>
-	</div>
+	{#each tabs as tab, index}
+		{#if index === selectedIndex}
+			<div
+				class={classTabPanel}
+				role="tabpanel"
+				id="tabpanel"
+				in:fade={transition ? transition : { duration: 0 }}
+			>
+				<slot name="panel" selectedTab={tab} {index}>{tab.panel}</slot>
+			</div>
+		{/if}
+	{/each}
 	<noscript>
 		<div class={classNoscript}>{messageNoScript}</div>
 	</noscript>
