@@ -29,17 +29,17 @@ Data table to display an array of JS objects. Click a column header to sort.
 - `idTable` - `table` id
 - `id` 
 - `maxRows` - maximum number of rows to show on each page, defaults to `0` - no pagination
-- `sortBy` - column to sort by--defaults to first column
+- `sortBy` - column to sort by, defaults to first column
 
 @slots
 
-| name         | purpose                  | default value   | slot props                     |
-| ------------ | ------------------------ | --------------- | ------------------------------ |
-| `next`       | next button contents     | `Next`          | `currentPage`                  |
-| `pageNumber` | page numbers             | Current / Total | `currentPage`, `numberOfPages` |
-| `previous`   | previous button contents | `Previous`      | `currentPage`                  |
-| `td`         | td contents              | `Previous`      | `column`, `row`                |
-| `th`         | th contents              | `Previous`      | `column`                       |
+| name         | purpose                  | default value                    | slot props                     |
+| ------------ | ------------------------ | -------------------------------- | ------------------------------ |
+| `next`       | next button contents     | `Next`                           | `currentPage`                  |
+| `pageNumber` | page numbers             |  `currentPage` / `numberOfPages` | `currentPage`, `numberOfPages` |
+| `previous`   | previous button contents | `Previous`                       | `currentPage`                  |
+| `td`         | td contents              | `Previous`                       | `column`, `row`                |
+| `th`         | th contents              | `Previous`                       | `column`                       |
 
 @example
 
@@ -132,7 +132,7 @@ Data table to display an array of JS objects. Click a column header to sort.
 		columns = Object.keys(data[0]);
 	}
 
-	/** column to sort by--defaults to first column */
+	/** column to sort by, defaults to first column */
 	export let sortBy = columns[0];
 
 	/** default sort order */
