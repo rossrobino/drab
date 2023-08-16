@@ -2,6 +2,10 @@
 	export let data;
 </script>
 
+<svelte:head>
+	<title>drab - {data.title}</title>
+</svelte:head>
+
 <h1>{data.title}</h1>
 
 <p>
