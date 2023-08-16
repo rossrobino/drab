@@ -7,7 +7,6 @@ Displays when the parent element is right clicked, or long pressed on mobile.
 
 @props
 
-- `classNoscript` - `noscript` class
 - `class` 
 - `display` - controls `display` css property
 - `id` 
