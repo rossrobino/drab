@@ -3,7 +3,7 @@
 
 ### Popover
 
-Displays a popover relatively positioned to the button.
+Displays a popover relatively positioned to the target.
 
 @props
 
