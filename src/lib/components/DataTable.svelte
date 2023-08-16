@@ -28,15 +28,18 @@ Data table to display an array of JS objects. Click a column header to sort.
 - `data` - a list of objects to render in the table
 - `idTable` - `table` id
 - `id` 
-- `paginate` - number of rows to show on each page, defaults to `0` - no pagination
+- `maxRows` - maximum number of rows to show on each page, defaults to `0` - no pagination
 - `sortBy` - column to sort by--defaults to first column
 
 @slots
 
-| name       | purpose                  | default value |
-| ---------- | ------------------------ | ------------- |
-| `previous` | previous button contents | `Previous`    |
-| `next`     | next button contents     | `Next`        |
+| name         | purpose                  | default value   | slot props                     |
+| ------------ | ------------------------ | --------------- | ------------------------------ |
+| `next`       | next button contents     | `Next`          | `currentPage`                  |
+| `pageNumber` | page numbers             | Current / Total | `currentPage`, `numberOfPages` |
+| `previous`   | previous button contents | `Previous`      | `currentPage`                  |
+| `td`         | td contents              | `Previous`      | `column`, `row`                |
+| `th`         | th contents              | `Previous`      | `column`                       |
 
 @example
 
@@ -44,6 +47,21 @@ Data table to display an array of JS objects. Click a column header to sort.
 <script>
 	import { DataTable } from "drab";
 </script>
+
+<DataTable
+	class="mb-12"
+	data={[
+		{ make: "Honda", model: "CR-V", year: 2011, awd: true },
+		{ make: "Volvo", model: "XC-40", year: 2024, awd: true },
+		{ make: "Ferrari", model: "458 Italia", year: 2015, awd: false },
+		{ make: "Chevrolet", model: "Silverado", year: 2022, awd: true },
+		{ make: "Ford", model: "Model A", year: 1931, awd: false },
+		{ make: "Subaru", model: "Outback", year: 2021, awd: true },
+		{ make: "Ford", model: "Bronco", year: 1970, awd: true },
+		{ make: "GMC", model: "Acadia", year: 2008, awd: true },
+		{ make: "BMW", model: "X3", year: 2023, awd: true },
+	]}
+/>
 
 <DataTable
 	data={[
@@ -58,14 +76,34 @@ Data table to display an array of JS objects. Click a column header to sort.
 		{ make: "BMW", model: "X3", year: 2023, awd: true },
 	]}
 	sortBy="make"
-	paginate={4}
+	maxRows={4}
 	class="tabular-nums"
-	classTh="cursor-pointer uppercase"
+	classTh="cursor-pointer"
 	classThSorted="underline"
 	classTbodyTr="transition hover:bg-neutral-50"
 	classFooter="flex justify-between items-center"
 	classButton="btn"
-/>
+>
+	<svelte:fragment slot="th" let:column>
+		{#if column === "awd"}
+			<span class="uppercase">{column}</span>
+		{:else}
+			{column}
+		{/if}
+	</svelte:fragment>
+	<svelte:fragment slot="td" let:column let:row>
+		{@const item = row[column]}
+		{#if typeof item === "boolean"}
+			{#if item}
+				Yes
+			{:else}
+				No
+			{/if}
+		{:else}
+			{item}
+		{/if}
+	</svelte:fragment>
+</DataTable>
 ```
 -->
 
@@ -142,8 +180,8 @@ Data table to display an array of JS objects. Click a column header to sort.
 	/** class of `div` that wraps the "Previous" and "Next" buttons */
 	export let classPageControls = "";
 
-	/** number of rows to show on each page, defaults to `0` - no pagination */
-	export let paginate = 0;
+	/** maximum number of rows to show on each page, defaults to `0` - no pagination */
+	export let maxRows = 0;
 
 	/** current page, defaults to `1` */
 	export let currentPage = 1;
@@ -154,7 +192,7 @@ Data table to display an array of JS objects. Click a column header to sort.
 	/** set to `true` on the client */
 	let clientJs = false;
 
-	$: numberOfPages = Math.floor(data.length / paginate) + 1;
+	$: numberOfPages = Math.floor(data.length / maxRows) + 1;
 
 	/**
 	 * - sorts the data the specified column
@@ -210,7 +248,7 @@ Data table to display an array of JS objects. Click a column header to sort.
 						class="{classTh} {sortBy === column ? classThSorted : ''}"
 						on:click={() => sort(column)}
 					>
-						{column}
+						<slot name="th" {column}>{column}</slot>
 					</th>
 				{/each}
 			</tr>
@@ -218,12 +256,12 @@ Data table to display an array of JS objects. Click a column header to sort.
 		<tbody class={classTbody}>
 			{#each data as row, i}
 				{@const showRow =
-					i < paginate * currentPage && i >= paginate * (currentPage - 1)}
-				{#if paginate ? showRow : true}
+					i < maxRows * currentPage && i >= maxRows * (currentPage - 1)}
+				{#if maxRows ? showRow : true}
 					<tr class={classTbodyTr}>
 						{#each columns as column}
 							<td class="{classTd} {sortBy === column ? classTdSorted : ''}">
-								{row[column]}
+								<slot name="td" {row} {column}>{row[column]}</slot>
 							</td>
 						{/each}
 					</tr>
@@ -232,23 +270,29 @@ Data table to display an array of JS objects. Click a column header to sort.
 		</tbody>
 	</table>
 
-	{#if paginate}
+	{#if maxRows}
 		<div class={classFooter}>
-			<div class={classPageNumber}>{currentPage} / {numberOfPages}</div>
+			<div class={classPageNumber}>
+				<slot name="pageNumber" {currentPage} {numberOfPages}>
+					{currentPage} / {numberOfPages}
+				</slot>
+			</div>
 			<div class={classPageControls}>
 				<button
+					type="button"
 					class={classButton}
 					disabled={!clientJs || currentPage < 2}
 					on:click={() => currentPage--}
 				>
-					<slot name="previous">Previous</slot>
+					<slot name="previous" {currentPage}>Previous</slot>
 				</button>
 				<button
+					type="button"
 					class={classButton}
 					disabled={!clientJs || currentPage >= numberOfPages}
 					on:click={() => currentPage++}
 				>
-					<slot name="next">Next</slot>
+					<slot name="next" {currentPage}>Next</slot>
 				</button>
 			</div>
 		</div>

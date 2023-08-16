@@ -7,11 +7,11 @@
 
 ## About
 
-JavaScript fuels the operation of the web and this library is designed to provide that functionality where it makes sense. Components that can be more easily created by using HTML, such as a label or a text input, are not included. Components are progressively enhanced wherever feasible, or provide a fallback [noscript](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript) message. Disable JavaScript on this page to test them out!
+This library is designed to provide JavaScript functionality where it makes sense. Components that can be more easily created by using HTML, such as a label or a text input, are not included. Components are progressively enhanced wherever feasible, or provide a fallback [noscript](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript) message. Transitions are disabled if the user prefers reduced motion.
 
-While these components without styles can appear rather plain, having many websites look similar can also lead to a monotonous visual experience. In both cases, the word "drab" becomes quite fitting. You bring the styles for these components!
+While these components without styles can appear rather plain, having many websites look similar can also lead to a monotonous visual experience. In both cases, the word "drab" becomes quite fitting. You bring the styles for these components! Using unstyled components allows you to pick and choose what you need, without getting locked in to any particular library.
 
-Components can be styled by [using global styles](https://joyofcode.xyz/global-styles-in-sveltekit). This can be fast-tracked by using a CSS framework like [TailwindCSS](https://tailwindcss.com/), Tailwind builds a global stylesheet based on the classes utilized in the project. Each component exports `class` and `id` props to utilize for this purpose.
+Components can be styled by [using global styles](https://joyofcode.xyz/global-styles-in-sveltekit). This can be fast-tracked with CSS frameworks like [TailwindCSS](https://tailwindcss.com/), Tailwind builds a global stylesheet based on the utility classes used in the project. Each component exports `class` and `id` props to utilize for this purpose.
 
 ## Install
 
