@@ -28,7 +28,6 @@ Creates a sheet element based on the `position` provided.
 ```svelte
 <script lang="ts">
 	import { Sheet } from "drab";
-	import { X } from "$site/svg/X.svelte";
 
 	let display = false;
 </script>
@@ -52,7 +51,7 @@ Creates a sheet element based on the `position` provided.
 			class="btn btn-s"
 			on:click={() => (display = false)}
 		>
-			<X />
+			Close
 		</button>
 	</div>
 	<div>

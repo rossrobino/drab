@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Sheet from "$lib/components/Sheet.svelte";
-	import X from "$site/svg/X.svelte";
 
 	let display = false;
 </script>
@@ -24,7 +23,7 @@
 			class="btn btn-s"
 			on:click={() => (display = false)}
 		>
-			<X />
+			Close
 		</button>
 	</div>
 	<div>

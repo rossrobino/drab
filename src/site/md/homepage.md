@@ -11,9 +11,7 @@ JavaScript fuels the operation of the web and this library is designed to provid
 
 While these components without styles can appear rather plain, having many websites look similar can also lead to a monotonous visual experience. In both cases, the word "drab" becomes quite fitting. You bring the styles for these components!
 
-Components can be styled by [using global styles](https://joyofcode.xyz/global-styles-in-sveltekit). This can be fast-tracked by using a CSS framework like [TailwindCSS](https://tailwindcss.com/), Tailwind builds a global stylesheet based on the classes utilized in the project.
-
-Each component exports `class` and `id` props to utilize for this purpose. If the component has multiple elements, multiple `class` and `id` props are available for each element.
+Components can be styled by [using global styles](https://joyofcode.xyz/global-styles-in-sveltekit). This can be fast-tracked by using a CSS framework like [TailwindCSS](https://tailwindcss.com/), Tailwind builds a global stylesheet based on the classes utilized in the project. Each component exports `class` and `id` props to utilize for this purpose.
 
 ## Install
 
