@@ -56,9 +56,6 @@ Displays when the parent element is right clicked, or long pressed on mobile.
 	/** controls `display` css property */
 	export let display = false;
 
-	/** `noscript` class */
-	export let classNoscript = "";
-
 	/** fades the content, set to `false` to remove */
 	export let transition: FadeParams | false = { duration };
 
@@ -147,8 +144,6 @@ Displays when the parent element is right clicked, or long pressed on mobile.
 		<slot>Context Menu</slot>
 	</div>
 {/if}
-
-<noscript><div class={classNoscript}>{messageNoScript}</div></noscript>
 
 <style>
 	span {

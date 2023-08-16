@@ -13,7 +13,9 @@
 
 	let displaySheet = false;
 
-	const closeSheet = () => (displaySheet = false);
+	const closeSheet = () => {
+		displaySheet = false;
+	};
 </script>
 
 {#if dev}
