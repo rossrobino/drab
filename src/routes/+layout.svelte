@@ -56,7 +56,7 @@
 				onClickClose={true}
 				class="bg-neutral-50/80 backdrop-blur"
 				classSheet="p-4 shadow bg-white overflow-y-auto"
-				side="left"
+				position="left"
 			>
 				<div class="flex items-center justify-between gap-4">
 					<h2 class="my-0">Components</h2>

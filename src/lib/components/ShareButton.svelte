@@ -41,6 +41,7 @@ Uses the navigator api to share or copy a url link depending on browser support.
 
 <script lang="ts">
 	import { onMount } from "svelte";
+	import { delay } from "$lib/util/delay";
 
 	let className = "";
 	export { className as class };
@@ -74,7 +75,7 @@ Uses the navigator api to share or copy a url link depending on browser support.
 			} else {
 				await navigator.clipboard.writeText(url);
 				complete = true;
-				setTimeout(() => (complete = false), 800);
+				setTimeout(() => (complete = false), delay);
 			}
 		} catch (error) {
 			console.log(error);

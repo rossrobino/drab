@@ -12,7 +12,7 @@ Creates a sheet element based on the `position` provided.
 - `display` - controls whether the sheet is displayed
 - `id` 
 - `onClickClose` - close on click, defaults to `false` - only closes if clicked outside
-- `side` - determines the position of sheet
+- `position` - determines the position of sheet
 - `size` - width/height of sheet based on the `side` - can also use css instead
 - `transitionSheet` - slides the sheet, set to `false` to remove
 - `transition` - fades the entire component, set to `false` to remove
@@ -92,7 +92,7 @@ Creates a sheet element based on the `position` provided.
 	export let transition: FadeParams | false = { duration };
 
 	/** determines the position of sheet */
-	export let side: "top" | "bottom" | "left" | "right" = "right";
+	export let position: "top" | "bottom" | "left" | "right" = "right";
 
 	/** width/height of sheet based on the `side` - can also use css instead */
 	export let size: number = 488;
@@ -122,11 +122,11 @@ Creates a sheet element based on the `position` provided.
 
 	if (transitionSheet && !transitionSheet.x && !transitionSheet.y) {
 		// if there isn't a user assigned value for `x` or `y`
-		if (side === "bottom") {
+		if (position === "bottom") {
 			transitionSheet.y = size;
-		} else if (side === "top") {
+		} else if (position === "top") {
 			transitionSheet.y = -size;
-		} else if (side === "right") {
+		} else if (position === "right") {
 			transitionSheet.x = size;
 		} else {
 			transitionSheet.x = -size;
@@ -157,14 +157,14 @@ Creates a sheet element based on the `position` provided.
 			role="dialog"
 			bind:this={sheet}
 			transition:fly={transitionSheet ? transitionSheet : { duration: 0 }}
-			style={side === "top" || side === "bottom"
+			style={position === "top" || position === "bottom"
 				? `max-height: ${size}px;`
 				: `max-width: ${size}px`}
 			class="d-sheet {classSheet}"
-			class:d-bottom={side === "bottom"}
-			class:d-top={side === "top"}
-			class:d-left={side === "left"}
-			class:d-right={side === "right"}
+			class:d-bottom={position === "bottom"}
+			class:d-top={position === "top"}
+			class:d-left={position === "left"}
+			class:d-right={position === "right"}
 		>
 			<slot>Content</slot>
 		</div>

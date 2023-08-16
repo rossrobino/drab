@@ -35,6 +35,7 @@ Uses the navigator api to copy text to the clipboard.
 
 <script lang="ts">
 	import { onMount } from "svelte";
+	import { delay } from "$lib/util/delay";
 
 	let className = "";
 	export { className as class };
@@ -60,7 +61,7 @@ Uses the navigator api to copy text to the clipboard.
 		try {
 			await navigator.clipboard.writeText(text);
 			complete = true;
-			setTimeout(() => (complete = false), 800);
+			setTimeout(() => (complete = false), delay);
 		} catch (error) {
 			console.error(error);
 		}

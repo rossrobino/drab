@@ -41,10 +41,12 @@ Displays when the parent element is right clicked, or long pressed on mobile.
 -->
 
 <script lang="ts">
-	import { onDestroy, onMount, tick } from "svelte";
+	import { onMount, tick } from "svelte";
 	import { fade, type FadeParams } from "svelte/transition";
 	import { duration } from "$lib/util/transition";
 	import { messageNoScript } from "$lib/util/messages";
+	import { prefersReducedMotion } from "$lib/util/accessibility";
+	import { delay } from "$lib/util/delay";
 
 	let className = "";
 	export { className as class };
@@ -105,7 +107,7 @@ Displays when the parent element is right clicked, or long pressed on mobile.
 	const onTouchStart = (e: TouchEvent) => {
 		timer = setTimeout(() => {
 			displayMenu(e);
-		}, 800);
+		}, delay);
 	};
 
 	const onTouchEnd = () => {
@@ -113,6 +115,10 @@ Displays when the parent element is right clicked, or long pressed on mobile.
 	};
 
 	onMount(() => {
+		if (prefersReducedMotion()) {
+			if (transition) transition.duration = 0;
+		}
+
 		const parentElement = base.parentElement;
 
 		if (parentElement) {

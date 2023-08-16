@@ -11,7 +11,7 @@ Make the document or a specific element fullscreen.
 - `class` 
 - `confirmMessage` - message to display in the `confirm` popup, set this to empty string `""` to disable `confirm`
 - `id` 
-- `targetElement` - element to make fullscreen (defaults to `document.documentElement` upon mount)
+- `target` - element to make fullscreen (defaults to `document.documentElement` upon mount)
 - `title` 
 
 @slots
@@ -39,7 +39,7 @@ Make the document or a specific element fullscreen.
 	class="mt-4 rounded bg-neutral-800 p-4 text-neutral-50"
 >
 	<div class="mb-2">Target element fullscreen</div>
-	<FullscreenButton targetElement={fullscreenDiv} class="btn btn-s bg-neutral-50">
+	<FullscreenButton target={fullscreenDiv} class="btn btn-s bg-neutral-50">
 		<span>Enable Element Fullscreen</span>
 		<span slot="enabled">Exit Element Fullscreen</span>
 	</FullscreenButton>
@@ -59,7 +59,7 @@ Make the document or a specific element fullscreen.
 	export let title = "";
 
 	/** element to make fullscreen (defaults to `document.documentElement` upon mount) */
-	export let targetElement: HTMLElement | null = null;
+	export let target: HTMLElement | null = null;
 
 	/** message to display in the `confirm` popup, set this to empty string `""` to disable `confirm` */
 	export let confirmMessage = "";
@@ -76,12 +76,12 @@ Make the document or a specific element fullscreen.
 		if (fullscreen) {
 			document.exitFullscreen();
 		} else {
-			if (targetElement && targetElement.requestFullscreen) {
+			if (target && target.requestFullscreen) {
 				if (confirmMessage) {
 					const permission = confirm(confirmMessage);
-					if (permission) targetElement.requestFullscreen();
+					if (permission) target.requestFullscreen();
 				} else {
-					targetElement.requestFullscreen();
+					target.requestFullscreen();
 				}
 			}
 		}
@@ -90,7 +90,7 @@ Make the document or a specific element fullscreen.
 	onMount(() => {
 		// @ts-expect-error - not supported on some devices
 		if (document.documentElement.requestFullscreen) supported = true;
-		if (!targetElement) targetElement = document.documentElement;
+		if (!target) target = document.documentElement;
 	});
 </script>
 
