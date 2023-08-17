@@ -98,8 +98,8 @@ Displays a popover relatively positioned to the target.
 		}
 		const targetRect = target.getBoundingClientRect();
 
-		coordinates.x += targetRect.x;
-		coordinates.y += targetRect.y;
+		coordinates.x += targetRect.x + window.scrollX;
+		coordinates.y += targetRect.y + window.scrollY;
 
 		await tick();
 
