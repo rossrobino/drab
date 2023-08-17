@@ -36,10 +36,10 @@ Displays tabs and the selected tab's content.
 
 <Tabs
 	class="mb-4"
-	classTabList="grid grid-flow-col grid-rows-1 gap-1 rounded bg-neutral-200 p-1"
-	classTab="btn btn-s rounded-sm p-1"
-	classTabActive="bg-white text-neutral-950"
-	classTabInactive="bg-neutral-200 text-neutral-500"
+	classTabList="grid grid-flow-col grid-rows-1 gap-1 rounded-md bg-neutral-200 p-1"
+	classTab="btn btn-s p-2"
+	classTabActive="bg-white text-neutral-950 shadow"
+	classTabInactive="bg-neutral-200 text-neutral-600"
 	classTabPanel="py-2"
 	tabs={[
 		{ tab: "Tab", panel: "Content" },
@@ -48,10 +48,10 @@ Displays tabs and the selected tab's content.
 />
 
 <Tabs
-	classTabList="grid grid-flow-col grid-rows-1 gap-1 rounded bg-neutral-200 p-1"
-	classTab="btn btn-s rounded-sm p-1"
-	classTabActive="bg-white text-neutral-950"
-	classTabInactive="bg-neutral-200 text-neutral-500"
+	classTabList="grid grid-flow-col grid-rows-1 gap-1 rounded-md bg-neutral-200 p-1"
+	classTab="btn btn-s p-2"
+	classTabActive="bg-white text-neutral-950 shadow"
+	classTabInactive="bg-neutral-200 text-neutral-600"
 	classTabPanel="py-2"
 	tabs={[
 		{ tab: "Tab", panel: "Generated indexes" },
