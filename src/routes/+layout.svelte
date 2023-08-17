@@ -27,12 +27,12 @@
 <SkipLink />
 
 <div
-	class="prose-h1:text-balance prose prose-neutral m-4 max-w-none selection:bg-neutral-400/30 prose-headings:capitalize prose-a:underline-offset-2 hover:prose-a:decoration-dotted focus:prose-a:decoration-dotted lg:flex lg:justify-center"
+	class="prose-h1:text-balance prose prose-neutral max-w-none selection:bg-neutral-400/30 prose-headings:capitalize prose-a:underline-offset-2 hover:prose-a:decoration-dotted focus:prose-a:decoration-dotted lg:flex lg:justify-center"
 >
 	<div class="gap-12 lg:flex">
 		<header class="sticky top-0">
-			<nav class="sticky top-0 -my-4 hidden lg:block">
-				<ul class="my-0 h-screen list-none overflow-y-auto px-0 py-4 pr-4">
+			<nav class="sticky top-0 hidden lg:block">
+				<ul class="my-0 h-screen list-none overflow-y-auto p-4">
 					<li>
 						<h2 class="mb-6 mt-0">
 							<a class="font-extrabold lowercase no-underline" href="/">drab</a>
@@ -42,7 +42,7 @@
 				</ul>
 			</nav>
 			<nav
-				class="-mt-4 mb-6 flex max-w-[80ch] items-center gap-4 bg-neutral-50 py-4 lg:hidden lg:w-[80ch]"
+				class="mb-6 flex items-center gap-4 bg-neutral-50 p-4 lg:hidden lg:w-[80ch]"
 			>
 				<button
 					class="btn btn-s"
@@ -80,7 +80,7 @@
 				</h2>
 			</nav>
 		</header>
-		<main id="main" class="mb-16 max-w-[80ch] lg:w-[80ch]">
+		<main id="main" class="m-4 mb-16 max-w-[80ch] lg:w-[80ch]">
 			<slot />
 		</main>
 	</div>

@@ -137,6 +137,8 @@ Displays tabs and the selected tab's content.
 		}
 		clientJs = true;
 	});
+
+	const panelId = "tabPanel-" + Math.random().toString().substring(2, 8);
 </script>
 
 <div class={className} {id}>
@@ -146,7 +148,7 @@ Displays tabs and the selected tab's content.
 				role="tab"
 				tabindex={index === selectedIndex ? 0 : -1}
 				aria-selected={index === selectedIndex}
-				aria-controls="tabpanel"
+				aria-controls={panelId}
 				disabled={!clientJs}
 				class="{classTab} {selectedIndex === index
 					? classTabActive
@@ -159,13 +161,10 @@ Displays tabs and the selected tab's content.
 	</div>
 	{#each tabs as tab, index}
 		{#if index === selectedIndex}
-			<div
-				class={classTabPanel}
-				role="tabpanel"
-				id="tabpanel"
-				in:fade={transition ? transition : { duration: 0 }}
-			>
-				<slot name="panel" selectedTab={tab} {index}>{tab.panel}</slot>
+			<div class={classTabPanel} role="tabpanel" id={panelId}>
+				<div in:fade={transition ? transition : { duration: 0 }}>
+					<slot name="panel" selectedTab={tab} {index}>{tab.panel}</slot>
+				</div>
 			</div>
 		{/if}
 	{/each}
