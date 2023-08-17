@@ -149,9 +149,9 @@ Displays a list of `details` elements with helpful defaults and transitions.
 	const toggleOpen = (i: number) => {
 		items[i].open = !items[i].open;
 		if (autoClose) {
+			// close the other open one
 			for (let j = 0; j < items.length; j++) {
-				const item = items[j];
-				if (j !== i) item.open = false;
+				if (j !== i) items[j].open = false;
 			}
 		}
 	};
@@ -206,6 +206,7 @@ Displays a list of `details` elements with helpful defaults and transitions.
 				{/if}
 			</details>
 			{#if clientJs && item.open && transition}
+				<!-- outside the details for the transition -->
 				<div class={classContent} transition:slide={transition}>
 					<slot name="content" {item} {index}>{item.content}</slot>
 				</div>

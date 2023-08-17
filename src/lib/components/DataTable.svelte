@@ -114,8 +114,12 @@ Data table to display an array of JS objects. Click a column header to sort.
 </script>
 
 <script lang="ts">
-	import { messageNoScript } from "$lib/util/messages";
 	import { onMount } from "svelte";
+	import { fade, type FadeParams } from "svelte/transition";
+
+	import { duration } from "$lib/util/transition";
+	import { prefersReducedMotion } from "$lib/util/accessibility";
+	import { messageNoScript } from "$lib/util/messages";
 
 	let className = "";
 	export { className as class };
@@ -186,6 +190,8 @@ Data table to display an array of JS objects. Click a column header to sort.
 	/** current page, defaults to `1` */
 	export let currentPage = 1;
 
+	export let transition: FadeParams | false = { duration };
+
 	/** `noscript` class */
 	export let classNoscript = "";
 
@@ -202,8 +208,10 @@ Data table to display an array of JS objects. Click a column header to sort.
 	 */
 	const sort = (column: string, toggleAscending = true) => {
 		if (column === sortBy && toggleAscending) {
+			// reverse the sort if already selected
 			ascending = !ascending;
 		} else {
+			// reset to true - start with ascending always
 			ascending = true;
 		}
 		data.sort((a, b) => {
@@ -234,9 +242,27 @@ Data table to display an array of JS objects. Click a column header to sort.
 		sortBy = column;
 	};
 
+	/**
+	 * determines whether the row should appear
+	 * 
+	 * @param i index of the row
+	 * @param currentPage passed in for reactivity
+	 */
+	const showRow = (i: number, currentPage: number) => {
+		if (!maxRows) return true;
+		const overMin = i >= maxRows * (currentPage - 1);
+		const underMax = i < maxRows * currentPage;
+		return overMin && underMax;
+	};
+
 	sort(sortBy, false);
 
-	onMount(() => (clientJs = true));
+	onMount(() => {
+		if (prefersReducedMotion()) {
+			if (transition) transition.duration = 0;
+		}
+		clientJs = true;
+	});
 </script>
 
 <div class={className} {id}>
@@ -255,10 +281,11 @@ Data table to display an array of JS objects. Click a column header to sort.
 		</thead>
 		<tbody class={classTbody}>
 			{#each data as row, i}
-				{@const showRow =
-					i < maxRows * currentPage && i >= maxRows * (currentPage - 1)}
-				{#if maxRows ? showRow : true}
-					<tr class={classTbodyTr}>
+				{#if showRow(i, currentPage)}
+					<tr
+						in:fade={transition ? transition : { duration: 0 }}
+						class={classTbodyTr}
+					>
 						{#each columns as column}
 							<td class="{classTd} {sortBy === column ? classTdSorted : ''}">
 								<slot name="td" {row} {column}>{row[column]}</slot>
@@ -297,10 +324,6 @@ Data table to display an array of JS objects. Click a column header to sort.
 			</div>
 		</div>
 
-		<noscript>
-			<div class={classNoscript}>
-				{messageNoScript}
-			</div>
-		</noscript>
+		<noscript><div class={classNoscript}>{messageNoScript}</div></noscript>
 	{/if}
 </div>

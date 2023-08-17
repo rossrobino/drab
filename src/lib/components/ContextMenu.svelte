@@ -74,12 +74,15 @@ Displays when the parent element is right clicked, or long pressed on mobile.
 
 	const displayMenu = async (e: MouseEvent | TouchEvent) => {
 		e.preventDefault();
+
+		// find coordinates of the click
 		const scrollY = window.scrollY;
 		const scrollX = window.scrollX;
 		const clientX = e instanceof MouseEvent ? e.clientX : e.touches[0].clientX;
 		const clientY = e instanceof MouseEvent ? e.clientY : e.touches[0].clientY;
 		coordinates.x = clientX + scrollX;
 		coordinates.y = clientY + scrollY;
+
 		display = true;
 
 		await tick(); // wait for menu to show
@@ -100,12 +103,14 @@ Displays when the parent element is right clicked, or long pressed on mobile.
 
 	let timer: NodeJS.Timeout;
 
+	/** displays after delay - if not cancelled by onTouchEnd */
 	const onTouchStart = (e: TouchEvent) => {
 		timer = setTimeout(() => {
 			displayMenu(e);
 		}, delay);
 	};
 
+	/** clears the touch timer */
 	const onTouchEnd = () => {
 		clearTimeout(timer);
 	};

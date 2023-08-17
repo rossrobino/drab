@@ -45,9 +45,9 @@ With SvelteKit, this component can be wrapped in an `{#if dev}` block that check
 		{ name: "2xl", width: 1536 },
 	];
 
-	breakpoints.sort((a, b) => b.width - a.width);
+	breakpoints.sort((a, b) => b.width - a.width); // highest to lowest
 
-	let innerWidth: number = 0;
+	let innerWidth = 0;
 
 	$: breakpoint = getBreakpoint(innerWidth);
 
