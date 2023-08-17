@@ -14,7 +14,7 @@ Creates a sheet element based on the `position` provided.
 - `maxSize` - max width/height of sheet based on the `side` - can also use css instead
 - `position` - determines the position of sheet
 - `transitionSheet` - slides the sheet, set to `false` to remove
-- `transition` - fades the entire component, set to `false` to remove
+- `transition` - blurs the entire component, set to `false` to remove
 
 @slots
 
@@ -62,9 +62,9 @@ Creates a sheet element based on the `position` provided.
 <script lang="ts">
 	import { onMount } from "svelte";
 	import {
-		fade,
+		blur,
 		fly,
-		type FadeParams,
+		type BlurParams,
 		type FlyParams,
 	} from "svelte/transition";
 	import { prefersReducedMotion } from "$lib/util/accessibility";
@@ -81,11 +81,11 @@ Creates a sheet element based on the `position` provided.
 	/** controls whether the sheet is displayed*/
 	export let display = false;
 
-	/** fades the entire component, set to `false` to remove */
-	export let transition: FadeParams | false = { duration };
+	/** blurs the entire component, set to `false` to remove */
+	export let transition: BlurParams | false = { duration };
 
 	/** determines the position of sheet */
-	export let position: "top" | "bottom" | "left" | "right" = "right";
+	export let position: "top" | "bottom" | "left" | "right" = "left";
 
 	/** max width/height of sheet based on the `side` - can also use css instead */
 	export let maxSize: number = 488;
@@ -126,7 +126,7 @@ Creates a sheet element based on the `position` provided.
 
 {#if display}
 	<div
-		transition:fade={transition ? transition : { duration: 0 }}
+		transition:blur={transition ? transition : { duration: 0 }}
 		class="d-backdrop {className}"
 		class:d-backdrop-bottom={position === "bottom"}
 		class:d-backdrop-top={position === "top"}
@@ -140,11 +140,7 @@ Creates a sheet element based on the `position` provided.
 			style={position === "top" || position === "bottom"
 				? `max-height: ${maxSize}px;`
 				: `max-width: ${maxSize}px`}
-			class="d-sheet {classSheet}"
-			class:d-sheet-bottom={position === "bottom"}
-			class:d-sheet-top={position === "top"}
-			class:d-sheet-left={position === "left"}
-			class:d-sheet-right={position === "right"}
+			class={classSheet}
 		>
 			<slot>Content</slot>
 		</div>
@@ -174,24 +170,5 @@ Creates a sheet element based on the `position` provided.
 	}
 	.d-backdrop-right {
 		flex-direction: row-reverse;
-	}
-	.d-sheet {
-		margin: auto;
-	}
-	.d-sheet-bottom {
-		margin-bottom: 0;
-		width: 100%;
-	}
-	.d-sheet-top {
-		margin-top: 0;
-		width: 100%;
-	}
-	.d-sheet-right {
-		margin-right: 0;
-		height: 100%;
-	}
-	.d-sheet-left {
-		margin-left: 0;
-		height: 100%;
 	}
 </style>
