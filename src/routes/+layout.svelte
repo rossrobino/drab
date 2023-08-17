@@ -42,7 +42,7 @@
 				</ul>
 			</nav>
 			<nav
-				class="mb-6 flex items-center gap-4 bg-neutral-50/80 p-4 backdrop-blur lg:hidden lg:w-[80ch]"
+				class="mb-6 flex items-center gap-4 bg-neutral-50/90 p-4 backdrop-blur lg:hidden lg:w-[80ch]"
 			>
 				<button
 					class="btn btn-s"
