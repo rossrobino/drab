@@ -42,7 +42,7 @@
 				</ul>
 			</nav>
 			<nav
-				class="mb-6 flex items-center gap-4 bg-neutral-50 p-4 lg:hidden lg:w-[80ch]"
+				class="mb-6 flex items-center gap-4 bg-neutral-50/80 p-4 backdrop-blur lg:hidden lg:w-[80ch]"
 			>
 				<button
 					class="btn btn-s"
@@ -51,34 +51,34 @@
 				>
 					<Bars />
 				</button>
-				<Sheet
-					bind:display={displaySheet}
-					class="bg-neutral-50/80 backdrop-blur"
-					classSheet="p-4 shadow bg-white overflow-y-auto"
-					position="left"
-				>
-					<div class="flex items-center justify-between gap-4">
-						<h2 class="my-0">
-							<a
-								on:click={closeSheet}
-								class="font-extrabold lowercase no-underline"
-								href="/"
-							>
-								drab
-							</a>
-						</h2>
-						<button title="Close" on:click={closeSheet} class="btn btn-s">
-							<X />
-						</button>
-					</div>
-					<ul class="mb-8 w-60 list-none pl-0">
-						<NavItems linkClick={closeSheet} />
-					</ul>
-				</Sheet>
 				<h2 class="my-0">
 					<a class="font-extrabold lowercase no-underline" href="/">drab</a>
 				</h2>
 			</nav>
+			<Sheet
+				bind:display={displaySheet}
+				class="bg-neutral-50/80 backdrop-blur"
+				classSheet="p-4 shadow bg-white overflow-y-auto"
+				position="left"
+			>
+				<div class="flex items-center justify-between gap-4">
+					<h2 class="my-0">
+						<a
+							on:click={closeSheet}
+							class="font-extrabold lowercase no-underline"
+							href="/"
+						>
+							drab
+						</a>
+					</h2>
+					<button title="Close" on:click={closeSheet} class="btn btn-s">
+						<X />
+					</button>
+				</div>
+				<ul class="mb-8 w-60 list-none pl-0">
+					<NavItems linkClick={closeSheet} />
+				</ul>
+			</Sheet>
 		</header>
 		<main id="main" class="m-4 mb-16 max-w-[80ch] lg:w-[80ch]">
 			<slot />
