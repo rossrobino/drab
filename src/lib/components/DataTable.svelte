@@ -30,6 +30,7 @@ Data table to display an array of JS objects. Click a column header to sort.
 - `id` 
 - `maxRows` - maximum number of rows to show on each page, defaults to `0` - no pagination
 - `sortBy` - column to sort by, defaults to first column
+- `transition` - fades the rows in, set to `false` to disable
 
 @slots
 
@@ -190,6 +191,7 @@ Data table to display an array of JS objects. Click a column header to sort.
 	/** current page, defaults to `1` */
 	export let currentPage = 1;
 
+	/** fades the rows in, set to `false` to disable */
 	export let transition: FadeParams | false = { duration };
 
 	/** `noscript` class */
@@ -244,7 +246,7 @@ Data table to display an array of JS objects. Click a column header to sort.
 
 	/**
 	 * determines whether the row should appear
-	 * 
+	 *
 	 * @param i index of the row
 	 * @param currentPage passed in for reactivity
 	 */
