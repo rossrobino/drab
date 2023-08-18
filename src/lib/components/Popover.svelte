@@ -3,7 +3,7 @@
 
 ### Popover
 
-Displays a popover relatively positioned to the target.
+Displays a popover relatively positioned to the target. Does not require the target to be `position: relative;`.
 
 @props
 
@@ -26,8 +26,7 @@ Displays a popover relatively positioned to the target.
 <script lang="ts">
 	import { Popover } from "drab";
 
-	let button: HTMLButtonElement;
-	let hoverButton: HTMLButtonElement;
+	let target: HTMLButtonElement;
 
 	let display = false;
 </script>
@@ -35,13 +34,13 @@ Displays a popover relatively positioned to the target.
 <button
 	class="btn"
 	type="button"
-	bind:this={button}
+	bind:this={target}
 	on:click={() => (display = !display)}
 >
 	{display ? "Close" : "Open"}
 </button>
 
-<Popover target={button} bind:display class="p-2">
+<Popover {target} bind:display class="p-2">
 	<div class="flex w-48 flex-col gap-2 rounded border bg-white p-2 shadow">
 		<div class="font-bold">Bottom</div>
 		<button class="btn">Button</button>

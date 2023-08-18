@@ -3,7 +3,7 @@
 
 ### Accordion
 
-Displays a list of `details` elements with helpful defaults and transitions.
+Displays a list of `details` elements with helpful defaults and transitions. Use `AccordionItem.data` to send any additional data through the slot props. Works without JavaScript. 
 
 @props
 

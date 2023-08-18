@@ -3,7 +3,7 @@
 
 ### Tabs
 
-Displays tabs and the selected tab's content.
+Displays tabs and the selected tab's content. Use `TabsTab.data` to send additional data through the slot props. 
 
 @props
 
@@ -29,7 +29,7 @@ Displays tabs and the selected tab's content.
 @example
 
 ```svelte
-<script>
+<script lang="ts">
 	import { Tabs } from "drab";
 	import { FullscreenButton } from "drab";
 </script>

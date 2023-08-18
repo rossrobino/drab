@@ -4,16 +4,15 @@
 	let display = false;
 </script>
 
-<div>
-	<button type="button" class="btn" on:click={() => (display = true)}>
-		Open
-	</button>
-</div>
+<button type="button" class="btn" on:click={() => (display = true)}>
+	Open
+</button>
 
 <Sheet
 	bind:display
 	class="bg-neutral-50/80 backdrop-blur"
 	classSheet="p-4 shadow bg-white"
+	position="right"
 >
 	<div class="mb-4 flex items-center justify-between">
 		<h2 class="my-0">Sheet</h2>

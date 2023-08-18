@@ -3,13 +3,13 @@
 
 ### DataTable
 
-Data table to display an array of JS objects. Click a column header to sort.
+Data table to display an array of JS objects. Provides sorting and pagination. Set the `maxRows` prop to enable pagination. Data can be styled conditionally with slot props. 
 
 @props
 
-- `ascending` - default sort order
+- `ascending` - current sort order
 - `classButton` - `button` class
-- `classFooter` - `footer` class
+- `classFooter` - footer class
 - `classNoscript` - `noscript` class
 - `classPageControls` - class of `div` that wraps the "Previous" and "Next" buttons
 - `classPageNumber` - class of `div` wrapping page numbers
@@ -45,7 +45,7 @@ Data table to display an array of JS objects. Click a column header to sort.
 @example
 
 ```svelte
-<script>
+<script lang="ts">
 	import { DataTable } from "drab";
 </script>
 
@@ -140,7 +140,7 @@ Data table to display an array of JS objects. Click a column header to sort.
 	/** column to sort by, defaults to first column */
 	export let sortBy = columns[0];
 
-	/** default sort order */
+	/** current sort order */
 	export let ascending = true;
 
 	/** `table` class */
@@ -176,7 +176,7 @@ Data table to display an array of JS objects. Click a column header to sort.
 	/** `button` class */
 	export let classButton = "";
 
-	/** `footer` class */
+	/** footer class */
 	export let classFooter = "";
 
 	/** class of `div` wrapping page numbers */

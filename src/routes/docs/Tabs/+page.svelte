@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Tabs from "$lib/components/Tabs.svelte";
 	import FullscreenButton from "$lib/components/FullscreenButton.svelte";
 </script>

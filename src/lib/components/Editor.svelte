@@ -19,13 +19,13 @@
 - `keyPairs` - keys that will auto-close if typed, value is their closing character
 - `nameTextarea` - `name` of the `textarea` element
 - `placeholderTextarea` - `placeholder` of the `textarea` element
-- `selectionStart` - `selectionStart` value of the text area
+- `selectionStartTextarea` - `selectionStart` value of the `textarea`
 - `valueTextarea` - `value` of the `textarea` element
 
 @example
 
 ```svelte
-<script>
+<script lang="ts">
 	import { Editor } from "drab";
 </script>
 
@@ -121,8 +121,8 @@
 	/** `id` of the `div` that wraps the controls */
 	export let idControls = "";
 
-	/** `selectionStart` value of the text area */
-	export let selectionStart = 0;
+	/** `selectionStart` value of the `textarea` */
+	export let selectionStartTextarea = 0;
 
 	/** keys that will auto-close if typed, value is their closing character */
 	export let keyPairs: { [key: string]: string } = {
@@ -411,7 +411,7 @@
 	};
 
 	const updateSelectionStart = () => {
-		selectionStart = textArea.selectionStart;
+		selectionStartTextarea = textArea.selectionStart;
 	};
 
 	/**

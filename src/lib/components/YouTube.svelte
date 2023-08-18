@@ -3,7 +3,7 @@
 
 ### YouTube
 
-Embeds a YouTube video into a website with the video `uid`, using [www.youtube-nocookie.com](https://support.google.com/youtube/answer/171780?hl=en#zippy=%2Cturn-on-privacy-enhanced-mode).
+Embeds a YouTube video `iframe` into a website with the video `uid`, using [www.youtube-nocookie.com](https://support.google.com/youtube/answer/171780?hl=en#zippy=%2Cturn-on-privacy-enhanced-mode).
 
 @props
 
@@ -17,7 +17,7 @@ Embeds a YouTube video into a website with the video `uid`, using [www.youtube-n
 @example
 
 ```svelte
-<script>
+<script lang="ts">
 	import { YouTube } from "drab";
 </script>
 

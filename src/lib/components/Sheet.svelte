@@ -3,7 +3,7 @@
 
 ### Sheet
 
-Creates a sheet element based on the `position` provided.
+Creates a sheet element based on the `position` provided. `maxSize` is set to width or height of the sheet depending on the `position` provided. The `transition` is calculated based on the `position` and `maxSize` of the sheet.
 
 @props
 
@@ -13,7 +13,7 @@ Creates a sheet element based on the `position` provided.
 - `id` 
 - `maxSize` - max width/height of sheet based on the `side` - can also use css instead
 - `position` - determines the position of sheet
-- `transitionSheet` - slides the sheet, set to `false` to remove
+- `transitionSheet` - flys the sheet, set to `false` to remove
 - `transition` - blurs the entire component, set to `false` to remove
 
 @slots
@@ -31,16 +31,15 @@ Creates a sheet element based on the `position` provided.
 	let display = false;
 </script>
 
-<div>
-	<button type="button" class="btn" on:click={() => (display = true)}>
-		Open
-	</button>
-</div>
+<button type="button" class="btn" on:click={() => (display = true)}>
+	Open
+</button>
 
 <Sheet
 	bind:display
 	class="bg-neutral-50/80 backdrop-blur"
 	classSheet="p-4 shadow bg-white"
+	position="right"
 >
 	<div class="mb-4 flex items-center justify-between">
 		<h2 class="my-0">Sheet</h2>
@@ -90,7 +89,7 @@ Creates a sheet element based on the `position` provided.
 	/** max width/height of sheet based on the `side` - can also use css instead */
 	export let maxSize: number = 488;
 
-	/** slides the sheet, set to `false` to remove */
+	/** flys the sheet, set to `false` to remove */
 	export let transitionSheet: FlyParams | false = { duration };
 
 	let sheet: HTMLDivElement;

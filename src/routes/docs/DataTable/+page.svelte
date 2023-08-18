@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import DataTable from "$lib/components/DataTable.svelte";
 </script>
 

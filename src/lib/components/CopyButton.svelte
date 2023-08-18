@@ -3,7 +3,7 @@
 
 ### CopyButton
 
-Uses the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText) to copy text to the clipboard.
+Uses the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText) to copy text to the clipboard. If JavaScript is disabled, the button is disabled and `text` is displayed after the button.
 
 @props
 
@@ -23,13 +23,11 @@ Uses the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipbo
 @example
 
 ```svelte
-<script>
+<script lang="ts">
 	import { CopyButton } from "drab";
 </script>
 
-<div>
-	<CopyButton class="btn" text="Text to copy" />
-</div>
+<CopyButton class="btn" text="Text to copy" />
 ```
 -->
 

@@ -1,19 +1,14 @@
-<script>
+<script lang="ts">
 	import FullscreenButton from "$lib/components/FullscreenButton.svelte";
 
-	let fullscreenDiv;
+	let target: HTMLDivElement;
 </script>
 
-<div>
-	<FullscreenButton class="btn" />
-</div>
+<FullscreenButton class="btn mb-8" />
 
-<div
-	bind:this={fullscreenDiv}
-	class="mt-4 rounded bg-neutral-800 p-4 text-neutral-50"
->
+<div bind:this={target} class="rounded bg-neutral-800 p-4 text-neutral-50">
 	<div class="mb-2">Target element</div>
-	<FullscreenButton target={fullscreenDiv} class="btn btn-s bg-neutral-50">
+	<FullscreenButton {target} class="btn btn-s bg-neutral-50">
 		Enable Element Fullscreen
 	</FullscreenButton>
 </div>

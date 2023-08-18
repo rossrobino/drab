@@ -9,7 +9,7 @@ Make the document or a specific element fullscreen.
 
 - `classNoscript` - `noscript` class
 - `class` 
-- `confirmMessage` - message to display in the `confirm` popup, set this to empty string `""` to disable `confirm`
+- `confirmMessage` - message to display in the `confirm` popup, defaults to empty string `""` -- disabled
 - `id` 
 - `target` - element to make fullscreen (defaults to `document.documentElement` upon mount)
 - `title` 
@@ -24,22 +24,17 @@ Make the document or a specific element fullscreen.
 @example
 
 ```svelte
-<script>
+<script lang="ts">
 	import { FullscreenButton } from "drab";
 
-	let fullscreenDiv;
+	let target: HTMLDivElement;
 </script>
 
-<div>
-	<FullscreenButton class="btn" />
-</div>
+<FullscreenButton class="btn mb-8" />
 
-<div
-	bind:this={fullscreenDiv}
-	class="mt-4 rounded bg-neutral-800 p-4 text-neutral-50"
->
+<div bind:this={target} class="rounded bg-neutral-800 p-4 text-neutral-50">
 	<div class="mb-2">Target element</div>
-	<FullscreenButton target={fullscreenDiv} class="btn btn-s bg-neutral-50">
+	<FullscreenButton {target} class="btn btn-s bg-neutral-50">
 		Enable Element Fullscreen
 	</FullscreenButton>
 </div>
@@ -60,14 +55,14 @@ Make the document or a specific element fullscreen.
 	/** element to make fullscreen (defaults to `document.documentElement` upon mount) */
 	export let target: HTMLElement | null = null;
 
-	/** message to display in the `confirm` popup, set this to empty string `""` to disable `confirm` */
+	/** message to display in the `confirm` popup, defaults to empty string `""` -- disabled */
 	export let confirmMessage = "";
 
 	/** `noscript` class */
 	export let classNoscript = "";
 
-	/** set to `true` on the client if supported */
-	let supported = false;
+	/** set to `false` on the client if supported */
+	let disabled = true;
 
 	let fullscreen = false;
 
@@ -88,7 +83,7 @@ Make the document or a specific element fullscreen.
 
 	onMount(() => {
 		// @ts-expect-error - not supported on some devices
-		if (document.documentElement.requestFullscreen) supported = true;
+		if (document.documentElement.requestFullscreen) disabled = false;
 		if (!target) target = document.documentElement;
 	});
 </script>
@@ -97,7 +92,7 @@ Make the document or a specific element fullscreen.
 
 <button
 	type="button"
-	disabled={!supported}
+	{disabled}
 	on:click={onClick}
 	class={className}
 	{id}
@@ -110,8 +105,4 @@ Make the document or a specific element fullscreen.
 	{/if}
 </button>
 
-<noscript>
-	<div class={classNoscript}>
-		{messageNoScript}
-	</div>
-</noscript>
+<noscript><div class={classNoscript}>{messageNoScript}</div></noscript>

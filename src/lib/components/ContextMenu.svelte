@@ -3,13 +3,14 @@
 
 ### ContextMenu
 
-Displays when the parent element is right clicked, or long pressed on mobile.
+Displays when the `target` element is right clicked, or long pressed on mobile.
 
 @props
 
 - `class` 
-- `display` - controls `display` css property
+- `display` - shows / hides the menu
 - `id` 
+- `target` - target element to right click, defaults to the parent element
 - `transition` - fades the content, set to `false` to remove
 
 @slots
@@ -21,12 +22,14 @@ Displays when the parent element is right clicked, or long pressed on mobile.
 @example
 
 ```svelte
-<script>
+<script lang="ts">
 	import { ContextMenu } from "drab";
+
+	let target: HTMLButtonElement;
 </script>
 
-<div class="flex justify-center rounded border border-dashed p-12">
-	<div>Right click here</div>
+<div class="mb-8 flex justify-center rounded border border-dashed p-12">
+	<div>Parent right click</div>
 	<ContextMenu>
 		<div class="flex w-48 flex-col gap-2 rounded border bg-white p-2 shadow">
 			<div class="font-bold">Context Menu</div>
@@ -36,6 +39,16 @@ Displays when the parent element is right clicked, or long pressed on mobile.
 		</div>
 	</ContextMenu>
 </div>
+
+<button class="btn" bind:this={target}>Target Right Click</button>
+<ContextMenu {target}>
+	<div class="flex w-48 flex-col gap-2 rounded border bg-white p-2 shadow">
+		<div class="font-bold">Context Menu</div>
+		<button role="menuitem" class="btn">Button</button>
+		<button role="menuitem" class="btn">Button</button>
+		<button role="menuitem" class="btn">Button</button>
+	</div>
+</ContextMenu>
 ```
 -->
 
@@ -43,7 +56,6 @@ Displays when the parent element is right clicked, or long pressed on mobile.
 	import { onMount, tick } from "svelte";
 	import { fade, type FadeParams } from "svelte/transition";
 	import { duration } from "$lib/util/transition";
-	import { messageNoScript } from "$lib/util/messages";
 	import { prefersReducedMotion } from "$lib/util/accessibility";
 	import { delay } from "$lib/util/delay";
 
@@ -52,11 +64,14 @@ Displays when the parent element is right clicked, or long pressed on mobile.
 
 	export let id = "";
 
-	/** controls `display` css property */
+	/** shows / hides the menu */
 	export let display = false;
 
 	/** fades the content, set to `false` to remove */
 	export let transition: FadeParams | false = { duration };
+
+	/** target element to right click, defaults to the parent element */
+	export let target: HTMLElement | null = null;
 
 	let contextMenu: HTMLDivElement;
 
@@ -120,13 +135,15 @@ Displays when the parent element is right clicked, or long pressed on mobile.
 			if (transition) transition.duration = 0;
 		}
 
-		const parentElement = base.parentElement;
+		if (!target) {
+			target = base.parentElement;
+		}
 
-		if (parentElement) {
-			parentElement.addEventListener("contextmenu", displayMenu);
-			parentElement.addEventListener("touchstart", onTouchStart);
-			parentElement.addEventListener("touchend", onTouchEnd);
-			parentElement.addEventListener("touchcancel", onTouchEnd);
+		if (target) {
+			target.addEventListener("contextmenu", displayMenu);
+			target.addEventListener("touchstart", onTouchStart);
+			target.addEventListener("touchend", onTouchEnd);
+			target.addEventListener("touchcancel", onTouchEnd);
 		}
 	});
 </script>
