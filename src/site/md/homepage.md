@@ -29,7 +29,7 @@ npm install -D drab
 
 The library provides inline documentation for each component, allowing you to conveniently access the documentation by hovering over the component in your text editor after importing it. Additionally, every prop is thoroughly documented using JSDoc and TypeScript. By hovering over a prop, you can retrieve its type and description.
 
-These docs use the [TailwindCSS Typography plugin](https://tailwindcss.com/docs/typography-plugin) for base styles along with a few custom utility classes you can find [here](https://github.com/rossrobino/drab/blob/main/src/app.postcss). Styles are inspired by [shadcn/ui](https://ui.shadcn.com/).
+These docs use the [TailwindCSS Typography plugin](https://tailwindcss.com/docs/typography-plugin) for base styles along with a few custom utility classes you can find [here](https://github.com/rossrobino/drab/blob/main/src/app.postcss). Styles are based on [shadcn/ui](https://ui.shadcn.com/).
 
 ## Alternatives
 
