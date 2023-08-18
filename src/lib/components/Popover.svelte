@@ -19,7 +19,6 @@ Displays a popover relatively positioned to the target.
 | name       | purpose                         | default value |
 | ---------- | ------------------------------- | ------------- |
 | `default`  | default                         | Popover       |
-| `button`   | button contents                 | Open          |
 
 @example
 
