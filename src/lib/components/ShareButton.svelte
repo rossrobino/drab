@@ -10,7 +10,7 @@ Uses the [Navigator API](https://developer.mozilla.org/en-US/docs/Web/API/Naviga
 	- `files` - uses a hidden `anchor` element to download the first file in the `files` array
 - If no JavaScript:
 	- `button` is disabled
-	- `url` - displayed after the button
+	- `url` - displayed after the `button`
 
 @props
 
