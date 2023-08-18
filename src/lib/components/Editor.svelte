@@ -3,7 +3,9 @@
 
 ### Editor
 
-Text editor with controls to add elements and keyboard shortcuts.
+`textarea` element with controls to add content and keyboard shortcuts. Compared to other WYSIWYG editors, this component's value is just a `string` so you can easily store it in a database or manipulate it without learning a separate API. 
+
+- This component is used to create [Typo](https://typo.robino.dev)
 
 @props
 
