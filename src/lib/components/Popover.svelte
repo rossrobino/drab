@@ -10,9 +10,9 @@ Displays a popover relatively positioned to the target. Does not require the tar
 - `class` 
 - `display` - shows / hides the popover
 - `id` 
-- `position` - where the popover is displayed in relation to the target
+- `position` - where the popover is displayed in relation to the `target`
 - `target` - target element to position the popover in relation to
-- `transition` - fades in and out, set to false to disable
+- `transition` - scales the popover, set to `false` to disable
 
 @slots
 
@@ -53,9 +53,9 @@ Displays a popover relatively positioned to the target. Does not require the tar
 
 <script lang="ts">
 	import { prefersReducedMotion } from "$lib/util/accessibility";
-	import { duration } from "$lib/util/transition";
+	import { duration, start } from "$lib/util/transition";
 	import { onMount, tick } from "svelte";
-	import { fade, type FadeParams } from "svelte/transition";
+	import { scale, type ScaleParams } from "svelte/transition";
 
 	let className = "";
 	export { className as class };
@@ -65,14 +65,14 @@ Displays a popover relatively positioned to the target. Does not require the tar
 	/** shows / hides the popover */
 	export let display = true;
 
-	/** where the popover is displayed in relation to the target */
+	/** where the popover is displayed in relation to the `target` */
 	export let position: "top" | "bottom" | "left" | "right" = "bottom";
 
 	/** target element to position the popover in relation to */
 	export let target: HTMLElement;
 
-	/** fades in and out, set to false to disable */
-	export let transition: FadeParams | false = { duration };
+	/** scales the popover, set to `false` to disable */
+	export let transition: ScaleParams | false = { duration, start };
 
 	let popover: HTMLDivElement;
 
@@ -143,7 +143,7 @@ Displays a popover relatively positioned to the target. Does not require the tar
 		{id}
 		style:top="{coordinates.y}px"
 		style:left="{coordinates.x}px"
-		transition:fade={transition ? transition : { duration: 0 }}
+		transition:scale={transition ? transition : { duration: 0 }}
 	>
 		<slot>Popover</slot>
 	</div>

@@ -16,7 +16,7 @@
 	</ContextMenu>
 </div>
 
-<button class="btn" bind:this={target}>Target Right Click</button>
+<button type="button" class="btn" bind:this={target}>Target Right Click</button>
 <ContextMenu {target}>
 	<div class="flex w-48 flex-col gap-2 rounded border bg-white p-2 shadow">
 		<div class="font-bold">Context Menu</div>

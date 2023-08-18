@@ -11,7 +11,7 @@ Displays when the `target` element is right clicked, or long pressed on mobile.
 - `display` - shows / hides the menu
 - `id` 
 - `target` - target element to right click, defaults to the parent element
-- `transition` - fades the content, set to `false` to remove
+- `transition` - scales the menu, set to `false` to disable
 
 @slots
 
@@ -40,7 +40,7 @@ Displays when the `target` element is right clicked, or long pressed on mobile.
 	</ContextMenu>
 </div>
 
-<button class="btn" bind:this={target}>Target Right Click</button>
+<button type="button" class="btn" bind:this={target}>Target Right Click</button>
 <ContextMenu {target}>
 	<div class="flex w-48 flex-col gap-2 rounded border bg-white p-2 shadow">
 		<div class="font-bold">Context Menu</div>
@@ -54,8 +54,8 @@ Displays when the `target` element is right clicked, or long pressed on mobile.
 
 <script lang="ts">
 	import { onMount, tick } from "svelte";
-	import { fade, type FadeParams } from "svelte/transition";
-	import { duration } from "$lib/util/transition";
+	import { scale, type ScaleParams } from "svelte/transition";
+	import { duration, start } from "$lib/util/transition";
 	import { prefersReducedMotion } from "$lib/util/accessibility";
 	import { delay } from "$lib/util/delay";
 
@@ -67,8 +67,8 @@ Displays when the `target` element is right clicked, or long pressed on mobile.
 	/** shows / hides the menu */
 	export let display = false;
 
-	/** fades the content, set to `false` to remove */
-	export let transition: FadeParams | false = { duration };
+	/** scales the menu, set to `false` to disable */
+	export let transition: ScaleParams | false = { duration, start };
 
 	/** target element to right click, defaults to the parent element */
 	export let target: HTMLElement | null = null;
@@ -130,10 +130,12 @@ Displays when the `target` element is right clicked, or long pressed on mobile.
 		clearTimeout(timer);
 	};
 
-	onMount(() => {
+	onMount(async () => {
 		if (prefersReducedMotion()) {
 			if (transition) transition.duration = 0;
 		}
+
+		await tick(); // wait for target to be assigned
 
 		if (!target) {
 			target = base.parentElement;
@@ -160,7 +162,7 @@ Displays when the `target` element is right clicked, or long pressed on mobile.
 		bind:this={contextMenu}
 		style:top="{coordinates.y}px"
 		style:left="{coordinates.x}px"
-		transition:fade={transition ? transition : { duration: 0 }}
+		transition:scale={transition ? transition : { duration: 0 }}
 	>
 		<slot>Context Menu</slot>
 	</div>
