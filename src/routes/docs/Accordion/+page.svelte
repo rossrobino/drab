@@ -20,7 +20,7 @@
 			summary: "Is it animated?",
 			content: "Yes, with the transition prop.",
 		},
-		{ summary: "Does it work without Javascript?", content: "Yes." },
+		{ summary: "Does it work without JavaScript?", content: "Yes." },
 	]}
 />
 

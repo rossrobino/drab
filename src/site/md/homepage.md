@@ -7,9 +7,9 @@
 
 ## About
 
-This library focuses on providing JavaScript functionality where it's most useful, while leaving out components that can be easily created using HTML, such as labels or text inputs. Whenever possible, components are progressively enhanced or provide a fallback [noscript](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript) message. Additionally, transitions are disabled for users who prefer reduced motion.
+This library focuses on providing JavaScript functionality where it's most useful, while leaving out components that can be easily created using HTML, such as labels or text inputs. Whenever possible, components are [progressively enhanced](/docs/ShareButton) or provide a fallback [noscript](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript) message. Additionally, transitions are disabled for users who prefer reduced motion.
 
-Drab takes a more opinionated approach compared to other headless libraries by providing the basic HTML structure for every component, as well as default positioning for elements like the [sheet](/docs/Sheet) or [popover](/docs/Popover). However, these components can still be further customized using [slots](https://svelte.dev/tutorial/slots) and [slot props](https://svelte.dev/tutorial/slot-props).
+Drab takes a more opinionated approach compared to some other headless libraries by providing the basic HTML structure for every component, as well as default positioning for elements like the [sheet](/docs/Sheet) or [popover](/docs/Popover). However, these components can still be further customized using styles, [slots](https://svelte.dev/tutorial/slots), and [slot props](https://svelte.dev/tutorial/slot-props).
 
 While these components without styles can appear rather plain, having many websites look similar can also lead to a monotonous visual experience. In both cases, the word "drab" becomes quite fitting. You have the freedom to bring your own styles to these components! Using unstyled components allows you to selectively choose what you need, seamlessly integrate with existing designs, and avoid being tied to any specific library.
 

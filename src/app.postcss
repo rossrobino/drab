@@ -9,16 +9,22 @@
 	input,
 	textarea,
 	summary {
-		@apply outline-offset-2;
+		@apply outline-offset-4;
 	}
 }
 
 @layer components {
 	.btn {
-		@apply rounded bg-neutral-800 px-3 py-2 font-semibold capitalize leading-4 tracking-wide text-neutral-50 shadow transition hover:bg-neutral-900 active:scale-[97%] active:shadow-none disabled:cursor-not-allowed disabled:bg-neutral-400 disabled:text-neutral-50 disabled:shadow;
+		@apply rounded bg-neutral-800 px-3 py-2 text-sm font-semibold capitalize leading-4 tracking-wide text-neutral-50 shadow transition hover:bg-neutral-900 active:scale-[97%] active:shadow-none disabled:cursor-not-allowed disabled:bg-neutral-400 disabled:text-neutral-50 disabled:shadow;
 	}
 	.btn-s {
 		@apply bg-transparent text-neutral-900 shadow-none hover:bg-neutral-100;
+	}
+	.input {
+		@apply flex h-8 rounded border px-3 py-0 text-sm leading-4 file:border-0 file:bg-transparent file:py-2 file:pl-0 file:pr-2 file:text-sm file:font-semibold file:leading-4 disabled:cursor-not-allowed disabled:opacity-50;
+	}
+	.label {
+		@apply text-sm font-semibold;
 	}
 }
 
