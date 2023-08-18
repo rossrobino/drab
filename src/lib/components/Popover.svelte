@@ -8,7 +8,7 @@ Displays a popover relatively positioned to the target.
 @props
 
 - `class` 
-- `display` - if `eventType="click"`, controls the display
+- `display` - shows / hides the popover
 - `id` 
 - `position` - where the popover is displayed in relation to the target
 - `target` - target element to position the popover in relation to
@@ -64,7 +64,7 @@ Displays a popover relatively positioned to the target.
 
 	export let id = "";
 
-	/** if `eventType="click"`, controls the display */
+	/** shows / hides the popover */
 	export let display = true;
 
 	/** where the popover is displayed in relation to the target */
