@@ -64,7 +64,7 @@ Displays a list of `details` elements with helpful defaults and transitions. Use
 	autoClose={false}
 	items={[
 		{ summary: "Summary", content: "Content" },
-		{ summary: "Summary", content: "Content", data: { uppercase: true } },
+		{ summary: "Summary", content: "Content", data: { class: "uppercase" } },
 		{
 			summary: "Summary",
 			content: "Content",
@@ -73,7 +73,7 @@ Displays a list of `details` elements with helpful defaults and transitions. Use
 	]}
 >
 	<svelte:fragment slot="summary" let:item let:index>
-		<span class:uppercase={item.data?.uppercase}>
+		<span class={item.data?.class}>
 			{item.summary}
 			{index + 1}
 		</span>
