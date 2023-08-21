@@ -90,7 +90,7 @@ Data table to display an array of JS objects. Provides sorting and pagination. S
 <script context="module" lang="ts">
 	export type DataTableItem = Record<
 		string | number,
-		string | number | boolean
+		string | number | boolean | Date | undefined | null
 	>;
 </script>
 
@@ -206,13 +206,19 @@ Data table to display an array of JS objects. Provides sorting and pagination. S
 				} else {
 					return collator.compare(bVal, aVal);
 				}
-			} else if (typeof aVal === "boolean") {
+			} else if (aVal instanceof Date && bVal instanceof Date) {
+				if (ascending) {
+					return aVal.getTime() - bVal.getTime();
+				} else {
+					return bVal.getTime() - aVal.getTime();
+				}
+			} else {
 				if (ascending) {
 					return aVal === bVal ? 0 : aVal ? -1 : 1;
 				} else {
 					return aVal === bVal ? 0 : aVal ? 1 : -1;
 				}
-			} else return 0;
+			}
 		});
 		data = data; // trigger reactivity
 		sortBy = key;
