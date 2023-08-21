@@ -1,7 +1,7 @@
 <script lang="ts">
-	import DataTable from "$lib/components/DataTable.svelte";
+	import { DataTable, type DataTableItem } from "$lib";
 
-	const data = [
+	const data: DataTableItem[] = [
 		{ make: "Honda", model: "CR-V", year: 2011, awd: true },
 		{ make: "Volvo", model: "XC-40", year: 2024, awd: true },
 		{ make: "Ferrari", model: "458 Italia", year: 2015, awd: false },
@@ -14,7 +14,7 @@
 	];
 </script>
 
-<DataTable class="mb-12" {data} />
+<DataTable {data} class="mb-12" />
 
 <DataTable
 	{data}
@@ -27,19 +27,14 @@
 	classFooter="flex justify-between items-center"
 	classButton="btn"
 >
-	<svelte:fragment slot="th" let:column>
-		<span class:uppercase={column === "awd"}>{column}</span>
+	<svelte:fragment slot="th" let:key>
+		<span class:uppercase={key === "awd"}>{key}</span>
 	</svelte:fragment>
-	<svelte:fragment slot="td" let:column let:row>
-		{@const item = row[column]}
-		{#if typeof item === "boolean"}
-			{#if item}
-				Yes
-			{:else}
-				No
-			{/if}
+	<svelte:fragment slot="td" let:value>
+		{#if typeof value === "boolean"}
+			{value ? "Yes" : "No"}
 		{:else}
-			{item}
+			{value}
 		{/if}
 	</svelte:fragment>
 </DataTable>

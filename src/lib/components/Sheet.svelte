@@ -13,7 +13,7 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 - `id` 
 - `maxSize` - max width/height of sheet based on the `side` - can also use css instead
 - `position` - determines the position of sheet
-- `transitionSheet` - flys the sheet, set to `false` to remove
+- `transitionSheet` - flies the sheet, set to `false` to remove
 - `transition` - blurs the entire component, set to `false` to remove
 
 @slots
@@ -68,6 +68,7 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 	} from "svelte/transition";
 	import { prefersReducedMotion } from "$lib/util/accessibility";
 	import { duration } from "$lib/util/transition";
+	import type { Action } from "svelte/action";
 
 	let className = "";
 	export { className as class };
@@ -89,7 +90,7 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 	/** max width/height of sheet based on the `side` - can also use css instead */
 	export let maxSize: number = 488;
 
-	/** flys the sheet, set to `false` to remove */
+	/** flies the sheet, set to `false` to remove */
 	export let transitionSheet: FlyParams | false = { duration };
 
 	let sheet: HTMLDivElement;
@@ -98,6 +99,10 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 		if (e.key === "Escape") {
 			display = false;
 		}
+	};
+
+	const focusElement: Action = (node: Node) => {
+		if (node instanceof HTMLElement) node.focus();
 	};
 
 	if (transitionSheet && !transitionSheet.x && !transitionSheet.y) {
@@ -115,8 +120,8 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 
 	onMount(() => {
 		if (prefersReducedMotion()) {
-			if (transition) transition.duration = 0;
-			if (transitionSheet) transitionSheet.duration = 0;
+			transition = false;
+			transitionSheet = false;
 		}
 	});
 </script>
@@ -126,11 +131,13 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 {#if display}
 	<div
 		transition:blur={transition ? transition : { duration: 0 }}
+		use:focusElement
 		class="d-backdrop {className}"
 		class:d-backdrop-bottom={position === "bottom"}
 		class:d-backdrop-top={position === "top"}
 		class:d-backdrop-right={position === "right"}
 		{id}
+		tabindex="-1"
 	>
 		<div
 			role="dialog"
@@ -154,7 +161,6 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 	.d-backdrop {
 		position: fixed;
 		display: flex;
-		z-index: 40;
 		top: 0;
 		bottom: 0;
 		left: 0;

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Breakpoint from "$lib/components/Breakpoint.svelte";
+	import { Breakpoint } from "$lib";
 </script>
 
 <Breakpoint

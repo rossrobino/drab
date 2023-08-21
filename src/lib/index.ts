@@ -1,20 +1,15 @@
-import Accordion from "./components/Accordion.svelte";
-import type { AccordionItem } from "./components/Accordion.svelte";
+import Accordion, { type AccordionItem } from "./components/Accordion.svelte";
 import Breakpoint from "./components/Breakpoint.svelte";
-import Chord from "./components/Chord.svelte";
-import type { ChordNote } from "./components/Chord.svelte";
+import Chord, { type ChordNote } from "./components/Chord.svelte";
 import ContextMenu from "./components/ContextMenu.svelte";
 import CopyButton from "./components/CopyButton.svelte";
-import DataTable from "./components/DataTable.svelte";
-import type { DataTableRow } from "./components/DataTable.svelte";
-import Editor from "./components/Editor.svelte";
-import type { EditorContentElement } from "./components/Editor.svelte";
+import DataTable, { type DataTableItem } from "./components/DataTable.svelte";
+import Editor, { type EditorContentElement } from "./components/Editor.svelte";
 import FullscreenButton from "./components/FullscreenButton.svelte";
 import Popover from "./components/Popover.svelte";
 import ShareButton from "./components/ShareButton.svelte";
 import Sheet from "./components/Sheet.svelte";
-import Tabs from "./components/Tabs.svelte";
-import type { TabsTab } from "./components/Tabs.svelte";
+import Tabs, { type TabsItem } from "./components/Tabs.svelte";
 import YouTube from "./components/YouTube.svelte";
 
 export {
@@ -26,7 +21,7 @@ export {
 	ContextMenu,
 	CopyButton,
 	DataTable,
-	type DataTableRow,
+	type DataTableItem,
 	Editor,
 	type EditorContentElement,
 	FullscreenButton,
@@ -34,6 +29,6 @@ export {
 	ShareButton,
 	Sheet,
 	Tabs,
-	type TabsTab,
+	type TabsItem,
 	YouTube,
 };

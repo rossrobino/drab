@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Chord from "$lib/components/Chord.svelte";
+	import { Chord } from "$lib";
 </script>
 
 <Chord

@@ -3,7 +3,7 @@
 
 ### Tabs
 
-Displays tabs and the selected tab's content. Use `TabsTab.data` to send additional data through the slot props. 
+Displays tabs and the selected tab's content.
 
 @props
 
@@ -14,62 +14,59 @@ Displays tabs and the selected tab's content. Use `TabsTab.data` to send additio
 - `classTabPanel` - class of `div` that wraps the slotted content
 - `classTab` - class of all title `button`s
 - `class` 
+- `data` - provides the content for each tab
 - `id` 
 - `selectedIndex` - index of selected tab, defaults to `0`
-- `tabs` - array of `TabsTab` objects
-- `transition` - fades the panel content, set to `false` to remove
 
 @slots
 
-| name    | purpose            | default value       | slot props             |
-| ------- | ------------------ | ------------------- | ---------------------- |
-| `panel` | active tab's panel | `selectedTab.panel` | `selectedTab`, `index` |
-| `tab`   | title of each tab  | `tab.tab`           | `tab`, `index`         |
+| name       | purpose              | default value   | slot props             |
+| ---------- | -------------------- | --------------- | ---------------------- |
+| `tab`      | title of each tab    | `item.tab`      | `item`, `index`, `tab` |
+| `tabPanel` | selected tab's panel | `item.tabPanel` | `item`, `index`        |
 
 @example
 
 ```svelte
 <script lang="ts">
-	import { Tabs } from "drab";
-	import { FullscreenButton } from "drab";
+	import { Tabs, type TabsItem, FullscreenButton } from "drab";
+
+	const data: TabsItem[] = [
+		{ tab: "Tab", tabPanel: "Content" },
+		{
+			tab: "Another Tab",
+			tabPanel: "Some more content",
+			component: FullscreenButton,
+		},
+	];
 </script>
 
 <Tabs
+	{data}
 	class="mb-4"
 	classTabList="grid grid-flow-col grid-rows-1 gap-1 rounded-md bg-neutral-200 p-1"
 	classTab="btn btn-s p-2"
 	classTabActive="bg-white text-neutral-950 shadow"
 	classTabInactive="bg-neutral-200 text-neutral-600"
 	classTabPanel="py-2"
-	tabs={[
-		{ tab: "Tab", panel: "Content" },
-		{ tab: "Another Tab", panel: "Some more content" },
-	]}
 />
 
 <Tabs
+	{data}
 	classTabList="grid grid-flow-col grid-rows-1 gap-1 rounded-md bg-neutral-200 p-1"
 	classTab="btn btn-s p-2"
 	classTabActive="bg-white text-neutral-950 shadow"
 	classTabInactive="bg-neutral-200 text-neutral-600"
 	classTabPanel="py-2"
-	tabs={[
-		{ tab: "Tab", panel: "Generated indexes" },
-		{
-			tab: "Tab",
-			panel: "A tab with a component",
-			data: { component: FullscreenButton },
-		},
-	]}
 >
-	<svelte:fragment slot="tab" let:tab let:index>
-		{tab.tab}
-		{index + 1}
+	<svelte:fragment slot="tab" let:item let:index>
+		{index + 1}.
+		{item.tab}
 	</svelte:fragment>
-	<svelte:fragment slot="panel" let:selectedTab>
-		<div class="mb-2">{selectedTab.panel}</div>
-		{#if selectedTab.data?.component}
-			<svelte:component this={selectedTab.data.component} class="btn" />
+	<svelte:fragment slot="tabPanel" let:item>
+		<div>{item.tabPanel}</div>
+		{#if item.component}
+			<svelte:component this={item.component} class="btn mt-2" />
 		{/if}
 	</svelte:fragment>
 </Tabs>
@@ -77,24 +74,21 @@ Displays tabs and the selected tab's content. Use `TabsTab.data` to send additio
 -->
 
 <script context="module" lang="ts">
-	export interface TabsTab<T = any> {
+	export interface TabsItem {
 		/** tab title, displayed in `button` element */
 		tab?: string;
 
 		/** slotted content, displayed once tab is clicked */
-		panel?: string;
+		tabPanel?: string;
 
 		/** any data to pass back to the parent */
-		data?: T;
+		[key: string | number]: any;
 	}
 </script>
 
 <script lang="ts">
 	import { onMount } from "svelte";
 	import { messageNoScript } from "$lib/util/messages";
-	import { fade, type FadeParams } from "svelte/transition";
-	import { duration } from "$lib/util/transition";
-	import { prefersReducedMotion } from "$lib/util/accessibility";
 
 	let className = "";
 	export { className as class };
@@ -119,52 +113,45 @@ Displays tabs and the selected tab's content. Use `TabsTab.data` to send additio
 	/** class of `div` that wraps the slotted content */
 	export let classTabPanel = "";
 
-	/** array of `TabsTab` objects */
-	export let tabs: TabsTab[];
+	/** provides the content for each tab */
+	export let data: TabsItem[];
 
 	/** index of selected tab, defaults to `0` */
 	export let selectedIndex = 0;
 
-	/** fades the panel content, set to `false` to remove */
-	export let transition: FadeParams | false = { duration };
-
 	/** sets to `true` on the client */
 	let clientJs = false;
 
-	onMount(() => {
-		if (prefersReducedMotion()) {
-			if (transition) transition.duration = 0;
-		}
-		clientJs = true;
-	});
+	/** a random `id` for the panel to assign the tab to */
+	const idPanel = "tabPanel-" + Math.random().toString().substring(2, 8);
 
-	const panelId = "tabPanel-" + Math.random().toString().substring(2, 8);
+	onMount(() => (clientJs = true));
 </script>
 
 <div class={className} {id}>
 	<div class={classTabList} role="tablist">
-		{#each tabs as tab, index}
+		{#each data as item, index}
 			<button
 				role="tab"
 				tabindex={index === selectedIndex ? 0 : -1}
 				aria-selected={index === selectedIndex}
-				aria-controls={panelId}
+				aria-controls={idPanel}
 				disabled={!clientJs}
 				class="{classTab} {selectedIndex === index
 					? classTabActive
 					: ''} {selectedIndex !== index ? classTabInactive : ''}"
 				on:click={() => (selectedIndex = index)}
 			>
-				<slot name="tab" {tab} {index}>{tab.tab}</slot>
+				<slot name="tab" {item} {index} tab={item.tab}>{item.tab}</slot>
 			</button>
 		{/each}
 	</div>
-	{#each tabs as tab, index}
+	{#each data as item, index}
 		{#if index === selectedIndex}
-			<div class={classTabPanel} role="tabpanel" id={panelId}>
-				<div in:fade={transition ? transition : { duration: 0 }}>
-					<slot name="panel" selectedTab={tab} {index}>{tab.panel}</slot>
-				</div>
+			<div class={classTabPanel} role="tabpanel" id={idPanel}>
+				<slot name="tabPanel" {item} {index}>
+					{item.tabPanel}
+				</slot>
 			</div>
 		{/if}
 	{/each}

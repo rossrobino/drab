@@ -1,5 +1,5 @@
 <script lang="ts">
-	import FullscreenButton from "$lib/components/FullscreenButton.svelte";
+	import { FullscreenButton } from "$lib";
 
 	let target: HTMLDivElement;
 </script>

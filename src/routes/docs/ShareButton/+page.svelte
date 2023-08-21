@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ShareButton from "$lib/components/ShareButton.svelte";
+	import { ShareButton } from "$lib";
 
 	let fileInput: HTMLInputElement;
 

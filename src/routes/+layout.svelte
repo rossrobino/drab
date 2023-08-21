@@ -55,6 +55,9 @@
 					<a class="font-extrabold lowercase no-underline" href="/">drab</a>
 				</h2>
 			</nav>
+		</header>
+		<main id="main" class="m-4 mb-16 max-w-[75ch] lg:w-[75ch]">
+			<slot />
 			<Sheet
 				bind:display={displaySheet}
 				class="bg-neutral-50/80 backdrop-blur"
@@ -79,9 +82,6 @@
 					<NavItems linkClick={closeSheet} />
 				</ul>
 			</Sheet>
-		</header>
-		<main id="main" class="m-4 mb-16 max-w-[75ch] lg:w-[75ch]">
-			<slot />
 		</main>
 	</div>
 </div>

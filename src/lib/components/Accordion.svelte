@@ -3,20 +3,19 @@
 
 ### Accordion
 
-Displays a list of `details` elements with helpful defaults and transitions. Use `AccordionItem.data` to send any additional data through the slot props. Works without JavaScript. 
+Displays a list of `details` elements with helpful defaults and transitions. 
 
 @props
 
 - `autoClose` - if `true`, other items close when a new one is opened
 - `classContent` - class of all the `div`s that wrap the `content` slot
 - `classDetails` - class of the `div` around each `details` element
-- `classHeader` - class of all the `summary` elements
-- `classIcon` - class of the `div` that wrap the icon if displayed
-- `classSummary` - class of all the `div`s that wrap the `summary` slot
+- `classIcon` - class of the `div` that wraps the icon if displayed
+- `classSummary` - class of all the `summary` elements
 - `class` 
+- `data` - data to display in the accordion
 - `icon` 
 - `id` 
-- `items` - array of `AccordionItem` elements
 - `transition` - rotates the icon, slides the content, set to `false` to remove
 
 @slots
@@ -31,18 +30,10 @@ Displays a list of `details` elements with helpful defaults and transitions. Use
 
 ```svelte
 <script lang="ts">
-	import { Accordion } from "drab";
-	import { FullscreenButton } from "drab";
-	import { Chevron } from "$site/svg/Chevron.svelte";
-</script>
+	import { Accordion, type AccordionItem, FullscreenButton } from "drab";
+	import Chevron from "$site/svg/Chevron.svelte";
 
-<Accordion
-	icon={Chevron}
-	class="mb-12"
-	classDetails="border-b"
-	classHeader="flex gap-8 cursor-pointer items-center justify-between p-4 font-bold underline hover:decoration-dotted"
-	classContent="pb-4 px-4"
-	items={[
+	const data: AccordionItem[] = [
 		{ summary: "Is it accessible?", content: "Yes." },
 		{
 			summary: "Is it styled?",
@@ -52,35 +43,42 @@ Displays a list of `details` elements with helpful defaults and transitions. Use
 			summary: "Is it animated?",
 			content: "Yes, with the transition prop.",
 		},
+		{
+			summary: "Is it customizable?",
+			content: "Yes, customize with slots.",
+			class: "uppercase",
+			component: FullscreenButton,
+		},
 		{ summary: "Does it work without JavaScript?", content: "Yes." },
-	]}
+	];
+</script>
+
+<Accordion
+	{data}
+	icon={Chevron}
+	class="mb-12"
+	classDetails="border-b"
+	classSummary="flex gap-8 cursor-pointer items-center justify-between p-4 font-bold underline hover:decoration-dotted"
+	classContent="pb-4 px-4"
 />
 
 <Accordion
+	{data}
 	icon={Chevron}
 	classDetails="border-b"
-	classHeader="flex gap-8 cursor-pointer items-center justify-between p-4 font-bold underline hover:decoration-dotted"
+	classSummary="flex gap-8 cursor-pointer items-center justify-between p-4 font-bold underline hover:decoration-dotted"
 	classContent="pb-4 px-4"
 	autoClose={false}
-	items={[
-		{ summary: "Summary", content: "Content" },
-		{ summary: "Summary", content: "Content", data: { class: "uppercase" } },
-		{
-			summary: "Summary",
-			content: "Content",
-			data: { component: FullscreenButton },
-		},
-	]}
 >
 	<svelte:fragment slot="summary" let:item let:index>
-		<span class={item.data?.class}>
+		<span class={item.class ? item.class : ""}>
+			{index + 1}.
 			{item.summary}
-			{index + 1}
 		</span>
 	</svelte:fragment>
 	<svelte:fragment slot="content" let:item>
 		<span>{item.content}</span>
-		{#if item.data?.component === FullscreenButton}
+		{#if item.component === FullscreenButton}
 			<div><svelte:component this={FullscreenButton} class="btn mt-4" /></div>
 		{/if}
 	</svelte:fragment>
@@ -89,7 +87,7 @@ Displays a list of `details` elements with helpful defaults and transitions. Use
 -->
 
 <script context="module" lang="ts">
-	export interface AccordionItem<T = any> {
+	export type AccordionItem = {
 		/** text summary of the item */
 		summary?: string;
 
@@ -100,8 +98,8 @@ Displays a list of `details` elements with helpful defaults and transitions. Use
 		open?: boolean;
 
 		/** any data to pass back to the parent */
-		data?: T;
-	}
+		[key: string | number]: any;
+	};
 </script>
 
 <script lang="ts">
@@ -115,8 +113,8 @@ Displays a list of `details` elements with helpful defaults and transitions. Use
 
 	export let id = "";
 
-	/** array of `AccordionItem` elements */
-	export let items: AccordionItem[];
+	/** data to display in the accordion */
+	export let data: AccordionItem[];
 
 	export let icon: string | ComponentType = "";
 
@@ -124,21 +122,16 @@ Displays a list of `details` elements with helpful defaults and transitions. Use
 	export let classDetails = "";
 
 	/** class of all the `summary` elements */
-	export let classHeader = "";
-
-	/** class of all the `div`s that wrap the `summary` slot */
 	export let classSummary = "";
 
 	/** class of all the `div`s that wrap the `content` slot */
 	export let classContent = "";
 
-	/** class of the `div` that wrap the icon if displayed */
+	/** class of the `div` that wraps the icon if displayed */
 	export let classIcon = "";
 
 	/** rotates the icon, slides the content, set to `false` to remove */
 	export let transition: SlideParams | false = { duration };
-
-	const cssDuration = transition ? transition.duration : 0;
 
 	/** if `true`, other items close when a new one is opened */
 	export let autoClose = true;
@@ -147,11 +140,11 @@ Displays a list of `details` elements with helpful defaults and transitions. Use
 	let clientJs = false;
 
 	const toggleOpen = (i: number) => {
-		items[i].open = !items[i].open;
+		data[i].open = !data[i].open;
 		if (autoClose) {
-			// close the other open one
-			for (let j = 0; j < items.length; j++) {
-				if (j !== i) items[j].open = false;
+			// close the open ones
+			for (let j = 0; j < data.length; j++) {
+				if (j !== i) data[j].open = false;
 			}
 		}
 	};
@@ -163,14 +156,14 @@ Displays a list of `details` elements with helpful defaults and transitions. Use
 </script>
 
 <div class={className} {id}>
-	{#each items as item, index}
+	{#each data as item, index}
 		<div class={classDetails}>
 			<details bind:open={item.open}>
 				<!-- svelte-ignore a11y-no-redundant-roles -->
 				<summary
 					role="button"
 					tabindex="0"
-					class={classHeader}
+					class={classSummary}
 					on:click|preventDefault={() => toggleOpen(index)}
 					on:keydown={(e) => {
 						if (e.key === "Enter") {
@@ -179,16 +172,14 @@ Displays a list of `details` elements with helpful defaults and transitions. Use
 						}
 					}}
 				>
-					<div class={classSummary}>
-						<slot name="summary" {item} {index}>{item.summary}</slot>
-					</div>
+					<slot name="summary" {item} {index}>{item.summary}</slot>
 					<slot name="icon" {item} {index}>
 						{#if icon}
 							<div
 								class={classIcon}
 								class:d-rotate-180={item.open}
 								class:d-transition={transition}
-								style="--duration: {cssDuration}ms;"
+								style="--duration: {transition ? transition.duration : 0}ms;"
 							>
 								{#if typeof icon !== "string"}
 									<svelte:component this={icon} />

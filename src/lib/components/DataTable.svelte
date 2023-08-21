@@ -12,7 +12,6 @@ Data table to display an array of JS objects. Provides sorting and pagination. S
 - `classFooter` - footer class
 - `classNoscript` - `noscript` class
 - `classPageControls` - class of `div` that wraps the "Previous" and "Next" buttons
-- `classPageNumber` - class of `div` wrapping page numbers
 - `classTable` - `table` class
 - `classTbodyTr` - `tbody tr` class
 - `classTbody` - `tbody` class
@@ -22,33 +21,33 @@ Data table to display an array of JS objects. Provides sorting and pagination. S
 - `classTh` - `th` class
 - `classTheadTr` - `thead tr` class
 - `classThead` - `thead` class
+- `classTr` - `tr` class
 - `class` 
-- `columns` - table columns, in order
 - `currentPage` - current page, defaults to `1`
 - `data` - a list of objects to render in the table
 - `idTable` - `table` id
 - `id` 
+- `keys` - table columns to include in the table, in order
 - `maxRows` - maximum number of rows to show on each page, defaults to `0` - no pagination
-- `sortBy` - column to sort by, defaults to first column
-- `transition` - fades the rows in, set to `false` to disable
+- `sortBy` - key (column) to sort by, defaults to first key
 
 @slots
 
-| name         | purpose                  | default value                    | slot props                     |
-| ------------ | ------------------------ | -------------------------------- | ------------------------------ |
-| `next`       | next button contents     | `Next`                           | `currentPage`                  |
-| `pageNumber` | page numbers             |  `currentPage` / `numberOfPages` | `currentPage`, `numberOfPages` |
-| `previous`   | previous button contents | `Previous`                       | `currentPage`                  |
-| `td`         | td contents              | `Previous`                       | `column`, `row`                |
-| `th`         | th contents              | `Previous`                       | `column`                       |
+| name         | purpose                  | default value                   | slot props                      |
+| ------------ | ------------------------ | ------------------------------- | ------------------------------- |
+| `next`       | next button contents     | `Next`                          |                                 |
+| `pageNumber` | page numbers             | `currentPage` / `numberOfPages` | `currentPage`, `numberOfPages`  |
+| `previous`   | previous button contents | `Previous`                      |                                 |
+| `td`         | td contents              | `item[key]`                     | `item`, `key`, `sortBy` `value` |
+| `th`         | th contents              | `key`                           | `key`, `sortBy`                 |
 
 @example
 
 ```svelte
 <script lang="ts">
-	import { DataTable } from "drab";
+	import { DataTable, type DataTableItem } from "drab";
 
-	const data = [
+	const data: DataTableItem[] = [
 		{ make: "Honda", model: "CR-V", year: 2011, awd: true },
 		{ make: "Volvo", model: "XC-40", year: 2024, awd: true },
 		{ make: "Ferrari", model: "458 Italia", year: 2015, awd: false },
@@ -61,7 +60,7 @@ Data table to display an array of JS objects. Provides sorting and pagination. S
 	];
 </script>
 
-<DataTable class="mb-12" {data} />
+<DataTable {data} class="mb-12" />
 
 <DataTable
 	{data}
@@ -74,19 +73,14 @@ Data table to display an array of JS objects. Provides sorting and pagination. S
 	classFooter="flex justify-between items-center"
 	classButton="btn"
 >
-	<svelte:fragment slot="th" let:column>
-		<span class:uppercase={column === "awd"}>{column}</span>
+	<svelte:fragment slot="th" let:key>
+		<span class:uppercase={key === "awd"}>{key}</span>
 	</svelte:fragment>
-	<svelte:fragment slot="td" let:column let:row>
-		{@const item = row[column]}
-		{#if typeof item === "boolean"}
-			{#if item}
-				Yes
-			{:else}
-				No
-			{/if}
+	<svelte:fragment slot="td" let:value>
+		{#if typeof value === "boolean"}
+			{value ? "Yes" : "No"}
 		{:else}
-			{item}
+			{value}
 		{/if}
 	</svelte:fragment>
 </DataTable>
@@ -94,17 +88,15 @@ Data table to display an array of JS objects. Provides sorting and pagination. S
 -->
 
 <script context="module" lang="ts">
-	export type DataTableRow<T> = {
-		[K in keyof T]: T[K];
-	};
+	export type DataTableItem = Record<
+		string | number,
+		string | number | boolean
+	>;
 </script>
 
 <script lang="ts">
 	import { onMount } from "svelte";
-	import { fade, type FadeParams } from "svelte/transition";
 
-	import { duration } from "$lib/util/transition";
-	import { prefersReducedMotion } from "$lib/util/accessibility";
 	import { messageNoScript } from "$lib/util/messages";
 
 	let className = "";
@@ -113,17 +105,17 @@ Data table to display an array of JS objects. Provides sorting and pagination. S
 	export let id = "";
 
 	/** a list of objects to render in the table */
-	export let data: DataTableRow<any>[];
+	export let data: DataTableItem[];
 
-	/** table columns, in order */
-	export let columns: string[] = [];
-	if (!columns.length && data[0]) {
+	/** table columns to include in the table, in order */
+	export let keys: string[] = [];
+	if (!keys.length && data[0]) {
 		// no initial value, use the first object instead
-		columns = Object.keys(data[0]);
+		keys = Object.keys(data[0]);
 	}
 
-	/** column to sort by, defaults to first column */
-	export let sortBy = columns[0];
+	/** key (column) to sort by, defaults to first key */
+	export let sortBy = keys[0];
 
 	/** current sort order */
 	export let ascending = true;
@@ -139,6 +131,9 @@ Data table to display an array of JS objects. Provides sorting and pagination. S
 
 	/** `tbody` class */
 	export let classTbody = "";
+
+	/** `tr` class */
+	export let classTr = "";
 
 	/** `thead tr` class */
 	export let classTheadTr = "";
@@ -164,9 +159,6 @@ Data table to display an array of JS objects. Provides sorting and pagination. S
 	/** footer class */
 	export let classFooter = "";
 
-	/** class of `div` wrapping page numbers */
-	export let classPageNumber = "";
-
 	/** class of `div` that wraps the "Previous" and "Next" buttons */
 	export let classPageControls = "";
 
@@ -175,9 +167,6 @@ Data table to display an array of JS objects. Provides sorting and pagination. S
 
 	/** current page, defaults to `1` */
 	export let currentPage = 1;
-
-	/** fades the rows in, set to `false` to disable */
-	export let transition: FadeParams | false = { duration };
 
 	/** `noscript` class */
 	export let classNoscript = "";
@@ -188,13 +177,13 @@ Data table to display an array of JS objects. Provides sorting and pagination. S
 	$: numberOfPages = Math.floor(data.length / maxRows) + 1;
 
 	/**
-	 * - sorts the data the specified column
+	 * - sorts the data by the specified key
 	 *
-	 * @param column column to sort by
+	 * @param key column to sort by
 	 * @param toggleAscending whether or not to toggle ascending (first render off)
 	 */
-	const sort = (column: string, toggleAscending = true) => {
-		if (column === sortBy && toggleAscending) {
+	const sort = (key: string, toggleAscending = true) => {
+		if (key === sortBy && toggleAscending) {
 			// reverse the sort if already selected
 			ascending = !ascending;
 		} else {
@@ -202,15 +191,15 @@ Data table to display an array of JS objects. Provides sorting and pagination. S
 			ascending = true;
 		}
 		data.sort((a, b) => {
-			const aVal = a[column];
-			const bVal = b[column];
-			if (typeof aVal === "number") {
+			const aVal = a[key];
+			const bVal = b[key];
+			if (typeof aVal === "number" && typeof bVal === "number") {
 				if (ascending) {
 					return aVal - bVal;
 				} else {
 					return bVal - aVal;
 				}
-			} else if (typeof aVal === "string") {
+			} else if (typeof aVal === "string" && typeof bVal === "string") {
 				const collator = new Intl.Collator();
 				if (ascending) {
 					return collator.compare(aVal, bVal);
@@ -226,7 +215,7 @@ Data table to display an array of JS objects. Provides sorting and pagination. S
 			} else return 0;
 		});
 		data = data; // trigger reactivity
-		sortBy = column;
+		sortBy = key;
 	};
 
 	/**
@@ -244,38 +233,32 @@ Data table to display an array of JS objects. Provides sorting and pagination. S
 
 	sort(sortBy, false);
 
-	onMount(() => {
-		if (prefersReducedMotion()) {
-			if (transition) transition.duration = 0;
-		}
-		clientJs = true;
-	});
+	onMount(() => (clientJs = true));
 </script>
 
 <div class={className} {id}>
 	<table class={classTable} id={idTable}>
 		<thead class={classThead}>
-			<tr class={classTheadTr}>
-				{#each columns as column}
+			<tr class="{classTr} {classTheadTr}">
+				{#each keys as key}
 					<th
-						class="{classTh} {sortBy === column ? classThSorted : ''}"
-						on:click={() => sort(column)}
+						class="{classTh} {sortBy === key ? classThSorted : ''}"
+						on:click={() => sort(key)}
 					>
-						<slot name="th" {column}>{column}</slot>
+						<slot name="th" {key} {sortBy}>{key}</slot>
 					</th>
 				{/each}
 			</tr>
 		</thead>
 		<tbody class={classTbody}>
-			{#each data as row, i}
+			{#each data as item, i}
 				{#if showRow(i, currentPage)}
-					<tr
-						in:fade={transition ? transition : { duration: 0 }}
-						class={classTbodyTr}
-					>
-						{#each columns as column}
-							<td class="{classTd} {sortBy === column ? classTdSorted : ''}">
-								<slot name="td" {row} {column}>{row[column]}</slot>
+					<tr class="{classTr} {classTbodyTr}">
+						{#each keys as key}
+							<td class="{classTd} {sortBy === key ? classTdSorted : ''}">
+								<slot name="td" {item} {key} {sortBy} value={item[key]}>
+									{item[key]}
+								</slot>
 							</td>
 						{/each}
 					</tr>
@@ -286,11 +269,9 @@ Data table to display an array of JS objects. Provides sorting and pagination. S
 
 	{#if maxRows}
 		<div class={classFooter}>
-			<div class={classPageNumber}>
-				<slot name="pageNumber" {currentPage} {numberOfPages}>
-					{currentPage} / {numberOfPages}
-				</slot>
-			</div>
+			<slot name="pageNumber" {currentPage} {numberOfPages}>
+				<div>{currentPage} / {numberOfPages}</div>
+			</slot>
 			<div class={classPageControls}>
 				<button
 					type="button"
@@ -298,7 +279,7 @@ Data table to display an array of JS objects. Provides sorting and pagination. S
 					disabled={!clientJs || currentPage < 2}
 					on:click={() => currentPage--}
 				>
-					<slot name="previous" {currentPage}>Previous</slot>
+					<slot name="previous">Previous</slot>
 				</button>
 				<button
 					type="button"
@@ -306,7 +287,7 @@ Data table to display an array of JS objects. Provides sorting and pagination. S
 					disabled={!clientJs || currentPage >= numberOfPages}
 					on:click={() => currentPage++}
 				>
-					<slot name="next" {currentPage}>Next</slot>
+					<slot name="next">Next</slot>
 				</button>
 			</div>
 		</div>

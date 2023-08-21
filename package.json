@@ -38,7 +38,7 @@
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write . --plugin=prettier-plugin-svelte --plugin=prettier-plugin-tailwindcss",
 		"pub": "npm publish --access public",
-		"doc": "node src/scripts/documentProps.js && node src/scripts/documentExamples.js"
+		"doc": "node src/scripts/documentProps.js && node src/scripts/documentExamples.js && node src/scripts/copyReadMe.js"
 	},
 	"exports": {
 		".": {

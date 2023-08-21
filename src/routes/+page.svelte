@@ -6,4 +6,4 @@
 	<title>drab</title>
 </svelte:head>
 
-{@html data.homepage}
+{@html data.readMe}

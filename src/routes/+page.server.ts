@@ -1,7 +1,7 @@
-import md from "$site/md/homepage.md?raw";
+import md from "$site/md/README.md?raw";
 import { mdToHtml } from "$site/util/mdToHtml";
 
 export const load = async () => {
-	const homepage = mdToHtml(md);
-	return { homepage };
+	const readMe = mdToHtml(md);
+	return { readMe };
 };

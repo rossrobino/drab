@@ -29,11 +29,7 @@ export const documentExample = async (file) => {
 		"utf-8",
 	);
 	example = "\n```svelte\n" + example + "```";
-	example = example.replaceAll(
-		/import\s+(.*?)\s+from\s+(.*?);/g,
-		"import { $1 } from $2;",
-	);
-	example = example.replaceAll(/\$lib\/components\/(.*?)\.svelte/g, "drab");
+	example = example.replaceAll("$lib", "drab");
 	const lines = code.split("\n");
 	for (let i = 0; i < lines.length; i++) {
 		const line = lines[i].trim();

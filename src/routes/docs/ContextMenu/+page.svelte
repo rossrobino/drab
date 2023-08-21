@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ContextMenu from "$lib/components/ContextMenu.svelte";
+	import { ContextMenu } from "$lib";
 
 	let target: HTMLButtonElement;
 </script>

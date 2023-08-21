@@ -131,9 +131,7 @@ Displays when the `target` element is right clicked, or long pressed on mobile.
 	};
 
 	onMount(async () => {
-		if (prefersReducedMotion()) {
-			if (transition) transition.duration = 0;
-		}
+		if (prefersReducedMotion()) transition = false;
 
 		await tick(); // wait for target to be assigned
 

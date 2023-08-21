@@ -1,5 +1,5 @@
 <script lang="ts">
-	import YouTube from "$lib/components/YouTube.svelte";
+	import { YouTube } from "$lib";
 </script>
 
 <YouTube

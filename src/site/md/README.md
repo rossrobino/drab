@@ -50,7 +50,7 @@ Since this is an unstyled library, simple components like a badge that can be ea
 
 ### Local Development
 
-Contribute to the project, or use **drab** as a template for another component library. This library is built with SvelteKit, TypeScript, and npm. The package contents are located in `src/lib`, the site is contained within `src/routes` and `src/site`. The site is deployed to Vercel using `@sveltejs/adapter-vercel` on their Edge Runtime. If you are using this project as a template, be sure to [update the adapter](https://kit.svelte.dev/docs/adapters) based on how you deploy.
+Contribute to the project, or use **drab** as a template for another component library. This library is built with SvelteKit, TypeScript, and npm. The package contents are located in `src/lib`, the site is contained within `src/routes` and `src/site`. The site is deployed to Vercel using `@sveltejs/adapter-vercel`. If you are using this project as a template, be sure to [update the adapter](https://kit.svelte.dev/docs/adapters) based on how you deploy.
 
 #### Make changes
 
