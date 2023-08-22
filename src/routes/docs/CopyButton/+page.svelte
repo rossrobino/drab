@@ -2,4 +2,4 @@
 	import { CopyButton } from "$lib";
 </script>
 
-<CopyButton class="btn" text="Text to copy" />
+<CopyButton class="btn" blobParts={["Text to copy"]} />

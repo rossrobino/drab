@@ -3,14 +3,16 @@
 
 ### CopyButton
 
-Uses the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText) to copy text to the clipboard. If JavaScript is disabled, the button is disabled and `text` is displayed after the button.
+Uses the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard) to copy data to the clipboard. Falls back to `writeText` if `write` is not supported and `blob.type` is text. If JavaScript is disabled, the button is disabled and `blobParts.join()` is displayed after the button if `blob.type` is text.
 
 @props
 
+- `blobParts` - array of `BlobParts` to copy - [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/API/Blob/Blob#parameters)
+- `blob` - use a blob in instead of `blobParts` and `options`, defaults to `new Blob(blobParts, options)`
 - `classNoscript` - `noscript` class
 - `class` 
 - `id` 
-- `text` - text to copy
+- `options` - defaults to `{ type: "text/plain" }` - [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/API/Blob/Blob#parameters)
 - `title` 
 
 @slots
@@ -27,7 +29,7 @@ Uses the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipbo
 	import { CopyButton } from "drab";
 </script>
 
-<CopyButton class="btn" text="Text to copy" />
+<CopyButton class="btn" blobParts={["Text to copy"]} />
 ```
 -->
 
@@ -42,22 +44,44 @@ Uses the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipbo
 
 	export let title = "";
 
-	/** text to copy */
-	export let text: string;
+	/** defaults to `{ type: "text/plain" }` - [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/API/Blob/Blob#parameters) */
+	export let options: BlobPropertyBag | undefined = { type: "text/plain" };
+
+	/** array of `BlobParts` to copy - [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/API/Blob/Blob#parameters) */
+	export let blobParts: BlobPart[] | undefined = undefined;
+
+	/** use a blob in instead of `blobParts` and `options`, defaults to `new Blob(blobParts, options)` */
+	export let blob: Blob = new Blob(blobParts, options);
 
 	/** `noscript` class */
 	export let classNoscript = "";
 
-	/** set to `true` on the client */
-	let clientJs = false;
+	/** set to `false` on the client depending on support */
+	let disabled = true;
 
 	/** changes `button` text after message is successfully copied */
 	let complete = false;
 
+	const writeSupport = () => "write" in navigator.clipboard;
+
+	const typeText = blob.type.startsWith("text");
+
+	/** determines if `writeText` can be utilized instead if `write` is not supported */
+	const canWriteText = () => {
+		const writeTextSupport = "writeText" in navigator.clipboard;
+		return writeTextSupport && typeText;
+	};
+
 	/** copies the text to the clipboard */
 	const copyText = async () => {
 		try {
-			await navigator.clipboard.writeText(text);
+			if (writeSupport()) {
+				const data = [new ClipboardItem({ [blob.type]: blob })];
+				await navigator.clipboard.write(data);
+			} else if (canWriteText()) {
+				// use writeText
+				await navigator.clipboard.writeText(blobParts ? blobParts.join() : "");
+			}
 			complete = true;
 			setTimeout(() => (complete = false), delay);
 		} catch (error) {
@@ -65,12 +89,14 @@ Uses the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipbo
 		}
 	};
 
-	onMount(() => (clientJs = true));
+	onMount(() => {
+		if (writeSupport() || canWriteText()) disabled = false;
+	});
 </script>
 
 <button
 	type="button"
-	disabled={!clientJs}
+	{disabled}
 	on:click={copyText}
 	class={className}
 	{id}
@@ -83,4 +109,8 @@ Uses the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipbo
 	{/if}
 </button>
 
-<noscript><span class={classNoscript}>{text}</span></noscript>
+{#if typeText}
+	<noscript>
+		<span class={classNoscript}>{blobParts ? blobParts.join() : ""}</span>
+	</noscript>
+{/if}
