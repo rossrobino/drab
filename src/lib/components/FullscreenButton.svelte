@@ -76,14 +76,21 @@ Make the document or a specific element fullscreen.
 		}
 	};
 
+	const syncFullscreen = () => {
+		fullscreen = document.fullscreenElement !== null;
+	};
+
 	onMount(() => {
 		// @ts-expect-error - not supported on some devices
-		if (document.documentElement.requestFullscreen) disabled = false;
+		if (document.documentElement.requestFullscreen) {
+			syncFullscreen();
+			disabled = false;
+		}
 		if (!target) target = document.documentElement;
 	});
 </script>
 
-<svelte:window on:fullscreenchange={() => (fullscreen = !fullscreen)} />
+<svelte:window on:fullscreenchange={syncFullscreen} />
 
 <button
 	type="button"
