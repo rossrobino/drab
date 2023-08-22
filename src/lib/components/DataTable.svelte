@@ -3,7 +3,7 @@
 
 ### DataTable
 
-Data table to display an array of JS objects. Provides sorting and pagination. Set the `maxRows` prop to enable pagination. Data can be styled conditionally with slot props. 
+Data table to display an array of JS objects. Provides pagination and sorting for `number`, `string`, `boolean`, and `Date`. Set the `maxRows` prop to enable pagination. Data can be styled conditionally with slot props. 
 
 @props
 
@@ -27,7 +27,7 @@ Data table to display an array of JS objects. Provides sorting and pagination. S
 - `data` - a list of objects to render in the table
 - `idTable` - `table` id
 - `id` 
-- `keys` - table columns to include in the table, in order
+- `keys` - table columns to include in the table, in order. Defaults to first item's keys
 - `maxRows` - maximum number of rows to show on each page, defaults to `0` - no pagination
 - `sortBy` - key (column) to sort by, defaults to first key
 
@@ -107,12 +107,8 @@ Data table to display an array of JS objects. Provides sorting and pagination. S
 	/** a list of objects to render in the table */
 	export let data: DataTableItem[];
 
-	/** table columns to include in the table, in order */
-	export let keys: string[] = [];
-	if (!keys.length && data[0]) {
-		// no initial value, use the first object instead
-		keys = Object.keys(data[0]);
-	}
+	/** table columns to include in the table, in order. Defaults to first item's keys */
+	export let keys: string[] = Object.keys(data[0]);
 
 	/** key (column) to sort by, defaults to first key */
 	export let sortBy = keys[0];
