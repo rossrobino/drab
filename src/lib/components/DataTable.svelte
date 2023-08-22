@@ -8,11 +8,6 @@ Data table to display an array of JS objects. Provides pagination and sorting fo
 @props
 
 - `ascending` - current sort order
-- `classButton` - `button` class
-- `classFooter` - footer class
-- `classNoscript` - `noscript` class
-- `classPageControls` - class of `div` that wraps the "Previous" and "Next" buttons
-- `classTable` - `table` class
 - `classTbodyTr` - `tbody tr` class
 - `classTbody` - `tbody` class
 - `classTd` - `td` class
@@ -21,9 +16,8 @@ Data table to display an array of JS objects. Provides pagination and sorting fo
 - `classThead` - `thead` class
 - `classTr` - `tr` class
 - `class` 
-- `currentPage` - current page, defaults to `1`
-- `data` - a list of objects to render in the table
-- `idTable` - `table` id
+- `currentPage` - current page index, defaults to `0`
+- `data` - an array of items to render in the table
 - `id` 
 - `keys` - table columns to include in the table, in order. Defaults to first item's keys
 - `maxRows` - maximum number of rows to show on each page, defaults to `0` - no pagination
@@ -31,13 +25,11 @@ Data table to display an array of JS objects. Provides pagination and sorting fo
 
 @slots
 
-| name         | purpose                  | default value                   | slot props                      |
-| ------------ | ------------------------ | ------------------------------- | ------------------------------- |
-| `next`       | next button contents     | `Next`                          |                                 |
-| `pageNumber` | page numbers             | `currentPage` / `numberOfPages` | `currentPage`, `numberOfPages`  |
-| `previous`   | previous button contents | `Previous`                      |                                 |
-| `td`         | td contents              | `item[key]`                     | `item`, `key`, `sortBy` `value` |
-| `th`         | th contents              | `key`                           | `key`, `sortBy`                 |
+| name       | purpose                                               | default value | slot props                      |
+| ---------- | ----------------------------------------------------- | ------------- | ------------------------------- |
+| `controls` | helper that passes back `maxRows` and `numberOfPages` | none          | `maxRows`, `numberOfPages`      |
+| `td`       | td contents                                           | `value`       | `item`, `key`, `sortBy` `value` |
+| `th`       | th contents                                           | `key`         | `key`, `sortBy`                 |
 
 @example
 
@@ -45,6 +37,8 @@ Data table to display an array of JS objects. Provides pagination and sorting fo
 <script lang="ts">
 	import type { ComponentProps } from "svelte";
 	import { DataTable } from "drab";
+
+	let currentPage = 0;
 
 	const data: ComponentProps<DataTable>["data"] = [
 		{ make: "Honda", model: "CR-V", year: 2011, awd: true },
@@ -63,13 +57,12 @@ Data table to display an array of JS objects. Provides pagination and sorting fo
 
 <DataTable
 	{data}
+	bind:currentPage
 	sortBy="year"
 	maxRows={4}
 	class="tabular-nums"
 	classTh="cursor-pointer capitalize"
 	classTbodyTr="transition hover:bg-neutral-50"
-	classFooter="flex justify-between items-center"
-	classButton="btn"
 >
 	<svelte:fragment slot="th" let:key let:sortBy>
 		<span class:uppercase={key === "awd"} class:underline={key === sortBy}>
@@ -83,15 +76,36 @@ Data table to display an array of JS objects. Provides pagination and sorting fo
 			{value}
 		{/if}
 	</svelte:fragment>
+	<svelte:fragment slot="controls" let:maxRows let:numberOfPages>
+		{#if maxRows}
+			<div class="flex items-center justify-between">
+				<div>{currentPage + 1} / {numberOfPages}</div>
+				<div>
+					<button
+						type="button"
+						class="btn"
+						disabled={currentPage < 1}
+						on:click={() => currentPage--}
+					>
+						Previous
+					</button>
+					<button
+						type="button"
+						class="btn"
+						disabled={currentPage >= numberOfPages - 1}
+						on:click={() => currentPage++}
+					>
+						Next
+					</button>
+				</div>
+			</div>
+		{/if}
+	</svelte:fragment>
 </DataTable>
 ```
 -->
 
 <script lang="ts">
-	import { onMount } from "svelte";
-
-	import { messageNoScript } from "$lib/util/messages";
-
 	let className = "";
 	export { className as class };
 
@@ -102,7 +116,7 @@ Data table to display an array of JS objects. Provides pagination and sorting fo
 		string | number | boolean | Date | undefined | null
 	>;
 
-	/** a list of objects to render in the table */
+	/** an array of items to render in the table */
 	export let data: DataTableItem[];
 
 	/** table columns to include in the table, in order. Defaults to first item's keys */
@@ -113,12 +127,6 @@ Data table to display an array of JS objects. Provides pagination and sorting fo
 
 	/** current sort order */
 	export let ascending = true;
-
-	/** `table` class */
-	export let classTable = "";
-
-	/** `table` id */
-	export let idTable = "";
 
 	/** `thead` class */
 	export let classThead = "";
@@ -141,26 +149,11 @@ Data table to display an array of JS objects. Provides pagination and sorting fo
 	/** `td` class */
 	export let classTd = "";
 
-	/** `button` class */
-	export let classButton = "";
-
-	/** footer class */
-	export let classFooter = "";
-
-	/** class of `div` that wraps the "Previous" and "Next" buttons */
-	export let classPageControls = "";
-
 	/** maximum number of rows to show on each page, defaults to `0` - no pagination */
 	export let maxRows = 0;
 
-	/** current page, defaults to `1` */
-	export let currentPage = 1;
-
-	/** `noscript` class */
-	export let classNoscript = "";
-
-	/** set to `true` on the client */
-	let clientJs = false;
+	/** current page index, defaults to `0` */
+	export let currentPage = 0;
 
 	$: numberOfPages = Math.floor(data.length / maxRows) + 1;
 
@@ -220,69 +213,39 @@ Data table to display an array of JS objects. Provides pagination and sorting fo
 	 */
 	const showRow = (i: number, currentPage: number) => {
 		if (!maxRows) return true;
-		const overMin = i >= maxRows * (currentPage - 1);
-		const underMax = i < maxRows * currentPage;
+		const overMin = i >= maxRows * currentPage;
+		const underMax = i < maxRows * (currentPage + 1);
 		return overMin && underMax;
 	};
 
 	sort(sortBy, false);
-
-	onMount(() => (clientJs = true));
 </script>
 
-<div class={className} {id}>
-	<table class={classTable} id={idTable}>
-		<thead class={classThead}>
-			<tr class="{classTr} {classTheadTr}">
-				{#each keys as key}
-					<th class={classTh} on:click={() => sort(key)}>
-						<slot name="th" {key} {sortBy}>{key}</slot>
-					</th>
-				{/each}
-			</tr>
-		</thead>
-		<tbody class={classTbody}>
-			{#each data as item, i}
-				{#if showRow(i, currentPage)}
-					<tr class="{classTr} {classTbodyTr}">
-						{#each keys as key}
-							<td class={classTd}>
-								<slot name="td" {item} {key} {sortBy} value={item[key]}>
-									{item[key]}
-								</slot>
-							</td>
-						{/each}
-					</tr>
-				{/if}
+<table class={className} {id}>
+	<thead class={classThead}>
+		<tr class="{classTr} {classTheadTr}">
+			{#each keys as key}
+				<th class={classTh} on:click={() => sort(key)}>
+					<slot name="th" {key} {sortBy}>{key}</slot>
+				</th>
 			{/each}
-		</tbody>
-	</table>
+		</tr>
+	</thead>
+	<tbody class={classTbody}>
+		{#each data as item, i}
+			{#if showRow(i, currentPage)}
+				<tr class="{classTr} {classTbodyTr}">
+					{#each keys as key}
+						<td class={classTd}>
+							<slot name="td" {item} {key} {sortBy} value={item[key]}>
+								{item[key]}
+							</slot>
+						</td>
+					{/each}
+				</tr>
+			{/if}
+		{/each}
+	</tbody>
+</table>
 
-	{#if maxRows}
-		<div class={classFooter}>
-			<slot name="pageNumber" {currentPage} {numberOfPages}>
-				<div>{currentPage} / {numberOfPages}</div>
-			</slot>
-			<div class={classPageControls}>
-				<button
-					type="button"
-					class={classButton}
-					disabled={!clientJs || currentPage < 2}
-					on:click={() => currentPage--}
-				>
-					<slot name="previous">Previous</slot>
-				</button>
-				<button
-					type="button"
-					class={classButton}
-					disabled={!clientJs || currentPage >= numberOfPages}
-					on:click={() => currentPage++}
-				>
-					<slot name="next">Next</slot>
-				</button>
-			</div>
-		</div>
-
-		<noscript><div class={classNoscript}>{messageNoScript}</div></noscript>
-	{/if}
-</div>
+<slot name="controls" {maxRows} {numberOfPages} />

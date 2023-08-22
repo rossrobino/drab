@@ -11,7 +11,6 @@
 
 - `classButton` - `class` of all the `button` elements
 - `classControls` - `class` of the `div` that wraps the controls
-- `classNoscript` - `noscript` class
 - `classTextarea` - `class` of the `textarea` element
 - `contentElements` - an array of `EditorContentElement`s for the controls
 - `idControls` - `id` of the `div` that wraps the controls
@@ -63,7 +62,6 @@
 
 <script lang="ts">
 	import { onMount, type ComponentType } from "svelte";
-	import { messageNoScript } from "$lib/util/messages";
 
 	/**
 	 * - `EditorContentElement` to pass into the `contentElements` array prop
@@ -129,9 +127,6 @@
 		'"': '"',
 		"`": "`",
 	};
-
-	/** `noscript` class */
-	export let classNoscript = "";
 
 	/** set to `true` on the client */
 	let clientJs = false;
@@ -572,9 +567,3 @@
 		</button>
 	{/each}
 </div>
-
-<noscript>
-	<div class={classNoscript}>
-		{messageNoScript}
-	</div>
-</noscript>

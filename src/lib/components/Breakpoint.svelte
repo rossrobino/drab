@@ -27,8 +27,6 @@ With SvelteKit, this component can be wrapped in an `{#if dev}` block that check
 -->
 
 <script lang="ts">
-	import { messageNoScript } from "$lib/util/messages";
-
 	let className = "";
 	export { className as class };
 
@@ -65,7 +63,4 @@ With SvelteKit, this component can be wrapped in an `{#if dev}` block that check
 
 <svelte:window bind:innerWidth />
 
-<div class={className} {id}>
-	{breakpoint}:{innerWidth}
-	<noscript>{messageNoScript}</noscript>
-</div>
+<div class={className} {id}>{breakpoint}:{innerWidth}</div>

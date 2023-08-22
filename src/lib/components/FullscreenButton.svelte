@@ -7,7 +7,6 @@ Make the document or a specific element fullscreen.
 
 @props
 
-- `classNoscript` - `noscript` class
 - `class` 
 - `confirmMessage` - message to display in the `confirm` popup, defaults to empty string `""` -- disabled
 - `id` 
@@ -43,7 +42,6 @@ Make the document or a specific element fullscreen.
 
 <script lang="ts">
 	import { onMount } from "svelte";
-	import { messageNoScript } from "$lib/util/messages";
 
 	let className = "";
 	export { className as class };
@@ -57,9 +55,6 @@ Make the document or a specific element fullscreen.
 
 	/** message to display in the `confirm` popup, defaults to empty string `""` -- disabled */
 	export let confirmMessage = "";
-
-	/** `noscript` class */
-	export let classNoscript = "";
 
 	/** set to `false` on the client if supported */
 	let disabled = true;
@@ -104,5 +99,3 @@ Make the document or a specific element fullscreen.
 		<slot>Enable Fullscreen</slot>
 	{/if}
 </button>
-
-<noscript><div class={classNoscript}>{messageNoScript}</div></noscript>

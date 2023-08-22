@@ -2,6 +2,8 @@
 	import type { ComponentProps } from "svelte";
 	import { DataTable } from "$lib";
 
+	let currentPage = 0;
+
 	const data: ComponentProps<DataTable>["data"] = [
 		{ make: "Honda", model: "CR-V", year: 2011, awd: true },
 		{ make: "Volvo", model: "XC-40", year: 2024, awd: true },
@@ -19,13 +21,12 @@
 
 <DataTable
 	{data}
+	bind:currentPage
 	sortBy="year"
 	maxRows={4}
 	class="tabular-nums"
 	classTh="cursor-pointer capitalize"
 	classTbodyTr="transition hover:bg-neutral-50"
-	classFooter="flex justify-between items-center"
-	classButton="btn"
 >
 	<svelte:fragment slot="th" let:key let:sortBy>
 		<span class:uppercase={key === "awd"} class:underline={key === sortBy}>
@@ -37,6 +38,31 @@
 			{value ? "Yes" : "No"}
 		{:else}
 			{value}
+		{/if}
+	</svelte:fragment>
+	<svelte:fragment slot="controls" let:maxRows let:numberOfPages>
+		{#if maxRows}
+			<div class="flex items-center justify-between">
+				<div>{currentPage + 1} / {numberOfPages}</div>
+				<div>
+					<button
+						type="button"
+						class="btn"
+						disabled={currentPage < 1}
+						on:click={() => currentPage--}
+					>
+						Previous
+					</button>
+					<button
+						type="button"
+						class="btn"
+						disabled={currentPage >= numberOfPages - 1}
+						on:click={() => currentPage++}
+					>
+						Next
+					</button>
+				</div>
+			</div>
 		{/if}
 	</svelte:fragment>
 </DataTable>

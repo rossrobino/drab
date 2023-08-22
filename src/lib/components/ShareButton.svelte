@@ -74,7 +74,6 @@ Uses the [Navigator API](https://developer.mozilla.org/en-US/docs/Web/API/Naviga
 <script lang="ts">
 	import { onMount } from "svelte";
 	import { delay } from "$lib/util/delay";
-	import { messageNoScript } from "$lib/util/messages";
 
 	let className = "";
 	export { className as class };
@@ -145,8 +144,6 @@ Uses the [Navigator API](https://developer.mozilla.org/en-US/docs/Web/API/Naviga
 
 <a href="/" bind:this={downloadAnchor} style:display="none">Download</a>
 
-<noscript>
-	<span class={classNoscript}>
-		{shareData.url ? shareData.url : messageNoScript}
-	</span>
-</noscript>
+{#if shareData.url}
+	<noscript><span class={classNoscript}>{shareData.url}</span></noscript>
+{/if}
