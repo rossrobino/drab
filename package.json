@@ -1,6 +1,6 @@
 {
 	"name": "drab",
-	"version": "2.8.5",
+	"version": "2.8.6",
 	"description": "An unstyled Svelte component library",
 	"keywords": [
 		"components",
@@ -17,7 +17,6 @@
 		"Popover",
 		"Share",
 		"Sheet",
-		"Tabs",
 		"YouTube"
 	],
 	"homepage": "https://drab.robino.dev",

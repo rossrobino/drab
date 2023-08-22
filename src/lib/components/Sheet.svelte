@@ -37,7 +37,7 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 
 <Sheet
 	bind:display
-	class="bg-neutral-50/80 backdrop-blur"
+	class="backdrop-blur"
 	classSheet="p-4 shadow bg-white"
 	position="right"
 >

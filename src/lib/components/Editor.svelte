@@ -41,10 +41,10 @@
 			icon: "Bullet",
 		},
 		{
-			name: "Asterisk",
+			name: "Italic",
 			text: "*",
 			display: "wrap",
-			icon: "Asterisk",
+			icon: "Italic",
 			key: "i",
 			class: "italic",
 		},
