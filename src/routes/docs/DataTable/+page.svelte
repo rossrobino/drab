@@ -23,13 +23,14 @@
 	maxRows={4}
 	class="tabular-nums"
 	classTh="cursor-pointer capitalize"
-	classThSorted="underline"
 	classTbodyTr="transition hover:bg-neutral-50"
 	classFooter="flex justify-between items-center"
 	classButton="btn"
 >
-	<svelte:fragment slot="th" let:key>
-		<span class:uppercase={key === "awd"}>{key}</span>
+	<svelte:fragment slot="th" let:key let:sortBy>
+		<span class:uppercase={key === "awd"} class:underline={key === sortBy}>
+			{key}
+		</span>
 	</svelte:fragment>
 	<svelte:fragment slot="td" let:value>
 		{#if typeof value === "boolean"}

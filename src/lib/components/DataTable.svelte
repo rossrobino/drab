@@ -15,9 +15,7 @@ Data table to display an array of JS objects. Provides pagination and sorting fo
 - `classTable` - `table` class
 - `classTbodyTr` - `tbody tr` class
 - `classTbody` - `tbody` class
-- `classTdSorted` - currently sorted `td`
 - `classTd` - `td` class
-- `classThSorted` - currently sorted `th`
 - `classTh` - `th` class
 - `classTheadTr` - `thead tr` class
 - `classThead` - `thead` class
@@ -45,9 +43,10 @@ Data table to display an array of JS objects. Provides pagination and sorting fo
 
 ```svelte
 <script lang="ts">
-	import { DataTable, type DataTableItem } from "drab";
+	import type { ComponentProps } from "svelte";
+	import { DataTable } from "drab";
 
-	const data: DataTableItem[] = [
+	const data: ComponentProps<DataTable>["data"] = [
 		{ make: "Honda", model: "CR-V", year: 2011, awd: true },
 		{ make: "Volvo", model: "XC-40", year: 2024, awd: true },
 		{ make: "Ferrari", model: "458 Italia", year: 2015, awd: false },
@@ -68,13 +67,14 @@ Data table to display an array of JS objects. Provides pagination and sorting fo
 	maxRows={4}
 	class="tabular-nums"
 	classTh="cursor-pointer capitalize"
-	classThSorted="underline"
 	classTbodyTr="transition hover:bg-neutral-50"
 	classFooter="flex justify-between items-center"
 	classButton="btn"
 >
-	<svelte:fragment slot="th" let:key>
-		<span class:uppercase={key === "awd"}>{key}</span>
+	<svelte:fragment slot="th" let:key let:sortBy>
+		<span class:uppercase={key === "awd"} class:underline={key === sortBy}>
+			{key}
+		</span>
 	</svelte:fragment>
 	<svelte:fragment slot="td" let:value>
 		{#if typeof value === "boolean"}
@@ -140,12 +140,6 @@ Data table to display an array of JS objects. Provides pagination and sorting fo
 
 	/** `td` class */
 	export let classTd = "";
-
-	/** currently sorted `th` */
-	export let classThSorted = "";
-
-	/** currently sorted `td` */
-	export let classTdSorted = "";
 
 	/** `button` class */
 	export let classButton = "";
@@ -241,10 +235,7 @@ Data table to display an array of JS objects. Provides pagination and sorting fo
 		<thead class={classThead}>
 			<tr class="{classTr} {classTheadTr}">
 				{#each keys as key}
-					<th
-						class="{classTh} {sortBy === key ? classThSorted : ''}"
-						on:click={() => sort(key)}
-					>
+					<th class={classTh} on:click={() => sort(key)}>
 						<slot name="th" {key} {sortBy}>{key}</slot>
 					</th>
 				{/each}
@@ -255,7 +246,7 @@ Data table to display an array of JS objects. Provides pagination and sorting fo
 				{#if showRow(i, currentPage)}
 					<tr class="{classTr} {classTbodyTr}">
 						{#each keys as key}
-							<td class="{classTd} {sortBy === key ? classTdSorted : ''}">
+							<td class={classTd}>
 								<slot name="td" {item} {key} {sortBy} value={item[key]}>
 									{item[key]}
 								</slot>

@@ -29,9 +29,10 @@ Displays tabs and the selected tab's content.
 
 ```svelte
 <script lang="ts">
-	import { Tabs, type TabsItem, FullscreenButton } from "drab";
+	import type { ComponentProps } from "svelte";
+	import { Tabs, FullscreenButton } from "drab";
 
-	const data: TabsItem[] = [
+	const data: ComponentProps<Tabs>["data"] = [
 		{ tab: "Tab", tabPanel: "Content" },
 		{
 			tab: "Another Tab",

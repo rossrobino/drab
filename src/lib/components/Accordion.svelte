@@ -30,10 +30,11 @@ Displays a list of `details` elements with helpful defaults and transitions.
 
 ```svelte
 <script lang="ts">
-	import { Accordion, type AccordionItem, FullscreenButton } from "drab";
+	import type { ComponentProps } from "svelte";
+	import { Accordion, FullscreenButton } from "drab";
 	import Chevron from "$site/svg/Chevron.svelte";
 
-	const data: AccordionItem[] = [
+	const data: ComponentProps<Accordion>["data"] = [
 		{ summary: "Is it accessible?", content: "Yes." },
 		{
 			summary: "Is it styled?",
