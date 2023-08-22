@@ -1,4 +1,4 @@
-# An unstyled Svelte component library
+# An Unstyled Svelte Component Library
 
 - [GitHub](https://github.com/rossrobino/drab)
 - [npm](https://www.npmjs.com/package/drab)
@@ -7,7 +7,7 @@
 
 ## About
 
-**drab** focuses on providing JavaScript functionality where it's most useful, while leaving out components that can be easily created using HTML, such as a label or badge. Whenever possible, components are [progressively enhanced](/docs/ShareButton) or provide a fallback [noscript](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript) message. Additionally, transitions are disabled for users who prefer reduced motion.
+**drab** focuses on providing JavaScript functionality where it's most useful. Whenever possible, components are [progressively enhanced](/docs/ShareButton) or provide a fallback [noscript](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript) message. Additionally, transitions are disabled for users who prefer reduced motion.
 
 This library takes a more opinionated approach compared to some headless UI libraries by providing the basic HTML structure for every component, as well as default positioning for elements like the [sheet](/docs/Sheet) or [popover](/docs/Popover). However, these components can still be further customized using styles, [slots](https://svelte.dev/tutorial/slots), and [slot props](https://svelte.dev/tutorial/slot-props).
 
