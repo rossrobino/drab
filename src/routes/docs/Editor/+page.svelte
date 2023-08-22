@@ -5,7 +5,7 @@
 <Editor
 	classButton="btn"
 	classControls="flex gap-2"
-	classTextarea="border w-full h-36 p-2 rounded"
+	classTextarea="border w-full h-36 p-2 rounded mb-2"
 	placeholderTextarea="asterisk: ctrl+i, anchor: ctrl+["
 	contentElements={[
 		{

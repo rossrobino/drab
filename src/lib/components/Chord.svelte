@@ -50,19 +50,6 @@ Generates a guitar chord `svg`.
 ```
 -->
 
-<script lang="ts" context="module">
-	export interface ChordNote {
-		/** recommended finger to use */
-		finger: number | string;
-
-		/** string number */
-		string: number;
-
-		/** fret number */
-		fret: number;
-	}
-</script>
-
 <script lang="ts">
 	let className = "";
 	export { className as class };
@@ -89,6 +76,17 @@ Generates a guitar chord `svg`.
 
 	/** list of strings to calculate positioning */
 	const stringList = Array.from(Array(strings).keys());
+
+	interface ChordNote {
+		/** recommended finger to use */
+		finger: number | string;
+
+		/** string number */
+		string: number;
+
+		/** fret number */
+		fret: number;
+	}
 
 	/** list of the positioning of the notes required for the chord */
 	export let notes: ChordNote[] = [];

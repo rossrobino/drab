@@ -87,13 +87,6 @@ Data table to display an array of JS objects. Provides pagination and sorting fo
 ```
 -->
 
-<script context="module" lang="ts">
-	export type DataTableItem = Record<
-		string | number,
-		string | number | boolean | Date | undefined | null
-	>;
-</script>
-
 <script lang="ts">
 	import { onMount } from "svelte";
 
@@ -103,6 +96,11 @@ Data table to display an array of JS objects. Provides pagination and sorting fo
 	export { className as class };
 
 	export let id = "";
+
+	type DataTableItem = Record<
+		string | number,
+		string | number | boolean | Date | undefined | null
+	>;
 
 	/** a list of objects to render in the table */
 	export let data: DataTableItem[];

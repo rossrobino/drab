@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { DataTable, type DataTableItem } from "$lib";
+	import type { ComponentProps } from "svelte";
+	import { DataTable } from "$lib";
 
-	const data: DataTableItem[] = [
+	const data: ComponentProps<DataTable>["data"] = [
 		{ make: "Honda", model: "CR-V", year: 2011, awd: true },
 		{ make: "Volvo", model: "XC-40", year: 2024, awd: true },
 		{ make: "Ferrari", model: "458 Italia", year: 2015, awd: false },

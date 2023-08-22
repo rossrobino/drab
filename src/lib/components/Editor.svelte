@@ -61,15 +61,16 @@
 ```
 -->
 
-<script context="module" lang="ts">
-	import type { ComponentType } from "svelte";
+<script lang="ts">
+	import { onMount, type ComponentType } from "svelte";
+	import { messageNoScript } from "$lib/util/messages";
 
 	/**
 	 * - `EditorContentElement` to pass into the `contentElements` array prop
 	 * - `contentElements` prop creates a list of button controls to insert
-	 * text into the `TextAreaElement`
+	 * text into the `textarea`
 	 */
-	export interface EditorContentElement {
+	interface EditorContentElement {
 		/** name of element */
 		name: string;
 
@@ -88,11 +89,6 @@
 		/** class to apply to the specific `button` */
 		class?: string;
 	}
-</script>
-
-<script lang="ts">
-	import { onMount } from "svelte";
-	import { messageNoScript } from "$lib/util/messages";
 
 	/** an array of `EditorContentElement`s for the controls */
 	export let contentElements: EditorContentElement[] = [];

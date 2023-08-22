@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { Tabs, type TabsItem, FullscreenButton } from "$lib";
+	import type { ComponentProps } from "svelte";
+	import { Tabs, FullscreenButton } from "$lib";
 
-	const data: TabsItem[] = [
+	const data: ComponentProps<Tabs>["data"] = [
 		{ tab: "Tab", tabPanel: "Content" },
 		{
 			tab: "Another Tab",

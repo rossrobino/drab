@@ -73,45 +73,43 @@ Displays tabs and the selected tab's content.
 ```
 -->
 
-<script context="module" lang="ts">
-	export interface TabsItem {
-		/** tab title, displayed in `button` element */
-		tab?: string;
-
-		/** slotted content, displayed once tab is clicked */
-		tabPanel?: string;
-
-		/** any data to pass back to the parent */
-		[key: string | number]: any;
-	}
-</script>
-
 <script lang="ts">
 	import { onMount } from "svelte";
 	import { messageNoScript } from "$lib/util/messages";
-
+	
 	let className = "";
 	export { className as class };
-
+	
 	export let id = "";
-
+	
 	/** class of the `div` that wraps the `button`s */
 	export let classTabList = "";
-
+	
 	/** class of all title `button`s */
 	export let classTab = "";
-
+	
 	/** class of the active tab's `button` */
 	export let classTabActive = "";
-
+	
 	/** class of all the inactive tabs' `button`s */
 	export let classTabInactive = "";
 
 	/** `noscript` class */
 	export let classNoscript = "";
-
+	
 	/** class of `div` that wraps the slotted content */
 	export let classTabPanel = "";
+	
+	interface TabsItem {
+		/** tab title, displayed in `button` element */
+		tab?: string;
+	
+		/** slotted content, displayed once tab is clicked */
+		tabPanel?: string;
+	
+		/** any data to pass back to the parent */
+		[key: string | number]: any;
+	}
 
 	/** provides the content for each tab */
 	export let data: TabsItem[];

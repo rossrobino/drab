@@ -86,32 +86,30 @@ Displays a list of `details` elements with helpful defaults and transitions.
 ```
 -->
 
-<script context="module" lang="ts">
-	export type AccordionItem = {
-		/** text summary of the item */
-		summary?: string;
-
-		/** text content of the item */
-		content?: string;
-
-		/** controls whether the content is displayed */
-		open?: boolean;
-
-		/** any data to pass back to the parent */
-		[key: string | number]: any;
-	};
-</script>
-
 <script lang="ts">
 	import { onMount, type ComponentType } from "svelte";
 	import { slide, type SlideParams } from "svelte/transition";
 	import { prefersReducedMotion } from "$lib/util/accessibility";
 	import { duration } from "$lib/util/transition";
-
+	
 	let className = "";
 	export { className as class };
-
+	
 	export let id = "";
+
+	interface AccordionItem {
+		/** text summary of the item */
+		summary?: string;
+	
+		/** text content of the item */
+		content?: string;
+	
+		/** controls whether the content is displayed */
+		open?: boolean;
+	
+		/** any data to pass back to the parent */
+		[key: string | number]: any;
+	};
 
 	/** data to display in the accordion */
 	export let data: AccordionItem[];

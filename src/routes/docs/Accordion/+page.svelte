@@ -1,8 +1,9 @@
 <script lang="ts">
-	import { Accordion, type AccordionItem, FullscreenButton } from "$lib";
+	import type { ComponentProps } from "svelte";
+	import { Accordion, FullscreenButton } from "$lib";
 	import Chevron from "$site/svg/Chevron.svelte";
 
-	const data: AccordionItem[] = [
+	const data: ComponentProps<Accordion>["data"] = [
 		{ summary: "Is it accessible?", content: "Yes." },
 		{
 			summary: "Is it styled?",
