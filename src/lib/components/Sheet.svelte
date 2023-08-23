@@ -60,7 +60,6 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 -->
 
 <script lang="ts">
-	import { onMount } from "svelte";
 	import {
 		blur,
 		fly,
@@ -98,12 +97,13 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
   /** if set to a value, the sheet will have a heading section with a close button */
  	export let title = '';
 
-	let sheet: HTMLDivElement;
-	const closeSheet = () => {
+	 let sheet: HTMLDivElement;
+	 const dispatch = createEventDispatcher();
+	
+	 const closeSheet = () => {
 		display = false;
 		dispatch('closed');
 	}
-
 
 	const onKeyDown = (e: KeyboardEvent) => {
 		if (e.key === "Escape") {
