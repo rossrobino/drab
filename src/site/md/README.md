@@ -11,10 +11,6 @@
 
 This library takes a more opinionated approach compared to some headless UI libraries by providing the basic HTML structure for every component, as well as default positioning for elements like the [sheet](https://drab.robino.dev/docs/Sheet). However, these components can still be further customized using styles, [slots](https://svelte.dev/tutorial/slots), and [slot props](https://svelte.dev/tutorial/slot-props).
 
-Components without styles can appear rather drab. You have the freedom to bring your own styles to these components! Using unstyled components allows you to selectively choose what you need, seamlessly integrate with existing designs, and avoid being tied to any specific library.
-
-To style the components, you can make use of [global styles](https://joyofcode.xyz/global-styles-in-sveltekit). Each component exports `class` and `id` props that can be leveraged for this purpose. This process can be expedited by utilizing CSS frameworks like [TailwindCSS](https://tailwindcss.com/). Tailwind generates a global stylesheet based on the utility classes used in your project. The examples in this documentation are styled with Tailwind classes, but Tailwind does not have to be used with this library.
-
 ## Install
 
 If you haven't used Svelte before, start with the [tutorial](https://svelte.dev/tutorial/basics). **drab** works anywhere Svelte does.
@@ -33,20 +29,80 @@ The library provides inline documentation for each component, allowing you to co
 
 These docs use the [TailwindCSS Typography plugin](https://tailwindcss.com/docs/typography-plugin) for base styles along with a few custom utility classes you can find [here](https://github.com/rossrobino/drab/blob/main/src/app.postcss). Styles on this site are based on [shadcn/ui](https://ui.shadcn.com/).
 
-## Alternatives
+## Other UI Libraries
 
-If **drab** isn't what you are looking for, here are some other Svelte UI libraries to check out.
+**drab** is a collection of useful components, not a complete UI kit. If **drab** isn't what you are looking for, here are some other libraries to check out.
 
 - [Skeleton](https://skeleton.dev)
 - [Melt UI](https://www.melt-ui.com/)
 - [shadcn-svelte](https://www.shadcn-svelte.com/)
 - [Svelte-HeadlessUI](https://captaincodeman.github.io/svelte-headlessui/)
 
+## Styling
+
+Components without styles can appear rather drab. You have the freedom to bring your own styles to these components. Using unstyled components allows you to selectively choose what you need and avoid being tied to any specific library.
+
+To style the markup provided by the components, you can make use of [global styles](https://joyofcode.xyz/global-styles-in-sveltekit). Each component exports `class` and `id` props that can be leveraged for this purpose. This process can be expedited by utilizing CSS frameworks like [TailwindCSS](https://tailwindcss.com/). Tailwind generates a global stylesheet based on the utility classes used in your project. The examples in this documentation are styled with Tailwind classes, but Tailwind does not have to be used with this library.
+
+### Stylesheet
+
+Here's a SvelteKit example using CSS imported in a layout. By using a layout, these styles can be accessed anywhere.
+
+```css
+/* src/app.css */
+.btn {
+	color: white;
+	background-color: black;
+	border-radius: 5px;
+	padding: 5px;
+}
+```
+
+```svelte
+<!-- src/routes/+layout.svelte -->
+<script>
+	import "../app.css";
+</script>
+
+<slot />
+```
+
+```svelte
+<!-- src/routes/+page.svelte -->
+<script>
+	import { FullscreenButton } from "drab";
+</script>
+
+<FullscreenButton class="btn" />
+```
+
+### Global modifier
+
+Alternatively, the [`:global()` modifier](https://svelte.dev/docs/svelte-components#style) can be used instead of a separate stylesheet.
+
+```svelte
+<!-- src/routes/+page.svelte -->
+<script>
+	import { FullscreenButton } from "drab";
+</script>
+
+<FullscreenButton class="btn" />
+
+<style>
+	:global(.btn) {
+		color: white;
+		background-color: black;
+		border-radius: 5px;
+		padding: 5px;
+	}
+</style>
+```
+
 ## Contributing
 
 Find an bug or have an idea? Feel free to create an issue on [GitHub](https://github.com/rossrobino/drab). **drab** is meant to house all kinds of components including ones outside of the standard UI elements.
 
-Currently, **drab** has only one dependency - Svelte. Not to say it will never have another, but please consider this when adding in additional functionality. **drab** is meant to make the web platform easier to use with Svelte.
+Currently, **drab** has only one dependency - Svelte. Not to say it will never have another, but please consider this when proposing additional functionality. **drab** is meant to make the most of what Svelte and the web platform provide.
 
 Since this is an unstyled library, simple components like a badge that can be easily created with HTML and CSS are not included.
 
