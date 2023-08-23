@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { Chord } from "$lib";
+	import { FrettedChord } from "$lib";
 </script>
 
-<Chord
-	class="text-neutral-950"
+<FrettedChord
+	class="font-mono text-neutral-950"
 	name="D"
 	notes={[
 		{

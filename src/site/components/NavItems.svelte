@@ -1,12 +1,12 @@
 <script lang="ts">
 	const components = [
 		"Breakpoint",
-		"Chord",
 		"ContextMenu",
 		"CopyButton",
 		"DataTable",
 		"Details",
 		"Editor",
+		"FrettedChord",
 		"FullscreenButton",
 		"Popover",
 		"ShareButton",

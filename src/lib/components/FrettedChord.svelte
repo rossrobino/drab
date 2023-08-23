@@ -1,9 +1,11 @@
 <!--
 @component
 
-### Chord
+### FrettedChord
 
-Generates a guitar chord `svg`.
+Generates a fretted chord `svg` for instruments like guitar and ukulele.
+
+Try it out and generate code: [FrettedChord Creator](https://svelte.dev/repl/5771d5c3f3c34137a174c8c402ca0b2d?version=4.2.0)
 
 @props
 
@@ -11,18 +13,18 @@ Generates a guitar chord `svg`.
 - `id` 
 - `name` - name of chord
 - `notes` - list of the positioning of the notes required for the chord
-- `size` - total size of chord square
+- `size` - total size of chord square in pixels, defaults to `150`
 - `strings` - total number of strings for the instrument
 
 @example
 
 ```svelte
 <script lang="ts">
-	import { Chord } from "drab";
+	import { FrettedChord } from "drab";
 </script>
 
-<Chord
-	class="text-neutral-950"
+<FrettedChord
+	class="font-mono text-neutral-950"
 	name="D"
 	notes={[
 		{
@@ -62,8 +64,8 @@ Generates a guitar chord `svg`.
 	/** name of chord */
 	export let name = "";
 
-	/** total size of chord square */
-	export let size = 200;
+	/** total size of chord square in pixels, defaults to `150` */
+	export let size = 150;
 
 	/** size of inner box */
 	const boxSize = size * 0.61;
@@ -77,7 +79,7 @@ Generates a guitar chord `svg`.
 	/** list of strings to calculate positioning */
 	const stringList = Array.from(Array(strings).keys());
 
-	interface ChordNote {
+	interface Note {
 		/** recommended finger to use */
 		finger: number | string;
 
@@ -89,7 +91,7 @@ Generates a guitar chord `svg`.
 	}
 
 	/** list of the positioning of the notes required for the chord */
-	export let notes: ChordNote[] = [];
+	export let notes: Note[] = [];
 
 	/** deep copy of notes to edit -- necessary when high frets are used */
 	let notesList = structuredClone(notes);
@@ -97,7 +99,7 @@ Generates a guitar chord `svg`.
 	/** used to determine if unused need to be added */
 	const usedStrings = notesList.map((note) => note.string);
 
-	// add missing missing strings
+	// add missing strings
 	for (let i = 1; i < strings + 1; i++) {
 		if (!usedStrings.includes(i)) {
 			notesList.push({

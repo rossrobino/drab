@@ -1,10 +1,10 @@
 import Breakpoint from "./components/Breakpoint.svelte";
-import Chord from "./components/Chord.svelte";
 import ContextMenu from "./components/ContextMenu.svelte";
 import CopyButton from "./components/CopyButton.svelte";
 import DataTable from "./components/DataTable.svelte";
 import Details from "./components/Details.svelte";
 import Editor from "./components/Editor.svelte";
+import FrettedChord from "./components/FrettedChord.svelte";
 import FullscreenButton from "./components/FullscreenButton.svelte";
 import Popover from "./components/Popover.svelte";
 import ShareButton from "./components/ShareButton.svelte";
@@ -13,12 +13,12 @@ import YouTube from "./components/YouTube.svelte";
 
 export {
 	Breakpoint,
-	Chord,
 	ContextMenu,
 	CopyButton,
 	DataTable,
 	Details,
 	Editor,
+	FrettedChord,
 	FullscreenButton,
 	Popover,
 	ShareButton,
