@@ -7,9 +7,9 @@
 
 ## About
 
-**drab** focuses on providing JavaScript functionality where it's most useful. Many of the components are helpful wrappers around browser APIs. Whenever possible, components are [progressively enhanced](/docs/ShareButton) or provide a fallback [noscript](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript) message. Additionally, transitions are disabled for users who prefer reduced motion.
+**drab** focuses on providing JavaScript functionality where it's most useful. Many of the components are helpful wrappers around browser APIs. Whenever possible, components are [progressively enhanced](https://drab.robino.dev/docs/ShareButton) or provide a fallback [noscript](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript) message. Additionally, transitions are disabled for users who prefer reduced motion.
 
-This library takes a more opinionated approach compared to some headless UI libraries by providing the basic HTML structure for every component, as well as default positioning for elements like the [sheet](/docs/Sheet). However, these components can still be further customized using styles, [slots](https://svelte.dev/tutorial/slots), and [slot props](https://svelte.dev/tutorial/slot-props).
+This library takes a more opinionated approach compared to some headless UI libraries by providing the basic HTML structure for every component, as well as default positioning for elements like the [sheet](https://drab.robino.dev/docs/Sheet). However, these components can still be further customized using styles, [slots](https://svelte.dev/tutorial/slots), and [slot props](https://svelte.dev/tutorial/slot-props).
 
 Components without styles can appear rather drab. You have the freedom to bring your own styles to these components! Using unstyled components allows you to selectively choose what you need, seamlessly integrate with existing designs, and avoid being tied to any specific library.
 
