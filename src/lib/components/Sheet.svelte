@@ -15,6 +15,7 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 - `position` - determines the position of sheet
 - `transitionSheet` - flies the sheet, set to `false` to remove
 - `transition` - blurs the entire component, set to `false` to remove
+- `title` - title of the sheet
 
 @slots
 
@@ -66,7 +67,8 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 		type BlurParams,
 		type FlyParams,
 	} from "svelte/transition";
-	import { prefersReducedMotion } from "$lib/util/accessibility";
+	import { createEventDispatcher, onMount } from 'svelte';
+  import { prefersReducedMotion } from "$lib/util/accessibility";
 	import { duration } from "$lib/util/transition";
 	import type { Action } from "svelte/action";
 
@@ -93,11 +95,19 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 	/** flies the sheet, set to `false` to remove */
 	export let transitionSheet: FlyParams | false = { duration };
 
+  /** if set to a value, the sheet will have a heading section with a close button */
+ 	export let title = '';
+
 	let sheet: HTMLDivElement;
+	const closeSheet = () => {
+		display = false;
+		dispatch('closed');
+	}
+
 
 	const onKeyDown = (e: KeyboardEvent) => {
 		if (e.key === "Escape") {
-			display = false;
+						closeSheet();
 		}
 	};
 
@@ -148,9 +158,32 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 				: `max-width: ${maxSize}px`}
 			class={classSheet}
 		>
+    {#if title}
+			<div class="header-container">
+				<div>
+					{title}
+				</div>
+				<button
+					class="header-button"
+					on:click={closeSheet}
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						height="30px"
+						width="30px"
+						viewBox="0 0 24 24"
+						fill="#000000"
+						><path d="M0 0h24v24H0V0z" fill="none" /><path
+							d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
+						/></svg
+					>
+				</button>
+			</div>
+    
+    {/if}
 			<slot>Content</slot>
 		</div>
-		<button title="Close" on:click={() => (display = false)}></button>
+		<button title="Close" on:click={closeSheet}></button>
 	</div>
 {/if}
 
@@ -175,5 +208,33 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 	}
 	.d-backdrop-right {
 		flex-direction: row-reverse;
+	}
+
+
+	.header-container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-top: 0.5rem;
+		padding-bottom: 0.5rem;
+		padding-right: 1rem;
+		font-size: 1.5rem;
+		font-weight: 800;
+	}
+
+	.header-button {
+		padding: 0.25rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		max-width: 38px;
+		max-height: 38px;
+		background-color: #e5e7eb;
+		border-radius: 9999px;
+		margin-left: 1rem;
+	}
+
+	.header-button:hover {
+		background-color: #d1d5db;
 	}
 </style>
