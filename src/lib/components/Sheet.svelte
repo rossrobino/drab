@@ -39,7 +39,7 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 	bind:display
 	class="backdrop-blur"
 	classSheet="p-4 shadow bg-white"
-	position="right"
+	position="r"
 >
 	<div class="mb-4 flex items-center justify-between">
 		<h2 class="my-0">Sheet</h2>
@@ -85,7 +85,7 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 	export let transition: BlurParams | false = { duration };
 
 	/** determines the position of sheet */
-	export let position: "top" | "bottom" | "left" | "right" = "left";
+	export let position: "t" | "b" | "l" | "r" = "l";
 
 	/** max width/height of sheet based on the `side` - can also use css instead */
 	export let maxSize: number = 488;
@@ -107,11 +107,11 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 
 	if (transitionSheet && !transitionSheet.x && !transitionSheet.y) {
 		// if there isn't a user assigned value for `x` or `y`
-		if (position === "bottom") {
+		if (position === "b") {
 			transitionSheet.y = maxSize;
-		} else if (position === "top") {
+		} else if (position === "t") {
 			transitionSheet.y = -maxSize;
-		} else if (position === "right") {
+		} else if (position === "r") {
 			transitionSheet.x = maxSize;
 		} else {
 			transitionSheet.x = -maxSize;
@@ -133,9 +133,9 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 		transition:blur={transition ? transition : { duration: 0 }}
 		use:focusElement
 		class="d-backdrop {className}"
-		class:d-backdrop-bottom={position === "bottom"}
-		class:d-backdrop-top={position === "top"}
-		class:d-backdrop-right={position === "right"}
+		class:d-backdrop-bottom={position === "b"}
+		class:d-backdrop-top={position === "t"}
+		class:d-backdrop-right={position === "r"}
 		{id}
 		tabindex="-1"
 	>
@@ -143,7 +143,7 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 			role="dialog"
 			bind:this={sheet}
 			transition:fly={transitionSheet ? transitionSheet : { duration: 0 }}
-			style={position === "top" || position === "bottom"
+			style={position === "t" || position === "b"
 				? `max-height: ${maxSize}px;`
 				: `max-width: ${maxSize}px`}
 			class={classSheet}

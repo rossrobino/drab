@@ -9,13 +9,13 @@
 	placeholderTextarea="asterisk: ctrl+i, anchor: ctrl+["
 	contentElements={[
 		{
-			name: "Bullet",
+			title: "Bullet",
 			text: "- ",
 			display: "block",
 			icon: "Bullet",
 		},
 		{
-			name: "Italic",
+			title: "Italic",
 			text: "*",
 			display: "wrap",
 			icon: "Italic",
@@ -23,7 +23,7 @@
 			class: "italic",
 		},
 		{
-			name: "Anchor",
+			title: "Anchor",
 			text: "[text](href)",
 			display: "inline",
 			icon: "Anchor",

@@ -3,7 +3,10 @@
 
 ### Popover
 
-Displays a popover relatively positioned to the target. Does not require the target to be `position: relative;`.
+Displays a popover in relation to the `target`. 
+
+- Does not require the target to be `position: relative;`
+- Adjusts position in case the popover renders outside of the viewport
 
 @props
 
@@ -64,7 +67,7 @@ Displays a popover relatively positioned to the target. Does not require the tar
 	export let display = true;
 
 	/** where the popover is displayed in relation to the `target` */
-	export let position: "top" | "bottom" | "left" | "right" = "bottom";
+	export let position: "t" | "b" | "l" | "r" = "b";
 
 	/** target element to position the popover in relation to */
 	export let target: HTMLElement;
@@ -77,16 +80,16 @@ Displays a popover relatively positioned to the target. Does not require the tar
 	let coordinates: { x: number; y: number } = { x: 0, y: 0 };
 
 	const setPosition = async () => {
-		if (position === "top" || position === "bottom") {
+		if (position === "t" || position === "b") {
 			coordinates.x = target.offsetWidth / 2 - popover.offsetWidth / 2;
-			if (position === "top") {
+			if (position === "t") {
 				coordinates.y = -popover.offsetHeight;
 			} else {
 				coordinates.y = target.offsetHeight;
 			}
 		} else {
 			coordinates.y = target.offsetHeight / 2 - popover.offsetHeight / 2;
-			if (position === "left") {
+			if (position === "l") {
 				coordinates.x = -popover.offsetWidth;
 			} else {
 				coordinates.x = target.offsetWidth;

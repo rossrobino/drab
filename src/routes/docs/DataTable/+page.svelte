@@ -42,9 +42,9 @@
 	</svelte:fragment>
 	<svelte:fragment slot="controls" let:maxRows let:numberOfPages>
 		{#if maxRows}
-			<div class="flex items-center justify-between">
-				<div>{currentPage + 1} / {numberOfPages}</div>
-				<div>
+			<div class="flex items-center justify-between gap-4">
+				<div class="min-w-fit">{currentPage + 1} / {numberOfPages}</div>
+				<div class="flex gap-2">
 					<button
 						type="button"
 						class="btn"

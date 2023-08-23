@@ -3,7 +3,13 @@
 
 ### DataTable
 
-Data table to display an array of JS objects. Provides pagination and sorting for `number`, `string`, `boolean`, and `Date`. Set the `maxRows` prop to enable pagination. Data can be styled conditionally with slot props. 
+Data table to display an array of objects. Works with zero configuration, just pass an array of objects into the `data` prop.
+
+- Set the `maxRows` prop to enable pagination, bind to `currentPage` to navigate (see second example below)
+- Provides sorting for `number`, `string`, `boolean`, and `Date`
+- Strings are sorted using `Intl.Collator`
+- Style or modify the rendering of data with slot props
+- `numberOfPages` is calculated and sent back through the `controls` slot
 
 @props
 
@@ -25,11 +31,11 @@ Data table to display an array of JS objects. Provides pagination and sorting fo
 
 @slots
 
-| name       | purpose                                               | default value | slot props                      |
-| ---------- | ----------------------------------------------------- | ------------- | ------------------------------- |
-| `controls` | helper that passes back `maxRows` and `numberOfPages` | none          | `maxRows`, `numberOfPages`      |
-| `td`       | td contents                                           | `value`       | `item`, `key`, `sortBy` `value` |
-| `th`       | th contents                                           | `key`         | `key`, `sortBy`                 |
+| name       | purpose                                                          | default value | slot props                      |
+| ---------- | ---------------------------------------------------------------- | ------------- | ------------------------------- |
+| `controls` | helper that passes back `maxRows` and calculated `numberOfPages` | empty         | `maxRows`, `numberOfPages`      |
+| `td`       | td contents                                                      | `value`       | `item`, `key`, `sortBy` `value` |
+| `th`       | th contents                                                      | `key`         | `key`, `sortBy`                 |
 
 @example
 
@@ -78,9 +84,9 @@ Data table to display an array of JS objects. Provides pagination and sorting fo
 	</svelte:fragment>
 	<svelte:fragment slot="controls" let:maxRows let:numberOfPages>
 		{#if maxRows}
-			<div class="flex items-center justify-between">
-				<div>{currentPage + 1} / {numberOfPages}</div>
-				<div>
+			<div class="flex items-center justify-between gap-4">
+				<div class="min-w-fit">{currentPage + 1} / {numberOfPages}</div>
+				<div class="flex gap-2">
 					<button
 						type="button"
 						class="btn"
@@ -171,6 +177,9 @@ Data table to display an array of JS objects. Provides pagination and sorting fo
 			// reset to true - start with ascending always
 			ascending = true;
 		}
+
+		const collator = new Intl.Collator();
+
 		data.sort((a, b) => {
 			const aVal = a[key];
 			const bVal = b[key];
@@ -181,7 +190,6 @@ Data table to display an array of JS objects. Provides pagination and sorting fo
 					return bVal - aVal;
 				}
 			} else if (typeof aVal === "string" && typeof bVal === "string") {
-				const collator = new Intl.Collator();
 				if (ascending) {
 					return collator.compare(aVal, bVal);
 				} else {

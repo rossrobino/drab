@@ -27,9 +27,9 @@
 <SkipLink />
 
 <div
-	class="prose-h1:text-balance font-antique prose prose-neutral max-w-none selection:bg-neutral-400/30 prose-h1:capitalize prose-h2:capitalize prose-h3:capitalize prose-a:underline-offset-2 hover:prose-a:decoration-dotted focus:prose-a:decoration-dotted prose-pre:text-sm lg:flex lg:justify-center"
+	class="prose-h1:text-balance prose prose-neutral max-w-none font-antique selection:bg-neutral-400/30 prose-h1:capitalize prose-h2:capitalize prose-h3:capitalize prose-a:underline-offset-2 hover:prose-a:decoration-dotted focus:prose-a:decoration-dotted prose-pre:text-sm lg:flex lg:justify-center"
 >
-	<div class="gap-12 lg:flex">
+	<div class="gap-8 lg:flex">
 		<header class="sticky top-0">
 			<nav class="sticky top-0 hidden lg:block">
 				<ul class="my-0 h-screen list-none overflow-y-auto p-4">
@@ -62,7 +62,6 @@
 				bind:display={displaySheet}
 				class="backdrop-blur"
 				classSheet="p-4 shadow bg-white overflow-y-auto"
-				position="left"
 			>
 				<div class="flex items-center justify-between gap-4">
 					<h2 class="my-0">

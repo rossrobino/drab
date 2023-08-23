@@ -12,7 +12,7 @@
 	bind:display
 	class="backdrop-blur"
 	classSheet="p-4 shadow bg-white"
-	position="right"
+	position="r"
 >
 	<div class="mb-4 flex items-center justify-between">
 		<h2 class="my-0">Sheet</h2>

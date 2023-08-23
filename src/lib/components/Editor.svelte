@@ -3,7 +3,7 @@
 
 ### Editor
 
-`textarea` element with controls to add content and keyboard shortcuts. Compared to other WYSIWYG editors, this component's value is just a `string` so you can easily store it in a database or manipulate it without learning a separate API. 
+`textarea` element with controls to add content and keyboard shortcuts. Compared to other WYSIWYG editors, the `valueTextarea` is just a `string`, so you can easily store it in a database or manipulate it without learning a separate API. 
 
 - This component is used to create [Typo](https://typo.robino.dev)
 
@@ -35,13 +35,13 @@
 	placeholderTextarea="asterisk: ctrl+i, anchor: ctrl+["
 	contentElements={[
 		{
-			name: "Bullet",
+			title: "Bullet",
 			text: "- ",
 			display: "block",
 			icon: "Bullet",
 		},
 		{
-			name: "Italic",
+			title: "Italic",
 			text: "*",
 			display: "wrap",
 			icon: "Italic",
@@ -49,7 +49,7 @@
 			class: "italic",
 		},
 		{
-			name: "Anchor",
+			title: "Anchor",
 			text: "[text](href)",
 			display: "inline",
 			icon: "Anchor",
@@ -69,8 +69,8 @@
 	 * text into the `textarea`
 	 */
 	interface EditorContentElement {
-		/** name of element */
-		name: string;
+		/** title of element and it's corresponding button */
+		title: string;
 
 		/** text to add */
 		text: string;
@@ -303,7 +303,7 @@
 					display: "inline",
 					text: "\t",
 					icon: "tab",
-					name: "tab",
+					title: "tab",
 				});
 			}
 		} else if (e.key === "Enter") {
@@ -324,7 +324,7 @@
 					display: "inline",
 					text: `\n${repeat}`,
 					icon: "",
-					name: "",
+					title: "",
 				});
 			} else if (repeat && original.length === columnNumber) {
 				// remove if the repeat and caret at the end of the original
@@ -344,7 +344,7 @@
 						display: "inline",
 						text: `\n`,
 						icon: "",
-						name: "",
+						title: "",
 					});
 				}, 0);
 			}
@@ -374,7 +374,7 @@
 					display: "wrap",
 					text: e.key,
 					icon: "",
-					name: "",
+					title: "",
 				});
 				openChars.push(e.key);
 			}
@@ -556,7 +556,7 @@
 			type="button"
 			class={el.class ? `${classButton} ${el.class}` : classButton}
 			on:click={() => addContent(el)}
-			title={el.name}
+			title={el.title}
 			disabled={!clientJs}
 		>
 			{#if typeof el.icon !== "string"}

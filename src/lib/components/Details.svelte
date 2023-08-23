@@ -16,8 +16,8 @@ Displays a `details` element with helpful defaults and transitions. Can be used 
 
 | name      | purpose                         | default value  | slot props |
 | --------- | ------------------------------- | -------------- | ---------- |
-| `summary` | `summary` element contents      | none           | `open`     |
-| `content` | contents when details is `open` | none           | none       |
+| `summary` | `summary` element contents      | empty          | `open`     |
+| `content` | contents when details is `open` | empty          | none       |
 
 @example
 

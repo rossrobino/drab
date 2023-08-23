@@ -43,7 +43,7 @@ Displays when the `target` element is right clicked, or long pressed on mobile.
 <button type="button" class="btn" bind:this={target}>Target Right Click</button>
 <ContextMenu {target}>
 	<div class="flex w-48 flex-col gap-2 rounded border bg-white p-2 shadow">
-		<div class="font-bold">Context Menu</div>
+		<div class="font-bold">Target</div>
 		<button role="menuitem" class="btn">Button</button>
 		<button role="menuitem" class="btn">Button</button>
 		<button role="menuitem" class="btn">Button</button>
@@ -174,6 +174,5 @@ Displays when the `target` element is right clicked, or long pressed on mobile.
 	}
 	div {
 		position: absolute;
-		z-index: 10;
 	}
 </style>
