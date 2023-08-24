@@ -21,6 +21,12 @@
 - `selectionStartTextarea` - `selectionStart` value of the `textarea`
 - `valueTextarea` - `value` of the `textarea` element
 
+@Events
+
+| name    | event                   |
+| ------- | ----------------------- |
+| `input` | forward from `textarea` |
+
 @example
 
 ```svelte
