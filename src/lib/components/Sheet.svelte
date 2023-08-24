@@ -22,6 +22,13 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 | ---------- | ------------------------------- | ------------- |
 | `default`  | content                         | `Content`     |
 
+@events
+
+| name      | event              |
+| --------- | ------------------ |
+| `mount`   | sheet is mounted   | 
+| `destroy` | sheet is destroyed | 
+
 @example
 
 ```svelte
@@ -59,16 +66,16 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 -->
 
 <script lang="ts">
-	import { onMount } from "svelte";
+	import { createEventDispatcher, onMount } from "svelte";
 	import {
 		blur,
 		fly,
 		type BlurParams,
 		type FlyParams,
 	} from "svelte/transition";
+	import type { Action } from "svelte/action";
 	import { prefersReducedMotion } from "$lib/util/accessibility";
 	import { duration } from "$lib/util/transition";
-	import type { Action } from "svelte/action";
 
 	let className = "";
 	export { className as class };
@@ -95,14 +102,18 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 
 	let sheet: HTMLDivElement;
 
+	const dispatch = createEventDispatcher();
+
+	const close = () => (display = false);
+
 	const onKeyDown = (e: KeyboardEvent) => {
-		if (e.key === "Escape") {
-			display = false;
-		}
+		if (e.key === "Escape") close();
 	};
 
-	const focusElement: Action = (node: Node) => {
+	const lifecycle: Action = (node: Node) => {
+		dispatch("mount");
 		if (node instanceof HTMLElement) node.focus();
+		return { destroy: () => dispatch("destroy") };
 	};
 
 	if (transitionSheet && !transitionSheet.x && !transitionSheet.y) {
@@ -131,18 +142,18 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 {#if display}
 	<div
 		transition:blur={transition ? transition : { duration: 0 }}
-		use:focusElement
 		class="d-backdrop {className}"
 		class:d-backdrop-bottom={position === "b"}
 		class:d-backdrop-top={position === "t"}
 		class:d-backdrop-right={position === "r"}
 		{id}
-		tabindex="-1"
 	>
 		<div
-			role="dialog"
 			bind:this={sheet}
 			transition:fly={transitionSheet ? transitionSheet : { duration: 0 }}
+			use:lifecycle
+			role="dialog"
+			tabindex="-1"
 			style={position === "t" || position === "b"
 				? `max-height: ${maxSize}px;`
 				: `max-width: ${maxSize}px`}
@@ -150,7 +161,7 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 		>
 			<slot>Content</slot>
 		</div>
-		<button title="Close" on:click={() => (display = false)}></button>
+		<button title="Close" on:click={close}></button>
 	</div>
 {/if}
 
