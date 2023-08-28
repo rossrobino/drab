@@ -13,7 +13,7 @@ Displays a popover in relation to the `target`.
 - `class` 
 - `display` - shows / hides the popover
 - `id` 
-- `position` - where the popover is displayed in relation to the `target`
+- `position` - where the popover is displayed in relation to the `target`, ex: `br` is bottom, right aligned
 - `target` - target element to position the popover in relation to
 - `transition` - scales the popover, set to `false` to disable
 
@@ -66,8 +66,22 @@ Displays a popover in relation to the `target`.
 	/** shows / hides the popover */
 	export let display = true;
 
-	/** where the popover is displayed in relation to the `target` */
-	export let position: "t" | "b" | "l" | "r" = "b";
+	type Position =
+		| "tl"
+		| "t"
+		| "tr"
+		| "rt"
+		| "r"
+		| "rb"
+		| "br"
+		| "b"
+		| "bl"
+		| "lb"
+		| "l"
+		| "lt";
+
+	/** where the popover is displayed in relation to the `target`, ex: `br` is bottom, right aligned */
+	export let position: Position = "b";
 
 	/** target element to position the popover in relation to */
 	export let target: HTMLElement;
@@ -80,23 +94,39 @@ Displays a popover in relation to the `target`.
 	let coordinates: { x: number; y: number } = { x: 0, y: 0 };
 
 	const setPosition = async () => {
-		if (position === "t" || position === "b") {
-			coordinates.x = target.offsetWidth / 2 - popover.offsetWidth / 2;
-			if (position === "t") {
+		if (position.startsWith("t") || position.startsWith("b")) {
+			if (position.startsWith("t")) {
 				coordinates.y = -popover.offsetHeight;
 			} else {
 				coordinates.y = target.offsetHeight;
 			}
+
+			if (position.endsWith("l")) {
+				coordinates.x = 0;
+			} else if (position.endsWith("r")) {
+				coordinates.x = target.offsetWidth - popover.offsetWidth;
+			} else {
+				coordinates.x = target.offsetWidth / 2 - popover.offsetWidth / 2;
+			}
 		} else {
-			coordinates.y = target.offsetHeight / 2 - popover.offsetHeight / 2;
-			if (position === "l") {
+			if (position.startsWith("l")) {
 				coordinates.x = -popover.offsetWidth;
 			} else {
 				coordinates.x = target.offsetWidth;
 			}
+
+			if (position.endsWith("t")) {
+				coordinates.y = 0;
+			} else if (position.endsWith("b")) {
+				coordinates.y = target.offsetHeight - popover.offsetHeight;
+			} else {
+				coordinates.y = target.offsetHeight / 2 - popover.offsetHeight / 2;
+			}
 		}
+
 		const targetRect = target.getBoundingClientRect();
 
+		// add the position of the `target` and scroll
 		coordinates.x += targetRect.x + window.scrollX;
 		coordinates.y += targetRect.y + window.scrollY;
 
@@ -104,15 +134,17 @@ Displays a popover in relation to the `target`.
 
 		const popoverRect = popover.getBoundingClientRect();
 
+		const extraMargin = 10;
+
 		// correct position if not visible
-		if (popoverRect.x < 0) {
-			coordinates.x += Math.abs(popoverRect.x);
+		if (popoverRect.x < extraMargin) {
+			coordinates.x += Math.abs(popoverRect.x) + extraMargin;
 		} else if (popoverRect.x + popover.offsetWidth > window.innerWidth) {
 			coordinates.x -=
-				popoverRect.x + popover.offsetWidth - window.innerWidth + 16;
+				popoverRect.x + popover.offsetWidth - window.innerWidth + extraMargin;
 		}
 		if (popoverRect.y < 0) {
-			coordinates.y += Math.abs(popoverRect.y);
+			coordinates.y += Math.abs(popoverRect.y) + extraMargin;
 		} else if (popoverRect.y + popover.offsetHeight > window.innerHeight) {
 			coordinates.y -=
 				popoverRect.y + popover.offsetHeight - window.innerHeight;
@@ -151,5 +183,6 @@ Displays a popover in relation to the `target`.
 <style>
 	div {
 		position: absolute;
+		margin: 0;
 	}
 </style>
