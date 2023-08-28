@@ -13,7 +13,7 @@ Displays a popover in relation to the `target`.
 - `class` 
 - `display` - shows / hides the popover
 - `id` 
-- `position` - where the popover is displayed in relation to the `target`, ex: `br` is bottom right
+- `position` - where the popover is displayed in relation to the `target`, ex: `br` is bottom, right aligned
 - `target` - target element to position the popover in relation to
 - `transition` - scales the popover, set to `false` to disable
 
