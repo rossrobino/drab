@@ -80,7 +80,7 @@ Displays a popover in relation to the `target`.
 		| "l"
 		| "lt";
 
-	/** where the popover is displayed in relation to the `target`, ex: `br` is bottom right */
+	/** where the popover is displayed in relation to the `target`, ex: `br` is bottom, right aligned */
 	export let position: Position = "b";
 
 	/** target element to position the popover in relation to */
@@ -101,9 +101,9 @@ Displays a popover in relation to the `target`.
 				coordinates.y = target.offsetHeight;
 			}
 
-			if (position.endsWith("r")) {
+			if (position.endsWith("l")) {
 				coordinates.x = 0;
-			} else if (position.endsWith("l")) {
+			} else if (position.endsWith("r")) {
 				coordinates.x = target.offsetWidth - popover.offsetWidth;
 			} else {
 				coordinates.x = target.offsetWidth / 2 - popover.offsetWidth / 2;
@@ -115,9 +115,9 @@ Displays a popover in relation to the `target`.
 				coordinates.x = target.offsetWidth;
 			}
 
-			if (position.endsWith("b")) {
+			if (position.endsWith("t")) {
 				coordinates.y = 0;
-			} else if (position.endsWith("t")) {
+			} else if (position.endsWith("b")) {
 				coordinates.y = target.offsetHeight - popover.offsetHeight;
 			} else {
 				coordinates.y = target.offsetHeight / 2 - popover.offsetHeight / 2;
