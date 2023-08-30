@@ -5,6 +5,17 @@ export default {
 	content: ["./src/**/*.{html,js,svelte,ts}"],
 	theme: {
 		extend: {
+			fontFamily: {
+				antique: [
+					"Superclarendon",
+					"Bookman Old Style",
+					"URW Bookman",
+					"URW Bookman L",
+					"Georgia Pro",
+					"Georgia",
+					"serif",
+				],
+			},
 			borderColor: {
 				DEFAULT: "hsl(var(--border))",
 			},

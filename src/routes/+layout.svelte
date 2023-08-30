@@ -42,7 +42,7 @@
 				</ul>
 			</nav>
 			<nav
-				class="mb-6 flex items-center gap-4 bg-background/75 p-4 backdrop-blur-lg lg:hidden lg:w-[80ch]"
+				class="mb-6 flex items-center gap-4 bg-background/75 p-4 backdrop-blur-lg lg:hidden lg:w-[65ch]"
 			>
 				<button
 					class="button button-ghost button-icon"
@@ -56,7 +56,7 @@
 				</h2>
 			</nav>
 		</header>
-		<main id="main" class="m-4 mb-16 max-w-[70ch] lg:w-[70ch]">
+		<main id="main" class="m-4 mb-16 max-w-[65ch] lg:w-[65ch]">
 			<slot />
 			<Sheet
 				bind:display={displaySheet}
