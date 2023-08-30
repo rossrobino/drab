@@ -21,7 +21,7 @@ With SvelteKit, this component can be wrapped in an `{#if dev}` block that check
 </script>
 
 <Breakpoint
-	class="inline-block rounded border bg-white px-2 py-1 font-mono tabular-nums shadow"
+	class="inline-block rounded border px-3 py-2 font-mono text-sm tabular-nums shadow"
 />
 ```
 -->

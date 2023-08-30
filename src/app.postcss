@@ -1,30 +1,39 @@
+@import url("layercomp") layer(components);
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /** uses the TailwindCSS Typography plugin for base styles */
-@layer base {
-	a,
-	button,
-	input,
-	textarea,
-	summary {
-		@apply outline-offset-4;
-	}
-}
 
-@layer components {
-	.btn {
-		@apply rounded bg-neutral-800 px-3 py-2 text-sm capitalize leading-4 tracking-wide text-neutral-50 shadow transition hover:bg-neutral-900 active:scale-95 active:shadow-none disabled:cursor-not-allowed disabled:bg-neutral-400 disabled:text-neutral-50 disabled:shadow disabled:hover:bg-neutral-400;
+@layer base {
+	/* https://ui-colorgen.vercel.app/ */
+	:root {
+		--background: 0 0% 98%; /* 50 */
+		--foreground: 0 0% 25.1%; /* 700 */
+		--primary: 0 0% 9%; /* 900 */
+		--primary-foreground: 0 0% 96.1%; /* 100 */
+		--secondary: 0 0% 89.8%; /* 200 */
+		--secondary-foreground: 0 0% 9%; /* 900 */
+		--muted: 0 0% 96.1%; /* 100 */
+		--muted-foreground: 0 0% 32.2%; /* 600 */
+		--destructive: 345.3 82.7% 40.8%; /* 700 */
+		--destructive-foreground: 0 0% 96.1%; /* 100 */
+		--border: 0 0% 83.1%; /* 300 */
+		--radius: 0.4rem;
 	}
-	.btn-s {
-		@apply bg-transparent text-neutral-900 shadow-none hover:bg-neutral-100;
-	}
-	.input {
-		@apply flex h-8 max-w-xs rounded border px-3 py-0 text-sm leading-4 file:border-0 file:bg-transparent file:py-2 file:pl-0 file:pr-2 file:text-sm file:font-semibold file:leading-4 disabled:cursor-not-allowed disabled:opacity-50;
-	}
-	.label {
-		@apply text-sm font-semibold;
+	.dark {
+		--background: 0 0% 3.9%; /* 950 */
+		--foreground: 0 0% 83.1%; /* 300 */
+		--primary: 0 0% 96.1%; /* 100 */
+		--primary-foreground: 0 0% 9%; /* 900 */
+		--secondary: 0 0% 14.9%; /* 800 */
+		--secondary-foreground: 0 0% 96.1%; /* 100 */
+		--muted: 0 0% 9%; /* 900 */
+		--muted-foreground: 0 0% 63.9%; /* 400 */
+		--destructive: 343.4 79.7% 34.7%; /* 800 */
+		--destructive-foreground: 0 0% 96.1%; /* 100 */
+		--border: 0 0% 25.1%; /* 700 */
 	}
 }
 

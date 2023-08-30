@@ -27,7 +27,7 @@ npm install -D drab
 
 The library provides inline documentation for each component, allowing you to conveniently access the documentation by hovering over the component in your text editor after importing it. Additionally, every prop is documented using JSDoc and TypeScript. By hovering over a prop, you can retrieve its type and description.
 
-These docs use the [TailwindCSS Typography plugin](https://tailwindcss.com/docs/typography-plugin) for base styles along with a few custom utility classes you can find [here](https://github.com/rossrobino/drab/blob/main/src/app.postcss). Styles on this site are based on [shadcn/ui](https://ui.shadcn.com/).
+These docs use the [TailwindCSS Typography plugin](https://tailwindcss.com/docs/typography-plugin). Styles on this site are based on [shadcn/ui](https://ui.shadcn.com/).
 
 ## Other UI Libraries
 
@@ -50,11 +50,11 @@ Here's a SvelteKit example using CSS imported in a layout. By using a layout, th
 
 ```css
 /* src/app.css */
-.btn {
-	color: white;
-	background-color: black;
+.button {
 	border-radius: 5px;
+	background-color: black;
 	padding: 5px;
+	color: white;
 }
 ```
 
@@ -73,7 +73,7 @@ Here's a SvelteKit example using CSS imported in a layout. By using a layout, th
 	import { FullscreenButton } from "drab";
 </script>
 
-<FullscreenButton class="btn" />
+<FullscreenButton class="button" />
 ```
 
 ### Global modifier
@@ -86,14 +86,14 @@ Alternatively, the [`:global()` modifier](https://svelte.dev/docs/svelte-compone
 	import { FullscreenButton } from "drab";
 </script>
 
-<FullscreenButton class="btn" />
+<FullscreenButton class="button" />
 
 <style>
-	:global(.btn) {
-		color: white;
-		background-color: black;
+	:global(.button) {
 		border-radius: 5px;
+		background-color: black;
 		padding: 5px;
+		color: white;
 	}
 </style>
 ```
@@ -108,7 +108,7 @@ Since this is an unstyled library, simple components like a badge that can be ea
 
 ### Local Development
 
-Contribute to the project, or use **drab** as a template for another component library. This library is built with SvelteKit, TypeScript, and npm. The package contents are located in `src/lib`, the site is contained within `src/routes` and `src/site`. The site is deployed to Vercel using `@sveltejs/adapter-vercel`. If you are using this project as a template, be sure to [update the adapter](https://kit.svelte.dev/docs/adapters) based on how you deploy.
+Contribute to the project, or use **drab** as a template for another component library. This library is built with SvelteKit, TypeScript, and npm. The package contents are located in `src/lib`, the site is contained within `src/routes` and `src/site`. If you are using this project as a template, be sure to [update the adapter](https://kit.svelte.dev/docs/adapters) based on how you deploy.
 
 #### Make changes
 

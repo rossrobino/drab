@@ -3,9 +3,9 @@
 </script>
 
 <Editor
-	classButton="btn"
+	classButton="button button-primary"
 	classControls="flex gap-2"
-	classTextarea="border w-full h-36 p-2 rounded mb-2"
+	classTextarea="input w-full h-36 mb-2"
 	placeholderTextarea="asterisk: ctrl+i, anchor: ctrl+["
 	contentElements={[
 		{

@@ -18,7 +18,7 @@
 </p>
 
 <div
-	class="flex justify-center overflow-x-auto rounded-md border border-dashed bg-white p-8"
+	class="flex justify-center overflow-x-auto rounded-md border border-dashed p-8"
 >
 	<div class="w-full">
 		<slot />

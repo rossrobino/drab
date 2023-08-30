@@ -26,7 +26,7 @@
 	maxRows={4}
 	class="tabular-nums"
 	classTh="cursor-pointer capitalize"
-	classTbodyTr="transition hover:bg-neutral-50"
+	classTbodyTr="transition hover:bg-muted"
 >
 	<svelte:fragment slot="th" let:key let:sortBy>
 		<span class:uppercase={key === "awd"} class:underline={key === sortBy}>
@@ -47,7 +47,7 @@
 				<div class="flex gap-2">
 					<button
 						type="button"
-						class="btn"
+						class="button button-primary"
 						disabled={currentPage < 1}
 						on:click={() => currentPage--}
 					>
@@ -55,7 +55,7 @@
 					</button>
 					<button
 						type="button"
-						class="btn"
+						class="button button-primary"
 						disabled={currentPage >= numberOfPages - 1}
 						on:click={() => currentPage++}
 					>

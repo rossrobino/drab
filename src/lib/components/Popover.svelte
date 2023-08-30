@@ -37,16 +37,21 @@ Displays a popover in relation to the `target`.
 	const close = () => (display = false);
 </script>
 
-<button class="btn" type="button" bind:this={target} on:click={open}>
+<button
+	class="button button-primary"
+	type="button"
+	bind:this={target}
+	on:click={open}
+>
 	Open
 </button>
 
 <Popover {target} bind:display class="p-2">
-	<div class="flex w-48 flex-col gap-2 rounded border bg-white p-2 shadow">
+	<div class="flex w-48 flex-col gap-2 rounded border bg-background p-2 shadow">
 		<div class="font-bold">Bottom</div>
-		<button class="btn" on:click={close}>Close</button>
-		<button class="btn" on:click={close}>Close</button>
-		<button class="btn" on:click={close}>Close</button>
+		<button class="button button-secondary" on:click={close}>Close</button>
+		<button class="button button-secondary" on:click={close}>Close</button>
+		<button class="button button-secondary" on:click={close}>Close</button>
 	</div>
 </Popover>
 ```

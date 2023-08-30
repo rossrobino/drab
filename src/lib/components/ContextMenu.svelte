@@ -28,25 +28,29 @@ Displays when the `target` element is right clicked, or long pressed on mobile.
 	let target: HTMLButtonElement;
 </script>
 
-<div class="mb-8 flex justify-center rounded border border-dashed p-12">
+<div class="mb-8 flex justify-center rounded border p-12">
 	<div>Parent right click</div>
-	<ContextMenu>
-		<div class="flex w-48 flex-col gap-2 rounded border bg-white p-2 shadow">
+	<ContextMenu class="z-10">
+		<div
+			class="flex w-48 flex-col gap-2 rounded border bg-background p-2 shadow"
+		>
 			<div class="font-bold">Context Menu</div>
-			<button role="menuitem" class="btn">Button</button>
-			<button role="menuitem" class="btn">Button</button>
-			<button role="menuitem" class="btn">Button</button>
+			<button role="menuitem" class="button button-secondary">Button</button>
+			<button role="menuitem" class="button button-secondary">Button</button>
+			<button role="menuitem" class="button button-secondary">Button</button>
 		</div>
 	</ContextMenu>
 </div>
 
-<button type="button" class="btn" bind:this={target}>Target Right Click</button>
-<ContextMenu {target}>
-	<div class="flex w-48 flex-col gap-2 rounded border bg-white p-2 shadow">
+<button type="button" class="button button-primary" bind:this={target}>
+	Target Right Click
+</button>
+<ContextMenu {target} class="z-10">
+	<div class="flex w-48 flex-col gap-2 rounded border bg-background p-2 shadow">
 		<div class="font-bold">Target</div>
-		<button role="menuitem" class="btn">Button</button>
-		<button role="menuitem" class="btn">Button</button>
-		<button role="menuitem" class="btn">Button</button>
+		<button role="menuitem" class="button button-secondary">Button</button>
+		<button role="menuitem" class="button button-secondary">Button</button>
+		<button role="menuitem" class="button button-secondary">Button</button>
 	</div>
 </ContextMenu>
 ```
@@ -168,9 +172,9 @@ Displays when the `target` element is right clicked, or long pressed on mobile.
 
 <style>
 	span {
+		opacity: 0;
 		width: 0;
 		height: 0;
-		opacity: 0;
 	}
 	div {
 		position: absolute;

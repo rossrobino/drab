@@ -29,9 +29,7 @@ Displays a `details` element with helpful defaults and transitions. Can be used 
 
 <Details class="border-b">
 	<svelte:fragment slot="summary" let:open>
-		<div
-			class="flex cursor-pointer items-center justify-between gap-8 p-4 underline hover:decoration-dotted"
-		>
+		<div class="link flex items-center justify-between gap-8 p-4">
 			<div>Does it work without JavaScript?</div>
 			<div class="transition" class:rotate-180={open}>
 				<Chevron />
