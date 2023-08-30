@@ -45,7 +45,7 @@ Uses the [Navigator API](https://developer.mozilla.org/en-US/docs/Web/API/Naviga
 </script>
 
 <ShareButton
-	class="btn mb-8"
+	class="button button-primary mb-8"
 	shareData={{
 		text: "Check out this page: ",
 		title: "drab",
@@ -64,7 +64,7 @@ Uses the [Navigator API](https://developer.mozilla.org/en-US/docs/Web/API/Naviga
 		bind:this={fileInput}
 		on:input={onInput}
 	/>
-	<ShareButton class="btn" bind:shareData={fileShareData}>
+	<ShareButton class="button button-primary" bind:shareData={fileShareData}>
 		Share File
 	</ShareButton>
 </div>

@@ -4,11 +4,11 @@
 	let target: HTMLDivElement;
 </script>
 
-<FullscreenButton class="btn" />
+<FullscreenButton class="button button-primary" />
 
-<div bind:this={target} class="mt-8 rounded bg-neutral-800 p-4 text-neutral-50">
+<div bind:this={target} class="mt-8 rounded border bg-muted p-4">
 	<div class="mb-2">Target element</div>
-	<FullscreenButton {target} class="btn btn-s bg-neutral-50">
+	<FullscreenButton {target} class="button button-primary">
 		Enable Element Fullscreen
 	</FullscreenButton>
 </div>

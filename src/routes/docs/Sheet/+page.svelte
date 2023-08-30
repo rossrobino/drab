@@ -4,19 +4,27 @@
 	let display = false;
 </script>
 
-<button type="button" class="btn" on:click={() => (display = true)}>
+<button
+	type="button"
+	class="button button-primary"
+	on:click={() => (display = true)}
+>
 	Open
 </button>
 
 <Sheet
 	bind:display
-	class="backdrop-blur"
-	classSheet="p-4 shadow bg-white"
+	class="z-40 backdrop-blur"
+	classSheet="p-4 shadow bg-background"
 	position="r"
 >
 	<div class="mb-4 flex items-center justify-between">
 		<h2 class="my-0">Sheet</h2>
-		<button type="button" class="btn btn-s" on:click={() => (display = false)}>
+		<button
+			type="button"
+			class="button button-ghost"
+			on:click={() => (display = false)}
+		>
 			Close
 		</button>
 	</div>
