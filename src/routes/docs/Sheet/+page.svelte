@@ -15,7 +15,7 @@
 <Sheet
 	bind:display
 	class="z-40 backdrop-blur"
-	classSheet="p-4 shadow bg-background"
+	classSheet="p-6 shadow bg-card"
 	position="r"
 >
 	<div class="mb-4 flex items-center justify-between">

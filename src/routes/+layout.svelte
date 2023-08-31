@@ -30,8 +30,8 @@
 	<div class="gap-8 lg:flex">
 		<header class="sticky top-0 z-10">
 			<nav class="sticky top-0 hidden lg:block">
-				<ul class="my-0 h-screen list-none overflow-y-auto p-4">
-					<li>
+				<ul class="my-0 h-screen list-none overflow-y-auto p-6">
+					<li class="pl-0">
 						<h2 class="mb-6 mt-0">
 							<a class="font-extrabold lowercase !no-underline" href="/">
 								drab
@@ -42,7 +42,7 @@
 				</ul>
 			</nav>
 			<nav
-				class="mb-6 flex items-center gap-4 bg-background/75 p-4 backdrop-blur-lg lg:hidden lg:w-[65ch]"
+				class="mb-6 flex items-center gap-4 bg-background/75 p-6 backdrop-blur-lg lg:hidden lg:w-[65ch]"
 			>
 				<button
 					class="button button-ghost button-icon"
@@ -56,12 +56,12 @@
 				</h2>
 			</nav>
 		</header>
-		<main id="main" class="m-4 mb-16 max-w-[65ch] lg:w-[65ch]">
+		<main id="main" class="m-6 mb-16 max-w-[65ch] lg:w-[65ch]">
 			<slot />
 			<Sheet
 				bind:display={displaySheet}
 				class="z-40 backdrop-blur"
-				classSheet="p-4 shadow bg-background overflow-y-auto"
+				classSheet="p-6 shadow bg-card overflow-y-auto"
 			>
 				<div class="flex items-center justify-between gap-4">
 					<h2 class="my-0">

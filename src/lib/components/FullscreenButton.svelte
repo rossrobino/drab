@@ -8,7 +8,7 @@ Make the document or a `target` element fullscreen.
 @props
 
 - `class` 
-- `confirmMessage` - message to display in the `confirm` popup, defaults to empty string `""` -- disabled
+- `confirmMessage` - message to display in the `confirm` popup, defaults to empty string `""` - disabled
 - `id` 
 - `target` - element to make fullscreen (defaults to `document.documentElement` upon mount)
 - `title` 
@@ -53,7 +53,7 @@ Make the document or a `target` element fullscreen.
 	/** element to make fullscreen (defaults to `document.documentElement` upon mount) */
 	export let target: HTMLElement | null = null;
 
-	/** message to display in the `confirm` popup, defaults to empty string `""` -- disabled */
+	/** message to display in the `confirm` popup, defaults to empty string `""` - disabled */
 	export let confirmMessage = "";
 
 	/** set to `false` on the client if supported */

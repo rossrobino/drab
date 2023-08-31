@@ -19,7 +19,7 @@
 </button>
 
 <Popover {target} bind:display class="p-2">
-	<div class="flex w-48 flex-col gap-2 rounded border bg-background p-2 shadow">
+	<div class="flex w-48 flex-col gap-2 rounded border bg-card p-2 shadow">
 		<div class="font-bold">Bottom</div>
 		<button class="button button-secondary" on:click={close}>Close</button>
 		<button class="button button-secondary" on:click={close}>Close</button>
