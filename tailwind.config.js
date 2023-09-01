@@ -1,4 +1,5 @@
 import typography from "@tailwindcss/typography";
+import layercomp from "layercomp";
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -48,5 +49,5 @@ export default {
 			},
 		},
 	},
-	plugins: [typography],
+	plugins: [typography, layercomp],
 };
