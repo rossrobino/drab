@@ -1,5 +1,5 @@
 import typography from "@tailwindcss/typography";
-import layercomp from "layercomp";
+import { layercomp } from "layercomp";
 
 /** @type {import('tailwindcss').Config} */
 export default {
