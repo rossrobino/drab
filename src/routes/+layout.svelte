@@ -61,7 +61,7 @@
 			<Sheet
 				bind:display={displaySheet}
 				class="z-40 backdrop-blur"
-				classSheet="p-6 shadow bg-card overflow-y-auto"
+				classSheet="card rounded-none border-none overflow-y-auto"
 			>
 				<div class="flex items-center justify-between gap-4">
 					<h2 class="my-0">

@@ -17,9 +17,7 @@
 	</a>
 </p>
 
-<div
-	class="flex justify-center overflow-x-auto rounded-md border border-dashed bg-card p-8"
->
+<div class="card flex justify-center overflow-x-auto border-dashed p-8">
 	<div class="w-full">
 		<slot />
 	</div>
