@@ -1,5 +1,5 @@
 import typography from "@tailwindcss/typography";
-import { layercomp } from "layercomp";
+import { uico } from "uico";
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -56,5 +56,5 @@ export default {
 			},
 		},
 	},
-	plugins: [typography, layercomp],
+	plugins: [typography, uico],
 };
