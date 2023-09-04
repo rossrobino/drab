@@ -3,36 +3,42 @@
 @tailwind utilities;
 
 @layer base {
+	/** https://layercomp.robino.dev */
 	:root {
-		--background: 0 0% 98%; /* 50 */
-		--foreground: 0 0% 25.1%; /* 700 */
+		--background: 0 0% 98%; /* zinc-50 */
+		--foreground: 0 0% 25.1%; /* neutral-700 */
+		--muted: 0 0% 96.1%; /* neutral-100 */
+		--muted-foreground: 0 0% 32.2%; /* neutral-600 */
+		--primary: 0 0% 14.9%; /* neutral-800 */
+		--primary-foreground: 0 0% 96.1%; /* neutral-100 */
+		--secondary: 0 0% 89.8%; /* neutral-200 */
+		--secondary-foreground: 0 0% 9%; /* neutral-900 */
+		--destructive: 345 82.7% 40.8%; /* rose-700 */
+		--destructive-foreground: 0 0% 96.1%; /* neutral-100 */
+		--accent: 0 0% 14.9%; /* neutral-800 */
+		--accent-foreground: 0 0% 89.8%; /* neutral-200 */
 		--card: 0 0% 100%; /* white */
-		--card-foreground: 0 0% 25.1%; /* 700 */
-		--primary: 0 0% 9%; /* 900 */
-		--primary-foreground: 0 0% 96.1%; /* 100 */
-		--secondary: 0 0% 89.8%; /* 200 */
-		--secondary-foreground: 0 0% 9%; /* 900 */
-		--muted: 0 0% 96.1%; /* 100 */
-		--muted-foreground: 0 0% 32.2%; /* 600 */
-		--destructive: 345.3 82.7% 40.8%; /* 700 */
-		--destructive-foreground: 0 0% 96.1%; /* 100 */
-		--border: 0 0% 83.1%; /* 300 */
-		--radius: 0.4rem;
+		--card-foreground: 0 0% 25.1%; /* neutral-700 */
+		--border: 0 0% 83.1%; /* neutral-300 */
+		--radius: 0.3rem;
 	}
 	.dark {
-		--background: 0 0% 3.9%; /* 950 */
-		--foreground: 0 0% 83.1%; /* 300 */
+		--background: 0 0% 3.9%; /* neutral-950 */
+		--foreground: 0 0% 83.1%; /* neutral-300 */
+		--muted: 0 0% 9%; /* neutral-900 */
+		--muted-foreground: 0 0% 63.9%; /* neutral-400 */
+		--primary: 0 0% 96.1%; /* neutral-100 */
+		--primary-foreground: 0 0% 9%; /* neutral-900 */
+		--secondary: 0 0% 14.9%; /* neutral-800 */
+		--secondary-foreground: 0 0% 96.1%; /* neutral-100 */
+		--destructive: 343 79.7% 34.7%; /* rose-800 */
+		--destructive-foreground: 0 0% 96.1%; /* neutral-100 */
+		--accent: 0 0% 63.9%; /* neutral-400 */
+		--accent-foreground: 0 0% 14.9%; /* neutral-800 */
 		--card: 0 0% 0%; /* black */
-		--card-foreground: 0 0% 83.1%; /* 300 */
-		--primary: 0 0% 96.1%; /* 100 */
-		--primary-foreground: 0 0% 9%; /* 900 */
-		--secondary: 0 0% 14.9%; /* 800 */
-		--secondary-foreground: 0 0% 96.1%; /* 100 */
-		--muted: 0 0% 9%; /* 900 */
-		--muted-foreground: 0 0% 63.9%; /* 400 */
-		--destructive: 343.4 79.7% 34.7%; /* 800 */
-		--destructive-foreground: 0 0% 96.1%; /* 100 */
-		--border: 0 0% 25.1%; /* 700 */
+		--card-foreground: 0 0% 83.1%; /* neutral-300 */
+		--border: 0 0% 25.1%; /* neutral-700 */
+		--radius: 0.3rem;
 	}
 }
 
