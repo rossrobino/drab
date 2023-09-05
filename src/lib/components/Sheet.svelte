@@ -49,7 +49,7 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 <Sheet
 	bind:display
 	class="z-40 backdrop-blur"
-	classSheet="p-6 shadow bg-card"
+	classSheet="card rounded-none border-none"
 	position="r"
 >
 	<div class="mb-4 flex items-center justify-between">

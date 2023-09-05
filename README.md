@@ -42,7 +42,7 @@ These docs use the [TailwindCSS Typography plugin](https://tailwindcss.com/docs/
 
 Components without styles can appear rather drab. You have the freedom to bring your own styles to these components. Using unstyled components allows you to selectively choose what you need and avoid being tied to any specific library.
 
-To style the markup provided by the components, you can make use of [global styles](https://joyofcode.xyz/global-styles-in-sveltekit). Each component exports `class` and `id` props that can be leveraged for this purpose. This process can be expedited by utilizing CSS frameworks like [TailwindCSS](https://tailwindcss.com/). Tailwind generates a global stylesheet based on the utility classes used in your project. The examples in this documentation are styled with Tailwind classes, but Tailwind does not have to be used with this library.
+To style the markup provided by the components, you can make use of [global styles](https://joyofcode.xyz/global-styles-in-sveltekit). Each component exports `class` and `id` props that can be leveraged for this purpose. This process can be expedited by utilizing CSS frameworks like [TailwindCSS](https://tailwindcss.com/). Tailwind generates a global stylesheet based on the utility classes used in your project. The examples in this documentation are styled with Tailwind with the [uico](https://uico.robino.dev) and [typography](https://tailwindcss.com/docs/typography-plugin) plugins. Tailwind does not have to be used with this library.
 
 ### Stylesheet
 

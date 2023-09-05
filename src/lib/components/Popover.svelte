@@ -47,7 +47,7 @@ Displays a popover in relation to the `target`.
 </button>
 
 <Popover {target} bind:display class="p-2">
-	<div class="flex w-48 flex-col gap-2 rounded border bg-card p-2 shadow">
+	<div class="card flex w-48 flex-col gap-2 p-2 shadow-md">
 		<div class="font-bold">Bottom</div>
 		<button class="button button-secondary" on:click={close}>Close</button>
 		<button class="button button-secondary" on:click={close}>Close</button>
