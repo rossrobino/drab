@@ -34,6 +34,7 @@ These docs use the [TailwindCSS Typography plugin](https://tailwindcss.com/docs/
 **drab** is a collection of useful components, not a complete UI kit. If **drab** isn't what you are looking for, here are some other libraries to check out.
 
 - [Skeleton](https://skeleton.dev)
+- [Carbon Components](https://carbon-components-svelte.onrender.com/)
 - [Melt UI](https://www.melt-ui.com/)
 - [shadcn-svelte](https://www.shadcn-svelte.com/)
 - [Svelte-HeadlessUI](https://captaincodeman.github.io/svelte-headlessui/)
