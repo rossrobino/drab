@@ -20,7 +20,7 @@
 </script>
 
 {#each components as component}
-	<li class="pl-0">
+	<li class="pl-0 font-antique">
 		<a on:click={linkClick} class="mb-4 leading-4" href="/docs/{component}">
 			{component}
 		</a>
