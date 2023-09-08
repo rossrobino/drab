@@ -77,7 +77,7 @@
 		"tailwindcss": "^3.3.3",
 		"tslib": "^2.6.2",
 		"typescript": "^5.2.2",
-		"uico": "^0.1.0",
+		"uico": "^0.1.1",
 		"vite": "^4.4.9"
 	},
 	"svelte": "./dist/index.js",
