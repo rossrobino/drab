@@ -101,8 +101,8 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 
 	let sheet: HTMLDivElement;
 
-	/** removes styles from backdrop if `true` */
-	let backdropNone = false;
+	/** removes styles from backdrop if `false` */
+	let backdropStyles = true;
 
 	/** see `displayController` */
 	let displaySheet = false;
@@ -128,10 +128,10 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 	 */
 	const displayController = async (display: boolean) => {
 		if (display) {
-			backdropNone = false;
+			backdropStyles = true;
 			displaySheet = true;
 		} else {
-			backdropNone = true;
+			backdropStyles = false;
 			await tick();
 			displaySheet = false;
 		}
@@ -163,11 +163,10 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 
 {#if displaySheet}
 	<div
-		class="backdrop {className}"
+		class="backdrop {backdropStyles ? className : ''}"
 		class:backdrop-bottom={position === "b"}
 		class:backdrop-top={position === "t"}
 		class:backdrop-right={position === "r"}
-		class:backdrop-none={backdropNone}
 		{id}
 	>
 		<div
@@ -208,9 +207,5 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 	}
 	.backdrop-right {
 		flex-direction: row-reverse;
-	}
-	.backdrop-none {
-		backdrop-filter: none;
-		background: none;
 	}
 </style>
