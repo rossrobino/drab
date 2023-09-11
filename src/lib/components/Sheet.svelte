@@ -13,8 +13,7 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 - `id` 
 - `maxSize` - max width/height of sheet based on the `side` - can also use css instead
 - `position` - determines the position of sheet
-- `transitionSheet` - flies the sheet, set to `false` to remove
-- `transition` - blurs the entire component, set to `false` to remove
+- `transition` - flies the sheet, set to `false` to remove
 
 @slots
 
@@ -74,13 +73,8 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 -->
 
 <script lang="ts">
-	import { createEventDispatcher, onMount } from "svelte";
-	import {
-		blur,
-		fly,
-		type BlurParams,
-		type FlyParams,
-	} from "svelte/transition";
+	import { createEventDispatcher, onMount, tick } from "svelte";
+	import { fly, type FlyParams } from "svelte/transition";
 	import type { Action } from "svelte/action";
 	import { prefersReducedMotion } from "$lib/util/accessibility";
 	import { duration } from "$lib/util/transition";
@@ -96,9 +90,6 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 	/** controls whether the sheet is displayed*/
 	export let display = false;
 
-	/** blurs the entire component, set to `false` to remove */
-	export let transition: BlurParams | false = { duration };
-
 	/** determines the position of sheet */
 	export let position: "t" | "b" | "l" | "r" = "l";
 
@@ -106,9 +97,15 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 	export let maxSize: number = 488;
 
 	/** flies the sheet, set to `false` to remove */
-	export let transitionSheet: FlyParams | false = { duration };
+	export let transition: FlyParams | false = { duration, opacity: 1 };
 
 	let sheet: HTMLDivElement;
+
+	/** removes styles from backdrop if `true` */
+	let backdropNone = false;
+
+	/** see `displayController` */
+	let displaySheet = false;
 
 	const dispatch = createEventDispatcher();
 
@@ -124,47 +121,64 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 		return { destroy: () => dispatch("destroy") };
 	};
 
-	if (transitionSheet && !transitionSheet.x && !transitionSheet.y) {
+	/**
+	 * - removes the backdrop styles before the transition occurs
+	 * - keeps `display` and `displaySheet` in sync
+	 * @param display user controlled `display` prop
+	 */
+	const displayController = async (display: boolean) => {
+		if (display) {
+			backdropNone = false;
+			displaySheet = true;
+		} else {
+			backdropNone = true;
+			await tick();
+			displaySheet = false;
+		}
+	};
+
+	// calculates the transition based on the `maxSize` and `position`
+	// if the user does not define their own transition
+	if (transition && !transition.x && !transition.y) {
 		// if there isn't a user assigned value for `x` or `y`
 		if (position === "b") {
-			transitionSheet.y = maxSize;
+			transition.y = maxSize;
 		} else if (position === "t") {
-			transitionSheet.y = -maxSize;
+			transition.y = -maxSize;
 		} else if (position === "r") {
-			transitionSheet.x = maxSize;
+			transition.x = maxSize;
 		} else {
-			transitionSheet.x = -maxSize;
+			transition.x = -maxSize;
 		}
 	}
 
 	onMount(() => {
-		if (prefersReducedMotion()) {
-			transition = false;
-			transitionSheet = false;
-		}
+		if (prefersReducedMotion()) transition = false;
 	});
+
+	$: displayController(display);
 </script>
 
 <svelte:body on:keydown={onKeyDown} />
 
-{#if display}
+{#if displaySheet}
 	<div
-		transition:blur={transition ? transition : { duration: 0 }}
-		class="d-backdrop {className}"
-		class:d-backdrop-bottom={position === "b"}
-		class:d-backdrop-top={position === "t"}
-		class:d-backdrop-right={position === "r"}
+		class="backdrop {className}"
+		class:backdrop-bottom={position === "b"}
+		class:backdrop-top={position === "t"}
+		class:backdrop-right={position === "r"}
+		class:backdrop-none={backdropNone}
 		{id}
 	>
 		<div
 			bind:this={sheet}
-			transition:fly={transitionSheet ? transitionSheet : { duration: 0 }}
+			transition:fly={transition ? transition : { duration: 0 }}
 			use:lifecycle
 			role="dialog"
 			tabindex="-1"
-			style={position === "t" || position === "b"
+			style="outline: none; {position === 't' || position === 'b'
 				? `max-height: ${maxSize}px;`
-				: `max-width: ${maxSize}px`}
+				: `max-width: ${maxSize}px`}"
 			class={classSheet}
 		>
 			<slot>Content</slot>
@@ -177,7 +191,7 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 	button {
 		flex-grow: 1;
 	}
-	.d-backdrop {
+	.backdrop {
 		display: flex;
 		position: fixed;
 		top: 0;
@@ -186,13 +200,17 @@ Creates a sheet element based on the `position` provided. `maxSize` is set to wi
 		left: 0;
 		overflow: hidden;
 	}
-	.d-backdrop-bottom {
+	.backdrop-bottom {
 		flex-direction: column-reverse;
 	}
-	.d-backdrop-top {
+	.backdrop-top {
 		flex-direction: column;
 	}
-	.d-backdrop-right {
+	.backdrop-right {
 		flex-direction: row-reverse;
+	}
+	.backdrop-none {
+		backdrop-filter: none;
+		background: none;
 	}
 </style>
