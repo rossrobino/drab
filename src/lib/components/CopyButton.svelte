@@ -30,12 +30,8 @@ Uses the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipbo
 	let value = "";
 </script>
 
-<input
-	class="input mb-4"
-	type="text"
-	placeholder="Enter text to copy"
-	bind:value
-/>
+<label for="copyInput" class="label">Text to Copy</label>
+<input id="copyInput" class="input mb-4" type="text" bind:value />
 
 <CopyButton class="button button-primary" blobParts={[value]} />
 ```
