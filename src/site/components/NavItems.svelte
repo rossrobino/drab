@@ -11,6 +11,7 @@
 		"Popover",
 		"ShareButton",
 		"Sheet",
+		"Tablature",
 		"YouTube",
 	];
 

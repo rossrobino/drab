@@ -7,7 +7,12 @@
 
 ## About
 
-**drab** focuses on providing JavaScript functionality where it's most useful. Many of the components are helpful wrappers around browser APIs. Whenever possible, components are [progressively enhanced](https://drab.robino.dev/docs/ShareButton) or provide a fallback [noscript](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript) message. Additionally, transitions are disabled for users who prefer reduced motion.
+**drab** focuses on providing JavaScript functionality where it's most useful. Many of the components are helpful wrappers around browser APIs. Here are some of the features of the library.
+
+- Components are minimal in size, currently **drab** has one dependency--Svelte
+- Whenever possible, components are [progressively enhanced](https://drab.robino.dev/docs/ShareButton) or provide a fallback [noscript](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript) message
+- Transitions are disabled for users who prefer reduced motion
+- All components support server side rendering--they will not break your application depending on your rendering preferences
 
 This library takes a more opinionated approach compared to some headless UI libraries by providing the basic HTML structure for every component, as well as default positioning for elements like the [sheet](https://drab.robino.dev/docs/Sheet). However, these components can still be further customized using styles, [slots](https://svelte.dev/tutorial/slots), and [slot props](https://svelte.dev/tutorial/slot-props).
 
@@ -20,19 +25,19 @@ If you haven't used Svelte before, start with the [tutorial](https://svelte.dev/
 - [Vite](https://vitejs.dev/guide/)
 
 ```bash
-npm install -D drab
+npm i -D drab
 ```
 
 ## Documentation
 
-The library provides inline documentation for each component, allowing you to conveniently access the documentation by hovering over the component in your text editor after importing it. Additionally, every prop is documented using JSDoc and TypeScript. By hovering over a prop, you can retrieve its type and description.
-
-These docs use the [TailwindCSS Typography plugin](https://tailwindcss.com/docs/typography-plugin). Styles on this site are based on [shadcn/ui](https://ui.shadcn.com/).
+The library provides inline documentation for each component using JSDoc, allowing you to conveniently access the documentation by hovering over the component in your text editor after importing it. Additionally, every prop is documented using JSDoc and TypeScript. By hovering over a prop, you can retrieve its type and description.
 
 ## Other UI Libraries
 
 **drab** is a collection of useful components, not a complete UI kit. If **drab** isn't what you are looking for, here are some other libraries to check out.
 
+- [uico](https://uico.robino.dev) - a Tailwind plugin for CSS components designed to be complementary to **drab** (used to create this site)
+- [daisyUI](https://daisyui.com/)
 - [Skeleton](https://skeleton.dev)
 - [Carbon Components](https://carbon-components-svelte.onrender.com/)
 - [Melt UI](https://www.melt-ui.com/)
