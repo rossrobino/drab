@@ -3,7 +3,7 @@
 </script>
 
 <FrettedChord
-	class="font-mono text-foreground"
+	class="font-mono"
 	name="D"
 	notes={[
 		{

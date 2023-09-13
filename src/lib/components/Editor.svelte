@@ -37,7 +37,7 @@
 <Editor
 	classButton="button button-primary"
 	classControls="flex gap-2"
-	classTextarea="input w-full h-36 mb-2"
+	classTextarea="input h-36 mb-2"
 	placeholderTextarea="asterisk: ctrl+i, anchor: ctrl+["
 	contentElements={[
 		{

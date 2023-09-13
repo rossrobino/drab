@@ -24,7 +24,7 @@ Try it out and generate code: [FrettedChord Creator](https://svelte.dev/repl/577
 </script>
 
 <FrettedChord
-	class="font-mono text-foreground"
+	class="font-mono"
 	name="D"
 	notes={[
 		{
