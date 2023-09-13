@@ -52,11 +52,11 @@ A complementary component to the `FrettedChord` for displaying a measure of tabl
 	];
 </script>
 
-<div class="font-mono">
-	<div class="mb-8 h-24 text-sm">
+<div class="font-mono font-semibold">
+	<div class="mb-8 h-24">
 		<Tablature {notes} repeatStart />
 	</div>
-	<div class="h-16 text-xs">
+	<div class="h-16 text-sm">
 		<Tablature {notes} strings={4} repeatEnd />
 	</div>
 </div>
@@ -193,10 +193,11 @@ A complementary component to the `FrettedChord` for displaying a measure of tabl
 		position: absolute;
 		line-height: 0;
 		margin-left: -0.5ch;
+		letter-spacing: 0.1em;
 	}
 	.string {
 		position: absolute;
-		opacity: 40%;
+		opacity: 35%;
 		width: 100%;
 		border-top: 1px solid currentColor;
 	}

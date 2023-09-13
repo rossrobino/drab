@@ -32,11 +32,11 @@
 	];
 </script>
 
-<div class="font-mono">
-	<div class="mb-8 h-24 text-sm">
+<div class="font-mono font-semibold">
+	<div class="mb-8 h-24">
 		<Tablature {notes} repeatStart />
 	</div>
-	<div class="h-16 text-xs">
+	<div class="h-16 text-sm">
 		<Tablature {notes} strings={4} repeatEnd />
 	</div>
 </div>
