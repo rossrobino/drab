@@ -6,7 +6,7 @@
 	<title>drab - {data.title}</title>
 </svelte:head>
 
-<h1 class="break-words">{data.title}</h1>
+<h1 class="break-words text-3xl sm:text-4xl">{data.title}</h1>
 
 <p>
 	<a
