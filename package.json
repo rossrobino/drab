@@ -43,16 +43,16 @@
 	"scripts": {
 		"dev": "vite dev",
 		"host": "vite dev --host",
-		"build": "pnpm run doc && vite build && pnpm run package",
+		"build": "vite build",
 		"preview": "vite preview",
 		"package": "svelte-kit sync && svelte-package && publint",
-		"prepublishOnly": "pnpm run package",
+		"prepublishOnly": "pnpm package",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write . --plugin=prettier-plugin-svelte --plugin=prettier-plugin-tailwindcss",
-		"pub": "pnpm i && pnpm run doc && pnpm publish --access public",
-		"doc": "pnpm run format && node src/scripts/documentProps.js && node src/scripts/documentExamples.js && node src/scripts/copyReadMe.js"
+		"pub": "pnpm i && pnpm doc && pnpm package && pnpm publish --access public",
+		"doc": "pnpm format && node src/scripts/documentProps.js && node src/scripts/documentExamples.js && node src/scripts/copyReadMe.js"
 	},
 	"dependencies": {
 		"svelte": "^4.2.0"
