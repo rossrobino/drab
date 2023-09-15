@@ -36,6 +36,6 @@ module.exports = {
 		".env",
 		".env.*",
 		"!.env.example",
-		"package-lock.json",
+		"bun.lockb",
 	],
 };
