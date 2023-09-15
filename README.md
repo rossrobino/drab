@@ -114,18 +114,18 @@ Since this is an unstyled library, simple components like a badge that can be ea
 
 ### Local Development
 
-Contribute to the project, or use **drab** as a template for another component library. This library is built with SvelteKit, TypeScript, and npm. The package contents are located in `src/lib`, the site is contained within `src/routes` and `src/site`. If you are using this project as a template, be sure to [update the adapter](https://kit.svelte.dev/docs/adapters) based on how you deploy.
+Contribute to the project, or use **drab** as a template for another component library. This library is built with SvelteKit, and TypeScript. The package contents are located in `src/lib`, the site is contained within `src/routes` and `src/site`. If you are using this project as a template, be sure to [update the adapter](https://kit.svelte.dev/docs/adapters) based on how you deploy.
 
 #### Make changes
 
 1. Clone the [repository](https://github.com/rossrobino/drab)
-2. `pnpm i`
-3. `pnpm dev`
+2. `bun i`
+3. `bun run dev`
 
 #### Add or edit a component
 
 1. Add or edit the component in `src/lib/components/Component.svelte` - if you're adding a new one, copy and paste an existing one to get started with the conventions
 2. Add or edit the example in `src/routes/docs/Component/+page.svelte`
-3. Document the component with an `@component` comment, include a description, and the `@slots` available. Add a placeholder `@props` and `@example` to the comment. These sections will be generated based on the JSDoc comment above each prop and the example route upon running `pnpm doc`
+3. Document the component with an `@component` comment, include a description, and the `@slots` available. Add a placeholder `@props` and `@example` to the comment. These sections will be generated based on the JSDoc comment above each prop and the example route upon running `bun doc`
 4. If new, add the link to `src/site/components/NavItems.svelte`
-5. Run `pnpm package` to verify your build
+5. Run `bun package` to verify your build
