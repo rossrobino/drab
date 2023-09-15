@@ -31,7 +31,7 @@ Make the document or a `target` element fullscreen.
 
 <FullscreenButton class="button button-primary" />
 
-<div bind:this={target} class="card mt-8 bg-muted">
+<div bind:this={target} class="card bg-muted mt-8">
 	<div class="mb-2">Target element</div>
 	<FullscreenButton {target} class="button button-primary">
 		Enable Element Fullscreen

@@ -43,16 +43,16 @@
 	"scripts": {
 		"dev": "vite dev",
 		"host": "vite dev --host",
-		"build": "npm run doc && vite build && npm run package",
+		"build": "pnpm run doc && vite build && pnpm run package",
 		"preview": "vite preview",
 		"package": "svelte-kit sync && svelte-package && publint",
-		"prepublishOnly": "npm run package",
+		"prepublishOnly": "pnpm run package",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write . --plugin=prettier-plugin-svelte --plugin=prettier-plugin-tailwindcss",
-		"pub": "npm i && npm run doc && npm publish --access public",
-		"doc": "npm run format && node src/scripts/documentProps.js && node src/scripts/documentExamples.js && node src/scripts/copyReadMe.js"
+		"pub": "pnpm i && pnpm run doc && pnpm publish --access public",
+		"doc": "pnpm run format && node src/scripts/documentProps.js && node src/scripts/documentExamples.js && node src/scripts/copyReadMe.js"
 	},
 	"dependencies": {
 		"svelte": "^4.2.0"
@@ -77,28 +77,12 @@
 		"prettier-plugin-svelte": "^3.0.3",
 		"prettier-plugin-tailwindcss": "^0.5.4",
 		"publint": "^0.2.2",
+		"robino": "^0.0.1",
 		"svelte-check": "^3.5.1",
 		"tailwindcss": "^3.3.3",
 		"tslib": "^2.6.2",
 		"typescript": "^5.2.2",
 		"uico": "^0.1.4",
 		"vite": "^4.4.9"
-	},
-	"prettier": {
-		"useTabs": true,
-		"printWidth": 80,
-		"htmlWhitespaceSensitivity": "ignore",
-		"plugins": [
-			"prettier-plugin-svelte",
-			"prettier-plugin-tailwindcss"
-		],
-		"overrides": [
-			{
-				"files": "*.svelte",
-				"options": {
-					"parser": "svelte"
-				}
-			}
-		]
 	}
 }

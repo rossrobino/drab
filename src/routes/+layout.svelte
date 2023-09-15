@@ -20,14 +20,14 @@
 
 {#if dev}
 	<Breakpoint
-		class="fixed bottom-4 right-4 rounded border bg-background px-3 py-2 font-mono text-sm tabular-nums shadow"
+		class="bg-background fixed bottom-4 right-4 rounded border px-3 py-2 font-mono text-sm tabular-nums shadow"
 	/>
 {/if}
 
 <SkipLink />
 
 <div
-	class="prose-h1:text-balance prose prose-neutral max-w-none bg-background font-serif text-foreground prose-a:link dark:prose-invert selection:bg-foreground selection:text-background prose-headings:font-antique prose-h1:capitalize prose-h2:capitalize prose-h3:capitalize hover:prose-a:decoration-dotted prose-pre:-mx-6 prose-pre:rounded-none prose-pre:px-6 sm:prose-pre:mx-0 sm:prose-pre:rounded-md sm:prose-pre:px-4 lg:flex lg:justify-center"
+	class="prose-h1:text-balance prose prose-neutral bg-background text-foreground prose-a:link dark:prose-invert selection:bg-foreground selection:text-background prose-headings:font-antique prose-h1:capitalize prose-h2:capitalize prose-h3:capitalize hover:prose-a:decoration-dotted prose-pre:-mx-6 prose-pre:rounded-none prose-pre:px-6 sm:prose-pre:mx-0 sm:prose-pre:rounded-md sm:prose-pre:px-4 max-w-none font-serif lg:flex lg:justify-center"
 >
 	<div class="gap-8 lg:flex">
 		<header class="sticky top-0 z-10">
@@ -44,7 +44,7 @@
 				</ul>
 			</nav>
 			<nav
-				class="mb-6 flex items-center gap-4 bg-background/75 p-6 backdrop-blur-lg lg:hidden lg:w-[65ch]"
+				class="bg-background/75 mb-6 flex items-center gap-4 p-6 backdrop-blur-lg lg:hidden lg:w-[65ch]"
 			>
 				<button
 					class="button button-ghost button-icon"
