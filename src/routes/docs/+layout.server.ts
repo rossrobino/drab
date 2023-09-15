@@ -1,4 +1,4 @@
-import { mdToHtml } from "$site/util/mdToHtml";
+import { process } from "robino/util/md";
 
 export const load = async ({ route }) => {
 	const title = route.id.split("/").at(-1);
@@ -17,7 +17,7 @@ export const load = async ({ route }) => {
 			lines[i] = "## " + lines[i];
 		}
 	}
-	const html = mdToHtml(lines.join("\n"));
+	const { html } = process(lines.join("\n"));
 
 	return { title, html };
 };

@@ -1,7 +1,7 @@
 import md from "$site/md/README.md?raw";
-import { mdToHtml } from "$site/util/mdToHtml";
+import { process } from "robino/util/md";
 
 export const load = async () => {
-	const readMe = mdToHtml(md);
+	const { html: readMe } = process(md);
 	return { readMe };
 };
