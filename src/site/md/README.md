@@ -119,13 +119,13 @@ Contribute to the project, or use **drab** as a template for another component l
 #### Make changes
 
 1. Clone the [repository](https://github.com/rossrobino/drab)
-2. `npm install`
-3. `npm run dev -- --open`
+2. `pnpm i`
+3. `pnpm dev`
 
 #### Add or edit a component
 
 1. Add or edit the component in `src/lib/components/Component.svelte` - if you're adding a new one, copy and paste an existing one to get started with the conventions
 2. Add or edit the example in `src/routes/docs/Component/+page.svelte`
-3. Document the component with an `@component` comment, include a description, and the `@slots` available. Add a placeholder `@props` and `@example` to the comment. These sections will be generated based on the JSDoc comment above each prop and the example route upon running `npm run doc`
+3. Document the component with an `@component` comment, include a description, and the `@slots` available. Add a placeholder `@props` and `@example` to the comment. These sections will be generated based on the JSDoc comment above each prop and the example route upon running `pnpm doc`
 4. If new, add the link to `src/site/components/NavItems.svelte`
-5. Run `npm run build` to verify your build
+5. Run `pnpm package` to verify your build
