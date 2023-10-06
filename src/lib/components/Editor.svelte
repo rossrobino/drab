@@ -270,6 +270,7 @@
 	 * @param keyboardEvent KeyboardEvent
 	 */
 	const onKeyDown = async (e: KeyboardEvent) => {
+		/** these keys will reset the type over for characters like " */
 		const resetKeys = ["ArrowUp", "ArrowDown", "Delete"];
 		const nextChar = valueTextarea[textArea.selectionEnd];
 		if (resetKeys.includes(e.key)) {
@@ -278,6 +279,7 @@
 		} else if (e.key === "Backspace") {
 			const prevChar = valueTextarea[textArea.selectionStart - 1];
 			if (prevChar in keyPairs && nextChar === keyPairs[prevChar]) {
+				// remove both characters if the next one is the match of the prev
 				e.preventDefault();
 				const start = textArea.selectionStart - 1;
 				const end = textArea.selectionEnd - 1;
@@ -292,6 +294,7 @@
 				prevChar === "\n" &&
 				textArea.selectionStart === textArea.selectionEnd
 			) {
+				// see `correctFollowing`
 				e.preventDefault();
 				const newPos = textArea.selectionStart - 1;
 				const { lineNumber } = getLineInfo();
@@ -353,6 +356,27 @@
 						title: "",
 					});
 				}, 0);
+			}
+		} else if (e.ctrlKey || e.metaKey) {
+			if (textArea.selectionStart === textArea.selectionEnd) {
+				if (e.key === "c" || e.key === "x") {
+					// copy or cut entire line
+					e.preventDefault();
+					const { lines, lineNumber, columnNumber } = getLineInfo();
+					await navigator.clipboard.writeText(
+						`${lineNumber === 0 && e.key === "x" ? "" : "\n"}${
+							lines[lineNumber]
+						}`,
+					);
+					if (e.key === "x") {
+						const newPos = textArea.selectionStart - columnNumber;
+						lines.splice(lineNumber, 1);
+						valueTextarea = lines.join("\n");
+						setTimeout(() => {
+							textArea.setSelectionRange(newPos, newPos);
+						}, 0);
+					}
+				}
 			}
 		} else {
 			const nextCharIsClosing = Object.values(keyPairs).includes(nextChar);
