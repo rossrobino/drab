@@ -362,11 +362,19 @@
 				if (e.key === "c" || e.key === "x") {
 					// copy or cut entire line
 					e.preventDefault();
-					const { lines, lineNumber } = getLineInfo();
-					await navigator.clipboard.writeText(`\n${lines[lineNumber]}`);
+					const { lines, lineNumber, columnNumber } = getLineInfo();
+					await navigator.clipboard.writeText(
+						`${lineNumber === 0 && e.key === "x" ? "" : "\n"}${
+							lines[lineNumber]
+						}`,
+					);
 					if (e.key === "x") {
+						const newPos = textArea.selectionStart - columnNumber;
 						lines.splice(lineNumber, 1);
 						valueTextarea = lines.join("\n");
+						setTimeout(() => {
+							textArea.setSelectionRange(newPos, newPos);
+						}, 0);
 					}
 				}
 			}
