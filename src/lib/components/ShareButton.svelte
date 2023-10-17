@@ -117,10 +117,12 @@ Uses the [Navigator API](https://developer.mozilla.org/en-US/docs/Web/API/Naviga
 			}
 		} else if (shareData.files) {
 			// progressively enhance, download the first file
-			const file = shareData.files[0];
-			downloadAnchor.download = file.name;
-			downloadAnchor.href = URL.createObjectURL(file);
-			downloadAnchor.click();
+			const file = shareData.files.at(0);
+			if (file) {
+				downloadAnchor.download = file.name;
+				downloadAnchor.href = URL.createObjectURL(file);
+				downloadAnchor.click();
+			}
 		}
 	};
 

@@ -20,14 +20,14 @@
 
 {#if dev}
 	<Breakpoint
-		class="bg-background fixed bottom-4 right-4 rounded border px-3 py-2 font-mono text-sm tabular-nums shadow"
+		class="bg-background text-foreground fixed bottom-4 right-4 rounded border px-3 py-2 font-mono text-sm tabular-nums shadow"
 	/>
 {/if}
 
 <SkipLink />
 
 <div
-	class="prose-h1:text-balance prose prose-neutral bg-background text-foreground prose-a:link dark:prose-invert selection:bg-foreground selection:text-background prose-headings:font-antique prose-h1:capitalize prose-h2:capitalize prose-h3:capitalize hover:prose-a:decoration-dotted prose-pre:-mx-6 prose-pre:rounded-none prose-pre:px-6 sm:prose-pre:mx-0 sm:prose-pre:rounded-md sm:prose-pre:px-4 max-w-none font-serif lg:flex lg:justify-center"
+	class="prose-h1:text-balance prose prose-neutral text-foreground prose-a:link dark:prose-invert selection:bg-foreground selection:text-background prose-headings:font-antique prose-h1:capitalize prose-h2:capitalize prose-h3:capitalize hover:prose-a:decoration-dotted prose-pre:-mx-6 prose-pre:rounded-none prose-pre:px-6 sm:prose-pre:mx-0 sm:prose-pre:rounded-md sm:prose-pre:px-4 max-w-none font-serif lg:flex lg:justify-center"
 >
 	<div class="gap-8 lg:flex">
 		<header class="sticky top-0 z-10">
@@ -64,7 +64,7 @@
 				bind:display={displaySheet}
 				class="z-40 backdrop-blur"
 				classSheet="card rounded-none border-none overflow-y-auto"
-				maxSize={280}
+				maxSize={300}
 			>
 				<div class="flex items-center justify-between gap-4">
 					<h2 class="my-0">
