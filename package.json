@@ -55,30 +55,30 @@
 		"doc": "bun format && node src/scripts/documentProps.js && node src/scripts/documentExamples.js && node src/scripts/copyReadMe.js"
 	},
 	"dependencies": {
-		"svelte": "^4.2.1"
+		"svelte": "^4.2.8"
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-vercel": "^3.0.3",
-		"@sveltejs/kit": "^1.25.2",
-		"@sveltejs/package": "^2.2.2",
+		"@sveltejs/adapter-vercel": "^3.1.0",
+		"@sveltejs/kit": "^1.29.1",
+		"@sveltejs/package": "^2.2.3",
 		"@tailwindcss/typography": "^0.5.10",
-		"@types/node": "^20.8.6",
-		"@typescript-eslint/eslint-plugin": "^6.8.0",
-		"@typescript-eslint/parser": "^6.8.0",
+		"@types/node": "^20.10.4",
+		"@typescript-eslint/eslint-plugin": "^6.14.0",
+		"@typescript-eslint/parser": "^6.14.0",
 		"autoprefixer": "^10.4.16",
-		"eslint": "^8.51.0",
-		"eslint-config-prettier": "^9.0.0",
-		"eslint-plugin-svelte": "^2.34.0",
-		"prettier": "^3.0.3",
-		"prettier-plugin-svelte": "^3.0.3",
-		"prettier-plugin-tailwindcss": "^0.5.6",
-		"publint": "^0.2.4",
+		"eslint": "^8.55.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-svelte": "^2.35.1",
+		"prettier": "^3.1.1",
+		"prettier-plugin-svelte": "^3.1.2",
+		"prettier-plugin-tailwindcss": "^0.5.9",
+		"publint": "^0.2.6",
 		"robino": "^0.0.39",
-		"svelte-check": "^3.5.2",
-		"tailwindcss": "^3.3.3",
+		"svelte-check": "^3.6.2",
+		"tailwindcss": "^3.3.6",
 		"tslib": "^2.6.2",
-		"typescript": "^5.2.2",
-		"uico": "^0.1.5",
-		"vite": "^4.4.11"
+		"typescript": "^5.3.3",
+		"uico": "^0.1.6",
+		"vite": "^4.5.0"
 	}
 }

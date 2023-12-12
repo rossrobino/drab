@@ -19,6 +19,7 @@
 - `nameTextarea` - `name` of the `textarea` element
 - `placeholderTextarea` - `placeholder` of the `textarea` element
 - `selectionStartTextarea` - `selectionStart` value of the `textarea`
+- `spellcheckTextarea` - `spellcheck` of the `textarea` element
 - `valueTextarea` - `value` of the `textarea` element
 
 @Events
@@ -102,6 +103,9 @@
 
 	/** `placeholder` of the `textarea` element */
 	export let placeholderTextarea = "";
+
+	/** `spellcheck` of the `textarea` element */
+	export let spellcheckTextarea = true;
 
 	/** `class` of the `textarea` element */
 	export let classTextarea = "";
@@ -568,6 +572,7 @@
 	class={classTextarea}
 	name={nameTextarea}
 	placeholder={placeholderTextarea}
+	spellcheck={spellcheckTextarea}
 	on:keydown={onKeyDown}
 	on:keyup={updateSelectionStart}
 	on:dblclick={trimSelection}
