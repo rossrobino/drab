@@ -28,7 +28,7 @@ Displays when the `target` element is right clicked, or long pressed on mobile.
 	let target: HTMLButtonElement;
 </script>
 
-<div class="bg-muted mb-8 flex justify-center rounded border p-12">
+<div class="mb-8 flex justify-center rounded border bg-muted p-12">
 	<div>Parent right click</div>
 	<ContextMenu class="z-10">
 		<div class="card flex w-48 flex-col gap-2 p-2 shadow-md">
