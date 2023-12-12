@@ -86,7 +86,7 @@
 		display: "inline" | "block" | "wrap";
 
 		/** contents of the `button` */
-		icon: string | ComponentType;
+		icon: string | ComponentType<any>;
 
 		/** keyboard shortcut */
 		key?: string;
@@ -361,31 +361,33 @@
 					});
 				}, 0);
 			}
-		} else if (e.ctrlKey || e.metaKey) {
-			if (textArea.selectionStart === textArea.selectionEnd) {
-				if (e.key === "c" || e.key === "x") {
-					// copy or cut entire line
-					e.preventDefault();
-					const { lines, lineNumber, columnNumber } = getLineInfo();
-					await navigator.clipboard.writeText(
-						`${lineNumber === 0 && e.key === "x" ? "" : "\n"}${
-							lines[lineNumber]
-						}`,
-					);
-					if (e.key === "x") {
-						const newPos = textArea.selectionStart - columnNumber;
-						lines.splice(lineNumber, 1);
-						valueTextarea = lines.join("\n");
-						setTimeout(() => {
-							textArea.setSelectionRange(newPos, newPos);
-						}, 0);
-					}
-				}
-			}
 		} else {
 			const nextCharIsClosing = Object.values(keyPairs).includes(nextChar);
 			const highlighted = textArea.selectionStart !== textArea.selectionEnd;
-			if (e.ctrlKey && e.key) {
+			if (e.ctrlKey || e.metaKey) {
+				if (textArea.selectionStart === textArea.selectionEnd) {
+					// no selection
+					if (e.key === "c" || e.key === "x") {
+						// copy or cut entire line
+						e.preventDefault();
+						const { lines, lineNumber, columnNumber } = getLineInfo();
+						await navigator.clipboard.writeText(
+							`${lineNumber === 0 && e.key === "x" ? "" : "\n"}${
+								lines[lineNumber]
+							}`,
+						);
+						if (e.key === "x") {
+							const newPos = textArea.selectionStart - columnNumber;
+							lines.splice(lineNumber, 1);
+							valueTextarea = lines.join("\n");
+							setTimeout(() => {
+								textArea.setSelectionRange(newPos, newPos);
+							}, 0);
+						}
+					}
+				}
+			}
+			if ((e.ctrlKey || e.metaKey) && e.key) {
 				// keyboard shortcut
 				const matchedEl = contentElements.find((el) => el.key === e.key);
 				if (matchedEl) addContent(matchedEl);
