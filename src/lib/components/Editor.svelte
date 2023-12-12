@@ -18,6 +18,7 @@
 - `keyPairs` - keys that will auto-close if typed, value is their closing character
 - `nameTextarea` - `name` of the `textarea` element
 - `placeholderTextarea` - `placeholder` of the `textarea` element
+- `spellcheckTextarea` - `spellcheck` of the `textarea` element
 - `selectionStartTextarea` - `selectionStart` value of the `textarea`
 - `valueTextarea` - `value` of the `textarea` element
 
@@ -39,6 +40,7 @@
 	classControls="flex gap-2"
 	classTextarea="input h-36 mb-2"
 	placeholderTextarea="asterisk: ctrl+i, anchor: ctrl+["
+	spellcheckTextarea={false}
 	contentElements={[
 		{
 			title: "Bullet",
@@ -102,6 +104,9 @@
 
 	/** `placeholder` of the `textarea` element */
 	export let placeholderTextarea = "";
+
+	/** `spellcheck` of the `textarea` element */
+	export let spellcheckTextarea = true;
 
 	/** `class` of the `textarea` element */
 	export let classTextarea = "";
@@ -568,6 +573,7 @@
 	class={classTextarea}
 	name={nameTextarea}
 	placeholder={placeholderTextarea}
+	spellcheck={spellcheckTextarea}
 	on:keydown={onKeyDown}
 	on:keyup={updateSelectionStart}
 	on:dblclick={trimSelection}
