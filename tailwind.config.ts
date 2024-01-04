@@ -4,5 +4,11 @@ import { uico } from "uico";
 
 export default {
 	content: ["./src/**/*.{html,js,svelte,ts}"],
-	plugins: [typography, uico],
+	plugins: [
+		typography,
+		uico({
+			colorPalette: "oklch",
+			colorFunction: "oklch",
+		}),
+	],
 } satisfies Config;

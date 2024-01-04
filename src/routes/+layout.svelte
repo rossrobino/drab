@@ -27,7 +27,7 @@
 <SkipLink />
 
 <div
-	class="prose-h1:text-balance prose prose-neutral max-w-none font-serif text-foreground prose-a:link dark:prose-invert selection:bg-foreground selection:text-background prose-headings:font-antique prose-h1:capitalize prose-h2:capitalize prose-h3:capitalize hover:prose-a:decoration-dotted prose-pre:-mx-6 prose-pre:rounded-none prose-pre:px-6 sm:prose-pre:mx-0 sm:prose-pre:rounded-md sm:prose-pre:px-4 lg:flex lg:justify-center"
+	class="prose prose-neutral max-w-none font-serif text-foreground prose-a:link dark:prose-invert selection:bg-foreground selection:text-background prose-headings:font-antique prose-h1:text-balance prose-h1:capitalize prose-h2:capitalize prose-h3:capitalize hover:prose-a:decoration-dotted prose-pre:-mx-6 prose-pre:rounded-none prose-pre:px-6 sm:prose-pre:mx-0 sm:prose-pre:rounded-md sm:prose-pre:px-4 lg:flex lg:justify-center"
 >
 	<div class="gap-8 lg:flex">
 		<header class="sticky top-0 z-10">
