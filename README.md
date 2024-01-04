@@ -120,7 +120,7 @@ Contribute to the project, or use **drab** as a template for another component l
 
 1. Clone the [repository](https://github.com/rossrobino/drab)
 2. `bun i`
-3. `bun run dev`
+3. `bun dev`
 
 #### Add or edit a component
 

@@ -59,8 +59,9 @@
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-vercel": "^4.0.4",
-		"@sveltejs/kit": "^1.29.1",
+		"@sveltejs/kit": "^2.0.6",
 		"@sveltejs/package": "^2.2.5",
+		"@sveltejs/vite-plugin-svelte": "^3.0.1",
 		"@tailwindcss/typography": "^0.5.10",
 		"@types/node": "^20.10.6",
 		"@typescript-eslint/eslint-plugin": "^6.17.0",
