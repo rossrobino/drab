@@ -68,7 +68,7 @@
 -->
 
 <script lang="ts">
-	import { onMount, type ComponentType } from "svelte";
+	import { onMount, type ComponentType, type SvelteComponent } from "svelte";
 
 	/**
 	 * - `EditorContentElement` to pass into the `contentElements` array prop
@@ -86,7 +86,7 @@
 		display: "inline" | "block" | "wrap";
 
 		/** contents of the `button` */
-		icon: string | ComponentType<any>;
+		icon: string | ComponentType<SvelteComponent>;
 
 		/** keyboard shortcut */
 		key?: string;

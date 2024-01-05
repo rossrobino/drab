@@ -1,6 +1,6 @@
 {
 	"name": "drab",
-	"version": "4.1.6",
+	"version": "4.1.7",
 	"description": "An Unstyled Svelte Component Library",
 	"keywords": [
 		"components",
@@ -80,6 +80,6 @@
 		"tslib": "^2.6.2",
 		"typescript": "^5.3.3",
 		"uico": "^0.2.1",
-		"vite": "^5.0.10"
+		"vite": "^5.0.11"
 	}
 }
