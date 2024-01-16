@@ -14,10 +14,7 @@ export const build: Build = async ({ document }, { route }) => {
 		sourceLink.href = `https://github.com/rossrobino/drab/tree/main/src/package/elements/${name}/index.ts`;
 	}
 
-	const example = await fs.readFile(
-		`src/elements/${name.toLowerCase()}/index.html`,
-		"utf-8",
-	);
+	const example = await fs.readFile(`src/elements/${name}/index.html`, "utf-8");
 
 	const exampleDiv = document.querySelector("#example");
 
