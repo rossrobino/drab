@@ -1,0 +1,60 @@
+<script type="module" src="/package/elements/dialog/define.ts"></script>
+
+<div class="mb-4">
+	<drab-dialog
+		animation-keyframe-from-transform="translateX(100%)"
+		animation-keyframe-to-transform="translateX(0)"
+	>
+		<button data-trigger type="button" class="button button-primary">
+			Right
+		</button>
+		<dialog
+			data-content
+			class="card my-0 mr-0 h-full max-h-screen w-full max-w-[100vw] rounded-none border-none backdrop:backdrop-blur sm:max-w-96"
+		>
+			<div class="mb-4 flex items-center justify-between">
+				<h2 class="my-0">Dialog</h2>
+				<button data-trigger type="button" class="button button-ghost">
+					<svg-icon icon="close"></svg-icon>
+				</button>
+			</div>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+				veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+				commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+				velit esse cillum dolore eu fugiat nulla pariatur.
+			</p>
+		</dialog>
+	</drab-dialog>
+</div>
+
+<drab-dialog
+	animation-keyframe-from-transform="scale(.95) translateY(3%)"
+	animation-keyframe-from-opacity="0"
+	animation-keyframe-to-transform="scale(1) translateY(0)"
+	animation-keyframe-to-opacity="1"
+	animation-option-duration="200"
+>
+	<button data-trigger type="button" class="button button-primary">
+		Center
+	</button>
+	<dialog
+		data-content
+		class="card border-none backdrop:backdrop-blur sm:max-w-96"
+	>
+		<div class="mb-4 flex items-center justify-between">
+			<h2 class="my-0">Dialog</h2>
+			<button data-trigger type="button" class="button button-ghost">
+				<svg-icon icon="close"></svg-icon>
+			</button>
+		</div>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+			veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+			commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+			velit esse cillum dolore eu fugiat nulla pariatur.
+		</p>
+	</dialog>
+</drab-dialog>
