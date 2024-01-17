@@ -5,32 +5,67 @@
 - [npm](https://www.npmjs.com/package/drab)
 - [MIT License](https://github.com/rossrobino/drab/blob/main/LICENSE.md)
 
-## About
+## Features
 
-**drab** focuses on providing JavaScript functionality where it's most useful. Many of the components are helpful wrappers around browser APIs. Here are some of the features of the library.
+**drab** focuses on providing JavaScript functionality where it's most useful. Many of the elements are helpful wrappers around browser APIs. Here are some of the features of the library.
 
-- Components are minimal in size, **drab** has zero dependencies
-- Transitions are disabled for users who prefer reduced motion
+### Built on the web platform
 
-This library takes a more opinionated approach compared to some headless UI libraries by providing the basic HTML structure for every component, as well as default positioning for elements like the [sheet](https://drab.robino.dev/docs/Sheet). However, these components can still be further customized using styles, [slots](https://svelte.dev/tutorial/slots), and [slot props](https://svelte.dev/tutorial/slot-props).
+- Each element is a [custom element](TODO), so you can use it with a framework, without one, or even directly in a markdown file.
+- https://custom-elements-everywhere.com/
+- **drab** does _not_ use the shadow DOM, so you can style content within these elements as usual with CSS.
+- Since you provide the HTML, these elements can be easily utilized with server side rendering frameworks.
+- Each element can be imported, extended, named, and used however you see fit.
 
-Use within md files...
+### Minimal bundle size
 
-TODO: Figure out attributes and properties
+- **drab** has zero dependencies.
 
-## Install
+### Write JavaScript, or don't
 
-https://custom-elements-everywhere.com/
+- Elements can be installed as a package, or utilized without writing any JavaScript by adding a script tag to your document.
+- Each element can be configured through HTML attributes.
+
+### Built in animations
+
+- Uses the [web animations API]() for transitions.
+- Transitions are disabled for users who prefer reduced motion.
+- Extend the `Animate` element to build your own elements.
+
+## Getting started
+
+### Install
+
+You can install **drab** from npm and import the custom elements from the package.
 
 ```bash
 npm i -D drab
 ```
 
-or script?
+```js
+// client.js
+import { Dialog } from "drab";
+
+customElements.define("drab-dialog", Dialog);
+```
+
+Alternatively, add a script tag to your HTML, each element will be named `drab-{element}`.
+
+```html
+<script type="module" src="https://unpkg.com/drab/iife/dialog"></script>
+```
+
+## Usage
+
+Add the element to your HTML.
+
+```html
+<drab-dialog>...</drab-dialog>
+```
 
 ## Documentation
 
-The library provides inline documentation for each element using JSDoc, allowing you to conveniently access the documentation by hovering over the custom element's class in your text editor after importing it.
+The library provides inline documentation for each element using JSDoc, allowing you to conveniently access the documentation by hovering over the custom element's class in your text editor after importing it. Further documentation can be found in
 
 ## Styling
 

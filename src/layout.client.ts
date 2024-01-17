@@ -1,4 +1,4 @@
 import { prefetch } from "domco";
-import "./package/elements/dialog/define.ts";
+import "./package/dialog/define";
 
 prefetch({ prerender: true });

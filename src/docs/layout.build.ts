@@ -11,10 +11,10 @@ export const build: Build = async ({ document }, { route }) => {
 
 	const sourceLink = document.querySelector<HTMLAnchorElement>("#sourceLink");
 	if (sourceLink) {
-		sourceLink.href = `https://github.com/rossrobino/drab/tree/main/src/package/elements/${name}/index.ts`;
+		sourceLink.href = `https://github.com/rossrobino/drab/tree/main/src/package/${name}/index.ts`;
 	}
 
-	const example = await fs.readFile(`src/elements/${name}/index.html`, "utf-8");
+	const example = await fs.readFile(`src/docs/${name}/index.html`, "utf-8");
 
 	const exampleDiv = document.querySelector("#example");
 

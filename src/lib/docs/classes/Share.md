@@ -1,12 +1,5 @@
-# Share
-
-Uses the [Navigator API](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share) to share a link.
-
----
-
-## Attributes
-
-- `url` - url to share
+Uses the [Navigator API](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share)
+to share a url.
 
 ---
 
@@ -34,59 +27,94 @@ Base.constructor
 
 #### Defined in
 
-src/package/elements/share/index.ts:13
+[src/package/elements/share/index.ts:8](https://github.com/rossrobino/components/blob/1925528/src/package/elements/share/index.ts#L8)
 
 ---
 
 ## Properties
 
+### #listenerController
+
+• `Private` **#listenerController**: `AbortController`
+
+To clean up event listeners added to `document` when
+when the element is removed.
+
+#### Inherited from
+
+Base.#listenerController
+
+#### Defined in
+
+[src/package/elements/base/index.ts:6](https://github.com/rossrobino/components/blob/1925528/src/package/elements/base/index.ts#L6)
+
 ---
 
 ## Accessors
 
-### content
+### triggerEvent
 
-• `get` **content**(): `HTMLElement`
-
-#### Returns
-
-`HTMLElement`
-
-The element that matches the `content` selector.
-
-**`Default`**
-
-`this.querySelector("[data-content]")`
-
-#### Inherited from
-
-Base.content
-
-#### Defined in
-
-src/package/elements/base/index.ts:23
-
-### trigger
-
-• `get` **trigger**(): `NodeListOf`\<`HTMLElement`\>
+• `get` **triggerEvent**(): keyof `HTMLElementEventMap`
 
 #### Returns
 
-`NodeListOf`\<`HTMLElement`\>
-
-All of the elements that match the `trigger` selector.
-
-**`Default`**
-
-`this.querySelectorAll("[data-trigger]")`
+keyof `HTMLElementEventMap`
 
 #### Inherited from
 
-Base.trigger
+Base.triggerEvent
 
 #### Defined in
 
-src/package/elements/base/index.ts:10
+[src/package/elements/base/index.ts:12](https://github.com/rossrobino/components/blob/1925528/src/package/elements/base/index.ts#L12)
+
+• `set` **triggerEvent**(`value`): `void`
+
+#### Parameters
+
+| Name    | Type                        |
+| :------ | :-------------------------- |
+| `value` | keyof `HTMLElementEventMap` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+Base.triggerEvent
+
+#### Defined in
+
+[src/package/elements/base/index.ts:17](https://github.com/rossrobino/components/blob/1925528/src/package/elements/base/index.ts#L17)
+
+### url
+
+• `get` **url**(): `string`
+
+#### Returns
+
+`string`
+
+#### Defined in
+
+[src/package/elements/share/index.ts:12](https://github.com/rossrobino/components/blob/1925528/src/package/elements/share/index.ts#L12)
+
+• `set` **url**(`value`): `void`
+
+#### Parameters
+
+| Name    | Type     |
+| :------ | :------- |
+| `value` | `string` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/package/elements/share/index.ts:16](https://github.com/rossrobino/components/blob/1925528/src/package/elements/share/index.ts#L16)
 
 ---
 
@@ -102,4 +130,128 @@ src/package/elements/base/index.ts:10
 
 #### Defined in
 
-src/package/elements/share/index.ts:17
+[src/package/elements/share/index.ts:31](https://github.com/rossrobino/components/blob/1925528/src/package/elements/share/index.ts#L31)
+
+### content
+
+▸ **content**\<`T`\>(`instance`): `null` \| `Element` & `T`
+
+#### Type parameters
+
+| Name | Type          |
+| :--- | :------------ |
+| `T`  | `HTMLElement` |
+
+#### Parameters
+
+| Name                 | Type      | Description                                                  |
+| :------------------- | :-------- | :----------------------------------------------------------- |
+| `instance`           | () => `T` | The instance of the desired element, ex: `HTMLDialogElement` |
+| `instance.prototype` | `T`       | -                                                            |
+
+#### Returns
+
+`null` \| `Element` & `T`
+
+The element that matches the `content` selector.
+
+**`Default`**
+
+`this.querySelector("[data-content]")`
+
+#### Inherited from
+
+Base.content
+
+#### Defined in
+
+[src/package/elements/base/index.ts:38](https://github.com/rossrobino/components/blob/1925528/src/package/elements/base/index.ts#L38)
+
+### disconnectedCallback
+
+▸ **disconnectedCallback**(): `void`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+Base.disconnectedCallback
+
+#### Defined in
+
+[src/package/elements/base/index.ts:61](https://github.com/rossrobino/components/blob/1925528/src/package/elements/base/index.ts#L61)
+
+### safeAddEventListener
+
+▸ **safeAddEventListener**\<`K`\>(`type`, `listener`, `options?`): `void`
+
+Wrapper around `document.addEventListener` that ensures when the
+element is removed from the DOM, these event listeners are cleaned up
+
+#### Type parameters
+
+| Name | Type                             |
+| :--- | :------------------------------- |
+| `K`  | extends keyof `DocumentEventMap` |
+
+#### Parameters
+
+| Name       | Type                                                         |
+| :--------- | :----------------------------------------------------------- |
+| `type`     | `K`                                                          |
+| `listener` | (`this`: `Document`, `ev`: `DocumentEventMap`[`K`]) => `any` |
+| `options`  | `AddEventListenerOptions`                                    |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+Base.safeAddEventListener
+
+#### Defined in
+
+[src/package/elements/base/index.ts:52](https://github.com/rossrobino/components/blob/1925528/src/package/elements/base/index.ts#L52)
+
+### share
+
+▸ **share**(`url`): `Promise`\<\{ `result`: `"copy"` \| `"share"` }\>
+
+#### Parameters
+
+| Name  | Type     |
+| :---- | :------- |
+| `url` | `string` |
+
+#### Returns
+
+`Promise`\<\{ `result`: `"copy"` \| `"share"` }\>
+
+#### Defined in
+
+[src/package/elements/share/index.ts:20](https://github.com/rossrobino/components/blob/1925528/src/package/elements/share/index.ts#L20)
+
+### trigger
+
+▸ **trigger**(): `NodeListOf`\<`Element`\>
+
+#### Returns
+
+`NodeListOf`\<`Element`\>
+
+All of the elements that match the `trigger` selector.
+
+**`Default`**
+
+`this.querySelectorAll("[data-trigger]")`
+
+#### Inherited from
+
+Base.trigger
+
+#### Defined in
+
+[src/package/elements/base/index.ts:25](https://github.com/rossrobino/components/blob/1925528/src/package/elements/base/index.ts#L25)

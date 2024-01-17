@@ -1,4 +1,4 @@
-import { Base } from "../index.ts";
+import { Base } from "../base/index.ts";
 import { prefersReducedMotion } from "./prefersReducedMotion/index.ts";
 
 export class Animate extends Base {
@@ -27,6 +27,19 @@ export class Animate extends Base {
 		return options;
 	}
 
+	/**
+	 * @description
+	 * Animates a particular element using the web animations API.
+	 *
+	 * - Disables animation if the user prefers reduced motion.
+	 * - Sets default options
+	 * - Uses the keyframes provided from `this.keyframes`
+	 * - Waits for the animation to complete
+	 * - Sets the start and end styles based on the first and last keyframe
+	 *
+	 * @param element
+	 * @param options
+	 */
 	async animateElement(
 		element: HTMLElement,
 		options: KeyframeAnimationOptions = {},
@@ -38,7 +51,7 @@ export class Animate extends Base {
 			options = Object.assign(this.animationOptions, options);
 
 			// defaults
-			if (!options.duration) options.duration = 300;
+			if (!options.duration) options.duration = 250;
 			if (!options.easing) options.easing = "ease-in-out";
 
 			let startStyles = keyframes.at(0);

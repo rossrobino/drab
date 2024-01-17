@@ -1,5 +1,7 @@
-import { Share } from "./elements/share/index.ts";
-import { YouTube } from "./elements/youtube/index.ts";
-import { Dialog } from "./elements/dialog/index.ts";
+import { Animate } from "./animate/index.ts";
+import { Base } from "./base/index.ts";
+import { Dialog } from "./dialog/index.ts";
+import { Share } from "./share/index.ts";
+import { YouTube } from "./youtube/index.ts";
 
-export { Share, Dialog, YouTube };
+export { Animate, Base, Dialog, Share, YouTube };

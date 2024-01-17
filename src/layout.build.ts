@@ -1,7 +1,7 @@
 import { type Build } from "domco";
 import fs from "node:fs/promises";
 
-const elements = await fs.readdir("src/elements", {
+const elements = await fs.readdir("src/docs", {
 	withFileTypes: true,
 });
 
@@ -11,17 +11,47 @@ export const build: Build = async ({
 	HTMLElement,
 }) => {
 	const headings = document.querySelectorAll("h2, h3");
+
 	headings.forEach((heading) => {
 		if (heading && heading.id) {
 			const id = heading.id;
-			heading.classList.add("flex");
 			heading.innerHTML = /*html*/ `
-				<a href="#${id}" class="not-prose hover:underline flex items-center gap-1">
+				<a href="#${id}" class="not-prose hover:underline inline-flex items-center gap-1">
 					${heading.innerHTML}
 				</a>
 			`;
 		}
 	});
+
+	customElements.define(
+		"on-this-page",
+		class extends HTMLElement {
+			connectedCallback() {
+				const ul = this.querySelector("ul");
+				if (ul) {
+					headings.forEach((heading) => {
+						if (heading.id) {
+							const li = document.createElement("li");
+							li.classList.add("pl-0");
+							const a = document.createElement("a");
+							a.href = `#${heading.id}`;
+							a.textContent = heading.textContent;
+							li.append(a);
+							if (heading.tagName === "H3") {
+								const nested = document.createElement("ul");
+								nested.classList.add("my-0");
+								nested.append(li);
+								ul.append(nested);
+							} else {
+								li.classList.add("list-none");
+								ul.append(li);
+							}
+						}
+					});
+				}
+			}
+		},
+	);
 
 	customElements.define(
 		"nav-items",
@@ -30,9 +60,9 @@ export const build: Build = async ({
 				for (const el of elements) {
 					if (el.isDirectory()) {
 						const li = document.createElement("li");
-						li.classList.add("pl-0", "font-antique");
+						li.classList.add("pl-0");
 						const a = document.createElement("a");
-						a.href = `/elements/${el.name}/`;
+						a.href = `/docs/${el.name}/`;
 						a.textContent = el.name;
 						li.append(a);
 						this.append(li);

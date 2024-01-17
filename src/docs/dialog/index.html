@@ -1,4 +1,14 @@
-<script type="module" src="/package/elements/dialog/define.ts"></script>
+<script type="module" src="/package/dialog/define.ts"></script>
+
+<script type="module">
+	const newDialog = document.createElement("drab-dialog");
+	const trigger = document.createElement("button");
+	trigger.setAttribute("data-trigger", "");
+	trigger.textContent = "open";
+	newDialog.append(trigger);
+	document.body.append(newDialog);
+	newDialog.remove();
+</script>
 
 <div class="mb-4">
 	<drab-dialog

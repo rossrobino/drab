@@ -30,5 +30,6 @@
 			"$lib/*": ["./src/lib/*"]
 		}
 	},
-	"include": ["src"]
+	"include": ["src"],
+	"exclude": ["dist", "src/package/dist"]
 }
