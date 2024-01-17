@@ -1,6 +1,27 @@
 {
 	"name": "drab",
-	"version": "0.0.0",
+	"description": "A headless custom element library",
+	"version": "5.0.0",
+	"homepage": "https://drab.robino.dev",
+	"license": "MIT",
+	"author": {
+		"name": "Ross Robino",
+		"url": "https://robino.dev"
+	},
+	"repository": "github:rossrobino/drab",
+	"types": "./src/package/dist/index.d.ts",
+	"main": "./src/package/dist/index.js",
+	"exports": {
+		".": {
+			"types": "./src/package/dist/index.d.ts",
+			"default": "./src/package/dist/index.js",
+			"import": "./src/package/dist/index.js",
+			"require": "./src/package/dist/index.cjs"
+		}
+	},
+	"files": [
+		"src/package/dist"
+	],
 	"type": "module",
 	"scripts": {
 		"dev": "vite --host",

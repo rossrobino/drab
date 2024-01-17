@@ -3,7 +3,7 @@ import { defineConfig } from "tsup";
 export default defineConfig({
 	entry: {
 		index: "src/package/index.ts",
-		// all: "src/package/all.ts",
+		all: "src/package/all.ts",
 		animate: "src/package/animate/define.ts",
 		base: "src/package/base/define.ts",
 		dialog: "src/package/dialog/define.ts",

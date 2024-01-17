@@ -52,7 +52,7 @@ customElements.define("drab-dialog", Dialog);
 Alternatively, add a script tag to your HTML, each element will be named `drab-{element}`.
 
 ```html
-<script type="module" src="https://unpkg.com/drab/iife/dialog"></script>
+<script type="module" src="https://unpkg.com/drab/dialog.global.js"></script>
 ```
 
 ## Usage
