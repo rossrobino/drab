@@ -42,6 +42,18 @@
 }
 
 @layer components {
+	.prose :where(p code)::before {
+		content: "";
+	}
+	.prose :where(p code)::after {
+		content: "";
+	}
+	.prose :where(p code) {
+		background-color: theme(backgroundColor.muted.DEFAULT);
+		padding: theme(padding.1) theme(padding.2);
+		border-radius: theme(borderRadius.DEFAULT);
+		font-weight: theme(fontWeight.normal);
+	}
 	.card {
 		border: 1px solid theme(borderColor.DEFAULT);
 	}

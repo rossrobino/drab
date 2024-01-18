@@ -51,7 +51,7 @@ export class Animate extends Base {
 			options = Object.assign(this.animationOptions, options);
 
 			// defaults
-			if (!options.duration) options.duration = 250;
+			if (!options.duration) options.duration = 200;
 			if (!options.easing) options.easing = "ease-in-out";
 
 			let startStyles = keyframes.at(0);

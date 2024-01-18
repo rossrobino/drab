@@ -16,7 +16,7 @@ export const build: Build = async ({
 		if (heading && heading.id) {
 			const id = heading.id;
 			heading.innerHTML = /*html*/ `
-				<a href="#${id}" class="not-prose hover:underline inline-flex items-center gap-1">
+				<a href="#${id}" class="not-prose hover:underline hover:decoration-dotted inline-flex items-center gap-1">
 					${heading.innerHTML}
 				</a>
 			`;
