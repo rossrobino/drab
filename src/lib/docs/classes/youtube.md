@@ -2,14 +2,6 @@ Embeds a YouTube video iframe into a website with the video uid, using www.youtu
 
 ---
 
-## Attributes
-
-- `autoplay` - auto-plays the video
-- `start` - start time (seconds)
-- `uid` - unique YouTube id found in the url
-
----
-
 ## Hierarchy
 
 - [`Base`](/docs/classes/Base.md)
@@ -34,7 +26,7 @@ Embeds a YouTube video iframe into a website with the video uid, using www.youtu
 
 #### Defined in
 
-[src/package/youtube/index.ts:13](https://github.com/rossrobino/components/blob/26f52dd/src/package/youtube/index.ts#L13)
+[src/package/youtube/index.ts:9](https://github.com/rossrobino/components/blob/c91c737/src/package/youtube/index.ts#L9)
 
 ---
 
@@ -53,7 +45,15 @@ when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:6](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L6)
+[src/package/base/index.ts:6](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L6)
+
+### observedAttributes
+
+▪ `Static` **observedAttributes**: readonly [``"autoplay"``, ``"start"``, ``"uid"``]
+
+#### Defined in
+
+[src/package/youtube/index.ts:7](https://github.com/rossrobino/components/blob/c91c737/src/package/youtube/index.ts#L7)
 
 ---
 
@@ -63,13 +63,15 @@ when the element is removed.
 
 • `get` **autoplay**(): `boolean`
 
+Whether the video should start playing when loaded.
+
 #### Returns
 
 `boolean`
 
 #### Defined in
 
-[src/package/youtube/index.ts:21](https://github.com/rossrobino/components/blob/26f52dd/src/package/youtube/index.ts#L21)
+[src/package/youtube/index.ts:19](https://github.com/rossrobino/components/blob/c91c737/src/package/youtube/index.ts#L19)
 
 • `set` **autoplay**(`v`): `void`
 
@@ -85,11 +87,13 @@ when the element is removed.
 
 #### Defined in
 
-[src/package/youtube/index.ts:25](https://github.com/rossrobino/components/blob/26f52dd/src/package/youtube/index.ts#L25)
+[src/package/youtube/index.ts:23](https://github.com/rossrobino/components/blob/c91c737/src/package/youtube/index.ts#L23)
 
 ### iframe
 
 • `get` **iframe**(): `Element` & `HTMLIFrameElement`
+
+The `HTMLIFrameElement` within the element.
 
 #### Returns
 
@@ -97,31 +101,21 @@ when the element is removed.
 
 #### Defined in
 
-[src/package/youtube/index.ts:17](https://github.com/rossrobino/components/blob/26f52dd/src/package/youtube/index.ts#L17)
-
-### src
-
-• `get` **src**(): `string`
-
-#### Returns
-
-`string`
-
-#### Defined in
-
-[src/package/youtube/index.ts:48](https://github.com/rossrobino/components/blob/26f52dd/src/package/youtube/index.ts#L48)
+[src/package/youtube/index.ts:14](https://github.com/rossrobino/components/blob/c91c737/src/package/youtube/index.ts#L14)
 
 ### start
 
 • `get` **start**(): `string`
 
+The start time of the video (seconds).
+
 #### Returns
 
 `string`
 
 #### Defined in
 
-[src/package/youtube/index.ts:40](https://github.com/rossrobino/components/blob/26f52dd/src/package/youtube/index.ts#L40)
+[src/package/youtube/index.ts:29](https://github.com/rossrobino/components/blob/c91c737/src/package/youtube/index.ts#L29)
 
 • `set` **start**(`v`): `void`
 
@@ -137,7 +131,7 @@ when the element is removed.
 
 #### Defined in
 
-[src/package/youtube/index.ts:44](https://github.com/rossrobino/components/blob/26f52dd/src/package/youtube/index.ts#L44)
+[src/package/youtube/index.ts:33](https://github.com/rossrobino/components/blob/c91c737/src/package/youtube/index.ts#L33)
 
 ### triggerEvent
 
@@ -153,7 +147,7 @@ Base.triggerEvent
 
 #### Defined in
 
-[src/package/base/index.ts:12](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L12)
+[src/package/base/index.ts:12](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L12)
 
 • `set` **triggerEvent**(`value`): `void`
 
@@ -173,11 +167,16 @@ Base.triggerEvent
 
 #### Defined in
 
-[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L17)
+[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L17)
 
 ### uid
 
 • `get` **uid**(): `string`
+
+The video's YouTube uid, found within the url of the video.
+
+For example if the video url is https://youtu.be/gouiY85kD2o,
+the `uid` is `"gouiY85kD2o"`.
 
 #### Returns
 
@@ -185,7 +184,7 @@ Base.triggerEvent
 
 #### Defined in
 
-[src/package/youtube/index.ts:30](https://github.com/rossrobino/components/blob/26f52dd/src/package/youtube/index.ts#L30)
+[src/package/youtube/index.ts:43](https://github.com/rossrobino/components/blob/c91c737/src/package/youtube/index.ts#L43)
 
 • `set` **uid**(`v`): `void`
 
@@ -201,11 +200,23 @@ Base.triggerEvent
 
 #### Defined in
 
-[src/package/youtube/index.ts:36](https://github.com/rossrobino/components/blob/26f52dd/src/package/youtube/index.ts#L36)
+[src/package/youtube/index.ts:49](https://github.com/rossrobino/components/blob/c91c737/src/package/youtube/index.ts#L49)
 
 ---
 
 ## Methods
+
+### attributeChangedCallback
+
+▸ **attributeChangedCallback**(): `void`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/package/youtube/index.ts:59](https://github.com/rossrobino/components/blob/c91c737/src/package/youtube/index.ts#L59)
 
 ### connectedCallback
 
@@ -217,7 +228,7 @@ Base.triggerEvent
 
 #### Defined in
 
-[src/package/youtube/index.ts:56](https://github.com/rossrobino/components/blob/26f52dd/src/package/youtube/index.ts#L56)
+[src/package/youtube/index.ts:53](https://github.com/rossrobino/components/blob/c91c737/src/package/youtube/index.ts#L53)
 
 ### content
 
@@ -244,7 +255,9 @@ The element that matches the `content` selector.
 
 **`Default`**
 
-`this.querySelector("[data-content]")`
+```ts
+this.querySelector("[data-content]");
+```
 
 #### Inherited from
 
@@ -252,7 +265,7 @@ The element that matches the `content` selector.
 
 #### Defined in
 
-[src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L38)
+[src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L38)
 
 ### disconnectedCallback
 
@@ -268,7 +281,7 @@ The element that matches the `content` selector.
 
 #### Defined in
 
-[src/package/base/index.ts:61](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L61)
+[src/package/base/index.ts:61](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L61)
 
 ### safeAddEventListener
 
@@ -301,7 +314,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L52)
+[src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L52)
 
 ### trigger
 
@@ -315,7 +328,9 @@ All of the elements that match the `trigger` selector.
 
 **`Default`**
 
-`this.querySelectorAll("[data-trigger]")`
+```ts
+this.querySelectorAll("[data-trigger]");
+```
 
 #### Inherited from
 
@@ -323,4 +338,4 @@ All of the elements that match the `trigger` selector.
 
 #### Defined in
 
-[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L25)
+[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L25)

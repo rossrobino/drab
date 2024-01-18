@@ -20,7 +20,7 @@ export class Base extends HTMLElement {
 
 	/**
 	 * @returns All of the elements that match the `trigger` selector.
-	 * @default `this.querySelectorAll("[data-trigger]")`
+	 * @default this.querySelectorAll("[data-trigger]")
 	 */
 	trigger() {
 		const trigger = this.getAttribute("trigger") ?? "[data-trigger]";
@@ -33,7 +33,7 @@ export class Base extends HTMLElement {
 	 *
 	 * @param instance The instance of the desired element, ex: `HTMLDialogElement`
 	 * @returns The element that matches the `content` selector.
-	 * @default `this.querySelector("[data-content]")`
+	 * @default this.querySelector("[data-content]")
 	 */
 	content<T = HTMLElement>(instance: { new (): T; prototype: T }) {
 		const content = this.getAttribute("content") ?? "[data-content]";

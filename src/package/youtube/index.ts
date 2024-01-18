@@ -2,22 +2,20 @@ import { Base } from "../base/index.ts";
 
 /**
  * Embeds a YouTube video iframe into a website with the video uid, using www.youtube-nocookie.com.
- *
- * ## Attributes
- *
- * - `autoplay` - auto-plays the video
- * - `start` - start time (seconds)
- * - `uid` - unique YouTube id found in the url
  */
 export class YouTube extends Base {
+	static observedAttributes = ["autoplay", "start", "uid"] as const;
+
 	constructor() {
 		super();
 	}
 
+	/** The `HTMLIFrameElement` within the element. */
 	get iframe() {
 		return this.content(HTMLIFrameElement);
 	}
 
+	/** Whether the video should start playing when loaded. */
 	get autoplay() {
 		return this.hasAttribute("autoplay");
 	}
@@ -27,6 +25,21 @@ export class YouTube extends Base {
 		else this.removeAttribute("autoplay");
 	}
 
+	/** The start time of the video (seconds). */
+	get start() {
+		return this.getAttribute("start") ?? "0";
+	}
+
+	set start(v) {
+		this.setAttribute("start", v);
+	}
+
+	/**
+	 * The video's YouTube uid, found within the url of the video.
+	 *
+	 * For example if the video url is https://youtu.be/gouiY85kD2o,
+	 * the `uid` is `"gouiY85kD2o"`.
+	 */
 	get uid() {
 		const uid = this.getAttribute("uid");
 		if (!uid) throw new Error("YouTube: missing `uid` attribute.");
@@ -37,30 +50,15 @@ export class YouTube extends Base {
 		this.setAttribute("uid", v);
 	}
 
-	get start() {
-		return this.getAttribute("start") ?? "0";
+	connectedCallback() {
+		this.iframe.allowFullscreen = true;
+		this.iframe.allow =
+			"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
 	}
 
-	set start(v) {
-		this.setAttribute("start", v);
-	}
-
-	get src() {
-		return `https://www.youtube-nocookie.com/embed/${this.uid}?start=${this.start}${
+	attributeChangedCallback() {
+		this.iframe.src = `https://www.youtube-nocookie.com/embed/${this.uid}?start=${this.start}${
 			this.autoplay ? "&autoplay=1" : ""
 		}`;
 	}
-
-	// set src
-
-	connectedCallback() {
-		this.iframe.allowFullscreen = true;
-
-		this.iframe.allow =
-			"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-
-		this.iframe.src = this.src;
-	}
-
-	// onAttributeChangedCallback() {}
 }

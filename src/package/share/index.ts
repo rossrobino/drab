@@ -2,13 +2,18 @@ import { Base } from "../base/index.ts";
 
 /**
  * Uses the [Navigator API](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share)
- * to share a url.
+ * to share a `url`.
  */
 export class Share extends Base {
 	constructor() {
 		super();
 	}
 
+	/**
+	 * The `url` to share.
+	 *
+	 * @default window.location.href
+	 */
 	get url() {
 		return this.getAttribute("url") ?? window.location.href;
 	}
@@ -17,7 +22,13 @@ export class Share extends Base {
 		this.setAttribute("url", value);
 	}
 
-	async share(url: string): Promise<{ result: "share" | "copy" }> {
+	/**
+	 * Shares or copies the `url`.
+	 * @param url The `url` to share
+	 * @returns An object containing a `result` - whether the `url` was copied or shared
+	 * depending on browser support.
+	 */
+	async share(url: string = this.url): Promise<{ result: "share" | "copy" }> {
 		if (navigator.canShare && navigator.canShare({ url })) {
 			await navigator.share({ url });
 			return { result: "share" };
@@ -32,7 +43,7 @@ export class Share extends Base {
 		for (const trigger of this.trigger()) {
 			trigger.addEventListener(this.triggerEvent, async () => {
 				try {
-					const { result } = await this.share(this.url);
+					const { result } = await this.share();
 					if (result === "copy") {
 						const originalText = trigger.textContent;
 						trigger.textContent = "Copied";

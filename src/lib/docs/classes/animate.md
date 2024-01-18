@@ -24,7 +24,7 @@
 
 #### Defined in
 
-[src/package/animate/index.ts:5](https://github.com/rossrobino/components/blob/26f52dd/src/package/animate/index.ts#L5)
+[src/package/animate/index.ts:5](https://github.com/rossrobino/components/blob/c91c737/src/package/animate/index.ts#L5)
 
 ---
 
@@ -43,7 +43,7 @@ when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:6](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L6)
+[src/package/base/index.ts:6](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L6)
 
 ---
 
@@ -61,7 +61,7 @@ An object containing the values of each `animation-option` attribute
 
 #### Defined in
 
-[src/package/animate/index.ts:12](https://github.com/rossrobino/components/blob/26f52dd/src/package/animate/index.ts#L12)
+[src/package/animate/index.ts:12](https://github.com/rossrobino/components/blob/c91c737/src/package/animate/index.ts#L12)
 
 ### keyframes
 
@@ -73,7 +73,7 @@ An object containing the values of each `animation-option` attribute
 
 #### Defined in
 
-[src/package/animate/index.ts:88](https://github.com/rossrobino/components/blob/26f52dd/src/package/animate/index.ts#L88)
+[src/package/animate/index.ts:88](https://github.com/rossrobino/components/blob/c91c737/src/package/animate/index.ts#L88)
 
 ### triggerEvent
 
@@ -89,7 +89,7 @@ Base.triggerEvent
 
 #### Defined in
 
-[src/package/base/index.ts:12](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L12)
+[src/package/base/index.ts:12](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L12)
 
 • `set` **triggerEvent**(`value`): `void`
 
@@ -109,7 +109,7 @@ Base.triggerEvent
 
 #### Defined in
 
-[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L17)
+[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L17)
 
 ---
 
@@ -142,7 +142,7 @@ Animates a particular element using the web animations API.
 
 #### Defined in
 
-[src/package/animate/index.ts:43](https://github.com/rossrobino/components/blob/26f52dd/src/package/animate/index.ts#L43)
+[src/package/animate/index.ts:43](https://github.com/rossrobino/components/blob/c91c737/src/package/animate/index.ts#L43)
 
 ### content
 
@@ -169,7 +169,9 @@ The element that matches the `content` selector.
 
 **`Default`**
 
-`this.querySelector("[data-content]")`
+```ts
+this.querySelector("[data-content]");
+```
 
 #### Inherited from
 
@@ -177,7 +179,7 @@ The element that matches the `content` selector.
 
 #### Defined in
 
-[src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L38)
+[src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L38)
 
 ### disconnectedCallback
 
@@ -193,7 +195,7 @@ The element that matches the `content` selector.
 
 #### Defined in
 
-[src/package/base/index.ts:61](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L61)
+[src/package/base/index.ts:61](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L61)
 
 ### safeAddEventListener
 
@@ -226,7 +228,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L52)
+[src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L52)
 
 ### trigger
 
@@ -240,7 +242,9 @@ All of the elements that match the `trigger` selector.
 
 **`Default`**
 
-`this.querySelectorAll("[data-trigger]")`
+```ts
+this.querySelectorAll("[data-trigger]");
+```
 
 #### Inherited from
 
@@ -248,4 +252,4 @@ All of the elements that match the `trigger` selector.
 
 #### Defined in
 
-[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L25)
+[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L25)

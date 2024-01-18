@@ -1,5 +1,5 @@
 Uses the [Navigator API](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share)
-to share a url.
+to share a `url`.
 
 ---
 
@@ -27,7 +27,7 @@ to share a url.
 
 #### Defined in
 
-[src/package/share/index.ts:8](https://github.com/rossrobino/components/blob/26f52dd/src/package/share/index.ts#L8)
+[src/package/share/index.ts:8](https://github.com/rossrobino/components/blob/c91c737/src/package/share/index.ts#L8)
 
 ---
 
@@ -46,7 +46,7 @@ when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:6](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L6)
+[src/package/base/index.ts:6](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L6)
 
 ---
 
@@ -66,7 +66,7 @@ Base.triggerEvent
 
 #### Defined in
 
-[src/package/base/index.ts:12](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L12)
+[src/package/base/index.ts:12](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L12)
 
 • `set` **triggerEvent**(`value`): `void`
 
@@ -86,19 +86,27 @@ Base.triggerEvent
 
 #### Defined in
 
-[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L17)
+[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L17)
 
 ### url
 
 • `get` **url**(): `string`
 
+The `url` to share.
+
 #### Returns
 
 `string`
 
+**`Default`**
+
+```ts
+window.location.href;
+```
+
 #### Defined in
 
-[src/package/share/index.ts:12](https://github.com/rossrobino/components/blob/26f52dd/src/package/share/index.ts#L12)
+[src/package/share/index.ts:17](https://github.com/rossrobino/components/blob/c91c737/src/package/share/index.ts#L17)
 
 • `set` **url**(`value`): `void`
 
@@ -114,7 +122,7 @@ Base.triggerEvent
 
 #### Defined in
 
-[src/package/share/index.ts:16](https://github.com/rossrobino/components/blob/26f52dd/src/package/share/index.ts#L16)
+[src/package/share/index.ts:21](https://github.com/rossrobino/components/blob/c91c737/src/package/share/index.ts#L21)
 
 ---
 
@@ -130,7 +138,7 @@ Base.triggerEvent
 
 #### Defined in
 
-[src/package/share/index.ts:31](https://github.com/rossrobino/components/blob/26f52dd/src/package/share/index.ts#L31)
+[src/package/share/index.ts:42](https://github.com/rossrobino/components/blob/c91c737/src/package/share/index.ts#L42)
 
 ### content
 
@@ -157,7 +165,9 @@ The element that matches the `content` selector.
 
 **`Default`**
 
-`this.querySelector("[data-content]")`
+```ts
+this.querySelector("[data-content]");
+```
 
 #### Inherited from
 
@@ -165,7 +175,7 @@ The element that matches the `content` selector.
 
 #### Defined in
 
-[src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L38)
+[src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L38)
 
 ### disconnectedCallback
 
@@ -181,7 +191,7 @@ The element that matches the `content` selector.
 
 #### Defined in
 
-[src/package/base/index.ts:61](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L61)
+[src/package/base/index.ts:61](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L61)
 
 ### safeAddEventListener
 
@@ -214,25 +224,30 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L52)
+[src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L52)
 
 ### share
 
-▸ **share**(`url`): `Promise`\<\{ `result`: `"copy"` \| `"share"` }\>
+▸ **share**(`url?`): `Promise`\<\{ `result`: `"copy"` \| `"share"` }\>
+
+Shares or copies the `url`.
 
 #### Parameters
 
-| Name  | Type     |
-| :---- | :------- |
-| `url` | `string` |
+| Name  | Type     | Description        |
+| :---- | :------- | :----------------- |
+| `url` | `string` | The `url` to share |
 
 #### Returns
 
 `Promise`\<\{ `result`: `"copy"` \| `"share"` }\>
 
+An object containing a `result` - whether the `url` was copied or shared
+depending on browser support.
+
 #### Defined in
 
-[src/package/share/index.ts:20](https://github.com/rossrobino/components/blob/26f52dd/src/package/share/index.ts#L20)
+[src/package/share/index.ts:31](https://github.com/rossrobino/components/blob/c91c737/src/package/share/index.ts#L31)
 
 ### trigger
 
@@ -246,7 +261,9 @@ All of the elements that match the `trigger` selector.
 
 **`Default`**
 
-`this.querySelectorAll("[data-trigger]")`
+```ts
+this.querySelectorAll("[data-trigger]");
+```
 
 #### Inherited from
 
@@ -254,4 +271,4 @@ All of the elements that match the `trigger` selector.
 
 #### Defined in
 
-[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L25)
+[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L25)

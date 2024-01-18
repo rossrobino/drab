@@ -26,7 +26,7 @@ Provides triggers and animations for the `HTMLDialogElement`.
 
 #### Defined in
 
-[src/package/dialog/index.ts:7](https://github.com/rossrobino/components/blob/26f52dd/src/package/dialog/index.ts#L7)
+[src/package/dialog/index.ts:7](https://github.com/rossrobino/components/blob/c91c737/src/package/dialog/index.ts#L7)
 
 ---
 
@@ -45,7 +45,7 @@ when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:6](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L6)
+[src/package/base/index.ts:6](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L6)
 
 ---
 
@@ -67,11 +67,13 @@ Animate.animationOptions
 
 #### Defined in
 
-[src/package/animate/index.ts:12](https://github.com/rossrobino/components/blob/26f52dd/src/package/animate/index.ts#L12)
+[src/package/animate/index.ts:12](https://github.com/rossrobino/components/blob/c91c737/src/package/animate/index.ts#L12)
 
 ### dialog
 
 • `get` **dialog**(): `Element` & `HTMLDialogElement`
+
+The `HTMLDialogElement` within the element.
 
 #### Returns
 
@@ -79,7 +81,7 @@ Animate.animationOptions
 
 #### Defined in
 
-[src/package/dialog/index.ts:11](https://github.com/rossrobino/components/blob/26f52dd/src/package/dialog/index.ts#L11)
+[src/package/dialog/index.ts:12](https://github.com/rossrobino/components/blob/c91c737/src/package/dialog/index.ts#L12)
 
 ### keyframes
 
@@ -95,7 +97,7 @@ Animate.keyframes
 
 #### Defined in
 
-[src/package/animate/index.ts:88](https://github.com/rossrobino/components/blob/26f52dd/src/package/animate/index.ts#L88)
+[src/package/animate/index.ts:88](https://github.com/rossrobino/components/blob/c91c737/src/package/animate/index.ts#L88)
 
 ### triggerEvent
 
@@ -111,7 +113,7 @@ Animate.triggerEvent
 
 #### Defined in
 
-[src/package/base/index.ts:12](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L12)
+[src/package/base/index.ts:12](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L12)
 
 • `set` **triggerEvent**(`value`): `void`
 
@@ -131,7 +133,7 @@ Animate.triggerEvent
 
 #### Defined in
 
-[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L17)
+[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L17)
 
 ---
 
@@ -168,11 +170,13 @@ Animates a particular element using the web animations API.
 
 #### Defined in
 
-[src/package/animate/index.ts:43](https://github.com/rossrobino/components/blob/26f52dd/src/package/animate/index.ts#L43)
+[src/package/animate/index.ts:43](https://github.com/rossrobino/components/blob/c91c737/src/package/animate/index.ts#L43)
 
 ### close
 
 ▸ **close**(): `Promise`\<`void`\>
+
+`HTMLDialogElement.close()` with animation.
 
 #### Returns
 
@@ -180,7 +184,7 @@ Animates a particular element using the web animations API.
 
 #### Defined in
 
-[src/package/dialog/index.ts:20](https://github.com/rossrobino/components/blob/26f52dd/src/package/dialog/index.ts#L20)
+[src/package/dialog/index.ts:23](https://github.com/rossrobino/components/blob/c91c737/src/package/dialog/index.ts#L23)
 
 ### connectedCallback
 
@@ -192,7 +196,7 @@ Animates a particular element using the web animations API.
 
 #### Defined in
 
-[src/package/dialog/index.ts:32](https://github.com/rossrobino/components/blob/26f52dd/src/package/dialog/index.ts#L32)
+[src/package/dialog/index.ts:36](https://github.com/rossrobino/components/blob/c91c737/src/package/dialog/index.ts#L36)
 
 ### content
 
@@ -219,7 +223,9 @@ The element that matches the `content` selector.
 
 **`Default`**
 
-`this.querySelector("[data-content]")`
+```ts
+this.querySelector("[data-content]");
+```
 
 #### Inherited from
 
@@ -227,7 +233,7 @@ The element that matches the `content` selector.
 
 #### Defined in
 
-[src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L38)
+[src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L38)
 
 ### disconnectedCallback
 
@@ -243,7 +249,7 @@ The element that matches the `content` selector.
 
 #### Defined in
 
-[src/package/base/index.ts:61](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L61)
+[src/package/base/index.ts:61](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L61)
 
 ### safeAddEventListener
 
@@ -276,31 +282,35 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L52)
+[src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L52)
 
 ### showModal
 
 ▸ **showModal**(): `Promise`\<`void`\>
 
+`HTMLDialogElement.showModal()` with animation.
+
 #### Returns
 
 `Promise`\<`void`\>
 
 #### Defined in
 
-[src/package/dialog/index.ts:15](https://github.com/rossrobino/components/blob/26f52dd/src/package/dialog/index.ts#L15)
+[src/package/dialog/index.ts:17](https://github.com/rossrobino/components/blob/c91c737/src/package/dialog/index.ts#L17)
 
 ### toggle
 
 ▸ **toggle**(): `Promise`\<`void`\>
 
+`showModal` or `close` depending on the dialog's `open` attribute.
+
 #### Returns
 
 `Promise`\<`void`\>
 
 #### Defined in
 
-[src/package/dialog/index.ts:27](https://github.com/rossrobino/components/blob/26f52dd/src/package/dialog/index.ts#L27)
+[src/package/dialog/index.ts:31](https://github.com/rossrobino/components/blob/c91c737/src/package/dialog/index.ts#L31)
 
 ### trigger
 
@@ -314,7 +324,9 @@ All of the elements that match the `trigger` selector.
 
 **`Default`**
 
-`this.querySelectorAll("[data-trigger]")`
+```ts
+this.querySelectorAll("[data-trigger]");
+```
 
 #### Inherited from
 
@@ -322,4 +334,4 @@ All of the elements that match the `trigger` selector.
 
 #### Defined in
 
-[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L25)
+[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L25)
