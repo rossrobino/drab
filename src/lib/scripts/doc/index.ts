@@ -38,6 +38,8 @@ const doc = async () => {
 		// TODO - remove h2s that do not have anything under them...
 
 		await fs.writeFile(filePath, md);
+
+		await fs.rename(filePath, filePath.toLowerCase());
 	}
 };
 

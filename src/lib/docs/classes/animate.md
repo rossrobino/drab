@@ -1,13 +1,10 @@
-Uses the [Navigator API](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share)
-to share a url.
-
----
-
 ## Hierarchy
 
 - [`Base`](/docs/classes/Base.md)
 
-  ↳ **`Share`**
+  ↳ **`Animate`**
+
+  ↳↳ [`Dialog`](/docs/classes/Dialog.md)
 
 ---
 
@@ -15,11 +12,11 @@ to share a url.
 
 ### constructor
 
-• **new Share**(): [`Share`](/docs/classes/Share.md)
+• **new Animate**(): [`Animate`](/docs/classes/Animate.md)
 
 #### Returns
 
-[`Share`](/docs/classes/Share.md)
+[`Animate`](/docs/classes/Animate.md)
 
 #### Overrides
 
@@ -27,7 +24,7 @@ to share a url.
 
 #### Defined in
 
-[src/package/share/index.ts:8](https://github.com/rossrobino/components/blob/1e5c638/src/package/share/index.ts#L8)
+[src/package/animate/index.ts:5](https://github.com/rossrobino/components/blob/1e5c638/src/package/animate/index.ts#L5)
 
 ---
 
@@ -51,6 +48,32 @@ when the element is removed.
 ---
 
 ## Accessors
+
+### animationOptions
+
+• `get` **animationOptions**(): `KeyframeAnimationOptions`
+
+#### Returns
+
+`KeyframeAnimationOptions`
+
+An object containing the values of each `animation-option` attribute
+
+#### Defined in
+
+[src/package/animate/index.ts:12](https://github.com/rossrobino/components/blob/1e5c638/src/package/animate/index.ts#L12)
+
+### keyframes
+
+• `get` **keyframes**(): `Keyframe`[]
+
+#### Returns
+
+`Keyframe`[]
+
+#### Defined in
+
+[src/package/animate/index.ts:88](https://github.com/rossrobino/components/blob/1e5c638/src/package/animate/index.ts#L88)
 
 ### triggerEvent
 
@@ -88,49 +111,38 @@ Base.triggerEvent
 
 [src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/1e5c638/src/package/base/index.ts#L17)
 
-### url
-
-• `get` **url**(): `string`
-
-#### Returns
-
-`string`
-
-#### Defined in
-
-[src/package/share/index.ts:12](https://github.com/rossrobino/components/blob/1e5c638/src/package/share/index.ts#L12)
-
-• `set` **url**(`value`): `void`
-
-#### Parameters
-
-| Name    | Type     |
-| :------ | :------- |
-| `value` | `string` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/package/share/index.ts:16](https://github.com/rossrobino/components/blob/1e5c638/src/package/share/index.ts#L16)
-
 ---
 
 ## Methods
 
-### connectedCallback
+### animateElement
 
-▸ **connectedCallback**(): `void`
+▸ **animateElement**(`element`, `options?`): `Promise`\<`void`\>
+
+#### Parameters
+
+| Name      | Type                       |
+| :-------- | :------------------------- |
+| `element` | `HTMLElement`              |
+| `options` | `KeyframeAnimationOptions` |
 
 #### Returns
 
-`void`
+`Promise`\<`void`\>
+
+**`Description`**
+
+Animates a particular element using the web animations API.
+
+- Disables animation if the user prefers reduced motion.
+- Sets default options
+- Uses the keyframes provided from `this.keyframes`
+- Waits for the animation to complete
+- Sets the start and end styles based on the first and last keyframe
 
 #### Defined in
 
-[src/package/share/index.ts:31](https://github.com/rossrobino/components/blob/1e5c638/src/package/share/index.ts#L31)
+[src/package/animate/index.ts:43](https://github.com/rossrobino/components/blob/1e5c638/src/package/animate/index.ts#L43)
 
 ### content
 
@@ -215,24 +227,6 @@ element is removed from the DOM, these event listeners are cleaned up.
 #### Defined in
 
 [src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/1e5c638/src/package/base/index.ts#L52)
-
-### share
-
-▸ **share**(`url`): `Promise`\<\{ `result`: `"copy"` \| `"share"` }\>
-
-#### Parameters
-
-| Name  | Type     |
-| :---- | :------- |
-| `url` | `string` |
-
-#### Returns
-
-`Promise`\<\{ `result`: `"copy"` \| `"share"` }\>
-
-#### Defined in
-
-[src/package/share/index.ts:20](https://github.com/rossrobino/components/blob/1e5c638/src/package/share/index.ts#L20)
 
 ### trigger
 

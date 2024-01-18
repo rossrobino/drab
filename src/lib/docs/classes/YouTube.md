@@ -12,7 +12,7 @@ Embeds a YouTube video iframe into a website with the video uid, using www.youtu
 
 ## Hierarchy
 
-- `Base`
+- [`Base`](/docs/classes/Base.md)
 
   ↳ **`YouTube`**
 
@@ -30,11 +30,11 @@ Embeds a YouTube video iframe into a website with the video uid, using www.youtu
 
 #### Overrides
 
-Base.constructor
+[Base](/docs/classes/Base.md).[constructor](/docs/classes/Base.md#constructor)
 
 #### Defined in
 
-[src/package/elements/youtube/index.ts:13](https://github.com/rossrobino/components/blob/1925528/src/package/elements/youtube/index.ts#L13)
+[src/package/youtube/index.ts:13](https://github.com/rossrobino/components/blob/1e5c638/src/package/youtube/index.ts#L13)
 
 ---
 
@@ -49,11 +49,11 @@ when the element is removed.
 
 #### Inherited from
 
-Base.#listenerController
+[Base](/docs/classes/Base.md).[#listenerController](/docs/classes/Base.md##listenercontroller)
 
 #### Defined in
 
-[src/package/elements/base/index.ts:6](https://github.com/rossrobino/components/blob/1925528/src/package/elements/base/index.ts#L6)
+[src/package/base/index.ts:6](https://github.com/rossrobino/components/blob/1e5c638/src/package/base/index.ts#L6)
 
 ---
 
@@ -69,7 +69,7 @@ Base.#listenerController
 
 #### Defined in
 
-[src/package/elements/youtube/index.ts:21](https://github.com/rossrobino/components/blob/1925528/src/package/elements/youtube/index.ts#L21)
+[src/package/youtube/index.ts:21](https://github.com/rossrobino/components/blob/1e5c638/src/package/youtube/index.ts#L21)
 
 • `set` **autoplay**(`v`): `void`
 
@@ -85,7 +85,7 @@ Base.#listenerController
 
 #### Defined in
 
-[src/package/elements/youtube/index.ts:25](https://github.com/rossrobino/components/blob/1925528/src/package/elements/youtube/index.ts#L25)
+[src/package/youtube/index.ts:25](https://github.com/rossrobino/components/blob/1e5c638/src/package/youtube/index.ts#L25)
 
 ### iframe
 
@@ -97,7 +97,7 @@ Base.#listenerController
 
 #### Defined in
 
-[src/package/elements/youtube/index.ts:17](https://github.com/rossrobino/components/blob/1925528/src/package/elements/youtube/index.ts#L17)
+[src/package/youtube/index.ts:17](https://github.com/rossrobino/components/blob/1e5c638/src/package/youtube/index.ts#L17)
 
 ### src
 
@@ -109,7 +109,7 @@ Base.#listenerController
 
 #### Defined in
 
-[src/package/elements/youtube/index.ts:48](https://github.com/rossrobino/components/blob/1925528/src/package/elements/youtube/index.ts#L48)
+[src/package/youtube/index.ts:48](https://github.com/rossrobino/components/blob/1e5c638/src/package/youtube/index.ts#L48)
 
 ### start
 
@@ -121,7 +121,7 @@ Base.#listenerController
 
 #### Defined in
 
-[src/package/elements/youtube/index.ts:40](https://github.com/rossrobino/components/blob/1925528/src/package/elements/youtube/index.ts#L40)
+[src/package/youtube/index.ts:40](https://github.com/rossrobino/components/blob/1e5c638/src/package/youtube/index.ts#L40)
 
 • `set` **start**(`v`): `void`
 
@@ -137,7 +137,7 @@ Base.#listenerController
 
 #### Defined in
 
-[src/package/elements/youtube/index.ts:44](https://github.com/rossrobino/components/blob/1925528/src/package/elements/youtube/index.ts#L44)
+[src/package/youtube/index.ts:44](https://github.com/rossrobino/components/blob/1e5c638/src/package/youtube/index.ts#L44)
 
 ### triggerEvent
 
@@ -153,7 +153,7 @@ Base.triggerEvent
 
 #### Defined in
 
-[src/package/elements/base/index.ts:12](https://github.com/rossrobino/components/blob/1925528/src/package/elements/base/index.ts#L12)
+[src/package/base/index.ts:12](https://github.com/rossrobino/components/blob/1e5c638/src/package/base/index.ts#L12)
 
 • `set` **triggerEvent**(`value`): `void`
 
@@ -173,7 +173,7 @@ Base.triggerEvent
 
 #### Defined in
 
-[src/package/elements/base/index.ts:17](https://github.com/rossrobino/components/blob/1925528/src/package/elements/base/index.ts#L17)
+[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/1e5c638/src/package/base/index.ts#L17)
 
 ### uid
 
@@ -185,7 +185,7 @@ Base.triggerEvent
 
 #### Defined in
 
-[src/package/elements/youtube/index.ts:30](https://github.com/rossrobino/components/blob/1925528/src/package/elements/youtube/index.ts#L30)
+[src/package/youtube/index.ts:30](https://github.com/rossrobino/components/blob/1e5c638/src/package/youtube/index.ts#L30)
 
 • `set` **uid**(`v`): `void`
 
@@ -201,7 +201,7 @@ Base.triggerEvent
 
 #### Defined in
 
-[src/package/elements/youtube/index.ts:36](https://github.com/rossrobino/components/blob/1925528/src/package/elements/youtube/index.ts#L36)
+[src/package/youtube/index.ts:36](https://github.com/rossrobino/components/blob/1e5c638/src/package/youtube/index.ts#L36)
 
 ---
 
@@ -217,7 +217,7 @@ Base.triggerEvent
 
 #### Defined in
 
-[src/package/elements/youtube/index.ts:56](https://github.com/rossrobino/components/blob/1925528/src/package/elements/youtube/index.ts#L56)
+[src/package/youtube/index.ts:56](https://github.com/rossrobino/components/blob/1e5c638/src/package/youtube/index.ts#L56)
 
 ### content
 
@@ -248,11 +248,11 @@ The element that matches the `content` selector.
 
 #### Inherited from
 
-Base.content
+[Base](/docs/classes/Base.md).[content](/docs/classes/Base.md#content)
 
 #### Defined in
 
-[src/package/elements/base/index.ts:38](https://github.com/rossrobino/components/blob/1925528/src/package/elements/base/index.ts#L38)
+[src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/1e5c638/src/package/base/index.ts#L38)
 
 ### disconnectedCallback
 
@@ -264,18 +264,18 @@ Base.content
 
 #### Inherited from
 
-Base.disconnectedCallback
+[Base](/docs/classes/Base.md).[disconnectedCallback](/docs/classes/Base.md#disconnectedcallback)
 
 #### Defined in
 
-[src/package/elements/base/index.ts:61](https://github.com/rossrobino/components/blob/1925528/src/package/elements/base/index.ts#L61)
+[src/package/base/index.ts:61](https://github.com/rossrobino/components/blob/1e5c638/src/package/base/index.ts#L61)
 
 ### safeAddEventListener
 
 ▸ **safeAddEventListener**\<`K`\>(`type`, `listener`, `options?`): `void`
 
 Wrapper around `document.addEventListener` that ensures when the
-element is removed from the DOM, these event listeners are cleaned up
+element is removed from the DOM, these event listeners are cleaned up.
 
 #### Type parameters
 
@@ -297,11 +297,11 @@ element is removed from the DOM, these event listeners are cleaned up
 
 #### Inherited from
 
-Base.safeAddEventListener
+[Base](/docs/classes/Base.md).[safeAddEventListener](/docs/classes/Base.md#safeaddeventlistener)
 
 #### Defined in
 
-[src/package/elements/base/index.ts:52](https://github.com/rossrobino/components/blob/1925528/src/package/elements/base/index.ts#L52)
+[src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/1e5c638/src/package/base/index.ts#L52)
 
 ### trigger
 
@@ -319,8 +319,8 @@ All of the elements that match the `trigger` selector.
 
 #### Inherited from
 
-Base.trigger
+[Base](/docs/classes/Base.md).[trigger](/docs/classes/Base.md#trigger)
 
 #### Defined in
 
-[src/package/elements/base/index.ts:25](https://github.com/rossrobino/components/blob/1925528/src/package/elements/base/index.ts#L25)
+[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/1e5c638/src/package/base/index.ts#L25)

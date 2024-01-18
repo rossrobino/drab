@@ -1,12 +1,10 @@
-## Description
-
 Provides triggers and animations for the `HTMLDialogElement`.
 
 ---
 
 ## Hierarchy
 
-- `Animate`
+- [`Animate`](/docs/classes/Animate.md)
 
   ↳ **`Dialog`**
 
@@ -24,11 +22,11 @@ Provides triggers and animations for the `HTMLDialogElement`.
 
 #### Overrides
 
-Animate.constructor
+[Animate](/docs/classes/Animate.md).[constructor](/docs/classes/Animate.md#constructor)
 
 #### Defined in
 
-[src/package/elements/dialog/index.ts:9](https://github.com/rossrobino/components/blob/1925528/src/package/elements/dialog/index.ts#L9)
+[src/package/dialog/index.ts:7](https://github.com/rossrobino/components/blob/1e5c638/src/package/dialog/index.ts#L7)
 
 ---
 
@@ -43,11 +41,11 @@ when the element is removed.
 
 #### Inherited from
 
-Animate.#listenerController
+[Animate](/docs/classes/Animate.md).[#listenerController](/docs/classes/Animate.md##listenercontroller)
 
 #### Defined in
 
-[src/package/elements/base/index.ts:6](https://github.com/rossrobino/components/blob/1925528/src/package/elements/base/index.ts#L6)
+[src/package/base/index.ts:6](https://github.com/rossrobino/components/blob/1e5c638/src/package/base/index.ts#L6)
 
 ---
 
@@ -69,7 +67,7 @@ Animate.animationOptions
 
 #### Defined in
 
-[src/package/elements/base/animate/index.ts:12](https://github.com/rossrobino/components/blob/1925528/src/package/elements/base/animate/index.ts#L12)
+[src/package/animate/index.ts:12](https://github.com/rossrobino/components/blob/1e5c638/src/package/animate/index.ts#L12)
 
 ### dialog
 
@@ -81,7 +79,7 @@ Animate.animationOptions
 
 #### Defined in
 
-[src/package/elements/dialog/index.ts:13](https://github.com/rossrobino/components/blob/1925528/src/package/elements/dialog/index.ts#L13)
+[src/package/dialog/index.ts:11](https://github.com/rossrobino/components/blob/1e5c638/src/package/dialog/index.ts#L11)
 
 ### keyframes
 
@@ -97,7 +95,7 @@ Animate.keyframes
 
 #### Defined in
 
-[src/package/elements/base/animate/index.ts:88](https://github.com/rossrobino/components/blob/1925528/src/package/elements/base/animate/index.ts#L88)
+[src/package/animate/index.ts:88](https://github.com/rossrobino/components/blob/1e5c638/src/package/animate/index.ts#L88)
 
 ### triggerEvent
 
@@ -113,7 +111,7 @@ Animate.triggerEvent
 
 #### Defined in
 
-[src/package/elements/base/index.ts:12](https://github.com/rossrobino/components/blob/1925528/src/package/elements/base/index.ts#L12)
+[src/package/base/index.ts:12](https://github.com/rossrobino/components/blob/1e5c638/src/package/base/index.ts#L12)
 
 • `set` **triggerEvent**(`value`): `void`
 
@@ -133,7 +131,7 @@ Animate.triggerEvent
 
 #### Defined in
 
-[src/package/elements/base/index.ts:17](https://github.com/rossrobino/components/blob/1925528/src/package/elements/base/index.ts#L17)
+[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/1e5c638/src/package/base/index.ts#L17)
 
 ---
 
@@ -166,11 +164,11 @@ Animates a particular element using the web animations API.
 
 #### Inherited from
 
-Animate.animateElement
+[Animate](/docs/classes/Animate.md).[animateElement](/docs/classes/Animate.md#animateelement)
 
 #### Defined in
 
-[src/package/elements/base/animate/index.ts:43](https://github.com/rossrobino/components/blob/1925528/src/package/elements/base/animate/index.ts#L43)
+[src/package/animate/index.ts:43](https://github.com/rossrobino/components/blob/1e5c638/src/package/animate/index.ts#L43)
 
 ### close
 
@@ -182,7 +180,7 @@ Animate.animateElement
 
 #### Defined in
 
-[src/package/elements/dialog/index.ts:22](https://github.com/rossrobino/components/blob/1925528/src/package/elements/dialog/index.ts#L22)
+[src/package/dialog/index.ts:20](https://github.com/rossrobino/components/blob/1e5c638/src/package/dialog/index.ts#L20)
 
 ### connectedCallback
 
@@ -194,7 +192,7 @@ Animate.animateElement
 
 #### Defined in
 
-[src/package/elements/dialog/index.ts:34](https://github.com/rossrobino/components/blob/1925528/src/package/elements/dialog/index.ts#L34)
+[src/package/dialog/index.ts:32](https://github.com/rossrobino/components/blob/1e5c638/src/package/dialog/index.ts#L32)
 
 ### content
 
@@ -225,11 +223,11 @@ The element that matches the `content` selector.
 
 #### Inherited from
 
-Animate.content
+[Animate](/docs/classes/Animate.md).[content](/docs/classes/Animate.md#content)
 
 #### Defined in
 
-[src/package/elements/base/index.ts:38](https://github.com/rossrobino/components/blob/1925528/src/package/elements/base/index.ts#L38)
+[src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/1e5c638/src/package/base/index.ts#L38)
 
 ### disconnectedCallback
 
@@ -241,18 +239,18 @@ Animate.content
 
 #### Inherited from
 
-Animate.disconnectedCallback
+[Animate](/docs/classes/Animate.md).[disconnectedCallback](/docs/classes/Animate.md#disconnectedcallback)
 
 #### Defined in
 
-[src/package/elements/base/index.ts:61](https://github.com/rossrobino/components/blob/1925528/src/package/elements/base/index.ts#L61)
+[src/package/base/index.ts:61](https://github.com/rossrobino/components/blob/1e5c638/src/package/base/index.ts#L61)
 
 ### safeAddEventListener
 
 ▸ **safeAddEventListener**\<`K`\>(`type`, `listener`, `options?`): `void`
 
 Wrapper around `document.addEventListener` that ensures when the
-element is removed from the DOM, these event listeners are cleaned up
+element is removed from the DOM, these event listeners are cleaned up.
 
 #### Type parameters
 
@@ -274,11 +272,11 @@ element is removed from the DOM, these event listeners are cleaned up
 
 #### Inherited from
 
-Animate.safeAddEventListener
+[Animate](/docs/classes/Animate.md).[safeAddEventListener](/docs/classes/Animate.md#safeaddeventlistener)
 
 #### Defined in
 
-[src/package/elements/base/index.ts:52](https://github.com/rossrobino/components/blob/1925528/src/package/elements/base/index.ts#L52)
+[src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/1e5c638/src/package/base/index.ts#L52)
 
 ### showModal
 
@@ -290,7 +288,7 @@ Animate.safeAddEventListener
 
 #### Defined in
 
-[src/package/elements/dialog/index.ts:17](https://github.com/rossrobino/components/blob/1925528/src/package/elements/dialog/index.ts#L17)
+[src/package/dialog/index.ts:15](https://github.com/rossrobino/components/blob/1e5c638/src/package/dialog/index.ts#L15)
 
 ### toggle
 
@@ -302,7 +300,7 @@ Animate.safeAddEventListener
 
 #### Defined in
 
-[src/package/elements/dialog/index.ts:29](https://github.com/rossrobino/components/blob/1925528/src/package/elements/dialog/index.ts#L29)
+[src/package/dialog/index.ts:27](https://github.com/rossrobino/components/blob/1e5c638/src/package/dialog/index.ts#L27)
 
 ### trigger
 
@@ -320,8 +318,8 @@ All of the elements that match the `trigger` selector.
 
 #### Inherited from
 
-Animate.trigger
+[Animate](/docs/classes/Animate.md).[trigger](/docs/classes/Animate.md#trigger)
 
 #### Defined in
 
-[src/package/elements/base/index.ts:25](https://github.com/rossrobino/components/blob/1925528/src/package/elements/base/index.ts#L25)
+[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/1e5c638/src/package/base/index.ts#L25)
