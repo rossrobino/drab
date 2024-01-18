@@ -1,14 +1,13 @@
+Uses the [Navigator API](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share)
+to share a url.
+
+---
+
 ## Hierarchy
 
-- `HTMLElement`
+- [`Base`](/docs/classes/Base.md)
 
-  ↳ **`Base`**
-
-  ↳↳ [`Animate`](/docs/classes/Animate.md)
-
-  ↳↳ [`Share`](/docs/classes/Share.md)
-
-  ↳↳ [`YouTube`](/docs/classes/YouTube.md)
+  ↳ **`Share`**
 
 ---
 
@@ -16,19 +15,19 @@
 
 ### constructor
 
-• **new Base**(): [`Base`](/docs/classes/Base.md)
+• **new Share**(): [`Share`](/docs/classes/Share.md)
 
 #### Returns
 
-[`Base`](/docs/classes/Base.md)
+[`Share`](/docs/classes/Share.md)
 
 #### Overrides
 
-HTMLElement.constructor
+[Base](/docs/classes/Base.md).[constructor](/docs/classes/Base.md#constructor)
 
 #### Defined in
 
-[src/package/base/index.ts:8](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L8)
+[src/package/share/index.ts:8](https://github.com/rossrobino/components/blob/26f52dd/src/package/share/index.ts#L8)
 
 ---
 
@@ -40,6 +39,10 @@ HTMLElement.constructor
 
 To clean up event listeners added to `document` when
 when the element is removed.
+
+#### Inherited from
+
+[Base](/docs/classes/Base.md).[#listenerController](/docs/classes/Base.md##listenercontroller)
 
 #### Defined in
 
@@ -57,6 +60,10 @@ when the element is removed.
 
 keyof `HTMLElementEventMap`
 
+#### Inherited from
+
+Base.triggerEvent
+
 #### Defined in
 
 [src/package/base/index.ts:12](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L12)
@@ -73,13 +80,57 @@ keyof `HTMLElementEventMap`
 
 `void`
 
+#### Inherited from
+
+Base.triggerEvent
+
 #### Defined in
 
 [src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L17)
 
+### url
+
+• `get` **url**(): `string`
+
+#### Returns
+
+`string`
+
+#### Defined in
+
+[src/package/share/index.ts:12](https://github.com/rossrobino/components/blob/26f52dd/src/package/share/index.ts#L12)
+
+• `set` **url**(`value`): `void`
+
+#### Parameters
+
+| Name    | Type     |
+| :------ | :------- |
+| `value` | `string` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/package/share/index.ts:16](https://github.com/rossrobino/components/blob/26f52dd/src/package/share/index.ts#L16)
+
 ---
 
 ## Methods
+
+### connectedCallback
+
+▸ **connectedCallback**(): `void`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/package/share/index.ts:31](https://github.com/rossrobino/components/blob/26f52dd/src/package/share/index.ts#L31)
 
 ### content
 
@@ -108,6 +159,10 @@ The element that matches the `content` selector.
 
 `this.querySelector("[data-content]")`
 
+#### Inherited from
+
+[Base](/docs/classes/Base.md).[content](/docs/classes/Base.md#content)
+
 #### Defined in
 
 [src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L38)
@@ -119,6 +174,10 @@ The element that matches the `content` selector.
 #### Returns
 
 `void`
+
+#### Inherited from
+
+[Base](/docs/classes/Base.md).[disconnectedCallback](/docs/classes/Base.md#disconnectedcallback)
 
 #### Defined in
 
@@ -149,9 +208,31 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 `void`
 
+#### Inherited from
+
+[Base](/docs/classes/Base.md).[safeAddEventListener](/docs/classes/Base.md#safeaddeventlistener)
+
 #### Defined in
 
 [src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L52)
+
+### share
+
+▸ **share**(`url`): `Promise`\<\{ `result`: `"copy"` \| `"share"` }\>
+
+#### Parameters
+
+| Name  | Type     |
+| :---- | :------- |
+| `url` | `string` |
+
+#### Returns
+
+`Promise`\<\{ `result`: `"copy"` \| `"share"` }\>
+
+#### Defined in
+
+[src/package/share/index.ts:20](https://github.com/rossrobino/components/blob/26f52dd/src/package/share/index.ts#L20)
 
 ### trigger
 
@@ -166,6 +247,10 @@ All of the elements that match the `trigger` selector.
 **`Default`**
 
 `this.querySelectorAll("[data-trigger]")`
+
+#### Inherited from
+
+[Base](/docs/classes/Base.md).[trigger](/docs/classes/Base.md#trigger)
 
 #### Defined in
 

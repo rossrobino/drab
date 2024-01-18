@@ -1,14 +1,20 @@
+Embeds a YouTube video iframe into a website with the video uid, using www.youtube-nocookie.com.
+
+---
+
+## Attributes
+
+- `autoplay` - auto-plays the video
+- `start` - start time (seconds)
+- `uid` - unique YouTube id found in the url
+
+---
+
 ## Hierarchy
 
-- `HTMLElement`
+- [`Base`](/docs/classes/Base.md)
 
-  ↳ **`Base`**
-
-  ↳↳ [`Animate`](/docs/classes/Animate.md)
-
-  ↳↳ [`Share`](/docs/classes/Share.md)
-
-  ↳↳ [`YouTube`](/docs/classes/YouTube.md)
+  ↳ **`YouTube`**
 
 ---
 
@@ -16,19 +22,19 @@
 
 ### constructor
 
-• **new Base**(): [`Base`](/docs/classes/Base.md)
+• **new YouTube**(): [`YouTube`](/docs/classes/YouTube.md)
 
 #### Returns
 
-[`Base`](/docs/classes/Base.md)
+[`YouTube`](/docs/classes/YouTube.md)
 
 #### Overrides
 
-HTMLElement.constructor
+[Base](/docs/classes/Base.md).[constructor](/docs/classes/Base.md#constructor)
 
 #### Defined in
 
-[src/package/base/index.ts:8](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L8)
+[src/package/youtube/index.ts:13](https://github.com/rossrobino/components/blob/26f52dd/src/package/youtube/index.ts#L13)
 
 ---
 
@@ -41,6 +47,10 @@ HTMLElement.constructor
 To clean up event listeners added to `document` when
 when the element is removed.
 
+#### Inherited from
+
+[Base](/docs/classes/Base.md).[#listenerController](/docs/classes/Base.md##listenercontroller)
+
 #### Defined in
 
 [src/package/base/index.ts:6](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L6)
@@ -49,6 +59,86 @@ when the element is removed.
 
 ## Accessors
 
+### autoplay
+
+• `get` **autoplay**(): `boolean`
+
+#### Returns
+
+`boolean`
+
+#### Defined in
+
+[src/package/youtube/index.ts:21](https://github.com/rossrobino/components/blob/26f52dd/src/package/youtube/index.ts#L21)
+
+• `set` **autoplay**(`v`): `void`
+
+#### Parameters
+
+| Name | Type      |
+| :--- | :-------- |
+| `v`  | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/package/youtube/index.ts:25](https://github.com/rossrobino/components/blob/26f52dd/src/package/youtube/index.ts#L25)
+
+### iframe
+
+• `get` **iframe**(): `Element` & `HTMLIFrameElement`
+
+#### Returns
+
+`Element` & `HTMLIFrameElement`
+
+#### Defined in
+
+[src/package/youtube/index.ts:17](https://github.com/rossrobino/components/blob/26f52dd/src/package/youtube/index.ts#L17)
+
+### src
+
+• `get` **src**(): `string`
+
+#### Returns
+
+`string`
+
+#### Defined in
+
+[src/package/youtube/index.ts:48](https://github.com/rossrobino/components/blob/26f52dd/src/package/youtube/index.ts#L48)
+
+### start
+
+• `get` **start**(): `string`
+
+#### Returns
+
+`string`
+
+#### Defined in
+
+[src/package/youtube/index.ts:40](https://github.com/rossrobino/components/blob/26f52dd/src/package/youtube/index.ts#L40)
+
+• `set` **start**(`v`): `void`
+
+#### Parameters
+
+| Name | Type     |
+| :--- | :------- |
+| `v`  | `string` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/package/youtube/index.ts:44](https://github.com/rossrobino/components/blob/26f52dd/src/package/youtube/index.ts#L44)
+
 ### triggerEvent
 
 • `get` **triggerEvent**(): keyof `HTMLElementEventMap`
@@ -56,6 +146,10 @@ when the element is removed.
 #### Returns
 
 keyof `HTMLElementEventMap`
+
+#### Inherited from
+
+Base.triggerEvent
 
 #### Defined in
 
@@ -73,13 +167,57 @@ keyof `HTMLElementEventMap`
 
 `void`
 
+#### Inherited from
+
+Base.triggerEvent
+
 #### Defined in
 
 [src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L17)
 
+### uid
+
+• `get` **uid**(): `string`
+
+#### Returns
+
+`string`
+
+#### Defined in
+
+[src/package/youtube/index.ts:30](https://github.com/rossrobino/components/blob/26f52dd/src/package/youtube/index.ts#L30)
+
+• `set` **uid**(`v`): `void`
+
+#### Parameters
+
+| Name | Type     |
+| :--- | :------- |
+| `v`  | `string` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/package/youtube/index.ts:36](https://github.com/rossrobino/components/blob/26f52dd/src/package/youtube/index.ts#L36)
+
 ---
 
 ## Methods
+
+### connectedCallback
+
+▸ **connectedCallback**(): `void`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/package/youtube/index.ts:56](https://github.com/rossrobino/components/blob/26f52dd/src/package/youtube/index.ts#L56)
 
 ### content
 
@@ -108,6 +246,10 @@ The element that matches the `content` selector.
 
 `this.querySelector("[data-content]")`
 
+#### Inherited from
+
+[Base](/docs/classes/Base.md).[content](/docs/classes/Base.md#content)
+
 #### Defined in
 
 [src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L38)
@@ -119,6 +261,10 @@ The element that matches the `content` selector.
 #### Returns
 
 `void`
+
+#### Inherited from
+
+[Base](/docs/classes/Base.md).[disconnectedCallback](/docs/classes/Base.md#disconnectedcallback)
 
 #### Defined in
 
@@ -149,6 +295,10 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 `void`
 
+#### Inherited from
+
+[Base](/docs/classes/Base.md).[safeAddEventListener](/docs/classes/Base.md#safeaddeventlistener)
+
 #### Defined in
 
 [src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L52)
@@ -166,6 +316,10 @@ All of the elements that match the `trigger` selector.
 **`Default`**
 
 `this.querySelectorAll("[data-trigger]")`
+
+#### Inherited from
+
+[Base](/docs/classes/Base.md).[trigger](/docs/classes/Base.md#trigger)
 
 #### Defined in
 

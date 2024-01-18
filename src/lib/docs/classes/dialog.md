@@ -1,10 +1,12 @@
+Provides triggers and animations for the `HTMLDialogElement`.
+
+---
+
 ## Hierarchy
 
-- [`Base`](/docs/classes/Base.md)
+- [`Animate`](/docs/classes/Animate.md)
 
-  ↳ **`Animate`**
-
-  ↳↳ [`Dialog`](/docs/classes/Dialog.md)
+  ↳ **`Dialog`**
 
 ---
 
@@ -12,19 +14,19 @@
 
 ### constructor
 
-• **new Animate**(): [`Animate`](/docs/classes/Animate.md)
+• **new Dialog**(): [`Dialog`](/docs/classes/Dialog.md)
 
 #### Returns
 
-[`Animate`](/docs/classes/Animate.md)
+[`Dialog`](/docs/classes/Dialog.md)
 
 #### Overrides
 
-[Base](/docs/classes/Base.md).[constructor](/docs/classes/Base.md#constructor)
+[Animate](/docs/classes/Animate.md).[constructor](/docs/classes/Animate.md#constructor)
 
 #### Defined in
 
-[src/package/animate/index.ts:5](https://github.com/rossrobino/components/blob/26f52dd/src/package/animate/index.ts#L5)
+[src/package/dialog/index.ts:7](https://github.com/rossrobino/components/blob/26f52dd/src/package/dialog/index.ts#L7)
 
 ---
 
@@ -39,7 +41,7 @@ when the element is removed.
 
 #### Inherited from
 
-[Base](/docs/classes/Base.md).[#listenerController](/docs/classes/Base.md##listenercontroller)
+[Animate](/docs/classes/Animate.md).[#listenerController](/docs/classes/Animate.md##listenercontroller)
 
 #### Defined in
 
@@ -59,9 +61,25 @@ when the element is removed.
 
 An object containing the values of each `animation-option` attribute
 
+#### Inherited from
+
+Animate.animationOptions
+
 #### Defined in
 
 [src/package/animate/index.ts:12](https://github.com/rossrobino/components/blob/26f52dd/src/package/animate/index.ts#L12)
+
+### dialog
+
+• `get` **dialog**(): `Element` & `HTMLDialogElement`
+
+#### Returns
+
+`Element` & `HTMLDialogElement`
+
+#### Defined in
+
+[src/package/dialog/index.ts:11](https://github.com/rossrobino/components/blob/26f52dd/src/package/dialog/index.ts#L11)
 
 ### keyframes
 
@@ -70,6 +88,10 @@ An object containing the values of each `animation-option` attribute
 #### Returns
 
 `Keyframe`[]
+
+#### Inherited from
+
+Animate.keyframes
 
 #### Defined in
 
@@ -85,7 +107,7 @@ keyof `HTMLElementEventMap`
 
 #### Inherited from
 
-Base.triggerEvent
+Animate.triggerEvent
 
 #### Defined in
 
@@ -105,7 +127,7 @@ Base.triggerEvent
 
 #### Inherited from
 
-Base.triggerEvent
+Animate.triggerEvent
 
 #### Defined in
 
@@ -140,9 +162,37 @@ Animates a particular element using the web animations API.
 - Waits for the animation to complete
 - Sets the start and end styles based on the first and last keyframe
 
+#### Inherited from
+
+[Animate](/docs/classes/Animate.md).[animateElement](/docs/classes/Animate.md#animateelement)
+
 #### Defined in
 
 [src/package/animate/index.ts:43](https://github.com/rossrobino/components/blob/26f52dd/src/package/animate/index.ts#L43)
+
+### close
+
+▸ **close**(): `Promise`\<`void`\>
+
+#### Returns
+
+`Promise`\<`void`\>
+
+#### Defined in
+
+[src/package/dialog/index.ts:20](https://github.com/rossrobino/components/blob/26f52dd/src/package/dialog/index.ts#L20)
+
+### connectedCallback
+
+▸ **connectedCallback**(): `void`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/package/dialog/index.ts:32](https://github.com/rossrobino/components/blob/26f52dd/src/package/dialog/index.ts#L32)
 
 ### content
 
@@ -173,7 +223,7 @@ The element that matches the `content` selector.
 
 #### Inherited from
 
-[Base](/docs/classes/Base.md).[content](/docs/classes/Base.md#content)
+[Animate](/docs/classes/Animate.md).[content](/docs/classes/Animate.md#content)
 
 #### Defined in
 
@@ -189,7 +239,7 @@ The element that matches the `content` selector.
 
 #### Inherited from
 
-[Base](/docs/classes/Base.md).[disconnectedCallback](/docs/classes/Base.md#disconnectedcallback)
+[Animate](/docs/classes/Animate.md).[disconnectedCallback](/docs/classes/Animate.md#disconnectedcallback)
 
 #### Defined in
 
@@ -222,11 +272,35 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Inherited from
 
-[Base](/docs/classes/Base.md).[safeAddEventListener](/docs/classes/Base.md#safeaddeventlistener)
+[Animate](/docs/classes/Animate.md).[safeAddEventListener](/docs/classes/Animate.md#safeaddeventlistener)
 
 #### Defined in
 
 [src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/26f52dd/src/package/base/index.ts#L52)
+
+### showModal
+
+▸ **showModal**(): `Promise`\<`void`\>
+
+#### Returns
+
+`Promise`\<`void`\>
+
+#### Defined in
+
+[src/package/dialog/index.ts:15](https://github.com/rossrobino/components/blob/26f52dd/src/package/dialog/index.ts#L15)
+
+### toggle
+
+▸ **toggle**(): `Promise`\<`void`\>
+
+#### Returns
+
+`Promise`\<`void`\>
+
+#### Defined in
+
+[src/package/dialog/index.ts:27](https://github.com/rossrobino/components/blob/26f52dd/src/package/dialog/index.ts#L27)
 
 ### trigger
 
@@ -244,7 +318,7 @@ All of the elements that match the `trigger` selector.
 
 #### Inherited from
 
-[Base](/docs/classes/Base.md).[trigger](/docs/classes/Base.md#trigger)
+[Animate](/docs/classes/Animate.md).[trigger](/docs/classes/Animate.md#trigger)
 
 #### Defined in
 
