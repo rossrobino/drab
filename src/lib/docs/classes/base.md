@@ -15,6 +15,8 @@ default selector from `[data-trigger]` and `[data-content]`.
 
   ↳↳ [`Animate`](/docs/classes/Animate.md)
 
+  ↳↳ [`Copy`](/docs/classes/Copy.md)
+
   ↳↳ [`Fullscreen`](/docs/classes/Fullscreen.md)
 
   ↳↳ [`Share`](/docs/classes/Share.md)
@@ -39,7 +41,7 @@ HTMLElement.constructor
 
 #### Defined in
 
-[src/package/base/index.ts:16](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L16)
+[src/package/base/index.ts:16](https://github.com/rossrobino/components/blob/87b3d4e/src/package/base/index.ts#L16)
 
 ---
 
@@ -54,7 +56,7 @@ when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:14](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L14)
+[src/package/base/index.ts:14](https://github.com/rossrobino/components/blob/87b3d4e/src/package/base/index.ts#L14)
 
 ---
 
@@ -78,7 +80,7 @@ keyof `HTMLElementEventMap`
 
 #### Defined in
 
-[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L25)
+[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/87b3d4e/src/package/base/index.ts#L25)
 
 • `set` **triggerEvent**(`value`): `void`
 
@@ -94,7 +96,7 @@ keyof `HTMLElementEventMap`
 
 #### Defined in
 
-[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L30)
+[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/87b3d4e/src/package/base/index.ts#L30)
 
 ---
 
@@ -130,7 +132,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L52)
+[src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/87b3d4e/src/package/base/index.ts#L52)
 
 ### disconnectedCallback
 
@@ -142,7 +144,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:77](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L77)
+[src/package/base/index.ts:77](https://github.com/rossrobino/components/blob/87b3d4e/src/package/base/index.ts#L77)
 
 ### safeAddEventListener
 
@@ -171,7 +173,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:68](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L68)
+[src/package/base/index.ts:68](https://github.com/rossrobino/components/blob/87b3d4e/src/package/base/index.ts#L68)
 
 ### trigger
 
@@ -191,4 +193,4 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L38)
+[src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/87b3d4e/src/package/base/index.ts#L38)

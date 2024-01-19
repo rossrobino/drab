@@ -1,12 +1,13 @@
-Provides triggers and animations for the `HTMLDialogElement`.
+Uses the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText)
+to copy text.
 
 ---
 
 ## Hierarchy
 
-- [`Animate`](/docs/classes/Animate.md)
+- [`Base`](/docs/classes/Base.md)
 
-  ↳ **`Dialog`**
+  ↳ **`Copy`**
 
 ---
 
@@ -14,19 +15,19 @@ Provides triggers and animations for the `HTMLDialogElement`.
 
 ### constructor
 
-• **new Dialog**(): [`Dialog`](/docs/classes/Dialog.md)
+• **new Copy**(): [`Copy`](/docs/classes/Copy.md)
 
 #### Returns
 
-[`Dialog`](/docs/classes/Dialog.md)
+[`Copy`](/docs/classes/Copy.md)
 
 #### Overrides
 
-[Animate](/docs/classes/Animate.md).[constructor](/docs/classes/Animate.md#constructor)
+[Base](/docs/classes/Base.md).[constructor](/docs/classes/Base.md#constructor)
 
 #### Defined in
 
-[src/package/dialog/index.ts:7](https://github.com/rossrobino/components/blob/87b3d4e/src/package/dialog/index.ts#L7)
+src/package/copy/index.ts:8
 
 ---
 
@@ -41,7 +42,7 @@ when the element is removed.
 
 #### Inherited from
 
-[Animate](/docs/classes/Animate.md).[#listenerController](/docs/classes/Animate.md##listenercontroller)
+[Base](/docs/classes/Base.md).[#listenerController](/docs/classes/Base.md##listenercontroller)
 
 #### Defined in
 
@@ -51,53 +52,71 @@ when the element is removed.
 
 ## Accessors
 
-### animationOptions
+### complete
 
-• `get` **animationOptions**(): `KeyframeAnimationOptions`
+• `get` **complete**(): `string`
 
-#### Returns
-
-`KeyframeAnimationOptions`
-
-An object containing the values of each `animation-option` attribute
-
-#### Inherited from
-
-Animate.animationOptions
-
-#### Defined in
-
-[src/package/animate/index.ts:28](https://github.com/rossrobino/components/blob/87b3d4e/src/package/animate/index.ts#L28)
-
-### dialog
-
-• `get` **dialog**(): `HTMLDialogElement`
-
-The `HTMLDialogElement` within the element.
+Optional text to display when copy is complete.
 
 #### Returns
 
-`HTMLDialogElement`
+`string`
 
 #### Defined in
 
-[src/package/dialog/index.ts:12](https://github.com/rossrobino/components/blob/87b3d4e/src/package/dialog/index.ts#L12)
+src/package/copy/index.ts:28
 
-### keyframes
+• `set` **complete**(`value`): `void`
 
-• `get` **keyframes**(): `Keyframe`[]
+#### Parameters
+
+| Name    | Type     |
+| :------ | :------- |
+| `value` | `string` |
 
 #### Returns
 
-`Keyframe`[]
-
-#### Inherited from
-
-Animate.keyframes
+`void`
 
 #### Defined in
 
-[src/package/animate/index.ts:104](https://github.com/rossrobino/components/blob/87b3d4e/src/package/animate/index.ts#L104)
+src/package/copy/index.ts:32
+
+### text
+
+• `get` **text**(): `string`
+
+The `text` to copy.
+
+#### Returns
+
+`string`
+
+**`Default`**
+
+```ts
+"" the empty string
+```
+
+#### Defined in
+
+src/package/copy/index.ts:17
+
+• `set` **text**(`value`): `void`
+
+#### Parameters
+
+| Name    | Type     |
+| :------ | :------- |
+| `value` | `string` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+src/package/copy/index.ts:21
 
 ### triggerEvent
 
@@ -117,7 +136,7 @@ keyof `HTMLElementEventMap`
 
 #### Inherited from
 
-Animate.triggerEvent
+Base.triggerEvent
 
 #### Defined in
 
@@ -137,7 +156,7 @@ Animate.triggerEvent
 
 #### Inherited from
 
-Animate.triggerEvent
+Base.triggerEvent
 
 #### Defined in
 
@@ -146,53 +165,6 @@ Animate.triggerEvent
 ---
 
 ## Methods
-
-### animateElement
-
-▸ **animateElement**(`element`, `options?`): `Promise`\<`void`\>
-
-#### Parameters
-
-| Name      | Type                       |
-| :-------- | :------------------------- |
-| `element` | `HTMLElement`              |
-| `options` | `KeyframeAnimationOptions` |
-
-#### Returns
-
-`Promise`\<`void`\>
-
-**`Description`**
-
-Animates a particular element using the web animations API.
-
-- Disables animation if the user prefers reduced motion.
-- Sets default options
-- Uses the keyframes provided from `this.keyframes`
-- Waits for the animation to complete
-- Sets the start and end styles based on the first and last keyframe
-
-#### Inherited from
-
-[Animate](/docs/classes/Animate.md).[animateElement](/docs/classes/Animate.md#animateelement)
-
-#### Defined in
-
-[src/package/animate/index.ts:59](https://github.com/rossrobino/components/blob/87b3d4e/src/package/animate/index.ts#L59)
-
-### close
-
-▸ **close**(): `Promise`\<`void`\>
-
-`HTMLDialogElement.close()` with animation.
-
-#### Returns
-
-`Promise`\<`void`\>
-
-#### Defined in
-
-[src/package/dialog/index.ts:23](https://github.com/rossrobino/components/blob/87b3d4e/src/package/dialog/index.ts#L23)
 
 ### connectedCallback
 
@@ -204,7 +176,7 @@ Animates a particular element using the web animations API.
 
 #### Defined in
 
-[src/package/dialog/index.ts:36](https://github.com/rossrobino/components/blob/87b3d4e/src/package/dialog/index.ts#L36)
+src/package/copy/index.ts:46
 
 ### content
 
@@ -236,11 +208,34 @@ this.querySelector("[data-content]");
 
 #### Inherited from
 
-[Animate](/docs/classes/Animate.md).[content](/docs/classes/Animate.md#content)
+[Base](/docs/classes/Base.md).[content](/docs/classes/Base.md#content)
 
 #### Defined in
 
 [src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/87b3d4e/src/package/base/index.ts#L52)
+
+### copy
+
+▸ **copy**(`text?`): `Promise`\<`void`\>
+
+Copies the `text`.
+
+#### Parameters
+
+| Name   | Type     | Description        |
+| :----- | :------- | :----------------- |
+| `text` | `string` | The `url` to share |
+
+#### Returns
+
+`Promise`\<`void`\>
+
+An object containing a `result` - whether the `url` was copied or shared
+depending on browser support.
+
+#### Defined in
+
+src/package/copy/index.ts:42
 
 ### disconnectedCallback
 
@@ -252,7 +247,7 @@ this.querySelector("[data-content]");
 
 #### Inherited from
 
-[Animate](/docs/classes/Animate.md).[disconnectedCallback](/docs/classes/Animate.md#disconnectedcallback)
+[Base](/docs/classes/Base.md).[disconnectedCallback](/docs/classes/Base.md#disconnectedcallback)
 
 #### Defined in
 
@@ -285,39 +280,11 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Inherited from
 
-[Animate](/docs/classes/Animate.md).[safeAddEventListener](/docs/classes/Animate.md#safeaddeventlistener)
+[Base](/docs/classes/Base.md).[safeAddEventListener](/docs/classes/Base.md#safeaddeventlistener)
 
 #### Defined in
 
 [src/package/base/index.ts:68](https://github.com/rossrobino/components/blob/87b3d4e/src/package/base/index.ts#L68)
-
-### showModal
-
-▸ **showModal**(): `Promise`\<`void`\>
-
-`HTMLDialogElement.showModal()` with animation.
-
-#### Returns
-
-`Promise`\<`void`\>
-
-#### Defined in
-
-[src/package/dialog/index.ts:17](https://github.com/rossrobino/components/blob/87b3d4e/src/package/dialog/index.ts#L17)
-
-### toggle
-
-▸ **toggle**(): `Promise`\<`void`\>
-
-`showModal` or `close` depending on the dialog's `open` attribute.
-
-#### Returns
-
-`Promise`\<`void`\>
-
-#### Defined in
-
-[src/package/dialog/index.ts:31](https://github.com/rossrobino/components/blob/87b3d4e/src/package/dialog/index.ts#L31)
 
 ### trigger
 
@@ -337,7 +304,7 @@ this.querySelectorAll("[data-trigger]");
 
 #### Inherited from
 
-[Animate](/docs/classes/Animate.md).[trigger](/docs/classes/Animate.md#trigger)
+[Base](/docs/classes/Base.md).[trigger](/docs/classes/Base.md#trigger)
 
 #### Defined in
 

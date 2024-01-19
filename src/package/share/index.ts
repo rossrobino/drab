@@ -23,6 +23,17 @@ export class Share extends Base {
 	}
 
 	/**
+	 * Optional text to display when copy is complete.
+	 */
+	get complete() {
+		return this.getAttribute("complete") ?? "";
+	}
+
+	set complete(value) {
+		this.setAttribute("complete", value);
+	}
+
+	/**
 	 * Shares or copies the `url`.
 	 * @param url The `url` to share
 	 * @returns An object containing a `result` - whether the `url` was copied or shared
@@ -44,10 +55,10 @@ export class Share extends Base {
 			trigger.addEventListener(this.triggerEvent, async () => {
 				try {
 					const { result } = await this.share();
-					if (result === "copy") {
-						const originalText = trigger.textContent;
-						trigger.textContent = "Copied";
-						setTimeout(() => (trigger.textContent = originalText), 800);
+					if (result === "copy" && this.complete) {
+						const originalText = this.content().textContent;
+						this.content().textContent = this.complete;
+						setTimeout(() => (this.content().textContent = originalText), 800);
 					}
 				} catch (error: any) {
 					if (error?.name !== "AbortError") {

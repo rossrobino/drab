@@ -1,4 +1,4 @@
-The `Animate` base class provides a declarative way using the
+The `Animate` base class provides a declarative way to use the
 [Web Animations API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API)
 through HTML attributes. The `animateElement` method uses these attributes and
 persists the final animation state. Other elements in **drab** extend this class
@@ -43,7 +43,7 @@ Animations options can also be set:
 
 #### Defined in
 
-[src/package/animate/index.ts:21](https://github.com/rossrobino/components/blob/c8d936f/src/package/animate/index.ts#L21)
+[src/package/animate/index.ts:21](https://github.com/rossrobino/components/blob/87b3d4e/src/package/animate/index.ts#L21)
 
 ---
 
@@ -62,7 +62,7 @@ when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:14](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L14)
+[src/package/base/index.ts:14](https://github.com/rossrobino/components/blob/87b3d4e/src/package/base/index.ts#L14)
 
 ---
 
@@ -80,7 +80,7 @@ An object containing the values of each `animation-option` attribute
 
 #### Defined in
 
-[src/package/animate/index.ts:28](https://github.com/rossrobino/components/blob/c8d936f/src/package/animate/index.ts#L28)
+[src/package/animate/index.ts:28](https://github.com/rossrobino/components/blob/87b3d4e/src/package/animate/index.ts#L28)
 
 ### keyframes
 
@@ -92,7 +92,7 @@ An object containing the values of each `animation-option` attribute
 
 #### Defined in
 
-[src/package/animate/index.ts:104](https://github.com/rossrobino/components/blob/c8d936f/src/package/animate/index.ts#L104)
+[src/package/animate/index.ts:104](https://github.com/rossrobino/components/blob/87b3d4e/src/package/animate/index.ts#L104)
 
 ### triggerEvent
 
@@ -116,7 +116,7 @@ Base.triggerEvent
 
 #### Defined in
 
-[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L25)
+[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/87b3d4e/src/package/base/index.ts#L25)
 
 • `set` **triggerEvent**(`value`): `void`
 
@@ -136,7 +136,7 @@ Base.triggerEvent
 
 #### Defined in
 
-[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L30)
+[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/87b3d4e/src/package/base/index.ts#L30)
 
 ---
 
@@ -169,7 +169,7 @@ Animates a particular element using the web animations API.
 
 #### Defined in
 
-[src/package/animate/index.ts:59](https://github.com/rossrobino/components/blob/c8d936f/src/package/animate/index.ts#L59)
+[src/package/animate/index.ts:59](https://github.com/rossrobino/components/blob/87b3d4e/src/package/animate/index.ts#L59)
 
 ### content
 
@@ -205,7 +205,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L52)
+[src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/87b3d4e/src/package/base/index.ts#L52)
 
 ### disconnectedCallback
 
@@ -221,7 +221,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:77](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L77)
+[src/package/base/index.ts:77](https://github.com/rossrobino/components/blob/87b3d4e/src/package/base/index.ts#L77)
 
 ### safeAddEventListener
 
@@ -254,7 +254,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:68](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L68)
+[src/package/base/index.ts:68](https://github.com/rossrobino/components/blob/87b3d4e/src/package/base/index.ts#L68)
 
 ### trigger
 
@@ -278,4 +278,4 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L38)
+[src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/87b3d4e/src/package/base/index.ts#L38)

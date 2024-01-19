@@ -4,6 +4,7 @@
 
 - [Animate](/docs/classes/Animate.md)
 - [Base](/docs/classes/Base.md)
+- [Copy](/docs/classes/Copy.md)
 - [Details](/docs/classes/Details.md)
 - [Dialog](/docs/classes/Dialog.md)
 - [Fullscreen](/docs/classes/Fullscreen.md)

@@ -35,7 +35,7 @@ export class Details extends Animate {
 
 	connectedCallback() {
 		for (const trigger of this.trigger()) {
-			trigger.addEventListener("click", (e) => {
+			trigger.addEventListener(this.triggerEvent, (e) => {
 				e.preventDefault();
 				this.toggle();
 			});
