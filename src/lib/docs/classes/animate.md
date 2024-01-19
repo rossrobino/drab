@@ -47,7 +47,7 @@ Animations options can also be set:
 
 #### Defined in
 
-[src/package/animate/index.ts:25](https://github.com/rossrobino/components/blob/3b25f8c/src/package/animate/index.ts#L25)
+[src/package/animate/index.ts:25](https://github.com/rossrobino/components/blob/8918ae1/src/package/animate/index.ts#L25)
 
 ---
 
@@ -66,7 +66,7 @@ when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:14](https://github.com/rossrobino/components/blob/3b25f8c/src/package/base/index.ts#L14)
+[src/package/base/index.ts:14](https://github.com/rossrobino/components/blob/8918ae1/src/package/base/index.ts#L14)
 
 ---
 
@@ -84,7 +84,7 @@ An object containing the values of each `animation-option` attribute
 
 #### Defined in
 
-[src/package/animate/index.ts:32](https://github.com/rossrobino/components/blob/3b25f8c/src/package/animate/index.ts#L32)
+[src/package/animate/index.ts:32](https://github.com/rossrobino/components/blob/8918ae1/src/package/animate/index.ts#L32)
 
 ### keyframes
 
@@ -96,7 +96,7 @@ An object containing the values of each `animation-option` attribute
 
 #### Defined in
 
-[src/package/animate/index.ts:108](https://github.com/rossrobino/components/blob/3b25f8c/src/package/animate/index.ts#L108)
+[src/package/animate/index.ts:108](https://github.com/rossrobino/components/blob/8918ae1/src/package/animate/index.ts#L108)
 
 ### triggerEvent
 
@@ -120,7 +120,7 @@ Base.triggerEvent
 
 #### Defined in
 
-[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/3b25f8c/src/package/base/index.ts#L25)
+[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/8918ae1/src/package/base/index.ts#L25)
 
 • `set` **triggerEvent**(`value`): `void`
 
@@ -140,7 +140,7 @@ Base.triggerEvent
 
 #### Defined in
 
-[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/3b25f8c/src/package/base/index.ts#L30)
+[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/8918ae1/src/package/base/index.ts#L30)
 
 ---
 
@@ -173,7 +173,7 @@ Animates a particular element using the web animations API.
 
 #### Defined in
 
-[src/package/animate/index.ts:63](https://github.com/rossrobino/components/blob/3b25f8c/src/package/animate/index.ts#L63)
+[src/package/animate/index.ts:63](https://github.com/rossrobino/components/blob/8918ae1/src/package/animate/index.ts#L63)
 
 ### content
 
@@ -209,7 +209,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/3b25f8c/src/package/base/index.ts#L52)
+[src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/8918ae1/src/package/base/index.ts#L52)
 
 ### disconnectedCallback
 
@@ -225,7 +225,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:77](https://github.com/rossrobino/components/blob/3b25f8c/src/package/base/index.ts#L77)
+[src/package/base/index.ts:77](https://github.com/rossrobino/components/blob/8918ae1/src/package/base/index.ts#L77)
 
 ### safeAddEventListener
 
@@ -258,7 +258,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:68](https://github.com/rossrobino/components/blob/3b25f8c/src/package/base/index.ts#L68)
+[src/package/base/index.ts:68](https://github.com/rossrobino/components/blob/8918ae1/src/package/base/index.ts#L68)
 
 ### trigger
 
@@ -282,4 +282,4 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/3b25f8c/src/package/base/index.ts#L38)
+[src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/8918ae1/src/package/base/index.ts#L38)

@@ -5,7 +5,7 @@ to copy text.
 
 ## Hierarchy
 
-- [`Base`](/docs/classes/Base.md)
+- `BaseCopy`
 
   ↳ **`Copy`**
 
@@ -23,11 +23,11 @@ to copy text.
 
 #### Overrides
 
-[Base](/docs/classes/Base.md).[constructor](/docs/classes/Base.md#constructor)
+BaseCopy.constructor
 
 #### Defined in
 
-[src/package/copy/index.ts:8](https://github.com/rossrobino/components/blob/3b25f8c/src/package/copy/index.ts#L8)
+[src/package/copy/index.ts:8](https://github.com/rossrobino/components/blob/8918ae1/src/package/copy/index.ts#L8)
 
 ---
 
@@ -42,11 +42,11 @@ when the element is removed.
 
 #### Inherited from
 
-[Base](/docs/classes/Base.md).[#listenerController](/docs/classes/Base.md##listenercontroller)
+BaseCopy.#listenerController
 
 #### Defined in
 
-[src/package/base/index.ts:14](https://github.com/rossrobino/components/blob/3b25f8c/src/package/base/index.ts#L14)
+[src/package/base/index.ts:14](https://github.com/rossrobino/components/blob/8918ae1/src/package/base/index.ts#L14)
 
 ---
 
@@ -62,9 +62,13 @@ Optional text to display when copy is complete.
 
 `string`
 
+#### Inherited from
+
+BaseCopy.complete
+
 #### Defined in
 
-[src/package/copy/index.ts:28](https://github.com/rossrobino/components/blob/3b25f8c/src/package/copy/index.ts#L28)
+src/package/base/copy/index.ts:22
 
 • `set` **complete**(`value`): `void`
 
@@ -78,45 +82,13 @@ Optional text to display when copy is complete.
 
 `void`
 
-#### Defined in
+#### Inherited from
 
-[src/package/copy/index.ts:32](https://github.com/rossrobino/components/blob/3b25f8c/src/package/copy/index.ts#L32)
-
-### text
-
-• `get` **text**(): `string`
-
-The `text` to copy.
-
-#### Returns
-
-`string`
-
-**`Default`**
-
-```ts
-"" the empty string
-```
+BaseCopy.complete
 
 #### Defined in
 
-[src/package/copy/index.ts:17](https://github.com/rossrobino/components/blob/3b25f8c/src/package/copy/index.ts#L17)
-
-• `set` **text**(`value`): `void`
-
-#### Parameters
-
-| Name    | Type     |
-| :------ | :------- |
-| `value` | `string` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/package/copy/index.ts:21](https://github.com/rossrobino/components/blob/3b25f8c/src/package/copy/index.ts#L21)
+src/package/base/copy/index.ts:26
 
 ### triggerEvent
 
@@ -136,11 +108,11 @@ keyof `HTMLElementEventMap`
 
 #### Inherited from
 
-Base.triggerEvent
+BaseCopy.triggerEvent
 
 #### Defined in
 
-[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/3b25f8c/src/package/base/index.ts#L25)
+[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/8918ae1/src/package/base/index.ts#L25)
 
 • `set` **triggerEvent**(`value`): `void`
 
@@ -156,11 +128,53 @@ Base.triggerEvent
 
 #### Inherited from
 
-Base.triggerEvent
+BaseCopy.triggerEvent
 
 #### Defined in
 
-[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/3b25f8c/src/package/base/index.ts#L30)
+[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/8918ae1/src/package/base/index.ts#L30)
+
+### value
+
+• `get` **value**(): `string`
+
+#### Returns
+
+`string`
+
+**`Default`**
+
+```ts
+"" the empty string
+```
+
+#### Inherited from
+
+BaseCopy.value
+
+#### Defined in
+
+src/package/base/copy/index.ts:11
+
+• `set` **value**(`value`): `void`
+
+#### Parameters
+
+| Name    | Type     |
+| :------ | :------- |
+| `value` | `string` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+BaseCopy.value
+
+#### Defined in
+
+src/package/base/copy/index.ts:15
 
 ---
 
@@ -176,7 +190,7 @@ Base.triggerEvent
 
 #### Defined in
 
-[src/package/copy/index.ts:44](https://github.com/rossrobino/components/blob/3b25f8c/src/package/copy/index.ts#L44)
+[src/package/copy/index.ts:12](https://github.com/rossrobino/components/blob/8918ae1/src/package/copy/index.ts#L12)
 
 ### content
 
@@ -208,11 +222,11 @@ this.querySelector("[data-content]");
 
 #### Inherited from
 
-[Base](/docs/classes/Base.md).[content](/docs/classes/Base.md#content)
+BaseCopy.content
 
 #### Defined in
 
-[src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/3b25f8c/src/package/base/index.ts#L52)
+[src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/8918ae1/src/package/base/index.ts#L52)
 
 ### copy
 
@@ -230,9 +244,13 @@ Copies the `text`.
 
 `Promise`\<`void`\>
 
+#### Inherited from
+
+BaseCopy.copy
+
 #### Defined in
 
-[src/package/copy/index.ts:40](https://github.com/rossrobino/components/blob/3b25f8c/src/package/copy/index.ts#L40)
+src/package/base/copy/index.ts:34
 
 ### disconnectedCallback
 
@@ -244,11 +262,11 @@ Copies the `text`.
 
 #### Inherited from
 
-[Base](/docs/classes/Base.md).[disconnectedCallback](/docs/classes/Base.md#disconnectedcallback)
+BaseCopy.disconnectedCallback
 
 #### Defined in
 
-[src/package/base/index.ts:77](https://github.com/rossrobino/components/blob/3b25f8c/src/package/base/index.ts#L77)
+[src/package/base/index.ts:77](https://github.com/rossrobino/components/blob/8918ae1/src/package/base/index.ts#L77)
 
 ### safeAddEventListener
 
@@ -277,11 +295,11 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Inherited from
 
-[Base](/docs/classes/Base.md).[safeAddEventListener](/docs/classes/Base.md#safeaddeventlistener)
+BaseCopy.safeAddEventListener
 
 #### Defined in
 
-[src/package/base/index.ts:68](https://github.com/rossrobino/components/blob/3b25f8c/src/package/base/index.ts#L68)
+[src/package/base/index.ts:68](https://github.com/rossrobino/components/blob/8918ae1/src/package/base/index.ts#L68)
 
 ### trigger
 
@@ -301,8 +319,8 @@ this.querySelectorAll("[data-trigger]");
 
 #### Inherited from
 
-[Base](/docs/classes/Base.md).[trigger](/docs/classes/Base.md#trigger)
+BaseCopy.trigger
 
 #### Defined in
 
-[src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/3b25f8c/src/package/base/index.ts#L38)
+[src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/8918ae1/src/package/base/index.ts#L38)
