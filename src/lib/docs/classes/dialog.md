@@ -26,7 +26,7 @@ Provides triggers and animations for the `HTMLDialogElement`.
 
 #### Defined in
 
-[src/package/dialog/index.ts:7](https://github.com/rossrobino/components/blob/c91c737/src/package/dialog/index.ts#L7)
+[src/package/dialog/index.ts:7](https://github.com/rossrobino/components/blob/630574a/src/package/dialog/index.ts#L7)
 
 ---
 
@@ -45,7 +45,7 @@ when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:6](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L6)
+[src/package/base/index.ts:6](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L6)
 
 ---
 
@@ -67,7 +67,7 @@ Animate.animationOptions
 
 #### Defined in
 
-[src/package/animate/index.ts:12](https://github.com/rossrobino/components/blob/c91c737/src/package/animate/index.ts#L12)
+[src/package/animate/index.ts:12](https://github.com/rossrobino/components/blob/630574a/src/package/animate/index.ts#L12)
 
 ### dialog
 
@@ -81,7 +81,7 @@ The `HTMLDialogElement` within the element.
 
 #### Defined in
 
-[src/package/dialog/index.ts:12](https://github.com/rossrobino/components/blob/c91c737/src/package/dialog/index.ts#L12)
+[src/package/dialog/index.ts:12](https://github.com/rossrobino/components/blob/630574a/src/package/dialog/index.ts#L12)
 
 ### keyframes
 
@@ -97,7 +97,7 @@ Animate.keyframes
 
 #### Defined in
 
-[src/package/animate/index.ts:88](https://github.com/rossrobino/components/blob/c91c737/src/package/animate/index.ts#L88)
+[src/package/animate/index.ts:88](https://github.com/rossrobino/components/blob/630574a/src/package/animate/index.ts#L88)
 
 ### triggerEvent
 
@@ -113,7 +113,7 @@ Animate.triggerEvent
 
 #### Defined in
 
-[src/package/base/index.ts:12](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L12)
+[src/package/base/index.ts:12](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L12)
 
 • `set` **triggerEvent**(`value`): `void`
 
@@ -133,7 +133,7 @@ Animate.triggerEvent
 
 #### Defined in
 
-[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L17)
+[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L17)
 
 ---
 
@@ -170,7 +170,7 @@ Animates a particular element using the web animations API.
 
 #### Defined in
 
-[src/package/animate/index.ts:43](https://github.com/rossrobino/components/blob/c91c737/src/package/animate/index.ts#L43)
+[src/package/animate/index.ts:43](https://github.com/rossrobino/components/blob/630574a/src/package/animate/index.ts#L43)
 
 ### close
 
@@ -184,7 +184,7 @@ Animates a particular element using the web animations API.
 
 #### Defined in
 
-[src/package/dialog/index.ts:23](https://github.com/rossrobino/components/blob/c91c737/src/package/dialog/index.ts#L23)
+[src/package/dialog/index.ts:23](https://github.com/rossrobino/components/blob/630574a/src/package/dialog/index.ts#L23)
 
 ### connectedCallback
 
@@ -196,7 +196,7 @@ Animates a particular element using the web animations API.
 
 #### Defined in
 
-[src/package/dialog/index.ts:36](https://github.com/rossrobino/components/blob/c91c737/src/package/dialog/index.ts#L36)
+[src/package/dialog/index.ts:36](https://github.com/rossrobino/components/blob/630574a/src/package/dialog/index.ts#L36)
 
 ### content
 
@@ -233,7 +233,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L38)
+[src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L38)
 
 ### disconnectedCallback
 
@@ -249,7 +249,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:61](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L61)
+[src/package/base/index.ts:61](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L61)
 
 ### safeAddEventListener
 
@@ -282,7 +282,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L52)
+[src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L52)
 
 ### showModal
 
@@ -296,7 +296,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/dialog/index.ts:17](https://github.com/rossrobino/components/blob/c91c737/src/package/dialog/index.ts#L17)
+[src/package/dialog/index.ts:17](https://github.com/rossrobino/components/blob/630574a/src/package/dialog/index.ts#L17)
 
 ### toggle
 
@@ -310,7 +310,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/dialog/index.ts:31](https://github.com/rossrobino/components/blob/c91c737/src/package/dialog/index.ts#L31)
+[src/package/dialog/index.ts:31](https://github.com/rossrobino/components/blob/630574a/src/package/dialog/index.ts#L31)
 
 ### trigger
 
@@ -334,4 +334,4 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L25)
+[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L25)

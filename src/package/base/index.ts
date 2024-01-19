@@ -24,7 +24,7 @@ export class Base extends HTMLElement {
 	 */
 	trigger() {
 		const trigger = this.getAttribute("trigger") ?? "[data-trigger]";
-		const elements = this.querySelectorAll(trigger);
+		const elements = this.querySelectorAll<HTMLElement>(trigger);
 		if (!elements.length) throw new Error("Trigger not found");
 		return elements;
 	}

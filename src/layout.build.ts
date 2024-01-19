@@ -75,12 +75,13 @@ export const build: Build = async ({
 	customElements.define(
 		"svg-icon",
 		class extends HTMLElement {
+			get icon() {
+				return this.getAttribute("icon");
+			}
 			connectedCallback() {
-				const icon = this.getAttribute("icon");
-
 				let html: string;
 
-				switch (icon) {
+				switch (this.icon) {
 					case "bars":
 						html = /*html*/ `
 							<svg

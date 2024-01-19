@@ -6,6 +6,8 @@
 
   ↳↳ [`Animate`](/docs/classes/Animate.md)
 
+  ↳↳ [`Details`](/docs/classes/Details.md)
+
   ↳↳ [`Share`](/docs/classes/Share.md)
 
   ↳↳ [`YouTube`](/docs/classes/YouTube.md)
@@ -28,7 +30,7 @@ HTMLElement.constructor
 
 #### Defined in
 
-[src/package/base/index.ts:8](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L8)
+[src/package/base/index.ts:8](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L8)
 
 ---
 
@@ -43,7 +45,7 @@ when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:6](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L6)
+[src/package/base/index.ts:6](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L6)
 
 ---
 
@@ -59,7 +61,7 @@ keyof `HTMLElementEventMap`
 
 #### Defined in
 
-[src/package/base/index.ts:12](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L12)
+[src/package/base/index.ts:12](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L12)
 
 • `set` **triggerEvent**(`value`): `void`
 
@@ -75,7 +77,7 @@ keyof `HTMLElementEventMap`
 
 #### Defined in
 
-[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L17)
+[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L17)
 
 ---
 
@@ -112,7 +114,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L38)
+[src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L38)
 
 ### disconnectedCallback
 
@@ -124,7 +126,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:61](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L61)
+[src/package/base/index.ts:61](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L61)
 
 ### safeAddEventListener
 
@@ -153,7 +155,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L52)
+[src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L52)
 
 ### trigger
 
@@ -173,4 +175,4 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/c91c737/src/package/base/index.ts#L25)
+[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L25)

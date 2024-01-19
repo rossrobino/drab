@@ -45,6 +45,7 @@ export class Animate extends Base {
 		options: KeyframeAnimationOptions = {},
 	) {
 		const keyframes = this.keyframes;
+		console.log(keyframes);
 
 		if (keyframes.length && !prefersReducedMotion()) {
 			// options passed in via JS override the html attributes
@@ -92,7 +93,14 @@ export class Animate extends Base {
 			/** the css property value, ex: "translate(100%,0)" */
 			const value = this.getAttribute(attributeName);
 
-			let [, , offset, property] = attributeName.split("-");
+			let [, , offset, ...propertyArray] = attributeName.split("-");
+
+			const property = propertyArray
+				.map((v, i) => {
+					if (i < 1) return v;
+					return v.at(0)?.toUpperCase() + v.slice(1);
+				})
+				.join("");
 
 			if (attributeName.startsWith("animation-keyframe-")) {
 				if (offset && property) {

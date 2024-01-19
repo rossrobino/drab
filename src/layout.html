@@ -14,8 +14,8 @@
 	>
 		<div class="lg:flex">
 			<header class="sticky top-0 z-10">
-				<nav class="sticky top-0 hidden lg:block">
-					<ul class="my-0 h-screen list-none overflow-y-auto p-8">
+				<nav class="sticky top-0 hidden min-w-48 border-r bg-muted lg:block">
+					<ul class="my-0 h-screen list-none overflow-y-auto px-10 py-8">
 						<li class="m-0 p-0">
 							<h2 class="mb-4 mt-0">
 								<a class="font-extrabold !no-underline" href="/">drab</a>
@@ -71,10 +71,10 @@
 				</nav>
 			</header>
 			<main class="mb-16 lg:flex lg:basis-full lg:justify-center">
-				<article class="max-w-[80ch] p-6">
+				<article class="max-w-[80ch] px-10 py-6">
 					<slot></slot>
 				</article>
-				<on-this-page class="prose-sm hidden p-6 xl:block">
+				<on-this-page class="prose-sm hidden border-l px-10 py-6 xl:block">
 					<div class="sticky top-8">
 						<h2 class="mb-4 mt-0">On this page</h2>
 						<ul class="p-0"></ul>

@@ -1,14 +1,43 @@
-export class Details extends HTMLElement {
+import { Animate } from "../animate/index.ts";
+
+export class Details extends Animate {
 	constructor() {
 		super();
 	}
 
-	connectedCallback() {
-		const elements = this.querySelectorAll("details");
+	get details() {
+		const details = this.content(HTMLElement).parentElement;
+		if (!(details instanceof HTMLDetailsElement))
+			throw new Error("Details: HTMLDetailsElement not found.");
+		return details;
+	}
 
-		for (const el of elements) {
-			el.addEventListener("click", (e) => {
+	async open() {
+		this.details.open = true;
+		await this.animateElement(this.content(HTMLElement));
+	}
+
+	/** Closes details with animation. */
+	async close() {
+		await this.animateElement(this.content(HTMLElement), {
+			direction: "reverse",
+		});
+		this.details.open = false;
+	}
+
+	toggle() {
+		if (this.details.open) {
+			this.close();
+		} else {
+			this.open();
+		}
+	}
+
+	connectedCallback() {
+		for (const trigger of this.trigger()) {
+			trigger.addEventListener("click", (e) => {
 				e.preventDefault();
+				this.toggle();
 			});
 		}
 	}

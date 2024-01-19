@@ -1,13 +1,8 @@
-Uses the [Navigator API](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share)
-to share a `url`.
-
----
-
 ## Hierarchy
 
 - [`Base`](/docs/classes/Base.md)
 
-  ↳ **`Share`**
+  ↳ **`Details`**
 
 ---
 
@@ -15,11 +10,11 @@ to share a `url`.
 
 ### constructor
 
-• **new Share**(): [`Share`](/docs/classes/Share.md)
+• **new Details**(): [`Details`](/docs/classes/Details.md)
 
 #### Returns
 
-[`Share`](/docs/classes/Share.md)
+[`Details`](/docs/classes/Details.md)
 
 #### Overrides
 
@@ -27,7 +22,7 @@ to share a `url`.
 
 #### Defined in
 
-[src/package/share/index.ts:8](https://github.com/rossrobino/components/blob/630574a/src/package/share/index.ts#L8)
+[src/package/details/index.ts:4](https://github.com/rossrobino/components/blob/630574a/src/package/details/index.ts#L4)
 
 ---
 
@@ -51,6 +46,18 @@ when the element is removed.
 ---
 
 ## Accessors
+
+### details
+
+• `get` **details**(): `Element` & `HTMLDetailsElement`
+
+#### Returns
+
+`Element` & `HTMLDetailsElement`
+
+#### Defined in
+
+[src/package/details/index.ts:8](https://github.com/rossrobino/components/blob/630574a/src/package/details/index.ts#L8)
 
 ### triggerEvent
 
@@ -88,42 +95,6 @@ Base.triggerEvent
 
 [src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L17)
 
-### url
-
-• `get` **url**(): `string`
-
-The `url` to share.
-
-#### Returns
-
-`string`
-
-**`Default`**
-
-```ts
-window.location.href;
-```
-
-#### Defined in
-
-[src/package/share/index.ts:17](https://github.com/rossrobino/components/blob/630574a/src/package/share/index.ts#L17)
-
-• `set` **url**(`value`): `void`
-
-#### Parameters
-
-| Name    | Type     |
-| :------ | :------- |
-| `value` | `string` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/package/share/index.ts:21](https://github.com/rossrobino/components/blob/630574a/src/package/share/index.ts#L21)
-
 ---
 
 ## Methods
@@ -138,7 +109,7 @@ window.location.href;
 
 #### Defined in
 
-[src/package/share/index.ts:42](https://github.com/rossrobino/components/blob/630574a/src/package/share/index.ts#L42)
+[src/package/details/index.ts:11](https://github.com/rossrobino/components/blob/630574a/src/package/details/index.ts#L11)
 
 ### content
 
@@ -225,29 +196,6 @@ element is removed from the DOM, these event listeners are cleaned up.
 #### Defined in
 
 [src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L52)
-
-### share
-
-▸ **share**(`url?`): `Promise`\<\{ `result`: `"copy"` \| `"share"` }\>
-
-Shares or copies the `url`.
-
-#### Parameters
-
-| Name  | Type     | Description        |
-| :---- | :------- | :----------------- |
-| `url` | `string` | The `url` to share |
-
-#### Returns
-
-`Promise`\<\{ `result`: `"copy"` \| `"share"` }\>
-
-An object containing a `result` - whether the `url` was copied or shared
-depending on browser support.
-
-#### Defined in
-
-[src/package/share/index.ts:31](https://github.com/rossrobino/components/blob/630574a/src/package/share/index.ts#L31)
 
 ### trigger
 

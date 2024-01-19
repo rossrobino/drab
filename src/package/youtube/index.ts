@@ -20,8 +20,8 @@ export class YouTube extends Base {
 		return this.hasAttribute("autoplay");
 	}
 
-	set autoplay(v) {
-		if (v) this.setAttribute("autoplay", "");
+	set autoplay(value) {
+		if (value) this.setAttribute("autoplay", "");
 		else this.removeAttribute("autoplay");
 	}
 
@@ -30,8 +30,8 @@ export class YouTube extends Base {
 		return this.getAttribute("start") ?? "0";
 	}
 
-	set start(v) {
-		this.setAttribute("start", v);
+	set start(value) {
+		this.setAttribute("start", value);
 	}
 
 	/**
