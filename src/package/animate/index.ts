@@ -1,6 +1,22 @@
 import { Base } from "../base/index.ts";
 import { prefersReducedMotion } from "./prefersReducedMotion/index.ts";
 
+/**
+ * The `Animate` base class provides a declarative way to use the
+ * [Web Animations API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API)
+ * through HTML attributes. The `animateElement` method uses these attributes and
+ * persists the final animation state. Other elements in **drab** extend this class
+ * to provide animations. You can also extend this class to create your own custom
+ * animated element.
+ *
+ * Keyframes can be set via HTML attributes on the element in the form of:
+ *
+ * `animation-keyframe-{offset}-{...property}="value"`
+ *
+ * Animations options can also be set:
+ *
+ * `animation-option-{duration | delay | easing}="value"`
+ */
 export class Animate extends Base {
 	constructor() {
 		super();
@@ -45,7 +61,6 @@ export class Animate extends Base {
 		options: KeyframeAnimationOptions = {},
 	) {
 		const keyframes = this.keyframes;
-		console.log(keyframes);
 
 		if (keyframes.length && !prefersReducedMotion()) {
 			// options passed in via JS override the html attributes
@@ -95,14 +110,14 @@ export class Animate extends Base {
 
 			let [, , offset, ...propertyArray] = attributeName.split("-");
 
-			const property = propertyArray
-				.map((v, i) => {
-					if (i < 1) return v;
-					return v.at(0)?.toUpperCase() + v.slice(1);
-				})
-				.join("");
-
 			if (attributeName.startsWith("animation-keyframe-")) {
+				const property = propertyArray
+					.map((v, i) => {
+						if (i < 1) return v;
+						return v.at(0)?.toUpperCase() + v.slice(1);
+					})
+					.join("");
+
 				if (offset && property) {
 					if (offset === "from") offset = "0";
 					else if (offset === "to") offset = "1";

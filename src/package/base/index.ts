@@ -1,3 +1,11 @@
+/**
+ * The `Base` class provides the `trigger` and `content` methods for
+ * selecting elements via HTML attributes along with other helpers for
+ * each custom element in the library.
+ *
+ * Set a `trigger` or `content` attribute to a CSS selector to change the
+ * default selector from `[data-trigger]` and `[data-content]`.
+ */
 export class Base extends HTMLElement {
 	/**
 	 * To clean up event listeners added to `document` when
@@ -9,6 +17,11 @@ export class Base extends HTMLElement {
 		super();
 	}
 
+	/**
+	 * Event for the trigger to execute.
+	 *
+	 * @default "click"
+	 */
 	get triggerEvent() {
 		return (this.getAttribute("trigger-event") ??
 			"click") as keyof HTMLElementEventMap;
@@ -31,11 +44,14 @@ export class Base extends HTMLElement {
 
 	/**
 	 *
-	 * @param instance The instance of the desired element, ex: `HTMLDialogElement`
+	 * @param instance The instance of the desired element, ex: `HTMLDialogElement`.
+	 * Defaults to `HTMLElement`.
 	 * @returns The element that matches the `content` selector.
 	 * @default this.querySelector("[data-content]")
 	 */
-	content<T = HTMLElement>(instance: { new (): T; prototype: T }) {
+	content<T extends HTMLElement = HTMLElement>(
+		instance: { new (): T } = HTMLElement as { new (): T },
+	) {
 		const content = this.getAttribute("content") ?? "[data-content]";
 		const element = this.querySelector(content);
 		if (element instanceof instance) return element;
@@ -43,19 +59,19 @@ export class Base extends HTMLElement {
 	}
 
 	/**
-	 * Wrapper around `document.addEventListener` that ensures when the
+	 * Wrapper around `document.body.addEventListener` that ensures when the
 	 * element is removed from the DOM, these event listeners are cleaned up.
 	 * @param type
 	 * @param listener
 	 * @param options
 	 */
-	safeAddEventListener<K extends keyof DocumentEventMap>(
+	safeAddEventListener<K extends keyof HTMLElementEventMap>(
 		type: K,
-		listener: (this: Document, ev: DocumentEventMap[K]) => any,
+		listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
 		options: AddEventListenerOptions = {},
 	) {
 		options.signal = this.#listenerController.signal;
-		document.addEventListener(type, listener, options);
+		document.body.addEventListener(type, listener, options);
 	}
 
 	disconnectedCallback() {

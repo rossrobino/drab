@@ -14,12 +14,12 @@ export class Details extends Animate {
 
 	async open() {
 		this.details.open = true;
-		await this.animateElement(this.content(HTMLElement));
+		await this.animateElement(this.content());
 	}
 
 	/** Closes details with animation. */
 	async close() {
-		await this.animateElement(this.content(HTMLElement), {
+		await this.animateElement(this.content(), {
 			direction: "reverse",
 		});
 		this.details.open = false;

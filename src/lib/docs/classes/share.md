@@ -27,7 +27,7 @@ to share a `url`.
 
 #### Defined in
 
-[src/package/share/index.ts:8](https://github.com/rossrobino/components/blob/630574a/src/package/share/index.ts#L8)
+[src/package/share/index.ts:8](https://github.com/rossrobino/components/blob/c8d936f/src/package/share/index.ts#L8)
 
 ---
 
@@ -46,7 +46,7 @@ when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:6](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L6)
+[src/package/base/index.ts:14](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L14)
 
 ---
 
@@ -56,9 +56,17 @@ when the element is removed.
 
 • `get` **triggerEvent**(): keyof `HTMLElementEventMap`
 
+Event for the trigger to execute.
+
 #### Returns
 
 keyof `HTMLElementEventMap`
+
+**`Default`**
+
+```ts
+"click";
+```
 
 #### Inherited from
 
@@ -66,7 +74,7 @@ Base.triggerEvent
 
 #### Defined in
 
-[src/package/base/index.ts:12](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L12)
+[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L25)
 
 • `set` **triggerEvent**(`value`): `void`
 
@@ -86,7 +94,7 @@ Base.triggerEvent
 
 #### Defined in
 
-[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L17)
+[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L30)
 
 ### url
 
@@ -106,7 +114,7 @@ window.location.href;
 
 #### Defined in
 
-[src/package/share/index.ts:17](https://github.com/rossrobino/components/blob/630574a/src/package/share/index.ts#L17)
+[src/package/share/index.ts:17](https://github.com/rossrobino/components/blob/c8d936f/src/package/share/index.ts#L17)
 
 • `set` **url**(`value`): `void`
 
@@ -122,7 +130,7 @@ window.location.href;
 
 #### Defined in
 
-[src/package/share/index.ts:21](https://github.com/rossrobino/components/blob/630574a/src/package/share/index.ts#L21)
+[src/package/share/index.ts:21](https://github.com/rossrobino/components/blob/c8d936f/src/package/share/index.ts#L21)
 
 ---
 
@@ -138,28 +146,27 @@ window.location.href;
 
 #### Defined in
 
-[src/package/share/index.ts:42](https://github.com/rossrobino/components/blob/630574a/src/package/share/index.ts#L42)
+[src/package/share/index.ts:42](https://github.com/rossrobino/components/blob/c8d936f/src/package/share/index.ts#L42)
 
 ### content
 
-▸ **content**\<`T`\>(`instance`): `null` \| `Element` & `T`
+▸ **content**\<`T`\>(`instance?`): `T`
 
 #### Type parameters
 
-| Name | Type          |
-| :--- | :------------ |
-| `T`  | `HTMLElement` |
+| Name | Type                                  |
+| :--- | :------------------------------------ |
+| `T`  | extends `HTMLElement` = `HTMLElement` |
 
 #### Parameters
 
-| Name                 | Type      | Description                                                  |
-| :------------------- | :-------- | :----------------------------------------------------------- |
-| `instance`           | () => `T` | The instance of the desired element, ex: `HTMLDialogElement` |
-| `instance.prototype` | `T`       | -                                                            |
+| Name       | Type      | Description                                                                              |
+| :--------- | :-------- | :--------------------------------------------------------------------------------------- |
+| `instance` | () => `T` | The instance of the desired element, ex: `HTMLDialogElement`. Defaults to `HTMLElement`. |
 
 #### Returns
 
-`null` \| `Element` & `T`
+`T`
 
 The element that matches the `content` selector.
 
@@ -175,7 +182,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L38)
+[src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L52)
 
 ### disconnectedCallback
 
@@ -191,28 +198,28 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:61](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L61)
+[src/package/base/index.ts:77](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L77)
 
 ### safeAddEventListener
 
 ▸ **safeAddEventListener**\<`K`\>(`type`, `listener`, `options?`): `void`
 
-Wrapper around `document.addEventListener` that ensures when the
+Wrapper around `document.body.addEventListener` that ensures when the
 element is removed from the DOM, these event listeners are cleaned up.
 
 #### Type parameters
 
-| Name | Type                             |
-| :--- | :------------------------------- |
-| `K`  | extends keyof `DocumentEventMap` |
+| Name | Type                                |
+| :--- | :---------------------------------- |
+| `K`  | extends keyof `HTMLElementEventMap` |
 
 #### Parameters
 
-| Name       | Type                                                         |
-| :--------- | :----------------------------------------------------------- |
-| `type`     | `K`                                                          |
-| `listener` | (`this`: `Document`, `ev`: `DocumentEventMap`[`K`]) => `any` |
-| `options`  | `AddEventListenerOptions`                                    |
+| Name       | Type                                                               |
+| :--------- | :----------------------------------------------------------------- |
+| `type`     | `K`                                                                |
+| `listener` | (`this`: `HTMLElement`, `ev`: `HTMLElementEventMap`[`K`]) => `any` |
+| `options`  | `AddEventListenerOptions`                                          |
 
 #### Returns
 
@@ -224,7 +231,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L52)
+[src/package/base/index.ts:68](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L68)
 
 ### share
 
@@ -247,15 +254,15 @@ depending on browser support.
 
 #### Defined in
 
-[src/package/share/index.ts:31](https://github.com/rossrobino/components/blob/630574a/src/package/share/index.ts#L31)
+[src/package/share/index.ts:31](https://github.com/rossrobino/components/blob/c8d936f/src/package/share/index.ts#L31)
 
 ### trigger
 
-▸ **trigger**(): `NodeListOf`\<`Element`\>
+▸ **trigger**(): `NodeListOf`\<`HTMLElement`\>
 
 #### Returns
 
-`NodeListOf`\<`Element`\>
+`NodeListOf`\<`HTMLElement`\>
 
 All of the elements that match the `trigger` selector.
 
@@ -271,4 +278,4 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L25)
+[src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L38)

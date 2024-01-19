@@ -1,3 +1,12 @@
+The `Base` class provides the `trigger` and `content` methods for
+selecting elements via HTML attributes along with other helpers for
+each custom element in the library.
+
+Set a `trigger` or `content` attribute to a CSS selector to change the
+default selector from `[data-trigger]` and `[data-content]`.
+
+---
+
 ## Hierarchy
 
 - `HTMLElement`
@@ -6,7 +15,7 @@
 
   ↳↳ [`Animate`](/docs/classes/Animate.md)
 
-  ↳↳ [`Details`](/docs/classes/Details.md)
+  ↳↳ [`Fullscreen`](/docs/classes/Fullscreen.md)
 
   ↳↳ [`Share`](/docs/classes/Share.md)
 
@@ -30,7 +39,7 @@ HTMLElement.constructor
 
 #### Defined in
 
-[src/package/base/index.ts:8](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L8)
+[src/package/base/index.ts:16](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L16)
 
 ---
 
@@ -45,7 +54,7 @@ when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:6](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L6)
+[src/package/base/index.ts:14](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L14)
 
 ---
 
@@ -55,13 +64,21 @@ when the element is removed.
 
 • `get` **triggerEvent**(): keyof `HTMLElementEventMap`
 
+Event for the trigger to execute.
+
 #### Returns
 
 keyof `HTMLElementEventMap`
 
+**`Default`**
+
+```ts
+"click";
+```
+
 #### Defined in
 
-[src/package/base/index.ts:12](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L12)
+[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L25)
 
 • `set` **triggerEvent**(`value`): `void`
 
@@ -77,7 +94,7 @@ keyof `HTMLElementEventMap`
 
 #### Defined in
 
-[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L17)
+[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L30)
 
 ---
 
@@ -85,24 +102,23 @@ keyof `HTMLElementEventMap`
 
 ### content
 
-▸ **content**\<`T`\>(`instance`): `null` \| `Element` & `T`
+▸ **content**\<`T`\>(`instance?`): `T`
 
 #### Type parameters
 
-| Name | Type          |
-| :--- | :------------ |
-| `T`  | `HTMLElement` |
+| Name | Type                                  |
+| :--- | :------------------------------------ |
+| `T`  | extends `HTMLElement` = `HTMLElement` |
 
 #### Parameters
 
-| Name                 | Type      | Description                                                  |
-| :------------------- | :-------- | :----------------------------------------------------------- |
-| `instance`           | () => `T` | The instance of the desired element, ex: `HTMLDialogElement` |
-| `instance.prototype` | `T`       | -                                                            |
+| Name       | Type      | Description                                                                              |
+| :--------- | :-------- | :--------------------------------------------------------------------------------------- |
+| `instance` | () => `T` | The instance of the desired element, ex: `HTMLDialogElement`. Defaults to `HTMLElement`. |
 
 #### Returns
 
-`null` \| `Element` & `T`
+`T`
 
 The element that matches the `content` selector.
 
@@ -114,7 +130,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L38)
+[src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L52)
 
 ### disconnectedCallback
 
@@ -126,28 +142,28 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:61](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L61)
+[src/package/base/index.ts:77](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L77)
 
 ### safeAddEventListener
 
 ▸ **safeAddEventListener**\<`K`\>(`type`, `listener`, `options?`): `void`
 
-Wrapper around `document.addEventListener` that ensures when the
+Wrapper around `document.body.addEventListener` that ensures when the
 element is removed from the DOM, these event listeners are cleaned up.
 
 #### Type parameters
 
-| Name | Type                             |
-| :--- | :------------------------------- |
-| `K`  | extends keyof `DocumentEventMap` |
+| Name | Type                                |
+| :--- | :---------------------------------- |
+| `K`  | extends keyof `HTMLElementEventMap` |
 
 #### Parameters
 
-| Name       | Type                                                         |
-| :--------- | :----------------------------------------------------------- |
-| `type`     | `K`                                                          |
-| `listener` | (`this`: `Document`, `ev`: `DocumentEventMap`[`K`]) => `any` |
-| `options`  | `AddEventListenerOptions`                                    |
+| Name       | Type                                                               |
+| :--------- | :----------------------------------------------------------------- |
+| `type`     | `K`                                                                |
+| `listener` | (`this`: `HTMLElement`, `ev`: `HTMLElementEventMap`[`K`]) => `any` |
+| `options`  | `AddEventListenerOptions`                                          |
 
 #### Returns
 
@@ -155,15 +171,15 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L52)
+[src/package/base/index.ts:68](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L68)
 
 ### trigger
 
-▸ **trigger**(): `NodeListOf`\<`Element`\>
+▸ **trigger**(): `NodeListOf`\<`HTMLElement`\>
 
 #### Returns
 
-`NodeListOf`\<`Element`\>
+`NodeListOf`\<`HTMLElement`\>
 
 All of the elements that match the `trigger` selector.
 
@@ -175,4 +191,4 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L25)
+[src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L38)

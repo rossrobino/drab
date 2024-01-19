@@ -1,4 +1,6 @@
-Embeds a YouTube video iframe into a website with the video uid, using www.youtube-nocookie.com.
+Toggles the `documentElement` or `content` element to fullscreen mode.
+
+Disables the `trigger` if fullscreen is not supported.
 
 ---
 
@@ -6,7 +8,7 @@ Embeds a YouTube video iframe into a website with the video uid, using www.youtu
 
 - [`Base`](/docs/classes/Base.md)
 
-  ↳ **`YouTube`**
+  ↳ **`Fullscreen`**
 
 ---
 
@@ -14,11 +16,11 @@ Embeds a YouTube video iframe into a website with the video uid, using www.youtu
 
 ### constructor
 
-• **new YouTube**(): [`YouTube`](/docs/classes/YouTube.md)
+• **new Fullscreen**(): [`Fullscreen`](/docs/classes/Fullscreen.md)
 
 #### Returns
 
-[`YouTube`](/docs/classes/YouTube.md)
+[`Fullscreen`](/docs/classes/Fullscreen.md)
 
 #### Overrides
 
@@ -26,7 +28,7 @@ Embeds a YouTube video iframe into a website with the video uid, using www.youtu
 
 #### Defined in
 
-[src/package/youtube/index.ts:9](https://github.com/rossrobino/components/blob/c8d936f/src/package/youtube/index.ts#L9)
+src/package/fullscreen/index.ts:9
 
 ---
 
@@ -47,91 +49,9 @@ when the element is removed.
 
 [src/package/base/index.ts:14](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L14)
 
-### observedAttributes
-
-▪ `Static` **observedAttributes**: readonly [``"autoplay"``, ``"start"``, ``"uid"``]
-
-#### Defined in
-
-[src/package/youtube/index.ts:7](https://github.com/rossrobino/components/blob/c8d936f/src/package/youtube/index.ts#L7)
-
 ---
 
 ## Accessors
-
-### autoplay
-
-• `get` **autoplay**(): `boolean`
-
-Whether the video should start playing when loaded.
-
-#### Returns
-
-`boolean`
-
-#### Defined in
-
-[src/package/youtube/index.ts:19](https://github.com/rossrobino/components/blob/c8d936f/src/package/youtube/index.ts#L19)
-
-• `set` **autoplay**(`value`): `void`
-
-#### Parameters
-
-| Name    | Type      |
-| :------ | :-------- |
-| `value` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/package/youtube/index.ts:23](https://github.com/rossrobino/components/blob/c8d936f/src/package/youtube/index.ts#L23)
-
-### iframe
-
-• `get` **iframe**(): `HTMLIFrameElement`
-
-The `HTMLIFrameElement` within the element.
-
-#### Returns
-
-`HTMLIFrameElement`
-
-#### Defined in
-
-[src/package/youtube/index.ts:14](https://github.com/rossrobino/components/blob/c8d936f/src/package/youtube/index.ts#L14)
-
-### start
-
-• `get` **start**(): `string`
-
-The start time of the video (seconds).
-
-#### Returns
-
-`string`
-
-#### Defined in
-
-[src/package/youtube/index.ts:29](https://github.com/rossrobino/components/blob/c8d936f/src/package/youtube/index.ts#L29)
-
-• `set` **start**(`value`): `void`
-
-#### Parameters
-
-| Name    | Type     |
-| :------ | :------- |
-| `value` | `string` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/package/youtube/index.ts:33](https://github.com/rossrobino/components/blob/c8d936f/src/package/youtube/index.ts#L33)
 
 ### triggerEvent
 
@@ -177,54 +97,9 @@ Base.triggerEvent
 
 [src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L30)
 
-### uid
-
-• `get` **uid**(): `string`
-
-The video's YouTube uid, found within the url of the video.
-
-For example if the video url is https://youtu.be/gouiY85kD2o,
-the `uid` is `"gouiY85kD2o"`.
-
-#### Returns
-
-`string`
-
-#### Defined in
-
-[src/package/youtube/index.ts:43](https://github.com/rossrobino/components/blob/c8d936f/src/package/youtube/index.ts#L43)
-
-• `set` **uid**(`v`): `void`
-
-#### Parameters
-
-| Name | Type     |
-| :--- | :------- |
-| `v`  | `string` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/package/youtube/index.ts:49](https://github.com/rossrobino/components/blob/c8d936f/src/package/youtube/index.ts#L49)
-
 ---
 
 ## Methods
-
-### attributeChangedCallback
-
-▸ **attributeChangedCallback**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/package/youtube/index.ts:59](https://github.com/rossrobino/components/blob/c8d936f/src/package/youtube/index.ts#L59)
 
 ### connectedCallback
 
@@ -236,7 +111,7 @@ the `uid` is `"gouiY85kD2o"`.
 
 #### Defined in
 
-[src/package/youtube/index.ts:53](https://github.com/rossrobino/components/blob/c8d936f/src/package/youtube/index.ts#L53)
+src/package/fullscreen/index.ts:40
 
 ### content
 
@@ -290,6 +165,34 @@ this.querySelector("[data-content]");
 
 [src/package/base/index.ts:77](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L77)
 
+### fullscreenSupported
+
+▸ **fullscreenSupported**(): `boolean`
+
+#### Returns
+
+`boolean`
+
+`true` if fullscreen is supported.
+
+#### Defined in
+
+src/package/fullscreen/index.ts:23
+
+### isFullscreen
+
+▸ **isFullscreen**(): `boolean`
+
+#### Returns
+
+`boolean`
+
+`true` if fullscreen is currently enabled.
+
+#### Defined in
+
+src/package/fullscreen/index.ts:16
+
 ### safeAddEventListener
 
 ▸ **safeAddEventListener**\<`K`\>(`type`, `listener`, `options?`): `void`
@@ -322,6 +225,20 @@ element is removed from the DOM, these event listeners are cleaned up.
 #### Defined in
 
 [src/package/base/index.ts:68](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L68)
+
+### toggle
+
+▸ **toggle**(): `void`
+
+Enables or disables fullscreen mode based on the current state.
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+src/package/fullscreen/index.ts:28
 
 ### trigger
 

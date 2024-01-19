@@ -26,7 +26,7 @@ Provides triggers and animations for the `HTMLDialogElement`.
 
 #### Defined in
 
-[src/package/dialog/index.ts:7](https://github.com/rossrobino/components/blob/630574a/src/package/dialog/index.ts#L7)
+[src/package/dialog/index.ts:7](https://github.com/rossrobino/components/blob/c8d936f/src/package/dialog/index.ts#L7)
 
 ---
 
@@ -45,7 +45,7 @@ when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:6](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L6)
+[src/package/base/index.ts:14](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L14)
 
 ---
 
@@ -67,21 +67,21 @@ Animate.animationOptions
 
 #### Defined in
 
-[src/package/animate/index.ts:12](https://github.com/rossrobino/components/blob/630574a/src/package/animate/index.ts#L12)
+[src/package/animate/index.ts:28](https://github.com/rossrobino/components/blob/c8d936f/src/package/animate/index.ts#L28)
 
 ### dialog
 
-• `get` **dialog**(): `Element` & `HTMLDialogElement`
+• `get` **dialog**(): `HTMLDialogElement`
 
 The `HTMLDialogElement` within the element.
 
 #### Returns
 
-`Element` & `HTMLDialogElement`
+`HTMLDialogElement`
 
 #### Defined in
 
-[src/package/dialog/index.ts:12](https://github.com/rossrobino/components/blob/630574a/src/package/dialog/index.ts#L12)
+[src/package/dialog/index.ts:12](https://github.com/rossrobino/components/blob/c8d936f/src/package/dialog/index.ts#L12)
 
 ### keyframes
 
@@ -97,15 +97,23 @@ Animate.keyframes
 
 #### Defined in
 
-[src/package/animate/index.ts:88](https://github.com/rossrobino/components/blob/630574a/src/package/animate/index.ts#L88)
+[src/package/animate/index.ts:104](https://github.com/rossrobino/components/blob/c8d936f/src/package/animate/index.ts#L104)
 
 ### triggerEvent
 
 • `get` **triggerEvent**(): keyof `HTMLElementEventMap`
 
+Event for the trigger to execute.
+
 #### Returns
 
 keyof `HTMLElementEventMap`
+
+**`Default`**
+
+```ts
+"click";
+```
 
 #### Inherited from
 
@@ -113,7 +121,7 @@ Animate.triggerEvent
 
 #### Defined in
 
-[src/package/base/index.ts:12](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L12)
+[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L25)
 
 • `set` **triggerEvent**(`value`): `void`
 
@@ -133,7 +141,7 @@ Animate.triggerEvent
 
 #### Defined in
 
-[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L17)
+[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L30)
 
 ---
 
@@ -170,7 +178,7 @@ Animates a particular element using the web animations API.
 
 #### Defined in
 
-[src/package/animate/index.ts:43](https://github.com/rossrobino/components/blob/630574a/src/package/animate/index.ts#L43)
+[src/package/animate/index.ts:59](https://github.com/rossrobino/components/blob/c8d936f/src/package/animate/index.ts#L59)
 
 ### close
 
@@ -184,7 +192,7 @@ Animates a particular element using the web animations API.
 
 #### Defined in
 
-[src/package/dialog/index.ts:23](https://github.com/rossrobino/components/blob/630574a/src/package/dialog/index.ts#L23)
+[src/package/dialog/index.ts:23](https://github.com/rossrobino/components/blob/c8d936f/src/package/dialog/index.ts#L23)
 
 ### connectedCallback
 
@@ -196,28 +204,27 @@ Animates a particular element using the web animations API.
 
 #### Defined in
 
-[src/package/dialog/index.ts:36](https://github.com/rossrobino/components/blob/630574a/src/package/dialog/index.ts#L36)
+[src/package/dialog/index.ts:36](https://github.com/rossrobino/components/blob/c8d936f/src/package/dialog/index.ts#L36)
 
 ### content
 
-▸ **content**\<`T`\>(`instance`): `null` \| `Element` & `T`
+▸ **content**\<`T`\>(`instance?`): `T`
 
 #### Type parameters
 
-| Name | Type          |
-| :--- | :------------ |
-| `T`  | `HTMLElement` |
+| Name | Type                                  |
+| :--- | :------------------------------------ |
+| `T`  | extends `HTMLElement` = `HTMLElement` |
 
 #### Parameters
 
-| Name                 | Type      | Description                                                  |
-| :------------------- | :-------- | :----------------------------------------------------------- |
-| `instance`           | () => `T` | The instance of the desired element, ex: `HTMLDialogElement` |
-| `instance.prototype` | `T`       | -                                                            |
+| Name       | Type      | Description                                                                              |
+| :--------- | :-------- | :--------------------------------------------------------------------------------------- |
+| `instance` | () => `T` | The instance of the desired element, ex: `HTMLDialogElement`. Defaults to `HTMLElement`. |
 
 #### Returns
 
-`null` \| `Element` & `T`
+`T`
 
 The element that matches the `content` selector.
 
@@ -233,7 +240,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L38)
+[src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L52)
 
 ### disconnectedCallback
 
@@ -249,28 +256,28 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:61](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L61)
+[src/package/base/index.ts:77](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L77)
 
 ### safeAddEventListener
 
 ▸ **safeAddEventListener**\<`K`\>(`type`, `listener`, `options?`): `void`
 
-Wrapper around `document.addEventListener` that ensures when the
+Wrapper around `document.body.addEventListener` that ensures when the
 element is removed from the DOM, these event listeners are cleaned up.
 
 #### Type parameters
 
-| Name | Type                             |
-| :--- | :------------------------------- |
-| `K`  | extends keyof `DocumentEventMap` |
+| Name | Type                                |
+| :--- | :---------------------------------- |
+| `K`  | extends keyof `HTMLElementEventMap` |
 
 #### Parameters
 
-| Name       | Type                                                         |
-| :--------- | :----------------------------------------------------------- |
-| `type`     | `K`                                                          |
-| `listener` | (`this`: `Document`, `ev`: `DocumentEventMap`[`K`]) => `any` |
-| `options`  | `AddEventListenerOptions`                                    |
+| Name       | Type                                                               |
+| :--------- | :----------------------------------------------------------------- |
+| `type`     | `K`                                                                |
+| `listener` | (`this`: `HTMLElement`, `ev`: `HTMLElementEventMap`[`K`]) => `any` |
+| `options`  | `AddEventListenerOptions`                                          |
 
 #### Returns
 
@@ -282,7 +289,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L52)
+[src/package/base/index.ts:68](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L68)
 
 ### showModal
 
@@ -296,7 +303,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/dialog/index.ts:17](https://github.com/rossrobino/components/blob/630574a/src/package/dialog/index.ts#L17)
+[src/package/dialog/index.ts:17](https://github.com/rossrobino/components/blob/c8d936f/src/package/dialog/index.ts#L17)
 
 ### toggle
 
@@ -310,15 +317,15 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/dialog/index.ts:31](https://github.com/rossrobino/components/blob/630574a/src/package/dialog/index.ts#L31)
+[src/package/dialog/index.ts:31](https://github.com/rossrobino/components/blob/c8d936f/src/package/dialog/index.ts#L31)
 
 ### trigger
 
-▸ **trigger**(): `NodeListOf`\<`Element`\>
+▸ **trigger**(): `NodeListOf`\<`HTMLElement`\>
 
 #### Returns
 
-`NodeListOf`\<`Element`\>
+`NodeListOf`\<`HTMLElement`\>
 
 All of the elements that match the `trigger` selector.
 
@@ -334,4 +341,4 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/630574a/src/package/base/index.ts#L25)
+[src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/c8d936f/src/package/base/index.ts#L38)
