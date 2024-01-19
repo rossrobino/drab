@@ -27,7 +27,7 @@ to share a `url`.
 
 #### Defined in
 
-[src/package/share/index.ts:8](https://github.com/rossrobino/components/blob/87b3d4e/src/package/share/index.ts#L8)
+[src/package/share/index.ts:8](https://github.com/rossrobino/components/blob/cfd8e60/src/package/share/index.ts#L8)
 
 ---
 
@@ -46,11 +46,41 @@ when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:14](https://github.com/rossrobino/components/blob/87b3d4e/src/package/base/index.ts#L14)
+[src/package/base/index.ts:14](https://github.com/rossrobino/components/blob/cfd8e60/src/package/base/index.ts#L14)
 
 ---
 
 ## Accessors
+
+### complete
+
+• `get` **complete**(): `string`
+
+Optional text to display when copy is complete.
+
+#### Returns
+
+`string`
+
+#### Defined in
+
+[src/package/share/index.ts:28](https://github.com/rossrobino/components/blob/cfd8e60/src/package/share/index.ts#L28)
+
+• `set` **complete**(`value`): `void`
+
+#### Parameters
+
+| Name    | Type     |
+| :------ | :------- |
+| `value` | `string` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/package/share/index.ts:32](https://github.com/rossrobino/components/blob/cfd8e60/src/package/share/index.ts#L32)
 
 ### triggerEvent
 
@@ -74,7 +104,7 @@ Base.triggerEvent
 
 #### Defined in
 
-[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/87b3d4e/src/package/base/index.ts#L25)
+[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/cfd8e60/src/package/base/index.ts#L25)
 
 • `set` **triggerEvent**(`value`): `void`
 
@@ -94,7 +124,7 @@ Base.triggerEvent
 
 #### Defined in
 
-[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/87b3d4e/src/package/base/index.ts#L30)
+[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/cfd8e60/src/package/base/index.ts#L30)
 
 ### url
 
@@ -114,7 +144,7 @@ window.location.href;
 
 #### Defined in
 
-[src/package/share/index.ts:17](https://github.com/rossrobino/components/blob/87b3d4e/src/package/share/index.ts#L17)
+[src/package/share/index.ts:17](https://github.com/rossrobino/components/blob/cfd8e60/src/package/share/index.ts#L17)
 
 • `set` **url**(`value`): `void`
 
@@ -130,7 +160,7 @@ window.location.href;
 
 #### Defined in
 
-[src/package/share/index.ts:21](https://github.com/rossrobino/components/blob/87b3d4e/src/package/share/index.ts#L21)
+[src/package/share/index.ts:21](https://github.com/rossrobino/components/blob/cfd8e60/src/package/share/index.ts#L21)
 
 ---
 
@@ -146,7 +176,7 @@ window.location.href;
 
 #### Defined in
 
-[src/package/share/index.ts:42](https://github.com/rossrobino/components/blob/87b3d4e/src/package/share/index.ts#L42)
+[src/package/share/index.ts:53](https://github.com/rossrobino/components/blob/cfd8e60/src/package/share/index.ts#L53)
 
 ### content
 
@@ -182,7 +212,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/87b3d4e/src/package/base/index.ts#L52)
+[src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/cfd8e60/src/package/base/index.ts#L52)
 
 ### disconnectedCallback
 
@@ -198,7 +228,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:77](https://github.com/rossrobino/components/blob/87b3d4e/src/package/base/index.ts#L77)
+[src/package/base/index.ts:77](https://github.com/rossrobino/components/blob/cfd8e60/src/package/base/index.ts#L77)
 
 ### safeAddEventListener
 
@@ -231,7 +261,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:68](https://github.com/rossrobino/components/blob/87b3d4e/src/package/base/index.ts#L68)
+[src/package/base/index.ts:68](https://github.com/rossrobino/components/blob/cfd8e60/src/package/base/index.ts#L68)
 
 ### share
 
@@ -254,7 +284,7 @@ depending on browser support.
 
 #### Defined in
 
-[src/package/share/index.ts:31](https://github.com/rossrobino/components/blob/87b3d4e/src/package/share/index.ts#L31)
+[src/package/share/index.ts:42](https://github.com/rossrobino/components/blob/cfd8e60/src/package/share/index.ts#L42)
 
 ### trigger
 
@@ -278,4 +308,4 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/87b3d4e/src/package/base/index.ts#L38)
+[src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/cfd8e60/src/package/base/index.ts#L38)
