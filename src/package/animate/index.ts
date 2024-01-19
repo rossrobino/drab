@@ -11,11 +11,15 @@ import { prefersReducedMotion } from "./prefersReducedMotion/index.ts";
  *
  * Keyframes can be set via HTML attributes on the element in the form of:
  *
- * `animation-keyframe-{offset}-{...property}="value"`
+ * ```html
+ * <drab-animate animation-keyframe-offset-property="value">
+ * ```
  *
  * Animations options can also be set:
  *
- * `animation-option-{duration | delay | easing}="value"`
+ * ```html
+ * <drab-animate animation-option-property="value">
+ * ```
  */
 export class Animate extends Base {
 	constructor() {

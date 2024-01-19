@@ -28,7 +28,7 @@ Disables the `trigger` if fullscreen is not supported.
 
 #### Defined in
 
-[src/package/fullscreen/index.ts:9](https://github.com/rossrobino/components/blob/cfd8e60/src/package/fullscreen/index.ts#L9)
+[src/package/fullscreen/index.ts:9](https://github.com/rossrobino/components/blob/3b25f8c/src/package/fullscreen/index.ts#L9)
 
 ---
 
@@ -47,7 +47,7 @@ when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:14](https://github.com/rossrobino/components/blob/cfd8e60/src/package/base/index.ts#L14)
+[src/package/base/index.ts:14](https://github.com/rossrobino/components/blob/3b25f8c/src/package/base/index.ts#L14)
 
 ---
 
@@ -75,7 +75,7 @@ Base.triggerEvent
 
 #### Defined in
 
-[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/cfd8e60/src/package/base/index.ts#L25)
+[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/3b25f8c/src/package/base/index.ts#L25)
 
 • `set` **triggerEvent**(`value`): `void`
 
@@ -95,7 +95,7 @@ Base.triggerEvent
 
 #### Defined in
 
-[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/cfd8e60/src/package/base/index.ts#L30)
+[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/3b25f8c/src/package/base/index.ts#L30)
 
 ---
 
@@ -111,7 +111,7 @@ Base.triggerEvent
 
 #### Defined in
 
-[src/package/fullscreen/index.ts:40](https://github.com/rossrobino/components/blob/cfd8e60/src/package/fullscreen/index.ts#L40)
+[src/package/fullscreen/index.ts:40](https://github.com/rossrobino/components/blob/3b25f8c/src/package/fullscreen/index.ts#L40)
 
 ### content
 
@@ -147,7 +147,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/cfd8e60/src/package/base/index.ts#L52)
+[src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/3b25f8c/src/package/base/index.ts#L52)
 
 ### disconnectedCallback
 
@@ -163,7 +163,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:77](https://github.com/rossrobino/components/blob/cfd8e60/src/package/base/index.ts#L77)
+[src/package/base/index.ts:77](https://github.com/rossrobino/components/blob/3b25f8c/src/package/base/index.ts#L77)
 
 ### fullscreenSupported
 
@@ -177,7 +177,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/fullscreen/index.ts:23](https://github.com/rossrobino/components/blob/cfd8e60/src/package/fullscreen/index.ts#L23)
+[src/package/fullscreen/index.ts:23](https://github.com/rossrobino/components/blob/3b25f8c/src/package/fullscreen/index.ts#L23)
 
 ### isFullscreen
 
@@ -191,7 +191,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/fullscreen/index.ts:16](https://github.com/rossrobino/components/blob/cfd8e60/src/package/fullscreen/index.ts#L16)
+[src/package/fullscreen/index.ts:16](https://github.com/rossrobino/components/blob/3b25f8c/src/package/fullscreen/index.ts#L16)
 
 ### safeAddEventListener
 
@@ -224,7 +224,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:68](https://github.com/rossrobino/components/blob/cfd8e60/src/package/base/index.ts#L68)
+[src/package/base/index.ts:68](https://github.com/rossrobino/components/blob/3b25f8c/src/package/base/index.ts#L68)
 
 ### toggle
 
@@ -238,7 +238,7 @@ Enables or disables fullscreen mode based on the current state.
 
 #### Defined in
 
-[src/package/fullscreen/index.ts:28](https://github.com/rossrobino/components/blob/cfd8e60/src/package/fullscreen/index.ts#L28)
+[src/package/fullscreen/index.ts:28](https://github.com/rossrobino/components/blob/3b25f8c/src/package/fullscreen/index.ts#L28)
 
 ### trigger
 
@@ -262,4 +262,4 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/cfd8e60/src/package/base/index.ts#L38)
+[src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/3b25f8c/src/package/base/index.ts#L38)
