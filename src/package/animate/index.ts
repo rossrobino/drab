@@ -57,13 +57,16 @@ export class Animate extends Base {
 	 * - Waits for the animation to complete
 	 * - Sets the start and end styles based on the first and last keyframe
 	 *
-	 * @param element
-	 * @param options
+	 * @param animateOptions
 	 */
 	async animateElement(
-		element: HTMLElement,
-		options: KeyframeAnimationOptions = {},
+		animateOptions: {
+			element?: HTMLElement;
+			options?: KeyframeAnimationOptions;
+		} = { element: this.content(), options: {} },
 	) {
+		let { element = this.content(), options = {} } = animateOptions;
+
 		const keyframes = this.keyframes;
 
 		if (keyframes.length && !prefersReducedMotion()) {

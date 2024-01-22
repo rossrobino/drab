@@ -16,13 +16,15 @@ export class Dialog extends Animate {
 	/** `HTMLDialogElement.showModal()` with animation. */
 	async showModal() {
 		this.dialog.showModal();
-		await this.animateElement(this.dialog);
+		await this.animateElement();
 	}
 
 	/** `HTMLDialogElement.close()` with animation. */
 	async close() {
-		await this.animateElement(this.dialog, {
-			direction: "reverse",
+		await this.animateElement({
+			options: {
+				direction: "reverse",
+			},
 		});
 		this.dialog.close();
 	}
@@ -34,11 +36,9 @@ export class Dialog extends Animate {
 	}
 
 	connectedCallback() {
-		for (const trigger of this.trigger()) {
-			trigger.addEventListener(this.triggerEvent, () => this.toggle());
-		}
+		this.triggerListener(() => this.toggle());
 
-		this.safeAddEventListener("keydown", (e) => {
+		this.safeListener("keydown", (e) => {
 			if (e.key === "Escape" && this.dialog.open) {
 				// to execute animation
 				e.preventDefault();

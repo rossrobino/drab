@@ -26,7 +26,7 @@ Provides triggers and animations for the `HTMLDialogElement`.
 
 #### Defined in
 
-[src/package/dialog/index.ts:7](https://github.com/rossrobino/components/blob/8918ae1/src/package/dialog/index.ts#L7)
+[src/package/dialog/index.ts:7](https://github.com/rossrobino/components/blob/67914d8/src/package/dialog/index.ts#L7)
 
 ---
 
@@ -45,7 +45,7 @@ when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:14](https://github.com/rossrobino/components/blob/8918ae1/src/package/base/index.ts#L14)
+[src/package/base/index.ts:14](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L14)
 
 ---
 
@@ -67,7 +67,7 @@ Animate.animationOptions
 
 #### Defined in
 
-[src/package/animate/index.ts:32](https://github.com/rossrobino/components/blob/8918ae1/src/package/animate/index.ts#L32)
+[src/package/animate/index.ts:32](https://github.com/rossrobino/components/blob/67914d8/src/package/animate/index.ts#L32)
 
 ### dialog
 
@@ -81,7 +81,51 @@ The `HTMLDialogElement` within the element.
 
 #### Defined in
 
-[src/package/dialog/index.ts:12](https://github.com/rossrobino/components/blob/8918ae1/src/package/dialog/index.ts#L12)
+[src/package/dialog/index.ts:12](https://github.com/rossrobino/components/blob/67914d8/src/package/dialog/index.ts#L12)
+
+### event
+
+• `get` **event**(): keyof `HTMLElementEventMap`
+
+Event for the `trigger` to execute.
+
+#### Returns
+
+keyof `HTMLElementEventMap`
+
+**`Default`**
+
+```ts
+"click";
+```
+
+#### Inherited from
+
+Animate.event
+
+#### Defined in
+
+[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L25)
+
+• `set` **event**(`value`): `void`
+
+#### Parameters
+
+| Name    | Type                        |
+| :------ | :-------------------------- |
+| `value` | keyof `HTMLElementEventMap` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+Animate.event
+
+#### Defined in
+
+[src/package/base/index.ts:29](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L29)
 
 ### keyframes
 
@@ -97,51 +141,7 @@ Animate.keyframes
 
 #### Defined in
 
-[src/package/animate/index.ts:108](https://github.com/rossrobino/components/blob/8918ae1/src/package/animate/index.ts#L108)
-
-### triggerEvent
-
-• `get` **triggerEvent**(): keyof `HTMLElementEventMap`
-
-Event for the trigger to execute.
-
-#### Returns
-
-keyof `HTMLElementEventMap`
-
-**`Default`**
-
-```ts
-"click";
-```
-
-#### Inherited from
-
-Animate.triggerEvent
-
-#### Defined in
-
-[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/8918ae1/src/package/base/index.ts#L25)
-
-• `set` **triggerEvent**(`value`): `void`
-
-#### Parameters
-
-| Name    | Type                        |
-| :------ | :-------------------------- |
-| `value` | keyof `HTMLElementEventMap` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-Animate.triggerEvent
-
-#### Defined in
-
-[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/8918ae1/src/package/base/index.ts#L30)
+[src/package/animate/index.ts:111](https://github.com/rossrobino/components/blob/67914d8/src/package/animate/index.ts#L111)
 
 ---
 
@@ -149,14 +149,15 @@ Animate.triggerEvent
 
 ### animateElement
 
-▸ **animateElement**(`element`, `options?`): `Promise`\<`void`\>
+▸ **animateElement**(`animateOptions?`): `Promise`\<`void`\>
 
 #### Parameters
 
-| Name      | Type                       |
-| :-------- | :------------------------- |
-| `element` | `HTMLElement`              |
-| `options` | `KeyframeAnimationOptions` |
+| Name                      | Type                       |
+| :------------------------ | :------------------------- |
+| `animateOptions`          | `Object`                   |
+| `animateOptions.element?` | `HTMLElement`              |
+| `animateOptions.options?` | `KeyframeAnimationOptions` |
 
 #### Returns
 
@@ -178,7 +179,7 @@ Animates a particular element using the web animations API.
 
 #### Defined in
 
-[src/package/animate/index.ts:63](https://github.com/rossrobino/components/blob/8918ae1/src/package/animate/index.ts#L63)
+[src/package/animate/index.ts:62](https://github.com/rossrobino/components/blob/67914d8/src/package/animate/index.ts#L62)
 
 ### close
 
@@ -192,7 +193,7 @@ Animates a particular element using the web animations API.
 
 #### Defined in
 
-[src/package/dialog/index.ts:23](https://github.com/rossrobino/components/blob/8918ae1/src/package/dialog/index.ts#L23)
+[src/package/dialog/index.ts:23](https://github.com/rossrobino/components/blob/67914d8/src/package/dialog/index.ts#L23)
 
 ### connectedCallback
 
@@ -204,7 +205,7 @@ Animates a particular element using the web animations API.
 
 #### Defined in
 
-[src/package/dialog/index.ts:36](https://github.com/rossrobino/components/blob/8918ae1/src/package/dialog/index.ts#L36)
+[src/package/dialog/index.ts:38](https://github.com/rossrobino/components/blob/67914d8/src/package/dialog/index.ts#L38)
 
 ### content
 
@@ -240,7 +241,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/8918ae1/src/package/base/index.ts#L52)
+[src/package/base/index.ts:51](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L51)
 
 ### disconnectedCallback
 
@@ -256,11 +257,11 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:77](https://github.com/rossrobino/components/blob/8918ae1/src/package/base/index.ts#L77)
+[src/package/base/index.ts:85](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L85)
 
-### safeAddEventListener
+### safeListener
 
-▸ **safeAddEventListener**\<`K`\>(`type`, `listener`, `options?`): `void`
+▸ **safeListener**\<`K`\>(`type`, `listener`, `options?`): `void`
 
 Wrapper around `document.body.addEventListener` that ensures when the
 element is removed from the DOM, these event listeners are cleaned up.
@@ -285,11 +286,11 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Inherited from
 
-[Animate](/docs/classes/Animate.md).[safeAddEventListener](/docs/classes/Animate.md#safeaddeventlistener)
+[Animate](/docs/classes/Animate.md).[safeListener](/docs/classes/Animate.md#safelistener)
 
 #### Defined in
 
-[src/package/base/index.ts:68](https://github.com/rossrobino/components/blob/8918ae1/src/package/base/index.ts#L68)
+[src/package/base/index.ts:67](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L67)
 
 ### showModal
 
@@ -303,7 +304,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/dialog/index.ts:17](https://github.com/rossrobino/components/blob/8918ae1/src/package/dialog/index.ts#L17)
+[src/package/dialog/index.ts:17](https://github.com/rossrobino/components/blob/67914d8/src/package/dialog/index.ts#L17)
 
 ### toggle
 
@@ -317,7 +318,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/dialog/index.ts:31](https://github.com/rossrobino/components/blob/8918ae1/src/package/dialog/index.ts#L31)
+[src/package/dialog/index.ts:33](https://github.com/rossrobino/components/blob/67914d8/src/package/dialog/index.ts#L33)
 
 ### trigger
 
@@ -341,4 +342,26 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/8918ae1/src/package/base/index.ts#L38)
+[src/package/base/index.ts:37](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L37)
+
+### triggerListener
+
+▸ **triggerListener**(`listener`): `void`
+
+#### Parameters
+
+| Name       | Type            | Description                                          |
+| :--------- | :-------------- | :--------------------------------------------------- |
+| `listener` | `EventListener` | Listener to attach to all of the `trigger` elements. |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Animate](/docs/classes/Animate.md).[triggerListener](/docs/classes/Animate.md#triggerlistener)
+
+#### Defined in
+
+[src/package/base/index.ts:79](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L79)

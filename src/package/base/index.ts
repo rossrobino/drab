@@ -18,16 +18,15 @@ export class Base extends HTMLElement {
 	}
 
 	/**
-	 * Event for the trigger to execute.
+	 * Event for the `trigger` to execute.
 	 *
 	 * @default "click"
 	 */
-	get triggerEvent() {
-		return (this.getAttribute("trigger-event") ??
-			"click") as keyof HTMLElementEventMap;
+	get event() {
+		return (this.getAttribute("event") ?? "click") as keyof HTMLElementEventMap;
 	}
 
-	set triggerEvent(value) {
+	set event(value) {
 		this.setAttribute("event", value);
 	}
 
@@ -65,13 +64,22 @@ export class Base extends HTMLElement {
 	 * @param listener
 	 * @param options
 	 */
-	safeAddEventListener<K extends keyof HTMLElementEventMap>(
+	safeListener<K extends keyof HTMLElementEventMap>(
 		type: K,
 		listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
 		options: AddEventListenerOptions = {},
 	) {
 		options.signal = this.#listenerController.signal;
 		document.body.addEventListener(type, listener, options);
+	}
+
+	/**
+	 * @param listener Listener to attach to all of the `trigger` elements.
+	 */
+	triggerListener(listener: EventListener) {
+		for (const trigger of this.trigger()) {
+			trigger.addEventListener(this.event, listener);
+		}
 	}
 
 	disconnectedCallback() {

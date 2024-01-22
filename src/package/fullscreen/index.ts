@@ -38,8 +38,9 @@ export class Fullscreen extends Base {
 	}
 
 	connectedCallback() {
+		this.triggerListener(() => this.toggle());
+
 		for (const trigger of this.trigger()) {
-			trigger.addEventListener(this.triggerEvent, () => this.toggle());
 			if (!this.fullscreenSupported() && "disabled" in trigger) {
 				trigger.disabled = true;
 			}

@@ -2,11 +2,7 @@
 
 <script type="module">
 	const animate = document.querySelector("drab-animate");
-	for (const trigger of animate.trigger()) {
-		trigger.addEventListener("click", async () => {
-			await animate.animateElement(animate.content());
-		});
-	}
+	animate.triggerListener(() => animate.animateElement());
 </script>
 
 <drab-animate

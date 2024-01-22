@@ -10,11 +10,6 @@ export class Copy extends BaseCopy {
 	}
 
 	connectedCallback() {
-		for (const trigger of this.trigger()) {
-			trigger.addEventListener(
-				this.triggerEvent,
-				async () => await this.copy(),
-			);
-		}
+		this.triggerListener(async () => await this.copy());
 	}
 }

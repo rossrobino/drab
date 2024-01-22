@@ -31,11 +31,6 @@ export class Share extends BaseCopy {
 	}
 
 	connectedCallback() {
-		for (const trigger of this.trigger()) {
-			trigger.addEventListener(
-				this.triggerEvent,
-				async () => await this.share(),
-			);
-		}
+		this.triggerListener(async () => await this.share());
 	}
 }

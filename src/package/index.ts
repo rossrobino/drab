@@ -3,8 +3,19 @@ import { Base } from "./base/index.ts";
 import { Copy } from "./copy/index.ts";
 import { Details } from "./details/index.ts";
 import { Dialog } from "./dialog/index.ts";
+import { Editor } from "./editor/index.ts";
 import { Fullscreen } from "./fullscreen/index.ts";
 import { Share } from "./share/index.ts";
 import { YouTube } from "./youtube/index.ts";
 
-export { Animate, Base, Copy, Details, Dialog, Fullscreen, Share, YouTube };
+export {
+	Animate,
+	Base,
+	Copy,
+	Details,
+	Dialog,
+	Editor,
+	Fullscreen,
+	Share,
+	YouTube,
+};

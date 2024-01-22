@@ -1,21 +1,9 @@
-The `Animate` base class provides a declarative way to use the
-[Web Animations API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API)
-through HTML attributes. The `animateElement` method uses these attributes and
-persists the final animation state. Other elements in **drab** extend this class
-to provide animations. You can also extend this class to create your own custom
-animated element.
+This element provides a progressive enhancement on top of the `HTMLDetailsElement` to
+animate it with the Web Animations API.
 
-Keyframes can be set via HTML attributes on the element in the form of:
-
-```html
-<drab-animate animation-keyframe-offset-property="value"></drab-animate>
-```
-
-Animations options can also be set:
-
-```html
-<drab-animate animation-option-property="value"></drab-animate>
-```
+The best way I've found to animate the details element is using CSS grid from this
+[Kevin Powell video](https://youtu.be/B_n4YONte5A?t=116). The example demonstrates
+this animation. If you know the size of the details element, you could use height instead.
 
 ---
 
@@ -43,7 +31,7 @@ Animations options can also be set:
 
 #### Defined in
 
-[src/package/details/index.ts:4](https://github.com/rossrobino/components/blob/8918ae1/src/package/details/index.ts#L4)
+[src/package/details/index.ts:12](https://github.com/rossrobino/components/blob/67914d8/src/package/details/index.ts#L12)
 
 ---
 
@@ -62,7 +50,7 @@ when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:14](https://github.com/rossrobino/components/blob/8918ae1/src/package/base/index.ts#L14)
+[src/package/base/index.ts:14](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L14)
 
 ---
 
@@ -84,7 +72,7 @@ Animate.animationOptions
 
 #### Defined in
 
-[src/package/animate/index.ts:32](https://github.com/rossrobino/components/blob/8918ae1/src/package/animate/index.ts#L32)
+[src/package/animate/index.ts:32](https://github.com/rossrobino/components/blob/67914d8/src/package/animate/index.ts#L32)
 
 ### details
 
@@ -96,7 +84,51 @@ Animate.animationOptions
 
 #### Defined in
 
-[src/package/details/index.ts:8](https://github.com/rossrobino/components/blob/8918ae1/src/package/details/index.ts#L8)
+[src/package/details/index.ts:16](https://github.com/rossrobino/components/blob/67914d8/src/package/details/index.ts#L16)
+
+### event
+
+• `get` **event**(): keyof `HTMLElementEventMap`
+
+Event for the `trigger` to execute.
+
+#### Returns
+
+keyof `HTMLElementEventMap`
+
+**`Default`**
+
+```ts
+"click";
+```
+
+#### Inherited from
+
+Animate.event
+
+#### Defined in
+
+[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L25)
+
+• `set` **event**(`value`): `void`
+
+#### Parameters
+
+| Name    | Type                        |
+| :------ | :-------------------------- |
+| `value` | keyof `HTMLElementEventMap` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+Animate.event
+
+#### Defined in
+
+[src/package/base/index.ts:29](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L29)
 
 ### keyframes
 
@@ -112,51 +144,7 @@ Animate.keyframes
 
 #### Defined in
 
-[src/package/animate/index.ts:108](https://github.com/rossrobino/components/blob/8918ae1/src/package/animate/index.ts#L108)
-
-### triggerEvent
-
-• `get` **triggerEvent**(): keyof `HTMLElementEventMap`
-
-Event for the trigger to execute.
-
-#### Returns
-
-keyof `HTMLElementEventMap`
-
-**`Default`**
-
-```ts
-"click";
-```
-
-#### Inherited from
-
-Animate.triggerEvent
-
-#### Defined in
-
-[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/8918ae1/src/package/base/index.ts#L25)
-
-• `set` **triggerEvent**(`value`): `void`
-
-#### Parameters
-
-| Name    | Type                        |
-| :------ | :-------------------------- |
-| `value` | keyof `HTMLElementEventMap` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-Animate.triggerEvent
-
-#### Defined in
-
-[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/8918ae1/src/package/base/index.ts#L30)
+[src/package/animate/index.ts:111](https://github.com/rossrobino/components/blob/67914d8/src/package/animate/index.ts#L111)
 
 ---
 
@@ -164,14 +152,15 @@ Animate.triggerEvent
 
 ### animateElement
 
-▸ **animateElement**(`element`, `options?`): `Promise`\<`void`\>
+▸ **animateElement**(`animateOptions?`): `Promise`\<`void`\>
 
 #### Parameters
 
-| Name      | Type                       |
-| :-------- | :------------------------- |
-| `element` | `HTMLElement`              |
-| `options` | `KeyframeAnimationOptions` |
+| Name                      | Type                       |
+| :------------------------ | :------------------------- |
+| `animateOptions`          | `Object`                   |
+| `animateOptions.element?` | `HTMLElement`              |
+| `animateOptions.options?` | `KeyframeAnimationOptions` |
 
 #### Returns
 
@@ -193,7 +182,7 @@ Animates a particular element using the web animations API.
 
 #### Defined in
 
-[src/package/animate/index.ts:63](https://github.com/rossrobino/components/blob/8918ae1/src/package/animate/index.ts#L63)
+[src/package/animate/index.ts:62](https://github.com/rossrobino/components/blob/67914d8/src/package/animate/index.ts#L62)
 
 ### close
 
@@ -207,7 +196,7 @@ Closes details with animation.
 
 #### Defined in
 
-[src/package/details/index.ts:21](https://github.com/rossrobino/components/blob/8918ae1/src/package/details/index.ts#L21)
+[src/package/details/index.ts:29](https://github.com/rossrobino/components/blob/67914d8/src/package/details/index.ts#L29)
 
 ### connectedCallback
 
@@ -219,7 +208,7 @@ Closes details with animation.
 
 #### Defined in
 
-[src/package/details/index.ts:36](https://github.com/rossrobino/components/blob/8918ae1/src/package/details/index.ts#L36)
+[src/package/details/index.ts:44](https://github.com/rossrobino/components/blob/67914d8/src/package/details/index.ts#L44)
 
 ### content
 
@@ -255,7 +244,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:52](https://github.com/rossrobino/components/blob/8918ae1/src/package/base/index.ts#L52)
+[src/package/base/index.ts:51](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L51)
 
 ### disconnectedCallback
 
@@ -271,7 +260,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:77](https://github.com/rossrobino/components/blob/8918ae1/src/package/base/index.ts#L77)
+[src/package/base/index.ts:85](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L85)
 
 ### open
 
@@ -283,11 +272,11 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/details/index.ts:15](https://github.com/rossrobino/components/blob/8918ae1/src/package/details/index.ts#L15)
+[src/package/details/index.ts:23](https://github.com/rossrobino/components/blob/67914d8/src/package/details/index.ts#L23)
 
-### safeAddEventListener
+### safeListener
 
-▸ **safeAddEventListener**\<`K`\>(`type`, `listener`, `options?`): `void`
+▸ **safeListener**\<`K`\>(`type`, `listener`, `options?`): `void`
 
 Wrapper around `document.body.addEventListener` that ensures when the
 element is removed from the DOM, these event listeners are cleaned up.
@@ -312,11 +301,11 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Inherited from
 
-[Animate](/docs/classes/Animate.md).[safeAddEventListener](/docs/classes/Animate.md#safeaddeventlistener)
+[Animate](/docs/classes/Animate.md).[safeListener](/docs/classes/Animate.md#safelistener)
 
 #### Defined in
 
-[src/package/base/index.ts:68](https://github.com/rossrobino/components/blob/8918ae1/src/package/base/index.ts#L68)
+[src/package/base/index.ts:67](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L67)
 
 ### toggle
 
@@ -328,7 +317,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/details/index.ts:28](https://github.com/rossrobino/components/blob/8918ae1/src/package/details/index.ts#L28)
+[src/package/details/index.ts:36](https://github.com/rossrobino/components/blob/67914d8/src/package/details/index.ts#L36)
 
 ### trigger
 
@@ -352,4 +341,26 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:38](https://github.com/rossrobino/components/blob/8918ae1/src/package/base/index.ts#L38)
+[src/package/base/index.ts:37](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L37)
+
+### triggerListener
+
+▸ **triggerListener**(`listener`): `void`
+
+#### Parameters
+
+| Name       | Type            | Description                                          |
+| :--------- | :-------------- | :--------------------------------------------------- |
+| `listener` | `EventListener` | Listener to attach to all of the `trigger` elements. |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Animate](/docs/classes/Animate.md).[triggerListener](/docs/classes/Animate.md#triggerlistener)
+
+#### Defined in
+
+[src/package/base/index.ts:79](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L79)
