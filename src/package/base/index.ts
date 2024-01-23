@@ -91,13 +91,18 @@ export class Base extends HTMLElement {
 	 * @param listener
 	 * @param options
 	 */
-	safeListener<K extends keyof HTMLElementEventMap>(
+	safeListener<
+		K extends keyof HTMLElementEventMap,
+		T extends HTMLElement | Window | Document = HTMLElement,
+	>(
 		type: K,
-		listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+		listener: (this: T, ev: HTMLElementEventMap[K]) => any,
+		element: T = document.body as T,
 		options: AddEventListenerOptions = {},
 	) {
 		options.signal = this.#listenerController.signal;
-		document.body.addEventListener(type, listener, options);
+		//@ts-ignore - inferred listener type not working...?
+		element.addEventListener(type, listener, options);
 	}
 
 	/**

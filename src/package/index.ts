@@ -1,5 +1,6 @@
-import { Animate } from "./animate/index.ts";
 import { Base } from "./base/index.ts";
+import { Animate } from "./animate/index.ts";
+import { Breakpoint } from "./breakpoint/index.ts";
 import { Copy } from "./copy/index.ts";
 import { Details } from "./details/index.ts";
 import { Dialog } from "./dialog/index.ts";
@@ -11,8 +12,9 @@ import { TableSort } from "./tablesort/index.ts";
 import { YouTube } from "./youtube/index.ts";
 
 export {
-	Animate,
 	Base,
+	Animate,
+	Breakpoint,
 	Copy,
 	Details,
 	Dialog,

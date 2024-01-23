@@ -1,13 +1,12 @@
-Uses the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText)
-to copy text.
+Displays the current breakpoint and `window.innerWidth`, based on the `breakpoints` provided. Defaults to [TailwindCSS breakpoint sizes](https://tailwindcss.com/docs/responsive-design).
 
 ---
 
 ## Hierarchy
 
-- `BaseCopy`
+- [`Base`](/docs/base/)
 
-  ↳ **`Copy`**
+  ↳ **`Breakpoint`**
 
 ---
 
@@ -15,19 +14,19 @@ to copy text.
 
 ### constructor
 
-• **new Copy**(): [`Copy`](/docs/copy/)
+• **new Breakpoint**(): [`Breakpoint`](/docs/breakpoint/)
 
 #### Returns
 
-[`Copy`](/docs/copy/)
+[`Breakpoint`](/docs/breakpoint/)
 
 #### Overrides
 
-BaseCopy.constructor
+[Base](/docs/base/).[constructor](/docs/base/#constructor)
 
 #### Defined in
 
-[src/package/copy/index.ts:8](https://github.com/rossrobino/components/blob/0af6c6c/src/package/copy/index.ts#L8)
+src/package/breakpoint/index.ts:15
 
 ---
 
@@ -41,15 +40,37 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Inherited from
 
-BaseCopy.#listenerController
+[Base](/docs/base/).[#listenerController](/docs/base/##listenercontroller)
 
 #### Defined in
 
 [src/package/base/index.ts:18](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L18)
 
+### breakpoints
+
+• **breakpoints**: \{ `name`: `string` ; `width`: `number` }[]
+
+#### Defined in
+
+src/package/breakpoint/index.ts:7
+
 ---
 
 ## Accessors
+
+### breakpoint
+
+• `get` **breakpoint**(): `string`
+
+finds the current breakpoint
+
+#### Returns
+
+`string`
+
+#### Defined in
+
+src/package/breakpoint/index.ts:25
 
 ### event
 
@@ -71,7 +92,7 @@ keyof `HTMLElementEventMap`
 
 #### Inherited from
 
-BaseCopy.event
+Base.event
 
 #### Defined in
 
@@ -91,53 +112,23 @@ BaseCopy.event
 
 #### Inherited from
 
-BaseCopy.event
+Base.event
 
 #### Defined in
 
 [src/package/base/index.ts:35](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L35)
 
-### value
+### width
 
-• `get` **value**(): `string`
-
-#### Returns
-
-`string`
-
-**`Default`**
-
-```ts
-"" the empty string
-```
-
-#### Inherited from
-
-BaseCopy.value
-
-#### Defined in
-
-[src/package/base/copy/index.ts:11](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/copy/index.ts#L11)
-
-• `set` **value**(`value`): `void`
-
-#### Parameters
-
-| Name    | Type     |
-| :------ | :------- |
-| `value` | `string` |
+• `get` **width**(): `number`
 
 #### Returns
 
-`void`
-
-#### Inherited from
-
-BaseCopy.value
+`number`
 
 #### Defined in
 
-[src/package/base/copy/index.ts:15](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/copy/index.ts#L15)
+src/package/breakpoint/index.ts:37
 
 ---
 
@@ -153,7 +144,7 @@ BaseCopy.value
 
 #### Defined in
 
-[src/package/copy/index.ts:12](https://github.com/rossrobino/components/blob/0af6c6c/src/package/copy/index.ts#L12)
+src/package/breakpoint/index.ts:41
 
 ### content
 
@@ -185,35 +176,11 @@ this.querySelector("[data-content]");
 
 #### Inherited from
 
-BaseCopy.content
+[Base](/docs/base/).[content](/docs/base/#content)
 
 #### Defined in
 
 [src/package/base/index.ts:57](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L57)
-
-### copy
-
-▸ **copy**(`text?`): `Promise`\<`void`\>
-
-Copies the `text`.
-
-#### Parameters
-
-| Name   | Type     | Description         |
-| :----- | :------- | :------------------ |
-| `text` | `string` | The `text` to share |
-
-#### Returns
-
-`Promise`\<`void`\>
-
-#### Inherited from
-
-BaseCopy.copy
-
-#### Defined in
-
-[src/package/base/copy/index.ts:23](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/copy/index.ts#L23)
 
 ### disconnectedCallback
 
@@ -225,7 +192,7 @@ BaseCopy.copy
 
 #### Inherited from
 
-BaseCopy.disconnectedCallback
+[Base](/docs/base/).[disconnectedCallback](/docs/base/#disconnectedcallback)
 
 #### Defined in
 
@@ -260,7 +227,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Inherited from
 
-BaseCopy.safeListener
+[Base](/docs/base/).[safeListener](/docs/base/#safelistener)
 
 #### Defined in
 
@@ -286,7 +253,7 @@ swaps `this.content().innerHTML` with the content of the template.
 
 #### Inherited from
 
-BaseCopy.swap
+[Base](/docs/base/).[swap](/docs/base/#swap)
 
 #### Defined in
 
@@ -310,7 +277,7 @@ this.querySelectorAll("[data-trigger]");
 
 #### Inherited from
 
-BaseCopy.trigger
+[Base](/docs/base/).[trigger](/docs/base/#trigger)
 
 #### Defined in
 
@@ -332,7 +299,7 @@ BaseCopy.trigger
 
 #### Inherited from
 
-BaseCopy.triggerListener
+[Base](/docs/base/).[triggerListener](/docs/base/#triggerlistener)
 
 #### Defined in
 

@@ -27,7 +27,7 @@ BaseCopy.constructor
 
 #### Defined in
 
-[src/package/share/index.ts:8](https://github.com/rossrobino/components/blob/8302597/src/package/share/index.ts#L8)
+[src/package/share/index.ts:8](https://github.com/rossrobino/components/blob/0af6c6c/src/package/share/index.ts#L8)
 
 ---
 
@@ -45,7 +45,7 @@ BaseCopy.#listenerController
 
 #### Defined in
 
-[src/package/base/index.ts:18](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L18)
+[src/package/base/index.ts:18](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L18)
 
 ---
 
@@ -75,7 +75,7 @@ BaseCopy.event
 
 #### Defined in
 
-[src/package/base/index.ts:31](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L31)
+[src/package/base/index.ts:31](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L31)
 
 • `set` **event**(`value`): `void`
 
@@ -95,7 +95,7 @@ BaseCopy.event
 
 #### Defined in
 
-[src/package/base/index.ts:35](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L35)
+[src/package/base/index.ts:35](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L35)
 
 ### value
 
@@ -117,7 +117,7 @@ BaseCopy.value
 
 #### Defined in
 
-[src/package/base/copy/index.ts:11](https://github.com/rossrobino/components/blob/8302597/src/package/base/copy/index.ts#L11)
+[src/package/base/copy/index.ts:11](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/copy/index.ts#L11)
 
 • `set` **value**(`value`): `void`
 
@@ -137,7 +137,7 @@ BaseCopy.value
 
 #### Defined in
 
-[src/package/base/copy/index.ts:15](https://github.com/rossrobino/components/blob/8302597/src/package/base/copy/index.ts#L15)
+[src/package/base/copy/index.ts:15](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/copy/index.ts#L15)
 
 ---
 
@@ -153,7 +153,7 @@ BaseCopy.value
 
 #### Defined in
 
-[src/package/share/index.ts:33](https://github.com/rossrobino/components/blob/8302597/src/package/share/index.ts#L33)
+[src/package/share/index.ts:33](https://github.com/rossrobino/components/blob/0af6c6c/src/package/share/index.ts#L33)
 
 ### content
 
@@ -189,7 +189,7 @@ BaseCopy.content
 
 #### Defined in
 
-[src/package/base/index.ts:57](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L57)
+[src/package/base/index.ts:57](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L57)
 
 ### copy
 
@@ -213,7 +213,7 @@ BaseCopy.copy
 
 #### Defined in
 
-[src/package/base/copy/index.ts:23](https://github.com/rossrobino/components/blob/8302597/src/package/base/copy/index.ts#L23)
+[src/package/base/copy/index.ts:23](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/copy/index.ts#L23)
 
 ### disconnectedCallback
 
@@ -229,28 +229,30 @@ BaseCopy.disconnectedCallback
 
 #### Defined in
 
-[src/package/base/index.ts:112](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L112)
+[src/package/base/index.ts:117](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L117)
 
 ### safeListener
 
-▸ **safeListener**\<`K`\>(`type`, `listener`, `options?`): `void`
+▸ **safeListener**\<`K`, `T`\>(`type`, `listener`, `element?`, `options?`): `void`
 
 Wrapper around `document.body.addEventListener` that ensures when the
 element is removed from the DOM, these event listeners are cleaned up.
 
 #### Type parameters
 
-| Name | Type                                |
-| :--- | :---------------------------------- |
-| `K`  | extends keyof `HTMLElementEventMap` |
+| Name | Type                                                            |
+| :--- | :-------------------------------------------------------------- |
+| `K`  | extends keyof `HTMLElementEventMap`                             |
+| `T`  | extends `Window` \| `Document` \| `HTMLElement` = `HTMLElement` |
 
 #### Parameters
 
-| Name       | Type                                                               |
-| :--------- | :----------------------------------------------------------------- |
-| `type`     | `K`                                                                |
-| `listener` | (`this`: `HTMLElement`, `ev`: `HTMLElementEventMap`[`K`]) => `any` |
-| `options`  | `AddEventListenerOptions`                                          |
+| Name       | Type                                                     |
+| :--------- | :------------------------------------------------------- |
+| `type`     | `K`                                                      |
+| `listener` | (`this`: `T`, `ev`: `HTMLElementEventMap`[`K`]) => `any` |
+| `element`  | `T`                                                      |
+| `options`  | `AddEventListenerOptions`                                |
 
 #### Returns
 
@@ -262,7 +264,7 @@ BaseCopy.safeListener
 
 #### Defined in
 
-[src/package/base/index.ts:94](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L94)
+[src/package/base/index.ts:94](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L94)
 
 ### share
 
@@ -285,7 +287,7 @@ depending on browser support.
 
 #### Defined in
 
-[src/package/share/index.ts:18](https://github.com/rossrobino/components/blob/8302597/src/package/share/index.ts#L18)
+[src/package/share/index.ts:18](https://github.com/rossrobino/components/blob/0af6c6c/src/package/share/index.ts#L18)
 
 ### swap
 
@@ -311,7 +313,7 @@ BaseCopy.swap
 
 #### Defined in
 
-[src/package/base/index.ts:74](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L74)
+[src/package/base/index.ts:74](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L74)
 
 ### trigger
 
@@ -335,7 +337,7 @@ BaseCopy.trigger
 
 #### Defined in
 
-[src/package/base/index.ts:43](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L43)
+[src/package/base/index.ts:43](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L43)
 
 ### triggerListener
 
@@ -357,4 +359,4 @@ BaseCopy.triggerListener
 
 #### Defined in
 
-[src/package/base/index.ts:106](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L106)
+[src/package/base/index.ts:111](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L111)

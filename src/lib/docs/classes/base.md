@@ -20,6 +20,8 @@ Each element can have multiple `trigger`s, but will only have one `content`.
 
   ↳↳ [`Animate`](/docs/animate/)
 
+  ↳↳ [`Breakpoint`](/docs/breakpoint/)
+
   ↳↳ [`Editor`](/docs/editor/)
 
   ↳↳ [`Fullscreen`](/docs/fullscreen/)
@@ -46,7 +48,7 @@ HTMLElement.constructor
 
 #### Defined in
 
-[src/package/base/index.ts:20](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L20)
+[src/package/base/index.ts:20](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L20)
 
 ---
 
@@ -60,7 +62,7 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:18](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L18)
+[src/package/base/index.ts:18](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L18)
 
 ---
 
@@ -86,7 +88,7 @@ keyof `HTMLElementEventMap`
 
 #### Defined in
 
-[src/package/base/index.ts:31](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L31)
+[src/package/base/index.ts:31](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L31)
 
 • `set` **event**(`value`): `void`
 
@@ -102,7 +104,7 @@ keyof `HTMLElementEventMap`
 
 #### Defined in
 
-[src/package/base/index.ts:35](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L35)
+[src/package/base/index.ts:35](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L35)
 
 ---
 
@@ -138,7 +140,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:57](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L57)
+[src/package/base/index.ts:57](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L57)
 
 ### disconnectedCallback
 
@@ -150,28 +152,30 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:112](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L112)
+[src/package/base/index.ts:117](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L117)
 
 ### safeListener
 
-▸ **safeListener**\<`K`\>(`type`, `listener`, `options?`): `void`
+▸ **safeListener**\<`K`, `T`\>(`type`, `listener`, `element?`, `options?`): `void`
 
 Wrapper around `document.body.addEventListener` that ensures when the
 element is removed from the DOM, these event listeners are cleaned up.
 
 #### Type parameters
 
-| Name | Type                                |
-| :--- | :---------------------------------- |
-| `K`  | extends keyof `HTMLElementEventMap` |
+| Name | Type                                                            |
+| :--- | :-------------------------------------------------------------- |
+| `K`  | extends keyof `HTMLElementEventMap`                             |
+| `T`  | extends `Window` \| `Document` \| `HTMLElement` = `HTMLElement` |
 
 #### Parameters
 
-| Name       | Type                                                               |
-| :--------- | :----------------------------------------------------------------- |
-| `type`     | `K`                                                                |
-| `listener` | (`this`: `HTMLElement`, `ev`: `HTMLElementEventMap`[`K`]) => `any` |
-| `options`  | `AddEventListenerOptions`                                          |
+| Name       | Type                                                     |
+| :--------- | :------------------------------------------------------- |
+| `type`     | `K`                                                      |
+| `listener` | (`this`: `T`, `ev`: `HTMLElementEventMap`[`K`]) => `any` |
+| `element`  | `T`                                                      |
+| `options`  | `AddEventListenerOptions`                                |
 
 #### Returns
 
@@ -179,7 +183,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:94](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L94)
+[src/package/base/index.ts:94](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L94)
 
 ### swap
 
@@ -201,7 +205,7 @@ swaps `this.content().innerHTML` with the content of the template.
 
 #### Defined in
 
-[src/package/base/index.ts:74](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L74)
+[src/package/base/index.ts:74](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L74)
 
 ### trigger
 
@@ -221,7 +225,7 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:43](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L43)
+[src/package/base/index.ts:43](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L43)
 
 ### triggerListener
 
@@ -239,4 +243,4 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:106](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L106)
+[src/package/base/index.ts:111](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L111)

@@ -32,7 +32,7 @@ instead.
 
 #### Defined in
 
-[src/package/details/index.ts:13](https://github.com/rossrobino/components/blob/8302597/src/package/details/index.ts#L13)
+[src/package/details/index.ts:13](https://github.com/rossrobino/components/blob/0af6c6c/src/package/details/index.ts#L13)
 
 ---
 
@@ -50,7 +50,7 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:18](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L18)
+[src/package/base/index.ts:18](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L18)
 
 ---
 
@@ -72,7 +72,7 @@ Animate.animationOptions
 
 #### Defined in
 
-[src/package/animate/index.ts:32](https://github.com/rossrobino/components/blob/8302597/src/package/animate/index.ts#L32)
+[src/package/animate/index.ts:32](https://github.com/rossrobino/components/blob/0af6c6c/src/package/animate/index.ts#L32)
 
 ### details
 
@@ -84,7 +84,7 @@ Animate.animationOptions
 
 #### Defined in
 
-[src/package/details/index.ts:17](https://github.com/rossrobino/components/blob/8302597/src/package/details/index.ts#L17)
+[src/package/details/index.ts:17](https://github.com/rossrobino/components/blob/0af6c6c/src/package/details/index.ts#L17)
 
 ### event
 
@@ -110,7 +110,7 @@ Animate.event
 
 #### Defined in
 
-[src/package/base/index.ts:31](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L31)
+[src/package/base/index.ts:31](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L31)
 
 • `set` **event**(`value`): `void`
 
@@ -130,7 +130,7 @@ Animate.event
 
 #### Defined in
 
-[src/package/base/index.ts:35](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L35)
+[src/package/base/index.ts:35](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L35)
 
 ### keyframes
 
@@ -146,7 +146,7 @@ Animate.keyframes
 
 #### Defined in
 
-[src/package/animate/index.ts:111](https://github.com/rossrobino/components/blob/8302597/src/package/animate/index.ts#L111)
+[src/package/animate/index.ts:111](https://github.com/rossrobino/components/blob/0af6c6c/src/package/animate/index.ts#L111)
 
 ---
 
@@ -184,7 +184,7 @@ Animates a particular element using the web animations API.
 
 #### Defined in
 
-[src/package/animate/index.ts:62](https://github.com/rossrobino/components/blob/8302597/src/package/animate/index.ts#L62)
+[src/package/animate/index.ts:62](https://github.com/rossrobino/components/blob/0af6c6c/src/package/animate/index.ts#L62)
 
 ### close
 
@@ -198,7 +198,7 @@ Closes details with animation.
 
 #### Defined in
 
-[src/package/details/index.ts:30](https://github.com/rossrobino/components/blob/8302597/src/package/details/index.ts#L30)
+[src/package/details/index.ts:30](https://github.com/rossrobino/components/blob/0af6c6c/src/package/details/index.ts#L30)
 
 ### connectedCallback
 
@@ -210,7 +210,7 @@ Closes details with animation.
 
 #### Defined in
 
-[src/package/details/index.ts:45](https://github.com/rossrobino/components/blob/8302597/src/package/details/index.ts#L45)
+[src/package/details/index.ts:45](https://github.com/rossrobino/components/blob/0af6c6c/src/package/details/index.ts#L45)
 
 ### content
 
@@ -246,7 +246,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:57](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L57)
+[src/package/base/index.ts:57](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L57)
 
 ### disconnectedCallback
 
@@ -262,7 +262,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:112](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L112)
+[src/package/base/index.ts:117](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L117)
 
 ### open
 
@@ -274,28 +274,30 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/details/index.ts:24](https://github.com/rossrobino/components/blob/8302597/src/package/details/index.ts#L24)
+[src/package/details/index.ts:24](https://github.com/rossrobino/components/blob/0af6c6c/src/package/details/index.ts#L24)
 
 ### safeListener
 
-▸ **safeListener**\<`K`\>(`type`, `listener`, `options?`): `void`
+▸ **safeListener**\<`K`, `T`\>(`type`, `listener`, `element?`, `options?`): `void`
 
 Wrapper around `document.body.addEventListener` that ensures when the
 element is removed from the DOM, these event listeners are cleaned up.
 
 #### Type parameters
 
-| Name | Type                                |
-| :--- | :---------------------------------- |
-| `K`  | extends keyof `HTMLElementEventMap` |
+| Name | Type                                                            |
+| :--- | :-------------------------------------------------------------- |
+| `K`  | extends keyof `HTMLElementEventMap`                             |
+| `T`  | extends `Window` \| `Document` \| `HTMLElement` = `HTMLElement` |
 
 #### Parameters
 
-| Name       | Type                                                               |
-| :--------- | :----------------------------------------------------------------- |
-| `type`     | `K`                                                                |
-| `listener` | (`this`: `HTMLElement`, `ev`: `HTMLElementEventMap`[`K`]) => `any` |
-| `options`  | `AddEventListenerOptions`                                          |
+| Name       | Type                                                     |
+| :--------- | :------------------------------------------------------- |
+| `type`     | `K`                                                      |
+| `listener` | (`this`: `T`, `ev`: `HTMLElementEventMap`[`K`]) => `any` |
+| `element`  | `T`                                                      |
+| `options`  | `AddEventListenerOptions`                                |
 
 #### Returns
 
@@ -307,7 +309,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:94](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L94)
+[src/package/base/index.ts:94](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L94)
 
 ### swap
 
@@ -333,7 +335,7 @@ swaps `this.content().innerHTML` with the content of the template.
 
 #### Defined in
 
-[src/package/base/index.ts:74](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L74)
+[src/package/base/index.ts:74](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L74)
 
 ### toggle
 
@@ -345,7 +347,7 @@ swaps `this.content().innerHTML` with the content of the template.
 
 #### Defined in
 
-[src/package/details/index.ts:37](https://github.com/rossrobino/components/blob/8302597/src/package/details/index.ts#L37)
+[src/package/details/index.ts:37](https://github.com/rossrobino/components/blob/0af6c6c/src/package/details/index.ts#L37)
 
 ### trigger
 
@@ -369,7 +371,7 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:43](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L43)
+[src/package/base/index.ts:43](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L43)
 
 ### triggerListener
 
@@ -391,4 +393,4 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:106](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L106)
+[src/package/base/index.ts:111](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L111)

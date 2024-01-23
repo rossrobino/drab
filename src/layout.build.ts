@@ -58,6 +58,7 @@ export const build: Build = async ({
 		class extends HTMLElement {
 			connectedCallback() {
 				this.innerHTML = /* html */ `
+					<li><a href="/">Read Me</a></li>
 					<li><a href="/getting-started/">Getting Started</a></li>
 					<li>Reference</li>
 					<ul class="m-0" id="baseElements"></ul>
