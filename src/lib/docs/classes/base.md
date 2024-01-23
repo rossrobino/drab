@@ -1,9 +1,14 @@
-The `Base` class provides the `trigger` and `content` methods for
-selecting elements via HTML attributes along with other helpers for
-each custom element in the library.
+Each element in the library extends the `Base` class. It provides the `trigger`
+and `content` methods for selecting elements via HTML attributes along with
+other helpers.
 
-Set a `trigger` or `content` attribute to a CSS selector to change the
-default selector from `[data-trigger]` and `[data-content]`.
+By default, `trigger`s and `content` will be selected via the `data-trigger` and
+`data-content` attributes. Alternatively, you can set the `trigger` or
+`content` attribute to a CSS selector to change the default selector from
+`[data-trigger]` or `[data-content]` to a selector of your choosing.
+This can be useful if you have multiple elements within one another.
+
+Each element can have multiple `trigger`s, but will only have one `content`.
 
 ---
 
@@ -13,13 +18,15 @@ default selector from `[data-trigger]` and `[data-content]`.
 
   ↳ **`Base`**
 
-  ↳↳ [`Animate`](/docs/classes/Animate.md)
+  ↳↳ [`Animate`](/docs/animate/)
 
-  ↳↳ [`Editor`](/docs/classes/Editor.md)
+  ↳↳ [`Editor`](/docs/editor/)
 
-  ↳↳ [`Fullscreen`](/docs/classes/Fullscreen.md)
+  ↳↳ [`Fullscreen`](/docs/fullscreen/)
 
-  ↳↳ [`YouTube`](/docs/classes/YouTube.md)
+  ↳↳ [`TableSort`](/docs/tablesort/)
+
+  ↳↳ [`YouTube`](/docs/youtube/)
 
 ---
 
@@ -27,11 +34,11 @@ default selector from `[data-trigger]` and `[data-content]`.
 
 ### constructor
 
-• **new Base**(): [`Base`](/docs/classes/Base.md)
+• **new Base**(): [`Base`](/docs/base/)
 
 #### Returns
 
-[`Base`](/docs/classes/Base.md)
+[`Base`](/docs/base/)
 
 #### Overrides
 
@@ -39,7 +46,7 @@ HTMLElement.constructor
 
 #### Defined in
 
-[src/package/base/index.ts:16](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L16)
+[src/package/base/index.ts:20](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L20)
 
 ---
 
@@ -49,12 +56,11 @@ HTMLElement.constructor
 
 • `Private` **#listenerController**: `AbortController`
 
-To clean up event listeners added to `document` when
-when the element is removed.
+To clean up event listeners added to `document` when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:14](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L14)
+[src/package/base/index.ts:18](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L18)
 
 ---
 
@@ -65,6 +71,8 @@ when the element is removed.
 • `get` **event**(): keyof `HTMLElementEventMap`
 
 Event for the `trigger` to execute.
+
+For example, set to `"mouseover"` to execute the event when the user hovers the mouse over the `trigger`, instead of when they click it.
 
 #### Returns
 
@@ -78,7 +86,7 @@ keyof `HTMLElementEventMap`
 
 #### Defined in
 
-[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L25)
+[src/package/base/index.ts:31](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L31)
 
 • `set` **event**(`value`): `void`
 
@@ -94,7 +102,7 @@ keyof `HTMLElementEventMap`
 
 #### Defined in
 
-[src/package/base/index.ts:29](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L29)
+[src/package/base/index.ts:35](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L35)
 
 ---
 
@@ -130,7 +138,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:51](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L51)
+[src/package/base/index.ts:57](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L57)
 
 ### disconnectedCallback
 
@@ -142,7 +150,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:85](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L85)
+[src/package/base/index.ts:112](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L112)
 
 ### safeListener
 
@@ -171,7 +179,29 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:67](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L67)
+[src/package/base/index.ts:94](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L94)
+
+### swap
+
+▸ **swap**(`revert?`, `delay?`): `void`
+
+Finds the `HTMLTemplateElement` via the `swap` selector and
+swaps `this.content().innerHTML` with the content of the template.
+
+#### Parameters
+
+| Name     | Type      | Default value | Description                    |
+| :------- | :-------- | :------------ | :----------------------------- |
+| `revert` | `boolean` | `true`        | swap back to old content       |
+| `delay`  | `number`  | `800`         | wait time before swapping back |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/package/base/index.ts:74](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L74)
 
 ### trigger
 
@@ -191,7 +221,7 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:37](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L37)
+[src/package/base/index.ts:43](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L43)
 
 ### triggerListener
 
@@ -209,4 +239,4 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:79](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L79)
+[src/package/base/index.ts:106](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L106)

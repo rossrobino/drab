@@ -5,7 +5,9 @@ import { Details } from "./details/index.ts";
 import { Dialog } from "./dialog/index.ts";
 import { Editor } from "./editor/index.ts";
 import { Fullscreen } from "./fullscreen/index.ts";
+import { Popover } from "./popover/index.ts";
 import { Share } from "./share/index.ts";
+import { TableSort } from "./tablesort/index.ts";
 import { YouTube } from "./youtube/index.ts";
 
 export {
@@ -16,6 +18,8 @@ export {
 	Dialog,
 	Editor,
 	Fullscreen,
+	Popover,
 	Share,
+	TableSort,
 	YouTube,
 };

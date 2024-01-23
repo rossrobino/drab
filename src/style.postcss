@@ -42,13 +42,13 @@
 }
 
 @layer components {
-	.prose :where(p code)::before {
+	.prose :where(code:not(pre code))::before {
 		content: "";
 	}
-	.prose :where(p code)::after {
+	.prose :where(code:not(pre code))::after {
 		content: "";
 	}
-	.prose :where(p code) {
+	.prose :where(code:not(pre code)) {
 		background-color: theme(backgroundColor.muted.DEFAULT);
 		padding: theme(padding.1) theme(padding.2);
 		border-radius: theme(borderRadius.DEFAULT);

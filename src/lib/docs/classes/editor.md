@@ -1,15 +1,36 @@
-The `Base` class provides the `trigger` and `content` methods for
-selecting elements via HTML attributes along with other helpers for
-each custom element in the library.
+Enhances the `textarea` element with controls to add content and keyboard shortcuts. Compared to other WYSIWYG editors, the `text` value is just a `string`, so you can easily store it in a database or manipulate it without learning a separate API.
 
-Set a `trigger` or `content` attribute to a CSS selector to change the
-default selector from `[data-trigger]` and `[data-content]`.
+`data-value`
+
+Set the value of the text to be inserted using the `data-value` attribute on the `trigger`.
+
+`data-type`
+
+Set the `data-type` attribute of the `trigger` to specify how the content should be inserted into the `textarea`.
+
+- `block` will be inserted at the beginning of the selected line.
+- `wrap` will be inserted before and after the current selection.
+- `inline` will be inserted at the current selection.
+
+`data-key`
+
+Add a `ctrl`/`meta` keyboard shortcut for the content based on the `data-key` attribute.
+
+Other features:
+
+- Automatically adds closing characters for `keyPairs`. For example, when typing `(`, `)` will be inserted and typed over when reached. All content with `data-type="wrap"` is also added to `keyPairs`.
+- Highlights the first word of the text inserted if it contains letters.
+- Automatically increments/decrements ordered lists.
+- Adds the starting character to the next line for `block` content.
+- On double click, highlight is corrected to only highlight the current word without space around it.
+- `tab` key will indent and not change focus if the selection is within a code block (three backticks).
+- When text is highlighted and a `wrap` character `keyPair` is typed, the highlighted text will be wrapped with the character instead of removing it. For example, if a word is highlighted and the `"` character is typed, the work will be surrounded by `"`s.
 
 ---
 
 ## Hierarchy
 
-- [`Base`](/docs/classes/Base.md)
+- [`Base`](/docs/base/)
 
   ↳ **`Editor`**
 
@@ -19,19 +40,19 @@ default selector from `[data-trigger]` and `[data-content]`.
 
 ### constructor
 
-• **new Editor**(): [`Editor`](/docs/classes/Editor.md)
+• **new Editor**(): [`Editor`](/docs/editor/)
 
 #### Returns
 
-[`Editor`](/docs/classes/Editor.md)
+[`Editor`](/docs/editor/)
 
 #### Overrides
 
-[Base](/docs/classes/Base.md).[constructor](/docs/classes/Base.md#constructor)
+[Base](/docs/base/).[constructor](/docs/base/#constructor)
 
 #### Defined in
 
-src/package/editor/index.ts:13
+[src/package/editor/index.ts:60](https://github.com/rossrobino/components/blob/8302597/src/package/editor/index.ts#L60)
 
 ---
 
@@ -41,16 +62,15 @@ src/package/editor/index.ts:13
 
 • `Private` **#listenerController**: `AbortController`
 
-To clean up event listeners added to `document` when
-when the element is removed.
+To clean up event listeners added to `document` when the element is removed.
 
 #### Inherited from
 
-[Base](/docs/classes/Base.md).[#listenerController](/docs/classes/Base.md##listenercontroller)
+[Base](/docs/base/).[#listenerController](/docs/base/##listenercontroller)
 
 #### Defined in
 
-[src/package/base/index.ts:14](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L14)
+[src/package/base/index.ts:18](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L18)
 
 ### #openChars
 
@@ -60,7 +80,21 @@ Array of keyPair characters that have been opened.
 
 #### Defined in
 
-src/package/editor/index.ts:11
+[src/package/editor/index.ts:48](https://github.com/rossrobino/components/blob/8302597/src/package/editor/index.ts#L48)
+
+### keyPairs
+
+• **keyPairs**: `Object`
+
+The characters that will be automatically closed when typed.
+
+#### Index signature
+
+▪ [key: `string`]: `string`
+
+#### Defined in
+
+[src/package/editor/index.ts:51](https://github.com/rossrobino/components/blob/8302597/src/package/editor/index.ts#L51)
 
 ---
 
@@ -70,13 +104,15 @@ src/package/editor/index.ts:11
 
 • `get` **#contentElements**(): `ContentElement`[]
 
+An array of `ContentElement`s derived from each `trigger`'s data attributes.
+
 #### Returns
 
 `ContentElement`[]
 
 #### Defined in
 
-src/package/editor/index.ts:60
+[src/package/editor/index.ts:86](https://github.com/rossrobino/components/blob/8302597/src/package/editor/index.ts#L86)
 
 ### #currentBlock
 
@@ -93,37 +129,43 @@ src/package/editor/index.ts:60
 
 #### Defined in
 
-src/package/editor/index.ts:74
+[src/package/editor/index.ts:100](https://github.com/rossrobino/components/blob/8302597/src/package/editor/index.ts#L100)
 
 ### #selectionEnd
 
 • `get` **#selectionEnd**(): `number`
 
+Gets the end position of the selection
+
 #### Returns
 
 `number`
 
 #### Defined in
 
-src/package/editor/index.ts:90
+[src/package/editor/index.ts:113](https://github.com/rossrobino/components/blob/8302597/src/package/editor/index.ts#L113)
 
 ### #selectionStart
 
 • `get` **#selectionStart**(): `number`
 
+Gets the start position of the selection.
+
 #### Returns
 
 `number`
 
 #### Defined in
 
-src/package/editor/index.ts:94
+[src/package/editor/index.ts:118](https://github.com/rossrobino/components/blob/8302597/src/package/editor/index.ts#L118)
 
 ### event
 
 • `get` **event**(): keyof `HTMLElementEventMap`
 
 Event for the `trigger` to execute.
+
+For example, set to `"mouseover"` to execute the event when the user hovers the mouse over the `trigger`, instead of when they click it.
 
 #### Returns
 
@@ -141,7 +183,7 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L25)
+[src/package/base/index.ts:31](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L31)
 
 • `set` **event**(`value`): `void`
 
@@ -161,23 +203,13 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:29](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L29)
-
-### keyPairs
-
-• `get` **keyPairs**(): `Object`
-
-#### Returns
-
-`Object`
-
-#### Defined in
-
-src/package/editor/index.ts:29
+[src/package/base/index.ts:35](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L35)
 
 ### text
 
 • `get` **text**(): `string`
+
+The current `value` of the `textarea`.
 
 #### Returns
 
@@ -185,7 +217,7 @@ src/package/editor/index.ts:29
 
 #### Defined in
 
-src/package/editor/index.ts:21
+[src/package/editor/index.ts:77](https://github.com/rossrobino/components/blob/8302597/src/package/editor/index.ts#L77)
 
 • `set` **text**(`value`): `void`
 
@@ -201,11 +233,13 @@ src/package/editor/index.ts:21
 
 #### Defined in
 
-src/package/editor/index.ts:25
+[src/package/editor/index.ts:81](https://github.com/rossrobino/components/blob/8302597/src/package/editor/index.ts#L81)
 
 ### textArea
 
 • `get` **textArea**(): `HTMLTextAreaElement`
+
+The `content`, expects an `HTMLTextAreaElement`.
 
 #### Returns
 
@@ -213,7 +247,7 @@ src/package/editor/index.ts:25
 
 #### Defined in
 
-src/package/editor/index.ts:17
+[src/package/editor/index.ts:72](https://github.com/rossrobino/components/blob/8302597/src/package/editor/index.ts#L72)
 
 ---
 
@@ -238,7 +272,7 @@ src/package/editor/index.ts:17
 
 #### Defined in
 
-src/package/editor/index.ts:184
+[src/package/editor/index.ts:224](https://github.com/rossrobino/components/blob/8302597/src/package/editor/index.ts#L224)
 
 ### #correctFollowing
 
@@ -275,7 +309,7 @@ Instead:
 
 #### Defined in
 
-src/package/editor/index.ts:268
+[src/package/editor/index.ts:308](https://github.com/rossrobino/components/blob/8302597/src/package/editor/index.ts#L308)
 
 ### #getContentElement
 
@@ -295,7 +329,7 @@ The ContentElement based on the `trigger`'s attributes.
 
 #### Defined in
 
-src/package/editor/index.ts:53
+[src/package/editor/index.ts:131](https://github.com/rossrobino/components/blob/8302597/src/package/editor/index.ts#L131)
 
 ### #getLineInfo
 
@@ -321,7 +355,7 @@ const { lines, lineNumber, columnNumber } = getLineInfo();
 
 #### Defined in
 
-src/package/editor/index.ts:226
+[src/package/editor/index.ts:266](https://github.com/rossrobino/components/blob/8302597/src/package/editor/index.ts#L266)
 
 ### #getRepeat
 
@@ -344,7 +378,7 @@ what is found, or the empty string
 
 #### Defined in
 
-src/package/editor/index.ts:199
+[src/package/editor/index.ts:239](https://github.com/rossrobino/components/blob/8302597/src/package/editor/index.ts#L239)
 
 ### #insertText
 
@@ -367,7 +401,7 @@ src/package/editor/index.ts:199
 
 #### Defined in
 
-src/package/editor/index.ts:106
+[src/package/editor/index.ts:146](https://github.com/rossrobino/components/blob/8302597/src/package/editor/index.ts#L146)
 
 ### #setCaretPosition
 
@@ -391,11 +425,13 @@ src/package/editor/index.ts:106
 
 #### Defined in
 
-src/package/editor/index.ts:148
+[src/package/editor/index.ts:188](https://github.com/rossrobino/components/blob/8302597/src/package/editor/index.ts#L188)
 
 ### #setSelectionRange
 
 ▸ **#setSelectionRange**(`start`, `end`): `void`
+
+Sets the current cursor selection in the `textarea`
 
 #### Parameters
 
@@ -410,7 +446,7 @@ src/package/editor/index.ts:148
 
 #### Defined in
 
-src/package/editor/index.ts:86
+[src/package/editor/index.ts:123](https://github.com/rossrobino/components/blob/8302597/src/package/editor/index.ts#L123)
 
 ### connectedCallback
 
@@ -422,7 +458,7 @@ src/package/editor/index.ts:86
 
 #### Defined in
 
-src/package/editor/index.ts:295
+[src/package/editor/index.ts:335](https://github.com/rossrobino/components/blob/8302597/src/package/editor/index.ts#L335)
 
 ### content
 
@@ -454,11 +490,11 @@ this.querySelector("[data-content]");
 
 #### Inherited from
 
-[Base](/docs/classes/Base.md).[content](/docs/classes/Base.md#content)
+[Base](/docs/base/).[content](/docs/base/#content)
 
 #### Defined in
 
-[src/package/base/index.ts:51](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L51)
+[src/package/base/index.ts:57](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L57)
 
 ### disconnectedCallback
 
@@ -470,11 +506,11 @@ this.querySelector("[data-content]");
 
 #### Inherited from
 
-[Base](/docs/classes/Base.md).[disconnectedCallback](/docs/classes/Base.md#disconnectedcallback)
+[Base](/docs/base/).[disconnectedCallback](/docs/base/#disconnectedcallback)
 
 #### Defined in
 
-[src/package/base/index.ts:85](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L85)
+[src/package/base/index.ts:112](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L112)
 
 ### safeListener
 
@@ -503,11 +539,37 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Inherited from
 
-[Base](/docs/classes/Base.md).[safeListener](/docs/classes/Base.md#safelistener)
+[Base](/docs/base/).[safeListener](/docs/base/#safelistener)
 
 #### Defined in
 
-[src/package/base/index.ts:67](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L67)
+[src/package/base/index.ts:94](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L94)
+
+### swap
+
+▸ **swap**(`revert?`, `delay?`): `void`
+
+Finds the `HTMLTemplateElement` via the `swap` selector and
+swaps `this.content().innerHTML` with the content of the template.
+
+#### Parameters
+
+| Name     | Type      | Default value | Description                    |
+| :------- | :-------- | :------------ | :----------------------------- |
+| `revert` | `boolean` | `true`        | swap back to old content       |
+| `delay`  | `number`  | `800`         | wait time before swapping back |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Base](/docs/base/).[swap](/docs/base/#swap)
+
+#### Defined in
+
+[src/package/base/index.ts:74](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L74)
 
 ### trigger
 
@@ -527,11 +589,11 @@ this.querySelectorAll("[data-trigger]");
 
 #### Inherited from
 
-[Base](/docs/classes/Base.md).[trigger](/docs/classes/Base.md#trigger)
+[Base](/docs/base/).[trigger](/docs/base/#trigger)
 
 #### Defined in
 
-[src/package/base/index.ts:37](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L37)
+[src/package/base/index.ts:43](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L43)
 
 ### triggerListener
 
@@ -549,8 +611,8 @@ this.querySelectorAll("[data-trigger]");
 
 #### Inherited from
 
-[Base](/docs/classes/Base.md).[triggerListener](/docs/classes/Base.md#triggerlistener)
+[Base](/docs/base/).[triggerListener](/docs/base/#triggerlistener)
 
 #### Defined in
 
-[src/package/base/index.ts:79](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L79)
+[src/package/base/index.ts:106](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L106)

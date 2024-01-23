@@ -57,6 +57,13 @@ export const build: Build = async ({
 		"nav-items",
 		class extends HTMLElement {
 			connectedCallback() {
+				this.innerHTML = /* html */ `
+					<li><a href="/getting-started/">Getting Started</a></li>
+					<li>Reference</li>
+					<ul class="m-0" id="baseElements"></ul>
+					<li>Elements</li>
+					<ul class="m-0" id="elements"></ul>
+				`;
 				for (const el of elements) {
 					if (el.isDirectory()) {
 						const li = document.createElement("li");
@@ -65,7 +72,15 @@ export const build: Build = async ({
 						a.href = `/docs/${el.name}/`;
 						a.textContent = el.name;
 						li.append(a);
-						this.append(li);
+						let ul: HTMLUListElement;
+						if (el.name === "base" || el.name === "animate") {
+							ul = this.querySelector("#baseElements") as HTMLUListElement;
+							// so base comes first
+							ul.prepend(li);
+						} else {
+							ul = this.querySelector("#elements") as HTMLUListElement;
+							ul.append(li);
+						}
 					}
 				}
 			}

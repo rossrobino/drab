@@ -6,7 +6,7 @@ Disables the `trigger` if fullscreen is not supported.
 
 ## Hierarchy
 
-- [`Base`](/docs/classes/Base.md)
+- [`Base`](/docs/base/)
 
   ↳ **`Fullscreen`**
 
@@ -16,19 +16,19 @@ Disables the `trigger` if fullscreen is not supported.
 
 ### constructor
 
-• **new Fullscreen**(): [`Fullscreen`](/docs/classes/Fullscreen.md)
+• **new Fullscreen**(): [`Fullscreen`](/docs/fullscreen/)
 
 #### Returns
 
-[`Fullscreen`](/docs/classes/Fullscreen.md)
+[`Fullscreen`](/docs/fullscreen/)
 
 #### Overrides
 
-[Base](/docs/classes/Base.md).[constructor](/docs/classes/Base.md#constructor)
+[Base](/docs/base/).[constructor](/docs/base/#constructor)
 
 #### Defined in
 
-[src/package/fullscreen/index.ts:9](https://github.com/rossrobino/components/blob/67914d8/src/package/fullscreen/index.ts#L9)
+[src/package/fullscreen/index.ts:9](https://github.com/rossrobino/components/blob/8302597/src/package/fullscreen/index.ts#L9)
 
 ---
 
@@ -38,16 +38,15 @@ Disables the `trigger` if fullscreen is not supported.
 
 • `Private` **#listenerController**: `AbortController`
 
-To clean up event listeners added to `document` when
-when the element is removed.
+To clean up event listeners added to `document` when the element is removed.
 
 #### Inherited from
 
-[Base](/docs/classes/Base.md).[#listenerController](/docs/classes/Base.md##listenercontroller)
+[Base](/docs/base/).[#listenerController](/docs/base/##listenercontroller)
 
 #### Defined in
 
-[src/package/base/index.ts:14](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L14)
+[src/package/base/index.ts:18](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L18)
 
 ---
 
@@ -58,6 +57,8 @@ when the element is removed.
 • `get` **event**(): keyof `HTMLElementEventMap`
 
 Event for the `trigger` to execute.
+
+For example, set to `"mouseover"` to execute the event when the user hovers the mouse over the `trigger`, instead of when they click it.
 
 #### Returns
 
@@ -75,7 +76,7 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L25)
+[src/package/base/index.ts:31](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L31)
 
 • `set` **event**(`value`): `void`
 
@@ -95,7 +96,7 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:29](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L29)
+[src/package/base/index.ts:35](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L35)
 
 ---
 
@@ -111,7 +112,7 @@ Base.event
 
 #### Defined in
 
-[src/package/fullscreen/index.ts:40](https://github.com/rossrobino/components/blob/67914d8/src/package/fullscreen/index.ts#L40)
+[src/package/fullscreen/index.ts:40](https://github.com/rossrobino/components/blob/8302597/src/package/fullscreen/index.ts#L40)
 
 ### content
 
@@ -143,11 +144,11 @@ this.querySelector("[data-content]");
 
 #### Inherited from
 
-[Base](/docs/classes/Base.md).[content](/docs/classes/Base.md#content)
+[Base](/docs/base/).[content](/docs/base/#content)
 
 #### Defined in
 
-[src/package/base/index.ts:51](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L51)
+[src/package/base/index.ts:57](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L57)
 
 ### disconnectedCallback
 
@@ -159,11 +160,11 @@ this.querySelector("[data-content]");
 
 #### Inherited from
 
-[Base](/docs/classes/Base.md).[disconnectedCallback](/docs/classes/Base.md#disconnectedcallback)
+[Base](/docs/base/).[disconnectedCallback](/docs/base/#disconnectedcallback)
 
 #### Defined in
 
-[src/package/base/index.ts:85](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L85)
+[src/package/base/index.ts:112](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L112)
 
 ### fullscreenSupported
 
@@ -177,7 +178,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/fullscreen/index.ts:23](https://github.com/rossrobino/components/blob/67914d8/src/package/fullscreen/index.ts#L23)
+[src/package/fullscreen/index.ts:23](https://github.com/rossrobino/components/blob/8302597/src/package/fullscreen/index.ts#L23)
 
 ### isFullscreen
 
@@ -191,7 +192,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/fullscreen/index.ts:16](https://github.com/rossrobino/components/blob/67914d8/src/package/fullscreen/index.ts#L16)
+[src/package/fullscreen/index.ts:16](https://github.com/rossrobino/components/blob/8302597/src/package/fullscreen/index.ts#L16)
 
 ### safeListener
 
@@ -220,11 +221,37 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Inherited from
 
-[Base](/docs/classes/Base.md).[safeListener](/docs/classes/Base.md#safelistener)
+[Base](/docs/base/).[safeListener](/docs/base/#safelistener)
 
 #### Defined in
 
-[src/package/base/index.ts:67](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L67)
+[src/package/base/index.ts:94](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L94)
+
+### swap
+
+▸ **swap**(`revert?`, `delay?`): `void`
+
+Finds the `HTMLTemplateElement` via the `swap` selector and
+swaps `this.content().innerHTML` with the content of the template.
+
+#### Parameters
+
+| Name     | Type      | Default value | Description                    |
+| :------- | :-------- | :------------ | :----------------------------- |
+| `revert` | `boolean` | `true`        | swap back to old content       |
+| `delay`  | `number`  | `800`         | wait time before swapping back |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Base](/docs/base/).[swap](/docs/base/#swap)
+
+#### Defined in
+
+[src/package/base/index.ts:74](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L74)
 
 ### toggle
 
@@ -238,7 +265,7 @@ Enables or disables fullscreen mode based on the current state.
 
 #### Defined in
 
-[src/package/fullscreen/index.ts:28](https://github.com/rossrobino/components/blob/67914d8/src/package/fullscreen/index.ts#L28)
+[src/package/fullscreen/index.ts:28](https://github.com/rossrobino/components/blob/8302597/src/package/fullscreen/index.ts#L28)
 
 ### trigger
 
@@ -258,11 +285,11 @@ this.querySelectorAll("[data-trigger]");
 
 #### Inherited from
 
-[Base](/docs/classes/Base.md).[trigger](/docs/classes/Base.md#trigger)
+[Base](/docs/base/).[trigger](/docs/base/#trigger)
 
 #### Defined in
 
-[src/package/base/index.ts:37](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L37)
+[src/package/base/index.ts:43](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L43)
 
 ### triggerListener
 
@@ -280,8 +307,8 @@ this.querySelectorAll("[data-trigger]");
 
 #### Inherited from
 
-[Base](/docs/classes/Base.md).[triggerListener](/docs/classes/Base.md#triggerlistener)
+[Base](/docs/base/).[triggerListener](/docs/base/#triggerlistener)
 
 #### Defined in
 
-[src/package/base/index.ts:79](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L79)
+[src/package/base/index.ts:106](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L106)

@@ -1,4 +1,9 @@
-Provides triggers and animations for the `HTMLDialogElement`.
+Provides animations for the Popover API.
+
+The Popover API is not currently support in FireFox. [See the latest browser compatibility on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API#browser_compatibility).
+
+This component can be deprecated once it can be animated with CSS only, this
+is currently [only available in Chrome](https://developer.chrome.com/blog/introducing-popover-api#interactive_entry_and_exit).
 
 ---
 
@@ -6,7 +11,7 @@ Provides triggers and animations for the `HTMLDialogElement`.
 
 - [`Animate`](/docs/animate/)
 
-  ↳ **`Dialog`**
+  ↳ **`Popover`**
 
 ---
 
@@ -14,11 +19,11 @@ Provides triggers and animations for the `HTMLDialogElement`.
 
 ### constructor
 
-• **new Dialog**(): [`Dialog`](/docs/dialog/)
+• **new Popover**(): [`Popover`](/docs/popover/)
 
 #### Returns
 
-[`Dialog`](/docs/dialog/)
+[`Popover`](/docs/popover/)
 
 #### Overrides
 
@@ -26,7 +31,7 @@ Provides triggers and animations for the `HTMLDialogElement`.
 
 #### Defined in
 
-[src/package/dialog/index.ts:7](https://github.com/rossrobino/components/blob/8302597/src/package/dialog/index.ts#L7)
+src/package/popover/index.ts:12
 
 ---
 
@@ -67,20 +72,6 @@ Animate.animationOptions
 #### Defined in
 
 [src/package/animate/index.ts:32](https://github.com/rossrobino/components/blob/8302597/src/package/animate/index.ts#L32)
-
-### dialog
-
-• `get` **dialog**(): `HTMLDialogElement`
-
-The `HTMLDialogElement` within the element.
-
-#### Returns
-
-`HTMLDialogElement`
-
-#### Defined in
-
-[src/package/dialog/index.ts:12](https://github.com/rossrobino/components/blob/8302597/src/package/dialog/index.ts#L12)
 
 ### event
 
@@ -144,6 +135,37 @@ Animate.keyframes
 
 [src/package/animate/index.ts:111](https://github.com/rossrobino/components/blob/8302597/src/package/animate/index.ts#L111)
 
+### open
+
+• `get` **open**(): `boolean`
+
+Whether the popover is open or closed. This doesn't get set
+automatically on the element like with the `HTMLDialogElement`.
+
+#### Returns
+
+`boolean`
+
+#### Defined in
+
+src/package/popover/index.ts:20
+
+• `set` **open**(`value`): `void`
+
+#### Parameters
+
+| Name    | Type      |
+| :------ | :-------- |
+| `value` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+src/package/popover/index.ts:24
+
 ---
 
 ## Methods
@@ -182,20 +204,6 @@ Animates a particular element using the web animations API.
 
 [src/package/animate/index.ts:62](https://github.com/rossrobino/components/blob/8302597/src/package/animate/index.ts#L62)
 
-### close
-
-▸ **close**(): `Promise`\<`void`\>
-
-`HTMLDialogElement.close()` with animation.
-
-#### Returns
-
-`Promise`\<`void`\>
-
-#### Defined in
-
-[src/package/dialog/index.ts:23](https://github.com/rossrobino/components/blob/8302597/src/package/dialog/index.ts#L23)
-
 ### connectedCallback
 
 ▸ **connectedCallback**(): `void`
@@ -206,7 +214,7 @@ Animates a particular element using the web animations API.
 
 #### Defined in
 
-[src/package/dialog/index.ts:38](https://github.com/rossrobino/components/blob/8302597/src/package/dialog/index.ts#L38)
+src/package/popover/index.ts:54
 
 ### content
 
@@ -260,6 +268,24 @@ this.querySelector("[data-content]");
 
 [src/package/base/index.ts:112](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L112)
 
+### hidePopover
+
+▸ **hidePopover**(): `Promise`\<`void`\>
+
+`HTMLElement.hidePopover()` with animation.
+
+#### Returns
+
+`Promise`\<`void`\>
+
+#### Overrides
+
+[Animate](/docs/animate/).[hidePopover](/docs/animate/#hidepopover)
+
+#### Defined in
+
+src/package/popover/index.ts:39
+
 ### safeListener
 
 ▸ **safeListener**\<`K`\>(`type`, `listener`, `options?`): `void`
@@ -293,19 +319,23 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 [src/package/base/index.ts:94](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L94)
 
-### showModal
+### showPopover
 
-▸ **showModal**(): `Promise`\<`void`\>
+▸ **showPopover**(): `Promise`\<`void`\>
 
-`HTMLDialogElement.showModal()` with animation.
+`HTMLElement.showPopover()` with animation.
 
 #### Returns
 
 `Promise`\<`void`\>
 
+#### Overrides
+
+[Animate](/docs/animate/).[showPopover](/docs/animate/#showpopover)
+
 #### Defined in
 
-[src/package/dialog/index.ts:17](https://github.com/rossrobino/components/blob/8302597/src/package/dialog/index.ts#L17)
+src/package/popover/index.ts:33
 
 ### swap
 
@@ -337,7 +367,7 @@ swaps `this.content().innerHTML` with the content of the template.
 
 ▸ **toggle**(): `Promise`\<`void`\>
 
-`showModal` or `close` depending on the dialog's `open` attribute.
+`showPopover` or `hidePopover` depending on the current state.
 
 #### Returns
 
@@ -345,7 +375,7 @@ swaps `this.content().innerHTML` with the content of the template.
 
 #### Defined in
 
-[src/package/dialog/index.ts:33](https://github.com/rossrobino/components/blob/8302597/src/package/dialog/index.ts#L33)
+src/package/popover/index.ts:49
 
 ### trigger
 

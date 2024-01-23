@@ -1,15 +1,19 @@
 /**
- * The `Base` class provides the `trigger` and `content` methods for
- * selecting elements via HTML attributes along with other helpers for
- * each custom element in the library.
+ * Each element in the library extends the `Base` class. It provides the `trigger`
+ * and `content` methods for selecting elements via HTML attributes along with
+ * other helpers.
  *
- * Set a `trigger` or `content` attribute to a CSS selector to change the
- * default selector from `[data-trigger]` and `[data-content]`.
+ * By default, `trigger`s and `content` will be selected via the `data-trigger` and
+ * `data-content` attributes. Alternatively, you can set the `trigger` or
+ * `content` attribute to a CSS selector to change the default selector from
+ * `[data-trigger]` or `[data-content]` to a selector of your choosing.
+ * This can be useful if you have multiple elements within one another.
+ *
+ * Each element can have multiple `trigger`s, but will only have one `content`.
  */
 export class Base extends HTMLElement {
 	/**
-	 * To clean up event listeners added to `document` when
-	 * when the element is removed.
+	 * To clean up event listeners added to `document` when the element is removed.
 	 */
 	#listenerController = new AbortController();
 
@@ -19,6 +23,8 @@ export class Base extends HTMLElement {
 
 	/**
 	 * Event for the `trigger` to execute.
+	 *
+	 * For example, set to `"mouseover"` to execute the event when the user hovers the mouse over the `trigger`, instead of when they click it.
 	 *
 	 * @default "click"
 	 */
@@ -35,14 +41,14 @@ export class Base extends HTMLElement {
 	 * @default this.querySelectorAll("[data-trigger]")
 	 */
 	trigger() {
-		const trigger = this.getAttribute("trigger") ?? "[data-trigger]";
-		const elements = this.querySelectorAll<HTMLElement>(trigger);
-		if (!elements.length) throw new Error("Trigger not found");
-		return elements;
+		const triggers = this.querySelectorAll<HTMLElement>(
+			this.getAttribute("trigger") ?? "[data-trigger]",
+		);
+		if (!triggers.length) throw new Error("Trigger not found");
+		return triggers;
 	}
 
 	/**
-	 *
 	 * @param instance The instance of the desired element, ex: `HTMLDialogElement`.
 	 * Defaults to `HTMLElement`.
 	 * @returns The element that matches the `content` selector.
@@ -51,10 +57,31 @@ export class Base extends HTMLElement {
 	content<T extends HTMLElement = HTMLElement>(
 		instance: { new (): T } = HTMLElement as { new (): T },
 	) {
-		const content = this.getAttribute("content") ?? "[data-content]";
-		const element = this.querySelector(content);
-		if (element instanceof instance) return element;
+		const content = this.querySelector(
+			this.getAttribute("content") ?? "[data-content]",
+		);
+		if (content instanceof instance) return content;
 		throw new Error("Content not found");
+	}
+
+	/**
+	 * Finds the `HTMLTemplateElement` via the `swap` selector and
+	 * swaps `this.content().innerHTML` with the content of the template.
+	 *
+	 * @param revert swap back to old content
+	 * @param delay wait time before swapping back
+	 */
+	swap(revert: boolean = true, delay: number = 800) {
+		const swap = this.querySelector<HTMLTemplateElement>(
+			this.getAttribute("swap") ?? "[data-swap]",
+		)?.content.cloneNode(true);
+		if (swap) {
+			const original = this.content().innerHTML;
+			this.content().replaceChildren(swap);
+			if (revert) {
+				setTimeout(() => (this.content().innerHTML = original), delay);
+			}
+		}
 	}
 
 	/**

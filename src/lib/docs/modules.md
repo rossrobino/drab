@@ -9,5 +9,7 @@
 - [Dialog](/docs/classes/Dialog.md)
 - [Editor](/docs/classes/Editor.md)
 - [Fullscreen](/docs/classes/Fullscreen.md)
+- [Popover](/docs/classes/Popover.md)
 - [Share](/docs/classes/Share.md)
+- [TableSort](/docs/classes/TableSort.md)
 - [YouTube](/docs/classes/YouTube.md)

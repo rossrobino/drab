@@ -57,7 +57,7 @@ export class Animate extends Base {
 	 * - Waits for the animation to complete
 	 * - Sets the start and end styles based on the first and last keyframe
 	 *
-	 * @param animateOptions
+	 * @param animateOptions - animates `this.content()` by default
 	 */
 	async animateElement(
 		animateOptions: {

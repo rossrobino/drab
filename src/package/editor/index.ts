@@ -1,23 +1,79 @@
 import { Base } from "../base/index.ts";
 
+/**
+ * A piece of content to insert into the `textarea`.
+ */
 type ContentElement = {
+	/** How to insert the content. */
 	type: "block" | "inline" | "wrap";
+
+	/** The value to insert. */
 	value: string;
+
+	/** An optional keyboard shortcut. */
 	key?: string;
 };
 
+/**
+ * Enhances the `textarea` element with controls to add content and keyboard shortcuts. Compared to other WYSIWYG editors, the `text` value is just a `string`, so you can easily store it in a database or manipulate it without learning a separate API.
+ *
+ * `data-value`
+ *
+ * Set the value of the text to be inserted using the `data-value` attribute on the `trigger`.
+ *
+ * `data-type`
+ *
+ * Set the `data-type` attribute of the `trigger` to specify how the content should be inserted into the `textarea`.
+ *
+ * - `block` will be inserted at the beginning of the selected line.
+ * - `wrap` will be inserted before and after the current selection.
+ * - `inline` will be inserted at the current selection.
+ *
+ * `data-key`
+ *
+ * Add a `ctrl`/`meta` keyboard shortcut for the content based on the `data-key` attribute.
+ *
+ * Other features:
+ *
+ * - Automatically adds closing characters for `keyPairs`. For example, when typing `(`, `)` will be inserted and typed over when reached. All content with `data-type="wrap"` is also added to `keyPairs`.
+ * - Highlights the first word of the text inserted if it contains letters.
+ * - Automatically increments/decrements ordered lists.
+ * - Adds the starting character to the next line for `block` content.
+ * - On double click, highlight is corrected to only highlight the current word without space around it.
+ * - `tab` key will indent and not change focus if the selection is within a code block (three backticks).
+ * - When text is highlighted and a `wrap` character `keyPair` is typed, the highlighted text will be wrapped with the character instead of removing it. For example, if a word is highlighted and the `"` character is typed, the work will be surrounded by `"`s.
+ */
 export class Editor extends Base {
 	/** Array of keyPair characters that have been opened. */
 	#openChars: string[] = [];
 
+	/** The characters that will be automatically closed when typed. */
+	keyPairs: { [key: string]: string } = {
+		"(": ")",
+		"{": "}",
+		"[": "]",
+		"<": ">",
+		'"': '"',
+		"`": "`",
+	};
+
 	constructor() {
 		super();
+
+		// add any `type: "wrap"` values from `contentElements` to `keyPairs`
+		for (const element of this.#contentElements) {
+			if (element.type === "wrap") {
+				this.keyPairs[element.value] = element.value;
+			}
+		}
 	}
 
+	/** The `content`, expects an `HTMLTextAreaElement`. */
 	get textArea() {
 		return this.content(HTMLTextAreaElement);
 	}
 
+	/** The current `value` of the `textarea`. */
 	get text() {
 		return this.textArea.value;
 	}
@@ -26,37 +82,7 @@ export class Editor extends Base {
 		this.textArea.value = value;
 	}
 
-	get keyPairs() {
-		const keyPairs: { [key: string]: string } = {
-			"(": ")",
-			"{": "}",
-			"[": "]",
-			"<": ">",
-			'"': '"',
-			"`": "`",
-		};
-
-		// add any `type: "wrap"` values from `contentElements` to `keyPairs`
-		for (const element of this.#contentElements) {
-			if (element.type === "wrap") {
-				keyPairs[element.value] = element.value;
-			}
-		}
-
-		return keyPairs;
-	}
-
-	/**
-	 * @param trigger The trigger html element.
-	 * @returns The ContentElement based on the `trigger`'s attributes.
-	 */
-	#getContentElement(trigger: HTMLElement): ContentElement {
-		const type = trigger.getAttribute("data-type") as ContentElement["type"];
-		const value = trigger.getAttribute("data-value") as ContentElement["type"];
-		const key = trigger.getAttribute("data-key") ?? undefined;
-		return { type, value, key };
-	}
-
+	/** An array of `ContentElement`s derived from each `trigger`'s data attributes. */
 	get #contentElements() {
 		const contentElements: ContentElement[] = [];
 		for (const trigger of this.trigger()) {
@@ -83,16 +109,30 @@ export class Editor extends Base {
 		return 0;
 	}
 
-	#setSelectionRange(start: number, end: number) {
-		this.textArea.setSelectionRange(start, end);
-	}
-
+	/** Gets the end position of the selection */
 	get #selectionEnd() {
 		return this.textArea.selectionEnd;
 	}
 
+	/** Gets the start position of the selection. */
 	get #selectionStart() {
 		return this.textArea.selectionStart;
+	}
+
+	/** Sets the current cursor selection in the `textarea` */
+	#setSelectionRange(start: number, end: number) {
+		this.textArea.setSelectionRange(start, end);
+	}
+
+	/**
+	 * @param trigger The trigger html element.
+	 * @returns The ContentElement based on the `trigger`'s attributes.
+	 */
+	#getContentElement(trigger: HTMLElement): ContentElement {
+		const type = trigger.dataset.type as ContentElement["type"];
+		const value = trigger.dataset.value as ContentElement["value"];
+		const key = trigger.dataset.key ?? undefined;
+		return { type, value, key };
 	}
 
 	/**
@@ -443,6 +483,7 @@ export class Editor extends Base {
 			}
 		});
 
+		// reset #openChars on click since the cursor has changed position
 		this.textArea.addEventListener("click", () => (this.#openChars = []));
 
 		this.triggerListener((e) => {

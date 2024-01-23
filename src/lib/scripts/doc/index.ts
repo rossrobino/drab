@@ -35,6 +35,8 @@ const doc = async () => {
 
 		md = md.replaceAll(`\n## `, `\n---\n\n## `);
 
+		md = replaceCamelCaseDocs(md);
+
 		// TODO - remove h2s that do not have anything under them...
 
 		await fs.writeFile(filePath, md);
@@ -44,3 +46,12 @@ const doc = async () => {
 };
 
 doc();
+
+const replaceCamelCaseDocs = (text: string): string => {
+	const regex = /\/docs\/classes\/([A-Z][a-z]*)+\.md/g;
+	return text.replace(regex, (match) => {
+		const lowercased =
+			match.split("/").pop()?.replace(".md", "").toLowerCase() ?? "";
+		return `/docs/${lowercased}/`;
+	});
+};

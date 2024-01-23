@@ -3,13 +3,14 @@ animate it with the Web Animations API.
 
 The best way I've found to animate the details element is using CSS grid from this
 [Kevin Powell video](https://youtu.be/B_n4YONte5A?t=116). The example demonstrates
-this animation. If you know the size of the details element, you could use height instead.
+this animation. If you know the exact height of the content, you could animate `height`
+instead.
 
 ---
 
 ## Hierarchy
 
-- [`Animate`](/docs/classes/Animate.md)
+- [`Animate`](/docs/animate/)
 
   ↳ **`Details`**
 
@@ -19,19 +20,19 @@ this animation. If you know the size of the details element, you could use heigh
 
 ### constructor
 
-• **new Details**(): [`Details`](/docs/classes/Details.md)
+• **new Details**(): [`Details`](/docs/details/)
 
 #### Returns
 
-[`Details`](/docs/classes/Details.md)
+[`Details`](/docs/details/)
 
 #### Overrides
 
-[Animate](/docs/classes/Animate.md).[constructor](/docs/classes/Animate.md#constructor)
+[Animate](/docs/animate/).[constructor](/docs/animate/#constructor)
 
 #### Defined in
 
-[src/package/details/index.ts:12](https://github.com/rossrobino/components/blob/67914d8/src/package/details/index.ts#L12)
+[src/package/details/index.ts:13](https://github.com/rossrobino/components/blob/8302597/src/package/details/index.ts#L13)
 
 ---
 
@@ -41,16 +42,15 @@ this animation. If you know the size of the details element, you could use heigh
 
 • `Private` **#listenerController**: `AbortController`
 
-To clean up event listeners added to `document` when
-when the element is removed.
+To clean up event listeners added to `document` when the element is removed.
 
 #### Inherited from
 
-[Animate](/docs/classes/Animate.md).[#listenerController](/docs/classes/Animate.md##listenercontroller)
+[Animate](/docs/animate/).[#listenerController](/docs/animate/##listenercontroller)
 
 #### Defined in
 
-[src/package/base/index.ts:14](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L14)
+[src/package/base/index.ts:18](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L18)
 
 ---
 
@@ -72,7 +72,7 @@ Animate.animationOptions
 
 #### Defined in
 
-[src/package/animate/index.ts:32](https://github.com/rossrobino/components/blob/67914d8/src/package/animate/index.ts#L32)
+[src/package/animate/index.ts:32](https://github.com/rossrobino/components/blob/8302597/src/package/animate/index.ts#L32)
 
 ### details
 
@@ -84,13 +84,15 @@ Animate.animationOptions
 
 #### Defined in
 
-[src/package/details/index.ts:16](https://github.com/rossrobino/components/blob/67914d8/src/package/details/index.ts#L16)
+[src/package/details/index.ts:17](https://github.com/rossrobino/components/blob/8302597/src/package/details/index.ts#L17)
 
 ### event
 
 • `get` **event**(): keyof `HTMLElementEventMap`
 
 Event for the `trigger` to execute.
+
+For example, set to `"mouseover"` to execute the event when the user hovers the mouse over the `trigger`, instead of when they click it.
 
 #### Returns
 
@@ -108,7 +110,7 @@ Animate.event
 
 #### Defined in
 
-[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L25)
+[src/package/base/index.ts:31](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L31)
 
 • `set` **event**(`value`): `void`
 
@@ -128,7 +130,7 @@ Animate.event
 
 #### Defined in
 
-[src/package/base/index.ts:29](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L29)
+[src/package/base/index.ts:35](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L35)
 
 ### keyframes
 
@@ -144,7 +146,7 @@ Animate.keyframes
 
 #### Defined in
 
-[src/package/animate/index.ts:111](https://github.com/rossrobino/components/blob/67914d8/src/package/animate/index.ts#L111)
+[src/package/animate/index.ts:111](https://github.com/rossrobino/components/blob/8302597/src/package/animate/index.ts#L111)
 
 ---
 
@@ -156,11 +158,11 @@ Animate.keyframes
 
 #### Parameters
 
-| Name                      | Type                       |
-| :------------------------ | :------------------------- |
-| `animateOptions`          | `Object`                   |
-| `animateOptions.element?` | `HTMLElement`              |
-| `animateOptions.options?` | `KeyframeAnimationOptions` |
+| Name                      | Type                       | Description                          |
+| :------------------------ | :------------------------- | :----------------------------------- |
+| `animateOptions`          | `Object`                   | animates `this.content()` by default |
+| `animateOptions.element?` | `HTMLElement`              | -                                    |
+| `animateOptions.options?` | `KeyframeAnimationOptions` | -                                    |
 
 #### Returns
 
@@ -178,11 +180,11 @@ Animates a particular element using the web animations API.
 
 #### Inherited from
 
-[Animate](/docs/classes/Animate.md).[animateElement](/docs/classes/Animate.md#animateelement)
+[Animate](/docs/animate/).[animateElement](/docs/animate/#animateelement)
 
 #### Defined in
 
-[src/package/animate/index.ts:62](https://github.com/rossrobino/components/blob/67914d8/src/package/animate/index.ts#L62)
+[src/package/animate/index.ts:62](https://github.com/rossrobino/components/blob/8302597/src/package/animate/index.ts#L62)
 
 ### close
 
@@ -196,7 +198,7 @@ Closes details with animation.
 
 #### Defined in
 
-[src/package/details/index.ts:29](https://github.com/rossrobino/components/blob/67914d8/src/package/details/index.ts#L29)
+[src/package/details/index.ts:30](https://github.com/rossrobino/components/blob/8302597/src/package/details/index.ts#L30)
 
 ### connectedCallback
 
@@ -208,7 +210,7 @@ Closes details with animation.
 
 #### Defined in
 
-[src/package/details/index.ts:44](https://github.com/rossrobino/components/blob/67914d8/src/package/details/index.ts#L44)
+[src/package/details/index.ts:45](https://github.com/rossrobino/components/blob/8302597/src/package/details/index.ts#L45)
 
 ### content
 
@@ -240,11 +242,11 @@ this.querySelector("[data-content]");
 
 #### Inherited from
 
-[Animate](/docs/classes/Animate.md).[content](/docs/classes/Animate.md#content)
+[Animate](/docs/animate/).[content](/docs/animate/#content)
 
 #### Defined in
 
-[src/package/base/index.ts:51](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L51)
+[src/package/base/index.ts:57](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L57)
 
 ### disconnectedCallback
 
@@ -256,11 +258,11 @@ this.querySelector("[data-content]");
 
 #### Inherited from
 
-[Animate](/docs/classes/Animate.md).[disconnectedCallback](/docs/classes/Animate.md#disconnectedcallback)
+[Animate](/docs/animate/).[disconnectedCallback](/docs/animate/#disconnectedcallback)
 
 #### Defined in
 
-[src/package/base/index.ts:85](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L85)
+[src/package/base/index.ts:112](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L112)
 
 ### open
 
@@ -272,7 +274,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/details/index.ts:23](https://github.com/rossrobino/components/blob/67914d8/src/package/details/index.ts#L23)
+[src/package/details/index.ts:24](https://github.com/rossrobino/components/blob/8302597/src/package/details/index.ts#L24)
 
 ### safeListener
 
@@ -301,11 +303,37 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Inherited from
 
-[Animate](/docs/classes/Animate.md).[safeListener](/docs/classes/Animate.md#safelistener)
+[Animate](/docs/animate/).[safeListener](/docs/animate/#safelistener)
 
 #### Defined in
 
-[src/package/base/index.ts:67](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L67)
+[src/package/base/index.ts:94](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L94)
+
+### swap
+
+▸ **swap**(`revert?`, `delay?`): `void`
+
+Finds the `HTMLTemplateElement` via the `swap` selector and
+swaps `this.content().innerHTML` with the content of the template.
+
+#### Parameters
+
+| Name     | Type      | Default value | Description                    |
+| :------- | :-------- | :------------ | :----------------------------- |
+| `revert` | `boolean` | `true`        | swap back to old content       |
+| `delay`  | `number`  | `800`         | wait time before swapping back |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Animate](/docs/animate/).[swap](/docs/animate/#swap)
+
+#### Defined in
+
+[src/package/base/index.ts:74](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L74)
 
 ### toggle
 
@@ -317,7 +345,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/details/index.ts:36](https://github.com/rossrobino/components/blob/67914d8/src/package/details/index.ts#L36)
+[src/package/details/index.ts:37](https://github.com/rossrobino/components/blob/8302597/src/package/details/index.ts#L37)
 
 ### trigger
 
@@ -337,11 +365,11 @@ this.querySelectorAll("[data-trigger]");
 
 #### Inherited from
 
-[Animate](/docs/classes/Animate.md).[trigger](/docs/classes/Animate.md#trigger)
+[Animate](/docs/animate/).[trigger](/docs/animate/#trigger)
 
 #### Defined in
 
-[src/package/base/index.ts:37](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L37)
+[src/package/base/index.ts:43](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L43)
 
 ### triggerListener
 
@@ -359,8 +387,8 @@ this.querySelectorAll("[data-trigger]");
 
 #### Inherited from
 
-[Animate](/docs/classes/Animate.md).[triggerListener](/docs/classes/Animate.md#triggerlistener)
+[Animate](/docs/animate/).[triggerListener](/docs/animate/#triggerlistener)
 
 #### Defined in
 
-[src/package/base/index.ts:79](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L79)
+[src/package/base/index.ts:106](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L106)

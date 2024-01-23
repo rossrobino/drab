@@ -15,11 +15,11 @@ to copy text.
 
 ### constructor
 
-• **new Copy**(): [`Copy`](/docs/classes/Copy.md)
+• **new Copy**(): [`Copy`](/docs/copy/)
 
 #### Returns
 
-[`Copy`](/docs/classes/Copy.md)
+[`Copy`](/docs/copy/)
 
 #### Overrides
 
@@ -27,7 +27,7 @@ BaseCopy.constructor
 
 #### Defined in
 
-[src/package/copy/index.ts:8](https://github.com/rossrobino/components/blob/67914d8/src/package/copy/index.ts#L8)
+[src/package/copy/index.ts:8](https://github.com/rossrobino/components/blob/8302597/src/package/copy/index.ts#L8)
 
 ---
 
@@ -37,8 +37,7 @@ BaseCopy.constructor
 
 • `Private` **#listenerController**: `AbortController`
 
-To clean up event listeners added to `document` when
-when the element is removed.
+To clean up event listeners added to `document` when the element is removed.
 
 #### Inherited from
 
@@ -46,55 +45,19 @@ BaseCopy.#listenerController
 
 #### Defined in
 
-[src/package/base/index.ts:14](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L14)
+[src/package/base/index.ts:18](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L18)
 
 ---
 
 ## Accessors
-
-### complete
-
-• `get` **complete**(): `string`
-
-Optional text to display when copy is complete.
-
-#### Returns
-
-`string`
-
-#### Inherited from
-
-BaseCopy.complete
-
-#### Defined in
-
-[src/package/base/copy/index.ts:22](https://github.com/rossrobino/components/blob/67914d8/src/package/base/copy/index.ts#L22)
-
-• `set` **complete**(`value`): `void`
-
-#### Parameters
-
-| Name    | Type     |
-| :------ | :------- |
-| `value` | `string` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-BaseCopy.complete
-
-#### Defined in
-
-[src/package/base/copy/index.ts:26](https://github.com/rossrobino/components/blob/67914d8/src/package/base/copy/index.ts#L26)
 
 ### event
 
 • `get` **event**(): keyof `HTMLElementEventMap`
 
 Event for the `trigger` to execute.
+
+For example, set to `"mouseover"` to execute the event when the user hovers the mouse over the `trigger`, instead of when they click it.
 
 #### Returns
 
@@ -112,7 +75,7 @@ BaseCopy.event
 
 #### Defined in
 
-[src/package/base/index.ts:25](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L25)
+[src/package/base/index.ts:31](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L31)
 
 • `set` **event**(`value`): `void`
 
@@ -132,7 +95,7 @@ BaseCopy.event
 
 #### Defined in
 
-[src/package/base/index.ts:29](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L29)
+[src/package/base/index.ts:35](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L35)
 
 ### value
 
@@ -154,7 +117,7 @@ BaseCopy.value
 
 #### Defined in
 
-[src/package/base/copy/index.ts:11](https://github.com/rossrobino/components/blob/67914d8/src/package/base/copy/index.ts#L11)
+[src/package/base/copy/index.ts:11](https://github.com/rossrobino/components/blob/8302597/src/package/base/copy/index.ts#L11)
 
 • `set` **value**(`value`): `void`
 
@@ -174,7 +137,7 @@ BaseCopy.value
 
 #### Defined in
 
-[src/package/base/copy/index.ts:15](https://github.com/rossrobino/components/blob/67914d8/src/package/base/copy/index.ts#L15)
+[src/package/base/copy/index.ts:15](https://github.com/rossrobino/components/blob/8302597/src/package/base/copy/index.ts#L15)
 
 ---
 
@@ -190,7 +153,7 @@ BaseCopy.value
 
 #### Defined in
 
-[src/package/copy/index.ts:12](https://github.com/rossrobino/components/blob/67914d8/src/package/copy/index.ts#L12)
+[src/package/copy/index.ts:12](https://github.com/rossrobino/components/blob/8302597/src/package/copy/index.ts#L12)
 
 ### content
 
@@ -226,7 +189,7 @@ BaseCopy.content
 
 #### Defined in
 
-[src/package/base/index.ts:51](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L51)
+[src/package/base/index.ts:57](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L57)
 
 ### copy
 
@@ -250,7 +213,7 @@ BaseCopy.copy
 
 #### Defined in
 
-[src/package/base/copy/index.ts:34](https://github.com/rossrobino/components/blob/67914d8/src/package/base/copy/index.ts#L34)
+[src/package/base/copy/index.ts:23](https://github.com/rossrobino/components/blob/8302597/src/package/base/copy/index.ts#L23)
 
 ### disconnectedCallback
 
@@ -266,7 +229,7 @@ BaseCopy.disconnectedCallback
 
 #### Defined in
 
-[src/package/base/index.ts:85](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L85)
+[src/package/base/index.ts:112](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L112)
 
 ### safeListener
 
@@ -299,7 +262,33 @@ BaseCopy.safeListener
 
 #### Defined in
 
-[src/package/base/index.ts:67](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L67)
+[src/package/base/index.ts:94](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L94)
+
+### swap
+
+▸ **swap**(`revert?`, `delay?`): `void`
+
+Finds the `HTMLTemplateElement` via the `swap` selector and
+swaps `this.content().innerHTML` with the content of the template.
+
+#### Parameters
+
+| Name     | Type      | Default value | Description                    |
+| :------- | :-------- | :------------ | :----------------------------- |
+| `revert` | `boolean` | `true`        | swap back to old content       |
+| `delay`  | `number`  | `800`         | wait time before swapping back |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+BaseCopy.swap
+
+#### Defined in
+
+[src/package/base/index.ts:74](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L74)
 
 ### trigger
 
@@ -323,7 +312,7 @@ BaseCopy.trigger
 
 #### Defined in
 
-[src/package/base/index.ts:37](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L37)
+[src/package/base/index.ts:43](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L43)
 
 ### triggerListener
 
@@ -345,4 +334,4 @@ BaseCopy.triggerListener
 
 #### Defined in
 
-[src/package/base/index.ts:79](https://github.com/rossrobino/components/blob/67914d8/src/package/base/index.ts#L79)
+[src/package/base/index.ts:106](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L106)

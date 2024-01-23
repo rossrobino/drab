@@ -7,6 +7,8 @@
 
 ## Features
 
+https://jakelazaroff.com/words/web-components-will-outlive-your-javascript-framework/
+
 **drab** focuses on providing JavaScript functionality where it's most useful. Many of the elements are helpful wrappers around browser APIs. Here are some of the features of the library.
 
 ### Built on the web platform
@@ -31,43 +33,6 @@
 - Transitions are disabled for users who prefer reduced motion.
 - Extend the `Animate` element to build your own elements.
 
-## Getting started
-
-### Install
-
-You can install **drab** from npm and import the custom elements from the package (recommended).
-
-```bash
-npm i -D drab
-```
-
-```js
-// client.js
-import { Dialog } from "drab";
-
-customElements.define("drab-dialog", Dialog);
-```
-
-Alternatively, add a script tag to your HTML, each element will be named `drab-{element}`.
-
-```html
-<script type="module" src="https://unpkg.com/drab/dialog.global.js"></script>
-```
-
-## Usage
-
-Add the element to your HTML.
-
-```html
-<drab-dialog>...</drab-dialog>
-```
-
-## Styling
-
-Elements without styles can appear rather drab. You have the freedom to bring your own styles to these elements. Since **drab** doesn't use the shadow DOM, you can style any content inside these elements as you normally would. Using unstyled elements allows you to selectively choose what you need and avoid being tied to any specific library.
-
-The examples in this documentation are styled with Tailwind using the [uico](https://uico.robino.dev) and [typography](https://tailwindcss.com/docs/typography-plugin) plugins. Tailwind does not have to be used with this library.
-
 ## Contributing
 
 Find an bug or have an idea? Feel free to create an issue on [GitHub](https://github.com/rossrobino/drab).
@@ -85,8 +50,6 @@ This library is built with [Vite](https://vitejs.dev), [domco](https://domco.rob
 3. `bun dev`
 
 #### Add or edit a component
-
-revise this
 
 1. Add or edit the component in `src/package` - each element should extend `Base` or `Animate`.
 2. Add or edit the example in `src/docs`.

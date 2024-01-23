@@ -1,12 +1,22 @@
-Provides triggers and animations for the `HTMLDialogElement`.
+Wrap a `HTMLTableElement` in the `TableSort` element to have sortable column
+headers. Set each `th` that you want to sort to the `trigger`. Set the `tbody`
+element to the `content`.
+
+The values of each cell default to the cell's `textContent`. If you would like to
+provide an alternate value than what appears in the cell to sort by instead,
+you can set a different value using the `data-value` attribute on the cell.
+
+The cells will be sorted as `string` by default. If you want to provide a different
+datatype `number` or `boolean`, set `data-type="number"` on the corresponding
+`th`/`trigger` element. The data will be converted to the specified type before sorting.
 
 ---
 
 ## Hierarchy
 
-- [`Animate`](/docs/animate/)
+- [`Base`](/docs/base/)
 
-  ↳ **`Dialog`**
+  ↳ **`TableSort`**
 
 ---
 
@@ -14,19 +24,19 @@ Provides triggers and animations for the `HTMLDialogElement`.
 
 ### constructor
 
-• **new Dialog**(): [`Dialog`](/docs/dialog/)
+• **new TableSort**(): [`TableSort`](/docs/tablesort/)
 
 #### Returns
 
-[`Dialog`](/docs/dialog/)
+[`TableSort`](/docs/tablesort/)
 
 #### Overrides
 
-[Animate](/docs/animate/).[constructor](/docs/animate/#constructor)
+[Base](/docs/base/).[constructor](/docs/base/#constructor)
 
 #### Defined in
 
-[src/package/dialog/index.ts:7](https://github.com/rossrobino/components/blob/8302597/src/package/dialog/index.ts#L7)
+src/package/tablesort/index.ts:17
 
 ---
 
@@ -40,7 +50,7 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Inherited from
 
-[Animate](/docs/animate/).[#listenerController](/docs/animate/##listenercontroller)
+[Base](/docs/base/).[#listenerController](/docs/base/##listenercontroller)
 
 #### Defined in
 
@@ -49,38 +59,6 @@ To clean up event listeners added to `document` when the element is removed.
 ---
 
 ## Accessors
-
-### animationOptions
-
-• `get` **animationOptions**(): `KeyframeAnimationOptions`
-
-#### Returns
-
-`KeyframeAnimationOptions`
-
-An object containing the values of each `animation-option` attribute
-
-#### Inherited from
-
-Animate.animationOptions
-
-#### Defined in
-
-[src/package/animate/index.ts:32](https://github.com/rossrobino/components/blob/8302597/src/package/animate/index.ts#L32)
-
-### dialog
-
-• `get` **dialog**(): `HTMLDialogElement`
-
-The `HTMLDialogElement` within the element.
-
-#### Returns
-
-`HTMLDialogElement`
-
-#### Defined in
-
-[src/package/dialog/index.ts:12](https://github.com/rossrobino/components/blob/8302597/src/package/dialog/index.ts#L12)
 
 ### event
 
@@ -102,7 +80,7 @@ keyof `HTMLElementEventMap`
 
 #### Inherited from
 
-Animate.event
+Base.event
 
 #### Defined in
 
@@ -122,79 +100,15 @@ Animate.event
 
 #### Inherited from
 
-Animate.event
+Base.event
 
 #### Defined in
 
 [src/package/base/index.ts:35](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L35)
 
-### keyframes
-
-• `get` **keyframes**(): `Keyframe`[]
-
-#### Returns
-
-`Keyframe`[]
-
-#### Inherited from
-
-Animate.keyframes
-
-#### Defined in
-
-[src/package/animate/index.ts:111](https://github.com/rossrobino/components/blob/8302597/src/package/animate/index.ts#L111)
-
 ---
 
 ## Methods
-
-### animateElement
-
-▸ **animateElement**(`animateOptions?`): `Promise`\<`void`\>
-
-#### Parameters
-
-| Name                      | Type                       | Description                          |
-| :------------------------ | :------------------------- | :----------------------------------- |
-| `animateOptions`          | `Object`                   | animates `this.content()` by default |
-| `animateOptions.element?` | `HTMLElement`              | -                                    |
-| `animateOptions.options?` | `KeyframeAnimationOptions` | -                                    |
-
-#### Returns
-
-`Promise`\<`void`\>
-
-**`Description`**
-
-Animates a particular element using the web animations API.
-
-- Disables animation if the user prefers reduced motion.
-- Sets default options
-- Uses the keyframes provided from `this.keyframes`
-- Waits for the animation to complete
-- Sets the start and end styles based on the first and last keyframe
-
-#### Inherited from
-
-[Animate](/docs/animate/).[animateElement](/docs/animate/#animateelement)
-
-#### Defined in
-
-[src/package/animate/index.ts:62](https://github.com/rossrobino/components/blob/8302597/src/package/animate/index.ts#L62)
-
-### close
-
-▸ **close**(): `Promise`\<`void`\>
-
-`HTMLDialogElement.close()` with animation.
-
-#### Returns
-
-`Promise`\<`void`\>
-
-#### Defined in
-
-[src/package/dialog/index.ts:23](https://github.com/rossrobino/components/blob/8302597/src/package/dialog/index.ts#L23)
 
 ### connectedCallback
 
@@ -206,7 +120,7 @@ Animates a particular element using the web animations API.
 
 #### Defined in
 
-[src/package/dialog/index.ts:38](https://github.com/rossrobino/components/blob/8302597/src/package/dialog/index.ts#L38)
+src/package/tablesort/index.ts:21
 
 ### content
 
@@ -238,7 +152,7 @@ this.querySelector("[data-content]");
 
 #### Inherited from
 
-[Animate](/docs/animate/).[content](/docs/animate/#content)
+[Base](/docs/base/).[content](/docs/base/#content)
 
 #### Defined in
 
@@ -254,7 +168,7 @@ this.querySelector("[data-content]");
 
 #### Inherited from
 
-[Animate](/docs/animate/).[disconnectedCallback](/docs/animate/#disconnectedcallback)
+[Base](/docs/base/).[disconnectedCallback](/docs/base/#disconnectedcallback)
 
 #### Defined in
 
@@ -287,25 +201,11 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Inherited from
 
-[Animate](/docs/animate/).[safeListener](/docs/animate/#safelistener)
+[Base](/docs/base/).[safeListener](/docs/base/#safelistener)
 
 #### Defined in
 
 [src/package/base/index.ts:94](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L94)
-
-### showModal
-
-▸ **showModal**(): `Promise`\<`void`\>
-
-`HTMLDialogElement.showModal()` with animation.
-
-#### Returns
-
-`Promise`\<`void`\>
-
-#### Defined in
-
-[src/package/dialog/index.ts:17](https://github.com/rossrobino/components/blob/8302597/src/package/dialog/index.ts#L17)
 
 ### swap
 
@@ -327,25 +227,11 @@ swaps `this.content().innerHTML` with the content of the template.
 
 #### Inherited from
 
-[Animate](/docs/animate/).[swap](/docs/animate/#swap)
+[Base](/docs/base/).[swap](/docs/base/#swap)
 
 #### Defined in
 
 [src/package/base/index.ts:74](https://github.com/rossrobino/components/blob/8302597/src/package/base/index.ts#L74)
-
-### toggle
-
-▸ **toggle**(): `Promise`\<`void`\>
-
-`showModal` or `close` depending on the dialog's `open` attribute.
-
-#### Returns
-
-`Promise`\<`void`\>
-
-#### Defined in
-
-[src/package/dialog/index.ts:33](https://github.com/rossrobino/components/blob/8302597/src/package/dialog/index.ts#L33)
 
 ### trigger
 
@@ -365,7 +251,7 @@ this.querySelectorAll("[data-trigger]");
 
 #### Inherited from
 
-[Animate](/docs/animate/).[trigger](/docs/animate/#trigger)
+[Base](/docs/base/).[trigger](/docs/base/#trigger)
 
 #### Defined in
 
@@ -387,7 +273,7 @@ this.querySelectorAll("[data-trigger]");
 
 #### Inherited from
 
-[Animate](/docs/animate/).[triggerListener](/docs/animate/#triggerlistener)
+[Base](/docs/base/).[triggerListener](/docs/base/#triggerlistener)
 
 #### Defined in
 

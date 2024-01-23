@@ -14,17 +14,20 @@ export const build: Build = async ({ document }, { route }) => {
 		sourceLink.href = `https://github.com/rossrobino/drab/tree/main/src/package/${name}/index.ts`;
 	}
 
-	const example = await fs.readFile(`src/docs/${name}/index.html`, "utf-8");
+	let example = await fs.readFile(`src/docs/${name}/index.html`, "utf-8");
 
 	const exampleDiv = document.querySelector("#example");
 
 	if (exampleDiv)
 		exampleDiv.innerHTML = process(`\`\`\`html\n${example}\n\`\`\``).html;
 
-	const reference = await fs.readFile(
-		`src/lib/docs/classes/${name}.md`,
-		"utf-8",
-	);
+	let reference: string;
+	try {
+		reference = await fs.readFile(`src/lib/docs/classes/${name}.md`, "utf-8");
+	} catch {
+		reference =
+			"No docs found. Run `bun doc` after exporting the component from `src/package/index.ts`";
+	}
 
 	const referenceDiv = document.querySelector("#reference");
 

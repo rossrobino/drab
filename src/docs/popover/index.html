@@ -1,0 +1,41 @@
+<script type="module" src="/package/popover/define.ts"></script>
+
+<drab-popover
+	animation-keyframe-from-transform="scale(.95) translateY(3%)"
+	animation-keyframe-from-opacity="0"
+	animation-keyframe-to-transform="scale(1) translateY(0)"
+	animation-keyframe-to-opacity="1"
+>
+	<button
+		data-trigger
+		popovertarget="popover"
+		type="button"
+		class="button button-primary"
+	>
+		Show
+	</button>
+	<div data-content id="popover" popover class="card sm:max-w-96">
+		<div class="mb-4 flex items-center justify-between">
+			<h3 class="my-0">Popover</h3>
+			<button
+				data-trigger
+				popovertarget="popover"
+				type="button"
+				class="button button-ghost"
+			>
+				<svg-icon icon="close"></svg-icon>
+			</button>
+		</div>
+		<p>This works without JavaScript.</p>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua.
+		</p>
+	</div>
+</drab-popover>
+
+<script
+	src="https://cdn.jsdelivr.net/npm/@oddbird/popover-polyfill@latest"
+	crossorigin="anonymous"
+	defer
+></script>
