@@ -108,9 +108,9 @@ export class Base extends HTMLElement {
 	/**
 	 * @param listener Listener to attach to all of the `trigger` elements.
 	 */
-	triggerListener(listener: EventListener) {
+	triggerListener(listener: EventListener, event = this.event) {
 		for (const trigger of this.trigger()) {
-			trigger.addEventListener(this.event, listener);
+			trigger.addEventListener(event, listener);
 		}
 	}
 
