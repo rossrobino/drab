@@ -1,5 +1,11 @@
 Displays the current breakpoint and `window.innerWidth`, based on the `breakpoints` provided. Defaults to [TailwindCSS breakpoint sizes](https://tailwindcss.com/docs/responsive-design).
 
+Provide alternate breakpoints by specifying `breakpoint` attributes:
+
+```html
+<drab-breakpoint breakpoint-name="400"></drab-breakpoint>
+```
+
 ---
 
 ## Hierarchy
@@ -26,7 +32,7 @@ Displays the current breakpoint and `window.innerWidth`, based on the `breakpoin
 
 #### Defined in
 
-[src/package/breakpoint/index.ts:15](https://github.com/rossrobino/components/blob/14dac44/src/package/breakpoint/index.ts#L15)
+[src/package/breakpoint/index.ts:23](https://github.com/rossrobino/components/blob/84d5d09/src/package/breakpoint/index.ts#L23)
 
 ---
 
@@ -44,15 +50,15 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:18](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L18)
+[src/package/base/index.ts:18](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L18)
 
 ### breakpoints
 
-• **breakpoints**: \{ `name`: `string` ; `width`: `number` }[]
+• **breakpoints**: `Breakpoints`
 
 #### Defined in
 
-[src/package/breakpoint/index.ts:7](https://github.com/rossrobino/components/blob/14dac44/src/package/breakpoint/index.ts#L7)
+[src/package/breakpoint/index.ts:15](https://github.com/rossrobino/components/blob/84d5d09/src/package/breakpoint/index.ts#L15)
 
 ---
 
@@ -70,7 +76,7 @@ finds the current breakpoint
 
 #### Defined in
 
-[src/package/breakpoint/index.ts:22](https://github.com/rossrobino/components/blob/14dac44/src/package/breakpoint/index.ts#L22)
+[src/package/breakpoint/index.ts:46](https://github.com/rossrobino/components/blob/84d5d09/src/package/breakpoint/index.ts#L46)
 
 ### event
 
@@ -96,7 +102,7 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:31](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L31)
+[src/package/base/index.ts:31](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L31)
 
 • `set` **event**(`value`): `void`
 
@@ -116,7 +122,7 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:35](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L35)
+[src/package/base/index.ts:35](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L35)
 
 ---
 
@@ -132,7 +138,7 @@ Base.event
 
 #### Defined in
 
-[src/package/breakpoint/index.ts:34](https://github.com/rossrobino/components/blob/14dac44/src/package/breakpoint/index.ts#L34)
+[src/package/breakpoint/index.ts:58](https://github.com/rossrobino/components/blob/84d5d09/src/package/breakpoint/index.ts#L58)
 
 ### content
 
@@ -168,7 +174,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:57](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L57)
+[src/package/base/index.ts:57](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L57)
 
 ### disconnectedCallback
 
@@ -184,7 +190,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:124](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L124)
+[src/package/base/index.ts:124](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L124)
 
 ### safeListener
 
@@ -219,7 +225,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:98](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L98)
+[src/package/base/index.ts:98](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L98)
 
 ### swap
 
@@ -245,7 +251,7 @@ swaps `this.content()` with the content of the element found.
 
 #### Defined in
 
-[src/package/base/index.ts:74](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L74)
+[src/package/base/index.ts:74](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L74)
 
 ### trigger
 
@@ -269,7 +275,7 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:43](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L43)
+[src/package/base/index.ts:43](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L43)
 
 ### triggerListener
 
@@ -299,4 +305,4 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:115](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L115)
+[src/package/base/index.ts:115](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L115)

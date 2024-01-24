@@ -30,13 +30,13 @@ export class Popover extends Animate {
 	}
 
 	/** `HTMLElement.showPopover()` with animation. */
-	async showPopover() {
+	async show() {
 		this.content().showPopover();
 		await this.animateElement();
 	}
 
 	/** `HTMLElement.hidePopover()` with animation. */
-	async hidePopover() {
+	async hide() {
 		await this.animateElement({
 			options: {
 				direction: "reverse",
@@ -45,10 +45,10 @@ export class Popover extends Animate {
 		this.content().hidePopover();
 	}
 
-	/** `showPopover` or `hidePopover` depending on the current state. */
+	/** `show` or `hide` depending on the current state. */
 	async toggle() {
-		if (this.open) this.hidePopover();
-		else this.showPopover();
+		if (this.open) this.hide();
+		else this.show();
 	}
 
 	connectedCallback() {
@@ -70,7 +70,7 @@ export class Popover extends Animate {
 			if (e.key === "Escape" && this.open) {
 				// to execute animation
 				e.preventDefault();
-				this.hidePopover();
+				this.hide();
 			}
 		});
 	}

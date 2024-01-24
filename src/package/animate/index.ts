@@ -1,5 +1,4 @@
 import { Base } from "../base/index.ts";
-import { prefersReducedMotion } from "./prefersReducedMotion/index.ts";
 
 /**
  * The `Animate` base class provides a declarative way to use the
@@ -15,11 +14,17 @@ import { prefersReducedMotion } from "./prefersReducedMotion/index.ts";
  * <drab-animate animation-keyframe-offset-property="value">
  * ```
  *
- * Animations options can also be set:
+ * `offset` can be `to`, `from`, or a `number`.
+ *
+ * `property` can be any animatable CSS property separated by dashes.
+ *
+ * Animations `options` can be set:
  *
  * ```html
  * <drab-animate animation-option-property="value">
  * ```
+ *
+ * `property` can be `duration`, `delay`, or `easing`.
  */
 export class Animate extends Base {
 	constructor() {
@@ -69,7 +74,10 @@ export class Animate extends Base {
 
 		const keyframes = this.keyframes;
 
-		if (keyframes.length && !prefersReducedMotion()) {
+		if (
+			keyframes.length &&
+			!window.matchMedia("(prefers-reduced-motion: reduce)").matches
+		) {
 			// options passed in via JS override the html attributes
 			options = Object.assign(this.animationOptions, options);
 

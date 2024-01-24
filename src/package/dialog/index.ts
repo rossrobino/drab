@@ -14,7 +14,7 @@ export class Dialog extends Animate {
 	}
 
 	/** `HTMLDialogElement.showModal()` with animation. */
-	async showModal() {
+	async show() {
 		this.dialog.showModal();
 		await this.animateElement();
 	}
@@ -29,10 +29,10 @@ export class Dialog extends Animate {
 		this.dialog.close();
 	}
 
-	/** `showModal` or `close` depending on the dialog's `open` attribute. */
+	/** `show` or `close` depending on the dialog's `open` attribute. */
 	async toggle() {
 		if (this.dialog.open) this.close();
-		else this.showModal();
+		else this.show();
 	}
 
 	connectedCallback() {

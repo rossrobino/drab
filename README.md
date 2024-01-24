@@ -45,7 +45,7 @@ This library is built with [Vite](https://vitejs.dev), [domco](https://domco.rob
 2. `bun i`
 3. `bun dev`
 
-#### Making changes
+### Making changes
 
 1. Add or edit the element in `src/package`---each element should extend `Base` or `Animate`. Each element has a `index.ts` file with the source code, and then a `define.ts` file where it is imported and called for use with a CDN.
 2. Add or edit the example in `src/docs`.

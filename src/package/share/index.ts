@@ -1,8 +1,7 @@
 import { BaseCopy } from "../base/copy/index.ts";
 
 /**
- * Uses the [Navigator API](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share)
- * to share a `url`.
+ * Uses the [Navigator API](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share) to share a `url`. If `share` is not supported, falls back to copy the text instead.
  */
 export class Share extends BaseCopy {
 	constructor() {

@@ -31,7 +31,7 @@ currently [only available in Chrome](https://developer.chrome.com/blog/introduci
 
 #### Defined in
 
-[src/package/popover/index.ts:12](https://github.com/rossrobino/components/blob/14dac44/src/package/popover/index.ts#L12)
+[src/package/popover/index.ts:12](https://github.com/rossrobino/components/blob/84d5d09/src/package/popover/index.ts#L12)
 
 ---
 
@@ -49,7 +49,7 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:18](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L18)
+[src/package/base/index.ts:18](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L18)
 
 ---
 
@@ -71,7 +71,7 @@ Animate.animationOptions
 
 #### Defined in
 
-[src/package/animate/index.ts:32](https://github.com/rossrobino/components/blob/14dac44/src/package/animate/index.ts#L32)
+[src/package/animate/index.ts:37](https://github.com/rossrobino/components/blob/84d5d09/src/package/animate/index.ts#L37)
 
 ### event
 
@@ -97,7 +97,7 @@ Animate.event
 
 #### Defined in
 
-[src/package/base/index.ts:31](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L31)
+[src/package/base/index.ts:31](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L31)
 
 • `set` **event**(`value`): `void`
 
@@ -117,7 +117,7 @@ Animate.event
 
 #### Defined in
 
-[src/package/base/index.ts:35](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L35)
+[src/package/base/index.ts:35](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L35)
 
 ### keyframes
 
@@ -133,7 +133,7 @@ Animate.keyframes
 
 #### Defined in
 
-[src/package/animate/index.ts:111](https://github.com/rossrobino/components/blob/14dac44/src/package/animate/index.ts#L111)
+[src/package/animate/index.ts:119](https://github.com/rossrobino/components/blob/84d5d09/src/package/animate/index.ts#L119)
 
 ### open
 
@@ -148,7 +148,7 @@ automatically on the element like with the `HTMLDialogElement`.
 
 #### Defined in
 
-[src/package/popover/index.ts:20](https://github.com/rossrobino/components/blob/14dac44/src/package/popover/index.ts#L20)
+[src/package/popover/index.ts:20](https://github.com/rossrobino/components/blob/84d5d09/src/package/popover/index.ts#L20)
 
 • `set` **open**(`value`): `void`
 
@@ -164,7 +164,7 @@ automatically on the element like with the `HTMLDialogElement`.
 
 #### Defined in
 
-[src/package/popover/index.ts:24](https://github.com/rossrobino/components/blob/14dac44/src/package/popover/index.ts#L24)
+[src/package/popover/index.ts:24](https://github.com/rossrobino/components/blob/84d5d09/src/package/popover/index.ts#L24)
 
 ---
 
@@ -202,7 +202,7 @@ Animates a particular element using the web animations API.
 
 #### Defined in
 
-[src/package/animate/index.ts:62](https://github.com/rossrobino/components/blob/14dac44/src/package/animate/index.ts#L62)
+[src/package/animate/index.ts:67](https://github.com/rossrobino/components/blob/84d5d09/src/package/animate/index.ts#L67)
 
 ### connectedCallback
 
@@ -214,7 +214,7 @@ Animates a particular element using the web animations API.
 
 #### Defined in
 
-[src/package/popover/index.ts:54](https://github.com/rossrobino/components/blob/14dac44/src/package/popover/index.ts#L54)
+[src/package/popover/index.ts:54](https://github.com/rossrobino/components/blob/84d5d09/src/package/popover/index.ts#L54)
 
 ### content
 
@@ -250,7 +250,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:57](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L57)
+[src/package/base/index.ts:57](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L57)
 
 ### disconnectedCallback
 
@@ -266,11 +266,11 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:124](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L124)
+[src/package/base/index.ts:124](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L124)
 
-### hidePopover
+### hide
 
-▸ **hidePopover**(): `Promise`\<`void`\>
+▸ **hide**(): `Promise`\<`void`\>
 
 `HTMLElement.hidePopover()` with animation.
 
@@ -278,13 +278,9 @@ this.querySelector("[data-content]");
 
 `Promise`\<`void`\>
 
-#### Overrides
-
-[Animate](/docs/animate/).[hidePopover](/docs/animate/#hidepopover)
-
 #### Defined in
 
-[src/package/popover/index.ts:39](https://github.com/rossrobino/components/blob/14dac44/src/package/popover/index.ts#L39)
+[src/package/popover/index.ts:39](https://github.com/rossrobino/components/blob/84d5d09/src/package/popover/index.ts#L39)
 
 ### safeListener
 
@@ -319,11 +315,11 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:98](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L98)
+[src/package/base/index.ts:98](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L98)
 
-### showPopover
+### show
 
-▸ **showPopover**(): `Promise`\<`void`\>
+▸ **show**(): `Promise`\<`void`\>
 
 `HTMLElement.showPopover()` with animation.
 
@@ -331,13 +327,9 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 `Promise`\<`void`\>
 
-#### Overrides
-
-[Animate](/docs/animate/).[showPopover](/docs/animate/#showpopover)
-
 #### Defined in
 
-[src/package/popover/index.ts:33](https://github.com/rossrobino/components/blob/14dac44/src/package/popover/index.ts#L33)
+[src/package/popover/index.ts:33](https://github.com/rossrobino/components/blob/84d5d09/src/package/popover/index.ts#L33)
 
 ### swap
 
@@ -363,13 +355,13 @@ swaps `this.content()` with the content of the element found.
 
 #### Defined in
 
-[src/package/base/index.ts:74](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L74)
+[src/package/base/index.ts:74](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L74)
 
 ### toggle
 
 ▸ **toggle**(): `Promise`\<`void`\>
 
-`showPopover` or `hidePopover` depending on the current state.
+`show` or `hide` depending on the current state.
 
 #### Returns
 
@@ -377,7 +369,7 @@ swaps `this.content()` with the content of the element found.
 
 #### Defined in
 
-[src/package/popover/index.ts:49](https://github.com/rossrobino/components/blob/14dac44/src/package/popover/index.ts#L49)
+[src/package/popover/index.ts:49](https://github.com/rossrobino/components/blob/84d5d09/src/package/popover/index.ts#L49)
 
 ### trigger
 
@@ -401,7 +393,7 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:43](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L43)
+[src/package/base/index.ts:43](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L43)
 
 ### triggerListener
 
@@ -431,4 +423,4 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:115](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L115)
+[src/package/base/index.ts:115](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L115)

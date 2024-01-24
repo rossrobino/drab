@@ -28,7 +28,7 @@ Disables the `trigger` if fullscreen is not supported.
 
 #### Defined in
 
-[src/package/fullscreen/index.ts:9](https://github.com/rossrobino/components/blob/14dac44/src/package/fullscreen/index.ts#L9)
+[src/package/fullscreen/index.ts:9](https://github.com/rossrobino/components/blob/84d5d09/src/package/fullscreen/index.ts#L9)
 
 ---
 
@@ -46,7 +46,7 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:18](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L18)
+[src/package/base/index.ts:18](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L18)
 
 ---
 
@@ -76,7 +76,7 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:31](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L31)
+[src/package/base/index.ts:31](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L31)
 
 • `set` **event**(`value`): `void`
 
@@ -96,7 +96,7 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:35](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L35)
+[src/package/base/index.ts:35](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L35)
 
 ---
 
@@ -112,7 +112,7 @@ Base.event
 
 #### Defined in
 
-[src/package/fullscreen/index.ts:40](https://github.com/rossrobino/components/blob/14dac44/src/package/fullscreen/index.ts#L40)
+[src/package/fullscreen/index.ts:40](https://github.com/rossrobino/components/blob/84d5d09/src/package/fullscreen/index.ts#L40)
 
 ### content
 
@@ -148,7 +148,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:57](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L57)
+[src/package/base/index.ts:57](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L57)
 
 ### disconnectedCallback
 
@@ -164,7 +164,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:124](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L124)
+[src/package/base/index.ts:124](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L124)
 
 ### fullscreenSupported
 
@@ -178,7 +178,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/fullscreen/index.ts:23](https://github.com/rossrobino/components/blob/14dac44/src/package/fullscreen/index.ts#L23)
+[src/package/fullscreen/index.ts:23](https://github.com/rossrobino/components/blob/84d5d09/src/package/fullscreen/index.ts#L23)
 
 ### isFullscreen
 
@@ -192,7 +192,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/fullscreen/index.ts:16](https://github.com/rossrobino/components/blob/14dac44/src/package/fullscreen/index.ts#L16)
+[src/package/fullscreen/index.ts:16](https://github.com/rossrobino/components/blob/84d5d09/src/package/fullscreen/index.ts#L16)
 
 ### safeListener
 
@@ -227,7 +227,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:98](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L98)
+[src/package/base/index.ts:98](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L98)
 
 ### swap
 
@@ -253,7 +253,7 @@ swaps `this.content()` with the content of the element found.
 
 #### Defined in
 
-[src/package/base/index.ts:74](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L74)
+[src/package/base/index.ts:74](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L74)
 
 ### toggle
 
@@ -267,7 +267,7 @@ Enables or disables fullscreen mode based on the current state.
 
 #### Defined in
 
-[src/package/fullscreen/index.ts:28](https://github.com/rossrobino/components/blob/14dac44/src/package/fullscreen/index.ts#L28)
+[src/package/fullscreen/index.ts:28](https://github.com/rossrobino/components/blob/84d5d09/src/package/fullscreen/index.ts#L28)
 
 ### trigger
 
@@ -291,7 +291,7 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:43](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L43)
+[src/package/base/index.ts:43](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L43)
 
 ### triggerListener
 
@@ -321,4 +321,4 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:115](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L115)
+[src/package/base/index.ts:115](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L115)

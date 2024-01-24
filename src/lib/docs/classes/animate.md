@@ -11,11 +11,17 @@ Keyframes can be set via HTML attributes on the element in the form of:
 <drab-animate animation-keyframe-offset-property="value"></drab-animate>
 ```
 
-Animations options can also be set:
+`offset` can be `to`, `from`, or a `number`.
+
+`property` can be any animatable CSS property separated by dashes.
+
+Animations `options` can be set:
 
 ```html
 <drab-animate animation-option-property="value"></drab-animate>
 ```
+
+`property` can be `duration`, `delay`, or `easing`.
 
 ---
 
@@ -51,7 +57,7 @@ Animations options can also be set:
 
 #### Defined in
 
-[src/package/animate/index.ts:25](https://github.com/rossrobino/components/blob/14dac44/src/package/animate/index.ts#L25)
+[src/package/animate/index.ts:30](https://github.com/rossrobino/components/blob/84d5d09/src/package/animate/index.ts#L30)
 
 ---
 
@@ -69,7 +75,7 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:18](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L18)
+[src/package/base/index.ts:18](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L18)
 
 ---
 
@@ -87,7 +93,7 @@ An object containing the values of each `animation-option` attribute
 
 #### Defined in
 
-[src/package/animate/index.ts:32](https://github.com/rossrobino/components/blob/14dac44/src/package/animate/index.ts#L32)
+[src/package/animate/index.ts:37](https://github.com/rossrobino/components/blob/84d5d09/src/package/animate/index.ts#L37)
 
 ### event
 
@@ -113,7 +119,7 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:31](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L31)
+[src/package/base/index.ts:31](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L31)
 
 • `set` **event**(`value`): `void`
 
@@ -133,7 +139,7 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:35](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L35)
+[src/package/base/index.ts:35](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L35)
 
 ### keyframes
 
@@ -145,7 +151,7 @@ Base.event
 
 #### Defined in
 
-[src/package/animate/index.ts:111](https://github.com/rossrobino/components/blob/14dac44/src/package/animate/index.ts#L111)
+[src/package/animate/index.ts:119](https://github.com/rossrobino/components/blob/84d5d09/src/package/animate/index.ts#L119)
 
 ---
 
@@ -179,7 +185,7 @@ Animates a particular element using the web animations API.
 
 #### Defined in
 
-[src/package/animate/index.ts:62](https://github.com/rossrobino/components/blob/14dac44/src/package/animate/index.ts#L62)
+[src/package/animate/index.ts:67](https://github.com/rossrobino/components/blob/84d5d09/src/package/animate/index.ts#L67)
 
 ### content
 
@@ -215,7 +221,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:57](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L57)
+[src/package/base/index.ts:57](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L57)
 
 ### disconnectedCallback
 
@@ -231,7 +237,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:124](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L124)
+[src/package/base/index.ts:124](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L124)
 
 ### safeListener
 
@@ -266,7 +272,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:98](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L98)
+[src/package/base/index.ts:98](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L98)
 
 ### swap
 
@@ -292,7 +298,7 @@ swaps `this.content()` with the content of the element found.
 
 #### Defined in
 
-[src/package/base/index.ts:74](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L74)
+[src/package/base/index.ts:74](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L74)
 
 ### trigger
 
@@ -316,7 +322,7 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:43](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L43)
+[src/package/base/index.ts:43](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L43)
 
 ### triggerListener
 
@@ -346,4 +352,4 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:115](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L115)
+[src/package/base/index.ts:115](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L115)

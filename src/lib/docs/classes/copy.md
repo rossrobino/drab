@@ -27,7 +27,7 @@ BaseCopy.constructor
 
 #### Defined in
 
-[src/package/copy/index.ts:8](https://github.com/rossrobino/components/blob/14dac44/src/package/copy/index.ts#L8)
+[src/package/copy/index.ts:8](https://github.com/rossrobino/components/blob/84d5d09/src/package/copy/index.ts#L8)
 
 ---
 
@@ -45,7 +45,7 @@ BaseCopy.#listenerController
 
 #### Defined in
 
-[src/package/base/index.ts:18](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L18)
+[src/package/base/index.ts:18](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L18)
 
 ---
 
@@ -75,7 +75,7 @@ BaseCopy.event
 
 #### Defined in
 
-[src/package/base/index.ts:31](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L31)
+[src/package/base/index.ts:31](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L31)
 
 • `set` **event**(`value`): `void`
 
@@ -95,7 +95,7 @@ BaseCopy.event
 
 #### Defined in
 
-[src/package/base/index.ts:35](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L35)
+[src/package/base/index.ts:35](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L35)
 
 ### value
 
@@ -117,7 +117,7 @@ BaseCopy.value
 
 #### Defined in
 
-[src/package/base/copy/index.ts:11](https://github.com/rossrobino/components/blob/14dac44/src/package/base/copy/index.ts#L11)
+[src/package/base/copy/index.ts:11](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/copy/index.ts#L11)
 
 • `set` **value**(`value`): `void`
 
@@ -137,7 +137,7 @@ BaseCopy.value
 
 #### Defined in
 
-[src/package/base/copy/index.ts:15](https://github.com/rossrobino/components/blob/14dac44/src/package/base/copy/index.ts#L15)
+[src/package/base/copy/index.ts:15](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/copy/index.ts#L15)
 
 ---
 
@@ -153,7 +153,7 @@ BaseCopy.value
 
 #### Defined in
 
-[src/package/copy/index.ts:12](https://github.com/rossrobino/components/blob/14dac44/src/package/copy/index.ts#L12)
+[src/package/copy/index.ts:12](https://github.com/rossrobino/components/blob/84d5d09/src/package/copy/index.ts#L12)
 
 ### content
 
@@ -189,7 +189,7 @@ BaseCopy.content
 
 #### Defined in
 
-[src/package/base/index.ts:57](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L57)
+[src/package/base/index.ts:57](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L57)
 
 ### copy
 
@@ -213,7 +213,7 @@ BaseCopy.copy
 
 #### Defined in
 
-[src/package/base/copy/index.ts:23](https://github.com/rossrobino/components/blob/14dac44/src/package/base/copy/index.ts#L23)
+[src/package/base/copy/index.ts:23](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/copy/index.ts#L23)
 
 ### disconnectedCallback
 
@@ -229,7 +229,7 @@ BaseCopy.disconnectedCallback
 
 #### Defined in
 
-[src/package/base/index.ts:124](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L124)
+[src/package/base/index.ts:124](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L124)
 
 ### safeListener
 
@@ -264,7 +264,7 @@ BaseCopy.safeListener
 
 #### Defined in
 
-[src/package/base/index.ts:98](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L98)
+[src/package/base/index.ts:98](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L98)
 
 ### swap
 
@@ -290,7 +290,7 @@ BaseCopy.swap
 
 #### Defined in
 
-[src/package/base/index.ts:74](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L74)
+[src/package/base/index.ts:74](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L74)
 
 ### trigger
 
@@ -314,7 +314,7 @@ BaseCopy.trigger
 
 #### Defined in
 
-[src/package/base/index.ts:43](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L43)
+[src/package/base/index.ts:43](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L43)
 
 ### triggerListener
 
@@ -344,4 +344,4 @@ BaseCopy.triggerListener
 
 #### Defined in
 
-[src/package/base/index.ts:115](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L115)
+[src/package/base/index.ts:115](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L115)
