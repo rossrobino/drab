@@ -9,27 +9,26 @@
 		"url": "https://robino.dev"
 	},
 	"repository": "github:rossrobino/drab",
-	"types": "./src/package/dist/index.d.ts",
-	"main": "./src/package/dist/index.js",
+	"type": "module",
+	"types": "./index.d.ts",
+	"main": "./index.js",
 	"exports": {
 		".": {
-			"types": "./src/package/dist/index.d.ts",
-			"default": "./src/package/dist/index.js",
-			"import": "./src/package/dist/index.js",
-			"require": "./src/package/dist/index.cjs"
+			"types": "./index.d.ts",
+			"default": "./index.js",
+			"import": "./index.js",
+			"require": "./index.cjs"
 		}
 	},
-	"files": [
-		"src/package/dist"
-	],
-	"type": "module",
 	"scripts": {
 		"dev": "vite --host",
 		"build": "tsc && vite build",
 		"preview": "vite preview",
 		"format": "prettier --write .",
 		"doc": "typedoc --out src/lib/docs --plugin typedoc-plugin-markdown src/package/index.ts --hideBreadcrumbs --hideInPageTOC --githubPages false --publicPath /docs/ && bun src/lib/scripts/doc/index.ts && bun format",
-		"package": "tsup"
+		"copy": "cp package.json ./package",
+		"package": "tsup && bun copy",
+		"pub": "bun i && bun doc && bun package && npm publish --access public ./package"
 	},
 	"devDependencies": {
 		"@tailwindcss/typography": "^0.5.10",

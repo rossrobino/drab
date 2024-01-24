@@ -48,7 +48,7 @@ HTMLElement.constructor
 
 #### Defined in
 
-[src/package/base/index.ts:20](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L20)
+[src/package/base/index.ts:20](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L20)
 
 ---
 
@@ -62,7 +62,7 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:18](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L18)
+[src/package/base/index.ts:18](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L18)
 
 ---
 
@@ -88,7 +88,7 @@ keyof `HTMLElementEventMap`
 
 #### Defined in
 
-[src/package/base/index.ts:31](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L31)
+[src/package/base/index.ts:31](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L31)
 
 • `set` **event**(`value`): `void`
 
@@ -104,7 +104,7 @@ keyof `HTMLElementEventMap`
 
 #### Defined in
 
-[src/package/base/index.ts:35](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L35)
+[src/package/base/index.ts:35](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L35)
 
 ---
 
@@ -140,7 +140,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:57](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L57)
+[src/package/base/index.ts:57](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L57)
 
 ### disconnectedCallback
 
@@ -152,7 +152,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:117](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L117)
+[src/package/base/index.ts:124](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L124)
 
 ### safeListener
 
@@ -183,21 +183,21 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:94](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L94)
+[src/package/base/index.ts:98](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L98)
 
 ### swap
 
 ▸ **swap**(`revert?`, `delay?`): `void`
 
-Finds the `HTMLTemplateElement` via the `swap` selector and
-swaps `this.content().innerHTML` with the content of the template.
+Finds the `HTMLElement | HTMLTemplateElement` via the `swap` selector and
+swaps `this.content()` with the content of the element found.
 
 #### Parameters
 
 | Name     | Type      | Default value | Description                    |
 | :------- | :-------- | :------------ | :----------------------------- |
-| `revert` | `boolean` | `true`        | swap back to old content       |
-| `delay`  | `number`  | `800`         | wait time before swapping back |
+| `revert` | `boolean` | `true`        | Swap back to old content       |
+| `delay`  | `number`  | `800`         | Wait time before swapping back |
 
 #### Returns
 
@@ -205,7 +205,7 @@ swaps `this.content().innerHTML` with the content of the template.
 
 #### Defined in
 
-[src/package/base/index.ts:74](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L74)
+[src/package/base/index.ts:74](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L74)
 
 ### trigger
 
@@ -225,17 +225,25 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:43](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L43)
+[src/package/base/index.ts:43](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L43)
 
 ### triggerListener
 
-▸ **triggerListener**(`listener`): `void`
+▸ **triggerListener**\<`T`, `K`\>(`listener`, `type?`): `void`
+
+#### Type parameters
+
+| Name | Type                                |
+| :--- | :---------------------------------- |
+| `T`  | extends `HTMLElement`               |
+| `K`  | extends keyof `HTMLElementEventMap` |
 
 #### Parameters
 
-| Name       | Type            | Description                                          |
-| :--------- | :-------------- | :--------------------------------------------------- |
-| `listener` | `EventListener` | Listener to attach to all of the `trigger` elements. |
+| Name       | Type                                                     | Description                                          |
+| :--------- | :------------------------------------------------------- | :--------------------------------------------------- |
+| `listener` | (`this`: `T`, `ev`: `HTMLElementEventMap`[`K`]) => `any` | Listener to attach to all of the `trigger` elements. |
+| `type`     | `K`                                                      | -                                                    |
 
 #### Returns
 
@@ -243,4 +251,4 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:111](https://github.com/rossrobino/components/blob/0af6c6c/src/package/base/index.ts#L111)
+[src/package/base/index.ts:115](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L115)

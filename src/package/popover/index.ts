@@ -5,8 +5,8 @@ import { Animate } from "../animate/index.ts";
  *
  * The Popover API is not currently support in FireFox. [See the latest browser compatibility on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API#browser_compatibility).
  *
- * This component can be deprecated once it can be animated with CSS only, this
- * is currently [only available in Chrome](https://developer.chrome.com/blog/introducing-popover-api#interactive_entry_and_exit).
+ * This component can be deprecated once it can be animated with CSS only,
+ * currently [only available in Chrome](https://developer.chrome.com/blog/introducing-popover-api#interactive_entry_and_exit).
  */
 export class Popover extends Animate {
 	constructor() {

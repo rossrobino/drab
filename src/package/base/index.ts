@@ -65,21 +65,25 @@ export class Base extends HTMLElement {
 	}
 
 	/**
-	 * Finds the `HTMLTemplateElement` via the `swap` selector and
-	 * swaps `this.content().innerHTML` with the content of the template.
+	 * Finds the `HTMLElement | HTMLTemplateElement` via the `swap` selector and
+	 * swaps `this.content()` with the content of the element found.
 	 *
-	 * @param revert swap back to old content
-	 * @param delay wait time before swapping back
+	 * @param revert Swap back to old content
+	 * @param delay Wait time before swapping back
 	 */
 	swap(revert: boolean = true, delay: number = 800) {
-		const swap = this.querySelector<HTMLTemplateElement>(
-			this.getAttribute("swap") ?? "[data-swap]",
-		)?.content.cloneNode(true);
+		const swap = this.querySelector(this.getAttribute("swap") ?? "[data-swap]");
 		if (swap) {
-			const original = this.content().innerHTML;
-			this.content().replaceChildren(swap);
+			const original = Array.from(this.content().childNodes);
+
+			if (swap instanceof HTMLTemplateElement) {
+				this.content().replaceChildren(swap.content.cloneNode(true));
+			} else {
+				this.content().replaceChildren(...swap.childNodes);
+			}
+
 			if (revert) {
-				setTimeout(() => (this.content().innerHTML = original), delay);
+				setTimeout(() => this.content().replaceChildren(...original), delay);
 			}
 		}
 	}

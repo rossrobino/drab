@@ -52,10 +52,12 @@ export class ContextMenu extends Animate {
 	}
 
 	async hide() {
-		await this.animateElement({
-			options: { direction: "reverse" },
-		});
-		this.content().style.display = "none";
+		if (this.content().style.display !== "none") {
+			await this.animateElement({
+				options: { direction: "reverse" },
+			});
+			this.content().style.display = "none";
+		}
 	}
 
 	connectedCallback() {

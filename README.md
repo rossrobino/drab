@@ -7,15 +7,13 @@
 
 ## Features
 
-https://jakelazaroff.com/words/web-components-will-outlive-your-javascript-framework/
-
 **drab** focuses on providing JavaScript functionality where it's most useful. Many of the elements are helpful wrappers around browser APIs. Here are some of the features of the library.
 
 ### Built on the web platform
 
-- Each element is a [custom element](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements), so you can use it [with a framework](https://custom-elements-everywhere.com/), without one, or even directly in a markdown file.
-- **drab** does _not_ use the shadow DOM, so you can style content within these elements as usual with CSS.
-- Since you provide the HTML, these elements can be easily utilized with server side rendering frameworks.
+- Each element is a [custom element](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements). So you can use them [with a framework](https://custom-elements-everywhere.com/), without one, or even directly in a markdown file. These components will work [regardless of your project's architecture](https://jakelazaroff.com/words/web-components-will-outlive-your-javascript-framework/).
+- **drab** does _not_ use the [shadow DOM](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM), so you can style content within these elements as usual with CSS.
+- Since you provide the HTML, these elements can take advantage of what JavaScript frameworks excel at---creating reusable markup that can be server side rendered.
 - Each element can be imported, extended, named, and used however you see fit.
 
 ### Minimal bundle size
@@ -24,7 +22,7 @@ https://jakelazaroff.com/words/web-components-will-outlive-your-javascript-frame
 
 ### Write JavaScript, or don't
 
-- Elements can be installed as a package, or utilized without writing any JavaScript by adding a script tag to your document.
+- Elements can be installed as a package (recommended), or utilized without writing any JavaScript by adding a script tag to your document.
 - Each element can be configured through HTML attributes.
 
 ### Built in animations
@@ -43,14 +41,14 @@ Since this is an headless library, simple components like a badge that can be ea
 
 This library is built with [Vite](https://vitejs.dev), [domco](https://domco.robino.dev), and TypeScript. The package contents are located in `src/package`.
 
-#### Make changes
-
 1. Clone the [repository](https://github.com/rossrobino/drab)
 2. `bun i`
 3. `bun dev`
 
-#### Add or edit a component
+#### Making changes
 
-1. Add or edit the component in `src/package` - each element should extend `Base` or `Animate`.
+1. Add or edit the element in `src/package`---each element should extend `Base` or `Animate`. Each element has a `index.ts` file with the source code, and then a `define.ts` file where it is imported and called for use with a CDN.
 2. Add or edit the example in `src/docs`.
-3. Run `bun package` to verify your build
+3. Export the element from `src/package/index.ts`.
+4. Run `bun doc` to document your element with [TypeDoc](https://typedoc.org/).
+5. Add the element as an entry point to `tsup.config.ts`, then run `bun package` to build with [tsup](https://tsup.egoist.dev/).

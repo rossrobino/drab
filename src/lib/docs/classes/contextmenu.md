@@ -1,13 +1,12 @@
-Uses the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText)
-to copy text.
+Displays content when the `trigger` element is right clicked, or long pressed on mobile.
 
 ---
 
 ## Hierarchy
 
-- `BaseCopy`
+- [`Animate`](/docs/animate/)
 
-  ↳ **`Copy`**
+  ↳ **`ContextMenu`**
 
 ---
 
@@ -15,19 +14,19 @@ to copy text.
 
 ### constructor
 
-• **new Copy**(): [`Copy`](/docs/copy/)
+• **new ContextMenu**(): [`ContextMenu`](/docs/contextmenu/)
 
 #### Returns
 
-[`Copy`](/docs/copy/)
+[`ContextMenu`](/docs/contextmenu/)
 
 #### Overrides
 
-BaseCopy.constructor
+[Animate](/docs/animate/).[constructor](/docs/animate/#constructor)
 
 #### Defined in
 
-[src/package/copy/index.ts:8](https://github.com/rossrobino/components/blob/14dac44/src/package/copy/index.ts#L8)
+[src/package/contextmenu/index.ts:10](https://github.com/rossrobino/components/blob/14dac44/src/package/contextmenu/index.ts#L10)
 
 ---
 
@@ -41,15 +40,65 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Inherited from
 
-BaseCopy.#listenerController
+[Animate](/docs/animate/).[#listenerController](/docs/animate/##listenercontroller)
 
 #### Defined in
 
 [src/package/base/index.ts:18](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L18)
 
+### #touchTimer
+
+• `Private` **#touchTimer**: `undefined` \| `Timeout`
+
+Tracks the long press duration on mobile.
+
+#### Defined in
+
+[src/package/contextmenu/index.ts:8](https://github.com/rossrobino/components/blob/14dac44/src/package/contextmenu/index.ts#L8)
+
 ---
 
 ## Accessors
+
+### #coordinates
+
+• `set` **#coordinates**(`value`): `void`
+
+Sets the context menu's `style.left` and `style.top` position.
+
+#### Parameters
+
+| Name      | Type     |
+| :-------- | :------- |
+| `value`   | `Object` |
+| `value.x` | `number` |
+| `value.y` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/package/contextmenu/index.ts:15](https://github.com/rossrobino/components/blob/14dac44/src/package/contextmenu/index.ts#L15)
+
+### animationOptions
+
+• `get` **animationOptions**(): `KeyframeAnimationOptions`
+
+#### Returns
+
+`KeyframeAnimationOptions`
+
+An object containing the values of each `animation-option` attribute
+
+#### Inherited from
+
+Animate.animationOptions
+
+#### Defined in
+
+[src/package/animate/index.ts:32](https://github.com/rossrobino/components/blob/14dac44/src/package/animate/index.ts#L32)
 
 ### event
 
@@ -71,7 +120,7 @@ keyof `HTMLElementEventMap`
 
 #### Inherited from
 
-BaseCopy.event
+Animate.event
 
 #### Defined in
 
@@ -91,57 +140,65 @@ BaseCopy.event
 
 #### Inherited from
 
-BaseCopy.event
+Animate.event
 
 #### Defined in
 
 [src/package/base/index.ts:35](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L35)
 
-### value
+### keyframes
 
-• `get` **value**(): `string`
-
-#### Returns
-
-`string`
-
-**`Default`**
-
-```ts
-"" the empty string
-```
-
-#### Inherited from
-
-BaseCopy.value
-
-#### Defined in
-
-[src/package/base/copy/index.ts:11](https://github.com/rossrobino/components/blob/14dac44/src/package/base/copy/index.ts#L11)
-
-• `set` **value**(`value`): `void`
-
-#### Parameters
-
-| Name    | Type     |
-| :------ | :------- |
-| `value` | `string` |
+• `get` **keyframes**(): `Keyframe`[]
 
 #### Returns
 
-`void`
+`Keyframe`[]
 
 #### Inherited from
 
-BaseCopy.value
+Animate.keyframes
 
 #### Defined in
 
-[src/package/base/copy/index.ts:15](https://github.com/rossrobino/components/blob/14dac44/src/package/base/copy/index.ts#L15)
+[src/package/animate/index.ts:111](https://github.com/rossrobino/components/blob/14dac44/src/package/animate/index.ts#L111)
 
 ---
 
 ## Methods
+
+### animateElement
+
+▸ **animateElement**(`animateOptions?`): `Promise`\<`void`\>
+
+#### Parameters
+
+| Name                      | Type                       | Description                          |
+| :------------------------ | :------------------------- | :----------------------------------- |
+| `animateOptions`          | `Object`                   | animates `this.content()` by default |
+| `animateOptions.element?` | `HTMLElement`              | -                                    |
+| `animateOptions.options?` | `KeyframeAnimationOptions` | -                                    |
+
+#### Returns
+
+`Promise`\<`void`\>
+
+**`Description`**
+
+Animates a particular element using the web animations API.
+
+- Disables animation if the user prefers reduced motion.
+- Sets default options
+- Uses the keyframes provided from `this.keyframes`
+- Waits for the animation to complete
+- Sets the start and end styles based on the first and last keyframe
+
+#### Inherited from
+
+[Animate](/docs/animate/).[animateElement](/docs/animate/#animateelement)
+
+#### Defined in
+
+[src/package/animate/index.ts:62](https://github.com/rossrobino/components/blob/14dac44/src/package/animate/index.ts#L62)
 
 ### connectedCallback
 
@@ -153,7 +210,7 @@ BaseCopy.value
 
 #### Defined in
 
-[src/package/copy/index.ts:12](https://github.com/rossrobino/components/blob/14dac44/src/package/copy/index.ts#L12)
+[src/package/contextmenu/index.ts:61](https://github.com/rossrobino/components/blob/14dac44/src/package/contextmenu/index.ts#L61)
 
 ### content
 
@@ -185,35 +242,11 @@ this.querySelector("[data-content]");
 
 #### Inherited from
 
-BaseCopy.content
+[Animate](/docs/animate/).[content](/docs/animate/#content)
 
 #### Defined in
 
 [src/package/base/index.ts:57](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L57)
-
-### copy
-
-▸ **copy**(`text?`): `Promise`\<`void`\>
-
-Copies the `text`.
-
-#### Parameters
-
-| Name   | Type     | Description         |
-| :----- | :------- | :------------------ |
-| `text` | `string` | The `text` to share |
-
-#### Returns
-
-`Promise`\<`void`\>
-
-#### Inherited from
-
-BaseCopy.copy
-
-#### Defined in
-
-[src/package/base/copy/index.ts:23](https://github.com/rossrobino/components/blob/14dac44/src/package/base/copy/index.ts#L23)
 
 ### disconnectedCallback
 
@@ -225,11 +258,23 @@ BaseCopy.copy
 
 #### Inherited from
 
-BaseCopy.disconnectedCallback
+[Animate](/docs/animate/).[disconnectedCallback](/docs/animate/#disconnectedcallback)
 
 #### Defined in
 
 [src/package/base/index.ts:124](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L124)
+
+### hide
+
+▸ **hide**(): `Promise`\<`void`\>
+
+#### Returns
+
+`Promise`\<`void`\>
+
+#### Defined in
+
+[src/package/contextmenu/index.ts:54](https://github.com/rossrobino/components/blob/14dac44/src/package/contextmenu/index.ts#L54)
 
 ### safeListener
 
@@ -260,11 +305,29 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Inherited from
 
-BaseCopy.safeListener
+[Animate](/docs/animate/).[safeListener](/docs/animate/#safelistener)
 
 #### Defined in
 
 [src/package/base/index.ts:98](https://github.com/rossrobino/components/blob/14dac44/src/package/base/index.ts#L98)
+
+### show
+
+▸ **show**(`e`): `Promise`\<`void`\>
+
+#### Parameters
+
+| Name | Type                         |
+| :--- | :--------------------------- |
+| `e`  | `MouseEvent` \| `TouchEvent` |
+
+#### Returns
+
+`Promise`\<`void`\>
+
+#### Defined in
+
+[src/package/contextmenu/index.ts:20](https://github.com/rossrobino/components/blob/14dac44/src/package/contextmenu/index.ts#L20)
 
 ### swap
 
@@ -286,7 +349,7 @@ swaps `this.content()` with the content of the element found.
 
 #### Inherited from
 
-BaseCopy.swap
+[Animate](/docs/animate/).[swap](/docs/animate/#swap)
 
 #### Defined in
 
@@ -310,7 +373,7 @@ this.querySelectorAll("[data-trigger]");
 
 #### Inherited from
 
-BaseCopy.trigger
+[Animate](/docs/animate/).[trigger](/docs/animate/#trigger)
 
 #### Defined in
 
@@ -340,7 +403,7 @@ BaseCopy.trigger
 
 #### Inherited from
 
-BaseCopy.triggerListener
+[Animate](/docs/animate/).[triggerListener](/docs/animate/#triggerlistener)
 
 #### Defined in
 
