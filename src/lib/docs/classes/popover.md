@@ -31,7 +31,7 @@ currently [only available in Chrome](https://developer.chrome.com/blog/introduci
 
 #### Defined in
 
-[src/package/popover/index.ts:12](https://github.com/rossrobino/components/blob/84d5d09/src/package/popover/index.ts#L12)
+[src/package/popover/index.ts:12](https://github.com/rossrobino/components/blob/a5378fb/src/package/popover/index.ts#L12)
 
 ---
 
@@ -49,7 +49,7 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:18](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L18)
+[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/a5378fb/src/package/base/index.ts#L17)
 
 ---
 
@@ -71,7 +71,7 @@ Animate.animationOptions
 
 #### Defined in
 
-[src/package/animate/index.ts:37](https://github.com/rossrobino/components/blob/84d5d09/src/package/animate/index.ts#L37)
+[src/package/animate/index.ts:37](https://github.com/rossrobino/components/blob/a5378fb/src/package/animate/index.ts#L37)
 
 ### event
 
@@ -97,7 +97,7 @@ Animate.event
 
 #### Defined in
 
-[src/package/base/index.ts:31](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L31)
+[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/a5378fb/src/package/base/index.ts#L30)
 
 • `set` **event**(`value`): `void`
 
@@ -117,7 +117,7 @@ Animate.event
 
 #### Defined in
 
-[src/package/base/index.ts:35](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L35)
+[src/package/base/index.ts:34](https://github.com/rossrobino/components/blob/a5378fb/src/package/base/index.ts#L34)
 
 ### keyframes
 
@@ -133,7 +133,7 @@ Animate.keyframes
 
 #### Defined in
 
-[src/package/animate/index.ts:119](https://github.com/rossrobino/components/blob/84d5d09/src/package/animate/index.ts#L119)
+[src/package/animate/index.ts:119](https://github.com/rossrobino/components/blob/a5378fb/src/package/animate/index.ts#L119)
 
 ### open
 
@@ -148,7 +148,7 @@ automatically on the element like with the `HTMLDialogElement`.
 
 #### Defined in
 
-[src/package/popover/index.ts:20](https://github.com/rossrobino/components/blob/84d5d09/src/package/popover/index.ts#L20)
+[src/package/popover/index.ts:20](https://github.com/rossrobino/components/blob/a5378fb/src/package/popover/index.ts#L20)
 
 • `set` **open**(`value`): `void`
 
@@ -164,7 +164,7 @@ automatically on the element like with the `HTMLDialogElement`.
 
 #### Defined in
 
-[src/package/popover/index.ts:24](https://github.com/rossrobino/components/blob/84d5d09/src/package/popover/index.ts#L24)
+[src/package/popover/index.ts:24](https://github.com/rossrobino/components/blob/a5378fb/src/package/popover/index.ts#L24)
 
 ---
 
@@ -202,7 +202,7 @@ Animates a particular element using the web animations API.
 
 #### Defined in
 
-[src/package/animate/index.ts:67](https://github.com/rossrobino/components/blob/84d5d09/src/package/animate/index.ts#L67)
+[src/package/animate/index.ts:67](https://github.com/rossrobino/components/blob/a5378fb/src/package/animate/index.ts#L67)
 
 ### connectedCallback
 
@@ -212,13 +212,33 @@ Animates a particular element using the web animations API.
 
 `void`
 
+#### Inherited from
+
+[Animate](/docs/animate/).[connectedCallback](/docs/animate/#connectedcallback)
+
 #### Defined in
 
-[src/package/popover/index.ts:54](https://github.com/rossrobino/components/blob/84d5d09/src/package/popover/index.ts#L54)
+[src/package/base/index.ts:129](https://github.com/rossrobino/components/blob/a5378fb/src/package/base/index.ts#L129)
 
-### content
+### disconnectedCallback
 
-▸ **content**\<`T`\>(`instance?`): `T`
+▸ **disconnectedCallback**(): `void`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Animate](/docs/animate/).[disconnectedCallback](/docs/animate/#disconnectedcallback)
+
+#### Defined in
+
+[src/package/base/index.ts:133](https://github.com/rossrobino/components/blob/a5378fb/src/package/base/index.ts#L133)
+
+### getContent
+
+▸ **getContent**\<`T`\>(`instance?`): `T`
 
 #### Type parameters
 
@@ -246,27 +266,35 @@ this.querySelector("[data-content]");
 
 #### Inherited from
 
-[Animate](/docs/animate/).[content](/docs/animate/#content)
+[Animate](/docs/animate/).[getContent](/docs/animate/#getcontent)
 
 #### Defined in
 
-[src/package/base/index.ts:57](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L57)
+[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/a5378fb/src/package/base/index.ts#L55)
 
-### disconnectedCallback
+### getTrigger
 
-▸ **disconnectedCallback**(): `void`
+▸ **getTrigger**(): `NodeListOf`\<`HTMLElement`\>
 
 #### Returns
 
-`void`
+`NodeListOf`\<`HTMLElement`\>
+
+All of the elements that match the `trigger` selector.
+
+**`Default`**
+
+```ts
+this.querySelectorAll("[data-trigger]");
+```
 
 #### Inherited from
 
-[Animate](/docs/animate/).[disconnectedCallback](/docs/animate/#disconnectedcallback)
+[Animate](/docs/animate/).[getTrigger](/docs/animate/#gettrigger)
 
 #### Defined in
 
-[src/package/base/index.ts:124](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L124)
+[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/a5378fb/src/package/base/index.ts#L42)
 
 ### hide
 
@@ -280,7 +308,27 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/popover/index.ts:39](https://github.com/rossrobino/components/blob/84d5d09/src/package/popover/index.ts#L39)
+[src/package/popover/index.ts:39](https://github.com/rossrobino/components/blob/a5378fb/src/package/popover/index.ts#L39)
+
+### mount
+
+▸ **mount**(): `void`
+
+Placeholder function is passed into `queueMicrotask` in `connectedCallback`. It is overridden in each component that needs to run `connectedCallback`.
+
+The reason for this is to make these elements work better with frameworks like Svelte. For SSR this isn't necessary, but when client side rendering, the HTML within the custom element isn't available before `connectedCallback` is called. By waiting until the next microtask, the HTML content is available---then for example, listeners can be attached to elements inside.
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+[Animate](/docs/animate/).[mount](/docs/animate/#mount)
+
+#### Defined in
+
+[src/package/popover/index.ts:54](https://github.com/rossrobino/components/blob/a5378fb/src/package/popover/index.ts#L54)
 
 ### safeListener
 
@@ -315,7 +363,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:98](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L98)
+[src/package/base/index.ts:96](https://github.com/rossrobino/components/blob/a5378fb/src/package/base/index.ts#L96)
 
 ### show
 
@@ -329,11 +377,11 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/popover/index.ts:33](https://github.com/rossrobino/components/blob/84d5d09/src/package/popover/index.ts#L33)
+[src/package/popover/index.ts:33](https://github.com/rossrobino/components/blob/a5378fb/src/package/popover/index.ts#L33)
 
-### swap
+### swapContent
 
-▸ **swap**(`revert?`, `delay?`): `void`
+▸ **swapContent**(`revert?`, `delay?`): `void`
 
 Finds the `HTMLElement | HTMLTemplateElement` via the `swap` selector and
 swaps `this.content()` with the content of the element found.
@@ -351,11 +399,11 @@ swaps `this.content()` with the content of the element found.
 
 #### Inherited from
 
-[Animate](/docs/animate/).[swap](/docs/animate/#swap)
+[Animate](/docs/animate/).[swapContent](/docs/animate/#swapcontent)
 
 #### Defined in
 
-[src/package/base/index.ts:74](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L74)
+[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/a5378fb/src/package/base/index.ts#L72)
 
 ### toggle
 
@@ -369,31 +417,7 @@ swaps `this.content()` with the content of the element found.
 
 #### Defined in
 
-[src/package/popover/index.ts:49](https://github.com/rossrobino/components/blob/84d5d09/src/package/popover/index.ts#L49)
-
-### trigger
-
-▸ **trigger**(): `NodeListOf`\<`HTMLElement`\>
-
-#### Returns
-
-`NodeListOf`\<`HTMLElement`\>
-
-All of the elements that match the `trigger` selector.
-
-**`Default`**
-
-```ts
-this.querySelectorAll("[data-trigger]");
-```
-
-#### Inherited from
-
-[Animate](/docs/animate/).[trigger](/docs/animate/#trigger)
-
-#### Defined in
-
-[src/package/base/index.ts:43](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L43)
+[src/package/popover/index.ts:49](https://github.com/rossrobino/components/blob/a5378fb/src/package/popover/index.ts#L49)
 
 ### triggerListener
 
@@ -423,4 +447,4 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:115](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L115)
+[src/package/base/index.ts:113](https://github.com/rossrobino/components/blob/a5378fb/src/package/base/index.ts#L113)

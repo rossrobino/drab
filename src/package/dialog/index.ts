@@ -10,7 +10,7 @@ export class Dialog extends Animate {
 
 	/** The `HTMLDialogElement` within the element. */
 	get dialog() {
-		return this.content(HTMLDialogElement);
+		return this.getContent(HTMLDialogElement);
 	}
 
 	/** `HTMLDialogElement.showModal()` with animation. */
@@ -35,7 +35,7 @@ export class Dialog extends Animate {
 		else this.show();
 	}
 
-	connectedCallback() {
+	mount() {
 		this.triggerListener(() => this.toggle());
 
 		this.safeListener("keydown", (e) => {

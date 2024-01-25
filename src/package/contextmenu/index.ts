@@ -13,8 +13,8 @@ export class ContextMenu extends Animate {
 
 	/** Sets the context menu's `style.left` and `style.top` position. */
 	set #coordinates(value: { x: number; y: number }) {
-		this.content().style.left = `${value.x}px`;
-		this.content().style.top = `${value.y}px`;
+		this.getContent().style.left = `${value.x}px`;
+		this.getContent().style.top = `${value.y}px`;
 	}
 
 	async show(e: MouseEvent | TouchEvent) {
@@ -30,11 +30,11 @@ export class ContextMenu extends Animate {
 		let x = clientX + scrollX;
 		let y = clientY + scrollY;
 
-		this.content().style.position = "absolute";
-		this.content().style.display = "block";
+		this.getContent().style.position = "absolute";
+		this.getContent().style.display = "block";
 
-		const offsetWidth = this.content().offsetWidth + 24;
-		const offsetHeight = this.content().offsetHeight + 6;
+		const offsetWidth = this.getContent().offsetWidth + 24;
+		const offsetHeight = this.getContent().offsetHeight + 6;
 		const innerWidth = window.innerWidth;
 		const innerHeight = window.innerHeight;
 
@@ -52,15 +52,15 @@ export class ContextMenu extends Animate {
 	}
 
 	async hide() {
-		if (this.content().style.display !== "none") {
+		if (this.getContent().style.display !== "none") {
 			await this.animateElement({
 				options: { direction: "reverse" },
 			});
-			this.content().style.display = "none";
+			this.getContent().style.display = "none";
 		}
 	}
 
-	connectedCallback() {
+	mount() {
 		// mouse
 		this.triggerListener((e) => {
 			e.preventDefault();

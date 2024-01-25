@@ -26,7 +26,7 @@ Embeds a YouTube video iframe into a website with the video uid, using www.youtu
 
 #### Defined in
 
-[src/package/youtube/index.ts:9](https://github.com/rossrobino/components/blob/84d5d09/src/package/youtube/index.ts#L9)
+[src/package/youtube/index.ts:9](https://github.com/rossrobino/components/blob/a5378fb/src/package/youtube/index.ts#L9)
 
 ---
 
@@ -44,7 +44,7 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:18](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L18)
+[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/a5378fb/src/package/base/index.ts#L17)
 
 ### observedAttributes
 
@@ -52,7 +52,7 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Defined in
 
-[src/package/youtube/index.ts:7](https://github.com/rossrobino/components/blob/84d5d09/src/package/youtube/index.ts#L7)
+[src/package/youtube/index.ts:7](https://github.com/rossrobino/components/blob/a5378fb/src/package/youtube/index.ts#L7)
 
 ---
 
@@ -70,7 +70,7 @@ Whether the video should start playing when loaded.
 
 #### Defined in
 
-[src/package/youtube/index.ts:19](https://github.com/rossrobino/components/blob/84d5d09/src/package/youtube/index.ts#L19)
+[src/package/youtube/index.ts:19](https://github.com/rossrobino/components/blob/a5378fb/src/package/youtube/index.ts#L19)
 
 • `set` **autoplay**(`value`): `void`
 
@@ -86,7 +86,7 @@ Whether the video should start playing when loaded.
 
 #### Defined in
 
-[src/package/youtube/index.ts:23](https://github.com/rossrobino/components/blob/84d5d09/src/package/youtube/index.ts#L23)
+[src/package/youtube/index.ts:23](https://github.com/rossrobino/components/blob/a5378fb/src/package/youtube/index.ts#L23)
 
 ### event
 
@@ -112,7 +112,7 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:31](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L31)
+[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/a5378fb/src/package/base/index.ts#L30)
 
 • `set` **event**(`value`): `void`
 
@@ -132,7 +132,7 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:35](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L35)
+[src/package/base/index.ts:34](https://github.com/rossrobino/components/blob/a5378fb/src/package/base/index.ts#L34)
 
 ### iframe
 
@@ -146,7 +146,7 @@ The `HTMLIFrameElement` within the element.
 
 #### Defined in
 
-[src/package/youtube/index.ts:14](https://github.com/rossrobino/components/blob/84d5d09/src/package/youtube/index.ts#L14)
+[src/package/youtube/index.ts:14](https://github.com/rossrobino/components/blob/a5378fb/src/package/youtube/index.ts#L14)
 
 ### start
 
@@ -160,7 +160,7 @@ The start time of the video (seconds).
 
 #### Defined in
 
-[src/package/youtube/index.ts:29](https://github.com/rossrobino/components/blob/84d5d09/src/package/youtube/index.ts#L29)
+[src/package/youtube/index.ts:29](https://github.com/rossrobino/components/blob/a5378fb/src/package/youtube/index.ts#L29)
 
 • `set` **start**(`value`): `void`
 
@@ -176,7 +176,7 @@ The start time of the video (seconds).
 
 #### Defined in
 
-[src/package/youtube/index.ts:33](https://github.com/rossrobino/components/blob/84d5d09/src/package/youtube/index.ts#L33)
+[src/package/youtube/index.ts:33](https://github.com/rossrobino/components/blob/a5378fb/src/package/youtube/index.ts#L33)
 
 ### uid
 
@@ -193,7 +193,7 @@ the `uid` is `"gouiY85kD2o"`.
 
 #### Defined in
 
-[src/package/youtube/index.ts:43](https://github.com/rossrobino/components/blob/84d5d09/src/package/youtube/index.ts#L43)
+[src/package/youtube/index.ts:43](https://github.com/rossrobino/components/blob/a5378fb/src/package/youtube/index.ts#L43)
 
 • `set` **uid**(`v`): `void`
 
@@ -209,7 +209,7 @@ the `uid` is `"gouiY85kD2o"`.
 
 #### Defined in
 
-[src/package/youtube/index.ts:49](https://github.com/rossrobino/components/blob/84d5d09/src/package/youtube/index.ts#L49)
+[src/package/youtube/index.ts:49](https://github.com/rossrobino/components/blob/a5378fb/src/package/youtube/index.ts#L49)
 
 ---
 
@@ -225,7 +225,7 @@ the `uid` is `"gouiY85kD2o"`.
 
 #### Defined in
 
-[src/package/youtube/index.ts:59](https://github.com/rossrobino/components/blob/84d5d09/src/package/youtube/index.ts#L59)
+[src/package/youtube/index.ts:59](https://github.com/rossrobino/components/blob/a5378fb/src/package/youtube/index.ts#L59)
 
 ### connectedCallback
 
@@ -235,13 +235,33 @@ the `uid` is `"gouiY85kD2o"`.
 
 `void`
 
+#### Inherited from
+
+[Base](/docs/base/).[connectedCallback](/docs/base/#connectedcallback)
+
 #### Defined in
 
-[src/package/youtube/index.ts:53](https://github.com/rossrobino/components/blob/84d5d09/src/package/youtube/index.ts#L53)
+[src/package/base/index.ts:129](https://github.com/rossrobino/components/blob/a5378fb/src/package/base/index.ts#L129)
 
-### content
+### disconnectedCallback
 
-▸ **content**\<`T`\>(`instance?`): `T`
+▸ **disconnectedCallback**(): `void`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Base](/docs/base/).[disconnectedCallback](/docs/base/#disconnectedcallback)
+
+#### Defined in
+
+[src/package/base/index.ts:133](https://github.com/rossrobino/components/blob/a5378fb/src/package/base/index.ts#L133)
+
+### getContent
+
+▸ **getContent**\<`T`\>(`instance?`): `T`
 
 #### Type parameters
 
@@ -269,27 +289,55 @@ this.querySelector("[data-content]");
 
 #### Inherited from
 
-[Base](/docs/base/).[content](/docs/base/#content)
+[Base](/docs/base/).[getContent](/docs/base/#getcontent)
 
 #### Defined in
 
-[src/package/base/index.ts:57](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L57)
+[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/a5378fb/src/package/base/index.ts#L55)
 
-### disconnectedCallback
+### getTrigger
 
-▸ **disconnectedCallback**(): `void`
+▸ **getTrigger**(): `NodeListOf`\<`HTMLElement`\>
+
+#### Returns
+
+`NodeListOf`\<`HTMLElement`\>
+
+All of the elements that match the `trigger` selector.
+
+**`Default`**
+
+```ts
+this.querySelectorAll("[data-trigger]");
+```
+
+#### Inherited from
+
+[Base](/docs/base/).[getTrigger](/docs/base/#gettrigger)
+
+#### Defined in
+
+[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/a5378fb/src/package/base/index.ts#L42)
+
+### mount
+
+▸ **mount**(): `void`
+
+Placeholder function is passed into `queueMicrotask` in `connectedCallback`. It is overridden in each component that needs to run `connectedCallback`.
+
+The reason for this is to make these elements work better with frameworks like Svelte. For SSR this isn't necessary, but when client side rendering, the HTML within the custom element isn't available before `connectedCallback` is called. By waiting until the next microtask, the HTML content is available---then for example, listeners can be attached to elements inside.
 
 #### Returns
 
 `void`
 
-#### Inherited from
+#### Overrides
 
-[Base](/docs/base/).[disconnectedCallback](/docs/base/#disconnectedcallback)
+[Base](/docs/base/).[mount](/docs/base/#mount)
 
 #### Defined in
 
-[src/package/base/index.ts:124](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L124)
+[src/package/youtube/index.ts:53](https://github.com/rossrobino/components/blob/a5378fb/src/package/youtube/index.ts#L53)
 
 ### safeListener
 
@@ -324,11 +372,11 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:98](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L98)
+[src/package/base/index.ts:96](https://github.com/rossrobino/components/blob/a5378fb/src/package/base/index.ts#L96)
 
-### swap
+### swapContent
 
-▸ **swap**(`revert?`, `delay?`): `void`
+▸ **swapContent**(`revert?`, `delay?`): `void`
 
 Finds the `HTMLElement | HTMLTemplateElement` via the `swap` selector and
 swaps `this.content()` with the content of the element found.
@@ -346,35 +394,11 @@ swaps `this.content()` with the content of the element found.
 
 #### Inherited from
 
-[Base](/docs/base/).[swap](/docs/base/#swap)
+[Base](/docs/base/).[swapContent](/docs/base/#swapcontent)
 
 #### Defined in
 
-[src/package/base/index.ts:74](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L74)
-
-### trigger
-
-▸ **trigger**(): `NodeListOf`\<`HTMLElement`\>
-
-#### Returns
-
-`NodeListOf`\<`HTMLElement`\>
-
-All of the elements that match the `trigger` selector.
-
-**`Default`**
-
-```ts
-this.querySelectorAll("[data-trigger]");
-```
-
-#### Inherited from
-
-[Base](/docs/base/).[trigger](/docs/base/#trigger)
-
-#### Defined in
-
-[src/package/base/index.ts:43](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L43)
+[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/a5378fb/src/package/base/index.ts#L72)
 
 ### triggerListener
 
@@ -404,4 +428,4 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:115](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L115)
+[src/package/base/index.ts:113](https://github.com/rossrobino/components/blob/a5378fb/src/package/base/index.ts#L113)

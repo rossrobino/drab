@@ -12,7 +12,7 @@ export class YouTube extends Base {
 
 	/** The `HTMLIFrameElement` within the element. */
 	get iframe() {
-		return this.content(HTMLIFrameElement);
+		return this.getContent(HTMLIFrameElement);
 	}
 
 	/** Whether the video should start playing when loaded. */
@@ -50,15 +50,17 @@ export class YouTube extends Base {
 		this.setAttribute("uid", v);
 	}
 
-	connectedCallback() {
+	mount() {
 		this.iframe.allowFullscreen = true;
 		this.iframe.allow =
 			"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
 	}
 
 	attributeChangedCallback() {
-		this.iframe.src = `https://www.youtube-nocookie.com/embed/${this.uid}?start=${this.start}${
-			this.autoplay ? "&autoplay=1" : ""
-		}`;
+		queueMicrotask(() => {
+			this.iframe.src = `https://www.youtube-nocookie.com/embed/${this.uid}?start=${this.start}${
+				this.autoplay ? "&autoplay=1" : ""
+			}`;
+		});
 	}
 }

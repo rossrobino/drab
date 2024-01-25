@@ -15,9 +15,115 @@
 	"exports": {
 		".": {
 			"types": "./index.d.ts",
-			"default": "./index.js",
-			"import": "./index.js",
-			"require": "./index.cjs"
+			"default": "./index.js"
+		},
+		"./define": {
+			"types": "./define.d.ts",
+			"default": "./define.js"
+		},
+		"./animate": {
+			"types": "./animate.d.ts",
+			"default": "./animate.js"
+		},
+		"./animate/define": {
+			"types": "./animate/define.d.ts",
+			"default": "./animate/define.js"
+		},
+		"./contextmenu": {
+			"types": "./contextmenu.d.ts",
+			"default": "./contextmenu.js"
+		},
+		"./contextmenu/define": {
+			"types": "./contextmenu/define.d.ts",
+			"default": "./contextmenu/define.js"
+		},
+		"./details": {
+			"types": "./details.d.ts",
+			"default": "./details.js"
+		},
+		"./details/define": {
+			"types": "./details/define.d.ts",
+			"default": "./details/define.js"
+		},
+		"./youtube": {
+			"types": "./youtube.d.ts",
+			"default": "./youtube.js"
+		},
+		"./youtube/define": {
+			"types": "./youtube/define.d.ts",
+			"default": "./youtube/define.js"
+		},
+		"./breakpoint": {
+			"types": "./breakpoint.d.ts",
+			"default": "./breakpoint.js"
+		},
+		"./breakpoint/define": {
+			"types": "./breakpoint/define.d.ts",
+			"default": "./breakpoint/define.js"
+		},
+		"./dialog": {
+			"types": "./dialog.d.ts",
+			"default": "./dialog.js"
+		},
+		"./dialog/define": {
+			"types": "./dialog/define.d.ts",
+			"default": "./dialog/define.js"
+		},
+		"./popover": {
+			"types": "./popover.d.ts",
+			"default": "./popover.js"
+		},
+		"./popover/define": {
+			"types": "./popover/define.d.ts",
+			"default": "./popover/define.js"
+		},
+		"./tablesort": {
+			"types": "./tablesort.d.ts",
+			"default": "./tablesort.js"
+		},
+		"./tablesort/define": {
+			"types": "./tablesort/define.d.ts",
+			"default": "./tablesort/define.js"
+		},
+		"./copy": {
+			"types": "./copy.d.ts",
+			"default": "./copy.js"
+		},
+		"./copy/define": {
+			"types": "./copy/define.d.ts",
+			"default": "./copy/define.js"
+		},
+		"./fullscreen": {
+			"types": "./fullscreen.d.ts",
+			"default": "./fullscreen.js"
+		},
+		"./fullscreen/define": {
+			"types": "./fullscreen/define.d.ts",
+			"default": "./fullscreen/define.js"
+		},
+		"./base": {
+			"types": "./base.d.ts",
+			"default": "./base.js"
+		},
+		"./base/define": {
+			"types": "./base/define.d.ts",
+			"default": "./base/define.js"
+		},
+		"./editor": {
+			"types": "./editor.d.ts",
+			"default": "./editor.js"
+		},
+		"./editor/define": {
+			"types": "./editor/define.d.ts",
+			"default": "./editor/define.js"
+		},
+		"./share": {
+			"types": "./share.d.ts",
+			"default": "./share.js"
+		},
+		"./share/define": {
+			"types": "./share/define.d.ts",
+			"default": "./share/define.js"
 		}
 	},
 	"scripts": {
@@ -27,7 +133,8 @@
 		"format": "prettier --write .",
 		"doc": "typedoc --out src/lib/docs --plugin typedoc-plugin-markdown src/package/index.ts --hideBreadcrumbs --hideInPageTOC --githubPages false --publicPath /docs/ && bun src/lib/scripts/doc/index.ts && bun format",
 		"copy": "cp package.json ./package",
-		"package": "tsup && bun copy",
+		"entry": "bun src/lib/scripts/entryPoints/index.ts && bun format",
+		"package": "bun entry && tsup && bun copy",
 		"pub": "bun i && bun doc && bun package && npm publish --access public ./package"
 	},
 	"devDependencies": {

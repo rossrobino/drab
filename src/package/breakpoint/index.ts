@@ -1,6 +1,6 @@
 import { Base } from "../base/index.ts";
 
-type Breakpoints = { name: string; width: number }[];
+export type Breakpoints = { name: string; width: number }[];
 
 /**
  * Displays the current breakpoint and `window.innerWidth`, based on the `breakpoints` provided. Defaults to [TailwindCSS breakpoint sizes](https://tailwindcss.com/docs/responsive-design).
@@ -56,9 +56,9 @@ export class Breakpoint extends Base {
 		return "none";
 	}
 
-	connectedCallback() {
+	mount() {
 		const render = () =>
-			(this.content().innerHTML = `${this.breakpoint}:${window.innerWidth}`);
+			(this.getContent().innerHTML = `${this.breakpoint}:${window.innerWidth}`);
 
 		render();
 

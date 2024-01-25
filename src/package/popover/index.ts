@@ -31,7 +31,7 @@ export class Popover extends Animate {
 
 	/** `HTMLElement.showPopover()` with animation. */
 	async show() {
-		this.content().showPopover();
+		this.getContent().showPopover();
 		await this.animateElement();
 	}
 
@@ -42,7 +42,7 @@ export class Popover extends Animate {
 				direction: "reverse",
 			},
 		});
-		this.content().hidePopover();
+		this.getContent().hidePopover();
 	}
 
 	/** `show` or `hide` depending on the current state. */
@@ -51,13 +51,13 @@ export class Popover extends Animate {
 		else this.show();
 	}
 
-	connectedCallback() {
+	mount() {
 		this.triggerListener((e) => {
 			e.preventDefault();
 			this.toggle();
 		});
 
-		this.content().addEventListener("toggle", (e) => {
+		this.getContent().addEventListener("toggle", (e) => {
 			//@ts-expect-error - not supported in FF as of 1/23/24
 			if (e.newState === "open") {
 				this.open = true;

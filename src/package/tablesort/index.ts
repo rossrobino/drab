@@ -18,9 +18,9 @@ export class TableSort extends Base {
 		super();
 	}
 
-	connectedCallback() {
-		const tbody = this.content(HTMLTableSectionElement);
-		for (const trigger of this.trigger()) {
+	mount() {
+		const tbody = this.getContent(HTMLTableSectionElement);
+		for (const trigger of this.getTrigger()) {
 			trigger.addEventListener(this.event, () => {
 				Array.from(tbody.querySelectorAll("tr"))
 					.sort(comparer(trigger, trigger.toggleAttribute("data-ascending")))

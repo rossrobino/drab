@@ -1,7 +1,6 @@
 /**
- * Each element in the library extends the `Base` class. It provides the `trigger`
- * and `content` methods for selecting elements via HTML attributes along with
- * other helpers.
+ * Each element in the library extends the `Base` class. It provides methods
+ * for selecting elements via HTML attributes along with other helpers.
  *
  * By default, `trigger`s and `content` will be selected via the `data-trigger` and
  * `data-content` attributes. Alternatively, you can set the `trigger` or
@@ -40,11 +39,10 @@ export class Base extends HTMLElement {
 	 * @returns All of the elements that match the `trigger` selector.
 	 * @default this.querySelectorAll("[data-trigger]")
 	 */
-	trigger() {
+	getTrigger() {
 		const triggers = this.querySelectorAll<HTMLElement>(
 			this.getAttribute("trigger") ?? "[data-trigger]",
 		);
-		if (!triggers.length) throw new Error("Trigger not found");
 		return triggers;
 	}
 
@@ -54,7 +52,7 @@ export class Base extends HTMLElement {
 	 * @returns The element that matches the `content` selector.
 	 * @default this.querySelector("[data-content]")
 	 */
-	content<T extends HTMLElement = HTMLElement>(
+	getContent<T extends HTMLElement = HTMLElement>(
 		instance: { new (): T } = HTMLElement as { new (): T },
 	) {
 		const content = this.querySelector(
@@ -71,19 +69,19 @@ export class Base extends HTMLElement {
 	 * @param revert Swap back to old content
 	 * @param delay Wait time before swapping back
 	 */
-	swap(revert: boolean = true, delay: number = 800) {
+	swapContent(revert: boolean = true, delay: number = 800) {
 		const swap = this.querySelector(this.getAttribute("swap") ?? "[data-swap]");
 		if (swap) {
-			const original = Array.from(this.content().childNodes);
+			const original = Array.from(this.getContent().childNodes);
 
 			if (swap instanceof HTMLTemplateElement) {
-				this.content().replaceChildren(swap.content.cloneNode(true));
+				this.getContent().replaceChildren(swap.content.cloneNode(true));
 			} else {
-				this.content().replaceChildren(...swap.childNodes);
+				this.getContent().replaceChildren(...swap.childNodes);
 			}
 
 			if (revert) {
-				setTimeout(() => this.content().replaceChildren(...original), delay);
+				setTimeout(() => this.getContent().replaceChildren(...original), delay);
 			}
 		}
 	}
@@ -116,9 +114,20 @@ export class Base extends HTMLElement {
 		listener: (this: T, ev: HTMLElementEventMap[K]) => any,
 		type: K = this.event as K,
 	) {
-		for (const trigger of this.trigger()) {
+		for (const trigger of this.getTrigger()) {
 			trigger.addEventListener(type, listener as EventListener);
 		}
+	}
+
+	/**
+	 * Placeholder function is passed into `queueMicrotask` in `connectedCallback`. It is overridden in each component that needs to run `connectedCallback`.
+	 *
+	 * The reason for this is to make these elements work better with frameworks like Svelte. For SSR this isn't necessary, but when client side rendering, the HTML within the custom element isn't available before `connectedCallback` is called. By waiting until the next microtask, the HTML content is available---then for example, listeners can be attached to elements inside.
+	 */
+	mount() {}
+
+	connectedCallback() {
+		queueMicrotask(() => this.mount());
 	}
 
 	disconnectedCallback() {

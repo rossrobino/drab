@@ -9,7 +9,7 @@ export class Copy extends BaseCopy {
 		super();
 	}
 
-	connectedCallback() {
+	mount() {
 		this.triggerListener(async () => await this.copy());
 	}
 }

@@ -3,7 +3,7 @@ import { Base } from "../base/index.ts";
 /**
  * A piece of content to insert into the `textarea`.
  */
-type ContentElement = {
+export type ContentElement = {
 	/** How to insert the content. */
 	type: "block" | "inline" | "wrap";
 
@@ -70,7 +70,7 @@ export class Editor extends Base {
 
 	/** The `content`, expects an `HTMLTextAreaElement`. */
 	get textArea() {
-		return this.content(HTMLTextAreaElement);
+		return this.getContent(HTMLTextAreaElement);
 	}
 
 	/** The current `value` of the `textarea`. */
@@ -85,7 +85,7 @@ export class Editor extends Base {
 	/** An array of `ContentElement`s derived from each `trigger`'s data attributes. */
 	get #contentElements() {
 		const contentElements: ContentElement[] = [];
-		for (const trigger of this.trigger()) {
+		for (const trigger of this.getTrigger()) {
 			contentElements.push(this.#getContentElement(trigger));
 		}
 		return contentElements;
@@ -332,7 +332,7 @@ export class Editor extends Base {
 		this.text = lines.join("\n");
 	}
 
-	connectedCallback() {
+	mount() {
 		this.textArea.addEventListener("keydown", async (e) => {
 			// these keys will reset the type over for characters like "
 			const resetKeys = ["ArrowUp", "ArrowDown", "Delete"];

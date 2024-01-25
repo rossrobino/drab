@@ -30,17 +30,17 @@ export class Fullscreen extends Base {
 			document.exitFullscreen();
 		} else {
 			try {
-				this.content(HTMLElement).requestFullscreen();
+				this.getContent(HTMLElement).requestFullscreen();
 			} catch {
 				document.documentElement.requestFullscreen();
 			}
 		}
 	}
 
-	connectedCallback() {
+	mount() {
 		this.triggerListener(() => this.toggle());
 
-		for (const trigger of this.trigger()) {
+		for (const trigger of this.getTrigger()) {
 			if (!this.fullscreenSupported() && "disabled" in trigger) {
 				trigger.disabled = true;
 			}

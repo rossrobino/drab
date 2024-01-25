@@ -22,6 +22,6 @@ export class BaseCopy extends Base {
 	 */
 	async copy(text: string = this.value) {
 		await navigator.clipboard.writeText(text);
-		this.swap();
+		this.swapContent();
 	}
 }

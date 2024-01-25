@@ -68,9 +68,9 @@ export class Animate extends Base {
 		animateOptions: {
 			element?: HTMLElement;
 			options?: KeyframeAnimationOptions;
-		} = { element: this.content(), options: {} },
+		} = { element: this.getContent(), options: {} },
 	) {
-		let { element = this.content(), options = {} } = animateOptions;
+		let { element = this.getContent(), options = {} } = animateOptions;
 
 		const keyframes = this.keyframes;
 

@@ -1,5 +1,4 @@
-Uses the [Navigator API](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share)
-to share a `url`.
+Uses the [Navigator API](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share) to share a `url`. If `share` is not supported, falls back to copy the text instead.
 
 ---
 
@@ -27,7 +26,7 @@ BaseCopy.constructor
 
 #### Defined in
 
-[src/package/share/index.ts:8](https://github.com/rossrobino/components/blob/84d5d09/src/package/share/index.ts#L8)
+[src/package/share/index.ts:7](https://github.com/rossrobino/components/blob/a5378fb/src/package/share/index.ts#L7)
 
 ---
 
@@ -45,7 +44,7 @@ BaseCopy.#listenerController
 
 #### Defined in
 
-[src/package/base/index.ts:18](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L18)
+[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/a5378fb/src/package/base/index.ts#L17)
 
 ---
 
@@ -75,7 +74,7 @@ BaseCopy.event
 
 #### Defined in
 
-[src/package/base/index.ts:31](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L31)
+[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/a5378fb/src/package/base/index.ts#L30)
 
 • `set` **event**(`value`): `void`
 
@@ -95,7 +94,7 @@ BaseCopy.event
 
 #### Defined in
 
-[src/package/base/index.ts:35](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L35)
+[src/package/base/index.ts:34](https://github.com/rossrobino/components/blob/a5378fb/src/package/base/index.ts#L34)
 
 ### value
 
@@ -117,7 +116,7 @@ BaseCopy.value
 
 #### Defined in
 
-[src/package/base/copy/index.ts:11](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/copy/index.ts#L11)
+[src/package/base/copy/index.ts:11](https://github.com/rossrobino/components/blob/a5378fb/src/package/base/copy/index.ts#L11)
 
 • `set` **value**(`value`): `void`
 
@@ -137,7 +136,7 @@ BaseCopy.value
 
 #### Defined in
 
-[src/package/base/copy/index.ts:15](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/copy/index.ts#L15)
+[src/package/base/copy/index.ts:15](https://github.com/rossrobino/components/blob/a5378fb/src/package/base/copy/index.ts#L15)
 
 ---
 
@@ -151,13 +150,57 @@ BaseCopy.value
 
 `void`
 
+#### Inherited from
+
+BaseCopy.connectedCallback
+
 #### Defined in
 
-[src/package/share/index.ts:33](https://github.com/rossrobino/components/blob/84d5d09/src/package/share/index.ts#L33)
+[src/package/base/index.ts:129](https://github.com/rossrobino/components/blob/a5378fb/src/package/base/index.ts#L129)
 
-### content
+### copy
 
-▸ **content**\<`T`\>(`instance?`): `T`
+▸ **copy**(`text?`): `Promise`\<`void`\>
+
+Copies the `text`.
+
+#### Parameters
+
+| Name   | Type     | Description         |
+| :----- | :------- | :------------------ |
+| `text` | `string` | The `text` to share |
+
+#### Returns
+
+`Promise`\<`void`\>
+
+#### Inherited from
+
+BaseCopy.copy
+
+#### Defined in
+
+[src/package/base/copy/index.ts:23](https://github.com/rossrobino/components/blob/a5378fb/src/package/base/copy/index.ts#L23)
+
+### disconnectedCallback
+
+▸ **disconnectedCallback**(): `void`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+BaseCopy.disconnectedCallback
+
+#### Defined in
+
+[src/package/base/index.ts:133](https://github.com/rossrobino/components/blob/a5378fb/src/package/base/index.ts#L133)
+
+### getContent
+
+▸ **getContent**\<`T`\>(`instance?`): `T`
 
 #### Type parameters
 
@@ -185,51 +228,51 @@ this.querySelector("[data-content]");
 
 #### Inherited from
 
-BaseCopy.content
+BaseCopy.getContent
 
 #### Defined in
 
-[src/package/base/index.ts:57](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L57)
+[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/a5378fb/src/package/base/index.ts#L55)
 
-### copy
+### getTrigger
 
-▸ **copy**(`text?`): `Promise`\<`void`\>
-
-Copies the `text`.
-
-#### Parameters
-
-| Name   | Type     | Description         |
-| :----- | :------- | :------------------ |
-| `text` | `string` | The `text` to share |
+▸ **getTrigger**(): `NodeListOf`\<`HTMLElement`\>
 
 #### Returns
 
-`Promise`\<`void`\>
+`NodeListOf`\<`HTMLElement`\>
+
+All of the elements that match the `trigger` selector.
+
+**`Default`**
+
+```ts
+this.querySelectorAll("[data-trigger]");
+```
 
 #### Inherited from
 
-BaseCopy.copy
+BaseCopy.getTrigger
 
 #### Defined in
 
-[src/package/base/copy/index.ts:23](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/copy/index.ts#L23)
+[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/a5378fb/src/package/base/index.ts#L42)
 
-### disconnectedCallback
+### mount
 
-▸ **disconnectedCallback**(): `void`
+▸ **mount**(): `void`
 
 #### Returns
 
 `void`
 
-#### Inherited from
+#### Overrides
 
-BaseCopy.disconnectedCallback
+BaseCopy.mount
 
 #### Defined in
 
-[src/package/base/index.ts:124](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L124)
+[src/package/share/index.ts:32](https://github.com/rossrobino/components/blob/a5378fb/src/package/share/index.ts#L32)
 
 ### safeListener
 
@@ -264,7 +307,7 @@ BaseCopy.safeListener
 
 #### Defined in
 
-[src/package/base/index.ts:98](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L98)
+[src/package/base/index.ts:96](https://github.com/rossrobino/components/blob/a5378fb/src/package/base/index.ts#L96)
 
 ### share
 
@@ -287,11 +330,11 @@ depending on browser support.
 
 #### Defined in
 
-[src/package/share/index.ts:18](https://github.com/rossrobino/components/blob/84d5d09/src/package/share/index.ts#L18)
+[src/package/share/index.ts:17](https://github.com/rossrobino/components/blob/a5378fb/src/package/share/index.ts#L17)
 
-### swap
+### swapContent
 
-▸ **swap**(`revert?`, `delay?`): `void`
+▸ **swapContent**(`revert?`, `delay?`): `void`
 
 Finds the `HTMLElement | HTMLTemplateElement` via the `swap` selector and
 swaps `this.content()` with the content of the element found.
@@ -309,35 +352,11 @@ swaps `this.content()` with the content of the element found.
 
 #### Inherited from
 
-BaseCopy.swap
+BaseCopy.swapContent
 
 #### Defined in
 
-[src/package/base/index.ts:74](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L74)
-
-### trigger
-
-▸ **trigger**(): `NodeListOf`\<`HTMLElement`\>
-
-#### Returns
-
-`NodeListOf`\<`HTMLElement`\>
-
-All of the elements that match the `trigger` selector.
-
-**`Default`**
-
-```ts
-this.querySelectorAll("[data-trigger]");
-```
-
-#### Inherited from
-
-BaseCopy.trigger
-
-#### Defined in
-
-[src/package/base/index.ts:43](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L43)
+[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/a5378fb/src/package/base/index.ts#L72)
 
 ### triggerListener
 
@@ -367,4 +386,4 @@ BaseCopy.triggerListener
 
 #### Defined in
 
-[src/package/base/index.ts:115](https://github.com/rossrobino/components/blob/84d5d09/src/package/base/index.ts#L115)
+[src/package/base/index.ts:113](https://github.com/rossrobino/components/blob/a5378fb/src/package/base/index.ts#L113)

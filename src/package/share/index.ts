@@ -29,7 +29,7 @@ export class Share extends BaseCopy {
 		}
 	}
 
-	connectedCallback() {
+	mount() {
 		this.triggerListener(async () => await this.share());
 	}
 }

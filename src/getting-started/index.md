@@ -2,7 +2,7 @@
 
 ## Install
 
-You can install **drab** from [npm](https://www.npmjs.com/package/drab) and import the custom elements from the package (recommended).
+You can install **drab** from [npm](https://www.npmjs.com/package/drab) and import the custom elements from the package.
 
 ```bash
 npm i -D drab
@@ -10,7 +10,7 @@ npm i -D drab
 
 ```js
 // client.js
-import { Dialog } from "drab";
+import { Dialog } from "drab/dialog";
 
 customElements.define("drab-dialog", Dialog);
 ```
@@ -18,7 +18,10 @@ customElements.define("drab-dialog", Dialog);
 Alternatively, add a script tag to your HTML, each element will be named `drab-{element}`.
 
 ```html
-<script type="module" src="https://unpkg.com/drab/dialog.global.js"></script>
+<script
+	type="module"
+	src="https://cdn.jsdelivr.net/npm/drab/dialog/define.iife.js"
+></script>
 ```
 
 ## Styling

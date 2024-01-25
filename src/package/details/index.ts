@@ -15,7 +15,7 @@ export class Details extends Animate {
 	}
 
 	get details() {
-		const details = this.content(HTMLElement).parentElement;
+		const details = this.getContent(HTMLElement).parentElement;
 		if (!(details instanceof HTMLDetailsElement))
 			throw new Error("Details: HTMLDetailsElement not found.");
 		return details;
@@ -42,7 +42,7 @@ export class Details extends Animate {
 		}
 	}
 
-	connectedCallback() {
+	mount() {
 		this.triggerListener((e) => {
 			e.preventDefault();
 			this.toggle();
