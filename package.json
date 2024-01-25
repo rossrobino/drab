@@ -1,13 +1,30 @@
 {
 	"name": "drab",
 	"description": "A headless custom element library",
-	"version": "5.0.0",
+	"version": "5.0.0-beta.3",
 	"homepage": "https://drab.robino.dev",
 	"license": "MIT",
 	"author": {
 		"name": "Ross Robino",
 		"url": "https://robino.dev"
 	},
+	"keywords": [
+		"web components",
+		"custom elements",
+		"animate",
+		"contextmenu",
+		"details",
+		"youtube",
+		"breakpoint",
+		"dialog",
+		"popover",
+		"tablesort",
+		"copy",
+		"fullscreen",
+		"base",
+		"editor",
+		"share"
+	],
 	"repository": "github:rossrobino/drab",
 	"type": "module",
 	"types": "./index.d.ts",
@@ -18,108 +35,108 @@
 			"default": "./index.js"
 		},
 		"./define": {
-			"types": "./define.d.ts",
-			"default": "./define.js"
+			"types": "./define/index.d.ts",
+			"default": "./define/index.js"
 		},
 		"./animate": {
-			"types": "./animate.d.ts",
-			"default": "./animate.js"
+			"types": "./animate/index.d.ts",
+			"default": "./animate/index.js"
 		},
 		"./animate/define": {
 			"types": "./animate/define.d.ts",
 			"default": "./animate/define.js"
 		},
 		"./contextmenu": {
-			"types": "./contextmenu.d.ts",
-			"default": "./contextmenu.js"
+			"types": "./contextmenu/index.d.ts",
+			"default": "./contextmenu/index.js"
 		},
 		"./contextmenu/define": {
 			"types": "./contextmenu/define.d.ts",
 			"default": "./contextmenu/define.js"
 		},
 		"./details": {
-			"types": "./details.d.ts",
-			"default": "./details.js"
+			"types": "./details/index.d.ts",
+			"default": "./details/index.js"
 		},
 		"./details/define": {
 			"types": "./details/define.d.ts",
 			"default": "./details/define.js"
 		},
 		"./youtube": {
-			"types": "./youtube.d.ts",
-			"default": "./youtube.js"
+			"types": "./youtube/index.d.ts",
+			"default": "./youtube/index.js"
 		},
 		"./youtube/define": {
 			"types": "./youtube/define.d.ts",
 			"default": "./youtube/define.js"
 		},
 		"./breakpoint": {
-			"types": "./breakpoint.d.ts",
-			"default": "./breakpoint.js"
+			"types": "./breakpoint/index.d.ts",
+			"default": "./breakpoint/index.js"
 		},
 		"./breakpoint/define": {
 			"types": "./breakpoint/define.d.ts",
 			"default": "./breakpoint/define.js"
 		},
 		"./dialog": {
-			"types": "./dialog.d.ts",
-			"default": "./dialog.js"
+			"types": "./dialog/index.d.ts",
+			"default": "./dialog/index.js"
 		},
 		"./dialog/define": {
 			"types": "./dialog/define.d.ts",
 			"default": "./dialog/define.js"
 		},
 		"./popover": {
-			"types": "./popover.d.ts",
-			"default": "./popover.js"
+			"types": "./popover/index.d.ts",
+			"default": "./popover/index.js"
 		},
 		"./popover/define": {
 			"types": "./popover/define.d.ts",
 			"default": "./popover/define.js"
 		},
 		"./tablesort": {
-			"types": "./tablesort.d.ts",
-			"default": "./tablesort.js"
+			"types": "./tablesort/index.d.ts",
+			"default": "./tablesort/index.js"
 		},
 		"./tablesort/define": {
 			"types": "./tablesort/define.d.ts",
 			"default": "./tablesort/define.js"
 		},
 		"./copy": {
-			"types": "./copy.d.ts",
-			"default": "./copy.js"
+			"types": "./copy/index.d.ts",
+			"default": "./copy/index.js"
 		},
 		"./copy/define": {
 			"types": "./copy/define.d.ts",
 			"default": "./copy/define.js"
 		},
 		"./fullscreen": {
-			"types": "./fullscreen.d.ts",
-			"default": "./fullscreen.js"
+			"types": "./fullscreen/index.d.ts",
+			"default": "./fullscreen/index.js"
 		},
 		"./fullscreen/define": {
 			"types": "./fullscreen/define.d.ts",
 			"default": "./fullscreen/define.js"
 		},
 		"./base": {
-			"types": "./base.d.ts",
-			"default": "./base.js"
+			"types": "./base/index.d.ts",
+			"default": "./base/index.js"
 		},
 		"./base/define": {
 			"types": "./base/define.d.ts",
 			"default": "./base/define.js"
 		},
 		"./editor": {
-			"types": "./editor.d.ts",
-			"default": "./editor.js"
+			"types": "./editor/index.d.ts",
+			"default": "./editor/index.js"
 		},
 		"./editor/define": {
 			"types": "./editor/define.d.ts",
 			"default": "./editor/define.js"
 		},
 		"./share": {
-			"types": "./share.d.ts",
-			"default": "./share.js"
+			"types": "./share/index.d.ts",
+			"default": "./share/index.js"
 		},
 		"./share/define": {
 			"types": "./share/define.d.ts",
@@ -132,10 +149,10 @@
 		"preview": "vite preview",
 		"format": "prettier --write .",
 		"doc": "typedoc --out src/lib/docs --plugin typedoc-plugin-markdown src/package/index.ts --hideBreadcrumbs --hideInPageTOC --githubPages false --publicPath /docs/ && bun src/lib/scripts/doc/index.ts && bun format",
-		"copy": "cp package.json ./package",
-		"entry": "bun src/lib/scripts/entryPoints/index.ts && bun format",
-		"package": "bun entry && tsup && bun copy",
-		"pub": "bun i && bun doc && bun package && npm publish --access public ./package"
+		"copy": "cp package.json ./package && cp README.md ./package && cp LICENSE.md ./package",
+		"json": "bun src/lib/scripts/packageJson/index.ts && prettier --write package.json",
+		"package": "bun json && tsup && bun copy",
+		"pub": "bun i && bun doc && bun package && npm publish --access public --tag beta ./package"
 	},
 	"devDependencies": {
 		"@tailwindcss/typography": "^0.5.10",
