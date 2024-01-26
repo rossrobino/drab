@@ -1,7 +1,7 @@
 {
 	"name": "drab",
 	"description": "A headless custom element library",
-	"version": "5.0.0-beta.6",
+	"version": "5.0.0",
 	"homepage": "https://drab.robino.dev",
 	"license": "MIT",
 	"author": {
@@ -152,7 +152,7 @@
 		"copy": "cp package.json ./package && cp README.md ./package && cp LICENSE.md ./package",
 		"json": "bun src/lib/scripts/packageJson/index.ts && prettier --write package.json",
 		"package": "bun json && tsup && bun copy",
-		"pub": "bun i && bun doc && bun package && npm publish --access public --tag beta ./package"
+		"pub": "bun i && bun doc && bun package && npm publish --access public ./package"
 	},
 	"devDependencies": {
 		"@tailwindcss/typography": "^0.5.10",
