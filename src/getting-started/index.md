@@ -20,7 +20,7 @@ Alternatively, add a script tag to your HTML, each element will be named `drab-{
 ```html
 <script
 	type="module"
-	src="https://cdn.jsdelivr.net/npm/drab/dialog/define.iife.js"
+	src="https://cdn.jsdelivr.net/npm/drab@__VERSION__/dialog/define.iife.js"
 ></script>
 ```
 

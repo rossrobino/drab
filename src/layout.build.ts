@@ -5,11 +5,10 @@ const elements = await fs.readdir("src/docs", {
 	withFileTypes: true,
 });
 
-export const build: Build = async ({
-	document,
-	customElements,
-	HTMLElement,
-}) => {
+export const build: Build = async (
+	{ document, customElements, HTMLElement },
+	{ route },
+) => {
 	const headings = document.querySelectorAll("h2, h3");
 
 	headings.forEach((heading) => {
@@ -156,4 +155,16 @@ export const build: Build = async ({
 			}
 		},
 	);
+
+	if (route === "/getting-started") {
+		const version = JSON.parse(
+			await fs.readFile("package.json", "utf-8"),
+		).version;
+		const stringSpans = document.querySelectorAll(".hljs-string");
+		for (const span of stringSpans) {
+			if (span.textContent?.includes("__VERSION__")) {
+				span.textContent = `${span.textContent.replace("__VERSION__", version)}`;
+			}
+		}
+	}
 };
