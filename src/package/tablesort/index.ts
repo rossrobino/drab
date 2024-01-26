@@ -18,12 +18,37 @@ export class TableSort extends Base {
 		super();
 	}
 
+	/**
+	 * Removes `data-asc` or `data-desc` from other triggers then sets the correct attribute on the selected trigger.
+	 *
+	 * @param trigger
+	 * @returns true if ascending, false if descending
+	 */
+	#setAttributes(trigger: HTMLElement) {
+		const asc = "data-asc";
+		const desc = "data-desc";
+		for (const t of this.getTrigger()) {
+			if (t !== trigger) {
+				t.removeAttribute(asc);
+				t.removeAttribute(desc);
+			}
+		}
+		if (trigger.hasAttribute(asc)) {
+			trigger.removeAttribute(asc);
+			trigger.setAttribute(desc, "");
+			return false;
+		}
+		trigger.removeAttribute(desc);
+		trigger.setAttribute(asc, "");
+		return true;
+	}
+
 	mount() {
 		const tbody = this.getContent(HTMLTableSectionElement);
 		for (const trigger of this.getTrigger()) {
 			trigger.addEventListener(this.event, () => {
 				Array.from(tbody.querySelectorAll("tr"))
-					.sort(comparer(trigger, trigger.toggleAttribute("data-ascending")))
+					.sort(comparer(trigger, this.#setAttributes(trigger)))
 					.forEach((tr) => tbody.appendChild(tr));
 			});
 		}

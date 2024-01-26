@@ -19,7 +19,9 @@ export const build: Build = async ({ document }, { route }) => {
 	const exampleDiv = document.querySelector("#example");
 
 	if (exampleDiv)
-		exampleDiv.innerHTML = (await process(`\`\`\`html\n${example}\n\`\`\``)).html;
+		exampleDiv.innerHTML = (
+			await process(`\`\`\`html\n${example}\n\`\`\``)
+		).html;
 
 	let reference: string;
 	try {
@@ -32,6 +34,8 @@ export const build: Build = async ({ document }, { route }) => {
 	const referenceDiv = document.querySelector("#reference");
 
 	if (referenceDiv) {
-		referenceDiv.innerHTML = (await process(`## Overview\n\n${reference}`)).html;
+		referenceDiv.innerHTML = (
+			await process(`## Overview\n\n${reference}`)
+		).html;
 	}
 };

@@ -36,7 +36,7 @@ datatype `number` or `boolean`, set `data-type="number"` on the corresponding
 
 #### Defined in
 
-[src/package/tablesort/index.ts:17](https://github.com/rossrobino/components/blob/5feb112/src/package/tablesort/index.ts#L17)
+[src/package/tablesort/index.ts:17](https://github.com/rossrobino/components/blob/363c9d3/src/package/tablesort/index.ts#L17)
 
 ---
 
@@ -54,7 +54,7 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/5feb112/src/package/base/index.ts#L17)
+[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/363c9d3/src/package/base/index.ts#L17)
 
 ---
 
@@ -84,7 +84,7 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/5feb112/src/package/base/index.ts#L30)
+[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/363c9d3/src/package/base/index.ts#L30)
 
 • `set` **event**(`value`): `void`
 
@@ -104,11 +104,33 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:34](https://github.com/rossrobino/components/blob/5feb112/src/package/base/index.ts#L34)
+[src/package/base/index.ts:34](https://github.com/rossrobino/components/blob/363c9d3/src/package/base/index.ts#L34)
 
 ---
 
 ## Methods
+
+### #setAttributes
+
+▸ **#setAttributes**(`trigger`): `boolean`
+
+Removes `data-asc` or `data-desc` from other triggers then sets the correct attribute on the selected trigger.
+
+#### Parameters
+
+| Name      | Type          |
+| :-------- | :------------ |
+| `trigger` | `HTMLElement` |
+
+#### Returns
+
+`boolean`
+
+true if ascending, false if descending
+
+#### Defined in
+
+[src/package/tablesort/index.ts:27](https://github.com/rossrobino/components/blob/363c9d3/src/package/tablesort/index.ts#L27)
 
 ### connectedCallback
 
@@ -124,7 +146,7 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:129](https://github.com/rossrobino/components/blob/5feb112/src/package/base/index.ts#L129)
+[src/package/base/index.ts:129](https://github.com/rossrobino/components/blob/363c9d3/src/package/base/index.ts#L129)
 
 ### disconnectedCallback
 
@@ -140,7 +162,7 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:133](https://github.com/rossrobino/components/blob/5feb112/src/package/base/index.ts#L133)
+[src/package/base/index.ts:133](https://github.com/rossrobino/components/blob/363c9d3/src/package/base/index.ts#L133)
 
 ### getContent
 
@@ -176,7 +198,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/5feb112/src/package/base/index.ts#L55)
+[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/363c9d3/src/package/base/index.ts#L55)
 
 ### getTrigger
 
@@ -200,7 +222,7 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/5feb112/src/package/base/index.ts#L42)
+[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/363c9d3/src/package/base/index.ts#L42)
 
 ### mount
 
@@ -220,7 +242,7 @@ The reason for this is to make these elements work better with frameworks like S
 
 #### Defined in
 
-[src/package/tablesort/index.ts:21](https://github.com/rossrobino/components/blob/5feb112/src/package/tablesort/index.ts#L21)
+[src/package/tablesort/index.ts:46](https://github.com/rossrobino/components/blob/363c9d3/src/package/tablesort/index.ts#L46)
 
 ### safeListener
 
@@ -255,7 +277,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:96](https://github.com/rossrobino/components/blob/5feb112/src/package/base/index.ts#L96)
+[src/package/base/index.ts:96](https://github.com/rossrobino/components/blob/363c9d3/src/package/base/index.ts#L96)
 
 ### swapContent
 
@@ -281,7 +303,7 @@ swaps `this.content()` with the content of the element found.
 
 #### Defined in
 
-[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/5feb112/src/package/base/index.ts#L72)
+[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/363c9d3/src/package/base/index.ts#L72)
 
 ### triggerListener
 
@@ -311,4 +333,4 @@ swaps `this.content()` with the content of the element found.
 
 #### Defined in
 
-[src/package/base/index.ts:113](https://github.com/rossrobino/components/blob/5feb112/src/package/base/index.ts#L113)
+[src/package/base/index.ts:113](https://github.com/rossrobino/components/blob/363c9d3/src/package/base/index.ts#L113)
