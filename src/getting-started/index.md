@@ -2,7 +2,7 @@
 
 ## Install
 
-You can install **drab** from [npm](https://www.npmjs.com/package/drab) and import the custom elements from the package.
+You can install **drab** from [npm](https://www.npmjs.com/package/drab) and import the custom elements from the package. Each element's class is exported from `drab/{element}`, or you can import the already defined element from `drab/{element}/define`.
 
 ```bash
 npm i -D drab
@@ -13,9 +13,12 @@ npm i -D drab
 import { Dialog } from "drab/dialog";
 
 customElements.define("drab-dialog", Dialog);
+
+// or import directly, element will be named `drab-{element}`
+import "drab/dialog/define";
 ```
 
-Alternatively, add a script tag to your HTML, each element will be named `drab-{element}`.
+Alternatively, add a script tag to your HTML that imports the immediately invoked function expression (IIFE) module to avoid naming conflicts. Each element will be named `drab-{element}`.
 
 ```html
 <script
@@ -34,7 +37,7 @@ The examples in this documentation are styled with Tailwind using the [uico](htt
 
 **drab** can be utilized in [any framework that supports custom elements](https://custom-elements-everywhere.com/). If you are using a server-side rendering (SSR) framework and are installing the elements instead of using a CDN/script tag, you will need to ensure the element's code only runs on the client. Here are a few examples on how to do this in popular JavaScript frameworks with functions like `onMount` or `useEffect`. If you aren't using a SSR framework, you can omit these wrappers since the code will only run on the client.
 
-_\*If you see a better way to write any of these examples, please create an issue or pull request!_
+_\*If you see a better way to write any of these examples or a framework that is missing, please [create an issue or pull request](https://github.com/rossrobino/drab/issues)!_
 
 ### Astro
 

@@ -22,8 +22,8 @@
 
 ### Write JavaScript, or don't
 
-- Elements can be installed as a package (recommended), or utilized without writing any JavaScript by adding a script tag to your document.
-- Each element can be configured through HTML attributes.
+- Elements can be installed as a package (recommended), or utilized without writing any JavaScript by adding a `script` tag to your document.
+- Each element can be configured through HTML attributes, making it possible to use an alternative language for your backend.
 
 ### Built in animations
 
@@ -35,7 +35,7 @@
 
 Find an bug or have an idea? Feel free to create an issue on [GitHub](https://github.com/rossrobino/drab).
 
-Since this is an headless library, simple components like a badge that can be easily created with HTML and CSS are not included.
+Since this is an headless library, simple elements like a badge that can be easily created with HTML and CSS are not included. Elements such as a select, or a date picker are also not included in favor of the native HTML elements.
 
 ### Local Development
 
