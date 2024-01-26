@@ -399,11 +399,19 @@ export class Editor extends Base {
 				} else if (repeat && original.length === columnNumber) {
 					// remove if the repeat and caret at the end of the original
 					e.preventDefault();
-					const selectionEnd = this.#selectionEnd;
-					const newPos = selectionEnd - original.length;
+
+					// have to set a placeholder since `this.#selectionEnd` will change
+					// as characters are being removed
+					const originalSelectionEnd = this.#selectionEnd;
+
+					// go back the the length of the original
+					const newPos = originalSelectionEnd - original.length;
+
+					// for each character in the original
 					for (let i = 0; i < original.length; i++) {
-						this.text = removeChar(this.text, this.#selectionEnd - (i + 1));
+						this.text = removeChar(this.text, originalSelectionEnd - (i + 1));
 					}
+
 					setTimeout(async () => {
 						this.#setSelectionRange(newPos, newPos);
 						this.textArea.focus();
@@ -486,11 +494,11 @@ export class Editor extends Base {
 		// reset #openChars on click since the cursor has changed position
 		this.textArea.addEventListener("click", () => (this.#openChars = []));
 
-		this.triggerListener((e) => {
-			if (e.target instanceof HTMLElement) {
-				this.#addContent(this.#getContentElement(e.target));
-			}
-		});
+		for (const trigger of this.getTrigger()) {
+			trigger.addEventListener(this.event, () => {
+				this.#addContent(this.#getContentElement(trigger));
+			});
+		}
 	}
 }
 
