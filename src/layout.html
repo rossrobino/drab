@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en" class="motion-safe:scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="stylesheet" href="/style.postcss" />
+		<title>drab</title>
+		<meta name="description" content="A headless custom element library." />
+		<script type="module" src="/layout.client.ts"></script>
+	</head>
+	<body
+		class="dark:dark prose prose-neutral max-w-none bg-background font-serif text-foreground prose-a:link dark:prose-invert selection:bg-foreground selection:text-background prose-headings:font-antique prose-h1:text-balance hover:prose-a:decoration-dotted prose-pre:-mx-6 prose-pre:rounded-none prose-pre:px-6 sm:prose-pre:mx-0 sm:prose-pre:rounded-md sm:prose-pre:px-4"
+	>
+		<div class="lg:flex">
+			<header class="sticky top-0 z-10">
+				<nav class="sticky top-0 hidden min-w-56 border-r bg-muted lg:block">
+					<ul class="my-0 h-screen list-none overflow-y-auto px-10 py-8">
+						<li class="m-0 p-0">
+							<h2 class="mb-4 mt-0">
+								<a class="font-extrabold !no-underline" href="/">drab</a>
+							</h2>
+						</li>
+						<nav-items></nav-items>
+					</ul>
+				</nav>
+				<nav
+					class="mb-6 flex items-center gap-4 bg-background/75 p-6 backdrop-blur-lg lg:hidden lg:w-[65ch]"
+				>
+					<drab-dialog
+						animation-keyframe-from-transform="translateX(-100%)"
+						animation-keyframe-to-transform="translateX(0)"
+					>
+						<button
+							data-trigger
+							type="button"
+							class="button button-ghost button-icon"
+						>
+							<svg-icon icon="bars"></svg-icon>
+						</button>
+						<dialog
+							data-content
+							class="my-0 ml-0 min-h-screen backdrop:backdrop-blur"
+						>
+							<div
+								class="card flex h-screen flex-col overflow-y-auto rounded-none border-none p-8"
+							>
+								<div class="flex items-center justify-between gap-4">
+									<h2 class="my-0">
+										<a class="font-extrabold !no-underline" href="/"> drab </a>
+									</h2>
+									<button
+										data-trigger
+										type="button"
+										title="Close"
+										class="button button-ghost"
+									>
+										<svg-icon icon="close"></svg-icon>
+									</button>
+								</div>
+								<ul class="mb-8 w-60 list-none pl-0">
+									<nav-items></nav-items>
+								</ul>
+							</div>
+						</dialog>
+					</drab-dialog>
+
+					<h2 class="my-0">
+						<a class="font-extrabold lowercase !no-underline" href="/">drab</a>
+					</h2>
+				</nav>
+			</header>
+			<main class="mb-16 lg:flex lg:basis-full lg:justify-center">
+				<article class="max-w-[80ch] p-6 lg:px-10">
+					<slot></slot>
+				</article>
+				<on-this-page class="prose-sm hidden xl:block">
+					<div class="sticky top-0 max-h-screen overflow-y-auto px-10 pt-8">
+						<h2 class="mb-4 mt-0">On this page</h2>
+						<ul class="p-0"></ul>
+					</div>
+				</on-this-page>
+			</main>
+		</div>
+	</body>
+</html>

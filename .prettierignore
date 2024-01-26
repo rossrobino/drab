@@ -1,9 +1,10 @@
 .DS_Store
 node_modules
-/build
-/.svelte-kit
-/package
+/dist
 .env
 .env.*
-!.env.example
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
 bun.lockb
+/package

@@ -1,14 +1,14 @@
 import type { Config } from "tailwindcss";
-import typography from "@tailwindcss/typography";
 import { uico } from "uico";
+import typography from "@tailwindcss/typography";
 
 export default {
-	content: ["./src/**/*.{html,js,svelte,ts}"],
 	plugins: [
-		typography,
 		uico({
-			colorPalette: "oklch",
 			colorFunction: "oklch",
+			colorPalette: "oklch",
 		}),
+		typography,
 	],
+	content: ["./src/**/*.{html,js,ts}"],
 } satisfies Config;

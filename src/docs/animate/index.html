@@ -1,0 +1,22 @@
+<script type="module" src="/package/animate/define.ts"></script>
+
+<script type="module">
+	const animate = document.querySelector("drab-animate");
+	animate.triggerListener(() => animate.animateElement());
+</script>
+
+<drab-animate
+	animation-keyframe-from-transform="scale(1)"
+	animation-keyframe-50-transform="scale(0)"
+	animation-keyframe-to-transform="scale(1)"
+	animation-option-duration="1000"
+	animation-option-delay="100"
+	animation-option-easing="ease-in"
+>
+	<button data-trigger type="button" class="button button-primary">
+		Animate
+	</button>
+	<div class="flex h-56 items-center justify-center pt-12">
+		<span data-content class="rounded-full bg-rose-700 p-16"></span>
+	</div>
+</drab-animate>

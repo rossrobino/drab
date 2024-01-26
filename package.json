@@ -1,85 +1,173 @@
 {
 	"name": "drab",
-	"version": "4.1.7",
-	"description": "An Unstyled Svelte Component Library",
-	"keywords": [
-		"components",
-		"Svelte",
-		"SvelteKit",
-		"Breakpoint",
-		"ContextMenu",
-		"Copy",
-		"DataTable",
-		"Details",
-		"Editor",
-		"FrettedChord",
-		"Fullscreen",
-		"Popover",
-		"Share",
-		"Sheet",
-		"Tablature",
-		"YouTube"
-	],
+	"description": "A headless custom element library",
+	"version": "5.0.0",
 	"homepage": "https://drab.robino.dev",
 	"license": "MIT",
 	"author": {
 		"name": "Ross Robino",
 		"url": "https://robino.dev"
 	},
+	"keywords": [
+		"web components",
+		"custom elements",
+		"animate",
+		"contextmenu",
+		"details",
+		"youtube",
+		"breakpoint",
+		"dialog",
+		"popover",
+		"tablesort",
+		"copy",
+		"fullscreen",
+		"base",
+		"editor",
+		"share"
+	],
 	"repository": "github:rossrobino/drab",
 	"type": "module",
-	"sideEffects": false,
-	"svelte": "./dist/index.js",
-	"types": "./dist/index.d.ts",
+	"types": "./index.d.ts",
+	"main": "./index.js",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"svelte": "./dist/index.js"
+			"types": "./index.d.ts",
+			"default": "./index.js"
+		},
+		"./define": {
+			"types": "./define/index.d.ts",
+			"default": "./define/index.js"
+		},
+		"./animate": {
+			"types": "./animate/index.d.ts",
+			"default": "./animate/index.js"
+		},
+		"./animate/define": {
+			"types": "./animate/define.d.ts",
+			"default": "./animate/define.js"
+		},
+		"./contextmenu": {
+			"types": "./contextmenu/index.d.ts",
+			"default": "./contextmenu/index.js"
+		},
+		"./contextmenu/define": {
+			"types": "./contextmenu/define.d.ts",
+			"default": "./contextmenu/define.js"
+		},
+		"./details": {
+			"types": "./details/index.d.ts",
+			"default": "./details/index.js"
+		},
+		"./details/define": {
+			"types": "./details/define.d.ts",
+			"default": "./details/define.js"
+		},
+		"./youtube": {
+			"types": "./youtube/index.d.ts",
+			"default": "./youtube/index.js"
+		},
+		"./youtube/define": {
+			"types": "./youtube/define.d.ts",
+			"default": "./youtube/define.js"
+		},
+		"./breakpoint": {
+			"types": "./breakpoint/index.d.ts",
+			"default": "./breakpoint/index.js"
+		},
+		"./breakpoint/define": {
+			"types": "./breakpoint/define.d.ts",
+			"default": "./breakpoint/define.js"
+		},
+		"./dialog": {
+			"types": "./dialog/index.d.ts",
+			"default": "./dialog/index.js"
+		},
+		"./dialog/define": {
+			"types": "./dialog/define.d.ts",
+			"default": "./dialog/define.js"
+		},
+		"./popover": {
+			"types": "./popover/index.d.ts",
+			"default": "./popover/index.js"
+		},
+		"./popover/define": {
+			"types": "./popover/define.d.ts",
+			"default": "./popover/define.js"
+		},
+		"./tablesort": {
+			"types": "./tablesort/index.d.ts",
+			"default": "./tablesort/index.js"
+		},
+		"./tablesort/define": {
+			"types": "./tablesort/define.d.ts",
+			"default": "./tablesort/define.js"
+		},
+		"./copy": {
+			"types": "./copy/index.d.ts",
+			"default": "./copy/index.js"
+		},
+		"./copy/define": {
+			"types": "./copy/define.d.ts",
+			"default": "./copy/define.js"
+		},
+		"./fullscreen": {
+			"types": "./fullscreen/index.d.ts",
+			"default": "./fullscreen/index.js"
+		},
+		"./fullscreen/define": {
+			"types": "./fullscreen/define.d.ts",
+			"default": "./fullscreen/define.js"
+		},
+		"./base": {
+			"types": "./base/index.d.ts",
+			"default": "./base/index.js"
+		},
+		"./base/define": {
+			"types": "./base/define.d.ts",
+			"default": "./base/define.js"
+		},
+		"./editor": {
+			"types": "./editor/index.d.ts",
+			"default": "./editor/index.js"
+		},
+		"./editor/define": {
+			"types": "./editor/define.d.ts",
+			"default": "./editor/define.js"
+		},
+		"./share": {
+			"types": "./share/index.d.ts",
+			"default": "./share/index.js"
+		},
+		"./share/define": {
+			"types": "./share/define.d.ts",
+			"default": "./share/define.js"
 		}
 	},
-	"files": [
-		"dist"
-	],
 	"scripts": {
-		"dev": "vite dev",
-		"host": "vite dev --host",
-		"build": "vite build",
+		"dev": "vite --host",
+		"build": "tsc && vite build",
 		"preview": "vite preview",
-		"package": "svelte-kit sync && svelte-package && publint",
-		"prepublishOnly": "bun package",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
-		"pub": "bun i && bun doc && bun package && npm publish --access public",
-		"doc": "bun format && node src/scripts/documentProps.js && node src/scripts/documentExamples.js && node src/scripts/copyReadMe.js"
-	},
-	"dependencies": {
-		"svelte": "^4.2.8"
+		"doc": "typedoc --out src/lib/docs --plugin typedoc-plugin-markdown src/package/index.ts --hideBreadcrumbs --hideInPageTOC --githubPages false --publicPath /docs/ && bun src/lib/scripts/doc/index.ts && bun format",
+		"copy": "cp package.json ./package && cp README.md ./package && cp LICENSE.md ./package",
+		"json": "bun src/lib/scripts/packageJson/index.ts && prettier --write package.json",
+		"package": "bun json && tsup && bun copy",
+		"pub": "bun i && bun doc && bun package && npm publish --access public ./package"
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-vercel": "^4.0.4",
-		"@sveltejs/kit": "^2.0.6",
-		"@sveltejs/package": "^2.2.5",
-		"@sveltejs/vite-plugin-svelte": "^3.0.1",
 		"@tailwindcss/typography": "^0.5.10",
-		"@types/node": "^20.10.6",
-		"@typescript-eslint/eslint-plugin": "^6.17.0",
-		"@typescript-eslint/parser": "^6.17.0",
-		"autoprefixer": "^10.4.16",
-		"eslint": "^8.56.0",
-		"eslint-config-prettier": "^9.1.0",
-		"eslint-plugin-svelte": "^2.35.1",
-		"prettier": "^3.1.1",
-		"prettier-plugin-svelte": "^3.1.2",
-		"prettier-plugin-tailwindcss": "^0.5.10",
-		"publint": "^0.2.7",
-		"robino": "^0.0.39",
-		"svelte-check": "^3.6.2",
-		"tailwindcss": "^3.4.0",
-		"tslib": "^2.6.2",
+		"@types/node": "^20.11.7",
+		"autoprefixer": "^10.4.17",
+		"domco": "^0.3.7",
+		"prettier": "^3.2.4",
+		"prettier-plugin-tailwindcss": "^0.5.11",
+		"robino": "^0.1.0",
+		"tailwindcss": "^3.4.1",
+		"tsup": "^8.0.1",
+		"typedoc": "^0.25.7",
+		"typedoc-plugin-markdown": "^3.17.1",
 		"typescript": "^5.3.3",
-		"uico": "^0.2.1",
-		"vite": "^5.0.11"
+		"uico": "^0.2.2",
+		"vite": "^5.0.12"
 	}
 }

@@ -1,10 +1,10 @@
 import { defineConfig } from "vite";
-import { sveltekit } from "@sveltejs/kit/vite";
+import { domco } from "domco/plugin";
 import tailwindcss from "tailwindcss";
 import autoprefixer from "autoprefixer";
 
 export default defineConfig({
-	plugins: [sveltekit()],
+	plugins: [domco()],
 	css: {
 		postcss: {
 			plugins: [tailwindcss(), autoprefixer()],
