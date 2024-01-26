@@ -20,7 +20,9 @@ export const build: Build = async ({ document }, { route }) => {
 
 	if (exampleDiv)
 		exampleDiv.innerHTML = (
-			await process(`\`\`\`html\n${example}\n\`\`\``)
+			await process(
+				`\`\`\`html\n${example.split("\n").slice(2).join("\n")}\n\`\`\``,
+			)
 		).html;
 
 	let reference: string;
