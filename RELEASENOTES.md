@@ -4,7 +4,7 @@
 
 Version 5 converts the library from Svelte components to custom elements.
 
-Since drab already required users to provide most of the HTML via slots, the benefit of using Svelte to author the components was outweighed by the benefits of using custom elements, primarily the fact that custom elements can be used in any framework.
+Since drab already required users to provide most of the HTML via slots, the benefit of using Svelte to author the components was outweighed by the benefits of using custom elements, primarily the fact that custom elements can be [used in any framework](http://drab.robino.dev/getting-started/#frameworks).
 
 drab's custom elements do not use the shadow DOM, so the contents of each element can still be server-side rendered with a framework. drab also works with client side rendering, drab pushes back the execution of `connectedCallback` to the end of the micro-task queue so frameworks like Svelte render the HTML within the custom element before `connectedCallback`.
 
@@ -65,14 +65,14 @@ Instead of using slot props, drab identifies `trigger` and `content` elements vi
 This also frees you from styling the components through props, you can now style the content of these elements however you like.
 
 ```svelte
-<script lang="ts">
+<script>
 	import { onMount } from "svelte";
 
 	// only execute on the client
 	onMount(async () => {
-		const { Editor } = await import("drab/editor");
 		// only define once
 		if (!customElements.get("drab-editor")) {
+			const { Editor } = await import("drab/editor");
 			customElements.define("drab-editor", Editor);
 		}
 	});

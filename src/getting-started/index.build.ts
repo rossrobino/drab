@@ -6,6 +6,6 @@ export const build: Build = async ({ document }, { route }) => {
 	const article = document.querySelector("article");
 
 	if (article) {
-		article.innerHTML = process(md).html;
+		article.innerHTML = (await process(md)).html;
 	}
 };

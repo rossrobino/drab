@@ -11,7 +11,7 @@
 
 ### Built on the web platform
 
-- Each element is a [custom element](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements). So you can use them [with a framework](https://custom-elements-everywhere.com/), without one, or even directly in a markdown file. These components will work [regardless of your project's architecture](https://jakelazaroff.com/words/web-components-will-outlive-your-javascript-framework/).
+- Each element is a [custom element](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements). So you can use them [with a framework](http://drab.robino.dev/getting-started/#frameworks), without one, or even directly in a markdown file. These components will work [regardless of your project's architecture](https://jakelazaroff.com/words/web-components-will-outlive-your-javascript-framework/).
 - **drab** does _not_ use the [shadow DOM](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM), so you can style content within these elements as usual with CSS.
 - Since you provide the HTML, these elements can take advantage of what JavaScript frameworks excel at---creating reusable markup that can be server side rendered.
 - Each element can be imported, extended, named, and used however you see fit.
