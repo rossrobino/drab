@@ -167,4 +167,13 @@ export const build: Build = async (
 			}
 		}
 	}
+
+	// prevent table overflow causing horizontal scroll
+	const tables = document.querySelectorAll("table");
+	tables.forEach((table) => {
+		const wrapper = document.createElement("div");
+		wrapper.classList.add("overflow-x-auto");
+		table.parentNode?.insertBefore(wrapper, table);
+		wrapper.appendChild(table);
+	});
 };
