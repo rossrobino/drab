@@ -10,7 +10,7 @@ export const BrandLinks: Block = async ({ customElements, HTMLElement }) => {
 					<li>
 						<a
 							href="https://github.com/rossrobino/drab"
-							class="button button-ghost button-icon block hover:bg-secondary"
+							class="button button-ghost button-icon block"
 						>
 							<svg
 								role="img"
@@ -29,7 +29,7 @@ export const BrandLinks: Block = async ({ customElements, HTMLElement }) => {
 					<li>
 						<a
 							href="https://github.com/rossrobino/drab"
-							class="button button-ghost button-icon block hover:bg-secondary"
+							class="button button-ghost button-icon block"
 							>
 							<svg
 								role="img"
