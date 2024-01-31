@@ -14,8 +14,10 @@
 	>
 		<div class="lg:flex">
 			<header class="sticky top-0 z-10">
-				<nav class="sticky top-0 hidden min-w-56 border-r bg-muted lg:block">
-					<ul class="my-0 h-screen list-none overflow-y-auto px-10 py-8">
+				<nav
+					class="sticky top-0 hidden h-svh min-w-52 flex-col justify-between border-r bg-muted lg:flex"
+				>
+					<ul class="my-0 list-none overflow-y-auto p-8">
 						<li class="m-0 p-0">
 							<h2 class="mb-4 mt-0">
 								<a class="font-extrabold !no-underline" href="/">drab</a>
@@ -23,6 +25,7 @@
 						</li>
 						<nav-items></nav-items>
 					</ul>
+					<brand-links></brand-links>
 				</nav>
 				<nav
 					class="mb-6 flex items-center gap-4 bg-background/75 p-6 backdrop-blur-lg lg:hidden lg:w-[65ch]"
@@ -43,24 +46,29 @@
 							class="my-0 ml-0 min-h-screen backdrop:backdrop-blur"
 						>
 							<div
-								class="card flex h-screen flex-col overflow-y-auto rounded-none border-none p-8"
+								class="flex h-screen flex-col justify-between overflow-y-auto bg-card"
 							>
-								<div class="flex items-center justify-between gap-4">
-									<h2 class="my-0">
-										<a class="font-extrabold !no-underline" href="/"> drab </a>
-									</h2>
-									<button
-										data-trigger
-										type="button"
-										title="Close"
-										class="button button-ghost"
-									>
-										<svg-icon icon="close"></svg-icon>
-									</button>
+								<div class="p-8">
+									<div class="flex items-center justify-between gap-4">
+										<h2 class="my-0">
+											<a class="font-extrabold !no-underline" href="/">
+												drab
+											</a>
+										</h2>
+										<button
+											data-trigger
+											type="button"
+											title="Close"
+											class="button button-ghost"
+										>
+											<svg-icon icon="close"></svg-icon>
+										</button>
+									</div>
+									<ul class="mb-8 w-48 list-none pl-0">
+										<nav-items></nav-items>
+									</ul>
 								</div>
-								<ul class="mb-8 w-60 list-none pl-0">
-									<nav-items></nav-items>
-								</ul>
+								<brand-links></brand-links>
 							</div>
 						</dialog>
 					</drab-dialog>
