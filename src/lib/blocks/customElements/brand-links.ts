@@ -1,9 +1,6 @@
 import type { Block } from "domco";
 
-export const BrandLinks: Block = async ({
-	customElements,
-	HTMLElement,
-}) => {
+export const BrandLinks: Block = async ({ customElements, HTMLElement }) => {
 	customElements.define(
 		"brand-links",
 		class extends HTMLElement {
@@ -18,6 +15,7 @@ export const BrandLinks: Block = async ({
 							<svg
 								role="img"
 								viewBox="0 0 24 24"
+								fill="currentColor"
 								xmlns="http://www.w3.org/2000/svg"
 								class="size-6"
 							>
@@ -32,9 +30,10 @@ export const BrandLinks: Block = async ({
 						<a
 							href="https://github.com/rossrobino/drab"
 							class="button button-ghost button-icon block hover:bg-secondary"
-						>
+							>
 							<svg
 								role="img"
+								fill="currentColor"
 								viewBox="0 0 24 24"
 								xmlns="http://www.w3.org/2000/svg"
 								class="size-6"
