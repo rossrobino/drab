@@ -26,7 +26,7 @@ Embeds a YouTube video iframe into a website with the video uid, using www.youtu
 
 #### Defined in
 
-[src/package/youtube/index.ts:12](https://github.com/rossrobino/components/blob/6c33e7e/src/package/youtube/index.ts#L12)
+[src/package/youtube/index.ts:12](https://github.com/rossrobino/components/blob/d27153e/src/package/youtube/index.ts#L12)
 
 ---
 
@@ -44,7 +44,7 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/6c33e7e/src/package/base/index.ts#L17)
+[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/d27153e/src/package/base/index.ts#L17)
 
 ### observedAttributes
 
@@ -52,7 +52,7 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Defined in
 
-[src/package/youtube/index.ts:10](https://github.com/rossrobino/components/blob/6c33e7e/src/package/youtube/index.ts#L10)
+[src/package/youtube/index.ts:10](https://github.com/rossrobino/components/blob/d27153e/src/package/youtube/index.ts#L10)
 
 ---
 
@@ -70,7 +70,7 @@ Whether the video should start playing when loaded.
 
 #### Defined in
 
-[src/package/youtube/index.ts:22](https://github.com/rossrobino/components/blob/6c33e7e/src/package/youtube/index.ts#L22)
+[src/package/youtube/index.ts:22](https://github.com/rossrobino/components/blob/d27153e/src/package/youtube/index.ts#L22)
 
 • `set` **autoplay**(`value`): `void`
 
@@ -86,7 +86,7 @@ Whether the video should start playing when loaded.
 
 #### Defined in
 
-[src/package/youtube/index.ts:26](https://github.com/rossrobino/components/blob/6c33e7e/src/package/youtube/index.ts#L26)
+[src/package/youtube/index.ts:26](https://github.com/rossrobino/components/blob/d27153e/src/package/youtube/index.ts#L26)
 
 ### event
 
@@ -112,7 +112,7 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/6c33e7e/src/package/base/index.ts#L30)
+[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/d27153e/src/package/base/index.ts#L30)
 
 • `set` **event**(`value`): `void`
 
@@ -132,7 +132,7 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:34](https://github.com/rossrobino/components/blob/6c33e7e/src/package/base/index.ts#L34)
+[src/package/base/index.ts:34](https://github.com/rossrobino/components/blob/d27153e/src/package/base/index.ts#L34)
 
 ### iframe
 
@@ -146,7 +146,7 @@ The `HTMLIFrameElement` within the element.
 
 #### Defined in
 
-[src/package/youtube/index.ts:17](https://github.com/rossrobino/components/blob/6c33e7e/src/package/youtube/index.ts#L17)
+[src/package/youtube/index.ts:17](https://github.com/rossrobino/components/blob/d27153e/src/package/youtube/index.ts#L17)
 
 ### start
 
@@ -160,7 +160,7 @@ The start time of the video (seconds).
 
 #### Defined in
 
-[src/package/youtube/index.ts:32](https://github.com/rossrobino/components/blob/6c33e7e/src/package/youtube/index.ts#L32)
+[src/package/youtube/index.ts:32](https://github.com/rossrobino/components/blob/d27153e/src/package/youtube/index.ts#L32)
 
 • `set` **start**(`value`): `void`
 
@@ -176,7 +176,7 @@ The start time of the video (seconds).
 
 #### Defined in
 
-[src/package/youtube/index.ts:36](https://github.com/rossrobino/components/blob/6c33e7e/src/package/youtube/index.ts#L36)
+[src/package/youtube/index.ts:36](https://github.com/rossrobino/components/blob/d27153e/src/package/youtube/index.ts#L36)
 
 ### uid
 
@@ -193,7 +193,7 @@ the `uid` is `"gouiY85kD2o"`.
 
 #### Defined in
 
-[src/package/youtube/index.ts:46](https://github.com/rossrobino/components/blob/6c33e7e/src/package/youtube/index.ts#L46)
+[src/package/youtube/index.ts:46](https://github.com/rossrobino/components/blob/d27153e/src/package/youtube/index.ts#L46)
 
 • `set` **uid**(`v`): `void`
 
@@ -209,7 +209,7 @@ the `uid` is `"gouiY85kD2o"`.
 
 #### Defined in
 
-[src/package/youtube/index.ts:52](https://github.com/rossrobino/components/blob/6c33e7e/src/package/youtube/index.ts#L52)
+[src/package/youtube/index.ts:52](https://github.com/rossrobino/components/blob/d27153e/src/package/youtube/index.ts#L52)
 
 ---
 
@@ -225,7 +225,7 @@ the `uid` is `"gouiY85kD2o"`.
 
 #### Defined in
 
-[src/package/youtube/index.ts:62](https://github.com/rossrobino/components/blob/6c33e7e/src/package/youtube/index.ts#L62)
+[src/package/youtube/index.ts:62](https://github.com/rossrobino/components/blob/d27153e/src/package/youtube/index.ts#L62)
 
 ### connectedCallback
 
@@ -241,7 +241,7 @@ the `uid` is `"gouiY85kD2o"`.
 
 #### Defined in
 
-[src/package/base/index.ts:129](https://github.com/rossrobino/components/blob/6c33e7e/src/package/base/index.ts#L129)
+[src/package/base/index.ts:129](https://github.com/rossrobino/components/blob/d27153e/src/package/base/index.ts#L129)
 
 ### disconnectedCallback
 
@@ -257,7 +257,7 @@ the `uid` is `"gouiY85kD2o"`.
 
 #### Defined in
 
-[src/package/base/index.ts:133](https://github.com/rossrobino/components/blob/6c33e7e/src/package/base/index.ts#L133)
+[src/package/base/index.ts:133](https://github.com/rossrobino/components/blob/d27153e/src/package/base/index.ts#L133)
 
 ### getContent
 
@@ -293,7 +293,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/6c33e7e/src/package/base/index.ts#L55)
+[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/d27153e/src/package/base/index.ts#L55)
 
 ### getTrigger
 
@@ -317,7 +317,7 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/6c33e7e/src/package/base/index.ts#L42)
+[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/d27153e/src/package/base/index.ts#L42)
 
 ### mount
 
@@ -337,7 +337,7 @@ The reason for this is to make these elements work better with frameworks like S
 
 #### Defined in
 
-[src/package/youtube/index.ts:56](https://github.com/rossrobino/components/blob/6c33e7e/src/package/youtube/index.ts#L56)
+[src/package/youtube/index.ts:56](https://github.com/rossrobino/components/blob/d27153e/src/package/youtube/index.ts#L56)
 
 ### safeListener
 
@@ -372,7 +372,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:96](https://github.com/rossrobino/components/blob/6c33e7e/src/package/base/index.ts#L96)
+[src/package/base/index.ts:96](https://github.com/rossrobino/components/blob/d27153e/src/package/base/index.ts#L96)
 
 ### swapContent
 
@@ -398,7 +398,7 @@ swaps `this.content()` with the content of the element found.
 
 #### Defined in
 
-[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/6c33e7e/src/package/base/index.ts#L72)
+[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/d27153e/src/package/base/index.ts#L72)
 
 ### triggerListener
 
@@ -428,4 +428,4 @@ swaps `this.content()` with the content of the element found.
 
 #### Defined in
 
-[src/package/base/index.ts:113](https://github.com/rossrobino/components/blob/6c33e7e/src/package/base/index.ts#L113)
+[src/package/base/index.ts:113](https://github.com/rossrobino/components/blob/d27153e/src/package/base/index.ts#L113)

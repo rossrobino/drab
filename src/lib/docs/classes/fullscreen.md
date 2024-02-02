@@ -28,7 +28,7 @@ Disables the `trigger` if fullscreen is not supported.
 
 #### Defined in
 
-[src/package/fullscreen/index.ts:12](https://github.com/rossrobino/components/blob/6c33e7e/src/package/fullscreen/index.ts#L12)
+[src/package/fullscreen/index.ts:12](https://github.com/rossrobino/components/blob/d27153e/src/package/fullscreen/index.ts#L12)
 
 ---
 
@@ -46,7 +46,7 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/6c33e7e/src/package/base/index.ts#L17)
+[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/d27153e/src/package/base/index.ts#L17)
 
 ---
 
@@ -76,7 +76,7 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/6c33e7e/src/package/base/index.ts#L30)
+[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/d27153e/src/package/base/index.ts#L30)
 
 • `set` **event**(`value`): `void`
 
@@ -96,7 +96,7 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:34](https://github.com/rossrobino/components/blob/6c33e7e/src/package/base/index.ts#L34)
+[src/package/base/index.ts:34](https://github.com/rossrobino/components/blob/d27153e/src/package/base/index.ts#L34)
 
 ---
 
@@ -116,7 +116,7 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:129](https://github.com/rossrobino/components/blob/6c33e7e/src/package/base/index.ts#L129)
+[src/package/base/index.ts:129](https://github.com/rossrobino/components/blob/d27153e/src/package/base/index.ts#L129)
 
 ### disconnectedCallback
 
@@ -132,7 +132,7 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:133](https://github.com/rossrobino/components/blob/6c33e7e/src/package/base/index.ts#L133)
+[src/package/base/index.ts:133](https://github.com/rossrobino/components/blob/d27153e/src/package/base/index.ts#L133)
 
 ### fullscreenSupported
 
@@ -146,7 +146,7 @@ Base.event
 
 #### Defined in
 
-[src/package/fullscreen/index.ts:26](https://github.com/rossrobino/components/blob/6c33e7e/src/package/fullscreen/index.ts#L26)
+[src/package/fullscreen/index.ts:26](https://github.com/rossrobino/components/blob/d27153e/src/package/fullscreen/index.ts#L26)
 
 ### getContent
 
@@ -182,7 +182,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/6c33e7e/src/package/base/index.ts#L55)
+[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/d27153e/src/package/base/index.ts#L55)
 
 ### getTrigger
 
@@ -206,7 +206,7 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/6c33e7e/src/package/base/index.ts#L42)
+[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/d27153e/src/package/base/index.ts#L42)
 
 ### isFullscreen
 
@@ -220,7 +220,7 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/fullscreen/index.ts:19](https://github.com/rossrobino/components/blob/6c33e7e/src/package/fullscreen/index.ts#L19)
+[src/package/fullscreen/index.ts:19](https://github.com/rossrobino/components/blob/d27153e/src/package/fullscreen/index.ts#L19)
 
 ### mount
 
@@ -240,7 +240,7 @@ The reason for this is to make these elements work better with frameworks like S
 
 #### Defined in
 
-[src/package/fullscreen/index.ts:43](https://github.com/rossrobino/components/blob/6c33e7e/src/package/fullscreen/index.ts#L43)
+[src/package/fullscreen/index.ts:43](https://github.com/rossrobino/components/blob/d27153e/src/package/fullscreen/index.ts#L43)
 
 ### safeListener
 
@@ -275,7 +275,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:96](https://github.com/rossrobino/components/blob/6c33e7e/src/package/base/index.ts#L96)
+[src/package/base/index.ts:96](https://github.com/rossrobino/components/blob/d27153e/src/package/base/index.ts#L96)
 
 ### swapContent
 
@@ -301,7 +301,7 @@ swaps `this.content()` with the content of the element found.
 
 #### Defined in
 
-[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/6c33e7e/src/package/base/index.ts#L72)
+[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/d27153e/src/package/base/index.ts#L72)
 
 ### toggle
 
@@ -315,7 +315,7 @@ Enables or disables fullscreen mode based on the current state.
 
 #### Defined in
 
-[src/package/fullscreen/index.ts:31](https://github.com/rossrobino/components/blob/6c33e7e/src/package/fullscreen/index.ts#L31)
+[src/package/fullscreen/index.ts:31](https://github.com/rossrobino/components/blob/d27153e/src/package/fullscreen/index.ts#L31)
 
 ### triggerListener
 
@@ -345,4 +345,4 @@ Enables or disables fullscreen mode based on the current state.
 
 #### Defined in
 
-[src/package/base/index.ts:113](https://github.com/rossrobino/components/blob/6c33e7e/src/package/base/index.ts#L113)
+[src/package/base/index.ts:113](https://github.com/rossrobino/components/blob/d27153e/src/package/base/index.ts#L113)
