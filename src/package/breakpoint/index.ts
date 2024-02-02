@@ -1,6 +1,10 @@
 import { Base } from "../base/index.ts";
+import type { Attributes } from "../types/index.ts";
 
-export type Breakpoints = { name: string; width: number }[];
+export type BreakpointAttributes = Attributes<Breakpoint> &
+	Partial<{ [attr: `breakpoint-${string}`]: string }>;
+
+type Breakpoints = { name: string; width: number }[];
 
 /**
  * Displays the current breakpoint and `window.innerWidth`, based on the `breakpoints` provided. Defaults to [TailwindCSS breakpoint sizes](https://tailwindcss.com/docs/responsive-design).

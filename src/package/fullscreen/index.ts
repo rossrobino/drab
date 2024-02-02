@@ -1,4 +1,7 @@
 import { Base } from "../base/index.ts";
+import type { Attributes } from "../types/index.ts";
+
+export type FullscreenAttributes = Attributes<Fullscreen>;
 
 /**
  * Toggles the `documentElement` or `content` element to fullscreen mode.

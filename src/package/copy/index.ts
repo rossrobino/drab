@@ -1,4 +1,7 @@
 import { BaseCopy } from "../base/copy/index.ts";
+import type { Attributes } from "../types/index.ts";
+
+export type CopyAttributes = Attributes<Copy, "value">;
 
 /**
  * Uses the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText)

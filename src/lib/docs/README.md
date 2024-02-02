@@ -1,10 +1,5 @@
 # A Headless Custom Element Library
 
-- [Docs](https://drab.robino.dev)
-- [GitHub](https://github.com/rossrobino/drab)
-- [npm](https://www.npmjs.com/package/drab)
-- [MIT License](https://github.com/rossrobino/drab/blob/main/LICENSE.md)
-
 ## Features
 
 **drab** focuses on providing JavaScript functionality where it's most useful. Many of the elements are helpful wrappers around browser APIs. Here are some of the features of the library.

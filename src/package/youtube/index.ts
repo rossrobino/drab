@@ -1,4 +1,7 @@
 import { Base } from "../base/index.ts";
+import type { Attributes } from "../types/index.ts";
+
+export type YouTubeAttributes = Attributes<YouTube, "uid">;
 
 /**
  * Embeds a YouTube video iframe into a website with the video uid, using www.youtube-nocookie.com.

@@ -1,4 +1,7 @@
 import { Base } from "../index.ts";
+import type { Attributes } from "../types/index.ts";
+
+export type TableSortAttributes = Attributes<TableSort>;
 
 /**
  * Wrap a `HTMLTableElement` in the `TableSort` element to have sortable column

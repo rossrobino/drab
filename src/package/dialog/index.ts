@@ -1,4 +1,7 @@
-import { Animate } from "../animate/index.ts";
+import { Animate, type AnimateAttributes } from "../animate/index.ts";
+import type { Attributes } from "../types/index.ts";
+
+export type DialogAttributes = Attributes<Dialog> & AnimateAttributes;
 
 /**
  * Provides triggers and animations for the `HTMLDialogElement`.

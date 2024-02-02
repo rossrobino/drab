@@ -1,7 +1,10 @@
 import { BaseCopy } from "../base/copy/index.ts";
+import type { Attributes } from "../types/index.ts";
+
+export type ShareAttributes = Attributes<Share, "value">;
 
 /**
- * Uses the [Navigator API](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share) to share a `url`. If `share` is not supported, falls back to copy the text instead.
+ * Uses the [Navigator API](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share) to share a url. If `share` is not supported, falls back to copy the text instead.
  */
 export class Share extends BaseCopy {
 	constructor() {

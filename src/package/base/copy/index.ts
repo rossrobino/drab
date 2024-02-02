@@ -6,6 +6,8 @@ export class BaseCopy extends Base {
 	}
 
 	/**
+	 * The value to copy or share.
+	 *
 	 * @default "" the empty string
 	 */
 	get value() {

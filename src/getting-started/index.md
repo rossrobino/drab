@@ -81,9 +81,11 @@ export default function Dialog() {
 
 ```ts
 // add a .d.ts file
+import type { DialogAttributes } from "drab";
+
 declare namespace JSX {
 	interface IntrinsicElements {
-		"drab-dialog": any;
+		"drab-dialog": DialogAttributes & { children: any };
 	}
 }
 ```
@@ -111,11 +113,14 @@ export default function Dialog() {
 /// <reference types="@solidjs/start/env" />
 
 import "solid-js";
+import type { DialogAttributes } from "drab";
+
+type Merge<T, U> = Omit<T, keyof U> & U;
 
 declare module "solid-js" {
 	namespace JSX {
 		interface IntrinsicElements {
-			"drab-dialog": any;
+			"drab-dialog": Merge<DialogAttributes, JSX.HTMLAttributes<HTMLElement>>;
 		}
 	}
 }

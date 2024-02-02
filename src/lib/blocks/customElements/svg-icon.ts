@@ -1,9 +1,6 @@
 import type { Block } from "domco";
 
-export const SvgIcon: Block = async ({
-	customElements,
-	HTMLElement,
-}) => {
+export const SvgIcon: Block = async ({ customElements, HTMLElement }) => {
 	customElements.define(
 		"svg-icon",
 		class extends HTMLElement {

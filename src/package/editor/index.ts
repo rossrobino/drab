@@ -1,4 +1,7 @@
 import { Base } from "../base/index.ts";
+import type { Attributes } from "../types/index.ts";
+
+export type EditorAttributes = Attributes<Editor>;
 
 /**
  * A piece of content to insert into the `textarea`.

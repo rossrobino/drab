@@ -1,4 +1,7 @@
-import { Animate } from "../animate/index.ts";
+import { Animate, type AnimateAttributes } from "../animate/index.ts";
+import type { Attributes } from "../types/index.ts";
+
+export type DetailsAttributes = Attributes<Details> & AnimateAttributes;
 
 /**
  * This element provides a progressive enhancement on top of the `HTMLDetailsElement` to

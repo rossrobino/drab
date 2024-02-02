@@ -1,5 +1,14 @@
 import { Base } from "../base/index.ts";
 
+type AnimationKeyframe =
+	`animation-keyframe-${"from" | "to" | number}-${string}`;
+
+type AnimationOption = `animation-option-${"easing" | "duration" | "delay"}`;
+
+export type AnimateAttributes = Partial<{
+	[K in AnimationKeyframe | AnimationOption]: string;
+}>;
+
 /**
  * The `Animate` base class provides a declarative way to use the
  * [Web Animations API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API)

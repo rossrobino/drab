@@ -19,17 +19,19 @@ const main = async () => {
 	packageJson.keywords = ["web components", "custom elements"];
 
 	for (const file of files) {
-		if (file.isDirectory()) {
-			packageJson.exports[`./${file.name}`] = {
-				types: `./${file.name}/index.d.ts`,
-				default: `./${file.name}/index.js`,
-			};
-			packageJson.exports[`./${file.name}/define`] = {
-				types: `./${file.name}/define.d.ts`,
-				default: `./${file.name}/define.js`,
-			};
+		if (file.name !== "types") {
+			if (file.isDirectory()) {
+				packageJson.exports[`./${file.name}`] = {
+					types: `./${file.name}/index.d.ts`,
+					default: `./${file.name}/index.js`,
+				};
+				packageJson.exports[`./${file.name}/define`] = {
+					types: `./${file.name}/define.d.ts`,
+					default: `./${file.name}/define.js`,
+				};
 
-			packageJson.keywords.push(file.name);
+				packageJson.keywords.push(file.name);
+			}
 		}
 	}
 

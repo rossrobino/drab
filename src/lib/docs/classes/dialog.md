@@ -26,7 +26,7 @@ Provides triggers and animations for the `HTMLDialogElement`.
 
 #### Defined in
 
-[src/package/dialog/index.ts:7](https://github.com/rossrobino/components/blob/68c09ec/src/package/dialog/index.ts#L7)
+[src/package/dialog/index.ts:10](https://github.com/rossrobino/components/blob/6c33e7e/src/package/dialog/index.ts#L10)
 
 ---
 
@@ -44,7 +44,7 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/68c09ec/src/package/base/index.ts#L17)
+[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/6c33e7e/src/package/base/index.ts#L17)
 
 ---
 
@@ -66,7 +66,7 @@ Animate.animationOptions
 
 #### Defined in
 
-[src/package/animate/index.ts:37](https://github.com/rossrobino/components/blob/68c09ec/src/package/animate/index.ts#L37)
+[src/package/animate/index.ts:46](https://github.com/rossrobino/components/blob/6c33e7e/src/package/animate/index.ts#L46)
 
 ### dialog
 
@@ -80,7 +80,7 @@ The `HTMLDialogElement` within the element.
 
 #### Defined in
 
-[src/package/dialog/index.ts:12](https://github.com/rossrobino/components/blob/68c09ec/src/package/dialog/index.ts#L12)
+[src/package/dialog/index.ts:15](https://github.com/rossrobino/components/blob/6c33e7e/src/package/dialog/index.ts#L15)
 
 ### event
 
@@ -106,7 +106,7 @@ Animate.event
 
 #### Defined in
 
-[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/68c09ec/src/package/base/index.ts#L30)
+[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/6c33e7e/src/package/base/index.ts#L30)
 
 • `set` **event**(`value`): `void`
 
@@ -126,7 +126,7 @@ Animate.event
 
 #### Defined in
 
-[src/package/base/index.ts:34](https://github.com/rossrobino/components/blob/68c09ec/src/package/base/index.ts#L34)
+[src/package/base/index.ts:34](https://github.com/rossrobino/components/blob/6c33e7e/src/package/base/index.ts#L34)
 
 ### keyframes
 
@@ -142,7 +142,7 @@ Animate.keyframes
 
 #### Defined in
 
-[src/package/animate/index.ts:119](https://github.com/rossrobino/components/blob/68c09ec/src/package/animate/index.ts#L119)
+[src/package/animate/index.ts:128](https://github.com/rossrobino/components/blob/6c33e7e/src/package/animate/index.ts#L128)
 
 ---
 
@@ -180,7 +180,7 @@ Animates a particular element using the web animations API.
 
 #### Defined in
 
-[src/package/animate/index.ts:67](https://github.com/rossrobino/components/blob/68c09ec/src/package/animate/index.ts#L67)
+[src/package/animate/index.ts:76](https://github.com/rossrobino/components/blob/6c33e7e/src/package/animate/index.ts#L76)
 
 ### close
 
@@ -194,7 +194,7 @@ Animates a particular element using the web animations API.
 
 #### Defined in
 
-[src/package/dialog/index.ts:23](https://github.com/rossrobino/components/blob/68c09ec/src/package/dialog/index.ts#L23)
+[src/package/dialog/index.ts:26](https://github.com/rossrobino/components/blob/6c33e7e/src/package/dialog/index.ts#L26)
 
 ### connectedCallback
 
@@ -210,7 +210,7 @@ Animates a particular element using the web animations API.
 
 #### Defined in
 
-[src/package/base/index.ts:129](https://github.com/rossrobino/components/blob/68c09ec/src/package/base/index.ts#L129)
+[src/package/base/index.ts:129](https://github.com/rossrobino/components/blob/6c33e7e/src/package/base/index.ts#L129)
 
 ### disconnectedCallback
 
@@ -226,7 +226,7 @@ Animates a particular element using the web animations API.
 
 #### Defined in
 
-[src/package/base/index.ts:133](https://github.com/rossrobino/components/blob/68c09ec/src/package/base/index.ts#L133)
+[src/package/base/index.ts:133](https://github.com/rossrobino/components/blob/6c33e7e/src/package/base/index.ts#L133)
 
 ### getContent
 
@@ -262,7 +262,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/68c09ec/src/package/base/index.ts#L55)
+[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/6c33e7e/src/package/base/index.ts#L55)
 
 ### getTrigger
 
@@ -286,7 +286,7 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/68c09ec/src/package/base/index.ts#L42)
+[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/6c33e7e/src/package/base/index.ts#L42)
 
 ### mount
 
@@ -306,7 +306,7 @@ The reason for this is to make these elements work better with frameworks like S
 
 #### Defined in
 
-[src/package/dialog/index.ts:38](https://github.com/rossrobino/components/blob/68c09ec/src/package/dialog/index.ts#L38)
+[src/package/dialog/index.ts:41](https://github.com/rossrobino/components/blob/6c33e7e/src/package/dialog/index.ts#L41)
 
 ### safeListener
 
@@ -341,7 +341,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:96](https://github.com/rossrobino/components/blob/68c09ec/src/package/base/index.ts#L96)
+[src/package/base/index.ts:96](https://github.com/rossrobino/components/blob/6c33e7e/src/package/base/index.ts#L96)
 
 ### show
 
@@ -355,7 +355,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/dialog/index.ts:17](https://github.com/rossrobino/components/blob/68c09ec/src/package/dialog/index.ts#L17)
+[src/package/dialog/index.ts:20](https://github.com/rossrobino/components/blob/6c33e7e/src/package/dialog/index.ts#L20)
 
 ### swapContent
 
@@ -381,7 +381,7 @@ swaps `this.content()` with the content of the element found.
 
 #### Defined in
 
-[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/68c09ec/src/package/base/index.ts#L72)
+[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/6c33e7e/src/package/base/index.ts#L72)
 
 ### toggle
 
@@ -395,7 +395,7 @@ swaps `this.content()` with the content of the element found.
 
 #### Defined in
 
-[src/package/dialog/index.ts:33](https://github.com/rossrobino/components/blob/68c09ec/src/package/dialog/index.ts#L33)
+[src/package/dialog/index.ts:36](https://github.com/rossrobino/components/blob/6c33e7e/src/package/dialog/index.ts#L36)
 
 ### triggerListener
 
@@ -425,4 +425,4 @@ swaps `this.content()` with the content of the element found.
 
 #### Defined in
 
-[src/package/base/index.ts:113](https://github.com/rossrobino/components/blob/68c09ec/src/package/base/index.ts#L113)
+[src/package/base/index.ts:113](https://github.com/rossrobino/components/blob/6c33e7e/src/package/base/index.ts#L113)
