@@ -28,7 +28,7 @@ export const BrandLinks: Block = async ({ customElements, HTMLElement }) => {
 					</li>
 					<li>
 						<a
-							href="https://github.com/rossrobino/drab"
+							href="https://www.npmjs.com/package/drab"
 							class="button button-ghost button-icon block"
 							>
 							<svg
