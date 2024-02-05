@@ -1,5 +1,5 @@
-import { BaseCopy } from "../base/copy/index.ts";
-import type { Attributes } from "../types/index.ts";
+import { BaseCopy } from "../base/copy/index.js";
+import type { Attributes } from "../types/index.js";
 
 export type CopyAttributes = Attributes<Copy, "value">;
 

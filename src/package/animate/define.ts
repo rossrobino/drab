@@ -1,3 +1,3 @@
-import { Animate } from "./index.ts";
+import { Animate } from "./index.js";
 
 customElements.define("drab-animate", Animate);

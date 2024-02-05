@@ -1,3 +1,3 @@
-import { Editor } from "./index.ts";
+import { Editor } from "./index.js";
 
 customElements.define("drab-editor", Editor);

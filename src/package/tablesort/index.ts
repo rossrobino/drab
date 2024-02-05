@@ -1,5 +1,5 @@
-import { Base } from "../index.ts";
-import type { Attributes } from "../types/index.ts";
+import { Base } from "../index.js";
+import type { Attributes } from "../types/index.js";
 
 export type TableSortAttributes = Attributes<TableSort>;
 

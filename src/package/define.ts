@@ -1,4 +1,4 @@
-import * as elements from "./index.ts";
+import * as elements from "./index.js";
 
 for (const key in elements) {
 	customElements.define(

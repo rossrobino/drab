@@ -1,4 +1,4 @@
-import { Base } from "../index.ts";
+import { Base } from "../index.js";
 
 export class BaseCopy extends Base {
 	constructor() {

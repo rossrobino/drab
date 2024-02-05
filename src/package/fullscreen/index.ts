@@ -1,5 +1,5 @@
-import { Base } from "../base/index.ts";
-import type { Attributes } from "../types/index.ts";
+import { Base } from "../base/index.js";
+import type { Attributes } from "../types/index.js";
 
 export type FullscreenAttributes = Attributes<Fullscreen>;
 
@@ -44,7 +44,7 @@ export class Fullscreen extends Base {
 		this.triggerListener(() => this.toggle());
 
 		for (const trigger of this.getTrigger()) {
-			if (!this.fullscreenSupported() && "disabled" in trigger) {
+			if (!this.fullscreenSupported() && trigger instanceof HTMLButtonElement) {
 				trigger.disabled = true;
 			}
 		}

@@ -1,5 +1,5 @@
-import { Base } from "../base/index.ts";
-import type { Attributes } from "../types/index.ts";
+import { Base } from "../base/index.js";
+import type { Attributes } from "../types/index.js";
 
 export type YouTubeAttributes = Attributes<YouTube, "uid">;
 
