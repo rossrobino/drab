@@ -1,3 +1,3 @@
-import { Dialog } from "./index.ts";
+import { Dialog } from "./index.js";
 
 customElements.define("drab-dialog", Dialog);

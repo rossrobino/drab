@@ -1,3 +1,3 @@
-import { YouTube } from "./index.ts";
+import { YouTube } from "./index.js";
 
 customElements.define("drab-youtube", YouTube);

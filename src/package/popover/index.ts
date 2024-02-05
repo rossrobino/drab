@@ -1,5 +1,5 @@
-import { Animate, type AnimateAttributes } from "../animate/index.ts";
-import type { Attributes } from "../types/index.ts";
+import { Animate, type AnimateAttributes } from "../animate/index.js";
+import type { Attributes } from "../types/index.js";
 
 export type PopoverAttributes = Attributes<Popover> & AnimateAttributes;
 
@@ -34,6 +34,7 @@ export class Popover extends Animate {
 
 	/** `HTMLElement.showPopover()` with animation. */
 	async show() {
+		// @ts-ignore - not supported in FF
 		this.getContent().showPopover();
 		await this.animateElement();
 	}
@@ -45,6 +46,7 @@ export class Popover extends Animate {
 				direction: "reverse",
 			},
 		});
+		// @ts-ignore - not supported in FF
 		this.getContent().hidePopover();
 	}
 

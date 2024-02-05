@@ -1,3 +1,3 @@
-import { Base } from "./index.ts";
+import { Base } from "./index.js";
 
 customElements.define("drab-base", Base);

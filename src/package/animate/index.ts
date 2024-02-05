@@ -1,4 +1,4 @@
-import { Base } from "../base/index.ts";
+import { Base } from "../base/index.js";
 
 type AnimationKeyframe =
 	`animation-keyframe-${"from" | "to" | number}-${string}`;

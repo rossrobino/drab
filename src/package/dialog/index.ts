@@ -1,5 +1,5 @@
-import { Animate, type AnimateAttributes } from "../animate/index.ts";
-import type { Attributes } from "../types/index.ts";
+import { Animate, type AnimateAttributes } from "../animate/index.js";
+import type { Attributes } from "../types/index.js";
 
 export type DialogAttributes = Attributes<Dialog> & AnimateAttributes;
 
