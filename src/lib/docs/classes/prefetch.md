@@ -1,10 +1,26 @@
-Displays the current breakpoint and `window.innerWidth`, based on the `breakpoints` provided. Defaults to [TailwindCSS breakpoint sizes](https://tailwindcss.com/docs/responsive-design).
+The `Prefetch` element enhances the `HTMLAnchorElement` by loading the HTML for
+the linked page before it is navigated to. This element speeds up the navigation for
+multi-page applications (MPAs).
 
-Provide alternate breakpoints by specifying `breakpoint` attributes:
+If you are using a framework that already has a prefetch feature, it is probably best to use
+the framework instead of this element. Frameworks often use client side routing, or have
+build time optimizations.
 
-```html
-<drab-breakpoint breakpoint-name="400"></drab-breakpoint>
-```
+`strategy`
+
+Set the `strategy` attribute to specify the when the prefetch will take place.
+
+- `"hover"` - (default) after `mouseover` or `focus` for > 200ms, and on `touchstart` for mobile
+- `"visible"` - within viewport
+- `"load"` - when the element is loaded, use carefully
+
+`prerender`
+
+Use the `prerender` attribute to use the experimental Speculation Rules API when supported to prerender on the client. This allows you to run client side JavaScript in advance instead of only fetching the HTML.
+
+Browsers that do not support will still use `<link rel="prefetch">` instead.
+
+[MDN Reference](https://developer.mozilla.org/en-US/docs/Web/API/Speculation_Rules_API)
 
 ---
 
@@ -12,7 +28,7 @@ Provide alternate breakpoints by specifying `breakpoint` attributes:
 
 - [`Base`](/docs/base/)
 
-  ↳ **`Breakpoint`**
+  ↳ **`Prefetch`**
 
 ---
 
@@ -20,11 +36,11 @@ Provide alternate breakpoints by specifying `breakpoint` attributes:
 
 ### constructor
 
-• **new Breakpoint**(): [`Breakpoint`](/docs/breakpoint/)
+• **new Prefetch**(): [`Prefetch`](/docs/prefetch/)
 
 #### Returns
 
-[`Breakpoint`](/docs/breakpoint/)
+[`Prefetch`](/docs/prefetch/)
 
 #### Overrides
 
@@ -32,7 +48,7 @@ Provide alternate breakpoints by specifying `breakpoint` attributes:
 
 #### Defined in
 
-[src/package/breakpoint/index.ts:27](https://github.com/rossrobino/components/blob/d08c324/src/package/breakpoint/index.ts#L27)
+src/package/prefetch/index.ts:40
 
 ---
 
@@ -52,31 +68,37 @@ To clean up event listeners added to `document` when the element is removed.
 
 [src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/d08c324/src/package/base/index.ts#L17)
 
-### breakpoints
-
-• **breakpoints**: `Breakpoints`
-
-#### Defined in
-
-[src/package/breakpoint/index.ts:19](https://github.com/rossrobino/components/blob/d08c324/src/package/breakpoint/index.ts#L19)
-
 ---
 
 ## Accessors
 
-### breakpoint
+### #prerender
 
-• `get` **breakpoint**(): `string`
+• `get` **#prerender**(): `boolean`
 
-finds the current breakpoint
+Use the speculation rules API.
 
 #### Returns
 
-`string`
+`boolean`
 
 #### Defined in
 
-[src/package/breakpoint/index.ts:51](https://github.com/rossrobino/components/blob/d08c324/src/package/breakpoint/index.ts#L51)
+src/package/prefetch/index.ts:53
+
+### #strategy
+
+• `get` **#strategy**(): `"load"` \| `"hover"` \| `"visible"`
+
+When to prefetch the url.
+
+#### Returns
+
+`"load"` \| `"hover"` \| `"visible"`
+
+#### Defined in
+
+src/package/prefetch/index.ts:45
 
 ### event
 
@@ -262,7 +284,31 @@ The reason for this is to make these elements work better with frameworks like S
 
 #### Defined in
 
-[src/package/breakpoint/index.ts:63](https://github.com/rossrobino/components/blob/d08c324/src/package/breakpoint/index.ts#L63)
+src/package/prefetch/index.ts:174
+
+### prefetch
+
+▸ **prefetch**(`options?`): `void`
+
+Use to prefetch/prerender HTML.
+
+Can be used more than once with different options for different selectors.
+
+#### Parameters
+
+| Name                 | Type                                 | Description                                                                                                 |
+| :------------------- | :----------------------------------- | :---------------------------------------------------------------------------------------------------------- |
+| `options`            | `Object`                             | prefetch options                                                                                            |
+| `options.prerender?` | `boolean`                            | Uses the experimental Speculation Rules API when supported to prerender on the client, defaults to `false`. |
+| `options.strategy?`  | `"load"` \| `"hover"` \| `"visible"` | Determines when the prefetch takes place, defaults to `"hover"`.                                            |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+src/package/prefetch/index.ts:64
 
 ### safeListener
 

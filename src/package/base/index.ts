@@ -39,8 +39,8 @@ export class Base extends HTMLElement {
 	 * @returns All of the elements that match the `trigger` selector.
 	 * @default this.querySelectorAll("[data-trigger]")
 	 */
-	getTrigger() {
-		const triggers = this.querySelectorAll<HTMLElement>(
+	getTrigger<T extends HTMLElement = HTMLElement>() {
+		const triggers = this.querySelectorAll<T>(
 			this.getAttribute("trigger") ?? "[data-trigger]",
 		);
 		return triggers;

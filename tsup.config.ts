@@ -25,6 +25,8 @@ export default defineConfig((options) => {
 			"fullscreen/define": "src/package/fullscreen/define.ts",
 			"popover/index": "src/package/popover/index.ts",
 			"popover/define": "src/package/popover/define.ts",
+			"prefetch/index": "src/package/prefetch/index.ts",
+			"prefetch/define": "src/package/prefetch/define.ts",
 			"share/index": "src/package/share/index.ts",
 			"share/define": "src/package/share/define.ts",
 			"tablesort/index": "src/package/tablesort/index.ts",

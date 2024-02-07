@@ -11,6 +11,7 @@ import { Dialog, type DialogAttributes } from "./dialog/index.js";
 import { Editor, type EditorAttributes } from "./editor/index.js";
 import { Fullscreen, type FullscreenAttributes } from "./fullscreen/index.js";
 import { Popover, type PopoverAttributes } from "./popover/index.js";
+import { Prefetch, type PrefetchAttributes } from "./prefetch/index.js";
 import { Share, type ShareAttributes } from "./share/index.js";
 import { TableSort, type TableSortAttributes } from "./tablesort/index.js";
 import { WakeLock, type WakeLockAttributes } from "./wakelock/index.js";
@@ -36,6 +37,8 @@ export {
 	FullscreenAttributes,
 	Popover,
 	PopoverAttributes,
+	Prefetch,
+	PrefetchAttributes,
 	Share,
 	ShareAttributes,
 	TableSort,
