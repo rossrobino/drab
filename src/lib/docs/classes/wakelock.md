@@ -1,13 +1,22 @@
-Uses the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText)
-to copy text.
+`WakeLock` uses the [WakeLock API](https://developer.mozilla.org/en-US/docs/Web/API/Screen_Wake_Lock_API) to ensure the screen does not turn off when viewing the page on supported devices. Use your best judgement for when this is necessary, for example, if you have a timer that needs to stay on, or you are displaying a QR code.
+
+- WakeLock can be toggled with a `trigger`, or will be requested if the element has a `locked` attribute when connected.
+- Use `content` and `swap` elements to adjust the UI based on the current state.
+- `request` and `release` methods are provided to set the WakeLock with JavaScript.
+- `trigger` is disabled if not supported.
+- WakeLock is released when the element is removed from the DOM.
+
+`auto-lock`
+
+- By default, the WakeLock will be released when the tab is not active. Use the `auto-lock` attribute to automatically request the WakeLock when the user views the tab again.
 
 ---
 
 ## Hierarchy
 
-- `BaseCopy`
+- [`Base`](/docs/base/)
 
-  ↳ **`Copy`**
+  ↳ **`WakeLock`**
 
 ---
 
@@ -15,19 +24,19 @@ to copy text.
 
 ### constructor
 
-• **new Copy**(): [`Copy`](/docs/copy/)
+• **new WakeLock**(): [`WakeLock`](/docs/wakelock/)
 
 #### Returns
 
-[`Copy`](/docs/copy/)
+[`WakeLock`](/docs/wakelock/)
 
 #### Overrides
 
-BaseCopy.constructor
+[Base](/docs/base/).[constructor](/docs/base/#constructor)
 
 #### Defined in
 
-[src/package/copy/index.ts:11](https://github.com/rossrobino/components/blob/bbb65dd/src/package/copy/index.ts#L11)
+src/package/wakelock/index.ts:25
 
 ---
 
@@ -41,15 +50,37 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Inherited from
 
-BaseCopy.#listenerController
+[Base](/docs/base/).[#listenerController](/docs/base/##listenercontroller)
 
 #### Defined in
 
 [src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L17)
 
+### wakeLock
+
+• **wakeLock**: `null` \| `WakeLockSentinel` = `null`
+
+#### Defined in
+
+src/package/wakelock/index.ts:23
+
 ---
 
 ## Accessors
+
+### #autoLock
+
+• `get` **#autoLock**(): `boolean`
+
+the `auto-lock` attribute controls whether an active WakeLock should be restored when navigating back to the page.
+
+#### Returns
+
+`boolean`
+
+#### Defined in
+
+src/package/wakelock/index.ts:37
 
 ### event
 
@@ -71,7 +102,7 @@ keyof `HTMLElementEventMap`
 
 #### Inherited from
 
-BaseCopy.event
+Base.event
 
 #### Defined in
 
@@ -91,59 +122,29 @@ BaseCopy.event
 
 #### Inherited from
 
-BaseCopy.event
+Base.event
 
 #### Defined in
 
 [src/package/base/index.ts:34](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L34)
 
-### value
-
-• `get` **value**(): `string`
-
-The value to copy or share.
-
-#### Returns
-
-`string`
-
-**`Default`**
-
-```ts
-"" the empty string
-```
-
-#### Inherited from
-
-BaseCopy.value
-
-#### Defined in
-
-[src/package/base/copy/index.ts:13](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/copy/index.ts#L13)
-
-• `set` **value**(`value`): `void`
-
-#### Parameters
-
-| Name    | Type     |
-| :------ | :------- |
-| `value` | `string` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-BaseCopy.value
-
-#### Defined in
-
-[src/package/base/copy/index.ts:17](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/copy/index.ts#L17)
-
 ---
 
 ## Methods
+
+### #wakeLockSupported
+
+▸ **#wakeLockSupported**(): `boolean`
+
+If the WakeLock API is supported on the user's device.
+
+#### Returns
+
+`boolean`
+
+#### Defined in
+
+src/package/wakelock/index.ts:30
 
 ### connectedCallback
 
@@ -155,35 +156,11 @@ BaseCopy.value
 
 #### Inherited from
 
-BaseCopy.connectedCallback
+[Base](/docs/base/).[connectedCallback](/docs/base/#connectedcallback)
 
 #### Defined in
 
 [src/package/base/index.ts:151](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L151)
-
-### copy
-
-▸ **copy**(`text?`): `Promise`\<`void`\>
-
-Copies the `text`.
-
-#### Parameters
-
-| Name   | Type     | Description         |
-| :----- | :------- | :------------------ |
-| `text` | `string` | The `text` to share |
-
-#### Returns
-
-`Promise`\<`void`\>
-
-#### Inherited from
-
-BaseCopy.copy
-
-#### Defined in
-
-[src/package/base/copy/index.ts:25](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/copy/index.ts#L25)
 
 ### destroy
 
@@ -195,13 +172,13 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 `void`
 
-#### Inherited from
+#### Overrides
 
-BaseCopy.destroy
+[Base](/docs/base/).[destroy](/docs/base/#destroy)
 
 #### Defined in
 
-[src/package/base/index.ts:158](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L158)
+src/package/wakelock/index.ts:105
 
 ### disconnectedCallback
 
@@ -213,7 +190,7 @@ BaseCopy.destroy
 
 #### Inherited from
 
-BaseCopy.disconnectedCallback
+[Base](/docs/base/).[disconnectedCallback](/docs/base/#disconnectedcallback)
 
 #### Defined in
 
@@ -249,7 +226,7 @@ this.querySelector("[data-content]");
 
 #### Inherited from
 
-BaseCopy.getContent
+[Base](/docs/base/).[getContent](/docs/base/#getcontent)
 
 #### Defined in
 
@@ -273,7 +250,7 @@ this.querySelectorAll("[data-trigger]");
 
 #### Inherited from
 
-BaseCopy.getTrigger
+[Base](/docs/base/).[getTrigger](/docs/base/#gettrigger)
 
 #### Defined in
 
@@ -283,17 +260,49 @@ BaseCopy.getTrigger
 
 ▸ **mount**(): `void`
 
+Passed into `queueMicrotask` in `connectedCallback`. It is overridden in each component that needs to run `connectedCallback`.
+
+The reason for this is to make these elements work better with frameworks like Svelte. For SSR this isn't necessary, but when client side rendering, the HTML within the custom element isn't available before `connectedCallback` is called. By waiting until the next microtask, the HTML content is available---then for example, listeners can be attached to elements inside.
+
 #### Returns
 
 `void`
 
 #### Overrides
 
-BaseCopy.mount
+[Base](/docs/base/).[mount](/docs/base/#mount)
 
 #### Defined in
 
-[src/package/copy/index.ts:15](https://github.com/rossrobino/components/blob/bbb65dd/src/package/copy/index.ts#L15)
+src/package/wakelock/index.ts:67
+
+### release
+
+▸ **release**(): `Promise`\<`void`\>
+
+Releases the WakeLock, sets `this.wakeLock` to null.
+
+#### Returns
+
+`Promise`\<`void`\>
+
+#### Defined in
+
+src/package/wakelock/index.ts:62
+
+### request
+
+▸ **request**(): `Promise`\<`void`\>
+
+Requests WakeLock on the current page.
+
+#### Returns
+
+`Promise`\<`void`\>
+
+#### Defined in
+
+src/package/wakelock/index.ts:42
 
 ### safeListener
 
@@ -324,7 +333,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Inherited from
 
-BaseCopy.safeListener
+[Base](/docs/base/).[safeListener](/docs/base/#safelistener)
 
 #### Defined in
 
@@ -350,7 +359,7 @@ swaps `this.content()` with the content of the element found.
 
 #### Inherited from
 
-BaseCopy.swapContent
+[Base](/docs/base/).[swapContent](/docs/base/#swapcontent)
 
 #### Defined in
 
@@ -380,7 +389,7 @@ BaseCopy.swapContent
 
 #### Inherited from
 
-BaseCopy.triggerListener
+[Base](/docs/base/).[triggerListener](/docs/base/#triggerlistener)
 
 #### Defined in
 

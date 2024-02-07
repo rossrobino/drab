@@ -70,18 +70,40 @@ export class Base extends HTMLElement {
 	 * @param delay Wait time before swapping back
 	 */
 	swapContent(revert: boolean = true, delay: number = 800) {
-		const swap = this.querySelector(this.getAttribute("swap") ?? "[data-swap]");
-		if (swap) {
-			const original = Array.from(this.getContent().childNodes);
+		// BREAKING TODO: `revert` and `delay` -- these could be one parameter
+		// revert: number = 800
 
+		/** The swap element, used to hold the replacement contents. */
+		const swap = this.querySelector(this.getAttribute("swap") ?? "[data-swap]");
+
+		if (swap) {
+			/** A copy of the content currently in `this.getContent()`. */
+			const currentContent = Array.from(this.getContent().childNodes);
+
+			/**
+			 * The contents of the swap element, set based on whether the
+			 * swap is a `template` or not.
+			 */
+			const placeholder: Node[] = [];
+
+			// Set the placeholder with the `swap` content, then replace the
+			// swap content with the `currentContent`
 			if (swap instanceof HTMLTemplateElement) {
-				this.getContent().replaceChildren(swap.content.cloneNode(true));
+				// use `content` since it's a `template` element
+				placeholder.push(swap.content.cloneNode(true));
+				swap.content.replaceChildren(...currentContent);
 			} else {
-				this.getContent().replaceChildren(...swap.childNodes);
+				// not a `template`, replace children directly
+				placeholder.push(...swap.childNodes);
+				swap.replaceChildren(...currentContent);
 			}
 
+			// finally, set the content to the contents of the placeholder
+			this.getContent().replaceChildren(...placeholder);
+
 			if (revert) {
-				setTimeout(() => this.getContent().replaceChildren(...original), delay);
+				// wait and then run again to swap back
+				setTimeout(() => this.swapContent(false), delay);
 			}
 		}
 	}
@@ -94,11 +116,11 @@ export class Base extends HTMLElement {
 	 * @param options
 	 */
 	safeListener<
-		K extends keyof HTMLElementEventMap,
+		K extends keyof DocumentEventMap,
 		T extends HTMLElement | Window | Document = HTMLElement,
 	>(
 		type: K,
-		listener: (this: T, ev: HTMLElementEventMap[K]) => any,
+		listener: (this: T, ev: DocumentEventMap[K]) => any,
 		element: T = document.body as T,
 		options: AddEventListenerOptions = {},
 	) {
@@ -111,7 +133,7 @@ export class Base extends HTMLElement {
 	 * @param listener Listener to attach to all of the `trigger` elements.
 	 */
 	triggerListener<T extends HTMLElement, K extends keyof HTMLElementEventMap>(
-		listener: (this: T, ev: HTMLElementEventMap[K]) => any,
+		listener: (this: T, e: HTMLElementEventMap[K]) => any,
 		type: K = this.event as K,
 	) {
 		for (const trigger of this.getTrigger()) {
@@ -120,7 +142,7 @@ export class Base extends HTMLElement {
 	}
 
 	/**
-	 * Placeholder function is passed into `queueMicrotask` in `connectedCallback`. It is overridden in each component that needs to run `connectedCallback`.
+	 * Passed into `queueMicrotask` in `connectedCallback`. It is overridden in each component that needs to run `connectedCallback`.
 	 *
 	 * The reason for this is to make these elements work better with frameworks like Svelte. For SSR this isn't necessary, but when client side rendering, the HTML within the custom element isn't available before `connectedCallback` is called. By waiting until the next microtask, the HTML content is available---then for example, listeners can be attached to elements inside.
 	 */
@@ -130,7 +152,13 @@ export class Base extends HTMLElement {
 		queueMicrotask(() => this.mount());
 	}
 
+	/**
+	 * Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallback` as well. It is overridden in each element that needs to run `disconnectedCallback`.
+	 */
+	destroy() {}
+
 	disconnectedCallback() {
+		this.destroy();
 		this.#listenerController.abort();
 	}
 }

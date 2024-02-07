@@ -26,7 +26,7 @@ BaseCopy.constructor
 
 #### Defined in
 
-[src/package/share/index.ts:10](https://github.com/rossrobino/components/blob/ebb6edd/src/package/share/index.ts#L10)
+[src/package/share/index.ts:10](https://github.com/rossrobino/components/blob/bbb65dd/src/package/share/index.ts#L10)
 
 ---
 
@@ -44,7 +44,7 @@ BaseCopy.#listenerController
 
 #### Defined in
 
-[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/ebb6edd/src/package/base/index.ts#L17)
+[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L17)
 
 ---
 
@@ -74,7 +74,7 @@ BaseCopy.event
 
 #### Defined in
 
-[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/ebb6edd/src/package/base/index.ts#L30)
+[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L30)
 
 • `set` **event**(`value`): `void`
 
@@ -94,7 +94,7 @@ BaseCopy.event
 
 #### Defined in
 
-[src/package/base/index.ts:34](https://github.com/rossrobino/components/blob/ebb6edd/src/package/base/index.ts#L34)
+[src/package/base/index.ts:34](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L34)
 
 ### value
 
@@ -118,7 +118,7 @@ BaseCopy.value
 
 #### Defined in
 
-[src/package/base/copy/index.ts:13](https://github.com/rossrobino/components/blob/ebb6edd/src/package/base/copy/index.ts#L13)
+[src/package/base/copy/index.ts:13](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/copy/index.ts#L13)
 
 • `set` **value**(`value`): `void`
 
@@ -138,7 +138,7 @@ BaseCopy.value
 
 #### Defined in
 
-[src/package/base/copy/index.ts:17](https://github.com/rossrobino/components/blob/ebb6edd/src/package/base/copy/index.ts#L17)
+[src/package/base/copy/index.ts:17](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/copy/index.ts#L17)
 
 ---
 
@@ -158,7 +158,7 @@ BaseCopy.connectedCallback
 
 #### Defined in
 
-[src/package/base/index.ts:129](https://github.com/rossrobino/components/blob/ebb6edd/src/package/base/index.ts#L129)
+[src/package/base/index.ts:151](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L151)
 
 ### copy
 
@@ -182,7 +182,25 @@ BaseCopy.copy
 
 #### Defined in
 
-[src/package/base/copy/index.ts:25](https://github.com/rossrobino/components/blob/ebb6edd/src/package/base/copy/index.ts#L25)
+[src/package/base/copy/index.ts:25](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/copy/index.ts#L25)
+
+### destroy
+
+▸ **destroy**(): `void`
+
+Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallback` as well. It is overridden in each element that needs to run `disconnectedCallback`.
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+BaseCopy.destroy
+
+#### Defined in
+
+[src/package/base/index.ts:158](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L158)
 
 ### disconnectedCallback
 
@@ -198,7 +216,7 @@ BaseCopy.disconnectedCallback
 
 #### Defined in
 
-[src/package/base/index.ts:133](https://github.com/rossrobino/components/blob/ebb6edd/src/package/base/index.ts#L133)
+[src/package/base/index.ts:160](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L160)
 
 ### getContent
 
@@ -234,7 +252,7 @@ BaseCopy.getContent
 
 #### Defined in
 
-[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/ebb6edd/src/package/base/index.ts#L55)
+[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L55)
 
 ### getTrigger
 
@@ -258,7 +276,7 @@ BaseCopy.getTrigger
 
 #### Defined in
 
-[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/ebb6edd/src/package/base/index.ts#L42)
+[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L42)
 
 ### mount
 
@@ -274,7 +292,7 @@ BaseCopy.mount
 
 #### Defined in
 
-[src/package/share/index.ts:35](https://github.com/rossrobino/components/blob/ebb6edd/src/package/share/index.ts#L35)
+[src/package/share/index.ts:35](https://github.com/rossrobino/components/blob/bbb65dd/src/package/share/index.ts#L35)
 
 ### safeListener
 
@@ -287,17 +305,17 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 | Name | Type                                                            |
 | :--- | :-------------------------------------------------------------- |
-| `K`  | extends keyof `HTMLElementEventMap`                             |
+| `K`  | extends keyof `DocumentEventMap`                                |
 | `T`  | extends `Window` \| `Document` \| `HTMLElement` = `HTMLElement` |
 
 #### Parameters
 
-| Name       | Type                                                     |
-| :--------- | :------------------------------------------------------- |
-| `type`     | `K`                                                      |
-| `listener` | (`this`: `T`, `ev`: `HTMLElementEventMap`[`K`]) => `any` |
-| `element`  | `T`                                                      |
-| `options`  | `AddEventListenerOptions`                                |
+| Name       | Type                                                  |
+| :--------- | :---------------------------------------------------- |
+| `type`     | `K`                                                   |
+| `listener` | (`this`: `T`, `ev`: `DocumentEventMap`[`K`]) => `any` |
+| `element`  | `T`                                                   |
+| `options`  | `AddEventListenerOptions`                             |
 
 #### Returns
 
@@ -309,7 +327,7 @@ BaseCopy.safeListener
 
 #### Defined in
 
-[src/package/base/index.ts:96](https://github.com/rossrobino/components/blob/ebb6edd/src/package/base/index.ts#L96)
+[src/package/base/index.ts:118](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L118)
 
 ### share
 
@@ -332,7 +350,7 @@ depending on browser support.
 
 #### Defined in
 
-[src/package/share/index.ts:20](https://github.com/rossrobino/components/blob/ebb6edd/src/package/share/index.ts#L20)
+[src/package/share/index.ts:20](https://github.com/rossrobino/components/blob/bbb65dd/src/package/share/index.ts#L20)
 
 ### swapContent
 
@@ -358,7 +376,7 @@ BaseCopy.swapContent
 
 #### Defined in
 
-[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/ebb6edd/src/package/base/index.ts#L72)
+[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L72)
 
 ### triggerListener
 
@@ -373,10 +391,10 @@ BaseCopy.swapContent
 
 #### Parameters
 
-| Name       | Type                                                     | Description                                          |
-| :--------- | :------------------------------------------------------- | :--------------------------------------------------- |
-| `listener` | (`this`: `T`, `ev`: `HTMLElementEventMap`[`K`]) => `any` | Listener to attach to all of the `trigger` elements. |
-| `type`     | `K`                                                      | -                                                    |
+| Name       | Type                                                    | Description                                          |
+| :--------- | :------------------------------------------------------ | :--------------------------------------------------- |
+| `listener` | (`this`: `T`, `e`: `HTMLElementEventMap`[`K`]) => `any` | Listener to attach to all of the `trigger` elements. |
+| `type`     | `K`                                                     | -                                                    |
 
 #### Returns
 
@@ -388,4 +406,4 @@ BaseCopy.triggerListener
 
 #### Defined in
 
-[src/package/base/index.ts:113](https://github.com/rossrobino/components/blob/ebb6edd/src/package/base/index.ts#L113)
+[src/package/base/index.ts:135](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L135)

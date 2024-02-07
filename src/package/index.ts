@@ -13,6 +13,7 @@ import { Fullscreen, type FullscreenAttributes } from "./fullscreen/index.js";
 import { Popover, type PopoverAttributes } from "./popover/index.js";
 import { Share, type ShareAttributes } from "./share/index.js";
 import { TableSort, type TableSortAttributes } from "./tablesort/index.js";
+import { WakeLock, type WakeLockAttributes } from "./wakelock/index.js";
 import { YouTube, type YouTubeAttributes } from "./youtube/index.js";
 
 export {
@@ -39,6 +40,8 @@ export {
 	ShareAttributes,
 	TableSort,
 	TableSortAttributes,
+	WakeLock,
+	WakeLockAttributes,
 	YouTube,
 	YouTubeAttributes,
 };

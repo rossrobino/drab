@@ -29,6 +29,8 @@ export default defineConfig((options) => {
 			"share/define": "src/package/share/define.ts",
 			"tablesort/index": "src/package/tablesort/index.ts",
 			"tablesort/define": "src/package/tablesort/define.ts",
+			"wakelock/index": "src/package/wakelock/index.ts",
+			"wakelock/define": "src/package/wakelock/define.ts",
 			"youtube/index": "src/package/youtube/index.ts",
 			"youtube/define": "src/package/youtube/define.ts",
 		},
