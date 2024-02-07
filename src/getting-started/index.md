@@ -58,24 +58,23 @@ _\*If you see a better way to write any of these examples or a framework that is
 
 ### Enhance
 
-[Enhance](https://enhance.dev) is an HTML-first full stack web framework that enables anyone to build multi-page dynamic web apps while staying as close to the web platform as possible. Enhance pages and components are server side rendered with no client side JavaScript required, but offer a seamless upgrade path for progressive enhancement, including the use of **drab** elements.
+[Enhance](https://enhance.dev) is an HTML-first full stack web framework that enables anyone to build multi-page dynamic web apps while staying as close to the web platform as possible.
 
 ```js
 // app/elements/my-dialog.mjs
-
 export default function MyDialog({ html }) {
-  return html`
-    <drab-dialog>…</drab-dialog>
-    <script src="/_public/browser/drab-dialog.mjs" type="module"></script>
-  `
+	return html`
+		<drab-dialog>...</drab-dialog>
+		<script src="/_public/browser/drab-dialog.mjs" type="module"></script>
+	`;
 }
 ```
 
 ```js
 // app/browser/drab-dialog.mjs
+import { Dialog } from "drab/dialog";
 
-import { Dialog } from "drag/dialog"
-customElements.define('drab-dialog', Dialog)
+customElements.define("drab-dialog", Dialog);
 ```
 
 ### React
