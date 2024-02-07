@@ -49,7 +49,7 @@ HTMLElement.constructor
 
 #### Defined in
 
-[src/package/base/index.ts:19](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L19)
+[src/package/base/index.ts:19](https://github.com/rossrobino/components/blob/dd63b43/src/package/base/index.ts#L19)
 
 ---
 
@@ -63,7 +63,7 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L17)
+[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/dd63b43/src/package/base/index.ts#L17)
 
 ---
 
@@ -89,7 +89,7 @@ keyof `HTMLElementEventMap`
 
 #### Defined in
 
-[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L30)
+[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/dd63b43/src/package/base/index.ts#L30)
 
 • `set` **event**(`value`): `void`
 
@@ -105,7 +105,7 @@ keyof `HTMLElementEventMap`
 
 #### Defined in
 
-[src/package/base/index.ts:34](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L34)
+[src/package/base/index.ts:34](https://github.com/rossrobino/components/blob/dd63b43/src/package/base/index.ts#L34)
 
 ---
 
@@ -121,7 +121,7 @@ keyof `HTMLElementEventMap`
 
 #### Defined in
 
-[src/package/base/index.ts:151](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L151)
+[src/package/base/index.ts:151](https://github.com/rossrobino/components/blob/dd63b43/src/package/base/index.ts#L151)
 
 ### destroy
 
@@ -135,7 +135,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 #### Defined in
 
-[src/package/base/index.ts:158](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L158)
+[src/package/base/index.ts:158](https://github.com/rossrobino/components/blob/dd63b43/src/package/base/index.ts#L158)
 
 ### disconnectedCallback
 
@@ -147,7 +147,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 #### Defined in
 
-[src/package/base/index.ts:160](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L160)
+[src/package/base/index.ts:160](https://github.com/rossrobino/components/blob/dd63b43/src/package/base/index.ts#L160)
 
 ### getContent
 
@@ -179,7 +179,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L55)
+[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/dd63b43/src/package/base/index.ts#L55)
 
 ### getTrigger
 
@@ -199,7 +199,7 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L42)
+[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/dd63b43/src/package/base/index.ts#L42)
 
 ### mount
 
@@ -215,7 +215,7 @@ The reason for this is to make these elements work better with frameworks like S
 
 #### Defined in
 
-[src/package/base/index.ts:149](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L149)
+[src/package/base/index.ts:149](https://github.com/rossrobino/components/blob/dd63b43/src/package/base/index.ts#L149)
 
 ### safeListener
 
@@ -246,7 +246,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:118](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L118)
+[src/package/base/index.ts:118](https://github.com/rossrobino/components/blob/dd63b43/src/package/base/index.ts#L118)
 
 ### swapContent
 
@@ -268,7 +268,7 @@ swaps `this.content()` with the content of the element found.
 
 #### Defined in
 
-[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L72)
+[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/dd63b43/src/package/base/index.ts#L72)
 
 ### triggerListener
 
@@ -294,4 +294,4 @@ swaps `this.content()` with the content of the element found.
 
 #### Defined in
 
-[src/package/base/index.ts:135](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L135)
+[src/package/base/index.ts:135](https://github.com/rossrobino/components/blob/dd63b43/src/package/base/index.ts#L135)
