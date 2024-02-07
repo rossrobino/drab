@@ -24,6 +24,7 @@ export class Fullscreen extends Base {
 	 * @returns `true` if fullscreen is supported.
 	 */
 	fullscreenSupported() {
+		// BREAKING TODO: make private like in WakeLock
 		return Boolean(document.documentElement.requestFullscreen);
 	}
 
@@ -44,7 +45,7 @@ export class Fullscreen extends Base {
 		this.triggerListener(() => this.toggle());
 
 		for (const trigger of this.getTrigger()) {
-			if (!this.fullscreenSupported() && trigger instanceof HTMLButtonElement) {
+			if (!this.fullscreenSupported() && "disabled" in trigger) {
 				trigger.disabled = true;
 			}
 		}

@@ -31,7 +31,7 @@ currently [only available in Chrome](https://developer.chrome.com/blog/introduci
 
 #### Defined in
 
-[src/package/popover/index.ts:15](https://github.com/rossrobino/components/blob/ebb6edd/src/package/popover/index.ts#L15)
+[src/package/popover/index.ts:15](https://github.com/rossrobino/components/blob/bbb65dd/src/package/popover/index.ts#L15)
 
 ---
 
@@ -49,7 +49,7 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/ebb6edd/src/package/base/index.ts#L17)
+[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L17)
 
 ---
 
@@ -71,7 +71,7 @@ Animate.animationOptions
 
 #### Defined in
 
-[src/package/animate/index.ts:46](https://github.com/rossrobino/components/blob/ebb6edd/src/package/animate/index.ts#L46)
+[src/package/animate/index.ts:46](https://github.com/rossrobino/components/blob/bbb65dd/src/package/animate/index.ts#L46)
 
 ### event
 
@@ -97,7 +97,7 @@ Animate.event
 
 #### Defined in
 
-[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/ebb6edd/src/package/base/index.ts#L30)
+[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L30)
 
 • `set` **event**(`value`): `void`
 
@@ -117,7 +117,7 @@ Animate.event
 
 #### Defined in
 
-[src/package/base/index.ts:34](https://github.com/rossrobino/components/blob/ebb6edd/src/package/base/index.ts#L34)
+[src/package/base/index.ts:34](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L34)
 
 ### keyframes
 
@@ -133,7 +133,7 @@ Animate.keyframes
 
 #### Defined in
 
-[src/package/animate/index.ts:128](https://github.com/rossrobino/components/blob/ebb6edd/src/package/animate/index.ts#L128)
+[src/package/animate/index.ts:128](https://github.com/rossrobino/components/blob/bbb65dd/src/package/animate/index.ts#L128)
 
 ### open
 
@@ -148,7 +148,7 @@ automatically on the element like with the `HTMLDialogElement`.
 
 #### Defined in
 
-[src/package/popover/index.ts:23](https://github.com/rossrobino/components/blob/ebb6edd/src/package/popover/index.ts#L23)
+[src/package/popover/index.ts:23](https://github.com/rossrobino/components/blob/bbb65dd/src/package/popover/index.ts#L23)
 
 • `set` **open**(`value`): `void`
 
@@ -164,7 +164,7 @@ automatically on the element like with the `HTMLDialogElement`.
 
 #### Defined in
 
-[src/package/popover/index.ts:27](https://github.com/rossrobino/components/blob/ebb6edd/src/package/popover/index.ts#L27)
+[src/package/popover/index.ts:27](https://github.com/rossrobino/components/blob/bbb65dd/src/package/popover/index.ts#L27)
 
 ---
 
@@ -202,7 +202,7 @@ Animates a particular element using the web animations API.
 
 #### Defined in
 
-[src/package/animate/index.ts:76](https://github.com/rossrobino/components/blob/ebb6edd/src/package/animate/index.ts#L76)
+[src/package/animate/index.ts:76](https://github.com/rossrobino/components/blob/bbb65dd/src/package/animate/index.ts#L76)
 
 ### connectedCallback
 
@@ -218,7 +218,25 @@ Animates a particular element using the web animations API.
 
 #### Defined in
 
-[src/package/base/index.ts:129](https://github.com/rossrobino/components/blob/ebb6edd/src/package/base/index.ts#L129)
+[src/package/base/index.ts:151](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L151)
+
+### destroy
+
+▸ **destroy**(): `void`
+
+Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallback` as well. It is overridden in each element that needs to run `disconnectedCallback`.
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Animate](/docs/animate/).[destroy](/docs/animate/#destroy)
+
+#### Defined in
+
+[src/package/base/index.ts:158](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L158)
 
 ### disconnectedCallback
 
@@ -234,7 +252,7 @@ Animates a particular element using the web animations API.
 
 #### Defined in
 
-[src/package/base/index.ts:133](https://github.com/rossrobino/components/blob/ebb6edd/src/package/base/index.ts#L133)
+[src/package/base/index.ts:160](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L160)
 
 ### getContent
 
@@ -270,7 +288,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/ebb6edd/src/package/base/index.ts#L55)
+[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L55)
 
 ### getTrigger
 
@@ -294,7 +312,7 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/ebb6edd/src/package/base/index.ts#L42)
+[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L42)
 
 ### hide
 
@@ -308,13 +326,13 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/popover/index.ts:43](https://github.com/rossrobino/components/blob/ebb6edd/src/package/popover/index.ts#L43)
+[src/package/popover/index.ts:43](https://github.com/rossrobino/components/blob/bbb65dd/src/package/popover/index.ts#L43)
 
 ### mount
 
 ▸ **mount**(): `void`
 
-Placeholder function is passed into `queueMicrotask` in `connectedCallback`. It is overridden in each component that needs to run `connectedCallback`.
+Passed into `queueMicrotask` in `connectedCallback`. It is overridden in each component that needs to run `connectedCallback`.
 
 The reason for this is to make these elements work better with frameworks like Svelte. For SSR this isn't necessary, but when client side rendering, the HTML within the custom element isn't available before `connectedCallback` is called. By waiting until the next microtask, the HTML content is available---then for example, listeners can be attached to elements inside.
 
@@ -328,7 +346,7 @@ The reason for this is to make these elements work better with frameworks like S
 
 #### Defined in
 
-[src/package/popover/index.ts:59](https://github.com/rossrobino/components/blob/ebb6edd/src/package/popover/index.ts#L59)
+[src/package/popover/index.ts:59](https://github.com/rossrobino/components/blob/bbb65dd/src/package/popover/index.ts#L59)
 
 ### safeListener
 
@@ -341,17 +359,17 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 | Name | Type                                                            |
 | :--- | :-------------------------------------------------------------- |
-| `K`  | extends keyof `HTMLElementEventMap`                             |
+| `K`  | extends keyof `DocumentEventMap`                                |
 | `T`  | extends `Window` \| `Document` \| `HTMLElement` = `HTMLElement` |
 
 #### Parameters
 
-| Name       | Type                                                     |
-| :--------- | :------------------------------------------------------- |
-| `type`     | `K`                                                      |
-| `listener` | (`this`: `T`, `ev`: `HTMLElementEventMap`[`K`]) => `any` |
-| `element`  | `T`                                                      |
-| `options`  | `AddEventListenerOptions`                                |
+| Name       | Type                                                  |
+| :--------- | :---------------------------------------------------- |
+| `type`     | `K`                                                   |
+| `listener` | (`this`: `T`, `ev`: `DocumentEventMap`[`K`]) => `any` |
+| `element`  | `T`                                                   |
+| `options`  | `AddEventListenerOptions`                             |
 
 #### Returns
 
@@ -363,7 +381,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:96](https://github.com/rossrobino/components/blob/ebb6edd/src/package/base/index.ts#L96)
+[src/package/base/index.ts:118](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L118)
 
 ### show
 
@@ -377,7 +395,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/popover/index.ts:36](https://github.com/rossrobino/components/blob/ebb6edd/src/package/popover/index.ts#L36)
+[src/package/popover/index.ts:36](https://github.com/rossrobino/components/blob/bbb65dd/src/package/popover/index.ts#L36)
 
 ### swapContent
 
@@ -403,7 +421,7 @@ swaps `this.content()` with the content of the element found.
 
 #### Defined in
 
-[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/ebb6edd/src/package/base/index.ts#L72)
+[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L72)
 
 ### toggle
 
@@ -417,7 +435,7 @@ swaps `this.content()` with the content of the element found.
 
 #### Defined in
 
-[src/package/popover/index.ts:54](https://github.com/rossrobino/components/blob/ebb6edd/src/package/popover/index.ts#L54)
+[src/package/popover/index.ts:54](https://github.com/rossrobino/components/blob/bbb65dd/src/package/popover/index.ts#L54)
 
 ### triggerListener
 
@@ -432,10 +450,10 @@ swaps `this.content()` with the content of the element found.
 
 #### Parameters
 
-| Name       | Type                                                     | Description                                          |
-| :--------- | :------------------------------------------------------- | :--------------------------------------------------- |
-| `listener` | (`this`: `T`, `ev`: `HTMLElementEventMap`[`K`]) => `any` | Listener to attach to all of the `trigger` elements. |
-| `type`     | `K`                                                      | -                                                    |
+| Name       | Type                                                    | Description                                          |
+| :--------- | :------------------------------------------------------ | :--------------------------------------------------- |
+| `listener` | (`this`: `T`, `e`: `HTMLElementEventMap`[`K`]) => `any` | Listener to attach to all of the `trigger` elements. |
+| `type`     | `K`                                                     | -                                                    |
 
 #### Returns
 
@@ -447,4 +465,4 @@ swaps `this.content()` with the content of the element found.
 
 #### Defined in
 
-[src/package/base/index.ts:113](https://github.com/rossrobino/components/blob/ebb6edd/src/package/base/index.ts#L113)
+[src/package/base/index.ts:135](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L135)

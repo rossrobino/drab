@@ -12,6 +12,7 @@
 		"web components",
 		"custom elements",
 		"animate",
+		"wakelock",
 		"contextmenu",
 		"details",
 		"youtube",
@@ -45,6 +46,14 @@
 		"./animate/define": {
 			"types": "./animate/define.d.ts",
 			"default": "./animate/define.js"
+		},
+		"./wakelock": {
+			"types": "./wakelock/index.d.ts",
+			"default": "./wakelock/index.js"
+		},
+		"./wakelock/define": {
+			"types": "./wakelock/define.d.ts",
+			"default": "./wakelock/define.js"
 		},
 		"./contextmenu": {
 			"types": "./contextmenu/index.d.ts",

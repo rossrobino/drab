@@ -52,7 +52,7 @@ Other features:
 
 #### Defined in
 
-[src/package/editor/index.ts:63](https://github.com/rossrobino/components/blob/ebb6edd/src/package/editor/index.ts#L63)
+[src/package/editor/index.ts:63](https://github.com/rossrobino/components/blob/bbb65dd/src/package/editor/index.ts#L63)
 
 ---
 
@@ -70,7 +70,7 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/ebb6edd/src/package/base/index.ts#L17)
+[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L17)
 
 ### #openChars
 
@@ -80,7 +80,7 @@ Array of keyPair characters that have been opened.
 
 #### Defined in
 
-[src/package/editor/index.ts:51](https://github.com/rossrobino/components/blob/ebb6edd/src/package/editor/index.ts#L51)
+[src/package/editor/index.ts:51](https://github.com/rossrobino/components/blob/bbb65dd/src/package/editor/index.ts#L51)
 
 ### keyPairs
 
@@ -94,7 +94,7 @@ The characters that will be automatically closed when typed.
 
 #### Defined in
 
-[src/package/editor/index.ts:54](https://github.com/rossrobino/components/blob/ebb6edd/src/package/editor/index.ts#L54)
+[src/package/editor/index.ts:54](https://github.com/rossrobino/components/blob/bbb65dd/src/package/editor/index.ts#L54)
 
 ---
 
@@ -112,7 +112,7 @@ An array of `ContentElement`s derived from each `trigger`'s data attributes.
 
 #### Defined in
 
-[src/package/editor/index.ts:89](https://github.com/rossrobino/components/blob/ebb6edd/src/package/editor/index.ts#L89)
+[src/package/editor/index.ts:89](https://github.com/rossrobino/components/blob/bbb65dd/src/package/editor/index.ts#L89)
 
 ### #currentBlock
 
@@ -129,7 +129,7 @@ An array of `ContentElement`s derived from each `trigger`'s data attributes.
 
 #### Defined in
 
-[src/package/editor/index.ts:103](https://github.com/rossrobino/components/blob/ebb6edd/src/package/editor/index.ts#L103)
+[src/package/editor/index.ts:103](https://github.com/rossrobino/components/blob/bbb65dd/src/package/editor/index.ts#L103)
 
 ### #selectionEnd
 
@@ -143,7 +143,7 @@ Gets the end position of the selection
 
 #### Defined in
 
-[src/package/editor/index.ts:116](https://github.com/rossrobino/components/blob/ebb6edd/src/package/editor/index.ts#L116)
+[src/package/editor/index.ts:116](https://github.com/rossrobino/components/blob/bbb65dd/src/package/editor/index.ts#L116)
 
 ### #selectionStart
 
@@ -157,7 +157,7 @@ Gets the start position of the selection.
 
 #### Defined in
 
-[src/package/editor/index.ts:121](https://github.com/rossrobino/components/blob/ebb6edd/src/package/editor/index.ts#L121)
+[src/package/editor/index.ts:121](https://github.com/rossrobino/components/blob/bbb65dd/src/package/editor/index.ts#L121)
 
 ### event
 
@@ -183,7 +183,7 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/ebb6edd/src/package/base/index.ts#L30)
+[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L30)
 
 • `set` **event**(`value`): `void`
 
@@ -203,7 +203,7 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:34](https://github.com/rossrobino/components/blob/ebb6edd/src/package/base/index.ts#L34)
+[src/package/base/index.ts:34](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L34)
 
 ### text
 
@@ -217,7 +217,7 @@ The current `value` of the `textarea`.
 
 #### Defined in
 
-[src/package/editor/index.ts:80](https://github.com/rossrobino/components/blob/ebb6edd/src/package/editor/index.ts#L80)
+[src/package/editor/index.ts:80](https://github.com/rossrobino/components/blob/bbb65dd/src/package/editor/index.ts#L80)
 
 • `set` **text**(`value`): `void`
 
@@ -233,7 +233,7 @@ The current `value` of the `textarea`.
 
 #### Defined in
 
-[src/package/editor/index.ts:84](https://github.com/rossrobino/components/blob/ebb6edd/src/package/editor/index.ts#L84)
+[src/package/editor/index.ts:84](https://github.com/rossrobino/components/blob/bbb65dd/src/package/editor/index.ts#L84)
 
 ### textArea
 
@@ -247,7 +247,7 @@ The `content`, expects an `HTMLTextAreaElement`.
 
 #### Defined in
 
-[src/package/editor/index.ts:75](https://github.com/rossrobino/components/blob/ebb6edd/src/package/editor/index.ts#L75)
+[src/package/editor/index.ts:75](https://github.com/rossrobino/components/blob/bbb65dd/src/package/editor/index.ts#L75)
 
 ---
 
@@ -272,7 +272,7 @@ The `content`, expects an `HTMLTextAreaElement`.
 
 #### Defined in
 
-[src/package/editor/index.ts:227](https://github.com/rossrobino/components/blob/ebb6edd/src/package/editor/index.ts#L227)
+[src/package/editor/index.ts:227](https://github.com/rossrobino/components/blob/bbb65dd/src/package/editor/index.ts#L227)
 
 ### #correctFollowing
 
@@ -309,7 +309,7 @@ Instead:
 
 #### Defined in
 
-[src/package/editor/index.ts:311](https://github.com/rossrobino/components/blob/ebb6edd/src/package/editor/index.ts#L311)
+[src/package/editor/index.ts:311](https://github.com/rossrobino/components/blob/bbb65dd/src/package/editor/index.ts#L311)
 
 ### #getContentElement
 
@@ -329,7 +329,7 @@ The ContentElement based on the `trigger`'s attributes.
 
 #### Defined in
 
-[src/package/editor/index.ts:134](https://github.com/rossrobino/components/blob/ebb6edd/src/package/editor/index.ts#L134)
+[src/package/editor/index.ts:134](https://github.com/rossrobino/components/blob/bbb65dd/src/package/editor/index.ts#L134)
 
 ### #getLineInfo
 
@@ -355,7 +355,7 @@ const { lines, lineNumber, columnNumber } = getLineInfo();
 
 #### Defined in
 
-[src/package/editor/index.ts:269](https://github.com/rossrobino/components/blob/ebb6edd/src/package/editor/index.ts#L269)
+[src/package/editor/index.ts:269](https://github.com/rossrobino/components/blob/bbb65dd/src/package/editor/index.ts#L269)
 
 ### #getRepeat
 
@@ -378,7 +378,7 @@ what is found, or the empty string
 
 #### Defined in
 
-[src/package/editor/index.ts:242](https://github.com/rossrobino/components/blob/ebb6edd/src/package/editor/index.ts#L242)
+[src/package/editor/index.ts:242](https://github.com/rossrobino/components/blob/bbb65dd/src/package/editor/index.ts#L242)
 
 ### #insertText
 
@@ -401,7 +401,7 @@ what is found, or the empty string
 
 #### Defined in
 
-[src/package/editor/index.ts:149](https://github.com/rossrobino/components/blob/ebb6edd/src/package/editor/index.ts#L149)
+[src/package/editor/index.ts:149](https://github.com/rossrobino/components/blob/bbb65dd/src/package/editor/index.ts#L149)
 
 ### #setCaretPosition
 
@@ -425,7 +425,7 @@ what is found, or the empty string
 
 #### Defined in
 
-[src/package/editor/index.ts:191](https://github.com/rossrobino/components/blob/ebb6edd/src/package/editor/index.ts#L191)
+[src/package/editor/index.ts:191](https://github.com/rossrobino/components/blob/bbb65dd/src/package/editor/index.ts#L191)
 
 ### #setSelectionRange
 
@@ -446,7 +446,7 @@ Sets the current cursor selection in the `textarea`
 
 #### Defined in
 
-[src/package/editor/index.ts:126](https://github.com/rossrobino/components/blob/ebb6edd/src/package/editor/index.ts#L126)
+[src/package/editor/index.ts:126](https://github.com/rossrobino/components/blob/bbb65dd/src/package/editor/index.ts#L126)
 
 ### connectedCallback
 
@@ -462,7 +462,25 @@ Sets the current cursor selection in the `textarea`
 
 #### Defined in
 
-[src/package/base/index.ts:129](https://github.com/rossrobino/components/blob/ebb6edd/src/package/base/index.ts#L129)
+[src/package/base/index.ts:151](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L151)
+
+### destroy
+
+▸ **destroy**(): `void`
+
+Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallback` as well. It is overridden in each element that needs to run `disconnectedCallback`.
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Base](/docs/base/).[destroy](/docs/base/#destroy)
+
+#### Defined in
+
+[src/package/base/index.ts:158](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L158)
 
 ### disconnectedCallback
 
@@ -478,7 +496,7 @@ Sets the current cursor selection in the `textarea`
 
 #### Defined in
 
-[src/package/base/index.ts:133](https://github.com/rossrobino/components/blob/ebb6edd/src/package/base/index.ts#L133)
+[src/package/base/index.ts:160](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L160)
 
 ### getContent
 
@@ -514,7 +532,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/ebb6edd/src/package/base/index.ts#L55)
+[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L55)
 
 ### getTrigger
 
@@ -538,13 +556,13 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/ebb6edd/src/package/base/index.ts#L42)
+[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L42)
 
 ### mount
 
 ▸ **mount**(): `void`
 
-Placeholder function is passed into `queueMicrotask` in `connectedCallback`. It is overridden in each component that needs to run `connectedCallback`.
+Passed into `queueMicrotask` in `connectedCallback`. It is overridden in each component that needs to run `connectedCallback`.
 
 The reason for this is to make these elements work better with frameworks like Svelte. For SSR this isn't necessary, but when client side rendering, the HTML within the custom element isn't available before `connectedCallback` is called. By waiting until the next microtask, the HTML content is available---then for example, listeners can be attached to elements inside.
 
@@ -558,7 +576,7 @@ The reason for this is to make these elements work better with frameworks like S
 
 #### Defined in
 
-[src/package/editor/index.ts:338](https://github.com/rossrobino/components/blob/ebb6edd/src/package/editor/index.ts#L338)
+[src/package/editor/index.ts:338](https://github.com/rossrobino/components/blob/bbb65dd/src/package/editor/index.ts#L338)
 
 ### safeListener
 
@@ -571,17 +589,17 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 | Name | Type                                                            |
 | :--- | :-------------------------------------------------------------- |
-| `K`  | extends keyof `HTMLElementEventMap`                             |
+| `K`  | extends keyof `DocumentEventMap`                                |
 | `T`  | extends `Window` \| `Document` \| `HTMLElement` = `HTMLElement` |
 
 #### Parameters
 
-| Name       | Type                                                     |
-| :--------- | :------------------------------------------------------- |
-| `type`     | `K`                                                      |
-| `listener` | (`this`: `T`, `ev`: `HTMLElementEventMap`[`K`]) => `any` |
-| `element`  | `T`                                                      |
-| `options`  | `AddEventListenerOptions`                                |
+| Name       | Type                                                  |
+| :--------- | :---------------------------------------------------- |
+| `type`     | `K`                                                   |
+| `listener` | (`this`: `T`, `ev`: `DocumentEventMap`[`K`]) => `any` |
+| `element`  | `T`                                                   |
+| `options`  | `AddEventListenerOptions`                             |
 
 #### Returns
 
@@ -593,7 +611,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:96](https://github.com/rossrobino/components/blob/ebb6edd/src/package/base/index.ts#L96)
+[src/package/base/index.ts:118](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L118)
 
 ### swapContent
 
@@ -619,7 +637,7 @@ swaps `this.content()` with the content of the element found.
 
 #### Defined in
 
-[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/ebb6edd/src/package/base/index.ts#L72)
+[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L72)
 
 ### triggerListener
 
@@ -634,10 +652,10 @@ swaps `this.content()` with the content of the element found.
 
 #### Parameters
 
-| Name       | Type                                                     | Description                                          |
-| :--------- | :------------------------------------------------------- | :--------------------------------------------------- |
-| `listener` | (`this`: `T`, `ev`: `HTMLElementEventMap`[`K`]) => `any` | Listener to attach to all of the `trigger` elements. |
-| `type`     | `K`                                                      | -                                                    |
+| Name       | Type                                                    | Description                                          |
+| :--------- | :------------------------------------------------------ | :--------------------------------------------------- |
+| `listener` | (`this`: `T`, `e`: `HTMLElementEventMap`[`K`]) => `any` | Listener to attach to all of the `trigger` elements. |
+| `type`     | `K`                                                     | -                                                    |
 
 #### Returns
 
@@ -649,4 +667,4 @@ swaps `this.content()` with the content of the element found.
 
 #### Defined in
 
-[src/package/base/index.ts:113](https://github.com/rossrobino/components/blob/ebb6edd/src/package/base/index.ts#L113)
+[src/package/base/index.ts:135](https://github.com/rossrobino/components/blob/bbb65dd/src/package/base/index.ts#L135)
