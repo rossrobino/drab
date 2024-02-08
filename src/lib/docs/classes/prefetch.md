@@ -1,26 +1,33 @@
-The `Prefetch` element enhances the `HTMLAnchorElement` by loading the HTML for
-the linked page before it is navigated to. This element speeds up the navigation for
+The `Prefetch` element can prefetch a url, or enhance the `HTMLAnchorElement` by loading
+the HTML for a page before it is navigated to. This element speeds up the navigation for
 multi-page applications (MPAs).
 
-If you are using a framework that already has a prefetch feature, it is probably best to use
-the framework instead of this element. Frameworks often use client side routing, or have
-build time optimizations.
+If you are using a framework that already has a prefetch feature or uses a client side router,
+it is best to use the framework's feature instead of this element to prefetching is working in
+accordance with the router.
 
 `strategy`
 
 Set the `strategy` attribute to specify the when the prefetch will take place.
 
-- `"hover"` - (default) after `mouseover` or `focus` for > 200ms, and on `touchstart` for mobile
-- `"visible"` - within viewport
-- `"load"` - when the element is loaded, use carefully
+- `"hover"` - (default) After `mouseover`, `focus`, or `touchstart` for > 200ms
+- `"visible"` - Uses an intersection observer to prefetch when the anchor is within the viewport.
+- `"load"` - Immediately prefetches when the element is loaded, use carefully.
 
 `prerender`
 
-Use the `prerender` attribute to use the experimental Speculation Rules API when supported to prerender on the client. This allows you to run client side JavaScript in advance instead of only fetching the HTML.
+Use the `prerender` attribute to use the experimental Speculation Rules API when supported to
+prerender on the client. This allows you to run client side JavaScript in advance instead of
+only fetching the HTML.
 
 Browsers that do not support will still use `<link rel="prefetch">` instead.
 
-[MDN Reference](https://developer.mozilla.org/en-US/docs/Web/API/Speculation_Rules_API)
+[Speculation Rules Reference](https://developer.mozilla.org/en-US/docs/Web/API/Speculation_Rules_API)
+
+`url`
+
+Add a `url` attribute to immediately prefetch a url without having to provide
+(or in addition to) `trigger` anchor elements.
 
 ---
 
@@ -48,7 +55,7 @@ Browsers that do not support will still use `<link rel="prefetch">` instead.
 
 #### Defined in
 
-src/package/prefetch/index.ts:40
+[src/package/prefetch/index.ts:49](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/prefetch/index.ts#L49)
 
 ---
 
@@ -66,7 +73,7 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/d08c324/src/package/base/index.ts#L17)
+[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/base/index.ts#L17)
 
 ---
 
@@ -84,21 +91,35 @@ Use the speculation rules API.
 
 #### Defined in
 
-src/package/prefetch/index.ts:53
+[src/package/prefetch/index.ts:59](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/prefetch/index.ts#L59)
 
 ### #strategy
 
-• `get` **#strategy**(): `"load"` \| `"hover"` \| `"visible"`
+• `get` **#strategy**(): `Strategy`
 
 When to prefetch the url.
 
 #### Returns
 
-`"load"` \| `"hover"` \| `"visible"`
+`Strategy`
 
 #### Defined in
 
-src/package/prefetch/index.ts:45
+[src/package/prefetch/index.ts:54](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/prefetch/index.ts#L54)
+
+### #url
+
+• `get` **#url**(): `null` \| `string`
+
+`url` to append to the head on `mount`.
+
+#### Returns
+
+`null` \| `string`
+
+#### Defined in
+
+[src/package/prefetch/index.ts:64](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/prefetch/index.ts#L64)
 
 ### event
 
@@ -124,7 +145,7 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/d08c324/src/package/base/index.ts#L30)
+[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/base/index.ts#L30)
 
 • `set` **event**(`value`): `void`
 
@@ -144,11 +165,34 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:34](https://github.com/rossrobino/components/blob/d08c324/src/package/base/index.ts#L34)
+[src/package/base/index.ts:34](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/base/index.ts#L34)
 
 ---
 
 ## Methods
+
+### appendTag
+
+▸ **appendTag**(`options`): `void`
+
+Adds a `<link rel="prefetch">` or a `<script type="speculationrules">` to the
+head of the document.
+
+#### Parameters
+
+| Name                 | Type      | Description                                                                                                 |
+| :------------------- | :-------- | :---------------------------------------------------------------------------------------------------------- |
+| `options`            | `Object`  | Configuration options.                                                                                      |
+| `options.prerender?` | `boolean` | Uses the experimental Speculation Rules API when supported to prerender on the client, defaults to `false`. |
+| `options.url`        | `string`  | `url` to prefetch.                                                                                          |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/package/prefetch/index.ts:74](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/prefetch/index.ts#L74)
 
 ### connectedCallback
 
@@ -164,7 +208,7 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:151](https://github.com/rossrobino/components/blob/d08c324/src/package/base/index.ts#L151)
+[src/package/base/index.ts:151](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/base/index.ts#L151)
 
 ### destroy
 
@@ -182,7 +226,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 #### Defined in
 
-[src/package/base/index.ts:158](https://github.com/rossrobino/components/blob/d08c324/src/package/base/index.ts#L158)
+[src/package/base/index.ts:158](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/base/index.ts#L158)
 
 ### disconnectedCallback
 
@@ -198,7 +242,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 #### Defined in
 
-[src/package/base/index.ts:160](https://github.com/rossrobino/components/blob/d08c324/src/package/base/index.ts#L160)
+[src/package/base/index.ts:160](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/base/index.ts#L160)
 
 ### getContent
 
@@ -234,7 +278,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/d08c324/src/package/base/index.ts#L55)
+[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/base/index.ts#L55)
 
 ### getTrigger
 
@@ -264,7 +308,7 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/d08c324/src/package/base/index.ts#L42)
+[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/base/index.ts#L42)
 
 ### mount
 
@@ -284,7 +328,7 @@ The reason for this is to make these elements work better with frameworks like S
 
 #### Defined in
 
-src/package/prefetch/index.ts:174
+[src/package/prefetch/index.ts:222](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/prefetch/index.ts#L222)
 
 ### prefetch
 
@@ -298,7 +342,8 @@ Can be used more than once with different options for different selectors.
 
 | Name                 | Type                                 | Description                                                                                                 |
 | :------------------- | :----------------------------------- | :---------------------------------------------------------------------------------------------------------- |
-| `options`            | `Object`                             | prefetch options                                                                                            |
+| `options`            | `Object`                             | Prefetch options.                                                                                           |
+| `options.anchors?`   | `NodeListOf`\<`HTMLAnchorElement`\>  | The anchors to prefetch. Defaults to `trigger` elements.                                                    |
 | `options.prerender?` | `boolean`                            | Uses the experimental Speculation Rules API when supported to prerender on the client, defaults to `false`. |
 | `options.strategy?`  | `"load"` \| `"hover"` \| `"visible"` | Determines when the prefetch takes place, defaults to `"hover"`.                                            |
 
@@ -308,7 +353,7 @@ Can be used more than once with different options for different selectors.
 
 #### Defined in
 
-src/package/prefetch/index.ts:64
+[src/package/prefetch/index.ts:148](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/prefetch/index.ts#L148)
 
 ### safeListener
 
@@ -343,7 +388,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:118](https://github.com/rossrobino/components/blob/d08c324/src/package/base/index.ts#L118)
+[src/package/base/index.ts:118](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/base/index.ts#L118)
 
 ### swapContent
 
@@ -369,7 +414,7 @@ swaps `this.content()` with the content of the element found.
 
 #### Defined in
 
-[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/d08c324/src/package/base/index.ts#L72)
+[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/base/index.ts#L72)
 
 ### triggerListener
 
@@ -399,4 +444,4 @@ swaps `this.content()` with the content of the element found.
 
 #### Defined in
 
-[src/package/base/index.ts:135](https://github.com/rossrobino/components/blob/d08c324/src/package/base/index.ts#L135)
+[src/package/base/index.ts:135](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/base/index.ts#L135)
