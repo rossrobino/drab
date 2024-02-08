@@ -4,7 +4,7 @@ import type { Attributes } from "../types/index.js";
 type Strategy = "hover" | "load" | "visible";
 
 export type PrefetchAttributes = Attributes<Prefetch> &
-	Partial<{ strategy: Strategy; prerender: boolean }>;
+	Partial<{ strategy: Strategy; prerender: boolean; url: string }>;
 
 type SpeculationRules = {
 	prerender?: {
@@ -19,8 +19,8 @@ type SpeculationRules = {
  * multi-page applications (MPAs).
  *
  * If you are using a framework that already has a prefetch feature or uses a client side router,
- * it is best to use the framework's feature instead of this element to prefetching is working in
- * accordance with the router.
+ * it is best to use the framework's feature instead of this element to ensure
+ * prefetching is working in accordance with the router.
  *
  * `strategy`
  *
