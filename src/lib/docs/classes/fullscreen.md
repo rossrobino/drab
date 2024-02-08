@@ -28,7 +28,7 @@ Disables the `trigger` if fullscreen is not supported.
 
 #### Defined in
 
-[src/package/fullscreen/index.ts:12](https://github.com/rossrobino/components/blob/dd63b43/src/package/fullscreen/index.ts#L12)
+[src/package/fullscreen/index.ts:12](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/fullscreen/index.ts#L12)
 
 ---
 
@@ -46,7 +46,7 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/dd63b43/src/package/base/index.ts#L17)
+[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/base/index.ts#L17)
 
 ---
 
@@ -76,7 +76,7 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/dd63b43/src/package/base/index.ts#L30)
+[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/base/index.ts#L30)
 
 • `set` **event**(`value`): `void`
 
@@ -96,7 +96,7 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:34](https://github.com/rossrobino/components/blob/dd63b43/src/package/base/index.ts#L34)
+[src/package/base/index.ts:34](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/base/index.ts#L34)
 
 ---
 
@@ -116,7 +116,7 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:151](https://github.com/rossrobino/components/blob/dd63b43/src/package/base/index.ts#L151)
+[src/package/base/index.ts:151](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/base/index.ts#L151)
 
 ### destroy
 
@@ -134,7 +134,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 #### Defined in
 
-[src/package/base/index.ts:158](https://github.com/rossrobino/components/blob/dd63b43/src/package/base/index.ts#L158)
+[src/package/base/index.ts:158](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/base/index.ts#L158)
 
 ### disconnectedCallback
 
@@ -150,7 +150,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 #### Defined in
 
-[src/package/base/index.ts:160](https://github.com/rossrobino/components/blob/dd63b43/src/package/base/index.ts#L160)
+[src/package/base/index.ts:160](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/base/index.ts#L160)
 
 ### fullscreenSupported
 
@@ -164,7 +164,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 #### Defined in
 
-[src/package/fullscreen/index.ts:26](https://github.com/rossrobino/components/blob/dd63b43/src/package/fullscreen/index.ts#L26)
+[src/package/fullscreen/index.ts:26](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/fullscreen/index.ts#L26)
 
 ### getContent
 
@@ -200,15 +200,21 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/dd63b43/src/package/base/index.ts#L55)
+[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/base/index.ts#L55)
 
 ### getTrigger
 
-▸ **getTrigger**(): `NodeListOf`\<`HTMLElement`\>
+▸ **getTrigger**\<`T`\>(): `NodeListOf`\<`T`\>
+
+#### Type parameters
+
+| Name | Type                                  |
+| :--- | :------------------------------------ |
+| `T`  | extends `HTMLElement` = `HTMLElement` |
 
 #### Returns
 
-`NodeListOf`\<`HTMLElement`\>
+`NodeListOf`\<`T`\>
 
 All of the elements that match the `trigger` selector.
 
@@ -224,7 +230,7 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/dd63b43/src/package/base/index.ts#L42)
+[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/base/index.ts#L42)
 
 ### isFullscreen
 
@@ -238,7 +244,7 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/fullscreen/index.ts:19](https://github.com/rossrobino/components/blob/dd63b43/src/package/fullscreen/index.ts#L19)
+[src/package/fullscreen/index.ts:19](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/fullscreen/index.ts#L19)
 
 ### mount
 
@@ -258,7 +264,7 @@ The reason for this is to make these elements work better with frameworks like S
 
 #### Defined in
 
-[src/package/fullscreen/index.ts:44](https://github.com/rossrobino/components/blob/dd63b43/src/package/fullscreen/index.ts#L44)
+[src/package/fullscreen/index.ts:44](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/fullscreen/index.ts#L44)
 
 ### safeListener
 
@@ -293,7 +299,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:118](https://github.com/rossrobino/components/blob/dd63b43/src/package/base/index.ts#L118)
+[src/package/base/index.ts:118](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/base/index.ts#L118)
 
 ### swapContent
 
@@ -319,7 +325,7 @@ swaps `this.content()` with the content of the element found.
 
 #### Defined in
 
-[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/dd63b43/src/package/base/index.ts#L72)
+[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/base/index.ts#L72)
 
 ### toggle
 
@@ -333,7 +339,7 @@ Enables or disables fullscreen mode based on the current state.
 
 #### Defined in
 
-[src/package/fullscreen/index.ts:32](https://github.com/rossrobino/components/blob/dd63b43/src/package/fullscreen/index.ts#L32)
+[src/package/fullscreen/index.ts:32](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/fullscreen/index.ts#L32)
 
 ### triggerListener
 
@@ -363,4 +369,4 @@ Enables or disables fullscreen mode based on the current state.
 
 #### Defined in
 
-[src/package/base/index.ts:135](https://github.com/rossrobino/components/blob/dd63b43/src/package/base/index.ts#L135)
+[src/package/base/index.ts:135](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/base/index.ts#L135)

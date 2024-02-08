@@ -1,27 +1,33 @@
-The `Animate` base class provides a declarative way to use the
-[Web Animations API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API)
-through HTML attributes. The `animateElement` method uses these attributes and
-persists the final animation state. Other elements in **drab** extend this class
-to provide animations. You can also extend this class to create your own custom
-animated element.
+The `Prefetch` element can prefetch a url, or enhance the `HTMLAnchorElement` by loading
+the HTML for a page before it is navigated to. This element speeds up the navigation for
+multi-page applications (MPAs).
 
-Keyframes can be set via HTML attributes on the element in the form of:
+If you are using a framework that already has a prefetch feature or uses a client side router,
+it is best to use the framework's feature instead of this element to prefetching is working in
+accordance with the router.
 
-```html
-<drab-animate animation-keyframe-offset-property="value"></drab-animate>
-```
+`strategy`
 
-`offset` can be `to`, `from`, or a `number`.
+Set the `strategy` attribute to specify the when the prefetch will take place.
 
-`property` can be any animatable CSS property separated by dashes.
+- `"hover"` - (default) After `mouseover`, `focus`, or `touchstart` for > 200ms
+- `"visible"` - Uses an intersection observer to prefetch when the anchor is within the viewport.
+- `"load"` - Immediately prefetches when the element is loaded, use carefully.
 
-Animations `options` can be set:
+`prerender`
 
-```html
-<drab-animate animation-option-property="value"></drab-animate>
-```
+Use the `prerender` attribute to use the experimental Speculation Rules API when supported to
+prerender on the client. This allows you to run client side JavaScript in advance instead of
+only fetching the HTML.
 
-`property` can be `duration`, `delay`, or `easing`.
+Browsers that do not support will still use `<link rel="prefetch">` instead.
+
+[Speculation Rules Reference](https://developer.mozilla.org/en-US/docs/Web/API/Speculation_Rules_API)
+
+`url`
+
+Add a `url` attribute to immediately prefetch a url without having to provide
+(or in addition to) `trigger` anchor elements.
 
 ---
 
@@ -29,15 +35,7 @@ Animations `options` can be set:
 
 - [`Base`](/docs/base/)
 
-  ↳ **`Animate`**
-
-  ↳↳ [`ContextMenu`](/docs/contextmenu/)
-
-  ↳↳ [`Details`](/docs/details/)
-
-  ↳↳ [`Dialog`](/docs/dialog/)
-
-  ↳↳ [`Popover`](/docs/popover/)
+  ↳ **`Prefetch`**
 
 ---
 
@@ -45,11 +43,11 @@ Animations `options` can be set:
 
 ### constructor
 
-• **new Animate**(): [`Animate`](/docs/animate/)
+• **new Prefetch**(): [`Prefetch`](/docs/prefetch/)
 
 #### Returns
 
-[`Animate`](/docs/animate/)
+[`Prefetch`](/docs/prefetch/)
 
 #### Overrides
 
@@ -57,7 +55,7 @@ Animations `options` can be set:
 
 #### Defined in
 
-[src/package/animate/index.ts:39](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/animate/index.ts#L39)
+[src/package/prefetch/index.ts:49](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/prefetch/index.ts#L49)
 
 ---
 
@@ -81,19 +79,47 @@ To clean up event listeners added to `document` when the element is removed.
 
 ## Accessors
 
-### animationOptions
+### #prerender
 
-• `get` **animationOptions**(): `KeyframeAnimationOptions`
+• `get` **#prerender**(): `boolean`
+
+Use the speculation rules API.
 
 #### Returns
 
-`KeyframeAnimationOptions`
-
-An object containing the values of each `animation-option` attribute
+`boolean`
 
 #### Defined in
 
-[src/package/animate/index.ts:46](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/animate/index.ts#L46)
+[src/package/prefetch/index.ts:59](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/prefetch/index.ts#L59)
+
+### #strategy
+
+• `get` **#strategy**(): `Strategy`
+
+When to prefetch the url.
+
+#### Returns
+
+`Strategy`
+
+#### Defined in
+
+[src/package/prefetch/index.ts:54](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/prefetch/index.ts#L54)
+
+### #url
+
+• `get` **#url**(): `null` \| `string`
+
+`url` to append to the head on `mount`.
+
+#### Returns
+
+`null` \| `string`
+
+#### Defined in
+
+[src/package/prefetch/index.ts:64](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/prefetch/index.ts#L64)
 
 ### event
 
@@ -141,51 +167,32 @@ Base.event
 
 [src/package/base/index.ts:34](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/base/index.ts#L34)
 
-### keyframes
-
-• `get` **keyframes**(): `Keyframe`[]
-
-#### Returns
-
-`Keyframe`[]
-
-#### Defined in
-
-[src/package/animate/index.ts:128](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/animate/index.ts#L128)
-
 ---
 
 ## Methods
 
-### animateElement
+### appendTag
 
-▸ **animateElement**(`animateOptions?`): `Promise`\<`void`\>
+▸ **appendTag**(`options`): `void`
+
+Adds a `<link rel="prefetch">` or a `<script type="speculationrules">` to the
+head of the document.
 
 #### Parameters
 
-| Name                      | Type                       | Description                          |
-| :------------------------ | :------------------------- | :----------------------------------- |
-| `animateOptions`          | `Object`                   | animates `this.content()` by default |
-| `animateOptions.element?` | `HTMLElement`              | -                                    |
-| `animateOptions.options?` | `KeyframeAnimationOptions` | -                                    |
+| Name                 | Type      | Description                                                                                                 |
+| :------------------- | :-------- | :---------------------------------------------------------------------------------------------------------- |
+| `options`            | `Object`  | Configuration options.                                                                                      |
+| `options.prerender?` | `boolean` | Uses the experimental Speculation Rules API when supported to prerender on the client, defaults to `false`. |
+| `options.url`        | `string`  | `url` to prefetch.                                                                                          |
 
 #### Returns
 
-`Promise`\<`void`\>
-
-**`Description`**
-
-Animates a particular element using the web animations API.
-
-- Disables animation if the user prefers reduced motion.
-- Sets default options
-- Uses the keyframes provided from `this.keyframes`
-- Waits for the animation to complete
-- Sets the start and end styles based on the first and last keyframe
+`void`
 
 #### Defined in
 
-[src/package/animate/index.ts:76](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/animate/index.ts#L76)
+[src/package/prefetch/index.ts:74](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/prefetch/index.ts#L74)
 
 ### connectedCallback
 
@@ -315,13 +322,38 @@ The reason for this is to make these elements work better with frameworks like S
 
 `void`
 
-#### Inherited from
+#### Overrides
 
 [Base](/docs/base/).[mount](/docs/base/#mount)
 
 #### Defined in
 
-[src/package/base/index.ts:149](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/base/index.ts#L149)
+[src/package/prefetch/index.ts:222](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/prefetch/index.ts#L222)
+
+### prefetch
+
+▸ **prefetch**(`options?`): `void`
+
+Use to prefetch/prerender HTML.
+
+Can be used more than once with different options for different selectors.
+
+#### Parameters
+
+| Name                 | Type                                 | Description                                                                                                 |
+| :------------------- | :----------------------------------- | :---------------------------------------------------------------------------------------------------------- |
+| `options`            | `Object`                             | Prefetch options.                                                                                           |
+| `options.anchors?`   | `NodeListOf`\<`HTMLAnchorElement`\>  | The anchors to prefetch. Defaults to `trigger` elements.                                                    |
+| `options.prerender?` | `boolean`                            | Uses the experimental Speculation Rules API when supported to prerender on the client, defaults to `false`. |
+| `options.strategy?`  | `"load"` \| `"hover"` \| `"visible"` | Determines when the prefetch takes place, defaults to `"hover"`.                                            |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/package/prefetch/index.ts:148](https://github.com/rossrobino/components/blob/7d0b0ae/src/package/prefetch/index.ts#L148)
 
 ### safeListener
 
