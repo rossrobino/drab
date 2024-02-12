@@ -20,10 +20,13 @@ export const OnThisPage: Block = async ({
 							a.textContent = heading.textContent;
 							li.append(a);
 							if (heading.tagName === "H3") {
-								const nested = document.createElement("ul");
-								nested.classList.add("my-0");
-								nested.append(li);
-								ul.append(nested);
+								const nestedLi = document.createElement("li");
+								nestedLi.classList.add("list-none");
+								const nestedUl = document.createElement("ul");
+								nestedUl.classList.add("my-0");
+								nestedUl.append(li);
+								nestedLi.append(nestedUl);
+								ul.append(nestedLi);
 							} else {
 								li.classList.add("list-none");
 								ul.append(li);

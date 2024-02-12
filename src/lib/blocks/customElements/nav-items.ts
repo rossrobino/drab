@@ -15,12 +15,16 @@ export const NavItems: Block = async ({
 		class extends HTMLElement {
 			connectedCallback() {
 				this.innerHTML = /* html */ `
-					<li><a href="/">Read me</a></li>
-					<li><a href="/getting-started/">Getting started</a></li>
-					<li>Reference</li>
-					<ul class="m-0" id="baseElements"></ul>
-					<li>Elements</li>
-					<ul class="m-0" id="elements"></ul>
+					<li class="pl-0"><a href="/">Read me</a></li>
+					<li class="pl-0"><a href="/getting-started/">Getting started</a></li>
+					<li class="pl-0">Reference</li>
+					<li class="pl-0">
+						<ul class="m-0" id="baseElements"></ul>
+					</li>
+					<li class="pl-0">Elements</li>
+					<li class="pl-0">
+						<ul class="m-0" id="elements"></ul>
+					</li>
 				`;
 				for (const el of elements) {
 					if (el.isDirectory()) {
@@ -41,6 +45,12 @@ export const NavItems: Block = async ({
 						}
 					}
 				}
+
+				// remove for ally - lighthouse doesn't like custom element as
+				// immediate child of ul
+				const parent = this.parentElement;
+				parent?.append(...this.children);
+				this.remove();
 			}
 		},
 	);
