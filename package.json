@@ -177,7 +177,7 @@
 		"@tailwindcss/typography": "^0.5.10",
 		"@types/node": "^20.11.19",
 		"autoprefixer": "^10.4.17",
-		"domco": "^0.5.0",
+		"domco": "^0.5.1",
 		"prettier": "^3.2.5",
 		"prettier-plugin-tailwindcss": "^0.5.11",
 		"robino": "^0.1.0",

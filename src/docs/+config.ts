@@ -5,7 +5,7 @@ import { process } from "robino/util/md";
 export const config: Config = {
 	layout: await fs.readFile("src/docs/layout.html", "utf-8"),
 
-	build: async ({ document }, { route }) => {
+	layoutBuild: async ({ document }, { route }) => {
 		const h1 = document.querySelector("h1");
 		const name = String(route.split("/").at(-1));
 		if (h1) h1.textContent = name;
