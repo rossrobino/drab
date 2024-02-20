@@ -4,7 +4,7 @@ export default defineConfig((options) => {
 	return {
 		entry: {
 			index: "src/package/index.ts",
-			"define/index": "src/package/define.ts",
+			define: "src/package/define.ts",
 			"base/index": "src/package/base/index.ts",
 			"base/define": "src/package/base/define.ts",
 			"animate/index": "src/package/animate/index.ts",
