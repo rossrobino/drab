@@ -11,8 +11,8 @@ const main = async () => {
 			default: "./index.js",
 		},
 		"./define": {
-			types: "./define/index.d.ts",
-			default: "./define/index.js",
+			types: "./define.d.ts",
+			default: "./define.js",
 		},
 	};
 
