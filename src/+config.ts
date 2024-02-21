@@ -34,7 +34,7 @@ export const config: Config = {
 			}
 		});
 
-		if (route === "/getting-started") {
+		if (route === "/getting-started/") {
 			const version = JSON.parse(
 				await fs.readFile("package.json", "utf-8"),
 			).version;
@@ -54,5 +54,12 @@ export const config: Config = {
 			table.parentNode?.insertBefore(wrapper, table);
 			wrapper.appendChild(table);
 		});
+
+		const anchors = document.querySelectorAll("a");
+		for (const anchor of anchors) {
+			if (anchor.href === route) {
+				anchor.setAttribute("data-current", "");
+			}
+		}
 	},
 };

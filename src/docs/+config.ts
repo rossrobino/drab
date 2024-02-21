@@ -7,7 +7,7 @@ export const config: Config = {
 
 	layoutBuild: async ({ document }, { route }) => {
 		const h1 = document.querySelector("h1");
-		const name = String(route.split("/").at(-1));
+		const name = String(route.split("/").at(-2));
 		if (h1) h1.textContent = name;
 
 		document.title = "drab - " + name;

@@ -6,7 +6,7 @@ export const BrandLinks: Block = async ({ customElements, HTMLElement }) => {
 		class extends HTMLElement {
 			connectedCallback() {
 				this.innerHTML = /* html */ `
-					<ul class="not-prose flex gap-1 p-6">
+					<ul class="not-prose flex gap-1 p-6 py-2">
 					<li>
 						<a
 							href="https://github.com/rossrobino/drab"
