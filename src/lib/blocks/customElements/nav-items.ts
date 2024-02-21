@@ -15,8 +15,8 @@ export const NavItems: Block = async ({
 		class extends HTMLElement {
 			connectedCallback() {
 				this.innerHTML = /* html */ `
-					<li class="pl-0"><a href="/">Read me</a></li>
-					<li class="pl-0"><a href="/getting-started/">Getting started</a></li>
+					<li class="pl-0 my-0.5"><a href="/">Read me</a></li>
+					<li class="pl-0 my-0.5"><a href="/getting-started/">Getting started</a></li>
 					<li class="pl-2 mt-3 font-semibold">Reference</li>
 					<li class="pl-0">
 						<ul class="m-0 pl-0 list-none" id="baseElements"></ul>
