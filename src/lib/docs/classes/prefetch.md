@@ -29,6 +29,10 @@ Browsers that do not support will still use `<link rel="prefetch">` instead.
 Add a `url` attribute to immediately prefetch a url without having to provide
 (or in addition to) `trigger` anchor elements.
 
+This element can be deprecated once the Speculation Rules API is supported across browsers.
+The API will be able to prefetch links in a similar way with the `source: "document"`
+and `eagerness` features, and will work without JavaScript.
+
 ---
 
 ## Hierarchy
@@ -55,7 +59,7 @@ Add a `url` attribute to immediately prefetch a url without having to provide
 
 #### Defined in
 
-[src/package/prefetch/index.ts:49](https://github.com/rossrobino/components/blob/64cdbf7/src/package/prefetch/index.ts#L49)
+[src/package/prefetch/index.ts:86](https://github.com/rossrobino/components/blob/1c302c1/src/package/prefetch/index.ts#L86)
 
 ---
 
@@ -73,7 +77,7 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/64cdbf7/src/package/base/index.ts#L17)
+[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/1c302c1/src/package/base/index.ts#L17)
 
 ---
 
@@ -91,7 +95,7 @@ Use the speculation rules API.
 
 #### Defined in
 
-[src/package/prefetch/index.ts:59](https://github.com/rossrobino/components/blob/64cdbf7/src/package/prefetch/index.ts#L59)
+[src/package/prefetch/index.ts:96](https://github.com/rossrobino/components/blob/1c302c1/src/package/prefetch/index.ts#L96)
 
 ### #strategy
 
@@ -105,7 +109,7 @@ When to prefetch the url.
 
 #### Defined in
 
-[src/package/prefetch/index.ts:54](https://github.com/rossrobino/components/blob/64cdbf7/src/package/prefetch/index.ts#L54)
+[src/package/prefetch/index.ts:91](https://github.com/rossrobino/components/blob/1c302c1/src/package/prefetch/index.ts#L91)
 
 ### #url
 
@@ -119,7 +123,7 @@ When to prefetch the url.
 
 #### Defined in
 
-[src/package/prefetch/index.ts:64](https://github.com/rossrobino/components/blob/64cdbf7/src/package/prefetch/index.ts#L64)
+[src/package/prefetch/index.ts:101](https://github.com/rossrobino/components/blob/1c302c1/src/package/prefetch/index.ts#L101)
 
 ### event
 
@@ -145,7 +149,7 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/64cdbf7/src/package/base/index.ts#L30)
+[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/1c302c1/src/package/base/index.ts#L30)
 
 • `set` **event**(`value`): `void`
 
@@ -165,7 +169,7 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:34](https://github.com/rossrobino/components/blob/64cdbf7/src/package/base/index.ts#L34)
+[src/package/base/index.ts:34](https://github.com/rossrobino/components/blob/1c302c1/src/package/base/index.ts#L34)
 
 ---
 
@@ -192,7 +196,7 @@ head of the document.
 
 #### Defined in
 
-[src/package/prefetch/index.ts:74](https://github.com/rossrobino/components/blob/64cdbf7/src/package/prefetch/index.ts#L74)
+[src/package/prefetch/index.ts:111](https://github.com/rossrobino/components/blob/1c302c1/src/package/prefetch/index.ts#L111)
 
 ### connectedCallback
 
@@ -208,7 +212,7 @@ head of the document.
 
 #### Defined in
 
-[src/package/base/index.ts:151](https://github.com/rossrobino/components/blob/64cdbf7/src/package/base/index.ts#L151)
+[src/package/base/index.ts:151](https://github.com/rossrobino/components/blob/1c302c1/src/package/base/index.ts#L151)
 
 ### destroy
 
@@ -226,7 +230,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 #### Defined in
 
-[src/package/base/index.ts:158](https://github.com/rossrobino/components/blob/64cdbf7/src/package/base/index.ts#L158)
+[src/package/base/index.ts:158](https://github.com/rossrobino/components/blob/1c302c1/src/package/base/index.ts#L158)
 
 ### disconnectedCallback
 
@@ -242,7 +246,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 #### Defined in
 
-[src/package/base/index.ts:160](https://github.com/rossrobino/components/blob/64cdbf7/src/package/base/index.ts#L160)
+[src/package/base/index.ts:160](https://github.com/rossrobino/components/blob/1c302c1/src/package/base/index.ts#L160)
 
 ### getContent
 
@@ -278,7 +282,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/64cdbf7/src/package/base/index.ts#L55)
+[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/1c302c1/src/package/base/index.ts#L55)
 
 ### getTrigger
 
@@ -308,7 +312,7 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/64cdbf7/src/package/base/index.ts#L42)
+[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/1c302c1/src/package/base/index.ts#L42)
 
 ### mount
 
@@ -328,7 +332,7 @@ The reason for this is to make these elements work better with frameworks like S
 
 #### Defined in
 
-[src/package/prefetch/index.ts:222](https://github.com/rossrobino/components/blob/64cdbf7/src/package/prefetch/index.ts#L222)
+[src/package/prefetch/index.ts:269](https://github.com/rossrobino/components/blob/1c302c1/src/package/prefetch/index.ts#L269)
 
 ### prefetch
 
@@ -353,7 +357,7 @@ Can be used more than once with different options for different selectors.
 
 #### Defined in
 
-[src/package/prefetch/index.ts:148](https://github.com/rossrobino/components/blob/64cdbf7/src/package/prefetch/index.ts#L148)
+[src/package/prefetch/index.ts:193](https://github.com/rossrobino/components/blob/1c302c1/src/package/prefetch/index.ts#L193)
 
 ### safeListener
 
@@ -388,7 +392,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:118](https://github.com/rossrobino/components/blob/64cdbf7/src/package/base/index.ts#L118)
+[src/package/base/index.ts:118](https://github.com/rossrobino/components/blob/1c302c1/src/package/base/index.ts#L118)
 
 ### swapContent
 
@@ -414,7 +418,7 @@ swaps `this.content()` with the content of the element found.
 
 #### Defined in
 
-[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/64cdbf7/src/package/base/index.ts#L72)
+[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/1c302c1/src/package/base/index.ts#L72)
 
 ### triggerListener
 
@@ -444,4 +448,4 @@ swaps `this.content()` with the content of the element found.
 
 #### Defined in
 
-[src/package/base/index.ts:135](https://github.com/rossrobino/components/blob/64cdbf7/src/package/base/index.ts#L135)
+[src/package/base/index.ts:135](https://github.com/rossrobino/components/blob/1c302c1/src/package/base/index.ts#L135)

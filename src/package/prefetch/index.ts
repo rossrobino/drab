@@ -6,12 +6,45 @@ type Strategy = "hover" | "load" | "visible";
 export type PrefetchAttributes = Attributes<Prefetch> &
 	Partial<{ strategy: Strategy; prerender: boolean; url: string }>;
 
+// proposed MDN docs - https://github.com/mdn/content/pull/32360/files
 type SpeculationRules = {
-	prerender?: {
-		source?: string;
-		urls?: string[];
-	}[];
+	prerender?: DocumentRule[] | ListRule[];
+	prefetch?: DocumentRule[] | ListRule[];
 };
+
+type Rule = {
+	expects_no_vary_search?: string;
+	referrer_policy?: ReferrerPolicy;
+	requires?: string[];
+};
+
+type DocumentRule = {
+	source: "document";
+	where: WhereCondition;
+	eagerness?: "immediate" | "moderate" | "eager" | "conservative";
+} & Rule;
+
+type ListRule = {
+	source: "list";
+	urls: string[];
+} & Rule;
+
+type WhereCondition =
+	| {
+			href_matches: string;
+	  }
+	| {
+			selector_matches: string;
+	  }
+	| {
+			and: WhereCondition[];
+	  }
+	| {
+			not: WhereCondition;
+	  }
+	| {
+			or: WhereCondition[];
+	  };
 
 /**
  * The `Prefetch` element can prefetch a url, or enhance the `HTMLAnchorElement` by loading
@@ -44,6 +77,10 @@ type SpeculationRules = {
  *
  * Add a `url` attribute to immediately prefetch a url without having to provide
  * (or in addition to) `trigger` anchor elements.
+ *
+ * This element can be deprecated once the Speculation Rules API is supported across browsers.
+ * The API will be able to prefetch links in a similar way with the `source: "document"`
+ * and `eagerness` features, and will work without JavaScript.
  */
 export class Prefetch extends Base {
 	constructor() {
@@ -100,8 +137,16 @@ export class Prefetch extends Base {
 					`script[type='${speculationrules}']`,
 				);
 				for (const s of existing) {
-					const rules = JSON.parse(s.textContent ?? "{}") as SpeculationRules;
-					if (rules.prerender?.at(0)?.urls?.includes(url)) {
+					const parsedRules: SpeculationRules = JSON.parse(
+						s.textContent ?? "{}",
+					);
+
+					if (
+						// check all rules
+						parsedRules.prerender?.some(
+							(rule) => "urls" in rule && rule.urls?.includes(url),
+						)
+					) {
 						return true;
 					}
 				}
@@ -124,7 +169,7 @@ export class Prefetch extends Base {
 								urls: [url],
 							},
 						],
-					} as SpeculationRules);
+					} satisfies SpeculationRules);
 					document.head.append(script);
 				} else {
 					// prerender off/not supported, and it isn't already there
@@ -214,6 +259,8 @@ export class Prefetch extends Base {
 				anchor.addEventListener("mouseout", reset);
 				anchor.addEventListener("focus", listener());
 				anchor.addEventListener("focusout", reset);
+
+				// immediately append on touchstart, no delay
 				anchor.addEventListener("touchstart", listener(0));
 			}
 		}
