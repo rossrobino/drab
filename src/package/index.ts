@@ -10,6 +10,7 @@ import { Details, type DetailsAttributes } from "./details/index.js";
 import { Dialog, type DialogAttributes } from "./dialog/index.js";
 import { Editor, type EditorAttributes } from "./editor/index.js";
 import { Fullscreen, type FullscreenAttributes } from "./fullscreen/index.js";
+import { Intersect, type IntersectAttributes } from "./intersect/index.js";
 import { Popover, type PopoverAttributes } from "./popover/index.js";
 import { Prefetch, type PrefetchAttributes } from "./prefetch/index.js";
 import { Share, type ShareAttributes } from "./share/index.js";
@@ -35,6 +36,8 @@ export {
 	EditorAttributes,
 	Fullscreen,
 	FullscreenAttributes,
+	Intersect,
+	IntersectAttributes,
 	Popover,
 	PopoverAttributes,
 	Prefetch,

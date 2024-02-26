@@ -23,6 +23,8 @@ export default defineConfig((options) => {
 			"editor/define": "src/package/editor/define.ts",
 			"fullscreen/index": "src/package/fullscreen/index.ts",
 			"fullscreen/define": "src/package/fullscreen/define.ts",
+			"intersect/index": "src/package/intersect/index.ts",
+			"intersect/define": "src/package/intersect/define.ts",
 			"popover/index": "src/package/popover/index.ts",
 			"popover/define": "src/package/popover/define.ts",
 			"prefetch/index": "src/package/prefetch/index.ts",

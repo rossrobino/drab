@@ -1,14 +1,10 @@
-Wrap a `HTMLTableElement` in the `TableSort` element to have sortable column
-headers. Set each `th` that you want to sort to the `trigger`. Set the `tbody`
-element to the `content`.
+Uses the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) to add a `data-intersect` attribute to `content` when the `trigger` is intersecting.
 
-The values of each cell default to the cell's `textContent`. If you would like to
-provide an alternate value than what appears in the cell to sort by instead,
-you can set a different value using the `data-value` attribute on the cell.
+Use `onIntersect` and `onExit` to customize further with JavaScript.
 
-The cells will be sorted as `string` by default. If you want to provide a different
-datatype `number` or `boolean`, set `data-type="number"` on the corresponding
-`th`/`trigger` element. The data will be converted to the specified type before sorting.
+`threshold`
+
+Specify a `threshold` between `0` and `1` to determine how much of the `trigger` should be visible for the intersection to occur.
 
 ---
 
@@ -16,7 +12,7 @@ datatype `number` or `boolean`, set `data-type="number"` on the corresponding
 
 - [`Base`](/docs/base/)
 
-  ↳ **`TableSort`**
+  ↳ **`Intersect`**
 
 ---
 
@@ -24,11 +20,11 @@ datatype `number` or `boolean`, set `data-type="number"` on the corresponding
 
 ### constructor
 
-• **new TableSort**(): [`TableSort`](/docs/tablesort/)
+• **new Intersect**(): [`Intersect`](/docs/intersect/)
 
 #### Returns
 
-[`TableSort`](/docs/tablesort/)
+[`Intersect`](/docs/intersect/)
 
 #### Overrides
 
@@ -36,11 +32,31 @@ datatype `number` or `boolean`, set `data-type="number"` on the corresponding
 
 #### Defined in
 
-[src/package/tablesort/index.ts:20](https://github.com/rossrobino/components/blob/78ddbac/src/package/tablesort/index.ts#L20)
+src/package/intersect/index.ts:25
 
 ---
 
 ## Properties
+
+### #exitCallbacks
+
+• `Private` **#exitCallbacks**: `IntersectCallback`[] = `[]`
+
+Functions to run when the `trigger` exits.
+
+#### Defined in
+
+src/package/intersect/index.ts:23
+
+### #intersectCallbacks
+
+• `Private` **#intersectCallbacks**: `IntersectCallback`[] = `[]`
+
+Functions to run when the `trigger` intersects.
+
+#### Defined in
+
+src/package/intersect/index.ts:20
 
 ### #listenerController
 
@@ -59,6 +75,26 @@ To clean up event listeners added to `document` when the element is removed.
 ---
 
 ## Accessors
+
+### #threshold
+
+• `get` **#threshold**(): `number`
+
+How much of the `trigger` should be visible for the intersection to occur. For example, given a threshold of `.5`, the intersection would occur when the `trigger` is 50% visible.
+
+#### Returns
+
+`number`
+
+**`Default`**
+
+```ts
+0;
+```
+
+#### Defined in
+
+src/package/intersect/index.ts:34
 
 ### event
 
@@ -109,28 +145,6 @@ Base.event
 ---
 
 ## Methods
-
-### #setAttributes
-
-▸ **#setAttributes**(`trigger`): `boolean`
-
-Removes `data-asc` or `data-desc` from other triggers then sets the correct attribute on the selected trigger.
-
-#### Parameters
-
-| Name      | Type          |
-| :-------- | :------------ |
-| `trigger` | `HTMLElement` |
-
-#### Returns
-
-`boolean`
-
-true if ascending, false if descending
-
-#### Defined in
-
-[src/package/tablesort/index.ts:30](https://github.com/rossrobino/components/blob/78ddbac/src/package/tablesort/index.ts#L30)
 
 ### connectedCallback
 
@@ -266,7 +280,43 @@ The reason for this is to make these elements work better with frameworks like S
 
 #### Defined in
 
-[src/package/tablesort/index.ts:49](https://github.com/rossrobino/components/blob/78ddbac/src/package/tablesort/index.ts#L49)
+src/package/intersect/index.ts:52
+
+### onExit
+
+▸ **onExit**(`callback`): `void`
+
+#### Parameters
+
+| Name       | Type                | Description                |
+| :--------- | :------------------ | :------------------------- |
+| `callback` | `IntersectCallback` | Runs when `trigger` exits. |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+src/package/intersect/index.ts:48
+
+### onIntersect
+
+▸ **onIntersect**(`callback`): `void`
+
+#### Parameters
+
+| Name       | Type                | Description                     |
+| :--------- | :------------------ | :------------------------------ |
+| `callback` | `IntersectCallback` | Runs when `trigger` intersects. |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+src/package/intersect/index.ts:41
 
 ### safeListener
 

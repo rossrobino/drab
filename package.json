@@ -1,7 +1,7 @@
 {
 	"name": "drab",
 	"description": "A headless custom element library",
-	"version": "5.2.3",
+	"version": "5.3.0",
 	"homepage": "https://drab.robino.dev",
 	"license": "MIT",
 	"author": {
@@ -13,6 +13,7 @@
 		"custom elements",
 		"animate",
 		"wakelock",
+		"intersect",
 		"contextmenu",
 		"details",
 		"youtube",
@@ -55,6 +56,14 @@
 		"./wakelock/define": {
 			"types": "./wakelock/define.d.ts",
 			"default": "./wakelock/define.js"
+		},
+		"./intersect": {
+			"types": "./intersect/index.d.ts",
+			"default": "./intersect/index.js"
+		},
+		"./intersect/define": {
+			"types": "./intersect/define.d.ts",
+			"default": "./intersect/define.js"
 		},
 		"./contextmenu": {
 			"types": "./contextmenu/index.d.ts",

@@ -11,6 +11,7 @@
 - [Dialog](/docs/classes/Dialog.md)
 - [Editor](/docs/classes/Editor.md)
 - [Fullscreen](/docs/classes/Fullscreen.md)
+- [Intersect](/docs/classes/Intersect.md)
 - [Popover](/docs/classes/Popover.md)
 - [Prefetch](/docs/classes/Prefetch.md)
 - [Share](/docs/classes/Share.md)
@@ -26,7 +27,7 @@
 
 #### Defined in
 
-[src/package/animate/index.ts:8](https://github.com/rossrobino/components/blob/1c302c1/src/package/animate/index.ts#L8)
+[src/package/animate/index.ts:8](https://github.com/rossrobino/components/blob/78ddbac/src/package/animate/index.ts#L8)
 
 ---
 
@@ -36,7 +37,7 @@
 
 #### Defined in
 
-[src/package/breakpoint/index.ts:4](https://github.com/rossrobino/components/blob/1c302c1/src/package/breakpoint/index.ts#L4)
+[src/package/breakpoint/index.ts:4](https://github.com/rossrobino/components/blob/78ddbac/src/package/breakpoint/index.ts#L4)
 
 ---
 
@@ -46,7 +47,7 @@
 
 #### Defined in
 
-[src/package/contextmenu/index.ts:4](https://github.com/rossrobino/components/blob/1c302c1/src/package/contextmenu/index.ts#L4)
+[src/package/contextmenu/index.ts:4](https://github.com/rossrobino/components/blob/78ddbac/src/package/contextmenu/index.ts#L4)
 
 ---
 
@@ -56,7 +57,7 @@
 
 #### Defined in
 
-[src/package/copy/index.ts:4](https://github.com/rossrobino/components/blob/1c302c1/src/package/copy/index.ts#L4)
+[src/package/copy/index.ts:4](https://github.com/rossrobino/components/blob/78ddbac/src/package/copy/index.ts#L4)
 
 ---
 
@@ -66,7 +67,7 @@
 
 #### Defined in
 
-[src/package/details/index.ts:4](https://github.com/rossrobino/components/blob/1c302c1/src/package/details/index.ts#L4)
+[src/package/details/index.ts:4](https://github.com/rossrobino/components/blob/78ddbac/src/package/details/index.ts#L4)
 
 ---
 
@@ -76,7 +77,7 @@
 
 #### Defined in
 
-[src/package/dialog/index.ts:4](https://github.com/rossrobino/components/blob/1c302c1/src/package/dialog/index.ts#L4)
+[src/package/dialog/index.ts:4](https://github.com/rossrobino/components/blob/78ddbac/src/package/dialog/index.ts#L4)
 
 ---
 
@@ -86,7 +87,7 @@
 
 #### Defined in
 
-[src/package/editor/index.ts:4](https://github.com/rossrobino/components/blob/1c302c1/src/package/editor/index.ts#L4)
+[src/package/editor/index.ts:4](https://github.com/rossrobino/components/blob/78ddbac/src/package/editor/index.ts#L4)
 
 ---
 
@@ -96,7 +97,17 @@
 
 #### Defined in
 
-[src/package/fullscreen/index.ts:4](https://github.com/rossrobino/components/blob/1c302c1/src/package/fullscreen/index.ts#L4)
+[src/package/fullscreen/index.ts:4](https://github.com/rossrobino/components/blob/78ddbac/src/package/fullscreen/index.ts#L4)
+
+---
+
+### IntersectAttributes
+
+Ƭ **IntersectAttributes**: `Attributes`\<[`Intersect`](/docs/classes/Intersect.md)\> & `Partial`\<\{ `threshold`: `number` }\>
+
+#### Defined in
+
+src/package/intersect/index.ts:4
 
 ---
 
@@ -106,7 +117,7 @@
 
 #### Defined in
 
-[src/package/popover/index.ts:4](https://github.com/rossrobino/components/blob/1c302c1/src/package/popover/index.ts#L4)
+[src/package/popover/index.ts:4](https://github.com/rossrobino/components/blob/78ddbac/src/package/popover/index.ts#L4)
 
 ---
 
@@ -116,7 +127,7 @@
 
 #### Defined in
 
-[src/package/prefetch/index.ts:6](https://github.com/rossrobino/components/blob/1c302c1/src/package/prefetch/index.ts#L6)
+[src/package/prefetch/index.ts:6](https://github.com/rossrobino/components/blob/78ddbac/src/package/prefetch/index.ts#L6)
 
 ---
 
@@ -126,7 +137,7 @@
 
 #### Defined in
 
-[src/package/share/index.ts:4](https://github.com/rossrobino/components/blob/1c302c1/src/package/share/index.ts#L4)
+[src/package/share/index.ts:4](https://github.com/rossrobino/components/blob/78ddbac/src/package/share/index.ts#L4)
 
 ---
 
@@ -136,7 +147,7 @@
 
 #### Defined in
 
-[src/package/tablesort/index.ts:4](https://github.com/rossrobino/components/blob/1c302c1/src/package/tablesort/index.ts#L4)
+[src/package/tablesort/index.ts:4](https://github.com/rossrobino/components/blob/78ddbac/src/package/tablesort/index.ts#L4)
 
 ---
 
@@ -146,7 +157,7 @@
 
 #### Defined in
 
-[src/package/wakelock/index.ts:4](https://github.com/rossrobino/components/blob/1c302c1/src/package/wakelock/index.ts#L4)
+[src/package/wakelock/index.ts:4](https://github.com/rossrobino/components/blob/78ddbac/src/package/wakelock/index.ts#L4)
 
 ---
 
@@ -156,4 +167,4 @@
 
 #### Defined in
 
-[src/package/youtube/index.ts:4](https://github.com/rossrobino/components/blob/1c302c1/src/package/youtube/index.ts#L4)
+[src/package/youtube/index.ts:4](https://github.com/rossrobino/components/blob/78ddbac/src/package/youtube/index.ts#L4)

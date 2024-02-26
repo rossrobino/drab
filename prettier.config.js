@@ -1,5 +1,7 @@
+import config from "robino/config/prettier";
+
 /** @type {import("prettier").Config} */
 export default {
-	useTabs: true,
+	...config,
 	plugins: ["prettier-plugin-tailwindcss"],
 };
