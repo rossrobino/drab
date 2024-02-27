@@ -261,7 +261,8 @@ export class Prefetch extends Base {
 				anchor.addEventListener("focusout", reset);
 
 				// immediately append on touchstart, no delay
-				anchor.addEventListener("touchstart", listener(0));
+				// passive: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#using_passive_listeners
+				anchor.addEventListener("touchstart", listener(0), { passive: true });
 			}
 		}
 	}

@@ -135,9 +135,10 @@ export class Base extends HTMLElement {
 	triggerListener<T extends HTMLElement, K extends keyof HTMLElementEventMap>(
 		listener: (this: T, e: HTMLElementEventMap[K]) => any,
 		type: K = this.event as K,
+		options?: AddEventListenerOptions,
 	) {
 		for (const trigger of this.getTrigger()) {
-			trigger.addEventListener(type, listener as EventListener);
+			trigger.addEventListener(type, listener as EventListener, options);
 		}
 	}
 

@@ -32,7 +32,7 @@ Specify a `threshold` between `0` and `1` to determine how much of the `trigger`
 
 #### Defined in
 
-src/package/intersect/index.ts:25
+[src/package/intersect/index.ts:25](https://github.com/rossrobino/components/blob/56281dd/src/package/intersect/index.ts#L25)
 
 ---
 
@@ -46,7 +46,7 @@ Functions to run when the `trigger` exits.
 
 #### Defined in
 
-src/package/intersect/index.ts:23
+[src/package/intersect/index.ts:23](https://github.com/rossrobino/components/blob/56281dd/src/package/intersect/index.ts#L23)
 
 ### #intersectCallbacks
 
@@ -56,7 +56,7 @@ Functions to run when the `trigger` intersects.
 
 #### Defined in
 
-src/package/intersect/index.ts:20
+[src/package/intersect/index.ts:20](https://github.com/rossrobino/components/blob/56281dd/src/package/intersect/index.ts#L20)
 
 ### #listenerController
 
@@ -70,7 +70,7 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/78ddbac/src/package/base/index.ts#L17)
+[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/56281dd/src/package/base/index.ts#L17)
 
 ---
 
@@ -94,7 +94,7 @@ How much of the `trigger` should be visible for the intersection to occur. For e
 
 #### Defined in
 
-src/package/intersect/index.ts:34
+[src/package/intersect/index.ts:34](https://github.com/rossrobino/components/blob/56281dd/src/package/intersect/index.ts#L34)
 
 ### event
 
@@ -120,7 +120,7 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/78ddbac/src/package/base/index.ts#L30)
+[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/56281dd/src/package/base/index.ts#L30)
 
 • `set` **event**(`value`): `void`
 
@@ -140,7 +140,7 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:34](https://github.com/rossrobino/components/blob/78ddbac/src/package/base/index.ts#L34)
+[src/package/base/index.ts:34](https://github.com/rossrobino/components/blob/56281dd/src/package/base/index.ts#L34)
 
 ---
 
@@ -160,7 +160,7 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:151](https://github.com/rossrobino/components/blob/78ddbac/src/package/base/index.ts#L151)
+[src/package/base/index.ts:152](https://github.com/rossrobino/components/blob/56281dd/src/package/base/index.ts#L152)
 
 ### destroy
 
@@ -178,7 +178,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 #### Defined in
 
-[src/package/base/index.ts:158](https://github.com/rossrobino/components/blob/78ddbac/src/package/base/index.ts#L158)
+[src/package/base/index.ts:159](https://github.com/rossrobino/components/blob/56281dd/src/package/base/index.ts#L159)
 
 ### disconnectedCallback
 
@@ -194,7 +194,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 #### Defined in
 
-[src/package/base/index.ts:160](https://github.com/rossrobino/components/blob/78ddbac/src/package/base/index.ts#L160)
+[src/package/base/index.ts:161](https://github.com/rossrobino/components/blob/56281dd/src/package/base/index.ts#L161)
 
 ### getContent
 
@@ -230,7 +230,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/78ddbac/src/package/base/index.ts#L55)
+[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/56281dd/src/package/base/index.ts#L55)
 
 ### getTrigger
 
@@ -260,7 +260,7 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/78ddbac/src/package/base/index.ts#L42)
+[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/56281dd/src/package/base/index.ts#L42)
 
 ### mount
 
@@ -280,7 +280,7 @@ The reason for this is to make these elements work better with frameworks like S
 
 #### Defined in
 
-src/package/intersect/index.ts:52
+[src/package/intersect/index.ts:52](https://github.com/rossrobino/components/blob/56281dd/src/package/intersect/index.ts#L52)
 
 ### onExit
 
@@ -298,7 +298,7 @@ src/package/intersect/index.ts:52
 
 #### Defined in
 
-src/package/intersect/index.ts:48
+[src/package/intersect/index.ts:48](https://github.com/rossrobino/components/blob/56281dd/src/package/intersect/index.ts#L48)
 
 ### onIntersect
 
@@ -316,7 +316,7 @@ src/package/intersect/index.ts:48
 
 #### Defined in
 
-src/package/intersect/index.ts:41
+[src/package/intersect/index.ts:41](https://github.com/rossrobino/components/blob/56281dd/src/package/intersect/index.ts#L41)
 
 ### safeListener
 
@@ -351,7 +351,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:118](https://github.com/rossrobino/components/blob/78ddbac/src/package/base/index.ts#L118)
+[src/package/base/index.ts:118](https://github.com/rossrobino/components/blob/56281dd/src/package/base/index.ts#L118)
 
 ### swapContent
 
@@ -377,11 +377,11 @@ swaps `this.content()` with the content of the element found.
 
 #### Defined in
 
-[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/78ddbac/src/package/base/index.ts#L72)
+[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/56281dd/src/package/base/index.ts#L72)
 
 ### triggerListener
 
-▸ **triggerListener**\<`T`, `K`\>(`listener`, `type?`): `void`
+▸ **triggerListener**\<`T`, `K`\>(`listener`, `type?`, `options?`): `void`
 
 #### Type parameters
 
@@ -396,6 +396,7 @@ swaps `this.content()` with the content of the element found.
 | :--------- | :------------------------------------------------------ | :--------------------------------------------------- |
 | `listener` | (`this`: `T`, `e`: `HTMLElementEventMap`[`K`]) => `any` | Listener to attach to all of the `trigger` elements. |
 | `type`     | `K`                                                     | -                                                    |
+| `options?` | `AddEventListenerOptions`                               | -                                                    |
 
 #### Returns
 
@@ -407,4 +408,4 @@ swaps `this.content()` with the content of the element found.
 
 #### Defined in
 
-[src/package/base/index.ts:135](https://github.com/rossrobino/components/blob/78ddbac/src/package/base/index.ts#L135)
+[src/package/base/index.ts:135](https://github.com/rossrobino/components/blob/56281dd/src/package/base/index.ts#L135)

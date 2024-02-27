@@ -73,15 +73,19 @@ export class ContextMenu extends Animate {
 		this.safeListener("click", () => this.hide());
 
 		// touch
-		this.triggerListener((e) => {
-			this.#touchTimer = setTimeout(() => {
-				this.show(e);
-			}, 800);
-		}, "touchstart");
+		this.triggerListener(
+			(e) => {
+				this.#touchTimer = setTimeout(() => {
+					this.show(e);
+				}, 800);
+			},
+			"touchstart",
+			{ passive: true },
+		);
 
 		const resetTimer = () => clearTimeout(this.#touchTimer);
-		this.triggerListener(resetTimer, "touchend");
-		this.triggerListener(resetTimer, "touchcancel");
+		this.triggerListener(resetTimer, "touchend", { passive: true });
+		this.triggerListener(resetTimer, "touchcancel", { passive: true });
 
 		// keyboard
 		this.safeListener("keydown", (e) => {
