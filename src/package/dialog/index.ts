@@ -5,6 +5,11 @@ export type DialogAttributes = Attributes<Dialog> & AnimateAttributes;
 
 /**
  * Provides triggers and animations for the `HTMLDialogElement`.
+ *
+ * `click-outside-close`
+ *
+ * By default, the `HTMLDialogElement` doesn't close if the user clicks outside of it.
+ * Add a `click-outside-close` attribute to close when the user clicks outside.
  */
 export class Dialog extends Animate {
 	constructor() {
@@ -48,5 +53,21 @@ export class Dialog extends Animate {
 				this.close();
 			}
 		});
+
+		if (this.hasAttribute("click-outside-close")) {
+			// https://blog.webdevsimplified.com/2023-04/html-dialog/#close-on-outside-click
+			this.dialog.addEventListener("click", (e) => {
+				const rect = this.dialog.getBoundingClientRect();
+
+				if (
+					e.clientX < rect.left ||
+					e.clientX > rect.right ||
+					e.clientY < rect.top ||
+					e.clientY > rect.bottom
+				) {
+					this.close();
+				}
+			});
+		}
 	}
 }
