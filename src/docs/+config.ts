@@ -43,10 +43,5 @@ export const config: Config = {
 				await process(`## Overview\n\n${reference}`)
 			).html;
 		}
-
-		const viewTransitionMeta = document.createElement("meta");
-		viewTransitionMeta.name = "view-transition";
-		viewTransitionMeta.content = "same-origin";
-		document.head.append(viewTransitionMeta);
 	},
 };
