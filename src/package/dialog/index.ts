@@ -1,7 +1,9 @@
 import { Animate, type AnimateAttributes } from "../animate/index.js";
 import type { Attributes } from "../types/index.js";
 
-export type DialogAttributes = Attributes<Dialog> & AnimateAttributes;
+export type DialogAttributes = Attributes<Dialog> &
+	AnimateAttributes &
+	Partial<{ "click-outside-close": boolean }>;
 
 /**
  * Provides triggers and animations for the `HTMLDialogElement`.

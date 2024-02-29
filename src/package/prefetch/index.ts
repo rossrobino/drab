@@ -6,7 +6,7 @@ type Strategy = "hover" | "load" | "visible";
 export type PrefetchAttributes = Attributes<Prefetch> &
 	Partial<{ strategy: Strategy; prerender: boolean; url: string }>;
 
-// proposed MDN docs - https://github.com/mdn/content/pull/32360/files
+// https://developer.chrome.com/blog/speculation-rules-improvements
 type SpeculationRules = {
 	prerender?: DocumentRule[] | ListRule[];
 	prefetch?: DocumentRule[] | ListRule[];
@@ -47,13 +47,9 @@ type WhereCondition =
 	  };
 
 /**
- * The `Prefetch` element can prefetch a url, or enhance the `HTMLAnchorElement` by loading
- * the HTML for a page before it is navigated to. This element speeds up the navigation for
- * multi-page applications (MPAs).
+ * The `Prefetch` element can prefetch a url, or enhance the `HTMLAnchorElement` by loading the HTML for a page before it is navigated to. This element speeds up the navigation for multi-page applications (MPAs).
  *
- * If you are using a framework that already has a prefetch feature or uses a client side router,
- * it is best to use the framework's feature instead of this element to ensure
- * prefetching is working in accordance with the router.
+ * If you are using a framework that already has a prefetch feature or uses a client side router, it is best to use the framework's feature instead of this element to ensure prefetching is working in accordance with the router.
  *
  * `strategy`
  *
@@ -65,11 +61,9 @@ type WhereCondition =
  *
  * `prerender`
  *
- * Use the `prerender` attribute to use the experimental Speculation Rules API when supported to
- * prerender on the client. This allows you to run client side JavaScript in advance instead of
- * only fetching the HTML.
+ * Use the `prerender` attribute to use the Speculation Rules API when supported to prerender on the client. This allows you to run client side JavaScript in advance instead of only fetching the HTML.
  *
- * Browsers that do not support will still use `<link rel="prefetch">` instead.
+ * Browsers that do not support will still use `fetch` with low priority instead.
  *
  * [Speculation Rules Reference](https://developer.mozilla.org/en-US/docs/Web/API/Speculation_Rules_API)
  *
@@ -78,11 +72,11 @@ type WhereCondition =
  * Add a `url` attribute to immediately prefetch a url without having to provide
  * (or in addition to) `trigger` anchor elements.
  *
- * This element can be deprecated once the Speculation Rules API is supported across browsers.
- * The API will be able to prefetch links in a similar way with the `source: "document"`
- * and `eagerness` features, and will work without JavaScript.
+ * This element can be deprecated once the Speculation Rules API is supported across browsers. The API will be able to prefetch assets in a similar way with the `source: "document"` and `eagerness` features, and will work without JavaScript.
  */
 export class Prefetch extends Base {
+	#prefetchedUrls: string[] = [];
+
 	constructor() {
 		super();
 	}
@@ -92,19 +86,18 @@ export class Prefetch extends Base {
 		return (this.getAttribute("strategy") ?? "hover") as Strategy;
 	}
 
-	/** Use the speculation rules API. */
+	/** Prerender with the Speculation Rules API. */
 	get #prerender() {
 		return this.hasAttribute("prerender");
 	}
 
-	/** `url` to append to the head on `mount`.  */
+	/** `url` to prefetch on `mount`.  */
 	get #url() {
 		return this.getAttribute("url");
 	}
 
 	/**
-	 * Adds a `<link rel="prefetch">` or a `<script type="speculationrules">` to the
-	 * head of the document.
+	 * Fetches the `url`, or appends `<script type="speculationrules">` to the head of the document.
 	 *
 	 * @param options Configuration options.
 	 */
@@ -113,8 +106,7 @@ export class Prefetch extends Base {
 		url: string;
 
 		/**
-		 * Uses the experimental Speculation Rules API when supported
-		 * to prerender on the client, defaults to `false`.
+		 * Uses the Speculation Rules API when supported to prerender on the client.
 		 */
 		prerender?: boolean;
 	}) {
@@ -125,45 +117,15 @@ export class Prefetch extends Base {
 			// minifies
 			const speculationrules = "speculationrules";
 
-			/** If the tag for this `url` already been added to the head. */
-			const alreadyAdded = (url: string) => {
-				// is there a link?
-				if (document.querySelector(`link[href='${url}']`)) {
-					return true;
-				}
-
-				// is there a speculationrules script?
-				const existing = document.querySelectorAll<HTMLScriptElement>(
-					`script[type='${speculationrules}']`,
-				);
-				for (const s of existing) {
-					const parsedRules: SpeculationRules = JSON.parse(
-						s.textContent ?? "{}",
-					);
-
-					if (
-						// check all rules
-						parsedRules.prerender?.some(
-							(rule) => "urls" in rule && rule.urls?.includes(url),
-						)
-					) {
-						return true;
-					}
-				}
-
-				return false;
-			};
-
-			if (!alreadyAdded(url)) {
+			if (!this.#prefetchedUrls.includes(url)) {
 				if (
-					prerender &&
 					HTMLScriptElement.supports &&
 					HTMLScriptElement.supports(speculationrules)
 				) {
 					const script = document.createElement("script");
 					script.type = speculationrules;
 					script.textContent = JSON.stringify({
-						prerender: [
+						[prerender ? "prerender" : "prefetch"]: [
 							{
 								source: "list",
 								urls: [url],
@@ -172,13 +134,12 @@ export class Prefetch extends Base {
 					} satisfies SpeculationRules);
 					document.head.append(script);
 				} else {
-					// prerender off/not supported, and it isn't already there
-					const link = document.createElement("link");
-					link.rel = "prefetch";
-					link.as = "document";
-					link.href = url;
-					document.head.append(link);
+					fetch(url, {
+						//@ts-ignore - typedoc error with priority
+						priority: "low",
+					}).catch((e) => console.error(e));
 				}
+				this.#prefetchedUrls.push(url);
 			}
 		}
 	}
@@ -196,13 +157,14 @@ export class Prefetch extends Base {
 			anchors?: NodeListOf<HTMLAnchorElement>;
 
 			/**
-			 * Uses the experimental Speculation Rules API when supported
-			 * to prerender on the client, defaults to `false`.
+			 * Uses the Speculation Rules API when supported to prerender on the client.
 			 */
 			prerender?: boolean;
 
 			/**
-			 * Determines when the prefetch takes place, defaults to `"hover"`.
+			 * Determines when the prefetch takes place.
+			 *
+			 * @default "hover"
 			 */
 			strategy?: "hover" | "load" | "visible";
 		} = {
