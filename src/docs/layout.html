@@ -2,12 +2,19 @@
 
 <p><a target="_blank" id="sourceLink">Source</a></p>
 
-<div class="card flex justify-center overflow-x-auto border-dashed p-8">
+<div
+	class="card flex justify-center overflow-x-auto border-dashed p-8"
+	style="view-transition-name: demo"
+>
 	<div class="w-full">
 		<slot></slot>
 	</div>
 </div>
 
-<div id="example"></div>
+<div id="example" style="view-transition-name: example"></div>
 
-<div id="reference" class="prose-h3:link"></div>
+<div
+	id="reference"
+	class="prose-h3:link"
+	style="view-transition-name: reference"
+></div>
