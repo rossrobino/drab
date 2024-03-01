@@ -125,16 +125,9 @@ export class Prefetch extends Base {
 			link.href = url;
 			document.head.append(link);
 
-			// minifies
-			const speculationrules = "speculationrules";
-
-			if (
-				prerender &&
-				HTMLScriptElement.supports &&
-				HTMLScriptElement.supports(speculationrules)
-			) {
+			if (prerender) {
 				const script = document.createElement("script");
-				script.type = speculationrules;
+				script.type = "speculationrules";
 				script.textContent = JSON.stringify({
 					prerender: [
 						{
