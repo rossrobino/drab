@@ -63,7 +63,7 @@ type WhereCondition =
  *
  * Use the `prerender` attribute to use the Speculation Rules API when supported to prerender on the client. This allows you to run client side JavaScript in advance instead of only fetching the HTML.
  *
- * Browsers that do not support will still use `fetch` with low priority instead.
+ * Browsers that do not support will still use `<link rel="prefetch">` instead.
  *
  * [Speculation Rules Reference](https://developer.mozilla.org/en-US/docs/Web/API/Speculation_Rules_API)
  *
@@ -97,7 +97,7 @@ export class Prefetch extends Base {
 	}
 
 	/**
-	 * Fetches the `url`, or appends `<script type="speculationrules">` to the head of the document.
+	 * Appends `<link rel="prefetch">` or `<script type="speculationrules">` to the head of the document.
 	 *
 	 * @param options Configuration options.
 	 */
@@ -112,34 +112,38 @@ export class Prefetch extends Base {
 	}) {
 		const { url, prerender } = options;
 
-		// if not the current page
-		if (!(url === window.location.href)) {
+		// if not the current page and not already prefetched
+		if (
+			!(url === window.location.href) &&
+			!this.#prefetchedUrls.includes(url)
+		) {
+			this.#prefetchedUrls.push(url);
+
+			const link = document.createElement("link");
+			link.rel = "prefetch";
+			link.as = "document";
+			link.href = url;
+			document.head.append(link);
+
 			// minifies
 			const speculationrules = "speculationrules";
 
-			if (!this.#prefetchedUrls.includes(url)) {
-				if (
-					HTMLScriptElement.supports &&
-					HTMLScriptElement.supports(speculationrules)
-				) {
-					const script = document.createElement("script");
-					script.type = speculationrules;
-					script.textContent = JSON.stringify({
-						[prerender ? "prerender" : "prefetch"]: [
-							{
-								source: "list",
-								urls: [url],
-							},
-						],
-					} satisfies SpeculationRules);
-					document.head.append(script);
-				} else {
-					fetch(url, {
-						//@ts-ignore - typedoc error with priority
-						priority: "low",
-					}).catch((e) => console.error(e));
-				}
-				this.#prefetchedUrls.push(url);
+			if (
+				prerender &&
+				HTMLScriptElement.supports &&
+				HTMLScriptElement.supports(speculationrules)
+			) {
+				const script = document.createElement("script");
+				script.type = speculationrules;
+				script.textContent = JSON.stringify({
+					prerender: [
+						{
+							source: "list",
+							urls: [url],
+						},
+					],
+				} satisfies SpeculationRules);
+				document.head.append(script);
 			}
 		}
 	}
