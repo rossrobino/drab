@@ -119,24 +119,36 @@ export class Prefetch extends Base {
 		) {
 			this.#prefetchedUrls.push(url);
 
-			const link = document.createElement("link");
-			link.rel = "prefetch";
-			link.as = "document";
-			link.href = url;
-			document.head.append(link);
-
-			if (prerender) {
-				const script = document.createElement("script");
-				script.type = "speculationrules";
-				script.textContent = JSON.stringify({
-					prerender: [
+			if (
+				HTMLScriptElement.supports &&
+				HTMLScriptElement.supports("speculationrules")
+			) {
+				const rules: SpeculationRules = {
+					// Currently, adding `prefetch` is required to fallback if `prerender` fails.
+					// Possibly will be automatic in the future, in which case it can be removed.
+					// https://github.com/WICG/nav-speculation/issues/162#issuecomment-1977818473
+					prefetch: [
 						{
 							source: "list",
 							urls: [url],
 						},
 					],
-				} satisfies SpeculationRules);
+				};
+
+				if (prerender) {
+					rules.prerender = rules.prefetch;
+				}
+
+				const script = document.createElement("script");
+				script.type = "speculationrules";
+				script.textContent = JSON.stringify(rules);
 				document.head.append(script);
+			} else {
+				const link = document.createElement("link");
+				link.rel = "prefetch";
+				link.as = "document";
+				link.href = url;
+				document.head.append(link);
 			}
 		}
 	}
