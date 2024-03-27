@@ -17,7 +17,7 @@
 
 ### Write JavaScript, or don't
 
-- Elements can be installed as a package (recommended), or utilized without writing any JavaScript by adding a `script` tag to your document.
+- Elements can be [installed](http://drab.robino.dev/getting-started/#install) as a package (recommended), or utilized without writing any JavaScript by adding a `script` tag to your document.
 - Each element can be configured through HTML attributes, making it possible to use an alternative language for your backend.
 
 ### Built in animations
@@ -34,7 +34,7 @@ Since this is an headless library, simple elements like a badge that can be easi
 
 ### Local Development
 
-This library is built with [Vite](https://vitejs.dev), [domco](https://domco.robino.dev), and TypeScript. The package contents are located in `src/package`.
+This library is built with [TypeScript](https://www.typescriptlang.org/) and [tsup](https://tsup.egoist.dev/). The docs are built with [Vite](https://vitejs.dev), [domco](https://domco.robino.dev), and [TailwindCSS](https://tailwindcss.com). The package contents are located in `src/package`.
 
 1. Clone the [repository](https://github.com/rossrobino/drab)
 2. `bun i`
@@ -46,4 +46,4 @@ This library is built with [Vite](https://vitejs.dev), [domco](https://domco.rob
 2. Add or edit the example in `src/docs`.
 3. Export the element from `src/package/index.ts`.
 4. Run `bun doc` to document your element with [TypeDoc](https://typedoc.org/).
-5. Add the element as an entry point to `tsup.config.ts`, then run `bun package` to build with [tsup](https://tsup.egoist.dev/).
+5. Add the element as an entry point to `tsup.config.ts`, then run `bun package` to build with tsup.
