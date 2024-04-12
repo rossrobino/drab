@@ -15,7 +15,7 @@ export type DialogAttributes = Attributes<Dialog> &
  *
  * `remove-body-scroll`
  *
- * Add the `remove-body-scroll` to remove the scroll from `document.body` when the dialog
+ * Add the `remove-body-scroll` attribute to remove the scroll from `document.body` when the dialog
  * is open.
  */
 export class Dialog extends Animate {
