@@ -3,7 +3,7 @@ import type { Attributes } from "../types/index.js";
 
 export type DialogAttributes = Attributes<Dialog> &
 	AnimateAttributes &
-	Partial<{ "click-outside-close": boolean }>;
+	Partial<{ "click-outside-close": boolean; "remove-body-scroll": boolean }>;
 
 /**
  * Provides triggers and animations for the `HTMLDialogElement`.
@@ -12,6 +12,11 @@ export type DialogAttributes = Attributes<Dialog> &
  *
  * By default, the `HTMLDialogElement` doesn't close if the user clicks outside of it.
  * Add a `click-outside-close` attribute to close when the user clicks outside.
+ *
+ * `remove-body-scroll`
+ *
+ * Add the `remove-body-scroll` to remove the scroll from `document.body` when the dialog
+ * is open.
  */
 export class Dialog extends Animate {
 	constructor() {
@@ -23,9 +28,19 @@ export class Dialog extends Animate {
 		return this.getContent(HTMLDialogElement);
 	}
 
+	/** Remove scroll from the body when open with the `remove-body-scroll` attribute. */
+	get #removeBodyScroll() {
+		return this.hasAttribute("remove-body-scroll");
+	}
+
 	/** `HTMLDialogElement.showModal()` with animation. */
 	async show() {
 		this.dialog.showModal();
+
+		if (this.#removeBodyScroll) {
+			document.body.style.overflow = "hidden";
+		}
+
 		await this.animateElement();
 	}
 
@@ -36,6 +51,11 @@ export class Dialog extends Animate {
 				direction: "reverse",
 			},
 		});
+
+		if (this.#removeBodyScroll) {
+			document.body.style.overflow = "";
+		}
+
 		this.dialog.close();
 	}
 

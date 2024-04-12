@@ -27,7 +27,7 @@
 
 #### Defined in
 
-[src/package/animate/index.ts:8](https://github.com/rossrobino/components/blob/c9c92dd/src/package/animate/index.ts#L8)
+[src/package/animate/index.ts:8](https://github.com/rossrobino/components/blob/d5d1f10397ac02ff73b15264f6245f23a8f58eac/src/package/animate/index.ts#L8)
 
 ---
 
@@ -37,7 +37,7 @@
 
 #### Defined in
 
-[src/package/breakpoint/index.ts:4](https://github.com/rossrobino/components/blob/c9c92dd/src/package/breakpoint/index.ts#L4)
+[src/package/breakpoint/index.ts:4](https://github.com/rossrobino/components/blob/d5d1f10397ac02ff73b15264f6245f23a8f58eac/src/package/breakpoint/index.ts#L4)
 
 ---
 
@@ -47,7 +47,7 @@
 
 #### Defined in
 
-[src/package/contextmenu/index.ts:4](https://github.com/rossrobino/components/blob/c9c92dd/src/package/contextmenu/index.ts#L4)
+[src/package/contextmenu/index.ts:4](https://github.com/rossrobino/components/blob/d5d1f10397ac02ff73b15264f6245f23a8f58eac/src/package/contextmenu/index.ts#L4)
 
 ---
 
@@ -57,7 +57,7 @@
 
 #### Defined in
 
-[src/package/copy/index.ts:4](https://github.com/rossrobino/components/blob/c9c92dd/src/package/copy/index.ts#L4)
+[src/package/copy/index.ts:4](https://github.com/rossrobino/components/blob/d5d1f10397ac02ff73b15264f6245f23a8f58eac/src/package/copy/index.ts#L4)
 
 ---
 
@@ -67,17 +67,17 @@
 
 #### Defined in
 
-[src/package/details/index.ts:4](https://github.com/rossrobino/components/blob/c9c92dd/src/package/details/index.ts#L4)
+[src/package/details/index.ts:4](https://github.com/rossrobino/components/blob/d5d1f10397ac02ff73b15264f6245f23a8f58eac/src/package/details/index.ts#L4)
 
 ---
 
 ### DialogAttributes
 
-Ƭ **DialogAttributes**: `Attributes`\<[`Dialog`](/docs/classes/Dialog.md)\> & [`AnimateAttributes`](/docs/modules.md#animateattributes) & `Partial`\<\{ `click-outside-close`: `boolean` }\>
+Ƭ **DialogAttributes**: `Attributes`\<[`Dialog`](/docs/classes/Dialog.md)\> & [`AnimateAttributes`](/docs/modules.md#animateattributes) & `Partial`\<\{ `click-outside-close`: `boolean` ; `remove-body-scroll`: `boolean` }\>
 
 #### Defined in
 
-[src/package/dialog/index.ts:4](https://github.com/rossrobino/components/blob/c9c92dd/src/package/dialog/index.ts#L4)
+[src/package/dialog/index.ts:4](https://github.com/rossrobino/components/blob/d5d1f10397ac02ff73b15264f6245f23a8f58eac/src/package/dialog/index.ts#L4)
 
 ---
 
@@ -87,7 +87,7 @@
 
 #### Defined in
 
-[src/package/editor/index.ts:4](https://github.com/rossrobino/components/blob/c9c92dd/src/package/editor/index.ts#L4)
+[src/package/editor/index.ts:4](https://github.com/rossrobino/components/blob/d5d1f10397ac02ff73b15264f6245f23a8f58eac/src/package/editor/index.ts#L4)
 
 ---
 
@@ -97,7 +97,7 @@
 
 #### Defined in
 
-[src/package/fullscreen/index.ts:4](https://github.com/rossrobino/components/blob/c9c92dd/src/package/fullscreen/index.ts#L4)
+[src/package/fullscreen/index.ts:4](https://github.com/rossrobino/components/blob/d5d1f10397ac02ff73b15264f6245f23a8f58eac/src/package/fullscreen/index.ts#L4)
 
 ---
 
@@ -107,7 +107,7 @@
 
 #### Defined in
 
-[src/package/intersect/index.ts:4](https://github.com/rossrobino/components/blob/c9c92dd/src/package/intersect/index.ts#L4)
+[src/package/intersect/index.ts:4](https://github.com/rossrobino/components/blob/d5d1f10397ac02ff73b15264f6245f23a8f58eac/src/package/intersect/index.ts#L4)
 
 ---
 
@@ -117,7 +117,7 @@
 
 #### Defined in
 
-[src/package/popover/index.ts:4](https://github.com/rossrobino/components/blob/c9c92dd/src/package/popover/index.ts#L4)
+[src/package/popover/index.ts:4](https://github.com/rossrobino/components/blob/d5d1f10397ac02ff73b15264f6245f23a8f58eac/src/package/popover/index.ts#L4)
 
 ---
 
@@ -127,7 +127,7 @@
 
 #### Defined in
 
-[src/package/prefetch/index.ts:6](https://github.com/rossrobino/components/blob/c9c92dd/src/package/prefetch/index.ts#L6)
+[src/package/prefetch/index.ts:6](https://github.com/rossrobino/components/blob/d5d1f10397ac02ff73b15264f6245f23a8f58eac/src/package/prefetch/index.ts#L6)
 
 ---
 
@@ -137,7 +137,7 @@
 
 #### Defined in
 
-[src/package/share/index.ts:4](https://github.com/rossrobino/components/blob/c9c92dd/src/package/share/index.ts#L4)
+[src/package/share/index.ts:4](https://github.com/rossrobino/components/blob/d5d1f10397ac02ff73b15264f6245f23a8f58eac/src/package/share/index.ts#L4)
 
 ---
 
@@ -147,7 +147,7 @@
 
 #### Defined in
 
-[src/package/tablesort/index.ts:4](https://github.com/rossrobino/components/blob/c9c92dd/src/package/tablesort/index.ts#L4)
+[src/package/tablesort/index.ts:4](https://github.com/rossrobino/components/blob/d5d1f10397ac02ff73b15264f6245f23a8f58eac/src/package/tablesort/index.ts#L4)
 
 ---
 
@@ -157,7 +157,7 @@
 
 #### Defined in
 
-[src/package/wakelock/index.ts:4](https://github.com/rossrobino/components/blob/c9c92dd/src/package/wakelock/index.ts#L4)
+[src/package/wakelock/index.ts:4](https://github.com/rossrobino/components/blob/d5d1f10397ac02ff73b15264f6245f23a8f58eac/src/package/wakelock/index.ts#L4)
 
 ---
 
@@ -167,4 +167,4 @@
 
 #### Defined in
 
-[src/package/youtube/index.ts:4](https://github.com/rossrobino/components/blob/c9c92dd/src/package/youtube/index.ts#L4)
+[src/package/youtube/index.ts:4](https://github.com/rossrobino/components/blob/d5d1f10397ac02ff73b15264f6245f23a8f58eac/src/package/youtube/index.ts#L4)

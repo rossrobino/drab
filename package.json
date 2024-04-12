@@ -1,7 +1,7 @@
 {
 	"name": "drab",
 	"description": "A headless custom element library",
-	"version": "5.3.6",
+	"version": "5.4.0",
 	"homepage": "https://drab.robino.dev",
 	"license": "MIT",
 	"author": {
@@ -184,19 +184,19 @@
 	},
 	"devDependencies": {
 		"@tailwindcss/typography": "^0.5.12",
-		"@types/node": "^20.11.30",
+		"@types/node": "^20.12.7",
 		"@vercel/analytics": "^1.2.2",
 		"autoprefixer": "^10.4.19",
-		"domco": "^0.5.3",
+		"domco": "^0.5.4",
 		"prettier": "^3.2.5",
 		"prettier-plugin-tailwindcss": "^0.5.13",
 		"robino": "^0.1.0",
 		"tailwindcss": "^3.4.3",
 		"tsup": "^8.0.2",
-		"typedoc": "^0.25.12",
+		"typedoc": "^0.25.13",
 		"typedoc-plugin-markdown": "^3.17.1",
-		"typescript": "^5.4.3",
-		"uico": "^0.2.2",
-		"vite": "^5.2.6"
+		"typescript": "^5.4.5",
+		"uico": "^0.2.4",
+		"vite": "^5.2.8"
 	}
 }

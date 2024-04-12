@@ -51,7 +51,7 @@ This element can be deprecated once the Speculation Rules API is supported acros
 
 #### Defined in
 
-[src/package/prefetch/index.ts:80](https://github.com/rossrobino/components/blob/c9c92dd/src/package/prefetch/index.ts#L80)
+[src/package/prefetch/index.ts:80](https://github.com/rossrobino/components/blob/d5d1f10397ac02ff73b15264f6245f23a8f58eac/src/package/prefetch/index.ts#L80)
 
 ---
 
@@ -69,7 +69,7 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Defined in
 
-[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/c9c92dd/src/package/base/index.ts#L17)
+[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/d5d1f10397ac02ff73b15264f6245f23a8f58eac/src/package/base/index.ts#L17)
 
 ### #prefetchedUrls
 
@@ -77,7 +77,7 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Defined in
 
-[src/package/prefetch/index.ts:78](https://github.com/rossrobino/components/blob/c9c92dd/src/package/prefetch/index.ts#L78)
+[src/package/prefetch/index.ts:78](https://github.com/rossrobino/components/blob/d5d1f10397ac02ff73b15264f6245f23a8f58eac/src/package/prefetch/index.ts#L78)
 
 ---
 
@@ -95,7 +95,7 @@ Prerender with the Speculation Rules API.
 
 #### Defined in
 
-[src/package/prefetch/index.ts:90](https://github.com/rossrobino/components/blob/c9c92dd/src/package/prefetch/index.ts#L90)
+[src/package/prefetch/index.ts:90](https://github.com/rossrobino/components/blob/d5d1f10397ac02ff73b15264f6245f23a8f58eac/src/package/prefetch/index.ts#L90)
 
 ### #strategy
 
@@ -109,7 +109,7 @@ When to prefetch the url.
 
 #### Defined in
 
-[src/package/prefetch/index.ts:85](https://github.com/rossrobino/components/blob/c9c92dd/src/package/prefetch/index.ts#L85)
+[src/package/prefetch/index.ts:85](https://github.com/rossrobino/components/blob/d5d1f10397ac02ff73b15264f6245f23a8f58eac/src/package/prefetch/index.ts#L85)
 
 ### #url
 
@@ -123,7 +123,7 @@ When to prefetch the url.
 
 #### Defined in
 
-[src/package/prefetch/index.ts:95](https://github.com/rossrobino/components/blob/c9c92dd/src/package/prefetch/index.ts#L95)
+[src/package/prefetch/index.ts:95](https://github.com/rossrobino/components/blob/d5d1f10397ac02ff73b15264f6245f23a8f58eac/src/package/prefetch/index.ts#L95)
 
 ### event
 
@@ -149,7 +149,7 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/c9c92dd/src/package/base/index.ts#L30)
+[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/d5d1f10397ac02ff73b15264f6245f23a8f58eac/src/package/base/index.ts#L30)
 
 • `set` **event**(`value`): `void`
 
@@ -169,7 +169,7 @@ Base.event
 
 #### Defined in
 
-[src/package/base/index.ts:34](https://github.com/rossrobino/components/blob/c9c92dd/src/package/base/index.ts#L34)
+[src/package/base/index.ts:34](https://github.com/rossrobino/components/blob/d5d1f10397ac02ff73b15264f6245f23a8f58eac/src/package/base/index.ts#L34)
 
 ---
 
@@ -195,7 +195,7 @@ Appends `<link rel="prefetch">` or `<script type="speculationrules">` to the hea
 
 #### Defined in
 
-[src/package/prefetch/index.ts:104](https://github.com/rossrobino/components/blob/c9c92dd/src/package/prefetch/index.ts#L104)
+[src/package/prefetch/index.ts:104](https://github.com/rossrobino/components/blob/d5d1f10397ac02ff73b15264f6245f23a8f58eac/src/package/prefetch/index.ts#L104)
 
 ### connectedCallback
 
@@ -211,7 +211,7 @@ Appends `<link rel="prefetch">` or `<script type="speculationrules">` to the hea
 
 #### Defined in
 
-[src/package/base/index.ts:152](https://github.com/rossrobino/components/blob/c9c92dd/src/package/base/index.ts#L152)
+[src/package/base/index.ts:152](https://github.com/rossrobino/components/blob/d5d1f10397ac02ff73b15264f6245f23a8f58eac/src/package/base/index.ts#L152)
 
 ### destroy
 
@@ -229,7 +229,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 #### Defined in
 
-[src/package/base/index.ts:159](https://github.com/rossrobino/components/blob/c9c92dd/src/package/base/index.ts#L159)
+[src/package/base/index.ts:159](https://github.com/rossrobino/components/blob/d5d1f10397ac02ff73b15264f6245f23a8f58eac/src/package/base/index.ts#L159)
 
 ### disconnectedCallback
 
@@ -245,7 +245,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 #### Defined in
 
-[src/package/base/index.ts:161](https://github.com/rossrobino/components/blob/c9c92dd/src/package/base/index.ts#L161)
+[src/package/base/index.ts:161](https://github.com/rossrobino/components/blob/d5d1f10397ac02ff73b15264f6245f23a8f58eac/src/package/base/index.ts#L161)
 
 ### getContent
 
@@ -281,7 +281,7 @@ this.querySelector("[data-content]");
 
 #### Defined in
 
-[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/c9c92dd/src/package/base/index.ts#L55)
+[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/d5d1f10397ac02ff73b15264f6245f23a8f58eac/src/package/base/index.ts#L55)
 
 ### getTrigger
 
@@ -311,7 +311,7 @@ this.querySelectorAll("[data-trigger]");
 
 #### Defined in
 
-[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/c9c92dd/src/package/base/index.ts#L42)
+[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/d5d1f10397ac02ff73b15264f6245f23a8f58eac/src/package/base/index.ts#L42)
 
 ### mount
 
@@ -331,7 +331,7 @@ The reason for this is to make these elements work better with frameworks like S
 
 #### Defined in
 
-[src/package/prefetch/index.ts:241](https://github.com/rossrobino/components/blob/c9c92dd/src/package/prefetch/index.ts#L241)
+[src/package/prefetch/index.ts:241](https://github.com/rossrobino/components/blob/d5d1f10397ac02ff73b15264f6245f23a8f58eac/src/package/prefetch/index.ts#L241)
 
 ### prefetch
 
@@ -356,7 +356,7 @@ Can be used more than once with different options for different selectors.
 
 #### Defined in
 
-[src/package/prefetch/index.ts:163](https://github.com/rossrobino/components/blob/c9c92dd/src/package/prefetch/index.ts#L163)
+[src/package/prefetch/index.ts:163](https://github.com/rossrobino/components/blob/d5d1f10397ac02ff73b15264f6245f23a8f58eac/src/package/prefetch/index.ts#L163)
 
 ### safeListener
 
@@ -391,7 +391,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Defined in
 
-[src/package/base/index.ts:118](https://github.com/rossrobino/components/blob/c9c92dd/src/package/base/index.ts#L118)
+[src/package/base/index.ts:118](https://github.com/rossrobino/components/blob/d5d1f10397ac02ff73b15264f6245f23a8f58eac/src/package/base/index.ts#L118)
 
 ### swapContent
 
@@ -417,7 +417,7 @@ swaps `this.content()` with the content of the element found.
 
 #### Defined in
 
-[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/c9c92dd/src/package/base/index.ts#L72)
+[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/d5d1f10397ac02ff73b15264f6245f23a8f58eac/src/package/base/index.ts#L72)
 
 ### triggerListener
 
@@ -448,4 +448,4 @@ swaps `this.content()` with the content of the element found.
 
 #### Defined in
 
-[src/package/base/index.ts:135](https://github.com/rossrobino/components/blob/c9c92dd/src/package/base/index.ts#L135)
+[src/package/base/index.ts:135](https://github.com/rossrobino/components/blob/d5d1f10397ac02ff73b15264f6245f23a8f58eac/src/package/base/index.ts#L135)
