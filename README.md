@@ -30,7 +30,7 @@
 
 Find an bug or have an idea? Feel free to create an issue on [GitHub](https://github.com/rossrobino/drab).
 
-Since this is an headless library, simple elements like a badge that can be easily created with HTML and CSS are not included. Elements such as a select, or a date picker are also not included in favor of the native HTML elements.
+Since this is a headless library, simple elements like a badge that can be easily created with HTML and CSS are not included. Elements such as a select, or a date picker are also not included in favor of the native HTML elements.
 
 ### Local Development
 
