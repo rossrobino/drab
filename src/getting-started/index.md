@@ -46,6 +46,11 @@ _\*If you see a better way to write any of these examples or a framework that is
 ```html
 ---
 // Dialog.astro
+import type { DialogAttributes } from "drab/dialog";
+
+const dialogProps: DialogAttributes = {
+	// type-safe attributes
+};
 ---
 
 <script>
@@ -53,7 +58,7 @@ _\*If you see a better way to write any of these examples or a framework that is
 	customElements.define("drab-dialog", Dialog);
 </script>
 
-<drab-dialog>...</drab-dialog>
+<drab-dialog {...dialogProps}>...</drab-dialog>
 ```
 
 ### Enhance
@@ -163,7 +168,7 @@ declare module "solid-js" {
 
 	const dialogProps: DialogAttributes = {
 		// type-safe attributes
-	}
+	};
 </script>
 
 <drab-dialog {...dialogProps}>...</drab-dialog>
