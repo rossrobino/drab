@@ -152,6 +152,7 @@ declare module "solid-js" {
 ```svelte
 <script>
 	import { onMount } from "svelte";
+	import type { DialogAttributes } from "drab/dialog";
 
 	onMount(async () => {
 		if (!customElements.get("drab-dialog")) {
@@ -159,9 +160,13 @@ declare module "solid-js" {
 			customElements.define("drab-dialog", Dialog);
 		}
 	});
+
+	const dialogProps: DialogAttributes = {
+		// type-safe attributes
+	}
 </script>
 
-<drab-dialog>...</drab-dialog>
+<drab-dialog {...dialogProps}>...</drab-dialog>
 ```
 
 ### Vue
