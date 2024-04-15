@@ -155,7 +155,7 @@ declare module "solid-js" {
 ### Svelte
 
 ```svelte
-<script>
+<script lang="ts">
 	import { onMount } from "svelte";
 	import type { DialogAttributes } from "drab/dialog";
 
