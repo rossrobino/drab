@@ -1,6 +1,6 @@
 import type { Config } from "domco";
 import fs from "node:fs/promises";
-import { process } from "robino/util/md";
+import { processMarkdown } from "robino/util/md";
 
 export const config: Config = {
 	build: async ({ document }, { route }) => {
@@ -8,7 +8,7 @@ export const config: Config = {
 		const article = document.querySelector("article");
 
 		if (article) {
-			article.innerHTML = (await process(md)).html;
+			article.innerHTML = (await processMarkdown(md)).html;
 		}
 	},
 };

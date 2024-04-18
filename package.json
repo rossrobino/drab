@@ -189,14 +189,14 @@
 		"autoprefixer": "^10.4.19",
 		"domco": "^0.5.4",
 		"prettier": "^3.2.5",
-		"prettier-plugin-tailwindcss": "^0.5.13",
-		"robino": "^0.1.0",
+		"prettier-plugin-tailwindcss": "^0.5.14",
+		"robino": "^0.2.0",
 		"tailwindcss": "^3.4.3",
 		"tsup": "^8.0.2",
 		"typedoc": "^0.25.13",
 		"typedoc-plugin-markdown": "^3.17.1",
 		"typescript": "^5.4.5",
 		"uico": "^0.2.4",
-		"vite": "^5.2.8"
+		"vite": "^5.2.9"
 	}
 }

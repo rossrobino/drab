@@ -1,6 +1,6 @@
 import type { Config } from "domco";
 import fs from "node:fs/promises";
-import { process } from "robino/util/md";
+import { processMarkdown } from "robino/util/md";
 
 export const config: Config = {
 	layout: await fs.readFile("src/docs/layout.html", "utf-8"),
@@ -23,7 +23,7 @@ export const config: Config = {
 
 		if (exampleDiv)
 			exampleDiv.innerHTML = (
-				await process(
+				await processMarkdown(
 					`\`\`\`html\n${example.split("\n").slice(2).join("\n")}\n\`\`\``,
 				)
 			).html;
@@ -40,7 +40,7 @@ export const config: Config = {
 
 		if (referenceDiv) {
 			referenceDiv.innerHTML = (
-				await process(`## Overview\n\n${reference}`)
+				await processMarkdown(`## Overview\n\n${reference}`)
 			).html;
 		}
 	},

@@ -4,14 +4,14 @@ import { NavItems } from "$lib/blocks/customElements/nav-items";
 import { SvgIcon } from "$lib/blocks/customElements/svg-icon";
 import { OnThisPage } from "$lib/blocks/customElements/on-this-page";
 import { BrandLinks } from "$lib/blocks/customElements/brand-links";
-import { process } from "robino/util/md";
+import { processMarkdown } from "robino/util/md";
 
 export const config: Config = {
 	layout: await fs.readFile("src/layout.html", "utf-8"),
 
 	build: async ({ document }) => {
 		const readme = await fs.readFile("README.md", "utf-8");
-		const { html } = await process(readme);
+		const { html } = await processMarkdown(readme);
 		const article = document.querySelector("article");
 		if (article) {
 			article.innerHTML = html;
