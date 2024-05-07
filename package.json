@@ -175,7 +175,7 @@
 		"build": "tsc && vite build",
 		"preview": "vite preview",
 		"format": "prettier --write .",
-		"doc": "typedoc --out src/lib/docs --plugin typedoc-plugin-markdown src/package/index.ts --hideBreadcrumbs --hideInPageTOC --githubPages false --publicPath /docs/ && bun src/lib/scripts/doc/index.ts && bun format",
+		"doc": "typedoc --out src/lib/docs --plugin typedoc-plugin-markdown src/package/index.ts --hideBreadcrumbs --githubPages false --publicPath /docs/ && bun src/lib/scripts/doc/index.ts && bun format",
 		"package:json": "bun src/lib/scripts/packageJson/index.ts && prettier --write package.json",
 		"package:copy": "cp package.json ./package && cp README.md ./package && cp LICENSE.md ./package",
 		"package:tsc": "tsc --project tsconfig.package.json",
@@ -194,7 +194,7 @@
 		"tailwindcss": "^3.4.3",
 		"tsup": "^8.0.2",
 		"typedoc": "^0.25.13",
-		"typedoc-plugin-markdown": "^3.17.1",
+		"typedoc-plugin-markdown": "^4.0.1",
 		"typescript": "^5.4.5",
 		"uico": "^0.2.4",
 		"vite": "^5.2.11"

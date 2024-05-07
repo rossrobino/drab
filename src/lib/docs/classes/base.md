@@ -11,37 +11,31 @@ Each element can have multiple `trigger`s, but will only have one `content`.
 
 ---
 
-## Hierarchy
+## Extends
 
 - `HTMLElement`
 
-  ↳ **`Base`**
+---
 
-  ↳↳ [`Animate`](/docs/animate/)
+## Extended by
 
-  ↳↳ [`Breakpoint`](/docs/breakpoint/)
-
-  ↳↳ [`Editor`](/docs/editor/)
-
-  ↳↳ [`Fullscreen`](/docs/fullscreen/)
-
-  ↳↳ [`Intersect`](/docs/intersect/)
-
-  ↳↳ [`Prefetch`](/docs/prefetch/)
-
-  ↳↳ [`TableSort`](/docs/tablesort/)
-
-  ↳↳ [`WakeLock`](/docs/wakelock/)
-
-  ↳↳ [`YouTube`](/docs/youtube/)
+- [`Animate`](/docs/animate/)
+- [`Breakpoint`](/docs/breakpoint/)
+- [`Editor`](/docs/editor/)
+- [`Fullscreen`](/docs/fullscreen/)
+- [`Intersect`](/docs/intersect/)
+- [`Prefetch`](/docs/prefetch/)
+- [`TableSort`](/docs/tablesort/)
+- [`WakeLock`](/docs/wakelock/)
+- [`YouTube`](/docs/youtube/)
 
 ---
 
 ## Constructors
 
-### constructor
+### new Base()
 
-• **new Base**(): [`Base`](/docs/base/)
+> **new Base**(): [`Base`](/docs/base/)
 
 #### Returns
 
@@ -49,11 +43,11 @@ Each element can have multiple `trigger`s, but will only have one `content`.
 
 #### Overrides
 
-HTMLElement.constructor
+`HTMLElement.constructor`
 
-#### Defined in
+#### Source
 
-[src/package/base/index.ts:19](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L19)
+[src/package/base/index.ts:19](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L19)
 
 ---
 
@@ -61,75 +55,29 @@ HTMLElement.constructor
 
 ### #listenerController
 
-• `Private` **#listenerController**: `AbortController`
+> `private` **#listenerController**: `AbortController`
 
 To clean up event listeners added to `document` when the element is removed.
 
-#### Defined in
+#### Source
 
-[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L17)
+[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L17)
 
----
+### connectedCallback()
 
-## Accessors
-
-### event
-
-• `get` **event**(): keyof `HTMLElementEventMap`
-
-Event for the `trigger` to execute.
-
-For example, set to `"mouseover"` to execute the event when the user hovers the mouse over the `trigger`, instead of when they click it.
-
-#### Returns
-
-keyof `HTMLElementEventMap`
-
-**`Default`**
-
-```ts
-"click";
-```
-
-#### Defined in
-
-[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L30)
-
-• `set` **event**(`value`): `void`
-
-#### Parameters
-
-| Name    | Type                        |
-| :------ | :-------------------------- |
-| `value` | keyof `HTMLElementEventMap` |
+> **connectedCallback**(): `void`
 
 #### Returns
 
 `void`
 
-#### Defined in
+#### Source
 
-[src/package/base/index.ts:34](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L34)
+[src/package/base/index.ts:152](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L152)
 
----
+### destroy()
 
-## Methods
-
-### connectedCallback
-
-▸ **connectedCallback**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/package/base/index.ts:152](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L152)
-
-### destroy
-
-▸ **destroy**(): `void`
+> **destroy**(): `void`
 
 Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallback` as well. It is overridden in each element that needs to run `disconnectedCallback`.
 
@@ -137,37 +85,36 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 `void`
 
-#### Defined in
+#### Source
 
-[src/package/base/index.ts:159](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L159)
+[src/package/base/index.ts:159](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L159)
 
-### disconnectedCallback
+### disconnectedCallback()
 
-▸ **disconnectedCallback**(): `void`
+> **disconnectedCallback**(): `void`
 
 #### Returns
 
 `void`
 
-#### Defined in
+#### Source
 
-[src/package/base/index.ts:161](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L161)
+[src/package/base/index.ts:161](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L161)
 
-### getContent
+### getContent()
 
-▸ **getContent**\<`T`\>(`instance?`): `T`
+> **getContent**\<`T`\>(`instance`): `T`
 
 #### Type parameters
 
-| Name | Type                                  |
-| :--- | :------------------------------------ |
-| `T`  | extends `HTMLElement` = `HTMLElement` |
+• **T** _extends_ `HTMLElement` = `HTMLElement`
 
 #### Parameters
 
-| Name       | Type      | Description                                                                              |
-| :--------- | :-------- | :--------------------------------------------------------------------------------------- |
-| `instance` | () => `T` | The instance of the desired element, ex: `HTMLDialogElement`. Defaults to `HTMLElement`. |
+• **instance**= `undefined`
+
+The instance of the desired element, ex: `HTMLDialogElement`.
+Defaults to `HTMLElement`.
 
 #### Returns
 
@@ -175,25 +122,23 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 The element that matches the `content` selector.
 
-**`Default`**
+#### Default
 
 ```ts
 this.querySelector("[data-content]");
 ```
 
-#### Defined in
+#### Source
 
-[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L55)
+[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L55)
 
-### getTrigger
+### getTrigger()
 
-▸ **getTrigger**\<`T`\>(): `NodeListOf`\<`T`\>
+> **getTrigger**\<`T`\>(): `NodeListOf`\<`T`\>
 
 #### Type parameters
 
-| Name | Type                                  |
-| :--- | :------------------------------------ |
-| `T`  | extends `HTMLElement` = `HTMLElement` |
+• **T** _extends_ `HTMLElement` = `HTMLElement`
 
 #### Returns
 
@@ -201,19 +146,19 @@ this.querySelector("[data-content]");
 
 All of the elements that match the `trigger` selector.
 
-**`Default`**
+#### Default
 
 ```ts
 this.querySelectorAll("[data-trigger]");
 ```
 
-#### Defined in
+#### Source
 
-[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L42)
+[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L42)
 
-### mount
+### mount()
 
-▸ **mount**(): `void`
+> **mount**(): `void`
 
 Passed into `queueMicrotask` in `connectedCallback`. It is overridden in each component that needs to run `connectedCallback`.
 
@@ -223,86 +168,90 @@ The reason for this is to make these elements work better with frameworks like S
 
 `void`
 
-#### Defined in
+#### Source
 
-[src/package/base/index.ts:150](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L150)
+[src/package/base/index.ts:150](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L150)
 
-### safeListener
+### safeListener()
 
-▸ **safeListener**\<`K`, `T`\>(`type`, `listener`, `element?`, `options?`): `void`
+> **safeListener**\<`K`, `T`\>(`type`, `listener`, `element`, `options`): `void`
 
 Wrapper around `document.body.addEventListener` that ensures when the
 element is removed from the DOM, these event listeners are cleaned up.
 
 #### Type parameters
 
-| Name | Type                                                            |
-| :--- | :-------------------------------------------------------------- |
-| `K`  | extends keyof `DocumentEventMap`                                |
-| `T`  | extends `Window` \| `Document` \| `HTMLElement` = `HTMLElement` |
+• **K** _extends_ keyof `DocumentEventMap`
+
+• **T** _extends_ `Window` \| `Document` \| `HTMLElement` = `HTMLElement`
 
 #### Parameters
 
-| Name       | Type                                                  |
-| :--------- | :---------------------------------------------------- |
-| `type`     | `K`                                                   |
-| `listener` | (`this`: `T`, `ev`: `DocumentEventMap`[`K`]) => `any` |
-| `element`  | `T`                                                   |
-| `options`  | `AddEventListenerOptions`                             |
+• **type**: `K`
+
+• **listener**
+
+• **element**: `T`= `undefined`
+
+• **options**: `AddEventListenerOptions`= `{}`
 
 #### Returns
 
 `void`
 
-#### Defined in
+#### Source
 
-[src/package/base/index.ts:118](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L118)
+[src/package/base/index.ts:118](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L118)
 
-### swapContent
+### swapContent()
 
-▸ **swapContent**(`revert?`, `delay?`): `void`
+> **swapContent**(`revert`, `delay`): `void`
 
 Finds the `HTMLElement | HTMLTemplateElement` via the `swap` selector and
 swaps `this.content()` with the content of the element found.
 
 #### Parameters
 
-| Name     | Type      | Default value | Description                    |
-| :------- | :-------- | :------------ | :----------------------------- |
-| `revert` | `boolean` | `true`        | Swap back to old content       |
-| `delay`  | `number`  | `800`         | Wait time before swapping back |
+• **revert**: `boolean`= `true`
+
+Swap back to old content
+
+• **delay**: `number`= `800`
+
+Wait time before swapping back
 
 #### Returns
 
 `void`
 
-#### Defined in
+#### Source
 
-[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L72)
+[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L72)
 
-### triggerListener
+### triggerListener()
 
-▸ **triggerListener**\<`T`, `K`\>(`listener`, `type?`, `options?`): `void`
+> **triggerListener**\<`T`, `K`\>(`listener`, `type`, `options`?): `void`
 
 #### Type parameters
 
-| Name | Type                                |
-| :--- | :---------------------------------- |
-| `T`  | extends `HTMLElement`               |
-| `K`  | extends keyof `HTMLElementEventMap` |
+• **T** _extends_ `HTMLElement`
+
+• **K** _extends_ keyof `HTMLElementEventMap`
 
 #### Parameters
 
-| Name       | Type                                                    | Description                                          |
-| :--------- | :------------------------------------------------------ | :--------------------------------------------------- |
-| `listener` | (`this`: `T`, `e`: `HTMLElementEventMap`[`K`]) => `any` | Listener to attach to all of the `trigger` elements. |
-| `type`     | `K`                                                     | -                                                    |
-| `options?` | `AddEventListenerOptions`                               | -                                                    |
+• **listener**
+
+Listener to attach to all of the `trigger` elements.
+
+• **type**: `K`= `undefined`
+
+• **options?**: `AddEventListenerOptions`
 
 #### Returns
 
 `void`
 
-#### Defined in
+#### Source
 
-[src/package/base/index.ts:135](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L135)
+[src/package/base/index.ts:135](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L135)

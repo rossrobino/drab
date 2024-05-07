@@ -5,19 +5,17 @@ currently [only available in Chrome](https://developer.chrome.com/blog/introduci
 
 ---
 
-## Hierarchy
+## Extends
 
 - [`Animate`](/docs/animate/)
-
-  ↳ **`Popover`**
 
 ---
 
 ## Constructors
 
-### constructor
+### new Popover()
 
-• **new Popover**(): [`Popover`](/docs/popover/)
+> **new Popover**(): [`Popover`](/docs/popover/)
 
 #### Returns
 
@@ -25,11 +23,11 @@ currently [only available in Chrome](https://developer.chrome.com/blog/introduci
 
 #### Overrides
 
-[Animate](/docs/animate/).[constructor](/docs/animate/#constructor)
+[`Animate`](/docs/animate/).[`constructor`](/docs/animate/#constructors)
 
-#### Defined in
+#### Source
 
-[src/package/popover/index.ts:13](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/popover/index.ts#L13)
+[src/package/popover/index.ts:13](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/popover/index.ts#L13)
 
 ---
 
@@ -37,17 +35,17 @@ currently [only available in Chrome](https://developer.chrome.com/blog/introduci
 
 ### #listenerController
 
-• `Private` **#listenerController**: `AbortController`
+> `private` **#listenerController**: `AbortController`
 
 To clean up event listeners added to `document` when the element is removed.
 
 #### Inherited from
 
-[Animate](/docs/animate/).[#listenerController](/docs/animate/##listenercontroller)
+[`Animate`](/docs/animate/).[`#listenerController`](/docs/animate/##listenercontroller)
 
-#### Defined in
+#### Source
 
-[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L17)
+[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L17)
 
 ---
 
@@ -55,7 +53,7 @@ To clean up event listeners added to `document` when the element is removed.
 
 ### animationOptions
 
-• `get` **animationOptions**(): `KeyframeAnimationOptions`
+> `get` **animationOptions**(): `KeyframeAnimationOptions`
 
 #### Returns
 
@@ -63,128 +61,73 @@ To clean up event listeners added to `document` when the element is removed.
 
 An object containing the values of each `animation-option` attribute
 
-#### Inherited from
+#### Source
 
-Animate.animationOptions
-
-#### Defined in
-
-[src/package/animate/index.ts:46](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/animate/index.ts#L46)
+[src/package/animate/index.ts:46](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/animate/index.ts#L46)
 
 ### event
 
-• `get` **event**(): keyof `HTMLElementEventMap`
+> `get` **event**(): keyof `HTMLElementEventMap`
 
 Event for the `trigger` to execute.
 
 For example, set to `"mouseover"` to execute the event when the user hovers the mouse over the `trigger`, instead of when they click it.
 
-#### Returns
-
-keyof `HTMLElementEventMap`
-
-**`Default`**
+#### Default
 
 ```ts
 "click";
 ```
 
-#### Inherited from
-
-Animate.event
-
-#### Defined in
-
-[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L30)
-
-• `set` **event**(`value`): `void`
+> `set` **event**(`value`): `void`
 
 #### Parameters
 
-| Name    | Type                        |
-| :------ | :-------------------------- |
-| `value` | keyof `HTMLElementEventMap` |
+• **value**: keyof `HTMLElementEventMap`
 
 #### Returns
 
-`void`
+keyof `HTMLElementEventMap`
 
-#### Inherited from
+#### Source
 
-Animate.event
-
-#### Defined in
-
-[src/package/base/index.ts:34](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L34)
+[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L30)
 
 ### keyframes
 
-• `get` **keyframes**(): `Keyframe`[]
+> `get` **keyframes**(): `Keyframe`[]
 
 #### Returns
 
 `Keyframe`[]
 
-#### Inherited from
+#### Source
 
-Animate.keyframes
+[src/package/animate/index.ts:128](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/animate/index.ts#L128)
 
-#### Defined in
+### animateElement()
 
-[src/package/animate/index.ts:128](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/animate/index.ts#L128)
-
-### open
-
-• `get` **open**(): `boolean`
-
-Whether the popover is open or closed. This doesn't get set
-automatically on the element like with the `HTMLDialogElement`.
-
-#### Returns
-
-`boolean`
-
-#### Defined in
-
-[src/package/popover/index.ts:21](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/popover/index.ts#L21)
-
-• `set` **open**(`value`): `void`
+> **animateElement**(`animateOptions`): `Promise`\<`void`\>
 
 #### Parameters
 
-| Name    | Type      |
-| :------ | :-------- |
-| `value` | `boolean` |
+• **animateOptions**= `undefined`
 
-#### Returns
+animates `this.content()` by default
 
-`void`
+• **animateOptions.element?**: `HTMLElement`
 
-#### Defined in
-
-[src/package/popover/index.ts:25](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/popover/index.ts#L25)
-
----
-
-## Methods
-
-### animateElement
-
-▸ **animateElement**(`animateOptions?`): `Promise`\<`void`\>
-
-#### Parameters
-
-| Name                      | Type                       | Description                          |
-| :------------------------ | :------------------------- | :----------------------------------- |
-| `animateOptions`          | `Object`                   | animates `this.content()` by default |
-| `animateOptions.element?` | `HTMLElement`              | -                                    |
-| `animateOptions.options?` | `KeyframeAnimationOptions` | -                                    |
+• **animateOptions.options?**: `KeyframeAnimationOptions`
 
 #### Returns
 
 `Promise`\<`void`\>
 
-**`Description`**
+#### Inherited from
+
+[`Animate`](/docs/animate/).[`animateElement`](/docs/animate/#animateelement)
+
+#### Description
 
 Animates a particular element using the web animations API.
 
@@ -194,17 +137,13 @@ Animates a particular element using the web animations API.
 - Waits for the animation to complete
 - Sets the start and end styles based on the first and last keyframe
 
-#### Inherited from
+#### Source
 
-[Animate](/docs/animate/).[animateElement](/docs/animate/#animateelement)
+[src/package/animate/index.ts:76](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/animate/index.ts#L76)
 
-#### Defined in
+### connectedCallback()
 
-[src/package/animate/index.ts:76](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/animate/index.ts#L76)
-
-### connectedCallback
-
-▸ **connectedCallback**(): `void`
+> **connectedCallback**(): `void`
 
 #### Returns
 
@@ -212,15 +151,15 @@ Animates a particular element using the web animations API.
 
 #### Inherited from
 
-[Animate](/docs/animate/).[connectedCallback](/docs/animate/#connectedcallback)
+[`Animate`](/docs/animate/).[`connectedCallback`](/docs/animate/#connectedcallback)
 
-#### Defined in
+#### Source
 
-[src/package/base/index.ts:152](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L152)
+[src/package/base/index.ts:152](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L152)
 
-### destroy
+### destroy()
 
-▸ **destroy**(): `void`
+> **destroy**(): `void`
 
 Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallback` as well. It is overridden in each element that needs to run `disconnectedCallback`.
 
@@ -230,15 +169,15 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 #### Inherited from
 
-[Animate](/docs/animate/).[destroy](/docs/animate/#destroy)
+[`Animate`](/docs/animate/).[`destroy`](/docs/animate/#destroy)
 
-#### Defined in
+#### Source
 
-[src/package/base/index.ts:159](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L159)
+[src/package/base/index.ts:159](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L159)
 
-### disconnectedCallback
+### disconnectedCallback()
 
-▸ **disconnectedCallback**(): `void`
+> **disconnectedCallback**(): `void`
 
 #### Returns
 
@@ -246,27 +185,26 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 #### Inherited from
 
-[Animate](/docs/animate/).[disconnectedCallback](/docs/animate/#disconnectedcallback)
+[`Animate`](/docs/animate/).[`disconnectedCallback`](/docs/animate/#disconnectedcallback)
 
-#### Defined in
+#### Source
 
-[src/package/base/index.ts:161](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L161)
+[src/package/base/index.ts:161](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L161)
 
-### getContent
+### getContent()
 
-▸ **getContent**\<`T`\>(`instance?`): `T`
+> **getContent**\<`T`\>(`instance`): `T`
 
 #### Type parameters
 
-| Name | Type                                  |
-| :--- | :------------------------------------ |
-| `T`  | extends `HTMLElement` = `HTMLElement` |
+• **T** _extends_ `HTMLElement` = `HTMLElement`
 
 #### Parameters
 
-| Name       | Type      | Description                                                                              |
-| :--------- | :-------- | :--------------------------------------------------------------------------------------- |
-| `instance` | () => `T` | The instance of the desired element, ex: `HTMLDialogElement`. Defaults to `HTMLElement`. |
+• **instance**= `undefined`
+
+The instance of the desired element, ex: `HTMLDialogElement`.
+Defaults to `HTMLElement`.
 
 #### Returns
 
@@ -274,29 +212,27 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 The element that matches the `content` selector.
 
-**`Default`**
+#### Inherited from
+
+[`Animate`](/docs/animate/).[`getContent`](/docs/animate/#getcontent)
+
+#### Default
 
 ```ts
 this.querySelector("[data-content]");
 ```
 
-#### Inherited from
+#### Source
 
-[Animate](/docs/animate/).[getContent](/docs/animate/#getcontent)
+[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L55)
 
-#### Defined in
+### getTrigger()
 
-[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L55)
-
-### getTrigger
-
-▸ **getTrigger**\<`T`\>(): `NodeListOf`\<`T`\>
+> **getTrigger**\<`T`\>(): `NodeListOf`\<`T`\>
 
 #### Type parameters
 
-| Name | Type                                  |
-| :--- | :------------------------------------ |
-| `T`  | extends `HTMLElement` = `HTMLElement` |
+• **T** _extends_ `HTMLElement` = `HTMLElement`
 
 #### Returns
 
@@ -304,23 +240,23 @@ this.querySelector("[data-content]");
 
 All of the elements that match the `trigger` selector.
 
-**`Default`**
+#### Inherited from
+
+[`Animate`](/docs/animate/).[`getTrigger`](/docs/animate/#gettrigger)
+
+#### Default
 
 ```ts
 this.querySelectorAll("[data-trigger]");
 ```
 
-#### Inherited from
+#### Source
 
-[Animate](/docs/animate/).[getTrigger](/docs/animate/#gettrigger)
+[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L42)
 
-#### Defined in
+### hide()
 
-[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L42)
-
-### hide
-
-▸ **hide**(): `Promise`\<`void`\>
+> **hide**(): `Promise`\<`void`\>
 
 `HTMLElement.hidePopover()` with animation.
 
@@ -328,13 +264,13 @@ this.querySelectorAll("[data-trigger]");
 
 `Promise`\<`void`\>
 
-#### Defined in
+#### Source
 
-[src/package/popover/index.ts:41](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/popover/index.ts#L41)
+[src/package/popover/index.ts:41](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/popover/index.ts#L41)
 
-### mount
+### mount()
 
-▸ **mount**(): `void`
+> **mount**(): `void`
 
 Passed into `queueMicrotask` in `connectedCallback`. It is overridden in each component that needs to run `connectedCallback`.
 
@@ -346,34 +282,34 @@ The reason for this is to make these elements work better with frameworks like S
 
 #### Overrides
 
-[Animate](/docs/animate/).[mount](/docs/animate/#mount)
+[`Animate`](/docs/animate/).[`mount`](/docs/animate/#mount)
 
-#### Defined in
+#### Source
 
-[src/package/popover/index.ts:57](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/popover/index.ts#L57)
+[src/package/popover/index.ts:57](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/popover/index.ts#L57)
 
-### safeListener
+### safeListener()
 
-▸ **safeListener**\<`K`, `T`\>(`type`, `listener`, `element?`, `options?`): `void`
+> **safeListener**\<`K`, `T`\>(`type`, `listener`, `element`, `options`): `void`
 
 Wrapper around `document.body.addEventListener` that ensures when the
 element is removed from the DOM, these event listeners are cleaned up.
 
 #### Type parameters
 
-| Name | Type                                                            |
-| :--- | :-------------------------------------------------------------- |
-| `K`  | extends keyof `DocumentEventMap`                                |
-| `T`  | extends `Window` \| `Document` \| `HTMLElement` = `HTMLElement` |
+• **K** _extends_ keyof `DocumentEventMap`
+
+• **T** _extends_ `Window` \| `Document` \| `HTMLElement` = `HTMLElement`
 
 #### Parameters
 
-| Name       | Type                                                  |
-| :--------- | :---------------------------------------------------- |
-| `type`     | `K`                                                   |
-| `listener` | (`this`: `T`, `ev`: `DocumentEventMap`[`K`]) => `any` |
-| `element`  | `T`                                                   |
-| `options`  | `AddEventListenerOptions`                             |
+• **type**: `K`
+
+• **listener**
+
+• **element**: `T`= `undefined`
+
+• **options**: `AddEventListenerOptions`= `{}`
 
 #### Returns
 
@@ -381,15 +317,15 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Inherited from
 
-[Animate](/docs/animate/).[safeListener](/docs/animate/#safelistener)
+[`Animate`](/docs/animate/).[`safeListener`](/docs/animate/#safelistener)
 
-#### Defined in
+#### Source
 
-[src/package/base/index.ts:118](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L118)
+[src/package/base/index.ts:118](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L118)
 
-### show
+### show()
 
-▸ **show**(): `Promise`\<`void`\>
+> **show**(): `Promise`\<`void`\>
 
 `HTMLElement.showPopover()` with animation.
 
@@ -397,23 +333,26 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 `Promise`\<`void`\>
 
-#### Defined in
+#### Source
 
-[src/package/popover/index.ts:34](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/popover/index.ts#L34)
+[src/package/popover/index.ts:34](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/popover/index.ts#L34)
 
-### swapContent
+### swapContent()
 
-▸ **swapContent**(`revert?`, `delay?`): `void`
+> **swapContent**(`revert`, `delay`): `void`
 
 Finds the `HTMLElement | HTMLTemplateElement` via the `swap` selector and
 swaps `this.content()` with the content of the element found.
 
 #### Parameters
 
-| Name     | Type      | Default value | Description                    |
-| :------- | :-------- | :------------ | :----------------------------- |
-| `revert` | `boolean` | `true`        | Swap back to old content       |
-| `delay`  | `number`  | `800`         | Wait time before swapping back |
+• **revert**: `boolean`= `true`
+
+Swap back to old content
+
+• **delay**: `number`= `800`
+
+Wait time before swapping back
 
 #### Returns
 
@@ -421,15 +360,15 @@ swaps `this.content()` with the content of the element found.
 
 #### Inherited from
 
-[Animate](/docs/animate/).[swapContent](/docs/animate/#swapcontent)
+[`Animate`](/docs/animate/).[`swapContent`](/docs/animate/#swapcontent)
 
-#### Defined in
+#### Source
 
-[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L72)
+[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L72)
 
-### toggle
+### toggle()
 
-▸ **toggle**(): `Promise`\<`void`\>
+> **toggle**(): `Promise`\<`void`\>
 
 `show` or `hide` depending on the current state.
 
@@ -437,28 +376,29 @@ swaps `this.content()` with the content of the element found.
 
 `Promise`\<`void`\>
 
-#### Defined in
+#### Source
 
-[src/package/popover/index.ts:52](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/popover/index.ts#L52)
+[src/package/popover/index.ts:52](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/popover/index.ts#L52)
 
-### triggerListener
+### triggerListener()
 
-▸ **triggerListener**\<`T`, `K`\>(`listener`, `type?`, `options?`): `void`
+> **triggerListener**\<`T`, `K`\>(`listener`, `type`, `options`?): `void`
 
 #### Type parameters
 
-| Name | Type                                |
-| :--- | :---------------------------------- |
-| `T`  | extends `HTMLElement`               |
-| `K`  | extends keyof `HTMLElementEventMap` |
+• **T** _extends_ `HTMLElement`
+
+• **K** _extends_ keyof `HTMLElementEventMap`
 
 #### Parameters
 
-| Name       | Type                                                    | Description                                          |
-| :--------- | :------------------------------------------------------ | :--------------------------------------------------- |
-| `listener` | (`this`: `T`, `e`: `HTMLElementEventMap`[`K`]) => `any` | Listener to attach to all of the `trigger` elements. |
-| `type`     | `K`                                                     | -                                                    |
-| `options?` | `AddEventListenerOptions`                               | -                                                    |
+• **listener**
+
+Listener to attach to all of the `trigger` elements.
+
+• **type**: `K`= `undefined`
+
+• **options?**: `AddEventListenerOptions`
 
 #### Returns
 
@@ -466,8 +406,8 @@ swaps `this.content()` with the content of the element found.
 
 #### Inherited from
 
-[Animate](/docs/animate/).[triggerListener](/docs/animate/#triggerlistener)
+[`Animate`](/docs/animate/).[`triggerListener`](/docs/animate/#triggerlistener)
 
-#### Defined in
+#### Source
 
-[src/package/base/index.ts:135](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L135)
+[src/package/base/index.ts:135](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L135)

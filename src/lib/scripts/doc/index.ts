@@ -11,13 +11,9 @@ const doc = async () => {
 		let lines = md.split("\n");
 
 		for (let i = 0; i < lines.length; i++) {
-			if (lines[i]?.startsWith("node_modules")) {
+			if (lines[i]?.startsWith("node\\_modules")) {
 				let j = i - 1;
-				while (
-					typeof lines[j] === "string" &&
-					!lines[j]?.startsWith("___") &&
-					!lines[j]?.startsWith("## ")
-				) {
+				while (typeof lines[j] === "string" && !lines[j]?.startsWith("***")) {
 					lines[j] = "";
 					j--;
 				}
@@ -25,13 +21,13 @@ const doc = async () => {
 			}
 		}
 
-		// remove first two lines - the title
-		lines = lines.slice(2);
+		// remove first 6 lines - the titles
+		lines = lines.slice(6);
 
 		md = lines.join("\n");
 
 		// remove extra hrs
-		md = md.replaceAll(`___\n\n`, "");
+		md = md.replaceAll(`***\n\n`, "");
 
 		md = md.replaceAll(`\n## `, `\n---\n\n## `);
 

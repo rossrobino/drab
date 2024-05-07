@@ -3,19 +3,17 @@ to copy text.
 
 ---
 
-## Hierarchy
+## Extends
 
 - `BaseCopy`
-
-  ↳ **`Copy`**
 
 ---
 
 ## Constructors
 
-### constructor
+### new Copy()
 
-• **new Copy**(): [`Copy`](/docs/copy/)
+> **new Copy**(): [`Copy`](/docs/copy/)
 
 #### Returns
 
@@ -23,11 +21,11 @@ to copy text.
 
 #### Overrides
 
-BaseCopy.constructor
+`BaseCopy.constructor`
 
-#### Defined in
+#### Source
 
-[src/package/copy/index.ts:11](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/copy/index.ts#L11)
+[src/package/copy/index.ts:11](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/copy/index.ts#L11)
 
 ---
 
@@ -35,17 +33,17 @@ BaseCopy.constructor
 
 ### #listenerController
 
-• `Private` **#listenerController**: `AbortController`
+> `private` **#listenerController**: `AbortController`
 
 To clean up event listeners added to `document` when the element is removed.
 
 #### Inherited from
 
-BaseCopy.#listenerController
+`BaseCopy.#listenerController`
 
-#### Defined in
+#### Source
 
-[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L17)
+[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L17)
 
 ---
 
@@ -53,37 +51,35 @@ BaseCopy.#listenerController
 
 ### event
 
-• `get` **event**(): keyof `HTMLElementEventMap`
+> `get` **event**(): keyof `HTMLElementEventMap`
 
 Event for the `trigger` to execute.
 
 For example, set to `"mouseover"` to execute the event when the user hovers the mouse over the `trigger`, instead of when they click it.
 
-#### Returns
-
-keyof `HTMLElementEventMap`
-
-**`Default`**
+#### Default
 
 ```ts
 "click";
 ```
 
-#### Inherited from
-
-BaseCopy.event
-
-#### Defined in
-
-[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L30)
-
-• `set` **event**(`value`): `void`
+> `set` **event**(`value`): `void`
 
 #### Parameters
 
-| Name    | Type                        |
-| :------ | :-------------------------- |
-| `value` | keyof `HTMLElementEventMap` |
+• **value**: keyof `HTMLElementEventMap`
+
+#### Returns
+
+keyof `HTMLElementEventMap`
+
+#### Source
+
+[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L30)
+
+### connectedCallback()
+
+> **connectedCallback**(): `void`
 
 #### Returns
 
@@ -91,87 +87,23 @@ BaseCopy.event
 
 #### Inherited from
 
-BaseCopy.event
+`BaseCopy.connectedCallback`
 
-#### Defined in
+#### Source
 
-[src/package/base/index.ts:34](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L34)
+[src/package/base/index.ts:152](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L152)
 
-### value
+### copy()
 
-• `get` **value**(): `string`
-
-The value to copy or share.
-
-#### Returns
-
-`string`
-
-**`Default`**
-
-```ts
-"" the empty string
-```
-
-#### Inherited from
-
-BaseCopy.value
-
-#### Defined in
-
-[src/package/base/copy/index.ts:13](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/copy/index.ts#L13)
-
-• `set` **value**(`value`): `void`
-
-#### Parameters
-
-| Name    | Type     |
-| :------ | :------- |
-| `value` | `string` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-BaseCopy.value
-
-#### Defined in
-
-[src/package/base/copy/index.ts:17](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/copy/index.ts#L17)
-
----
-
-## Methods
-
-### connectedCallback
-
-▸ **connectedCallback**(): `void`
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-BaseCopy.connectedCallback
-
-#### Defined in
-
-[src/package/base/index.ts:152](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L152)
-
-### copy
-
-▸ **copy**(`text?`): `Promise`\<`void`\>
+> **copy**(`text`): `Promise`\<`void`\>
 
 Copies the `text`.
 
 #### Parameters
 
-| Name   | Type     | Description         |
-| :----- | :------- | :------------------ |
-| `text` | `string` | The `text` to share |
+• **text**: `string`= `undefined`
+
+The `text` to share
 
 #### Returns
 
@@ -179,15 +111,15 @@ Copies the `text`.
 
 #### Inherited from
 
-BaseCopy.copy
+`BaseCopy.copy`
 
-#### Defined in
+#### Source
 
-[src/package/base/copy/index.ts:25](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/copy/index.ts#L25)
+[src/package/base/copy/index.ts:25](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/copy/index.ts#L25)
 
-### destroy
+### destroy()
 
-▸ **destroy**(): `void`
+> **destroy**(): `void`
 
 Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallback` as well. It is overridden in each element that needs to run `disconnectedCallback`.
 
@@ -197,15 +129,15 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 #### Inherited from
 
-BaseCopy.destroy
+`BaseCopy.destroy`
 
-#### Defined in
+#### Source
 
-[src/package/base/index.ts:159](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L159)
+[src/package/base/index.ts:159](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L159)
 
-### disconnectedCallback
+### disconnectedCallback()
 
-▸ **disconnectedCallback**(): `void`
+> **disconnectedCallback**(): `void`
 
 #### Returns
 
@@ -213,27 +145,26 @@ BaseCopy.destroy
 
 #### Inherited from
 
-BaseCopy.disconnectedCallback
+`BaseCopy.disconnectedCallback`
 
-#### Defined in
+#### Source
 
-[src/package/base/index.ts:161](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L161)
+[src/package/base/index.ts:161](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L161)
 
-### getContent
+### getContent()
 
-▸ **getContent**\<`T`\>(`instance?`): `T`
+> **getContent**\<`T`\>(`instance`): `T`
 
 #### Type parameters
 
-| Name | Type                                  |
-| :--- | :------------------------------------ |
-| `T`  | extends `HTMLElement` = `HTMLElement` |
+• **T** _extends_ `HTMLElement` = `HTMLElement`
 
 #### Parameters
 
-| Name       | Type      | Description                                                                              |
-| :--------- | :-------- | :--------------------------------------------------------------------------------------- |
-| `instance` | () => `T` | The instance of the desired element, ex: `HTMLDialogElement`. Defaults to `HTMLElement`. |
+• **instance**= `undefined`
+
+The instance of the desired element, ex: `HTMLDialogElement`.
+Defaults to `HTMLElement`.
 
 #### Returns
 
@@ -241,29 +172,27 @@ BaseCopy.disconnectedCallback
 
 The element that matches the `content` selector.
 
-**`Default`**
+#### Inherited from
+
+`BaseCopy.getContent`
+
+#### Default
 
 ```ts
 this.querySelector("[data-content]");
 ```
 
-#### Inherited from
+#### Source
 
-BaseCopy.getContent
+[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L55)
 
-#### Defined in
+### getTrigger()
 
-[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L55)
-
-### getTrigger
-
-▸ **getTrigger**\<`T`\>(): `NodeListOf`\<`T`\>
+> **getTrigger**\<`T`\>(): `NodeListOf`\<`T`\>
 
 #### Type parameters
 
-| Name | Type                                  |
-| :--- | :------------------------------------ |
-| `T`  | extends `HTMLElement` = `HTMLElement` |
+• **T** _extends_ `HTMLElement` = `HTMLElement`
 
 #### Returns
 
@@ -271,23 +200,23 @@ BaseCopy.getContent
 
 All of the elements that match the `trigger` selector.
 
-**`Default`**
+#### Inherited from
+
+`BaseCopy.getTrigger`
+
+#### Default
 
 ```ts
 this.querySelectorAll("[data-trigger]");
 ```
 
-#### Inherited from
+#### Source
 
-BaseCopy.getTrigger
+[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L42)
 
-#### Defined in
+### mount()
 
-[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L42)
-
-### mount
-
-▸ **mount**(): `void`
+> **mount**(): `void`
 
 #### Returns
 
@@ -295,34 +224,34 @@ BaseCopy.getTrigger
 
 #### Overrides
 
-BaseCopy.mount
+`BaseCopy.mount`
 
-#### Defined in
+#### Source
 
-[src/package/copy/index.ts:15](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/copy/index.ts#L15)
+[src/package/copy/index.ts:15](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/copy/index.ts#L15)
 
-### safeListener
+### safeListener()
 
-▸ **safeListener**\<`K`, `T`\>(`type`, `listener`, `element?`, `options?`): `void`
+> **safeListener**\<`K`, `T`\>(`type`, `listener`, `element`, `options`): `void`
 
 Wrapper around `document.body.addEventListener` that ensures when the
 element is removed from the DOM, these event listeners are cleaned up.
 
 #### Type parameters
 
-| Name | Type                                                            |
-| :--- | :-------------------------------------------------------------- |
-| `K`  | extends keyof `DocumentEventMap`                                |
-| `T`  | extends `Window` \| `Document` \| `HTMLElement` = `HTMLElement` |
+• **K** _extends_ keyof `DocumentEventMap`
+
+• **T** _extends_ `Window` \| `Document` \| `HTMLElement` = `HTMLElement`
 
 #### Parameters
 
-| Name       | Type                                                  |
-| :--------- | :---------------------------------------------------- |
-| `type`     | `K`                                                   |
-| `listener` | (`this`: `T`, `ev`: `DocumentEventMap`[`K`]) => `any` |
-| `element`  | `T`                                                   |
-| `options`  | `AddEventListenerOptions`                             |
+• **type**: `K`
+
+• **listener**
+
+• **element**: `T`= `undefined`
+
+• **options**: `AddEventListenerOptions`= `{}`
 
 #### Returns
 
@@ -330,25 +259,28 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Inherited from
 
-BaseCopy.safeListener
+`BaseCopy.safeListener`
 
-#### Defined in
+#### Source
 
-[src/package/base/index.ts:118](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L118)
+[src/package/base/index.ts:118](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L118)
 
-### swapContent
+### swapContent()
 
-▸ **swapContent**(`revert?`, `delay?`): `void`
+> **swapContent**(`revert`, `delay`): `void`
 
 Finds the `HTMLElement | HTMLTemplateElement` via the `swap` selector and
 swaps `this.content()` with the content of the element found.
 
 #### Parameters
 
-| Name     | Type      | Default value | Description                    |
-| :------- | :-------- | :------------ | :----------------------------- |
-| `revert` | `boolean` | `true`        | Swap back to old content       |
-| `delay`  | `number`  | `800`         | Wait time before swapping back |
+• **revert**: `boolean`= `true`
+
+Swap back to old content
+
+• **delay**: `number`= `800`
+
+Wait time before swapping back
 
 #### Returns
 
@@ -356,30 +288,31 @@ swaps `this.content()` with the content of the element found.
 
 #### Inherited from
 
-BaseCopy.swapContent
+`BaseCopy.swapContent`
 
-#### Defined in
+#### Source
 
-[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L72)
+[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L72)
 
-### triggerListener
+### triggerListener()
 
-▸ **triggerListener**\<`T`, `K`\>(`listener`, `type?`, `options?`): `void`
+> **triggerListener**\<`T`, `K`\>(`listener`, `type`, `options`?): `void`
 
 #### Type parameters
 
-| Name | Type                                |
-| :--- | :---------------------------------- |
-| `T`  | extends `HTMLElement`               |
-| `K`  | extends keyof `HTMLElementEventMap` |
+• **T** _extends_ `HTMLElement`
+
+• **K** _extends_ keyof `HTMLElementEventMap`
 
 #### Parameters
 
-| Name       | Type                                                    | Description                                          |
-| :--------- | :------------------------------------------------------ | :--------------------------------------------------- |
-| `listener` | (`this`: `T`, `e`: `HTMLElementEventMap`[`K`]) => `any` | Listener to attach to all of the `trigger` elements. |
-| `type`     | `K`                                                     | -                                                    |
-| `options?` | `AddEventListenerOptions`                               | -                                                    |
+• **listener**
+
+Listener to attach to all of the `trigger` elements.
+
+• **type**: `K`= `undefined`
+
+• **options?**: `AddEventListenerOptions`
 
 #### Returns
 
@@ -387,8 +320,8 @@ BaseCopy.swapContent
 
 #### Inherited from
 
-BaseCopy.triggerListener
+`BaseCopy.triggerListener`
 
-#### Defined in
+#### Source
 
-[src/package/base/index.ts:135](https://github.com/rossrobino/components/blob/6ae6acc1b24dbfb595bbe0e6678d9a6deb35d050/src/package/base/index.ts#L135)
+[src/package/base/index.ts:135](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L135)

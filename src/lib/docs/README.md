@@ -1,3 +1,7 @@
+**drab** • [**Docs**](/docs/globals.md)
+
+---
+
 # A Headless Custom Element Library
 
 ## Features
