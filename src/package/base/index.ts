@@ -149,6 +149,9 @@ export class Base extends HTMLElement {
 	 */
 	mount() {}
 
+	/**
+	 * Called when custom element is added to the page.
+	 */
 	connectedCallback() {
 		queueMicrotask(() => this.mount());
 	}
@@ -158,6 +161,9 @@ export class Base extends HTMLElement {
 	 */
 	destroy() {}
 
+	/**
+	 * Called when custom element is removed from the page.
+	 */
 	disconnectedCallback() {
 		this.destroy();
 		this.#listenerController.abort();
