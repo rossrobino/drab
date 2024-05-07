@@ -13,7 +13,11 @@ const doc = async () => {
 		for (let i = 0; i < lines.length; i++) {
 			if (lines[i]?.startsWith("node\\_modules")) {
 				let j = i - 1;
-				while (typeof lines[j] === "string" && !lines[j]?.startsWith("***")) {
+				while (
+					typeof lines[j] === "string" &&
+					!lines[j]?.startsWith("***") &&
+					!lines[j]?.startsWith("## ")
+				) {
 					lines[j] = "";
 					j--;
 				}

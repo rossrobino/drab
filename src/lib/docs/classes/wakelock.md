@@ -34,7 +34,7 @@
 
 #### Source
 
-[src/package/wakelock/index.ts:25](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/wakelock/index.ts#L25)
+[src/package/wakelock/index.ts:25](https://github.com/rossrobino/components/blob/13acb4ddbdca1f70bfc20fffda57758e606a2f95/src/package/wakelock/index.ts#L25)
 
 ---
 
@@ -52,7 +52,7 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Source
 
-[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L17)
+[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/13acb4ddbdca1f70bfc20fffda57758e606a2f95/src/package/base/index.ts#L17)
 
 ### wakeLock
 
@@ -60,7 +60,7 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Source
 
-[src/package/wakelock/index.ts:23](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/wakelock/index.ts#L23)
+[src/package/wakelock/index.ts:23](https://github.com/rossrobino/components/blob/13acb4ddbdca1f70bfc20fffda57758e606a2f95/src/package/wakelock/index.ts#L23)
 
 ---
 
@@ -78,7 +78,7 @@ the `auto-lock` attribute controls whether an active WakeLock should be restored
 
 #### Source
 
-[src/package/wakelock/index.ts:37](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/wakelock/index.ts#L37)
+[src/package/wakelock/index.ts:37](https://github.com/rossrobino/components/blob/13acb4ddbdca1f70bfc20fffda57758e606a2f95/src/package/wakelock/index.ts#L37)
 
 ### event
 
@@ -106,7 +106,7 @@ keyof `HTMLElementEventMap`
 
 #### Source
 
-[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L30)
+[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/13acb4ddbdca1f70bfc20fffda57758e606a2f95/src/package/base/index.ts#L30)
 
 ---
 
@@ -124,7 +124,7 @@ If the WakeLock API is supported on the user's device.
 
 #### Source
 
-[src/package/wakelock/index.ts:30](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/wakelock/index.ts#L30)
+[src/package/wakelock/index.ts:30](https://github.com/rossrobino/components/blob/13acb4ddbdca1f70bfc20fffda57758e606a2f95/src/package/wakelock/index.ts#L30)
 
 ### connectedCallback()
 
@@ -140,7 +140,7 @@ If the WakeLock API is supported on the user's device.
 
 #### Source
 
-[src/package/base/index.ts:152](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L152)
+[src/package/base/index.ts:152](https://github.com/rossrobino/components/blob/13acb4ddbdca1f70bfc20fffda57758e606a2f95/src/package/base/index.ts#L152)
 
 ### destroy()
 
@@ -158,7 +158,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 #### Source
 
-[src/package/wakelock/index.ts:105](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/wakelock/index.ts#L105)
+[src/package/wakelock/index.ts:105](https://github.com/rossrobino/components/blob/13acb4ddbdca1f70bfc20fffda57758e606a2f95/src/package/wakelock/index.ts#L105)
 
 ### disconnectedCallback()
 
@@ -174,7 +174,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 #### Source
 
-[src/package/base/index.ts:161](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L161)
+[src/package/base/index.ts:161](https://github.com/rossrobino/components/blob/13acb4ddbdca1f70bfc20fffda57758e606a2f95/src/package/base/index.ts#L161)
 
 ### getContent()
 
@@ -209,7 +209,7 @@ this.querySelector("[data-content]");
 
 #### Source
 
-[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L55)
+[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/13acb4ddbdca1f70bfc20fffda57758e606a2f95/src/package/base/index.ts#L55)
 
 ### getTrigger()
 
@@ -237,7 +237,7 @@ this.querySelectorAll("[data-trigger]");
 
 #### Source
 
-[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L42)
+[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/13acb4ddbdca1f70bfc20fffda57758e606a2f95/src/package/base/index.ts#L42)
 
 ### mount()
 
@@ -257,7 +257,7 @@ The reason for this is to make these elements work better with frameworks like S
 
 #### Source
 
-[src/package/wakelock/index.ts:67](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/wakelock/index.ts#L67)
+[src/package/wakelock/index.ts:67](https://github.com/rossrobino/components/blob/13acb4ddbdca1f70bfc20fffda57758e606a2f95/src/package/wakelock/index.ts#L67)
 
 ### release()
 
@@ -271,7 +271,7 @@ Releases the WakeLock, sets `this.wakeLock` to null.
 
 #### Source
 
-[src/package/wakelock/index.ts:62](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/wakelock/index.ts#L62)
+[src/package/wakelock/index.ts:62](https://github.com/rossrobino/components/blob/13acb4ddbdca1f70bfc20fffda57758e606a2f95/src/package/wakelock/index.ts#L62)
 
 ### request()
 
@@ -285,7 +285,7 @@ Requests WakeLock on the current page.
 
 #### Source
 
-[src/package/wakelock/index.ts:42](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/wakelock/index.ts#L42)
+[src/package/wakelock/index.ts:42](https://github.com/rossrobino/components/blob/13acb4ddbdca1f70bfc20fffda57758e606a2f95/src/package/wakelock/index.ts#L42)
 
 ### safeListener()
 
@@ -320,7 +320,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Source
 
-[src/package/base/index.ts:118](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L118)
+[src/package/base/index.ts:118](https://github.com/rossrobino/components/blob/13acb4ddbdca1f70bfc20fffda57758e606a2f95/src/package/base/index.ts#L118)
 
 ### swapContent()
 
@@ -349,7 +349,7 @@ Wait time before swapping back
 
 #### Source
 
-[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L72)
+[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/13acb4ddbdca1f70bfc20fffda57758e606a2f95/src/package/base/index.ts#L72)
 
 ### triggerListener()
 
@@ -381,4 +381,4 @@ Listener to attach to all of the `trigger` elements.
 
 #### Source
 
-[src/package/base/index.ts:135](https://github.com/rossrobino/components/blob/7c5ef9c5560075bcaf1de43f0d5a025a6ebd2ca0/src/package/base/index.ts#L135)
+[src/package/base/index.ts:135](https://github.com/rossrobino/components/blob/13acb4ddbdca1f70bfc20fffda57758e606a2f95/src/package/base/index.ts#L135)
