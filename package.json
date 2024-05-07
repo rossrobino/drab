@@ -183,11 +183,11 @@
 		"pub": "bun i && bun doc && bun package && npm publish --access public ./package"
 	},
 	"devDependencies": {
-		"@tailwindcss/typography": "^0.5.12",
-		"@types/node": "^20.12.7",
+		"@tailwindcss/typography": "^0.5.13",
+		"@types/node": "^20.12.10",
 		"@vercel/analytics": "^1.2.2",
 		"autoprefixer": "^10.4.19",
-		"domco": "^0.5.4",
+		"domco": "^0.5.13",
 		"prettier": "^3.2.5",
 		"prettier-plugin-tailwindcss": "^0.5.14",
 		"robino": "^0.2.0",
@@ -197,6 +197,6 @@
 		"typedoc-plugin-markdown": "^3.17.1",
 		"typescript": "^5.4.5",
 		"uico": "^0.2.4",
-		"vite": "^5.2.9"
+		"vite": "^5.2.11"
 	}
 }
