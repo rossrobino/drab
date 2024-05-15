@@ -43,5 +43,15 @@ export const config: Config = {
 				await processMarkdown(`## Overview\n\n${reference}`)
 			).html;
 		}
+
+		// set meta description
+		const metaDesc = document.head.querySelector("meta[name='description']");
+
+		if (metaDesc)
+			metaDesc.setAttribute(
+				"content",
+				// selects the first child after the `Overview` heading
+				referenceDiv?.children[1]?.textContent ?? "",
+			);
 	},
 };
