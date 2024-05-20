@@ -187,7 +187,7 @@
 		"@types/node": "^20.12.12",
 		"@vercel/analytics": "^1.2.2",
 		"autoprefixer": "^10.4.19",
-		"domco": "^0.5.18",
+		"domco": "^0.5.19",
 		"prettier": "^3.2.5",
 		"prettier-plugin-tailwindcss": "^0.5.14",
 		"robino": "^0.2.0",
