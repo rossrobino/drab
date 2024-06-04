@@ -34,7 +34,7 @@ is open.
 
 #### Source
 
-[src/package/dialog/index.ts:27](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/dialog/index.ts#L27)
+[src/package/dialog/index.ts:27](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/dialog/index.ts#L27)
 
 ---
 
@@ -48,7 +48,7 @@ The initial margin-right value of the body element.
 
 #### Source
 
-[src/package/dialog/index.ts:23](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/dialog/index.ts#L23)
+[src/package/dialog/index.ts:23](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/dialog/index.ts#L23)
 
 ### #listenerController
 
@@ -62,49 +62,11 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Source
 
-[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L17)
+[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/base/index.ts#L17)
 
 ---
 
 ## Accessors
-
-### #bodyMarginRight
-
-> `set` `private` **#bodyMarginRight**(`margin`): `void`
-
-#### Parameters
-
-• **margin**: `number`
-
-#### Source
-
-[src/package/dialog/index.ts:41](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/dialog/index.ts#L41)
-
-### #bodyOverflow
-
-> `set` `private` **#bodyOverflow**(`overflow`): `void`
-
-#### Parameters
-
-• **overflow**: `string`
-
-#### Source
-
-[src/package/dialog/index.ts:45](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/dialog/index.ts#L45)
-
-### #scrollbarWidth
-
-> `get` `private` **#scrollbarWidth**(): `number`
-
-The width of the scrollbar---used for when the scroll is removed.
-
-#### Returns
-
-`number`
-
-#### Source
-
-[src/package/dialog/index.ts:37](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/dialog/index.ts#L37)
 
 ### animationOptions
 
@@ -118,7 +80,7 @@ An object containing the values of each `animation-option` attribute
 
 #### Source
 
-[src/package/animate/index.ts:46](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/animate/index.ts#L46)
+[src/package/animate/index.ts:46](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/animate/index.ts#L46)
 
 ### dialog
 
@@ -132,7 +94,7 @@ The `HTMLDialogElement` within the element.
 
 #### Source
 
-[src/package/dialog/index.ts:32](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/dialog/index.ts#L32)
+[src/package/dialog/index.ts:32](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/dialog/index.ts#L32)
 
 ### event
 
@@ -160,7 +122,7 @@ keyof `HTMLElementEventMap`
 
 #### Source
 
-[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L30)
+[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/base/index.ts#L30)
 
 ### keyframes
 
@@ -172,7 +134,7 @@ keyof `HTMLElementEventMap`
 
 #### Source
 
-[src/package/animate/index.ts:128](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/animate/index.ts#L128)
+[src/package/animate/index.ts:128](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/animate/index.ts#L128)
 
 ---
 
@@ -194,7 +156,7 @@ Remove scroll from the body when open with the `remove-body-scroll` attribute.
 
 #### Source
 
-[src/package/dialog/index.ts:50](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/dialog/index.ts#L50)
+[src/package/dialog/index.ts:37](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/dialog/index.ts#L37)
 
 ### animateElement()
 
@@ -230,7 +192,7 @@ Animates a particular element using the web animations API.
 
 #### Source
 
-[src/package/animate/index.ts:76](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/animate/index.ts#L76)
+[src/package/animate/index.ts:76](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/animate/index.ts#L76)
 
 ### close()
 
@@ -244,7 +206,7 @@ Animates a particular element using the web animations API.
 
 #### Source
 
-[src/package/dialog/index.ts:67](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/dialog/index.ts#L67)
+[src/package/dialog/index.ts:59](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/dialog/index.ts#L59)
 
 ### connectedCallback()
 
@@ -262,7 +224,7 @@ Called when custom element is added to the page.
 
 #### Source
 
-[src/package/base/index.ts:155](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L155)
+[src/package/base/index.ts:155](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/base/index.ts#L155)
 
 ### destroy()
 
@@ -280,7 +242,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 #### Source
 
-[src/package/base/index.ts:162](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L162)
+[src/package/base/index.ts:162](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/base/index.ts#L162)
 
 ### disconnectedCallback()
 
@@ -298,7 +260,7 @@ Called when custom element is removed from the page.
 
 #### Source
 
-[src/package/base/index.ts:167](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L167)
+[src/package/base/index.ts:167](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/base/index.ts#L167)
 
 ### getContent()
 
@@ -333,7 +295,7 @@ this.querySelector("[data-content]");
 
 #### Source
 
-[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L55)
+[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/base/index.ts#L55)
 
 ### getTrigger()
 
@@ -361,7 +323,7 @@ this.querySelectorAll("[data-trigger]");
 
 #### Source
 
-[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L42)
+[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/base/index.ts#L42)
 
 ### mount()
 
@@ -381,7 +343,7 @@ The reason for this is to make these elements work better with frameworks like S
 
 #### Source
 
-[src/package/dialog/index.ts:83](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/dialog/index.ts#L83)
+[src/package/dialog/index.ts:75](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/dialog/index.ts#L75)
 
 ### safeListener()
 
@@ -416,7 +378,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Source
 
-[src/package/base/index.ts:118](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L118)
+[src/package/base/index.ts:118](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/base/index.ts#L118)
 
 ### show()
 
@@ -430,7 +392,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Source
 
-[src/package/dialog/index.ts:60](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/dialog/index.ts#L60)
+[src/package/dialog/index.ts:52](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/dialog/index.ts#L52)
 
 ### swapContent()
 
@@ -459,7 +421,7 @@ Wait time before swapping back
 
 #### Source
 
-[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L72)
+[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/base/index.ts#L72)
 
 ### toggle()
 
@@ -473,7 +435,7 @@ Wait time before swapping back
 
 #### Source
 
-[src/package/dialog/index.ts:78](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/dialog/index.ts#L78)
+[src/package/dialog/index.ts:70](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/dialog/index.ts#L70)
 
 ### triggerListener()
 
@@ -505,4 +467,4 @@ Listener to attach to all of the `trigger` elements.
 
 #### Source
 
-[src/package/base/index.ts:135](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L135)
+[src/package/base/index.ts:135](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/base/index.ts#L135)

@@ -30,7 +30,7 @@ Provide alternate breakpoints by specifying `breakpoint` attributes:
 
 #### Source
 
-[src/package/breakpoint/index.ts:27](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/breakpoint/index.ts#L27)
+[src/package/breakpoint/index.ts:27](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/breakpoint/index.ts#L27)
 
 ---
 
@@ -48,7 +48,7 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Source
 
-[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L17)
+[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/base/index.ts#L17)
 
 ### breakpoints
 
@@ -56,7 +56,7 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Source
 
-[src/package/breakpoint/index.ts:19](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/breakpoint/index.ts#L19)
+[src/package/breakpoint/index.ts:19](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/breakpoint/index.ts#L19)
 
 ---
 
@@ -74,7 +74,7 @@ finds the current breakpoint
 
 #### Source
 
-[src/package/breakpoint/index.ts:51](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/breakpoint/index.ts#L51)
+[src/package/breakpoint/index.ts:51](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/breakpoint/index.ts#L51)
 
 ### event
 
@@ -102,7 +102,7 @@ keyof `HTMLElementEventMap`
 
 #### Source
 
-[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L30)
+[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/base/index.ts#L30)
 
 ---
 
@@ -124,7 +124,7 @@ Called when custom element is added to the page.
 
 #### Source
 
-[src/package/base/index.ts:155](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L155)
+[src/package/base/index.ts:155](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/base/index.ts#L155)
 
 ### destroy()
 
@@ -142,7 +142,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 #### Source
 
-[src/package/base/index.ts:162](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L162)
+[src/package/base/index.ts:162](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/base/index.ts#L162)
 
 ### disconnectedCallback()
 
@@ -160,7 +160,7 @@ Called when custom element is removed from the page.
 
 #### Source
 
-[src/package/base/index.ts:167](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L167)
+[src/package/base/index.ts:167](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/base/index.ts#L167)
 
 ### getContent()
 
@@ -195,7 +195,7 @@ this.querySelector("[data-content]");
 
 #### Source
 
-[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L55)
+[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/base/index.ts#L55)
 
 ### getTrigger()
 
@@ -223,7 +223,7 @@ this.querySelectorAll("[data-trigger]");
 
 #### Source
 
-[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L42)
+[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/base/index.ts#L42)
 
 ### mount()
 
@@ -243,7 +243,7 @@ The reason for this is to make these elements work better with frameworks like S
 
 #### Source
 
-[src/package/breakpoint/index.ts:63](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/breakpoint/index.ts#L63)
+[src/package/breakpoint/index.ts:63](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/breakpoint/index.ts#L63)
 
 ### safeListener()
 
@@ -278,7 +278,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Source
 
-[src/package/base/index.ts:118](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L118)
+[src/package/base/index.ts:118](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/base/index.ts#L118)
 
 ### swapContent()
 
@@ -307,7 +307,7 @@ Wait time before swapping back
 
 #### Source
 
-[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L72)
+[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/base/index.ts#L72)
 
 ### triggerListener()
 
@@ -339,4 +339,4 @@ Listener to attach to all of the `trigger` elements.
 
 #### Source
 
-[src/package/base/index.ts:135](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L135)
+[src/package/base/index.ts:135](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/base/index.ts#L135)

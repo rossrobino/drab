@@ -50,7 +50,7 @@ Other features:
 
 #### Source
 
-[src/package/editor/index.ts:63](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/editor/index.ts#L63)
+[src/package/editor/index.ts:63](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/editor/index.ts#L63)
 
 ---
 
@@ -68,7 +68,7 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Source
 
-[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L17)
+[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/base/index.ts#L17)
 
 ### #openChars
 
@@ -78,7 +78,7 @@ Array of keyPair characters that have been opened.
 
 #### Source
 
-[src/package/editor/index.ts:51](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/editor/index.ts#L51)
+[src/package/editor/index.ts:51](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/editor/index.ts#L51)
 
 ### keyPairs
 
@@ -92,7 +92,7 @@ The characters that will be automatically closed when typed.
 
 #### Source
 
-[src/package/editor/index.ts:54](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/editor/index.ts#L54)
+[src/package/editor/index.ts:54](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/editor/index.ts#L54)
 
 ---
 
@@ -110,7 +110,7 @@ An array of `ContentElement`s derived from each `trigger`'s data attributes.
 
 #### Source
 
-[src/package/editor/index.ts:89](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/editor/index.ts#L89)
+[src/package/editor/index.ts:89](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/editor/index.ts#L89)
 
 ### #currentBlock
 
@@ -127,7 +127,7 @@ An array of `ContentElement`s derived from each `trigger`'s data attributes.
 
 #### Source
 
-[src/package/editor/index.ts:103](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/editor/index.ts#L103)
+[src/package/editor/index.ts:103](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/editor/index.ts#L103)
 
 ### #selectionEnd
 
@@ -141,7 +141,7 @@ Gets the end position of the selection
 
 #### Source
 
-[src/package/editor/index.ts:116](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/editor/index.ts#L116)
+[src/package/editor/index.ts:116](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/editor/index.ts#L116)
 
 ### #selectionStart
 
@@ -155,7 +155,7 @@ Gets the start position of the selection.
 
 #### Source
 
-[src/package/editor/index.ts:121](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/editor/index.ts#L121)
+[src/package/editor/index.ts:121](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/editor/index.ts#L121)
 
 ### event
 
@@ -183,7 +183,7 @@ keyof `HTMLElementEventMap`
 
 #### Source
 
-[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L30)
+[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/base/index.ts#L30)
 
 ### text
 
@@ -203,7 +203,7 @@ The current `value` of the `textarea`.
 
 #### Source
 
-[src/package/editor/index.ts:80](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/editor/index.ts#L80)
+[src/package/editor/index.ts:80](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/editor/index.ts#L80)
 
 ### textArea
 
@@ -217,7 +217,7 @@ The `content`, expects an `HTMLTextAreaElement`.
 
 #### Source
 
-[src/package/editor/index.ts:75](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/editor/index.ts#L75)
+[src/package/editor/index.ts:75](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/editor/index.ts#L75)
 
 ---
 
@@ -242,7 +242,7 @@ selected content element
 
 #### Source
 
-[src/package/editor/index.ts:227](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/editor/index.ts#L227)
+[src/package/editor/index.ts:227](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/editor/index.ts#L227)
 
 ### #correctFollowing()
 
@@ -280,7 +280,7 @@ if following lines should be decremented instead of incremented
 
 #### Source
 
-[src/package/editor/index.ts:311](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/editor/index.ts#L311)
+[src/package/editor/index.ts:311](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/editor/index.ts#L311)
 
 ### #getContentElement()
 
@@ -300,7 +300,7 @@ The ContentElement based on the `trigger`'s attributes.
 
 #### Source
 
-[src/package/editor/index.ts:134](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/editor/index.ts#L134)
+[src/package/editor/index.ts:134](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/editor/index.ts#L134)
 
 ### #getLineInfo()
 
@@ -332,7 +332,7 @@ const { lines, lineNumber, columnNumber } = getLineInfo();
 
 #### Source
 
-[src/package/editor/index.ts:269](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/editor/index.ts#L269)
+[src/package/editor/index.ts:269](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/editor/index.ts#L269)
 
 ### #getRepeat()
 
@@ -353,7 +353,7 @@ what is found, or the empty string
 
 #### Source
 
-[src/package/editor/index.ts:242](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/editor/index.ts#L242)
+[src/package/editor/index.ts:242](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/editor/index.ts#L242)
 
 ### #insertText()
 
@@ -382,7 +382,7 @@ current end position of the selection
 
 #### Source
 
-[src/package/editor/index.ts:149](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/editor/index.ts#L149)
+[src/package/editor/index.ts:149](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/editor/index.ts#L149)
 
 ### #setCaretPosition()
 
@@ -410,7 +410,7 @@ current end position of the selection
 
 #### Source
 
-[src/package/editor/index.ts:191](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/editor/index.ts#L191)
+[src/package/editor/index.ts:191](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/editor/index.ts#L191)
 
 ### #setSelectionRange()
 
@@ -430,7 +430,7 @@ Sets the current cursor selection in the `textarea`
 
 #### Source
 
-[src/package/editor/index.ts:126](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/editor/index.ts#L126)
+[src/package/editor/index.ts:126](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/editor/index.ts#L126)
 
 ### connectedCallback()
 
@@ -448,7 +448,7 @@ Called when custom element is added to the page.
 
 #### Source
 
-[src/package/base/index.ts:155](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L155)
+[src/package/base/index.ts:155](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/base/index.ts#L155)
 
 ### destroy()
 
@@ -466,7 +466,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 #### Source
 
-[src/package/base/index.ts:162](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L162)
+[src/package/base/index.ts:162](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/base/index.ts#L162)
 
 ### disconnectedCallback()
 
@@ -484,7 +484,7 @@ Called when custom element is removed from the page.
 
 #### Source
 
-[src/package/base/index.ts:167](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L167)
+[src/package/base/index.ts:167](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/base/index.ts#L167)
 
 ### getContent()
 
@@ -519,7 +519,7 @@ this.querySelector("[data-content]");
 
 #### Source
 
-[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L55)
+[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/base/index.ts#L55)
 
 ### getTrigger()
 
@@ -547,7 +547,7 @@ this.querySelectorAll("[data-trigger]");
 
 #### Source
 
-[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L42)
+[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/base/index.ts#L42)
 
 ### mount()
 
@@ -567,7 +567,7 @@ The reason for this is to make these elements work better with frameworks like S
 
 #### Source
 
-[src/package/editor/index.ts:338](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/editor/index.ts#L338)
+[src/package/editor/index.ts:338](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/editor/index.ts#L338)
 
 ### safeListener()
 
@@ -602,7 +602,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Source
 
-[src/package/base/index.ts:118](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L118)
+[src/package/base/index.ts:118](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/base/index.ts#L118)
 
 ### swapContent()
 
@@ -631,7 +631,7 @@ Wait time before swapping back
 
 #### Source
 
-[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L72)
+[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/base/index.ts#L72)
 
 ### triggerListener()
 
@@ -663,4 +663,4 @@ Listener to attach to all of the `trigger` elements.
 
 #### Source
 
-[src/package/base/index.ts:135](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L135)
+[src/package/base/index.ts:135](https://github.com/rossrobino/components/blob/48c98b10e173fadbab032543d3a85f26875ed206/src/package/base/index.ts#L135)

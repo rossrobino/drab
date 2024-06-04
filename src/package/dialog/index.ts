@@ -33,26 +33,18 @@ export class Dialog extends Animate {
 		return this.getContent(HTMLDialogElement);
 	}
 
-	/** The width of the scrollbar---used for when the scroll is removed. */
-	get #scrollbarWidth() {
-		return window.innerWidth - document.documentElement.clientWidth;
-	}
-
-	set #bodyMarginRight(margin: number) {
-		document.body.style.marginRight = `${margin}px`;
-	}
-
-	set #bodyOverflow(overflow: string) {
-		document.body.style.overflow = overflow;
-	}
-
 	/** Remove scroll from the body when open with the `remove-body-scroll` attribute. */
 	#toggleBodyScroll(show: boolean) {
 		if (this.hasAttribute("remove-body-scroll")) {
-			this.#bodyMarginRight = show
-				? this.#initialBodyMarginRight + this.#scrollbarWidth
-				: this.#initialBodyMarginRight;
-			this.#bodyOverflow = show ? "hidden" : "";
+			document.body.style.marginRight = `${
+				show
+					? this.#initialBodyMarginRight +
+						// scrollbar width
+						window.innerWidth -
+						document.documentElement.clientWidth
+					: this.#initialBodyMarginRight
+			}px`;
+			document.body.style.overflow = show ? "hidden" : "";
 		}
 	}
 
