@@ -49,7 +49,7 @@ This element can be deprecated once the Speculation Rules API is supported acros
 
 #### Source
 
-[src/package/prefetch/index.ts:80](https://github.com/rossrobino/components/blob/44e4b4fb3af0ca5b9d4f714ce2189c0e59989749/src/package/prefetch/index.ts#L80)
+[src/package/prefetch/index.ts:80](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/prefetch/index.ts#L80)
 
 ---
 
@@ -67,7 +67,7 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Source
 
-[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/44e4b4fb3af0ca5b9d4f714ce2189c0e59989749/src/package/base/index.ts#L17)
+[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L17)
 
 ### #prefetchedUrls
 
@@ -75,7 +75,7 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Source
 
-[src/package/prefetch/index.ts:78](https://github.com/rossrobino/components/blob/44e4b4fb3af0ca5b9d4f714ce2189c0e59989749/src/package/prefetch/index.ts#L78)
+[src/package/prefetch/index.ts:78](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/prefetch/index.ts#L78)
 
 ---
 
@@ -93,7 +93,7 @@ Prerender with the Speculation Rules API.
 
 #### Source
 
-[src/package/prefetch/index.ts:90](https://github.com/rossrobino/components/blob/44e4b4fb3af0ca5b9d4f714ce2189c0e59989749/src/package/prefetch/index.ts#L90)
+[src/package/prefetch/index.ts:90](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/prefetch/index.ts#L90)
 
 ### #strategy
 
@@ -107,7 +107,7 @@ When to prefetch the url.
 
 #### Source
 
-[src/package/prefetch/index.ts:85](https://github.com/rossrobino/components/blob/44e4b4fb3af0ca5b9d4f714ce2189c0e59989749/src/package/prefetch/index.ts#L85)
+[src/package/prefetch/index.ts:85](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/prefetch/index.ts#L85)
 
 ### #url
 
@@ -121,7 +121,7 @@ When to prefetch the url.
 
 #### Source
 
-[src/package/prefetch/index.ts:95](https://github.com/rossrobino/components/blob/44e4b4fb3af0ca5b9d4f714ce2189c0e59989749/src/package/prefetch/index.ts#L95)
+[src/package/prefetch/index.ts:95](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/prefetch/index.ts#L95)
 
 ### event
 
@@ -149,7 +149,7 @@ keyof `HTMLElementEventMap`
 
 #### Source
 
-[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/44e4b4fb3af0ca5b9d4f714ce2189c0e59989749/src/package/base/index.ts#L30)
+[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L30)
 
 ---
 
@@ -181,7 +181,7 @@ Uses the Speculation Rules API when supported to prerender on the client.
 
 #### Source
 
-[src/package/prefetch/index.ts:104](https://github.com/rossrobino/components/blob/44e4b4fb3af0ca5b9d4f714ce2189c0e59989749/src/package/prefetch/index.ts#L104)
+[src/package/prefetch/index.ts:104](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/prefetch/index.ts#L104)
 
 ### connectedCallback()
 
@@ -199,7 +199,7 @@ Called when custom element is added to the page.
 
 #### Source
 
-[src/package/base/index.ts:155](https://github.com/rossrobino/components/blob/44e4b4fb3af0ca5b9d4f714ce2189c0e59989749/src/package/base/index.ts#L155)
+[src/package/base/index.ts:155](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L155)
 
 ### destroy()
 
@@ -217,7 +217,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 #### Source
 
-[src/package/base/index.ts:162](https://github.com/rossrobino/components/blob/44e4b4fb3af0ca5b9d4f714ce2189c0e59989749/src/package/base/index.ts#L162)
+[src/package/base/index.ts:162](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L162)
 
 ### disconnectedCallback()
 
@@ -235,7 +235,7 @@ Called when custom element is removed from the page.
 
 #### Source
 
-[src/package/base/index.ts:167](https://github.com/rossrobino/components/blob/44e4b4fb3af0ca5b9d4f714ce2189c0e59989749/src/package/base/index.ts#L167)
+[src/package/base/index.ts:167](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L167)
 
 ### getContent()
 
@@ -270,7 +270,7 @@ this.querySelector("[data-content]");
 
 #### Source
 
-[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/44e4b4fb3af0ca5b9d4f714ce2189c0e59989749/src/package/base/index.ts#L55)
+[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L55)
 
 ### getTrigger()
 
@@ -298,7 +298,7 @@ this.querySelectorAll("[data-trigger]");
 
 #### Source
 
-[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/44e4b4fb3af0ca5b9d4f714ce2189c0e59989749/src/package/base/index.ts#L42)
+[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L42)
 
 ### mount()
 
@@ -318,7 +318,7 @@ The reason for this is to make these elements work better with frameworks like S
 
 #### Source
 
-[src/package/prefetch/index.ts:241](https://github.com/rossrobino/components/blob/44e4b4fb3af0ca5b9d4f714ce2189c0e59989749/src/package/prefetch/index.ts#L241)
+[src/package/prefetch/index.ts:241](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/prefetch/index.ts#L241)
 
 ### prefetch()
 
@@ -358,7 +358,7 @@ Determines when the prefetch takes place.
 
 #### Source
 
-[src/package/prefetch/index.ts:163](https://github.com/rossrobino/components/blob/44e4b4fb3af0ca5b9d4f714ce2189c0e59989749/src/package/prefetch/index.ts#L163)
+[src/package/prefetch/index.ts:163](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/prefetch/index.ts#L163)
 
 ### safeListener()
 
@@ -393,7 +393,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Source
 
-[src/package/base/index.ts:118](https://github.com/rossrobino/components/blob/44e4b4fb3af0ca5b9d4f714ce2189c0e59989749/src/package/base/index.ts#L118)
+[src/package/base/index.ts:118](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L118)
 
 ### swapContent()
 
@@ -422,7 +422,7 @@ Wait time before swapping back
 
 #### Source
 
-[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/44e4b4fb3af0ca5b9d4f714ce2189c0e59989749/src/package/base/index.ts#L72)
+[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L72)
 
 ### triggerListener()
 
@@ -454,4 +454,4 @@ Listener to attach to all of the `trigger` elements.
 
 #### Source
 
-[src/package/base/index.ts:135](https://github.com/rossrobino/components/blob/44e4b4fb3af0ca5b9d4f714ce2189c0e59989749/src/package/base/index.ts#L135)
+[src/package/base/index.ts:135](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L135)

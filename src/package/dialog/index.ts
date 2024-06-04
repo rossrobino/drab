@@ -19,6 +19,11 @@ export type DialogAttributes = Attributes<Dialog> &
  * is open.
  */
 export class Dialog extends Animate {
+	/** The initial margin-right value of the body element. */
+	#initialBodyMarginRight = parseInt(
+		getComputedStyle(document.body).marginRight,
+	);
+
 	constructor() {
 		super();
 	}
@@ -28,19 +33,33 @@ export class Dialog extends Animate {
 		return this.getContent(HTMLDialogElement);
 	}
 
+	/** The width of the scrollbar---used for when the scroll is removed. */
+	get #scrollbarWidth() {
+		return window.innerWidth - document.documentElement.clientWidth;
+	}
+
+	set #bodyMarginRight(margin: number) {
+		document.body.style.marginRight = `${margin}px`;
+	}
+
+	set #bodyOverflow(overflow: string) {
+		document.body.style.overflow = overflow;
+	}
+
 	/** Remove scroll from the body when open with the `remove-body-scroll` attribute. */
-	get #removeBodyScroll() {
-		return this.hasAttribute("remove-body-scroll");
+	#toggleBodyScroll(show: boolean) {
+		if (this.hasAttribute("remove-body-scroll")) {
+			this.#bodyMarginRight = show
+				? this.#initialBodyMarginRight + this.#scrollbarWidth
+				: this.#initialBodyMarginRight;
+			this.#bodyOverflow = show ? "hidden" : "";
+		}
 	}
 
 	/** `HTMLDialogElement.showModal()` with animation. */
 	async show() {
 		this.dialog.showModal();
-
-		if (this.#removeBodyScroll) {
-			document.body.style.overflow = "hidden";
-		}
-
+		this.#toggleBodyScroll(true);
 		await this.animateElement();
 	}
 
@@ -51,11 +70,7 @@ export class Dialog extends Animate {
 				direction: "reverse",
 			},
 		});
-
-		if (this.#removeBodyScroll) {
-			document.body.style.overflow = "";
-		}
-
+		this.#toggleBodyScroll(false);
 		this.dialog.close();
 	}
 

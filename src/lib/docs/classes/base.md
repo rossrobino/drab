@@ -47,7 +47,7 @@ Each element can have multiple `trigger`s, but will only have one `content`.
 
 #### Source
 
-[src/package/base/index.ts:19](https://github.com/rossrobino/components/blob/44e4b4fb3af0ca5b9d4f714ce2189c0e59989749/src/package/base/index.ts#L19)
+[src/package/base/index.ts:19](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L19)
 
 ---
 
@@ -61,7 +61,7 @@ To clean up event listeners added to `document` when the element is removed.
 
 #### Source
 
-[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/44e4b4fb3af0ca5b9d4f714ce2189c0e59989749/src/package/base/index.ts#L17)
+[src/package/base/index.ts:17](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L17)
 
 ---
 
@@ -93,7 +93,7 @@ keyof `HTMLElementEventMap`
 
 #### Source
 
-[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/44e4b4fb3af0ca5b9d4f714ce2189c0e59989749/src/package/base/index.ts#L30)
+[src/package/base/index.ts:30](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L30)
 
 ---
 
@@ -111,7 +111,7 @@ Called when custom element is added to the page.
 
 #### Source
 
-[src/package/base/index.ts:155](https://github.com/rossrobino/components/blob/44e4b4fb3af0ca5b9d4f714ce2189c0e59989749/src/package/base/index.ts#L155)
+[src/package/base/index.ts:155](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L155)
 
 ### destroy()
 
@@ -125,7 +125,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 #### Source
 
-[src/package/base/index.ts:162](https://github.com/rossrobino/components/blob/44e4b4fb3af0ca5b9d4f714ce2189c0e59989749/src/package/base/index.ts#L162)
+[src/package/base/index.ts:162](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L162)
 
 ### disconnectedCallback()
 
@@ -139,7 +139,7 @@ Called when custom element is removed from the page.
 
 #### Source
 
-[src/package/base/index.ts:167](https://github.com/rossrobino/components/blob/44e4b4fb3af0ca5b9d4f714ce2189c0e59989749/src/package/base/index.ts#L167)
+[src/package/base/index.ts:167](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L167)
 
 ### getContent()
 
@@ -170,7 +170,7 @@ this.querySelector("[data-content]");
 
 #### Source
 
-[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/44e4b4fb3af0ca5b9d4f714ce2189c0e59989749/src/package/base/index.ts#L55)
+[src/package/base/index.ts:55](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L55)
 
 ### getTrigger()
 
@@ -194,7 +194,7 @@ this.querySelectorAll("[data-trigger]");
 
 #### Source
 
-[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/44e4b4fb3af0ca5b9d4f714ce2189c0e59989749/src/package/base/index.ts#L42)
+[src/package/base/index.ts:42](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L42)
 
 ### mount()
 
@@ -210,7 +210,7 @@ The reason for this is to make these elements work better with frameworks like S
 
 #### Source
 
-[src/package/base/index.ts:150](https://github.com/rossrobino/components/blob/44e4b4fb3af0ca5b9d4f714ce2189c0e59989749/src/package/base/index.ts#L150)
+[src/package/base/index.ts:150](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L150)
 
 ### safeListener()
 
@@ -241,7 +241,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Source
 
-[src/package/base/index.ts:118](https://github.com/rossrobino/components/blob/44e4b4fb3af0ca5b9d4f714ce2189c0e59989749/src/package/base/index.ts#L118)
+[src/package/base/index.ts:118](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L118)
 
 ### swapContent()
 
@@ -266,7 +266,7 @@ Wait time before swapping back
 
 #### Source
 
-[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/44e4b4fb3af0ca5b9d4f714ce2189c0e59989749/src/package/base/index.ts#L72)
+[src/package/base/index.ts:72](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L72)
 
 ### triggerListener()
 
@@ -294,4 +294,4 @@ Listener to attach to all of the `trigger` elements.
 
 #### Source
 
-[src/package/base/index.ts:135](https://github.com/rossrobino/components/blob/44e4b4fb3af0ca5b9d4f714ce2189c0e59989749/src/package/base/index.ts#L135)
+[src/package/base/index.ts:135](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/base/index.ts#L135)

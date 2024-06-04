@@ -8,4 +8,4 @@
 
 ## Source
 
-[src/package/prefetch/index.ts:6](https://github.com/rossrobino/components/blob/44e4b4fb3af0ca5b9d4f714ce2189c0e59989749/src/package/prefetch/index.ts#L6)
+[src/package/prefetch/index.ts:6](https://github.com/rossrobino/components/blob/33c45b8385b046591d3902fc8e91aef56864abde/src/package/prefetch/index.ts#L6)
