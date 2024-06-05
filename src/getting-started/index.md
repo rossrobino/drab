@@ -1,5 +1,9 @@
 # Getting started
 
+<drab-youtube uid="oe57sgg5UEE">
+<iframe data-content loading="lazy" class="aspect-video w-full rounded"></iframe>
+</drab-youtube>
+
 ## Install
 
 You can install **drab** from [npm](https://www.npmjs.com/package/drab) and import the custom elements from the package. Each element's class is exported from `drab/{element}`, or you can import the already defined element from `drab/{element}/define`.
