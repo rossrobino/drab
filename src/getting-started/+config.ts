@@ -8,7 +8,7 @@ export const config: Config = {
 		const article = document.querySelector("article");
 
 		if (article) {
-			article.innerHTML = (await processMarkdown(md)).html;
+			article.insertAdjacentHTML("beforeend", (await processMarkdown(md)).html);
 		}
 	},
 };

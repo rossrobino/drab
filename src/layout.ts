@@ -1,6 +1,5 @@
 import "./package/dialog/define";
 import "./package/prefetch/define";
-import "./package/youtube/define";
 
 import { inject } from "@vercel/analytics";
 

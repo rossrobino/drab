@@ -14,7 +14,7 @@ export const config: Config = {
 		const { html } = await processMarkdown(readme);
 		const article = document.querySelector("article");
 		if (article) {
-			article.innerHTML = html;
+			article.insertAdjacentHTML("beforeend", html);
 		}
 	},
 
