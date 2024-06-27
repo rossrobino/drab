@@ -3,7 +3,10 @@ import "./package/prefetch/define";
 
 import { inject } from "@vercel/analytics";
 
-// https://developer.chrome.com/docs/web-platform/prerender-pages#impact_on_analytics
+/**
+ * does not resolve until prerender change or not prerendering
+ * https://developer.chrome.com/docs/web-platform/prerender-pages#impact_on_analytics
+ */
 const whenActivated = new Promise<void>((resolve) => {
 	// @ts-ignore - not supported in all browsers
 	if (document.prerendering) {

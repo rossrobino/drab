@@ -25,6 +25,20 @@
 	body {
 		background: url("/so-white.webp");
 	}
+
+	@media (min-width: 1024px) {
+		@view-transition {
+			navigation: auto;
+		}
+
+		@media (prefers-reduced-motion) {
+			::view-transition-group(*),
+			::view-transition-old(*),
+			::view-transition-new(*) {
+				animation: none !important;
+			}
+		}
+	}
 }
 
 @layer components {
