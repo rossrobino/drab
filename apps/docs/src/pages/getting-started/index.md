@@ -34,7 +34,7 @@ Alternatively, add a script tag to your HTML that imports the immediately invoke
 
 Elements without styles can appear rather drab. You have the freedom to bring your own styles to these elements. Since drab doesn't use the shadow DOM, you can style any content inside these elements as you normally would. Using unstyled elements allows you to selectively choose what you need and avoid being tied to any specific library.
 
-The examples in this documentation are styled with Tailwind using the [uico](https://uico.robino.dev) and [typography](https://tailwindcss.com/docs/typography-plugin) plugins. Tailwind does **not** have to be used with this library.
+The examples in this documentation are styled with Tailwind and [uico](https://uico.robino.dev). Tailwind does **not** have to be used with this library.
 
 ## Frameworks
 
@@ -44,30 +44,24 @@ _\*If you see a better way to write any of these examples or a framework that is
 
 ### Astro
 
-[Astro](https://docs.astro.build/en/guides/client-side-scripts/#web-components-with-custom-elements) is the easiest framework to incorporate custom elements into since script tags only run on the client. Astro users also have the most to gain through the usage of custom elements over including another JavaScript framework. You don't have the cost of shipping a framework to the client to achieve interactivity.
-
 ```astro
 ---
 // Dialog.astro
 import type { DialogAttributes } from "drab/dialog";
 
-const dialogProps: DialogAttributes = {
-	// type-safe attributes
+const attributes: DialogAttributes = {
+	// ...
 };
 ---
 
 <script>
-	import { Dialog } from "drab/dialog";
-
-	customElements.define("drab-dialog", Dialog);
+	import "drab/share/define";
 </script>
 
-<drab-dialog {...dialogProps}>...</drab-dialog>
+<drab-dialog {...attributes}>...</drab-dialog>
 ```
 
 ### Enhance
-
-[Enhance](https://enhance.dev) is an HTML-first full stack web framework that enables anyone to build multi-page dynamic web apps while staying as close to the web platform as possible.
 
 ```js
 // app/elements/my-dialog.mjs
@@ -81,66 +75,26 @@ export default function MyDialog({ html }) {
 
 ```js
 // app/browser/drab-dialog.mjs
-import { Dialog } from "drab/dialog";
-
-customElements.define("drab-dialog", Dialog);
+import "drab/share/define";
 ```
 
 ### React
 
-```jsx
+```tsx
 // dialog.tsx
+// required for React Server Components
 "use client";
 
-// required for React Server Components
 import { useEffect } from "react";
-
-// dialog.tsx
-
-// dialog.tsx
-
-// dialog.tsx
-
-// dialog.tsx
-
-// dialog.tsx
-
-// dialog.tsx
-
-// dialog.tsx
-
-// dialog.tsx
-
-// dialog.tsx
-
-// dialog.tsx
-
-// dialog.tsx
-
-// dialog.tsx
-
-// dialog.tsx
-
-// dialog.tsx
-
-// dialog.tsx
-
-// dialog.tsx
-
-// dialog.tsx
 
 export default function Dialog() {
 	useEffect(() => {
-		async function importElement() {
-			if (!customElements.get("drab-dialog")) {
-				const { Dialog } = await import("drab/dialog");
-				customElements.define("drab-dialog", Dialog);
-			}
+		if (!customElements.get("drab-dialog")) {
+			import("drab/share/define");
 		}
-		importElement();
 	}, []);
 
-	return <drab-dialog>...</drab-dialog>;
+	return <drab-dialog {...attributes}>...</drab-dialog>;
 }
 ```
 
@@ -150,22 +104,21 @@ import type { DialogAttributes } from "drab";
 
 declare namespace JSX {
 	interface IntrinsicElements {
-		"drab-dialog": DialogAttributes & { children: any };
+		"drab-dialog": DialogAttributes & { children: ReactNode };
 	}
 }
 ```
 
 ### Solid
 
-```jsx
+```tsx
 // dialog.jsx
 import { onMount } from "solid-js";
 
 export default function Dialog() {
 	onMount(async () => {
 		if (!customElements.get("drab-dialog")) {
-			const { Dialog } = await import("drab/dialog");
-			customElements.define("drab-dialog", Dialog);
+			await import("drab/share/define");
 		}
 	});
 
@@ -179,12 +132,10 @@ export default function Dialog() {
 import type { DialogAttributes } from "drab";
 import "solid-js";
 
-type Merge<T, U> = Omit<T, keyof U> & U;
-
 declare module "solid-js" {
 	namespace JSX {
 		interface IntrinsicElements {
-			"drab-dialog": Merge<DialogAttributes, JSX.HTMLAttributes<HTMLElement>>;
+			"drab-dialog": DialogAttributes & JSX.HTMLAttributes<HTMLElement>;
 		}
 	}
 }
@@ -199,13 +150,12 @@ declare module "solid-js" {
 
 	onMount(async () => {
 		if (!customElements.get("drab-dialog")) {
-			const { Dialog } = await import("drab/dialog");
-			customElements.define("drab-dialog", Dialog);
+			await import("drab/share/define");
 		}
 	});
 
 	const dialogProps: DialogAttributes = {
-		// type-safe attributes
+		// ...
 	};
 </script>
 
@@ -219,8 +169,7 @@ declare module "solid-js" {
 <script setup>
 onMounted(async () => {
 	if (!customElements.get("drab-dialog")) {
-		const { Dialog } = await import("drab/dialog");
-		customElements.define("drab-dialog", Dialog);
+		await import("drab/share/define");
 	}
 });
 </script>

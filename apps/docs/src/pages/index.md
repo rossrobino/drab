@@ -36,7 +36,7 @@ Since this is a headless library, simple elements like a badge that can be easil
 
 ### Local Development
 
-This library is built with [TypeScript](https://www.typescriptlang.org/), this site is built with [domco](https://domco.robino.dev) and [uico](https://uico.robino.dev). The package contents are located in `packages/drab`.
+This library is built with [TypeScript](https://www.typescriptlang.org/), this site is built with [domco](https://domco.robino.dev) and [uico](https://uico.robino.dev). The package contents are located in `packages/drab/`.
 
 1. Clone the [repository](https://github.com/rossrobino/drab)
 2. Install dependencies with npm - `npm i`
