@@ -49,7 +49,7 @@ export const Nav = (props: {
 					</button>
 					<dialog
 						data-content
-						class="bg-background backdrop:bg-muted/50 scheme-dark transition-discrete backdrop:transition-discrete starting:open:-translate-x-full starting:open:backdrop:opacity-0 my-0 ml-0 mr-auto h-full max-h-screen w-full max-w-96 -translate-x-full p-6 transition-all duration-500 backdrop:opacity-0 backdrop:backdrop-blur backdrop:transition-all backdrop:duration-500 open:translate-x-0 open:backdrop:opacity-100"
+						class="bg-background backdrop:bg-muted/50 scheme-dark backdrop:transition-discrete starting:open:backdrop:opacity-0 my-0 ml-0 mr-auto h-full max-h-screen w-full max-w-96 p-6 backdrop:opacity-0 backdrop:backdrop-blur backdrop:transition-opacity backdrop:duration-500 open:backdrop:opacity-100"
 					>
 						<div class="mb-4 flex items-center justify-between">
 							<HomeLink />
