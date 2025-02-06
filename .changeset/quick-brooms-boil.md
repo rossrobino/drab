@@ -4,7 +4,7 @@
 
 v6.0
 
-Version 6 optimizes the elements in a variety of ways and removes some elements that are no longer necessary due to advances in CSS.
+Version 6 optimizes the library in a variety of ways and removes some elements that are no longer necessary due to advances in CSS.
 
 drab has a new documentation site with a `styles` section that is a reference for how to create components with HTML. The removed `Details` and `Popover` elements now live in this section since they do not require JavaScript to be created.
 
@@ -18,7 +18,7 @@ drab has a new documentation site with a `styles` section that is a reference fo
 
 `Animate`
 
-- This element has been removed in favor of [CSS animations](https://drab.robino.dev/styles/popover/), with `starting-style` and `discrete` animations, it's now possible to animate from `display: none`, making the animations within drab obsolete. This removal greatly reduces the bundle size of the package as well.
+- This element has been removed in favor of [CSS animations](https://drab.robino.dev/styles/popover/), with `starting-style` and `discrete` animations, it's now possible to animate from `display: none`, making the animations within drab obsolete. This greatly reduces the bundle size of the package and removes the odd animation attribute syntax.
 
 `Base`
 
