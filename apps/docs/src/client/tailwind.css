@@ -90,6 +90,13 @@
 }
 
 @layer base {
+	* {
+		scroll-padding-block-start: calc(var(--spacing) * 20);
+		@media (min-width: 1024px) {
+			scroll-padding-block-start: calc(var(--spacing) * 4);
+		}
+	}
+
 	h1,
 	h2,
 	h3,

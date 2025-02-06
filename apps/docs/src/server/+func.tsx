@@ -1,7 +1,7 @@
 import { Docs } from "@/pages/docs";
 import { GettingStarted } from "@/pages/getting-started";
 import { RootLayout } from "@/pages/layout";
-import { ReadMe } from "@/pages/readme";
+import { Home } from "@/pages";
 import { Injector } from "@robino/html";
 import { html } from "client:page";
 import type { Handler, Prerender } from "domco";
@@ -46,7 +46,7 @@ export const handler: Handler = async (req) => {
 			])
 			.body(
 				<RootLayout examples={exampleSubPaths} pathname={url.pathname}>
-					<ReadMe />
+					<Home />
 				</RootLayout>,
 			);
 	} else if (url.pathname === "/getting-started/") {

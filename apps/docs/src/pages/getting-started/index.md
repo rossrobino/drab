@@ -2,21 +2,27 @@
 
 ## Install
 
-You can install drab from [npm](https://www.npmjs.com/package/drab) and import the custom elements from the package. Each element's class is exported from `drab/{element}`, or you can import the already defined element from `drab/{element}/define`.
+You can install drab from [npm](https://www.npmjs.com/package/drab) and import the custom elements from the package.
 
 ```bash
-npm i -D drab
+npm i drab
 ```
+
+In a client-side JavaScript module, import the element and define with with a name. Each element's class is exported from `drab/{element}`.
 
 ```js
-// client.js
 import { Dialog } from "drab/dialog";
-// or import directly, element will be named `drab-{element}`
-import "drab/dialog/define";
 
-// custom name
 customElements.define("drab-dialog", Dialog);
 ```
+
+Or, import the `drab/{element}/define` module where it's defined for you, in this case the element will be named `drab-{element}`
+
+```js
+import "drab/dialog/define";
+```
+
+## Script tag
 
 Alternatively, add a script tag to your HTML that imports the immediately invoked function expression (IIFE) module to avoid naming conflicts. Each element will be named `drab-{element}`.
 
