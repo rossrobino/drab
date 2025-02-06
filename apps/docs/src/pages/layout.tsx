@@ -21,10 +21,10 @@ export const RootLayout = async (props: {
 					</div>
 				</div>
 				<div class="w-full justify-center lg:flex">
-					<div class="max-w-[80ch] p-5">
+					<article class="max-w-[80ch] p-5">
 						{children}
 						<hr class="my-8" />
-					</div>
+					</article>
 					<div class="hidden xl:block">
 						<on-this-page class="prose sticky top-0 block h-screen min-w-64 overflow-y-auto p-6"></on-this-page>
 					</div>
