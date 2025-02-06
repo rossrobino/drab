@@ -1,5 +1,5 @@
 ---
-"drab": patch
+"drab": major
 ---
 
 v6.0
