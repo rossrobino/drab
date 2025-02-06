@@ -1,7 +1,6 @@
-import { BaseCopy } from "../base/copy/index.js";
-import type { Attributes } from "../types/index.js";
+import { BaseCopy, type BaseCopyAttributes } from "../base/copy/index.js";
 
-export type ShareAttributes = Attributes<Share, "value">;
+export type ShareAttributes = BaseCopyAttributes;
 
 /**
  * Uses the [Navigator API](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share) to share a url. If `share` is not supported, falls back to copy the text instead.

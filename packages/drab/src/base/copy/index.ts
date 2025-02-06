@@ -1,4 +1,6 @@
-import { Base } from "../index.js";
+import { Base, type BaseAttributes } from "../index.js";
+
+export type BaseCopyAttributes = BaseAttributes & { value: string };
 
 export class BaseCopy extends Base {
 	constructor() {

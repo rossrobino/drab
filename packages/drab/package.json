@@ -149,9 +149,7 @@
 		}
 	},
 	"files": [
-		"dist",
-		"src",
-		"README.md"
+		"dist"
 	],
 	"scripts": {
 		"check": "tsc --noEmit",

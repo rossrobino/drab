@@ -1,3 +1,13 @@
-> **WakeLockAttributes**: `Attributes`\<[`WakeLock`](/PUBLIC_PATH/classes/WakeLock.md)\> & `Partial`\<\{ `auto-lock`: `boolean`; `locked`: `boolean`; \}\>
+> **WakeLockAttributes**: `BaseAttributes` & `object`
 
-Defined in: wakelock/index.ts:4
+Defined in: [wakelock/index.ts:3](https://github.com/rossrobino/components/blob/main/packages/drab/src/wakelock/index.ts#L3)
+
+## Type declaration
+
+### auto-lock?
+
+> `optional` **auto-lock**: `boolean`
+
+### locked?
+
+> `optional` **locked**: `boolean`

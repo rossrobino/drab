@@ -1,10 +1,12 @@
-import { Base } from "../base/index.js";
-import type { Attributes } from "../types/index.js";
+import { Base, type BaseAttributes } from "../base/index.js";
 
 type Strategy = "hover" | "load" | "visible";
 
-export type PrefetchAttributes = Attributes<Prefetch> &
-	Partial<{ strategy: Strategy; prerender: boolean; url: string }>;
+export type PrefetchAttributes = BaseAttributes & {
+	strategy?: Strategy;
+	prerender?: boolean;
+	url?: string;
+};
 
 // https://developer.chrome.com/blog/speculation-rules-improvements
 type SpeculationRules = {

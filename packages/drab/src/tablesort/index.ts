@@ -1,7 +1,6 @@
-import { Base } from "../index.js";
-import type { Attributes } from "../types/index.js";
+import { Base, type BaseAttributes } from "../base/index.js";
 
-export type TableSortAttributes = Attributes<TableSort>;
+export type TableSortAttributes = BaseAttributes;
 
 /**
  * Wrap a `HTMLTableElement` in the `TableSort` element to have sortable column

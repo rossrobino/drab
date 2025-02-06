@@ -1,7 +1,10 @@
-import { Base } from "../base/index.js";
-import type { Attributes } from "../types/index.js";
+import { Base, type BaseAttributes } from "../base/index.js";
 
-export type YouTubeAttributes = Attributes<YouTube, "uid">;
+export type YouTubeAttributes = BaseAttributes & {
+	autoplay?: boolean;
+	start?: number;
+	uid: string;
+};
 
 /**
  * Embeds a YouTube video iframe into a website with the video uid, using www.youtube-nocookie.com.

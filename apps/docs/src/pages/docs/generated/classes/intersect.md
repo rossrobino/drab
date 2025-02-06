@@ -1,4 +1,4 @@
-Defined in: intersect/index.ts:18
+Defined in: [intersect/index.ts:16](https://github.com/rossrobino/components/blob/main/packages/drab/src/intersect/index.ts#L16)
 
 Uses the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) to add a `data-intersect` attribute to `content` when the `trigger` is intersecting.
 
@@ -20,7 +20,7 @@ Specify a `threshold` between `0` and `1` to determine how much of the `trigger`
 
 > **new Intersect**(): [`Intersect`](/elements/intersect/)
 
-Defined in: intersect/index.ts:25
+Defined in: [intersect/index.ts:23](https://github.com/rossrobino/components/blob/main/packages/drab/src/intersect/index.ts#L23)
 
 #### Returns
 
@@ -40,7 +40,7 @@ Defined in: intersect/index.ts:25
 
 > **get** **event**(): keyof `HTMLElementEventMap`
 
-Defined in: base/index.ts:30
+Defined in: [base/index.ts:36](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L36)
 
 Event for the `trigger` to execute.
 
@@ -60,7 +60,7 @@ keyof `HTMLElementEventMap`
 
 > **set** **event**(`value`): `void`
 
-Defined in: base/index.ts:34
+Defined in: [base/index.ts:40](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L40)
 
 ##### Parameters
 
@@ -84,7 +84,7 @@ keyof `HTMLElementEventMap`
 
 > **connectedCallback**(): `void`
 
-Defined in: base/index.ts:152
+Defined in: [base/index.ts:158](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L158)
 
 Called when custom element is added to the page.
 
@@ -104,7 +104,7 @@ Called when custom element is added to the page.
 
 > **destroy**(): `void`
 
-Defined in: base/index.ts:159
+Defined in: [base/index.ts:165](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L165)
 
 Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallback` as well. It is overridden in each element that needs to run `disconnectedCallback`.
 
@@ -124,7 +124,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 > **disconnectedCallback**(): `void`
 
-Defined in: base/index.ts:164
+Defined in: [base/index.ts:170](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L170)
 
 Called when custom element is removed from the page.
 
@@ -144,7 +144,7 @@ Called when custom element is removed from the page.
 
 > **getContent**\<`T`\>(`instance`): `T`
 
-Defined in: base/index.ts:55
+Defined in: [base/index.ts:61](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L61)
 
 #### Type Parameters
 
@@ -183,7 +183,7 @@ this.querySelector("[data-content]");
 
 > **getTrigger**\<`T`\>(): `NodeListOf`\<`T`\>
 
-Defined in: base/index.ts:42
+Defined in: [base/index.ts:48](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L48)
 
 #### Type Parameters
 
@@ -213,7 +213,7 @@ this.querySelectorAll("[data-trigger]");
 
 > **mount**(): `void`
 
-Defined in: intersect/index.ts:52
+Defined in: [intersect/index.ts:50](https://github.com/rossrobino/components/blob/main/packages/drab/src/intersect/index.ts#L50)
 
 Passed into `queueMicrotask` in `connectedCallback`. It is overridden in each component that needs to run `connectedCallback`.
 
@@ -235,7 +235,7 @@ The reason for this is to make these elements work better with frameworks like S
 
 > **onExit**(`callback`): `void`
 
-Defined in: intersect/index.ts:48
+Defined in: [intersect/index.ts:46](https://github.com/rossrobino/components/blob/main/packages/drab/src/intersect/index.ts#L46)
 
 #### Parameters
 
@@ -257,7 +257,7 @@ Runs when `trigger` exits.
 
 > **onIntersect**(`callback`): `void`
 
-Defined in: intersect/index.ts:41
+Defined in: [intersect/index.ts:39](https://github.com/rossrobino/components/blob/main/packages/drab/src/intersect/index.ts#L39)
 
 #### Parameters
 
@@ -279,7 +279,7 @@ Runs when `trigger` intersects.
 
 > **safeListener**\<`K`, `T`\>(`type`, `listener`, `element`, `options`): `void`
 
-Defined in: base/index.ts:115
+Defined in: [base/index.ts:121](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L121)
 
 Wrapper around `document.body.addEventListener` that ensures when the
 element is removed from the DOM, these event listeners are cleaned up.
@@ -324,7 +324,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 > **swapContent**(`revert`): `void`
 
-Defined in: base/index.ts:72
+Defined in: [base/index.ts:78](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L78)
 
 Finds the `HTMLElement | HTMLTemplateElement` via the `swap` selector and
 swaps `this.content()` with the content of the element found.
@@ -354,7 +354,7 @@ default: `800`
 
 > **triggerListener**\<`T`, `K`\>(`listener`, `type`, `options`?): `void`
 
-Defined in: base/index.ts:132
+Defined in: [base/index.ts:138](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L138)
 
 #### Type Parameters
 

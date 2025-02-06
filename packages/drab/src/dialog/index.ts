@@ -1,8 +1,9 @@
-import { Base } from "../base/index.js";
-import type { Attributes } from "../types/index.js";
+import { Base, type BaseAttributes } from "../base/index.js";
 
-export type DialogAttributes = Attributes<Dialog> &
-	Partial<{ "click-outside-close": boolean; "remove-body-scroll": boolean }>;
+export type DialogAttributes = BaseAttributes & {
+	"click-outside-close"?: boolean;
+	"remove-body-scroll"?: boolean;
+};
 
 /**
  * Provides triggers for the `HTMLDialogElement`.

@@ -1,3 +1,3 @@
-> **TableSortAttributes**: `Attributes`\<[`TableSort`](/PUBLIC_PATH/classes/TableSort.md)\>
+> **TableSortAttributes**: `BaseAttributes`
 
-Defined in: tablesort/index.ts:4
+Defined in: [tablesort/index.ts:3](https://github.com/rossrobino/components/blob/main/packages/drab/src/tablesort/index.ts#L3)

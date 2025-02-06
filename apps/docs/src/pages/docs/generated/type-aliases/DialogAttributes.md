@@ -1,3 +1,13 @@
-> **DialogAttributes**: `Attributes`\<[`Dialog`](/PUBLIC_PATH/classes/Dialog.md)\> & `Partial`\<\{ `click-outside-close`: `boolean`; `remove-body-scroll`: `boolean`; \}\>
+> **DialogAttributes**: `BaseAttributes` & `object`
 
-Defined in: dialog/index.ts:4
+Defined in: [dialog/index.ts:3](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L3)
+
+## Type declaration
+
+### click-outside-close?
+
+> `optional` **click-outside-close**: `boolean`
+
+### remove-body-scroll?
+
+> `optional` **remove-body-scroll**: `boolean`

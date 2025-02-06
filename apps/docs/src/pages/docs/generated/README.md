@@ -1,7 +1,6 @@
 ## Classes
 
 - [Base](/PUBLIC_PATH/classes/Base.md)
-- [Breakpoint](/PUBLIC_PATH/classes/Breakpoint.md)
 - [ContextMenu](/PUBLIC_PATH/classes/ContextMenu.md)
 - [Copy](/PUBLIC_PATH/classes/Copy.md)
 - [Dialog](/PUBLIC_PATH/classes/Dialog.md)
@@ -16,7 +15,6 @@
 
 ## Type Aliases
 
-- [BreakpointAttributes](/PUBLIC_PATH/type-aliases/BreakpointAttributes.md)
 - [ContextMenuAttributes](/PUBLIC_PATH/type-aliases/ContextMenuAttributes.md)
 - [CopyAttributes](/PUBLIC_PATH/type-aliases/CopyAttributes.md)
 - [DialogAttributes](/PUBLIC_PATH/type-aliases/DialogAttributes.md)

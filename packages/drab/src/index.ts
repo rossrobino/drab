@@ -1,5 +1,4 @@
 import { Base } from "./base/index.js";
-import { Breakpoint, type BreakpointAttributes } from "./breakpoint/index.js";
 import {
 	ContextMenu,
 	type ContextMenuAttributes,
@@ -17,8 +16,6 @@ import { YouTube, type YouTubeAttributes } from "./youtube/index.js";
 
 export {
 	Base,
-	Breakpoint,
-	type BreakpointAttributes,
 	ContextMenu,
 	type ContextMenuAttributes,
 	Copy,

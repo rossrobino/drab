@@ -1,4 +1,4 @@
-Defined in: editor/index.ts:49
+Defined in: [editor/index.ts:48](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L48)
 
 Enhances the `textarea` element with controls to add content and keyboard shortcuts. Compared to other WYSIWYG editors, the `text` value is just a `string`, so you can easily store it in a database or manipulate it without learning a separate API.
 
@@ -40,7 +40,7 @@ Other features:
 
 > **new Editor**(): [`Editor`](/elements/editor/)
 
-Defined in: editor/index.ts:63
+Defined in: [editor/index.ts:62](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L62)
 
 #### Returns
 
@@ -58,7 +58,7 @@ Defined in: editor/index.ts:63
 
 > **keyPairs**: `object`
 
-Defined in: editor/index.ts:54
+Defined in: [editor/index.ts:53](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L53)
 
 The characters that will be automatically closed when typed.
 
@@ -76,7 +76,7 @@ The characters that will be automatically closed when typed.
 
 > **get** **event**(): keyof `HTMLElementEventMap`
 
-Defined in: base/index.ts:30
+Defined in: [base/index.ts:36](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L36)
 
 Event for the `trigger` to execute.
 
@@ -96,7 +96,7 @@ keyof `HTMLElementEventMap`
 
 > **set** **event**(`value`): `void`
 
-Defined in: base/index.ts:34
+Defined in: [base/index.ts:40](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L40)
 
 ##### Parameters
 
@@ -122,7 +122,7 @@ keyof `HTMLElementEventMap`
 
 > **get** **text**(): `string`
 
-Defined in: editor/index.ts:80
+Defined in: [editor/index.ts:79](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L79)
 
 The current `value` of the `textarea`.
 
@@ -134,7 +134,7 @@ The current `value` of the `textarea`.
 
 > **set** **text**(`value`): `void`
 
-Defined in: editor/index.ts:84
+Defined in: [editor/index.ts:83](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L83)
 
 ##### Parameters
 
@@ -156,7 +156,7 @@ Defined in: editor/index.ts:84
 
 > **get** **textArea**(): `HTMLTextAreaElement`
 
-Defined in: editor/index.ts:75
+Defined in: [editor/index.ts:74](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L74)
 
 The `content`, expects an `HTMLTextAreaElement`.
 
@@ -172,7 +172,7 @@ The `content`, expects an `HTMLTextAreaElement`.
 
 > **connectedCallback**(): `void`
 
-Defined in: base/index.ts:152
+Defined in: [base/index.ts:158](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L158)
 
 Called when custom element is added to the page.
 
@@ -192,7 +192,7 @@ Called when custom element is added to the page.
 
 > **destroy**(): `void`
 
-Defined in: base/index.ts:159
+Defined in: [base/index.ts:165](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L165)
 
 Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallback` as well. It is overridden in each element that needs to run `disconnectedCallback`.
 
@@ -212,7 +212,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 > **disconnectedCallback**(): `void`
 
-Defined in: base/index.ts:164
+Defined in: [base/index.ts:170](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L170)
 
 Called when custom element is removed from the page.
 
@@ -232,7 +232,7 @@ Called when custom element is removed from the page.
 
 > **getContent**\<`T`\>(`instance`): `T`
 
-Defined in: base/index.ts:55
+Defined in: [base/index.ts:61](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L61)
 
 #### Type Parameters
 
@@ -271,7 +271,7 @@ this.querySelector("[data-content]");
 
 > **getTrigger**\<`T`\>(): `NodeListOf`\<`T`\>
 
-Defined in: base/index.ts:42
+Defined in: [base/index.ts:48](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L48)
 
 #### Type Parameters
 
@@ -301,7 +301,7 @@ this.querySelectorAll("[data-trigger]");
 
 > **mount**(): `void`
 
-Defined in: editor/index.ts:338
+Defined in: [editor/index.ts:337](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L337)
 
 Passed into `queueMicrotask` in `connectedCallback`. It is overridden in each component that needs to run `connectedCallback`.
 
@@ -323,7 +323,7 @@ The reason for this is to make these elements work better with frameworks like S
 
 > **safeListener**\<`K`, `T`\>(`type`, `listener`, `element`, `options`): `void`
 
-Defined in: base/index.ts:115
+Defined in: [base/index.ts:121](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L121)
 
 Wrapper around `document.body.addEventListener` that ensures when the
 element is removed from the DOM, these event listeners are cleaned up.
@@ -368,7 +368,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 > **swapContent**(`revert`): `void`
 
-Defined in: base/index.ts:72
+Defined in: [base/index.ts:78](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L78)
 
 Finds the `HTMLElement | HTMLTemplateElement` via the `swap` selector and
 swaps `this.content()` with the content of the element found.
@@ -398,7 +398,7 @@ default: `800`
 
 > **triggerListener**\<`T`, `K`\>(`listener`, `type`, `options`?): `void`
 
-Defined in: base/index.ts:132
+Defined in: [base/index.ts:138](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L138)
 
 #### Type Parameters
 

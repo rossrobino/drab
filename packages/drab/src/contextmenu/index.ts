@@ -1,7 +1,6 @@
-import { Base } from "../base/index.js";
-import type { Attributes } from "../types/index.js";
+import { Base, type BaseAttributes } from "../base/index.js";
 
-export type ContextMenuAttributes = Attributes<ContextMenu>;
+export type ContextMenuAttributes = BaseAttributes;
 
 /**
  * Displays content when the `trigger` element is right clicked, or long pressed on mobile.

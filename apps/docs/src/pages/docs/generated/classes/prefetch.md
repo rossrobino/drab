@@ -1,4 +1,4 @@
-Defined in: prefetch/index.ts:77
+Defined in: [prefetch/index.ts:79](https://github.com/rossrobino/components/blob/main/packages/drab/src/prefetch/index.ts#L79)
 
 The `Prefetch` element can prefetch a url, or enhance the `HTMLAnchorElement` by loading the HTML for a page before it is navigated to. This element speeds up the navigation for multi-page applications (MPAs).
 
@@ -39,7 +39,7 @@ This element can be deprecated once the Speculation Rules API is supported acros
 
 > **new Prefetch**(): [`Prefetch`](/elements/prefetch/)
 
-Defined in: prefetch/index.ts:80
+Defined in: [prefetch/index.ts:82](https://github.com/rossrobino/components/blob/main/packages/drab/src/prefetch/index.ts#L82)
 
 #### Returns
 
@@ -59,7 +59,7 @@ Defined in: prefetch/index.ts:80
 
 > **get** **event**(): keyof `HTMLElementEventMap`
 
-Defined in: base/index.ts:30
+Defined in: [base/index.ts:36](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L36)
 
 Event for the `trigger` to execute.
 
@@ -79,7 +79,7 @@ keyof `HTMLElementEventMap`
 
 > **set** **event**(`value`): `void`
 
-Defined in: base/index.ts:34
+Defined in: [base/index.ts:40](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L40)
 
 ##### Parameters
 
@@ -103,7 +103,7 @@ keyof `HTMLElementEventMap`
 
 > **appendTag**(`options`): `void`
 
-Defined in: prefetch/index.ts:104
+Defined in: [prefetch/index.ts:106](https://github.com/rossrobino/components/blob/main/packages/drab/src/prefetch/index.ts#L106)
 
 Appends `<link rel="prefetch">` or `<script type="speculationrules">` to the head of the document.
 
@@ -137,7 +137,7 @@ Uses the Speculation Rules API when supported to prerender on the client.
 
 > **connectedCallback**(): `void`
 
-Defined in: base/index.ts:152
+Defined in: [base/index.ts:158](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L158)
 
 Called when custom element is added to the page.
 
@@ -157,7 +157,7 @@ Called when custom element is added to the page.
 
 > **destroy**(): `void`
 
-Defined in: base/index.ts:159
+Defined in: [base/index.ts:165](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L165)
 
 Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallback` as well. It is overridden in each element that needs to run `disconnectedCallback`.
 
@@ -177,7 +177,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 > **disconnectedCallback**(): `void`
 
-Defined in: base/index.ts:164
+Defined in: [base/index.ts:170](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L170)
 
 Called when custom element is removed from the page.
 
@@ -197,7 +197,7 @@ Called when custom element is removed from the page.
 
 > **getContent**\<`T`\>(`instance`): `T`
 
-Defined in: base/index.ts:55
+Defined in: [base/index.ts:61](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L61)
 
 #### Type Parameters
 
@@ -236,7 +236,7 @@ this.querySelector("[data-content]");
 
 > **getTrigger**\<`T`\>(): `NodeListOf`\<`T`\>
 
-Defined in: base/index.ts:42
+Defined in: [base/index.ts:48](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L48)
 
 #### Type Parameters
 
@@ -266,7 +266,7 @@ this.querySelectorAll("[data-trigger]");
 
 > **mount**(): `void`
 
-Defined in: prefetch/index.ts:239
+Defined in: [prefetch/index.ts:241](https://github.com/rossrobino/components/blob/main/packages/drab/src/prefetch/index.ts#L241)
 
 Passed into `queueMicrotask` in `connectedCallback`. It is overridden in each component that needs to run `connectedCallback`.
 
@@ -288,7 +288,7 @@ The reason for this is to make these elements work better with frameworks like S
 
 > **prefetch**(`options`): `void`
 
-Defined in: prefetch/index.ts:163
+Defined in: [prefetch/index.ts:165](https://github.com/rossrobino/components/blob/main/packages/drab/src/prefetch/index.ts#L165)
 
 Use to prefetch/prerender HTML.
 
@@ -336,7 +336,7 @@ Determines when the prefetch takes place.
 
 > **safeListener**\<`K`, `T`\>(`type`, `listener`, `element`, `options`): `void`
 
-Defined in: base/index.ts:115
+Defined in: [base/index.ts:121](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L121)
 
 Wrapper around `document.body.addEventListener` that ensures when the
 element is removed from the DOM, these event listeners are cleaned up.
@@ -381,7 +381,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 > **swapContent**(`revert`): `void`
 
-Defined in: base/index.ts:72
+Defined in: [base/index.ts:78](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L78)
 
 Finds the `HTMLElement | HTMLTemplateElement` via the `swap` selector and
 swaps `this.content()` with the content of the element found.
@@ -411,7 +411,7 @@ default: `800`
 
 > **triggerListener**\<`T`, `K`\>(`listener`, `type`, `options`?): `void`
 
-Defined in: base/index.ts:132
+Defined in: [base/index.ts:138](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L138)
 
 #### Type Parameters
 

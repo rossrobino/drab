@@ -1,3 +1,9 @@
-> **IntersectAttributes**: `Attributes`\<[`Intersect`](/PUBLIC_PATH/classes/Intersect.md)\> & `Partial`\<\{ `threshold`: `number`; \}\>
+> **IntersectAttributes**: `BaseAttributes` & `object`
 
-Defined in: intersect/index.ts:4
+Defined in: [intersect/index.ts:3](https://github.com/rossrobino/components/blob/main/packages/drab/src/intersect/index.ts#L3)
+
+## Type declaration
+
+### threshold?
+
+> `optional` **threshold**: `number`

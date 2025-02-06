@@ -1,8 +1,6 @@
-import { Base } from "../base/index.js";
-import type { Attributes } from "../types/index.js";
+import { Base, type BaseAttributes } from "../base/index.js";
 
-export type IntersectAttributes = Attributes<Intersect> &
-	Partial<{ threshold: number }>;
+export type IntersectAttributes = BaseAttributes & { threshold?: number };
 
 type IntersectCallback = () => any;
 

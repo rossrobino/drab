@@ -1,4 +1,4 @@
-Defined in: youtube/index.ts:9
+Defined in: [youtube/index.ts:12](https://github.com/rossrobino/components/blob/main/packages/drab/src/youtube/index.ts#L12)
 
 Embeds a YouTube video iframe into a website with the video uid, using www.youtube-nocookie.com.
 
@@ -14,7 +14,7 @@ Embeds a YouTube video iframe into a website with the video uid, using www.youtu
 
 > **new YouTube**(): [`YouTube`](/elements/youtube/)
 
-Defined in: youtube/index.ts:12
+Defined in: [youtube/index.ts:15](https://github.com/rossrobino/components/blob/main/packages/drab/src/youtube/index.ts#L15)
 
 #### Returns
 
@@ -32,7 +32,7 @@ Defined in: youtube/index.ts:12
 
 > `static` **observedAttributes**: readonly \[`"autoplay"`, `"start"`, `"uid"`\]
 
-Defined in: youtube/index.ts:10
+Defined in: [youtube/index.ts:13](https://github.com/rossrobino/components/blob/main/packages/drab/src/youtube/index.ts#L13)
 
 ## Accessors
 
@@ -44,7 +44,7 @@ Defined in: youtube/index.ts:10
 
 > **get** **autoplay**(): `boolean`
 
-Defined in: youtube/index.ts:22
+Defined in: [youtube/index.ts:25](https://github.com/rossrobino/components/blob/main/packages/drab/src/youtube/index.ts#L25)
 
 Whether the video should start playing when loaded.
 
@@ -56,7 +56,7 @@ Whether the video should start playing when loaded.
 
 > **set** **autoplay**(`value`): `void`
 
-Defined in: youtube/index.ts:26
+Defined in: [youtube/index.ts:29](https://github.com/rossrobino/components/blob/main/packages/drab/src/youtube/index.ts#L29)
 
 ##### Parameters
 
@@ -78,7 +78,7 @@ Defined in: youtube/index.ts:26
 
 > **get** **event**(): keyof `HTMLElementEventMap`
 
-Defined in: base/index.ts:30
+Defined in: [base/index.ts:36](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L36)
 
 Event for the `trigger` to execute.
 
@@ -98,7 +98,7 @@ keyof `HTMLElementEventMap`
 
 > **set** **event**(`value`): `void`
 
-Defined in: base/index.ts:34
+Defined in: [base/index.ts:40](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L40)
 
 ##### Parameters
 
@@ -124,7 +124,7 @@ keyof `HTMLElementEventMap`
 
 > **get** **iframe**(): `HTMLIFrameElement`
 
-Defined in: youtube/index.ts:17
+Defined in: [youtube/index.ts:20](https://github.com/rossrobino/components/blob/main/packages/drab/src/youtube/index.ts#L20)
 
 The `HTMLIFrameElement` within the element.
 
@@ -142,7 +142,7 @@ The `HTMLIFrameElement` within the element.
 
 > **get** **start**(): `string`
 
-Defined in: youtube/index.ts:32
+Defined in: [youtube/index.ts:35](https://github.com/rossrobino/components/blob/main/packages/drab/src/youtube/index.ts#L35)
 
 The start time of the video (seconds).
 
@@ -154,7 +154,7 @@ The start time of the video (seconds).
 
 > **set** **start**(`value`): `void`
 
-Defined in: youtube/index.ts:36
+Defined in: [youtube/index.ts:39](https://github.com/rossrobino/components/blob/main/packages/drab/src/youtube/index.ts#L39)
 
 ##### Parameters
 
@@ -176,7 +176,7 @@ Defined in: youtube/index.ts:36
 
 > **get** **uid**(): `string`
 
-Defined in: youtube/index.ts:46
+Defined in: [youtube/index.ts:49](https://github.com/rossrobino/components/blob/main/packages/drab/src/youtube/index.ts#L49)
 
 The video's YouTube uid, found within the url of the video.
 
@@ -191,7 +191,7 @@ the `uid` is `"gouiY85kD2o"`.
 
 > **set** **uid**(`v`): `void`
 
-Defined in: youtube/index.ts:52
+Defined in: [youtube/index.ts:55](https://github.com/rossrobino/components/blob/main/packages/drab/src/youtube/index.ts#L55)
 
 ##### Parameters
 
@@ -211,7 +211,7 @@ Defined in: youtube/index.ts:52
 
 > **attributeChangedCallback**(): `void`
 
-Defined in: youtube/index.ts:62
+Defined in: [youtube/index.ts:65](https://github.com/rossrobino/components/blob/main/packages/drab/src/youtube/index.ts#L65)
 
 #### Returns
 
@@ -225,7 +225,7 @@ Defined in: youtube/index.ts:62
 
 > **connectedCallback**(): `void`
 
-Defined in: base/index.ts:152
+Defined in: [base/index.ts:158](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L158)
 
 Called when custom element is added to the page.
 
@@ -245,7 +245,7 @@ Called when custom element is added to the page.
 
 > **destroy**(): `void`
 
-Defined in: base/index.ts:159
+Defined in: [base/index.ts:165](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L165)
 
 Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallback` as well. It is overridden in each element that needs to run `disconnectedCallback`.
 
@@ -265,7 +265,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 > **disconnectedCallback**(): `void`
 
-Defined in: base/index.ts:164
+Defined in: [base/index.ts:170](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L170)
 
 Called when custom element is removed from the page.
 
@@ -285,7 +285,7 @@ Called when custom element is removed from the page.
 
 > **getContent**\<`T`\>(`instance`): `T`
 
-Defined in: base/index.ts:55
+Defined in: [base/index.ts:61](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L61)
 
 #### Type Parameters
 
@@ -324,7 +324,7 @@ this.querySelector("[data-content]");
 
 > **getTrigger**\<`T`\>(): `NodeListOf`\<`T`\>
 
-Defined in: base/index.ts:42
+Defined in: [base/index.ts:48](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L48)
 
 #### Type Parameters
 
@@ -354,7 +354,7 @@ this.querySelectorAll("[data-trigger]");
 
 > **mount**(): `void`
 
-Defined in: youtube/index.ts:56
+Defined in: [youtube/index.ts:59](https://github.com/rossrobino/components/blob/main/packages/drab/src/youtube/index.ts#L59)
 
 Passed into `queueMicrotask` in `connectedCallback`. It is overridden in each component that needs to run `connectedCallback`.
 
@@ -376,7 +376,7 @@ The reason for this is to make these elements work better with frameworks like S
 
 > **safeListener**\<`K`, `T`\>(`type`, `listener`, `element`, `options`): `void`
 
-Defined in: base/index.ts:115
+Defined in: [base/index.ts:121](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L121)
 
 Wrapper around `document.body.addEventListener` that ensures when the
 element is removed from the DOM, these event listeners are cleaned up.
@@ -421,7 +421,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 > **swapContent**(`revert`): `void`
 
-Defined in: base/index.ts:72
+Defined in: [base/index.ts:78](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L78)
 
 Finds the `HTMLElement | HTMLTemplateElement` via the `swap` selector and
 swaps `this.content()` with the content of the element found.
@@ -451,7 +451,7 @@ default: `800`
 
 > **triggerListener**\<`T`, `K`\>(`listener`, `type`, `options`?): `void`
 
-Defined in: base/index.ts:132
+Defined in: [base/index.ts:138](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L138)
 
 #### Type Parameters
 

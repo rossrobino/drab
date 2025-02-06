@@ -1,3 +1,3 @@
-> **ShareAttributes**: `Attributes`\<[`Share`](/PUBLIC_PATH/classes/Share.md), `"value"`\>
+> **ShareAttributes**: `BaseCopyAttributes`
 
-Defined in: share/index.ts:4
+Defined in: [share/index.ts:3](https://github.com/rossrobino/components/blob/main/packages/drab/src/share/index.ts#L3)

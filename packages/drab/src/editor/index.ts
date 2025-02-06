@@ -1,7 +1,6 @@
-import { Base } from "../base/index.js";
-import type { Attributes } from "../types/index.js";
+import { Base, type BaseAttributes } from "../base/index.js";
 
-export type EditorAttributes = Attributes<Editor>;
+export type EditorAttributes = BaseAttributes;
 
 /**
  * A piece of content to insert into the `textarea`.

@@ -1,7 +1,6 @@
-import { BaseCopy } from "../base/copy/index.js";
-import type { Attributes } from "../types/index.js";
+import { BaseCopy, type BaseCopyAttributes } from "../base/copy/index.js";
 
-export type CopyAttributes = Attributes<Copy, "value">;
+export type CopyAttributes = BaseCopyAttributes;
 
 /**
  * Uses the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText)

@@ -1,8 +1,9 @@
-import { Base } from "../base/index.js";
-import type { Attributes } from "../types/index.js";
+import { Base, type BaseAttributes } from "../base/index.js";
 
-export type WakeLockAttributes = Attributes<WakeLock> &
-	Partial<{ "auto-lock": boolean; locked: boolean }>;
+export type WakeLockAttributes = BaseAttributes & {
+	"auto-lock"?: boolean;
+	locked?: boolean;
+};
 
 /**
  * `WakeLock` uses the [WakeLock API](https://developer.mozilla.org/en-US/docs/Web/API/Screen_Wake_Lock_API) to ensure the screen does not turn off when viewing the page on supported devices. Use your best judgement for when this is necessary, for example, if you have a timer that needs to stay on, or you are displaying a QR code.

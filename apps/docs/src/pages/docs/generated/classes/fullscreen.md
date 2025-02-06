@@ -1,4 +1,4 @@
-Defined in: fullscreen/index.ts:11
+Defined in: [fullscreen/index.ts:10](https://github.com/rossrobino/components/blob/main/packages/drab/src/fullscreen/index.ts#L10)
 
 Toggles the `documentElement` or `content` element to fullscreen mode.
 
@@ -16,7 +16,7 @@ Disables the `trigger` if fullscreen is not supported.
 
 > **new Fullscreen**(): [`Fullscreen`](/elements/fullscreen/)
 
-Defined in: fullscreen/index.ts:12
+Defined in: [fullscreen/index.ts:11](https://github.com/rossrobino/components/blob/main/packages/drab/src/fullscreen/index.ts#L11)
 
 #### Returns
 
@@ -36,7 +36,7 @@ Defined in: fullscreen/index.ts:12
 
 > **get** **event**(): keyof `HTMLElementEventMap`
 
-Defined in: base/index.ts:30
+Defined in: [base/index.ts:36](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L36)
 
 Event for the `trigger` to execute.
 
@@ -56,7 +56,7 @@ keyof `HTMLElementEventMap`
 
 > **set** **event**(`value`): `void`
 
-Defined in: base/index.ts:34
+Defined in: [base/index.ts:40](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L40)
 
 ##### Parameters
 
@@ -80,7 +80,7 @@ keyof `HTMLElementEventMap`
 
 > **connectedCallback**(): `void`
 
-Defined in: base/index.ts:152
+Defined in: [base/index.ts:158](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L158)
 
 Called when custom element is added to the page.
 
@@ -100,7 +100,7 @@ Called when custom element is added to the page.
 
 > **destroy**(): `void`
 
-Defined in: base/index.ts:159
+Defined in: [base/index.ts:165](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L165)
 
 Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallback` as well. It is overridden in each element that needs to run `disconnectedCallback`.
 
@@ -120,7 +120,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 > **disconnectedCallback**(): `void`
 
-Defined in: base/index.ts:164
+Defined in: [base/index.ts:170](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L170)
 
 Called when custom element is removed from the page.
 
@@ -140,7 +140,7 @@ Called when custom element is removed from the page.
 
 > **getContent**\<`T`\>(`instance`): `T`
 
-Defined in: base/index.ts:55
+Defined in: [base/index.ts:61](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L61)
 
 #### Type Parameters
 
@@ -179,7 +179,7 @@ this.querySelector("[data-content]");
 
 > **getTrigger**\<`T`\>(): `NodeListOf`\<`T`\>
 
-Defined in: base/index.ts:42
+Defined in: [base/index.ts:48](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L48)
 
 #### Type Parameters
 
@@ -209,7 +209,7 @@ this.querySelectorAll("[data-trigger]");
 
 > **isFullscreen**(): `boolean`
 
-Defined in: fullscreen/index.ts:19
+Defined in: [fullscreen/index.ts:18](https://github.com/rossrobino/components/blob/main/packages/drab/src/fullscreen/index.ts#L18)
 
 #### Returns
 
@@ -225,7 +225,7 @@ Defined in: fullscreen/index.ts:19
 
 > **mount**(): `void`
 
-Defined in: fullscreen/index.ts:43
+Defined in: [fullscreen/index.ts:42](https://github.com/rossrobino/components/blob/main/packages/drab/src/fullscreen/index.ts#L42)
 
 Passed into `queueMicrotask` in `connectedCallback`. It is overridden in each component that needs to run `connectedCallback`.
 
@@ -247,7 +247,7 @@ The reason for this is to make these elements work better with frameworks like S
 
 > **safeListener**\<`K`, `T`\>(`type`, `listener`, `element`, `options`): `void`
 
-Defined in: base/index.ts:115
+Defined in: [base/index.ts:121](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L121)
 
 Wrapper around `document.body.addEventListener` that ensures when the
 element is removed from the DOM, these event listeners are cleaned up.
@@ -292,7 +292,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 > **swapContent**(`revert`): `void`
 
-Defined in: base/index.ts:72
+Defined in: [base/index.ts:78](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L78)
 
 Finds the `HTMLElement | HTMLTemplateElement` via the `swap` selector and
 swaps `this.content()` with the content of the element found.
@@ -322,7 +322,7 @@ default: `800`
 
 > **toggle**(): `void`
 
-Defined in: fullscreen/index.ts:31
+Defined in: [fullscreen/index.ts:30](https://github.com/rossrobino/components/blob/main/packages/drab/src/fullscreen/index.ts#L30)
 
 Enables or disables fullscreen mode based on the current state.
 
@@ -338,7 +338,7 @@ Enables or disables fullscreen mode based on the current state.
 
 > **triggerListener**\<`T`, `K`\>(`listener`, `type`, `options`?): `void`
 
-Defined in: base/index.ts:132
+Defined in: [base/index.ts:138](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L138)
 
 #### Type Parameters
 

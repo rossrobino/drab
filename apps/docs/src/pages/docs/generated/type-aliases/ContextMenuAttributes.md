@@ -1,3 +1,3 @@
-> **ContextMenuAttributes**: `Attributes`\<[`ContextMenu`](/PUBLIC_PATH/classes/ContextMenu.md)\>
+> **ContextMenuAttributes**: `BaseAttributes`
 
-Defined in: contextmenu/index.ts:4
+Defined in: [contextmenu/index.ts:3](https://github.com/rossrobino/components/blob/main/packages/drab/src/contextmenu/index.ts#L3)

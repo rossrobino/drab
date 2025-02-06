@@ -1,4 +1,4 @@
-Defined in: dialog/index.ts:20
+Defined in: [dialog/index.ts:21](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L21)
 
 Provides triggers for the `HTMLDialogElement`.
 
@@ -24,7 +24,7 @@ is open.
 
 > **new Dialog**(): [`Dialog`](/elements/dialog/)
 
-Defined in: dialog/index.ts:26
+Defined in: [dialog/index.ts:27](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L27)
 
 #### Returns
 
@@ -44,7 +44,7 @@ Defined in: dialog/index.ts:26
 
 > **get** **dialog**(): `HTMLDialogElement`
 
-Defined in: dialog/index.ts:31
+Defined in: [dialog/index.ts:32](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L32)
 
 The `HTMLDialogElement` within the element.
 
@@ -62,7 +62,7 @@ The `HTMLDialogElement` within the element.
 
 > **get** **event**(): keyof `HTMLElementEventMap`
 
-Defined in: base/index.ts:30
+Defined in: [base/index.ts:36](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L36)
 
 Event for the `trigger` to execute.
 
@@ -82,7 +82,7 @@ keyof `HTMLElementEventMap`
 
 > **set** **event**(`value`): `void`
 
-Defined in: base/index.ts:34
+Defined in: [base/index.ts:40](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L40)
 
 ##### Parameters
 
@@ -106,7 +106,7 @@ keyof `HTMLElementEventMap`
 
 > **close**(): `Promise`\<`void`\>
 
-Defined in: dialog/index.ts:57
+Defined in: [dialog/index.ts:58](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L58)
 
 `HTMLDialogElement.close()` with animation.
 
@@ -122,7 +122,7 @@ Defined in: dialog/index.ts:57
 
 > **connectedCallback**(): `void`
 
-Defined in: base/index.ts:152
+Defined in: [base/index.ts:158](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L158)
 
 Called when custom element is added to the page.
 
@@ -142,7 +142,7 @@ Called when custom element is added to the page.
 
 > **destroy**(): `void`
 
-Defined in: base/index.ts:159
+Defined in: [base/index.ts:165](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L165)
 
 Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallback` as well. It is overridden in each element that needs to run `disconnectedCallback`.
 
@@ -162,7 +162,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 > **disconnectedCallback**(): `void`
 
-Defined in: base/index.ts:164
+Defined in: [base/index.ts:170](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L170)
 
 Called when custom element is removed from the page.
 
@@ -182,7 +182,7 @@ Called when custom element is removed from the page.
 
 > **getContent**\<`T`\>(`instance`): `T`
 
-Defined in: base/index.ts:55
+Defined in: [base/index.ts:61](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L61)
 
 #### Type Parameters
 
@@ -221,7 +221,7 @@ this.querySelector("[data-content]");
 
 > **getTrigger**\<`T`\>(): `NodeListOf`\<`T`\>
 
-Defined in: base/index.ts:42
+Defined in: [base/index.ts:48](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L48)
 
 #### Type Parameters
 
@@ -251,7 +251,7 @@ this.querySelectorAll("[data-trigger]");
 
 > **mount**(): `void`
 
-Defined in: dialog/index.ts:68
+Defined in: [dialog/index.ts:69](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L69)
 
 Passed into `queueMicrotask` in `connectedCallback`. It is overridden in each component that needs to run `connectedCallback`.
 
@@ -273,7 +273,7 @@ The reason for this is to make these elements work better with frameworks like S
 
 > **safeListener**\<`K`, `T`\>(`type`, `listener`, `element`, `options`): `void`
 
-Defined in: base/index.ts:115
+Defined in: [base/index.ts:121](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L121)
 
 Wrapper around `document.body.addEventListener` that ensures when the
 element is removed from the DOM, these event listeners are cleaned up.
@@ -318,7 +318,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 > **show**(): `Promise`\<`void`\>
 
-Defined in: dialog/index.ts:51
+Defined in: [dialog/index.ts:52](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L52)
 
 `HTMLDialogElement.showModal()` with animation.
 
@@ -334,7 +334,7 @@ Defined in: dialog/index.ts:51
 
 > **swapContent**(`revert`): `void`
 
-Defined in: base/index.ts:72
+Defined in: [base/index.ts:78](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L78)
 
 Finds the `HTMLElement | HTMLTemplateElement` via the `swap` selector and
 swaps `this.content()` with the content of the element found.
@@ -364,7 +364,7 @@ default: `800`
 
 > **toggle**(): `Promise`\<`void`\>
 
-Defined in: dialog/index.ts:63
+Defined in: [dialog/index.ts:64](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L64)
 
 `show` or `close` depending on the dialog's `open` attribute.
 
@@ -380,7 +380,7 @@ Defined in: dialog/index.ts:63
 
 > **triggerListener**\<`T`, `K`\>(`listener`, `type`, `options`?): `void`
 
-Defined in: base/index.ts:132
+Defined in: [base/index.ts:138](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L138)
 
 #### Type Parameters
 

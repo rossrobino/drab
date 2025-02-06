@@ -1,3 +1,9 @@
+export type BaseAttributes = {
+	trigger?: string;
+	content?: string;
+	swap?: string;
+};
+
 /**
  * Each element in the library extends the `Base` class. It provides methods
  * for selecting elements via HTML attributes along with other helpers.
