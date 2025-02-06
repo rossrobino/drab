@@ -1,0 +1,4 @@
+{
+	"extends": "@robino/tsconfig/tsc.json",
+	"include": ["*.js"]
+}

@@ -1,0 +1,13 @@
+<drab-prefetch>
+	<a data-trigger href="/">Hover to prefetch</a>
+</drab-prefetch>
+
+<!-- Wrap anchors and use a `trigger` selector. -->
+<div>
+	<drab-prefetch trigger="a[href^='/']" strategy="visible" prerender>
+		<a href="/">Prerender when visible</a>
+	</drab-prefetch>
+</div>
+
+<!-- Prefetch a `url` without providing a trigger. -->
+<drab-prefetch url="/" class="hidden"></drab-prefetch>

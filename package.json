@@ -1,202 +1,41 @@
 {
-	"name": "drab",
-	"description": "A headless custom element library",
-	"version": "5.4.2",
-	"homepage": "https://drab.robino.dev",
+	"name": "drab-monorepo",
+	"type": "module",
+	"version": "0.0.0",
+	"private": true,
 	"license": "MIT",
+	"packageManager": "npm@10.8.2",
+	"workspaces": [
+		"apps/*",
+		"packages/*"
+	],
 	"author": {
 		"name": "Ross Robino",
 		"url": "https://robino.dev"
 	},
-	"keywords": [
-		"web components",
-		"custom elements",
-		"animate",
-		"wakelock",
-		"intersect",
-		"contextmenu",
-		"details",
-		"youtube",
-		"breakpoint",
-		"dialog",
-		"popover",
-		"tablesort",
-		"prefetch",
-		"copy",
-		"fullscreen",
-		"base",
-		"editor",
-		"share"
-	],
-	"repository": "github:rossrobino/drab",
-	"type": "module",
-	"types": "./index.d.ts",
-	"main": "./index.js",
-	"exports": {
-		".": {
-			"types": "./index.d.ts",
-			"default": "./index.js"
-		},
-		"./define": {
-			"types": "./define.d.ts",
-			"default": "./define.js"
-		},
-		"./animate": {
-			"types": "./animate/index.d.ts",
-			"default": "./animate/index.js"
-		},
-		"./animate/define": {
-			"types": "./animate/define.d.ts",
-			"default": "./animate/define.js"
-		},
-		"./wakelock": {
-			"types": "./wakelock/index.d.ts",
-			"default": "./wakelock/index.js"
-		},
-		"./wakelock/define": {
-			"types": "./wakelock/define.d.ts",
-			"default": "./wakelock/define.js"
-		},
-		"./intersect": {
-			"types": "./intersect/index.d.ts",
-			"default": "./intersect/index.js"
-		},
-		"./intersect/define": {
-			"types": "./intersect/define.d.ts",
-			"default": "./intersect/define.js"
-		},
-		"./contextmenu": {
-			"types": "./contextmenu/index.d.ts",
-			"default": "./contextmenu/index.js"
-		},
-		"./contextmenu/define": {
-			"types": "./contextmenu/define.d.ts",
-			"default": "./contextmenu/define.js"
-		},
-		"./details": {
-			"types": "./details/index.d.ts",
-			"default": "./details/index.js"
-		},
-		"./details/define": {
-			"types": "./details/define.d.ts",
-			"default": "./details/define.js"
-		},
-		"./youtube": {
-			"types": "./youtube/index.d.ts",
-			"default": "./youtube/index.js"
-		},
-		"./youtube/define": {
-			"types": "./youtube/define.d.ts",
-			"default": "./youtube/define.js"
-		},
-		"./breakpoint": {
-			"types": "./breakpoint/index.d.ts",
-			"default": "./breakpoint/index.js"
-		},
-		"./breakpoint/define": {
-			"types": "./breakpoint/define.d.ts",
-			"default": "./breakpoint/define.js"
-		},
-		"./dialog": {
-			"types": "./dialog/index.d.ts",
-			"default": "./dialog/index.js"
-		},
-		"./dialog/define": {
-			"types": "./dialog/define.d.ts",
-			"default": "./dialog/define.js"
-		},
-		"./popover": {
-			"types": "./popover/index.d.ts",
-			"default": "./popover/index.js"
-		},
-		"./popover/define": {
-			"types": "./popover/define.d.ts",
-			"default": "./popover/define.js"
-		},
-		"./tablesort": {
-			"types": "./tablesort/index.d.ts",
-			"default": "./tablesort/index.js"
-		},
-		"./tablesort/define": {
-			"types": "./tablesort/define.d.ts",
-			"default": "./tablesort/define.js"
-		},
-		"./prefetch": {
-			"types": "./prefetch/index.d.ts",
-			"default": "./prefetch/index.js"
-		},
-		"./prefetch/define": {
-			"types": "./prefetch/define.d.ts",
-			"default": "./prefetch/define.js"
-		},
-		"./copy": {
-			"types": "./copy/index.d.ts",
-			"default": "./copy/index.js"
-		},
-		"./copy/define": {
-			"types": "./copy/define.d.ts",
-			"default": "./copy/define.js"
-		},
-		"./fullscreen": {
-			"types": "./fullscreen/index.d.ts",
-			"default": "./fullscreen/index.js"
-		},
-		"./fullscreen/define": {
-			"types": "./fullscreen/define.d.ts",
-			"default": "./fullscreen/define.js"
-		},
-		"./base": {
-			"types": "./base/index.d.ts",
-			"default": "./base/index.js"
-		},
-		"./base/define": {
-			"types": "./base/define.d.ts",
-			"default": "./base/define.js"
-		},
-		"./editor": {
-			"types": "./editor/index.d.ts",
-			"default": "./editor/index.js"
-		},
-		"./editor/define": {
-			"types": "./editor/define.d.ts",
-			"default": "./editor/define.js"
-		},
-		"./share": {
-			"types": "./share/index.d.ts",
-			"default": "./share/index.js"
-		},
-		"./share/define": {
-			"types": "./share/define.d.ts",
-			"default": "./share/define.js"
-		}
-	},
 	"scripts": {
-		"dev": "vite --host",
-		"build": "tsc && vite build",
-		"preview": "vite preview",
+		"test": "vitest run",
+		"test:dev": "vitest",
+		"doc:edit": "node scripts/doc",
+		"doc": "typedoc --options typedoc.config.js && npm run doc:edit",
+		"dev": "turbo dev",
+		"check": "turbo check",
+		"build": "npm run doc && turbo build",
 		"format": "prettier --write .",
-		"doc": "typedoc --out src/lib/docs --plugin typedoc-plugin-markdown src/package/index.ts --hideBreadcrumbs --githubPages false --publicPath /docs/ && bun src/lib/scripts/doc/index.ts && bun format",
-		"package:json": "bun src/lib/scripts/packageJson/index.ts && prettier --write package.json",
-		"package:copy": "cp package.json ./package && cp README.md ./package && cp LICENSE.md ./package",
-		"package:tsc": "tsc --project tsconfig.package.json",
-		"package": "bun package:json && tsup && bun package:tsc && bun package:copy",
-		"pub": "bun i && bun doc && bun package && npm publish --access public ./package"
+		"changeset": "changeset",
+		"version": "changeset version",
+		"release": "npm run build && changeset publish"
 	},
 	"devDependencies": {
-		"@tailwindcss/typography": "^0.5.13",
-		"@types/node": "^20.12.12",
-		"@vercel/analytics": "^1.2.2",
-		"autoprefixer": "^10.4.19",
-		"domco": "^0.5.19",
-		"prettier": "^3.2.5",
-		"prettier-plugin-tailwindcss": "^0.5.14",
-		"robino": "^0.2.0",
-		"tailwindcss": "^3.4.3",
-		"tsup": "^8.0.2",
-		"typedoc": "^0.25.13",
-		"typedoc-plugin-markdown": "^4.0.2",
-		"typescript": "^5.4.5",
-		"uico": "^0.2.4",
-		"vite": "^5.2.11"
+		"@changesets/cli": "^2.27.9",
+		"@robino/prettier": "^0.1.1",
+		"@robino/tsconfig": "^0.2.2",
+		"prettier": "^3.3.3",
+		"prettier-plugin-tailwindcss": "^0.6.11",
+		"turbo": "^2.1.3",
+		"typedoc": "^0.27.6",
+		"typedoc-plugin-markdown": "^4.4.1",
+		"typescript": "^5.6.2",
+		"vitest": "^2.1.2"
 	}
 }

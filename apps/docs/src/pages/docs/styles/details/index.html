@@ -1,0 +1,47 @@
+<details class="group w-full border-b px-4 pt-4 pb-2">
+	<summary class="link flex list-none items-center justify-between gap-8 py-2">
+		<span>Does it work without JavaScript?</span>
+		<!-- chevron icon -->
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 20 20"
+			fill="currentColor"
+			class="size-4 transition group-open:rotate-180"
+		>
+			<path
+				fill-rule="evenodd"
+				d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+				clip-rule="evenodd"
+			/>
+		</svg>
+	</summary>
+	<div>
+		Yes, this element is a progressive enhancement on the native
+		<code>HTMLDetailsElement</code>
+		element.
+	</div>
+</details>
+
+<style>
+	/* https://nerdy.dev/6-css-snippets-every-front-end-developer-should-know-in-2025#transition-animation-for-%3Ccode%3E%3Cdetails%3E%3C/code%3E */
+	details {
+		interpolate-size: allow-keywords;
+
+		/* for safari */
+		summary::-webkit-details-marker {
+			display: none;
+		}
+
+		&::details-content {
+			transition:
+				content-visibility 500ms allow-discrete,
+				block-size 500ms;
+			block-size: 0;
+			overflow-y: clip;
+		}
+
+		&[open]::details-content {
+			block-size: auto;
+		}
+	}
+</style>

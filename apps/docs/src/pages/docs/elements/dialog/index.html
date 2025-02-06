@@ -1,0 +1,67 @@
+<div class="mb-4">
+	<drab-dialog click-outside-close class="contents">
+		<button data-trigger type="button">Right</button>
+		<dialog
+			data-content
+			class="bg-muted my-0 mr-0 ml-auto h-full max-h-screen w-full max-w-screen translate-x-full p-6 transition-all transition-discrete duration-500 backdrop:opacity-0 backdrop:backdrop-blur backdrop:transition-all backdrop:transition-discrete backdrop:duration-500 open:translate-x-0 open:backdrop:opacity-100 sm:max-w-96 starting:open:translate-x-full starting:open:backdrop:opacity-0"
+		>
+			<div class="mb-4 flex items-center justify-between">
+				<h2 class="my-0">Dialog</h2>
+				<button data-trigger class="ghost" aria-label="Close">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24"
+						fill="currentColor"
+						class="size-5"
+					>
+						<path
+							fill-rule="evenodd"
+							d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z"
+							clip-rule="evenodd"
+						/>
+					</svg>
+				</button>
+			</div>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+				veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+				commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+				velit esse cillum dolore eu fugiat nulla pariatur.
+			</p>
+		</dialog>
+	</drab-dialog>
+</div>
+
+<drab-dialog remove-body-scroll class="contents">
+	<button data-trigger type="button">Center</button>
+	<dialog
+		data-content
+		class="bg-muted m-auto rounded-md border p-6 opacity-0 transition-all transition-discrete duration-500 backdrop:opacity-0 backdrop:backdrop-blur backdrop:transition-all backdrop:transition-discrete backdrop:duration-500 open:opacity-100 open:backdrop:opacity-100 sm:max-w-96 starting:open:opacity-0 starting:open:backdrop:opacity-0"
+	>
+		<div class="mb-4 flex items-center justify-between">
+			<h2 class="my-0">Dialog</h2>
+			<button data-trigger class="ghost" aria-label="Close">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 24 24"
+					fill="currentColor"
+					class="size-5"
+				>
+					<path
+						fill-rule="evenodd"
+						d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z"
+						clip-rule="evenodd"
+					/>
+				</svg>
+			</button>
+		</div>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+			veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+			commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+			velit esse cillum dolore eu fugiat nulla pariatur.
+		</p>
+	</dialog>
+</drab-dialog>

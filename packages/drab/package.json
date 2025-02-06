@@ -1,0 +1,161 @@
+{
+	"name": "drab",
+	"description": "Interactivity for You",
+	"version": "5.4.2",
+	"homepage": "https://drab.robino.dev",
+	"license": "MIT",
+	"author": {
+		"name": "Ross Robino",
+		"url": "https://robino.dev"
+	},
+	"keywords": [
+		"web components",
+		"custom elements",
+		"breakpoint",
+		"contextmenu",
+		"copy",
+		"dialog",
+		"editor",
+		"fullscreen",
+		"intersect",
+		"prefetch",
+		"share",
+		"tablesort",
+		"wakelock",
+		"youtube"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/rossrobino/drab.git"
+	},
+	"type": "module",
+	"types": "./dist/index.d.ts",
+	"main": "./dist/index.js",
+	"exports": {
+		"./package.json": {
+			"default": "./package.json"
+		},
+		".": {
+			"types": "./dist/index.d.ts",
+			"default": "./dist/index.js"
+		},
+		"./define": {
+			"types": "./dist/define.d.ts",
+			"default": "./dist/define.js"
+		},
+		"./base": {
+			"types": "./dist/base/index.d.ts",
+			"default": "./dist/base/index.js"
+		},
+		"./base/define": {
+			"types": "./dist/base/define.d.ts",
+			"default": "./dist/base/define.js"
+		},
+		"./breakpoint": {
+			"types": "./dist/breakpoint/index.d.ts",
+			"default": "./dist/breakpoint/index.js"
+		},
+		"./breakpoint/define": {
+			"types": "./dist/breakpoint/define.d.ts",
+			"default": "./dist/breakpoint/define.js"
+		},
+		"./contextmenu": {
+			"types": "./dist/contextmenu/index.d.ts",
+			"default": "./dist/contextmenu/index.js"
+		},
+		"./contextmenu/define": {
+			"types": "./dist/contextmenu/define.d.ts",
+			"default": "./dist/contextmenu/define.js"
+		},
+		"./copy": {
+			"types": "./dist/copy/index.d.ts",
+			"default": "./dist/copy/index.js"
+		},
+		"./copy/define": {
+			"types": "./dist/copy/define.d.ts",
+			"default": "./dist/copy/define.js"
+		},
+		"./dialog": {
+			"types": "./dist/dialog/index.d.ts",
+			"default": "./dist/dialog/index.js"
+		},
+		"./dialog/define": {
+			"types": "./dist/dialog/define.d.ts",
+			"default": "./dist/dialog/define.js"
+		},
+		"./editor": {
+			"types": "./dist/editor/index.d.ts",
+			"default": "./dist/editor/index.js"
+		},
+		"./editor/define": {
+			"types": "./dist/editor/define.d.ts",
+			"default": "./dist/editor/define.js"
+		},
+		"./fullscreen": {
+			"types": "./dist/fullscreen/index.d.ts",
+			"default": "./dist/fullscreen/index.js"
+		},
+		"./fullscreen/define": {
+			"types": "./dist/fullscreen/define.d.ts",
+			"default": "./dist/fullscreen/define.js"
+		},
+		"./intersect": {
+			"types": "./dist/intersect/index.d.ts",
+			"default": "./dist/intersect/index.js"
+		},
+		"./intersect/define": {
+			"types": "./dist/intersect/define.d.ts",
+			"default": "./dist/intersect/define.js"
+		},
+		"./prefetch": {
+			"types": "./dist/prefetch/index.d.ts",
+			"default": "./dist/prefetch/index.js"
+		},
+		"./prefetch/define": {
+			"types": "./dist/prefetch/define.d.ts",
+			"default": "./dist/prefetch/define.js"
+		},
+		"./share": {
+			"types": "./dist/share/index.d.ts",
+			"default": "./dist/share/index.js"
+		},
+		"./share/define": {
+			"types": "./dist/share/define.d.ts",
+			"default": "./dist/share/define.js"
+		},
+		"./tablesort": {
+			"types": "./dist/tablesort/index.d.ts",
+			"default": "./dist/tablesort/index.js"
+		},
+		"./tablesort/define": {
+			"types": "./dist/tablesort/define.d.ts",
+			"default": "./dist/tablesort/define.js"
+		},
+		"./wakelock": {
+			"types": "./dist/wakelock/index.d.ts",
+			"default": "./dist/wakelock/index.js"
+		},
+		"./wakelock/define": {
+			"types": "./dist/wakelock/define.d.ts",
+			"default": "./dist/wakelock/define.js"
+		},
+		"./youtube": {
+			"types": "./dist/youtube/index.d.ts",
+			"default": "./dist/youtube/index.js"
+		},
+		"./youtube/define": {
+			"types": "./dist/youtube/define.d.ts",
+			"default": "./dist/youtube/define.js"
+		}
+	},
+	"files": [
+		"dist",
+		"src",
+		"README.md"
+	],
+	"scripts": {
+		"check": "tsc --noEmit",
+		"dev": "tsc --watch",
+		"build": "tsc"
+	}
+}

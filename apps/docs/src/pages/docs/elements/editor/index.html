@@ -1,0 +1,24 @@
+<drab-editor>
+	<textarea
+		data-content
+		class="border-muted-foreground mb-2 h-36"
+		placeholder="bullet: ctrl+i, anchor: ctrl+["
+	></textarea>
+	<div class="flex gap-2">
+		<button data-trigger data-value="&#8226; " data-type="block" data-key="i">
+			Bullet
+		</button>
+		<button data-trigger data-value="# " data-type="block">Heading</button>
+		<button data-trigger data-value="*" data-type="wrap" class="italic">
+			Italic
+		</button>
+		<button
+			data-trigger
+			data-value="[text](href)"
+			data-type="inline"
+			data-key="["
+		>
+			Anchor
+		</button>
+	</div>
+</drab-editor>

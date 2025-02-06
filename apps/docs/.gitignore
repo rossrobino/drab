@@ -1,0 +1,12 @@
+logs
+*.log
+npm-debug.log*
+node_modules
+dist
+.env
+.env.*
+*.local
+.vscode/*
+!.vscode/extensions.json
+.DS_Store
+.vercel

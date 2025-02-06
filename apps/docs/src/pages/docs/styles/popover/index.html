@@ -1,0 +1,31 @@
+<button popovertarget="popover" type="button">Show</button>
+
+<div
+	id="popover"
+	popover
+	class="bg-muted m-auto rounded-md border p-6 opacity-0 shadow transition-all transition-discrete duration-300 open:opacity-100 sm:max-w-96 starting:open:opacity-0"
+>
+	<div class="mb-4 flex items-center justify-between">
+		<h2>popover</h2>
+		<button popovertarget="popover" type="button" class="ghost" title="Close">
+			<!-- X icon -->
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 24 24"
+				fill="currentColor"
+				class="size-5"
+			>
+				<path
+					fill-rule="evenodd"
+					d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z"
+					clip-rule="evenodd"
+				/>
+			</svg>
+		</button>
+	</div>
+	<p>This works without JavaScript.</p>
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua.
+	</p>
+</div>
