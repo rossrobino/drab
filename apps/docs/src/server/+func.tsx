@@ -4,7 +4,8 @@ import { RootLayout } from "@/pages/layout";
 import { ReadMe } from "@/pages/readme";
 import { Injector } from "@robino/html";
 import { html } from "client:page";
-import type { Handler } from "domco";
+import type { Handler, Prerender } from "domco";
+import { description } from "drab/package.json";
 
 const examples = import.meta.glob(`@/pages/**/*.html`, {
 	query: "?raw",
@@ -21,28 +22,50 @@ const exampleSubPaths = examplePaths.map(
 	(path) => `/${path.split("/").slice(3, 5).join("/")}/`,
 );
 
-// export const prerender: Prerender = new Set([
-// 	"/",
-// 	"/getting-started/",
-// 	...exampleSubPaths,
-// ]);
+export const prerender: Prerender = new Set([
+	"/",
+	"/getting-started/",
+	...exampleSubPaths,
+]);
 
 export const handler: Handler = async (req) => {
 	const url = new URL(req.url);
 	const page = new Injector(html);
 
 	if (url.pathname === "/") {
-		page.title("drab").body(
-			<RootLayout examples={exampleSubPaths} pathname={url.pathname}>
-				<ReadMe />
-			</RootLayout>,
-		);
+		page
+			.title("drab")
+			.head([
+				{
+					name: "meta",
+					attrs: {
+						name: "description",
+						content: description,
+					},
+				},
+			])
+			.body(
+				<RootLayout examples={exampleSubPaths} pathname={url.pathname}>
+					<ReadMe />
+				</RootLayout>,
+			);
 	} else if (url.pathname === "/getting-started/") {
-		page.title("drab - Getting Started").body(
-			<RootLayout examples={exampleSubPaths} pathname={url.pathname}>
-				<GettingStarted />
-			</RootLayout>,
-		);
+		page
+			.title("drab - Getting Started")
+			.head([
+				{
+					name: "meta",
+					attrs: {
+						name: "description",
+						content: "How to start using drab custom elements.",
+					},
+				},
+			])
+			.body(
+				<RootLayout examples={exampleSubPaths} pathname={url.pathname}>
+					<GettingStarted />
+				</RootLayout>,
+			);
 	} else if (
 		url.pathname.startsWith("/elements/") ||
 		url.pathname.startsWith("/styles/")
