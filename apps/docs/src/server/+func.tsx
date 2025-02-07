@@ -95,6 +95,7 @@ export const handler: Handler = async (req) => {
 
 	if (!page.empty) return page.toResponse();
 
+	// append trailing slash
 	if (url.pathname.at(-1) !== "/") {
 		url.pathname += "/";
 		return Response.redirect(url, 301);
