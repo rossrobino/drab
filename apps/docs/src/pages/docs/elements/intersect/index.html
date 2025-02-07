@@ -1,0 +1,16 @@
+<drab-intersect threshold="1" class="flex flex-col items-center gap-10">
+	<div
+		data-trigger
+		class="flex min-h-48 items-center justify-center rounded-md border p-6 shadow"
+	>
+		<p>
+			Scroll down, when part of this trigger moves out of the viewport, the
+			<code>data-intersect</code>
+			attribute will be removed and the color will change to black.
+		</p>
+	</div>
+	<div
+		data-content
+		class="bg-primary data-intersect:bg-destructive size-48 rounded-full transition duration-1000"
+	></div>
+</drab-intersect>

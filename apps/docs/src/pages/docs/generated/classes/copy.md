@@ -1,0 +1,410 @@
+Defined in: [copy/index.ts:9](https://github.com/rossrobino/components/blob/main/packages/drab/src/copy/index.ts#L9)
+
+Uses the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText)
+to copy text.
+
+## Extends
+
+- `BaseCopy`
+
+## Constructors
+
+<a id="constructors"></a>
+
+### new Copy()
+
+> **new Copy**(): [`Copy`](/elements/copy/)
+
+Defined in: [copy/index.ts:10](https://github.com/rossrobino/components/blob/main/packages/drab/src/copy/index.ts#L10)
+
+#### Returns
+
+[`Copy`](/elements/copy/)
+
+#### Overrides
+
+`BaseCopy.constructor`
+
+## Accessors
+
+<a id="event"></a>
+
+### event
+
+#### Get Signature
+
+> **get** **event**(): keyof `HTMLElementEventMap`
+
+Defined in: [base/index.ts:36](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L36)
+
+Event for the `trigger` to execute.
+
+For example, set to `"mouseover"` to execute the event when the user hovers the mouse over the `trigger`, instead of when they click it.
+
+##### Default
+
+```ts
+"click";
+```
+
+##### Returns
+
+keyof `HTMLElementEventMap`
+
+#### Set Signature
+
+> **set** **event**(`value`): `void`
+
+Defined in: [base/index.ts:40](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L40)
+
+##### Parameters
+
+###### value
+
+keyof `HTMLElementEventMap`
+
+##### Returns
+
+`void`
+
+#### Inherited from
+
+`BaseCopy.event`
+
+---
+
+<a id="value-1"></a>
+
+### value
+
+#### Get Signature
+
+> **get** **value**(): `string`
+
+Defined in: [base/copy/index.ts:15](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/copy/index.ts#L15)
+
+The value to copy or share.
+
+##### Default
+
+```ts
+"" the empty string
+```
+
+##### Returns
+
+`string`
+
+#### Set Signature
+
+> **set** **value**(`value`): `void`
+
+Defined in: [base/copy/index.ts:19](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/copy/index.ts#L19)
+
+##### Parameters
+
+###### value
+
+`string`
+
+##### Returns
+
+`void`
+
+#### Inherited from
+
+`BaseCopy.value`
+
+## Methods
+
+<a id="connectedcallback"></a>
+
+### connectedCallback()
+
+> **connectedCallback**(): `void`
+
+Defined in: [base/index.ts:158](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L158)
+
+Called when custom element is added to the page.
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`BaseCopy.connectedCallback`
+
+---
+
+<a id="copy-1"></a>
+
+### copy()
+
+> **copy**(`text`): `Promise`\<`void`\>
+
+Defined in: [base/copy/index.ts:27](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/copy/index.ts#L27)
+
+Copies the `text`.
+
+#### Parameters
+
+##### text
+
+`string` = `...`
+
+The `text` to share
+
+#### Returns
+
+`Promise`\<`void`\>
+
+#### Inherited from
+
+`BaseCopy.copy`
+
+---
+
+<a id="destroy"></a>
+
+### destroy()
+
+> **destroy**(): `void`
+
+Defined in: [base/index.ts:165](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L165)
+
+Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallback` as well. It is overridden in each element that needs to run `disconnectedCallback`.
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`BaseCopy.destroy`
+
+---
+
+<a id="disconnectedcallback"></a>
+
+### disconnectedCallback()
+
+> **disconnectedCallback**(): `void`
+
+Defined in: [base/index.ts:170](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L170)
+
+Called when custom element is removed from the page.
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`BaseCopy.disconnectedCallback`
+
+---
+
+<a id="getcontent"></a>
+
+### getContent()
+
+> **getContent**\<`T`\>(`instance`): `T`
+
+Defined in: [base/index.ts:61](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L61)
+
+#### Type Parameters
+
+• **T** _extends_ `HTMLElement` = `HTMLElement`
+
+#### Parameters
+
+##### instance
+
+() => `T`
+
+The instance of the desired element, ex: `HTMLDialogElement`.
+Defaults to `HTMLElement`.
+
+#### Returns
+
+`T`
+
+The element that matches the `content` selector.
+
+#### Default
+
+```ts
+this.querySelector("[data-content]");
+```
+
+#### Inherited from
+
+`BaseCopy.getContent`
+
+---
+
+<a id="gettrigger"></a>
+
+### getTrigger()
+
+> **getTrigger**\<`T`\>(): `NodeListOf`\<`T`\>
+
+Defined in: [base/index.ts:48](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L48)
+
+#### Type Parameters
+
+• **T** _extends_ `HTMLElement` = `HTMLElement`
+
+#### Returns
+
+`NodeListOf`\<`T`\>
+
+All of the elements that match the `trigger` selector.
+
+#### Default
+
+```ts
+this.querySelectorAll("[data-trigger]");
+```
+
+#### Inherited from
+
+`BaseCopy.getTrigger`
+
+---
+
+<a id="mount"></a>
+
+### mount()
+
+> **mount**(): `void`
+
+Defined in: [copy/index.ts:14](https://github.com/rossrobino/components/blob/main/packages/drab/src/copy/index.ts#L14)
+
+Passed into `queueMicrotask` in `connectedCallback`. It is overridden in each component that needs to run `connectedCallback`.
+
+The reason for this is to make these elements work better with frameworks like Svelte. For SSR this isn't necessary, but when client side rendering, the HTML within the custom element isn't available before `connectedCallback` is called. By waiting until the next microtask, the HTML content is available---then for example, listeners can be attached to elements inside.
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+`BaseCopy.mount`
+
+---
+
+<a id="safelistener"></a>
+
+### safeListener()
+
+> **safeListener**\<`K`, `T`\>(`type`, `listener`, `element`, `options`): `void`
+
+Defined in: [base/index.ts:121](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L121)
+
+Wrapper around `document.body.addEventListener` that ensures when the
+element is removed from the DOM, these event listeners are cleaned up.
+
+#### Type Parameters
+
+• **K** _extends_ keyof `DocumentEventMap`
+
+• **T** _extends_ `HTMLElement` \| `Document` \| `Window` = `HTMLElement`
+
+#### Parameters
+
+##### type
+
+`K`
+
+##### listener
+
+(`this`, `ev`) => `any`
+
+##### element
+
+`T` = `...`
+
+##### options
+
+`AddEventListenerOptions` = `{}`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`BaseCopy.safeListener`
+
+---
+
+<a id="swapcontent"></a>
+
+### swapContent()
+
+> **swapContent**(`revert`): `void`
+
+Defined in: [base/index.ts:78](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L78)
+
+Finds the `HTMLElement | HTMLTemplateElement` via the `swap` selector and
+swaps `this.content()` with the content of the element found.
+
+#### Parameters
+
+##### revert
+
+Wait time (ms) before swapping back, set to `false` to not revert.
+default: `800`
+
+`number` | `false`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`BaseCopy.swapContent`
+
+---
+
+<a id="triggerlistener"></a>
+
+### triggerListener()
+
+> **triggerListener**\<`T`, `K`\>(`listener`, `type`, `options`?): `void`
+
+Defined in: [base/index.ts:138](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L138)
+
+#### Type Parameters
+
+• **T** _extends_ `HTMLElement`
+
+• **K** _extends_ keyof `HTMLElementEventMap`
+
+#### Parameters
+
+##### listener
+
+(`this`, `e`) => `any`
+
+Listener to attach to all of the `trigger` elements.
+
+##### type
+
+`K` = `...`
+
+##### options?
+
+`AddEventListenerOptions`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`BaseCopy.triggerListener`

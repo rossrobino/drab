@@ -1,0 +1,65 @@
+<div class="mb-4">
+	<drab-dialog click-outside-close class="contents">
+		<button data-trigger type="button">Right</button>
+		<dialog
+			data-content
+			class="bg-background my-0 mr-0 ml-auto h-full max-h-screen w-full max-w-screen p-6 backdrop:backdrop-blur sm:max-w-96"
+		>
+			<div class="mb-4 flex items-center justify-between">
+				<h2 class="my-0">Dialog</h2>
+				<button data-trigger class="ghost" aria-label="Close">
+					<!-- x-mark -->
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 20 20"
+						fill="currentColor"
+						class="size-5"
+					>
+						<path
+							d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z"
+						/>
+					</svg>
+				</button>
+			</div>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+				veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+				commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+				velit esse cillum dolore eu fugiat nulla pariatur.
+			</p>
+		</dialog>
+	</drab-dialog>
+</div>
+
+<drab-dialog remove-body-scroll class="contents">
+	<button data-trigger type="button">Center</button>
+	<dialog
+		data-content
+		class="bg-background m-auto rounded-md border p-6 opacity-0 transition-[display,opacity] transition-discrete duration-500 backdrop:opacity-0 backdrop:backdrop-blur backdrop:transition-[display,opacity] backdrop:transition-discrete backdrop:duration-500 open:opacity-100 open:backdrop:opacity-100 sm:max-w-96 starting:open:opacity-0 starting:open:backdrop:opacity-0"
+	>
+		<div class="mb-4 flex items-center justify-between">
+			<h2 class="my-0">Dialog</h2>
+			<button data-trigger class="ghost" aria-label="Close">
+				<!-- x-mark -->
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 20 20"
+					fill="currentColor"
+					class="size-5"
+				>
+					<path
+						d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z"
+					/>
+				</svg>
+			</button>
+		</div>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+			veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+			commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+			velit esse cillum dolore eu fugiat nulla pariatur.
+		</p>
+	</dialog>
+</drab-dialog>

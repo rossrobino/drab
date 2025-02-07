@@ -1,0 +1,26 @@
+{
+	"name": "drab-docs",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"check": "tsc",
+		"build": "vite build",
+		"preview": "vite preview"
+	},
+	"devDependencies": {
+		"@domcojs/vercel": "^1.0.0",
+		"@robino/md": "^2.0.0",
+		"@tailwindcss/vite": "^4.0.3",
+		"domco": "^3.0.1",
+		"drab": "*",
+		"tailwindcss": "^4.0.3",
+		"uico": "^0.4.6",
+		"vite": "^6.1.0"
+	},
+	"dependencies": {
+		"@robino/html": "^0.3.0",
+		"@robino/jsx": "^0.0.14"
+	}
+}

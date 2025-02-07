@@ -1,0 +1,15 @@
+<drab-contextmenu>
+	<button data-trigger>Right Click</button>
+	<!-- content should be set to `display: none;` and shown based on the `data-open` attribute with CSS. -->
+	<div
+		data-content
+		class="hidden opacity-0 transition-[opacity,display] transition-discrete duration-250 data-open:block data-open:opacity-100 data-open:starting:opacity-0"
+	>
+		<div class="bg-background flex w-48 flex-col gap-2 rounded-md border p-2">
+			<div class="font-bold">Context Menu</div>
+			<button role="menuitem" class="button button-secondary">Button</button>
+			<button role="menuitem" class="button button-secondary">Button</button>
+			<button role="menuitem" class="button button-secondary">Button</button>
+		</div>
+	</div>
+</drab-contextmenu>
