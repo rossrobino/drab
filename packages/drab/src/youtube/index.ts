@@ -63,8 +63,6 @@ export class YouTube extends Base {
 	}
 
 	attributeChangedCallback() {
-		// BREAKING TODO: make consistent with other components - decide on observed attributes
-
 		queueMicrotask(() => {
 			this.iframe.src = `https://www.youtube-nocookie.com/embed/${this.uid}?start=${this.start}${
 				this.autoplay ? "&autoplay=1" : ""
