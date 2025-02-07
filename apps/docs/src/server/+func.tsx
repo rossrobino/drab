@@ -98,7 +98,8 @@ export const handler: Handler = async (req) => {
 	// append trailing slash
 	if (url.pathname.at(-1) !== "/") {
 		url.pathname += "/";
-		return Response.redirect(url, 301);
+		url.search = "";
+		return Response.redirect(url.origin, 301);
 	}
 
 	// redirect from old docs
@@ -111,6 +112,8 @@ export const handler: Handler = async (req) => {
 			} else {
 				url.pathname = `/elements/${element}`;
 			}
+
+			url.search = "";
 
 			return Response.redirect(url, 301);
 		}
