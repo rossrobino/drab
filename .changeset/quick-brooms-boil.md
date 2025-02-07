@@ -13,6 +13,7 @@ drab has a new documentation site with a `styles` section that is a reference fo
 ##### Overall
 
 - Attribute types no longer include every method on the JS element, only the attributes you can set on it.
+- Only unbundled ESM is published to npm now. IIFE files are no longer published, CDNs like jsdelivr already take care of the bundling and minification for users who want to just use a script tag.
 
 ##### Elements
 
