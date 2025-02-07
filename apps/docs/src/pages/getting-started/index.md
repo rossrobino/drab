@@ -87,6 +87,9 @@ import "drab/share/define";
 
 import { useEffect } from "react";
 
+// dialog.tsx
+// required for React Server Components
+
 export default function Dialog() {
 	useEffect(() => {
 		if (!customElements.get("drab-dialog")) {

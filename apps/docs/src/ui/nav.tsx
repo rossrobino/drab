@@ -50,7 +50,7 @@ export const Nav = (props: {
 					</button>
 					<dialog
 						data-content
-						class="bg-background backdrop:bg-muted/50 scheme-dark backdrop:transition-discrete starting:open:backdrop:opacity-0 my-0 ml-0 mr-auto h-full max-h-screen w-full max-w-96 p-6 backdrop:opacity-0 backdrop:backdrop-blur backdrop:transition-opacity backdrop:duration-500 open:backdrop:opacity-100"
+						class="bg-background backdrop:bg-muted/50 my-0 mr-auto ml-0 h-full max-h-screen w-full max-w-96 p-6 scheme-dark backdrop:opacity-0 backdrop:backdrop-blur backdrop:transition-opacity backdrop:transition-discrete backdrop:duration-500 open:backdrop:opacity-100 starting:open:backdrop:opacity-0"
 					>
 						<div class="mb-4 flex items-center justify-between">
 							<HomeLink />
@@ -176,7 +176,7 @@ export const NavLinks = (props: {
 const NavHeading = (props: JSX.IntrinsicElements["h2"]) => {
 	const { class: className = "", children, ...rest } = props;
 	return (
-		<h2 class={`${className} mb-2 mt-4 text-lg`} {...rest}>
+		<h2 class={`${className} mt-4 mb-2 text-lg`} {...rest}>
 			{children}
 		</h2>
 	);

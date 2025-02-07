@@ -10,13 +10,13 @@ export const RootLayout = async (props: {
 
 	return (
 		<drab-prefetch class="contents" prerender trigger="a[href^='/']">
-			<header class="bg-background/50 backdrop-blur-xs sticky top-0 z-10 flex items-center gap-5 p-5 lg:hidden">
+			<header class="bg-background/50 sticky top-0 z-10 flex items-center gap-5 p-5 backdrop-blur-xs lg:hidden">
 				<Nav examples={examples} pathname={pathname} dialog />
 			</header>
 
 			<main class="lg:flex">
 				<div>
-					<div class="bg-background scheme-dark sticky top-0 z-10 hidden h-screen min-w-52 overflow-y-auto p-6 lg:block">
+					<div class="bg-background sticky top-0 z-10 hidden h-screen min-w-52 overflow-y-auto p-6 scheme-dark lg:block">
 						<Nav examples={examples} pathname={pathname} />
 					</div>
 				</div>

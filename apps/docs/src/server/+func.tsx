@@ -1,7 +1,7 @@
+import { Home } from "@/pages";
 import { Docs } from "@/pages/docs";
 import { GettingStarted } from "@/pages/getting-started";
 import { RootLayout } from "@/pages/layout";
-import { Home } from "@/pages";
 import { Injector } from "@robino/html";
 import { html } from "client:page";
 import type { Handler, Prerender } from "domco";
