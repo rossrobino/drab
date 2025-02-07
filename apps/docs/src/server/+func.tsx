@@ -30,6 +30,14 @@ export const prerender: Prerender = new Set([
 
 export const handler: Handler = async (req) => {
 	const url = new URL(req.url);
+
+	// append trailing slash
+	if (url.pathname.at(-1) !== "/") {
+		url.pathname += "/";
+		url.search = "";
+		return Response.redirect(url.origin, 301);
+	}
+
 	const page = new Injector(html);
 
 	if (url.pathname === "/") {
@@ -95,13 +103,6 @@ export const handler: Handler = async (req) => {
 
 	if (!page.empty) return page.toResponse();
 
-	// append trailing slash
-	if (url.pathname.at(-1) !== "/") {
-		url.pathname += "/";
-		url.search = "";
-		return Response.redirect(url.origin, 301);
-	}
-
 	// redirect from old docs
 	if (url.pathname.startsWith("/docs/")) {
 		const element = url.pathname.split("/").at(2);
@@ -110,7 +111,7 @@ export const handler: Handler = async (req) => {
 			if (element === "details" || element === "popover") {
 				url.pathname = `/styles/${element}/`;
 			} else {
-				url.pathname = `/elements/${element}`;
+				url.pathname = `/elements/${element}/`;
 			}
 
 			url.search = "";
