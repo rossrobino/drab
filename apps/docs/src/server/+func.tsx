@@ -100,6 +100,21 @@ export const handler: Handler = async (req) => {
 		return Response.redirect(url, 301);
 	}
 
+	// redirect from old docs
+	if (url.pathname.startsWith("/docs/")) {
+		const element = url.pathname.split("/").at(2);
+
+		if (element) {
+			if (element === "details" || element === "popover") {
+				url.pathname = `/styles/${element}/`;
+			} else {
+				url.pathname = `/elements/${element}`;
+			}
+
+			return Response.redirect(url, 301);
+		}
+	}
+
 	return notFound(url.pathname);
 };
 
