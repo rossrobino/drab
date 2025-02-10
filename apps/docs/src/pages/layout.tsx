@@ -1,4 +1,5 @@
 import { Nav } from "@/ui/nav";
+import { SkipLink } from "@/ui/skip-link";
 import type { Children } from "@robino/jsx";
 
 export const RootLayout = async (props: {
@@ -10,6 +11,7 @@ export const RootLayout = async (props: {
 
 	return (
 		<drab-prefetch class="contents" prerender trigger="a[href^='/']">
+			<SkipLink />
 			<header class="bg-background/50 sticky top-0 z-10 flex items-center gap-5 p-5 backdrop-blur-xs lg:hidden">
 				<Nav examples={examples} pathname={pathname} dialog />
 			</header>
@@ -21,7 +23,7 @@ export const RootLayout = async (props: {
 					</div>
 				</div>
 				<div class="w-full justify-center lg:flex">
-					<article class="max-w-[80ch] p-5">
+					<article id="content" class="max-w-[80ch] p-5">
 						{children}
 						<hr class="my-8" />
 					</article>

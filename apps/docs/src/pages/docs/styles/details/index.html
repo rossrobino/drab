@@ -49,9 +49,10 @@
 </details>
 
 <style>
-	/* https://nerdy.dev/6-css-snippets-every-front-end-developer-should-know-in-2025#transition-animation-for-%3Ccode%3E%3Cdetails%3E%3C/code%3E */
 	details {
-		interpolate-size: allow-keywords;
+		@media (prefers-reduced-motion: no-preference) {
+			interpolate-size: allow-keywords;
+		}
 
 		/* for safari */
 		summary::-webkit-details-marker {
@@ -60,8 +61,8 @@
 
 		&::details-content {
 			transition:
-				content-visibility 500ms allow-discrete,
-				block-size 500ms;
+				content-visibility 300ms allow-discrete,
+				block-size 300ms;
 			block-size: 0;
 			overflow-y: clip;
 		}

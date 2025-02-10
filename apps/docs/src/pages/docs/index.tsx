@@ -1,6 +1,12 @@
 import { markdownProcessor } from "@/lib/md";
 
-const docMd = import.meta.glob("./generated/classes/*", {
+const elementDoc = import.meta.glob("./generated/classes/*", {
+	query: "?raw",
+	import: "default",
+	eager: true,
+}) as Record<string, string>;
+
+const styleDoc = import.meta.glob("./styles/**/*.md", {
 	query: "?raw",
 	import: "default",
 	eager: true,
@@ -9,10 +15,11 @@ const docMd = import.meta.glob("./generated/classes/*", {
 export const Docs = async (props: { name: string; demo: string }) => {
 	const { name, demo } = props;
 
-	const md = docMd[`./generated/classes/${name}.md`];
+	const elementMd = elementDoc[`./generated/classes/${name}.md`];
+	const styleMd = styleDoc[`./styles/${name}/index.md`];
 
 	const { html } = await markdownProcessor.process(
-		`\`\`\`html\n${demo}\`\`\`\n\n${md ? "## Overview\n\n" + md : ""}`,
+		`\`\`\`html\n${demo}\`\`\`\n\n## Overview\n\n${elementMd ? elementMd : styleMd}`,
 	);
 
 	return (

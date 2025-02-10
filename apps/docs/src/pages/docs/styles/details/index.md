@@ -1,0 +1,3 @@
+You can animate the `<details>` element with discrete transitions the [`interpolate-size`](https://developer.mozilla.org/en-US/docs/Web/CSS/interpolate-size) property. This example was adapted from [this article](https://nerdy.dev/6-css-snippets-every-front-end-developer-should-know-in-2025#transition-animation-for-%3Ccode%3E%3Cdetails%3E%3C/code%3E) from Adam Argyle.
+
+Add the same `name` attribute to each details element if you would like to have only one open at a time. Here, `name="accordion"` is applied to each element creating an accordion component. If you are making an accordion component using a UI framework, be sure to generate a unique `name` for each component mounted on the page.
