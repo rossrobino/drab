@@ -53,8 +53,8 @@ export class Base extends HTMLElement {
 	}
 
 	/**
-	 * @param instance The instance of the desired element, ex: `HTMLDialogElement`.
-	 * Defaults to `HTMLElement`.
+	 * @param instance The instance of the desired element to validate against,
+	 * ex: `HTMLDialogElement`. Defaults to `HTMLElement`.
 	 * @returns The element that matches the `content` selector.
 	 * @default this.querySelector("[data-content]")
 	 */
@@ -64,7 +64,9 @@ export class Base extends HTMLElement {
 		const content = this.querySelector(
 			this.getAttribute("content") ?? "[data-content]",
 		);
+
 		if (content instanceof instance) return content;
+
 		throw new Error("Content not found");
 	}
 

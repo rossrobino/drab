@@ -47,12 +47,27 @@ export class TableSort extends Base {
 
 	override mount() {
 		const tbody = this.getContent(HTMLTableSectionElement);
+
 		for (const trigger of this.getTrigger()) {
-			trigger.addEventListener(this.event, () => {
+			trigger.tabIndex = 0;
+			trigger.role = "button";
+
+			const listener = () => {
 				Array.from(tbody.querySelectorAll("tr"))
 					.sort(comparer(trigger, this.#setAttributes(trigger)))
 					.forEach((tr) => tbody.appendChild(tr));
-			});
+			};
+
+			trigger.addEventListener(this.event, listener);
+
+			if (this.event === "click") {
+				trigger.addEventListener("keydown", (e) => {
+					if (e.key === "Enter" || e.key === " ") {
+						e.preventDefault();
+						listener();
+					}
+				});
+			}
 		}
 	}
 }
@@ -75,23 +90,9 @@ const comparer = (th: HTMLElement, ascending: boolean) => {
 				const collator = new Intl.Collator();
 				return collator.compare(aVal, bVal);
 			} else if (dataType === "boolean") {
-				/**
-				 * if value is one of these and type is boolean
-				 * it should be considered falsy
-				 * since actually `Boolean("false") === true`
-				 * @param val string pulled from the textContent or attr
-				 * @returns a boolean of the provided string
-				 */
-				const convertToBoolean = (val: string) => {
-					const falsy = ["0", "false", "null", "undefined"];
-					if (falsy.includes(val)) {
-						return false;
-					}
-					return Boolean(val);
-				};
-				return convertToBoolean(aVal) === convertToBoolean(bVal)
+				return falsyBoolean(aVal) === falsyBoolean(bVal)
 					? 0
-					: convertToBoolean(aVal)
+					: falsyBoolean(aVal)
 						? -1
 						: 1;
 			} else {
@@ -121,4 +122,19 @@ const getValue = (tr: HTMLTableRowElement, i: number) => {
 		return cell.dataset.value ?? cell.textContent ?? "";
 	}
 	return "";
+};
+
+/**
+ * if value is one of these and type is boolean
+ * it should be considered falsy
+ * since actually `Boolean("false") === true`
+ * @param val string pulled from the textContent or attr
+ * @returns a boolean of the provided string
+ */
+const falsyBoolean = (val: string) => {
+	if (["0", "false", "null", "undefined"].includes(val)) {
+		return false;
+	}
+
+	return Boolean(val);
 };
