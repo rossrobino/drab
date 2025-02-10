@@ -1,15 +1,12 @@
-export { Base, type BaseAttributes } from "./base/index.js";
-export {
-	ContextMenu,
-	type ContextMenuAttributes,
-} from "./contextmenu/index.js";
-export { Copy, type CopyAttributes } from "./copy/index.js";
-export { Dialog, type DialogAttributes } from "./dialog/index.js";
-export { Editor, type EditorAttributes } from "./editor/index.js";
-export { Fullscreen, type FullscreenAttributes } from "./fullscreen/index.js";
-export { Intersect, type IntersectAttributes } from "./intersect/index.js";
-export { Prefetch, type PrefetchAttributes } from "./prefetch/index.js";
-export { Share, type ShareAttributes } from "./share/index.js";
-export { TableSort, type TableSortAttributes } from "./tablesort/index.js";
-export { WakeLock, type WakeLockAttributes } from "./wakelock/index.js";
-export { YouTube, type YouTubeAttributes } from "./youtube/index.js";
+export * from "./base/index.js";
+export * from "./contextmenu/index.js";
+export * from "./copy/index.js";
+export * from "./dialog/index.js";
+export * from "./editor/index.js";
+export * from "./fullscreen/index.js";
+export * from "./intersect/index.js";
+export * from "./prefetch/index.js";
+export * from "./share/index.js";
+export * from "./tablesort/index.js";
+export * from "./wakelock/index.js";
+export * from "./youtube/index.js";

@@ -2,6 +2,11 @@ import { Base, type BaseAttributes } from "../base/index.js";
 
 export type TableSortAttributes = BaseAttributes;
 
+export type TableSortTriggerAttributes = {
+	"data-type": "string" | "boolean" | "number";
+	"data-value": string;
+};
+
 /**
  * Wrap a `HTMLTableElement` in the `TableSort` element to have sortable column
  * headers. Set each `th` that you want to sort to the `trigger`. Set the `tbody`

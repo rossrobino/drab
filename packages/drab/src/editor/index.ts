@@ -2,6 +2,12 @@ import { Base, type BaseAttributes } from "../base/index.js";
 
 export type EditorAttributes = BaseAttributes;
 
+export type EditorTriggerAttributes = {
+	"data-value": string;
+	"data-key": string;
+	"data-type": "block" | "wrap" | "inline";
+};
+
 /**
  * A piece of content to insert into the `textarea`.
  */
