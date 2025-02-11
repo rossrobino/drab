@@ -1,3 +1,4 @@
+import { define } from "../util/define.js";
 import { Copy } from "./index.js";
 
-customElements.define("drab-copy", Copy);
+define(Copy);

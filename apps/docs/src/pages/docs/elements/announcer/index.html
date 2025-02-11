@@ -1,0 +1,14 @@
+<script type="module">
+	const announcer = document.querySelector("drab-announcer");
+	const button = document.querySelector("#greeting");
+
+	button.addEventListener("click", () => {
+		announcer.announce("Hello world!");
+	});
+</script>
+
+<drab-announcer></drab-announcer>
+
+<button type="button" id="greeting" class="mb-4">Announce Greeting</button>
+
+<p>Activate your screen reader to hear the announcement.</p>

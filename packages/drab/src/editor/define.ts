@@ -1,3 +1,4 @@
+import { define } from "../util/define.js";
 import { Editor } from "./index.js";
 
-customElements.define("drab-editor", Editor);
+define(Editor);

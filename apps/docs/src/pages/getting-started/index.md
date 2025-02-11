@@ -55,7 +55,7 @@ const attributes: DialogAttributes = {
 ---
 
 <script>
-	import "drab/share/define";
+	import "drab/dialog/define";
 </script>
 
 <drab-dialog {...attributes}>...</drab-dialog>
@@ -75,26 +75,20 @@ export default function MyDialog({ html }) {
 
 ```js
 // app/browser/drab-dialog.mjs
-import "drab/share/define";
+import "drab/dialog/define";
 ```
 
 ### React
 
 ```tsx
-// dialog.tsx
-// required for React Server Components
 "use client";
 
-import { useEffect } from "react";
-
 // dialog.tsx
-// required for React Server Components
+import { useEffect } from "react";
 
 export default function Dialog() {
 	useEffect(() => {
-		if (!customElements.get("drab-dialog")) {
-			import("drab/share/define");
-		}
+		import("drab/dialog/define");
 	}, []);
 
 	return <drab-dialog {...attributes}>...</drab-dialog>;
@@ -120,9 +114,7 @@ import { onMount } from "solid-js";
 
 export default function Dialog() {
 	onMount(async () => {
-		if (!customElements.get("drab-dialog")) {
-			await import("drab/share/define");
-		}
+		await import("drab/dialog/define");
 	});
 
 	return <drab-dialog>...</drab-dialog>;
@@ -152,9 +144,7 @@ declare module "solid-js" {
 	import type { DialogAttributes } from "drab/dialog";
 
 	onMount(async () => {
-		if (!customElements.get("drab-dialog")) {
-			await import("drab/share/define");
-		}
+		await import("drab/dialog/define");
 	});
 
 	const dialogProps: DialogAttributes = {
@@ -171,9 +161,7 @@ declare module "solid-js" {
 <!-- Dialog.vue -->
 <script setup>
 onMounted(async () => {
-	if (!customElements.get("drab-dialog")) {
-		await import("drab/share/define");
-	}
+	await import("drab/dialog/define");
 });
 </script>
 

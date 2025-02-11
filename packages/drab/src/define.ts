@@ -1,5 +1,4 @@
 import * as elements from "./index.js";
+import { define } from "./util/define.js";
 
-for (const [key, value] of Object.entries(elements)) {
-	customElements.define(`drab-${key.toLowerCase()}`, value);
-}
+for (const Constructor of Object.values(elements)) define(Constructor);

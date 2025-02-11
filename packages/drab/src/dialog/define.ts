@@ -1,3 +1,4 @@
+import { define } from "../util/define.js";
 import { Dialog } from "./index.js";
 
-customElements.define("drab-dialog", Dialog);
+define(Dialog);

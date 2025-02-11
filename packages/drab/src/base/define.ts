@@ -1,3 +1,4 @@
+import { define } from "../util/define.js";
 import { Base } from "./index.js";
 
-customElements.define("drab-base", Base);
+define(Base);

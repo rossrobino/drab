@@ -1,3 +1,4 @@
+import { define } from "../util/define.js";
 import { Fullscreen } from "./index.js";
 
-customElements.define("drab-fullscreen", Fullscreen);
+define(Fullscreen);

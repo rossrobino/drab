@@ -1,3 +1,4 @@
+import { define } from "../util/define.js";
 import { WakeLock } from "./index.js";
 
-customElements.define("drab-wakelock", WakeLock);
+define(WakeLock);

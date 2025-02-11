@@ -1,3 +1,4 @@
+import { define } from "../util/define.js";
 import { Prefetch } from "./index.js";
 
-customElements.define("drab-prefetch", Prefetch);
+define(Prefetch);

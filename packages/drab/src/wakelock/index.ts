@@ -44,10 +44,12 @@ export class WakeLock extends Base {
 		if (this.#wakeLockSupported() && document.visibilityState === "visible") {
 			this.wakeLock = await navigator.wakeLock.request("screen");
 			this.setAttribute("locked", "");
+			this.announce("screen wake lock activated");
 			this.swapContent(false);
 
 			this.wakeLock.addEventListener("release", () => {
 				this.removeAttribute("locked");
+				this.announce("screen wake lock deactivated");
 				this.swapContent(false);
 
 				if (!this.#autoLock) {

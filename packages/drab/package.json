@@ -42,6 +42,14 @@
 			"types": "./dist/define.d.ts",
 			"default": "./dist/define.js"
 		},
+		"./announcer": {
+			"types": "./dist/announcer/index.d.ts",
+			"default": "./dist/announcer/index.js"
+		},
+		"./announcer/define": {
+			"types": "./dist/announcer/define.d.ts",
+			"default": "./dist/announcer/define.js"
+		},
 		"./base": {
 			"types": "./dist/base/index.d.ts",
 			"default": "./dist/base/index.js"

@@ -1,3 +1,4 @@
+export * from "./announcer/index.js";
 export * from "./base/index.js";
 export * from "./contextmenu/index.js";
 export * from "./copy/index.js";

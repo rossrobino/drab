@@ -22,13 +22,20 @@ export const Docs = async (props: { name: string; demo: string }) => {
 		`\`\`\`html\n${demo}\`\`\`\n\n## Overview\n\n${elementMd ? elementMd : styleMd}`,
 	);
 
+	const { html: install } = await markdownProcessor.process(
+		`\`\`\`ts\nimport "drab/${name}/define";\n\`\`\``,
+	);
+
 	return (
 		<>
 			<h1 class="mb-6">{name}</h1>
 			<div class="flex justify-center overflow-x-auto rounded-md border border-dashed p-8">
 				<div class="w-full">{demo}</div>
 			</div>
-			<div class="prose">{html}</div>
+			<div class="prose">
+				{install}
+				{html}
+			</div>
 		</>
 	);
 };

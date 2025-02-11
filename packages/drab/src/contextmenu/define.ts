@@ -1,3 +1,4 @@
+import { define } from "../util/define.js";
 import { ContextMenu } from "./index.js";
 
-customElements.define("drab-contextmenu", ContextMenu);
+define(ContextMenu);

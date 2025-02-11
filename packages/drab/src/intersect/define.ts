@@ -1,3 +1,4 @@
+import { define } from "../util/define.js";
 import { Intersect } from "./index.js";
 
-customElements.define("drab-intersect", Intersect);
+define(Intersect);

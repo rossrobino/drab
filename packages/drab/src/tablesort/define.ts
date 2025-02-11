@@ -1,3 +1,4 @@
+import { define } from "../util/define.js";
 import { TableSort } from "./index.js";
 
-customElements.define("drab-tablesort", TableSort);
+define(TableSort);

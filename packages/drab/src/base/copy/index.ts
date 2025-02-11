@@ -25,7 +25,10 @@ export class BaseCopy extends Base {
 	 * @param text The `text` to share
 	 */
 	async copy(text: string = this.value) {
+		this.announce(`copied ${text} to clipboard`);
+
 		await navigator.clipboard.writeText(text);
+
 		this.swapContent();
 	}
 }

@@ -1,3 +1,5 @@
+import { Announcer } from "../announcer/index.js";
+
 export type BaseAttributes = {
 	trigger?: string;
 	content?: string;
@@ -18,8 +20,12 @@ export type BaseAttributes = {
  */
 export class Base extends HTMLElement {
 	/**
-	 * To clean up event listeners added to `document` when the element is removed.
+	 * A single `Announcer` element to share between all drab elements to announce
+	 * interactive changes.
 	 */
+	static #announcer = Announcer.init();
+
+	/** To clean up event listeners added to `document` when the element is removed. */
 	#listenerController = new AbortController();
 
 	constructor() {
@@ -39,6 +45,13 @@ export class Base extends HTMLElement {
 
 	set event(value) {
 		this.setAttribute("event", value);
+	}
+
+	/**
+	 * @param message message to announce to screen readers
+	 */
+	announce(message: string) {
+		Base.#announcer.announce(message);
 	}
 
 	/**
@@ -154,9 +167,7 @@ export class Base extends HTMLElement {
 	 */
 	mount() {}
 
-	/**
-	 * Called when custom element is added to the page.
-	 */
+	/** Called when custom element is added to the page. */
 	connectedCallback() {
 		queueMicrotask(() => this.mount());
 	}
@@ -166,9 +177,7 @@ export class Base extends HTMLElement {
 	 */
 	destroy() {}
 
-	/**
-	 * Called when custom element is removed from the page.
-	 */
+	/** Called when custom element is removed from the page. */
 	disconnectedCallback() {
 		this.destroy();
 		this.#listenerController.abort();

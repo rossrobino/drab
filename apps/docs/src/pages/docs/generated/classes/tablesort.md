@@ -1,4 +1,4 @@
-Defined in: [tablesort/index.ts:18](https://github.com/rossrobino/components/blob/main/packages/drab/src/tablesort/index.ts#L18)
+Defined in: [tablesort/index.ts:23](https://github.com/rossrobino/components/blob/main/packages/drab/src/tablesort/index.ts#L23)
 
 Wrap a `HTMLTableElement` in the `TableSort` element to have sortable column
 headers. Set each `th` that you want to sort to the `trigger`. Set the `tbody`
@@ -24,7 +24,7 @@ datatype `number` or `boolean`, set `data-type="number"` on the corresponding
 
 > **new TableSort**(): [`TableSort`](/elements/tablesort/)
 
-Defined in: [tablesort/index.ts:19](https://github.com/rossrobino/components/blob/main/packages/drab/src/tablesort/index.ts#L19)
+Defined in: [tablesort/index.ts:24](https://github.com/rossrobino/components/blob/main/packages/drab/src/tablesort/index.ts#L24)
 
 #### Returns
 
@@ -44,7 +44,7 @@ Defined in: [tablesort/index.ts:19](https://github.com/rossrobino/components/blo
 
 > **get** **event**(): keyof `HTMLElementEventMap`
 
-Defined in: [base/index.ts:36](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L36)
+Defined in: [base/index.ts:42](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L42)
 
 Event for the `trigger` to execute.
 
@@ -64,7 +64,7 @@ keyof `HTMLElementEventMap`
 
 > **set** **event**(`value`): `void`
 
-Defined in: [base/index.ts:40](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L40)
+Defined in: [base/index.ts:46](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L46)
 
 ##### Parameters
 
@@ -82,13 +82,39 @@ keyof `HTMLElementEventMap`
 
 ## Methods
 
+<a id="announce"></a>
+
+### announce()
+
+> **announce**(`message`): `void`
+
+Defined in: [base/index.ts:53](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L53)
+
+#### Parameters
+
+##### message
+
+`string`
+
+message to announce to screen readers
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[`Base`](/elements/base/).[`announce`](/elements/base/#announce)
+
+---
+
 <a id="connectedcallback"></a>
 
 ### connectedCallback()
 
 > **connectedCallback**(): `void`
 
-Defined in: [base/index.ts:158](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L158)
+Defined in: [base/index.ts:171](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L171)
 
 Called when custom element is added to the page.
 
@@ -108,7 +134,7 @@ Called when custom element is added to the page.
 
 > **destroy**(): `void`
 
-Defined in: [base/index.ts:165](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L165)
+Defined in: [base/index.ts:178](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L178)
 
 Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallback` as well. It is overridden in each element that needs to run `disconnectedCallback`.
 
@@ -128,7 +154,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 > **disconnectedCallback**(): `void`
 
-Defined in: [base/index.ts:170](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L170)
+Defined in: [base/index.ts:181](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L181)
 
 Called when custom element is removed from the page.
 
@@ -148,7 +174,7 @@ Called when custom element is removed from the page.
 
 > **getContent**\<`T`\>(`instance`): `T`
 
-Defined in: [base/index.ts:61](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L61)
+Defined in: [base/index.ts:74](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L74)
 
 #### Type Parameters
 
@@ -160,8 +186,8 @@ Defined in: [base/index.ts:61](https://github.com/rossrobino/components/blob/mai
 
 () => `T`
 
-The instance of the desired element, ex: `HTMLDialogElement`.
-Defaults to `HTMLElement`.
+The instance of the desired element to validate against,
+ex: `HTMLDialogElement`. Defaults to `HTMLElement`.
 
 #### Returns
 
@@ -187,7 +213,7 @@ this.querySelector("[data-content]");
 
 > **getTrigger**\<`T`\>(): `NodeListOf`\<`T`\>
 
-Defined in: [base/index.ts:48](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L48)
+Defined in: [base/index.ts:61](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L61)
 
 #### Type Parameters
 
@@ -217,7 +243,7 @@ this.querySelectorAll("[data-trigger]");
 
 > **mount**(): `void`
 
-Defined in: [tablesort/index.ts:48](https://github.com/rossrobino/components/blob/main/packages/drab/src/tablesort/index.ts#L48)
+Defined in: [tablesort/index.ts:57](https://github.com/rossrobino/components/blob/main/packages/drab/src/tablesort/index.ts#L57)
 
 Passed into `queueMicrotask` in `connectedCallback`. It is overridden in each component that needs to run `connectedCallback`.
 
@@ -239,7 +265,7 @@ The reason for this is to make these elements work better with frameworks like S
 
 > **safeListener**\<`K`, `T`\>(`type`, `listener`, `element`, `options`): `void`
 
-Defined in: [base/index.ts:121](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L121)
+Defined in: [base/index.ts:136](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L136)
 
 Wrapper around `document.body.addEventListener` that ensures when the
 element is removed from the DOM, these event listeners are cleaned up.
@@ -284,7 +310,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 > **swapContent**(`revert`): `void`
 
-Defined in: [base/index.ts:78](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L78)
+Defined in: [base/index.ts:93](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L93)
 
 Finds the `HTMLElement | HTMLTemplateElement` via the `swap` selector and
 swaps `this.content()` with the content of the element found.
@@ -314,7 +340,7 @@ default: `800`
 
 > **triggerListener**\<`T`, `K`\>(`listener`, `type`, `options`?): `void`
 
-Defined in: [base/index.ts:138](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L138)
+Defined in: [base/index.ts:153](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L153)
 
 #### Type Parameters
 

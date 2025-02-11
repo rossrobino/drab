@@ -1,3 +1,4 @@
+import { define } from "../util/define.js";
 import { YouTube } from "./index.js";
 
-customElements.define("drab-youtube", YouTube);
+define(YouTube);
