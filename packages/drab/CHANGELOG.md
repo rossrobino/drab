@@ -1,5 +1,42 @@
 # drab
 
+## 6.1.0
+
+### Minor Changes
+
+- 593a21a: feat: add `Announcer` custom element
+
+  - Use the `Announcer` element to politely announce changes to screen readers. [View documentation](https://drab.robino.dev/elements/announcer/)
+  - In addition, the following interactive elements now announce changes to screen readers through the use of the `Announcer`
+    - `Base` - creates a shared `Announcer` element for all elements to utilize, announce a message with the `announce` method
+    - `Copy` and `Share` - announces text has been successfully copied
+    - `TableSort` - announces the column and sort order upon sort
+    - `WakeLock` - announces when the wake lock is activated/deactivated
+
+### Patch Changes
+
+- 9005bfa: types: export trigger attribute helper types
+
+  - `EditorTriggerAttributes`
+  - `TableSortTriggerAttributes`
+
+- 00c2e26: a11y: `TableSort` - add `role`, `tabindex`, and default event listeners for keyboard navigation
+- 593a21a: qol: in `drab/{element}/define` modules, check to see if the element is already defined before defining
+
+  Instead of this:
+
+  ```ts
+  if (!customElements.get("drab-dialog")) {
+  	await import("drab/dialog/define");
+  }
+  ```
+
+  The check happens inside the define module, so this can be imported without checking if the element is defined first.
+
+  ```ts
+  await import("drab/dialog/define");
+  ```
+
 ## 6.0.0
 
 ### Major Changes
