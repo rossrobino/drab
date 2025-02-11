@@ -46,7 +46,7 @@ _\*If you see a better way to write any of these examples or a framework that is
 
 ```astro
 ---
-// Dialog.astro
+// dialog.astro
 import type { DialogAttributes } from "drab/dialog";
 
 const attributes: DialogAttributes = {
@@ -109,7 +109,7 @@ declare namespace JSX {
 ### Solid
 
 ```tsx
-// dialog.jsx
+// dialog.tsx
 import { onMount } from "solid-js";
 
 export default function Dialog() {
@@ -139,6 +139,7 @@ declare module "solid-js" {
 ### Svelte
 
 ```svelte
+<!-- dialog.svelte -->
 <script lang="ts">
 	import { onMount } from "svelte";
 	import type { DialogAttributes } from "drab/dialog";
@@ -158,7 +159,7 @@ declare module "solid-js" {
 ### Vue
 
 ```vue
-<!-- Dialog.vue -->
+<!-- dialog.vue -->
 <script setup>
 onMounted(async () => {
 	await import("drab/dialog/define");
