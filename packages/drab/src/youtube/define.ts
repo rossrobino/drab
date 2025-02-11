@@ -1,4 +1,4 @@
 import { define } from "../util/define.js";
 import { YouTube } from "./index.js";
 
-define(YouTube);
+define("drab-youtube", YouTube);
