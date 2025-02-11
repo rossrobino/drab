@@ -27,7 +27,7 @@ import "drab/dialog/define";
 Alternatively, add a script tag to your HTML that imports the immediately invoked function expression (IIFE) module to avoid naming conflicts. Each element will be named `drab-{element}`.
 
 ```html
-<script type="module" src="https://esm.run/drab@__VERSION__"></script>
+<script type="module" src="https://esm.run/drab@__VERSION__/define"></script>
 ```
 
 ## Styling
