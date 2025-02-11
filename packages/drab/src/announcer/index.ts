@@ -2,18 +2,20 @@ import { define } from "../util/define.js";
 
 /**
  * Use the `Announcer` element to create a visually hidden ARIA live region
- * that announces content changes to screen readers.
+ * that announces content changes to screen readers. Use this element when you
+ * need to announce changes to screen readers that something has changed. If changed
+ * element is visible on the page, add the appropriate ARIA live attribute to the
+ * visible element instead of using this announcer.
  *
  * It's recommended to create this element with JavaScript using the `Announcer.init` method,
- * then you can reuse the same announcer throughout the application to avoid duplicate
- * regions (see below).
+ * then you can reuse the same announcer throughout the application to
+ * [avoid duplicate regions](https://www.sarasoueidan.com/blog/accessible-notifications-with-aria-live-regions-part-2/#limit-the-number-of-live-regions-on-the-page)
+ * (see below).
  *
  * `aria-live`
  *
  * By default, the announcer is created with the
  * [`polite` ARIA live attribute](https://www.sarasoueidan.com/blog/accessible-notifications-with-aria-live-regions-part-1/#1.-using-the-aria-live-attribute).
- * You can also specify a different live attribute by setting the `aria-live` attribute with
- * HTML or JavaScript.
  *
  * @example
  *
@@ -54,10 +56,13 @@ export class Announcer extends HTMLElement {
 	 * @param message message to announce to screen readers
 	 */
 	announce(message: string) {
+		// this ensures multiple messages will be read in succession
 		const span = document.createElement("span");
 		span.textContent = message;
-
 		this.append(span);
+
+		// https://www.sarasoueidan.com/blog/accessible-notifications-with-aria-live-regions-part-2/#empty-the-live-region-and-wait-a-bit-in-between-updates
+		setTimeout(() => span.remove(), 10000);
 	}
 
 	/**
