@@ -22,9 +22,13 @@ export const Docs = async (props: { name: string; demo: string }) => {
 		`\`\`\`html\n${demo}\`\`\`\n\n## Overview\n\n${elementMd ? elementMd : styleMd}`,
 	);
 
-	const { html: install } = await markdownProcessor.process(
-		`\`\`\`ts\nimport "drab/${name}/define";\n\`\`\``,
-	);
+	const install = elementMd
+		? (
+				await markdownProcessor.process(
+					`\`\`\`ts\nimport "drab/${name}/define";\n\`\`\``,
+				)
+			).html
+		: "";
 
 	return (
 		<>
