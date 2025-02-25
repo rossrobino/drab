@@ -2,7 +2,7 @@ import { Home } from "@/pages";
 import { Docs } from "@/pages/docs";
 import { GettingStarted } from "@/pages/getting-started";
 import { RootLayout } from "@/pages/layout";
-import { Injector } from "@robino/html";
+import { Page } from "@robino/html";
 import { html } from "client:page";
 import type { Handler, Prerender } from "domco";
 import { description } from "drab/package.json";
@@ -31,20 +31,16 @@ export const prerender: Prerender = new Set([
 export const handler: Handler = async (req) => {
 	const url = new URL(req.url);
 
-	const page = new Injector(html);
+	const page = new Page(html);
 
 	if (url.pathname === "/") {
 		page
-			.title("drab")
-			.head([
-				{
-					name: "meta",
-					attrs: {
-						name: "description",
-						content: description,
-					},
-				},
-			])
+			.head(
+				<>
+					<title>drab</title>
+					<meta name="description" content={description} />
+				</>,
+			)
 			.body(
 				<RootLayout examples={exampleSubPaths} pathname={url.pathname}>
 					<Home />
@@ -52,16 +48,15 @@ export const handler: Handler = async (req) => {
 			);
 	} else if (url.pathname === "/getting-started/") {
 		page
-			.title("drab - Getting Started")
-			.head([
-				{
-					name: "meta",
-					attrs: {
-						name: "description",
-						content: "How to start using drab custom elements.",
-					},
-				},
-			])
+			.head(
+				<>
+					<title>drab - Getting Started</title>
+					<meta
+						name="description"
+						content="How to start using drab custom elements."
+					/>
+				</>,
+			)
 			.body(
 				<RootLayout examples={exampleSubPaths} pathname={url.pathname}>
 					<GettingStarted />
@@ -76,16 +71,15 @@ export const handler: Handler = async (req) => {
 
 		if (example && elementName) {
 			page
-				.title(`drab - ${elementName}`)
-				.head([
-					{
-						name: "meta",
-						attrs: {
-							name: "description",
-							content: `Learn how to use the ${elementName} custom element.`,
-						},
-					},
-				])
+				.head(
+					<>
+						<title>{`drab - ${elementName}`}</title>
+						<meta
+							name="description"
+							content={`Learn how to use the ${elementName} custom element.`}
+						/>
+					</>,
+				)
 				.body(
 					<RootLayout examples={exampleSubPaths} pathname={url.pathname}>
 						<Docs name={elementName} demo={example} />
@@ -124,8 +118,8 @@ export const handler: Handler = async (req) => {
 };
 
 const notFound = async (pathname: string) => {
-	return new Injector(html)
-		.title("drab - Not Found")
+	return new Page(html)
+		.head(<title>drab - Not Found</title>)
 		.body(
 			<RootLayout examples={exampleSubPaths} pathname={pathname}>
 				<h1>Not found</h1>

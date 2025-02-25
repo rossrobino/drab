@@ -7,7 +7,7 @@ export default defineConfig({
 	plugins: [
 		tailwindcss(),
 		domco({
-			adapter: adapter(),
+			adapter: adapter({ trailingSlash: true }),
 		}),
 	],
 });

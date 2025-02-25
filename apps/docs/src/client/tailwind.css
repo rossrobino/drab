@@ -34,19 +34,6 @@
 	--color-destructive: var(--destructive-background);
 	--color-destructive-foreground: var(--destructive-foreground);
 
-	/* syntax highlighting */
-	--shiki-foreground: var(--color-base-200);
-	--shiki-background: var(--color-base-900);
-	--shiki-token-constant: var(--color-base-50);
-	--shiki-token-string: oklch(0.901 0.058 230.902);
-	--shiki-token-comment: var(--color-base-400);
-	--shiki-token-keyword: oklch(0.855 0.138 181.071);
-	--shiki-token-parameter: var(--color-base-300);
-	--shiki-token-function: oklch(0.811 0.111 293.571);
-	--shiki-token-string-expression: oklch(0.901 0.058 230.902);
-	--shiki-token-punctuation: var(--color-base-300);
-	--shiki-token-link: var(--color-base-300);
-
 	--font-sans: var(--font-family-sans);
 	--font-mono: var(--font-family-mono);
 	--font-antique: Superclarendon, "Bookman Old Style", "URW Bookman",
@@ -86,6 +73,19 @@
 @layer theme {
 	:root {
 		--base: #6b7280;
+
+		/* syntax highlighting */
+		--shiki-foreground: var(--color-base-200);
+		--shiki-background: var(--color-base-900);
+		--shiki-token-constant: var(--color-base-50);
+		--shiki-token-string: oklch(0.901 0.058 230.902);
+		--shiki-token-comment: var(--color-base-400);
+		--shiki-token-keyword: oklch(0.855 0.138 181.071);
+		--shiki-token-parameter: var(--color-base-300);
+		--shiki-token-function: oklch(0.811 0.111 293.571);
+		--shiki-token-string-expression: oklch(0.901 0.058 230.902);
+		--shiki-token-punctuation: var(--color-base-300);
+		--shiki-token-link: var(--color-base-300);
 	}
 }
 

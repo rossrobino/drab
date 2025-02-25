@@ -1,4 +1,4 @@
-import { markdownProcessor } from "@/lib/md";
+import { processor } from "@/lib/md";
 
 const elementDoc = import.meta.glob("./generated/classes/*", {
 	query: "?raw",
@@ -18,13 +18,13 @@ export const Docs = async (props: { name: string; demo: string }) => {
 	const elementMd = elementDoc[`./generated/classes/${name}.md`];
 	const styleMd = styleDoc[`./styles/${name}/index.md`];
 
-	const { html } = await markdownProcessor.process(
+	const { html } = await processor.process(
 		`\`\`\`html\n${demo}\`\`\`\n\n## Overview\n\n${elementMd ? elementMd : styleMd}`,
 	);
 
 	const install = elementMd
 		? (
-				await markdownProcessor.process(
+				await processor.process(
 					`\`\`\`ts\nimport "drab/${name}/define";\n\`\`\``,
 				)
 			).html
