@@ -10,7 +10,7 @@
 		"preview": "vite preview"
 	},
 	"devDependencies": {
-		"@domcojs/vercel": "^1.1.0",
+		"@domcojs/vercel": "^1.1.1",
 		"@robino/md": "^3.0.0",
 		"@tailwindcss/vite": "^4.0.9",
 		"domco": "^3.0.2",
