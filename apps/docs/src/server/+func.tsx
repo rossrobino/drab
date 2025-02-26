@@ -3,8 +3,9 @@ import { Docs } from "@/pages/docs";
 import { GettingStarted } from "@/pages/getting-started";
 import { RootLayout } from "@/pages/layout";
 import { Page } from "@robino/html";
+import { Router } from "@robino/router";
 import { html } from "client:page";
-import type { Handler, Prerender } from "domco";
+import type { Prerender } from "domco";
 import { description } from "drab/package.json";
 
 const examples = import.meta.glob(`@/pages/**/*.html`, {
@@ -28,13 +29,22 @@ export const prerender: Prerender = new Set([
 	...exampleSubPaths,
 ]);
 
-export const handler: Handler = async (req) => {
-	const url = new URL(req.url);
-
-	const page = new Page(html);
-
-	if (url.pathname === "/") {
-		page
+const app = new Router({
+	trailingSlash: "always",
+	start: () => ({ page: new Page(html) }),
+	notFound: ({ state, url }) => {
+		return state.page
+			.head(<title>drab - Not Found</title>)
+			.body(
+				<RootLayout examples={exampleSubPaths} pathname={url.pathname}>
+					<h1>Not found</h1>
+				</RootLayout>,
+			)
+			.toResponse();
+	},
+})
+	.get("/", ({ state, url }) => {
+		return state.page
 			.head(
 				<>
 					<title>drab</title>
@@ -45,9 +55,11 @@ export const handler: Handler = async (req) => {
 				<RootLayout examples={exampleSubPaths} pathname={url.pathname}>
 					<Home />
 				</RootLayout>,
-			);
-	} else if (url.pathname === "/getting-started/") {
-		page
+			)
+			.toResponse();
+	})
+	.get("/getting-started/", ({ state, url }) => {
+		return state.page
 			.head(
 				<>
 					<title>drab - Getting Started</title>
@@ -61,69 +73,45 @@ export const handler: Handler = async (req) => {
 				<RootLayout examples={exampleSubPaths} pathname={url.pathname}>
 					<GettingStarted />
 				</RootLayout>,
-			);
-	} else if (
-		url.pathname.startsWith("/elements/") ||
-		url.pathname.startsWith("/styles/")
-	) {
+			)
+			.toResponse();
+	})
+	.get(["/elements/:name/", "/styles/:name/"], ({ url, state, params }) => {
 		const example = examples[`/pages/docs${url.pathname}index.html`];
-		const elementName = url.pathname.split("/").at(-2);
+		const { name } = params;
 
-		if (example && elementName) {
-			page
+		if (example) {
+			return state.page
 				.head(
 					<>
-						<title>{`drab - ${elementName}`}</title>
+						<title>{`drab - ${name}`}</title>
 						<meta
 							name="description"
-							content={`Learn how to use the ${elementName} custom element.`}
+							content={`Learn how to use the ${name} custom element.`}
 						/>
 					</>,
 				)
 				.body(
 					<RootLayout examples={exampleSubPaths} pathname={url.pathname}>
-						<Docs name={elementName} demo={example} />
+						<Docs name={name} demo={example} />
 					</RootLayout>,
-				);
+				)
+				.toResponse();
 		}
-	}
+	})
+	.get("/docs/:name/", ({ url, params }) => {
+		// redirect from old docs
+		const { name } = params;
 
-	if (!page.empty) return page.toResponse();
+		if (name === "details" || name === "popover") {
+			url.pathname = `/styles/${name}/`;
+		} else {
+			url.pathname = `/elements/${name}/`;
+		}
 
-	// append trailing slash
-	if (url.pathname.at(-1) !== "/") {
-		url.pathname += "/";
 		url.search = "";
-		return Response.redirect(url.origin, 308);
-	}
 
-	// redirect from old docs
-	if (url.pathname.startsWith("/docs/")) {
-		const element = url.pathname.split("/").at(2);
+		return Response.redirect(url, 308);
+	});
 
-		if (element) {
-			if (element === "details" || element === "popover") {
-				url.pathname = `/styles/${element}/`;
-			} else {
-				url.pathname = `/elements/${element}/`;
-			}
-
-			url.search = "";
-
-			return Response.redirect(url, 308);
-		}
-	}
-
-	return notFound(url.pathname);
-};
-
-const notFound = async (pathname: string) => {
-	return new Page(html)
-		.head(<title>drab - Not Found</title>)
-		.body(
-			<RootLayout examples={exampleSubPaths} pathname={pathname}>
-				<h1>Not found</h1>
-			</RootLayout>,
-		)
-		.toResponse();
-};
+export const handler = app.fetch;

@@ -21,6 +21,7 @@
 	},
 	"dependencies": {
 		"@robino/html": "^0.6.1",
-		"@robino/jsx": "^0.2.3"
+		"@robino/jsx": "^0.2.3",
+		"@robino/router": "^0.2.1"
 	}
 }
