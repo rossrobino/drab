@@ -36,8 +36,9 @@
 
 	--font-sans: var(--font-family-sans);
 	--font-mono: var(--font-family-mono);
-	--font-antique: Superclarendon, "Bookman Old Style", "URW Bookman",
-		"URW Bookman L", "Georgia Pro", Georgia, serif;
+	--font-antique:
+		Superclarendon, "Bookman Old Style", "URW Bookman", "URW Bookman L",
+		"Georgia Pro", Georgia, serif;
 
 	--text-xs: var(--font-size-1);
 	--text-xs--line-height: var(--line-height-1);
@@ -110,9 +111,6 @@
 		margin-inline: -1.5rem;
 		border-radius: 0;
 		padding-inline: 0;
-		font-size: var(--font-size-2);
-		line-height: var(--line-height-2);
-		letter-spacing: var(--letter-spacing-2);
 
 		@media (min-width: 640px) {
 			margin-inline: 0;

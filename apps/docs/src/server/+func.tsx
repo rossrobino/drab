@@ -43,8 +43,8 @@ const app = new Router({
 			.toResponse();
 	},
 })
-	.get("/", ({ state, url }) => {
-		return state.page
+	.get("/", (c) => {
+		c.res = c.state.page
 			.head(
 				<>
 					<title>drab</title>
@@ -52,14 +52,14 @@ const app = new Router({
 				</>,
 			)
 			.body(
-				<RootLayout examples={exampleSubPaths} pathname={url.pathname}>
+				<RootLayout examples={exampleSubPaths} pathname={c.url.pathname}>
 					<Home />
 				</RootLayout>,
 			)
 			.toResponse();
 	})
-	.get("/getting-started/", ({ state, url }) => {
-		return state.page
+	.get("/getting-started/", (c) => {
+		c.res = c.state.page
 			.head(
 				<>
 					<title>drab - Getting Started</title>
@@ -70,18 +70,18 @@ const app = new Router({
 				</>,
 			)
 			.body(
-				<RootLayout examples={exampleSubPaths} pathname={url.pathname}>
+				<RootLayout examples={exampleSubPaths} pathname={c.url.pathname}>
 					<GettingStarted />
 				</RootLayout>,
 			)
 			.toResponse();
 	})
-	.get(["/elements/:name/", "/styles/:name/"], ({ url, state, params }) => {
-		const example = examples[`/pages/docs${url.pathname}index.html`];
-		const { name } = params;
+	.get(["/elements/:name/", "/styles/:name/"], (c) => {
+		const example = examples[`/pages/docs${c.url.pathname}index.html`];
+		const { name } = c.params;
 
 		if (example) {
-			return state.page
+			c.res = c.state.page
 				.head(
 					<>
 						<title>{`drab - ${name}`}</title>
@@ -92,26 +92,24 @@ const app = new Router({
 					</>,
 				)
 				.body(
-					<RootLayout examples={exampleSubPaths} pathname={url.pathname}>
+					<RootLayout examples={exampleSubPaths} pathname={c.url.pathname}>
 						<Docs name={name} demo={example} />
 					</RootLayout>,
 				)
 				.toResponse();
 		}
 	})
-	.get("/docs/:name/", ({ url, params }) => {
+	.get("/docs/:name/", (c) => {
 		// redirect from old docs
-		const { name } = params;
-
-		if (name === "details" || name === "popover") {
-			url.pathname = `/styles/${name}/`;
+		if (c.params.name === "details" || c.params.name === "popover") {
+			c.url.pathname = `/styles/${c.params.name}/`;
 		} else {
-			url.pathname = `/elements/${name}/`;
+			c.url.pathname = `/elements/${c.params.name}/`;
 		}
 
-		url.search = "";
+		c.url.search = "";
 
-		return Response.redirect(url, 308);
+		c.res = Response.redirect(c.url, 308);
 	});
 
 export const handler = app.fetch;
