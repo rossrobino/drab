@@ -1,16 +1,16 @@
 import { processor } from "@/lib/md";
 
-const elementDoc = import.meta.glob("./generated/classes/*", {
+const elementDoc = import.meta.glob<string>("./generated/classes/*", {
 	query: "?raw",
 	import: "default",
 	eager: true,
-}) as Record<string, string>;
+});
 
-const styleDoc = import.meta.glob("./styles/**/*.md", {
+const styleDoc = import.meta.glob<string>("./styles/**/*.md", {
 	query: "?raw",
 	import: "default",
 	eager: true,
-}) as Record<string, string>;
+});
 
 export const Docs = async (props: { name: string; demo: string }) => {
 	const { name, demo } = props;

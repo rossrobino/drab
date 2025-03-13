@@ -1,9 +1,4 @@
-import readmeMd from "./index.md?raw";
-import { processor } from "@/lib/md";
+import { html } from "./index.md";
 import type { Children } from "@robino/jsx";
 
-export const Home = async () => {
-	const { html } = await processor.process(readmeMd);
-
-	return <div class="prose">{html}</div>;
-};
+export const Home = async () => <div class="prose">{html}</div>;
