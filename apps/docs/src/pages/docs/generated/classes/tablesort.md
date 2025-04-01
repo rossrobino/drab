@@ -18,21 +18,21 @@ datatype `number` or `boolean`, set `data-type="number"` on the corresponding
 
 ## Constructors
 
-<a id="constructors"></a>
+<a id="constructor"></a>
 
-### new TableSort()
+### Constructor
 
-> **new TableSort**(): [`TableSort`](/elements/tablesort/)
+> **new TableSort**(): `TableSort`
 
 Defined in: [tablesort/index.ts:24](https://github.com/rossrobino/components/blob/main/packages/drab/src/tablesort/index.ts#L24)
 
 #### Returns
 
-[`TableSort`](/elements/tablesort/)
+`TableSort`
 
 #### Overrides
 
-[`Base`](/elements/base/).[`constructor`](/elements/base/#constructors)
+[`Base`](/elements/base/).[`constructor`](/elements/base/#constructor)
 
 ## Accessors
 
@@ -178,7 +178,9 @@ Defined in: [base/index.ts:74](https://github.com/rossrobino/components/blob/mai
 
 #### Type Parameters
 
-• **T** _extends_ `HTMLElement` = `HTMLElement`
+##### T
+
+`T` _extends_ `HTMLElement` = `HTMLElement`
 
 #### Parameters
 
@@ -217,7 +219,9 @@ Defined in: [base/index.ts:61](https://github.com/rossrobino/components/blob/mai
 
 #### Type Parameters
 
-• **T** _extends_ `HTMLElement` = `HTMLElement`
+##### T
+
+`T` _extends_ `HTMLElement` = `HTMLElement`
 
 #### Returns
 
@@ -272,9 +276,13 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Type Parameters
 
-• **K** _extends_ keyof `DocumentEventMap`
+##### K
 
-• **T** _extends_ `HTMLElement` \| `Document` \| `Window` = `HTMLElement`
+`K` _extends_ keyof `DocumentEventMap`
+
+##### T
+
+`T` _extends_ `HTMLElement` \| `Document` \| `Window` = `HTMLElement`
 
 #### Parameters
 
@@ -344,9 +352,13 @@ Defined in: [base/index.ts:153](https://github.com/rossrobino/components/blob/ma
 
 #### Type Parameters
 
-• **T** _extends_ `HTMLElement`
+##### T
 
-• **K** _extends_ keyof `HTMLElementEventMap`
+`T` _extends_ `HTMLElement`
+
+##### K
+
+`K` _extends_ keyof `HTMLElementEventMap`
 
 #### Parameters
 

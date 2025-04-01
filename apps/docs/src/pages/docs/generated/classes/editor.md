@@ -34,21 +34,21 @@ Other features:
 
 ## Constructors
 
-<a id="constructors"></a>
+<a id="constructor"></a>
 
-### new Editor()
+### Constructor
 
-> **new Editor**(): [`Editor`](/elements/editor/)
+> **new Editor**(): `Editor`
 
 Defined in: [editor/index.ts:68](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L68)
 
 #### Returns
 
-[`Editor`](/elements/editor/)
+`Editor`
 
 #### Overrides
 
-[`Base`](/elements/base/).[`constructor`](/elements/base/#constructors)
+[`Base`](/elements/base/).[`constructor`](/elements/base/#constructor)
 
 ## Properties
 
@@ -262,7 +262,9 @@ Defined in: [base/index.ts:74](https://github.com/rossrobino/components/blob/mai
 
 #### Type Parameters
 
-• **T** _extends_ `HTMLElement` = `HTMLElement`
+##### T
+
+`T` _extends_ `HTMLElement` = `HTMLElement`
 
 #### Parameters
 
@@ -301,7 +303,9 @@ Defined in: [base/index.ts:61](https://github.com/rossrobino/components/blob/mai
 
 #### Type Parameters
 
-• **T** _extends_ `HTMLElement` = `HTMLElement`
+##### T
+
+`T` _extends_ `HTMLElement` = `HTMLElement`
 
 #### Returns
 
@@ -356,9 +360,13 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Type Parameters
 
-• **K** _extends_ keyof `DocumentEventMap`
+##### K
 
-• **T** _extends_ `HTMLElement` \| `Document` \| `Window` = `HTMLElement`
+`K` _extends_ keyof `DocumentEventMap`
+
+##### T
+
+`T` _extends_ `HTMLElement` \| `Document` \| `Window` = `HTMLElement`
 
 #### Parameters
 
@@ -428,9 +436,13 @@ Defined in: [base/index.ts:153](https://github.com/rossrobino/components/blob/ma
 
 #### Type Parameters
 
-• **T** _extends_ `HTMLElement`
+##### T
 
-• **K** _extends_ keyof `HTMLElementEventMap`
+`T` _extends_ `HTMLElement`
+
+##### K
+
+`K` _extends_ keyof `HTMLElementEventMap`
 
 #### Parameters
 

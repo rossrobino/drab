@@ -33,21 +33,21 @@ This element can be deprecated once the Speculation Rules API is supported acros
 
 ## Constructors
 
-<a id="constructors"></a>
+<a id="constructor"></a>
 
-### new Prefetch()
+### Constructor
 
-> **new Prefetch**(): [`Prefetch`](/elements/prefetch/)
+> **new Prefetch**(): `Prefetch`
 
 Defined in: [prefetch/index.ts:82](https://github.com/rossrobino/components/blob/main/packages/drab/src/prefetch/index.ts#L82)
 
 #### Returns
 
-[`Prefetch`](/elements/prefetch/)
+`Prefetch`
 
 #### Overrides
 
-[`Base`](/elements/base/).[`constructor`](/elements/base/#constructors)
+[`Base`](/elements/base/).[`constructor`](/elements/base/#constructor)
 
 ## Accessors
 
@@ -139,7 +139,7 @@ Appends `<link rel="prefetch">` or `<script type="speculationrules">` to the hea
 
 Configuration options.
 
-###### prerender
+###### prerender?
 
 `boolean`
 
@@ -227,7 +227,9 @@ Defined in: [base/index.ts:74](https://github.com/rossrobino/components/blob/mai
 
 #### Type Parameters
 
-• **T** _extends_ `HTMLElement` = `HTMLElement`
+##### T
+
+`T` _extends_ `HTMLElement` = `HTMLElement`
 
 #### Parameters
 
@@ -266,7 +268,9 @@ Defined in: [base/index.ts:61](https://github.com/rossrobino/components/blob/mai
 
 #### Type Parameters
 
-• **T** _extends_ `HTMLElement` = `HTMLElement`
+##### T
+
+`T` _extends_ `HTMLElement` = `HTMLElement`
 
 #### Returns
 
@@ -308,7 +312,7 @@ The reason for this is to make these elements work better with frameworks like S
 
 ---
 
-<a id="prefetch-1"></a>
+<a id="prefetch"></a>
 
 ### prefetch()
 
@@ -326,19 +330,19 @@ Can be used more than once with different options for different selectors.
 
 Prefetch options.
 
-###### anchors
+###### anchors?
 
 `NodeListOf`\<`HTMLAnchorElement`\>
 
 The anchors to prefetch. Defaults to `trigger` elements.
 
-###### prerender
+###### prerender?
 
 `boolean`
 
 Uses the Speculation Rules API when supported to prerender on the client.
 
-###### strategy
+###### strategy?
 
 `"load"` \| `"hover"` \| `"visible"`
 
@@ -369,9 +373,13 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Type Parameters
 
-• **K** _extends_ keyof `DocumentEventMap`
+##### K
 
-• **T** _extends_ `HTMLElement` \| `Document` \| `Window` = `HTMLElement`
+`K` _extends_ keyof `DocumentEventMap`
+
+##### T
+
+`T` _extends_ `HTMLElement` \| `Document` \| `Window` = `HTMLElement`
 
 #### Parameters
 
@@ -441,9 +449,13 @@ Defined in: [base/index.ts:153](https://github.com/rossrobino/components/blob/ma
 
 #### Type Parameters
 
-• **T** _extends_ `HTMLElement`
+##### T
 
-• **K** _extends_ keyof `HTMLElementEventMap`
+`T` _extends_ `HTMLElement`
+
+##### K
+
+`K` _extends_ keyof `HTMLElementEventMap`
 
 #### Parameters
 

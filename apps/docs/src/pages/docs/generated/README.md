@@ -1,5 +1,33 @@
-# Interactivity for You
+## Classes
 
-drab is a JavaScript library that provides interactive custom elements that can be used on any website.
+- [Announcer](/PUBLIC_PATH/classes/Announcer.md)
+- [Base](/PUBLIC_PATH/classes/Base.md)
+- [ContextMenu](/PUBLIC_PATH/classes/ContextMenu.md)
+- [Copy](/PUBLIC_PATH/classes/Copy.md)
+- [Dialog](/PUBLIC_PATH/classes/Dialog.md)
+- [Editor](/PUBLIC_PATH/classes/Editor.md)
+- [Fullscreen](/PUBLIC_PATH/classes/Fullscreen.md)
+- [Intersect](/PUBLIC_PATH/classes/Intersect.md)
+- [Prefetch](/PUBLIC_PATH/classes/Prefetch.md)
+- [Share](/PUBLIC_PATH/classes/Share.md)
+- [TableSort](/PUBLIC_PATH/classes/TableSort.md)
+- [WakeLock](/PUBLIC_PATH/classes/WakeLock.md)
+- [YouTube](/PUBLIC_PATH/classes/YouTube.md)
 
-[Read the documentation](https://drab.robino.dev) to get started.
+## Type Aliases
+
+- [BaseAttributes](/PUBLIC_PATH/type-aliases/BaseAttributes.md)
+- [ContentElement](/PUBLIC_PATH/type-aliases/ContentElement.md)
+- [ContextMenuAttributes](/PUBLIC_PATH/type-aliases/ContextMenuAttributes.md)
+- [CopyAttributes](/PUBLIC_PATH/type-aliases/CopyAttributes.md)
+- [DialogAttributes](/PUBLIC_PATH/type-aliases/DialogAttributes.md)
+- [EditorAttributes](/PUBLIC_PATH/type-aliases/EditorAttributes.md)
+- [EditorTriggerAttributes](/PUBLIC_PATH/type-aliases/EditorTriggerAttributes.md)
+- [FullscreenAttributes](/PUBLIC_PATH/type-aliases/FullscreenAttributes.md)
+- [IntersectAttributes](/PUBLIC_PATH/type-aliases/IntersectAttributes.md)
+- [PrefetchAttributes](/PUBLIC_PATH/type-aliases/PrefetchAttributes.md)
+- [ShareAttributes](/PUBLIC_PATH/type-aliases/ShareAttributes.md)
+- [TableSortAttributes](/PUBLIC_PATH/type-aliases/TableSortAttributes.md)
+- [TableSortTriggerAttributes](/PUBLIC_PATH/type-aliases/TableSortTriggerAttributes.md)
+- [WakeLockAttributes](/PUBLIC_PATH/type-aliases/WakeLockAttributes.md)
+- [YouTubeAttributes](/PUBLIC_PATH/type-aliases/YouTubeAttributes.md)

@@ -1,5 +1,5 @@
-import { HomeLink } from "./home-link";
-import type { JSX } from "@robino/jsx";
+import { HomeLink } from "@/ui/home-link";
+import type { JSX } from "ovr";
 
 export const Nav = (props: {
 	examples: Array<string | undefined>;

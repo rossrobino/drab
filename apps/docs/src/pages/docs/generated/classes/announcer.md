@@ -38,17 +38,17 @@ announcer.announce("message");
 
 ## Constructors
 
-<a id="constructors"></a>
+<a id="constructor"></a>
 
-### new Announcer()
+### Constructor
 
-> **new Announcer**(): [`Announcer`](/elements/announcer/)
+> **new Announcer**(): `Announcer`
 
 Defined in: [announcer/index.ts:37](https://github.com/rossrobino/components/blob/main/packages/drab/src/announcer/index.ts#L37)
 
 #### Returns
 
-[`Announcer`](/elements/announcer/)
+`Announcer`
 
 #### Overrides
 
@@ -96,7 +96,7 @@ Defined in: [announcer/index.ts:41](https://github.com/rossrobino/components/blo
 
 ### init()
 
-> `static` **init**(): [`Announcer`](/elements/announcer/)
+> `static` **init**(): `Announcer`
 
 Defined in: [announcer/index.ts:75](https://github.com/rossrobino/components/blob/main/packages/drab/src/announcer/index.ts#L75)
 
@@ -106,6 +106,6 @@ on the page it will return the existing element.
 
 #### Returns
 
-[`Announcer`](/elements/announcer/)
+`Announcer`
 
 the created or existing `Announcer` element

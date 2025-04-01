@@ -2,7 +2,7 @@
 	"extends": "@robino/tsconfig/bundler.json",
 	"compilerOptions": {
 		"jsx": "react-jsx",
-		"jsxImportSource": "@robino/jsx",
+		"jsxImportSource": "ovr",
 		"paths": {
 			"@": ["./src"],
 			"@/*": ["./src/*"]

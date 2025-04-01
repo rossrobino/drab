@@ -18,25 +18,25 @@ Defined in: [wakelock/index.ts:23](https://github.com/rossrobino/components/blob
 
 ## Constructors
 
-<a id="constructors"></a>
+<a id="constructor"></a>
 
-### new WakeLock()
+### Constructor
 
-> **new WakeLock**(): [`WakeLock`](/elements/wakelock/)
+> **new WakeLock**(): `WakeLock`
 
 Defined in: [wakelock/index.ts:26](https://github.com/rossrobino/components/blob/main/packages/drab/src/wakelock/index.ts#L26)
 
 #### Returns
 
-[`WakeLock`](/elements/wakelock/)
+`WakeLock`
 
 #### Overrides
 
-[`Base`](/elements/base/).[`constructor`](/elements/base/#constructors)
+[`Base`](/elements/base/).[`constructor`](/elements/base/#constructor)
 
 ## Properties
 
-<a id="wakelock-1"></a>
+<a id="wakelock"></a>
 
 ### wakeLock
 
@@ -188,7 +188,9 @@ Defined in: [base/index.ts:74](https://github.com/rossrobino/components/blob/mai
 
 #### Type Parameters
 
-• **T** _extends_ `HTMLElement` = `HTMLElement`
+##### T
+
+`T` _extends_ `HTMLElement` = `HTMLElement`
 
 #### Parameters
 
@@ -227,7 +229,9 @@ Defined in: [base/index.ts:61](https://github.com/rossrobino/components/blob/mai
 
 #### Type Parameters
 
-• **T** _extends_ `HTMLElement` = `HTMLElement`
+##### T
+
+`T` _extends_ `HTMLElement` = `HTMLElement`
 
 #### Returns
 
@@ -314,9 +318,13 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Type Parameters
 
-• **K** _extends_ keyof `DocumentEventMap`
+##### K
 
-• **T** _extends_ `HTMLElement` \| `Document` \| `Window` = `HTMLElement`
+`K` _extends_ keyof `DocumentEventMap`
+
+##### T
+
+`T` _extends_ `HTMLElement` \| `Document` \| `Window` = `HTMLElement`
 
 #### Parameters
 
@@ -386,9 +394,13 @@ Defined in: [base/index.ts:153](https://github.com/rossrobino/components/blob/ma
 
 #### Type Parameters
 
-• **T** _extends_ `HTMLElement`
+##### T
 
-• **K** _extends_ keyof `HTMLElementEventMap`
+`T` _extends_ `HTMLElement`
+
+##### K
+
+`K` _extends_ keyof `HTMLElementEventMap`
 
 #### Parameters
 

@@ -1,9 +1,9 @@
 import { Nav } from "@/ui/nav";
 import { SkipLink } from "@/ui/skip-link";
-import type { Children } from "@robino/jsx";
+import type { JSX } from "ovr";
 
-export const RootLayout = async (props: {
-	children?: Children;
+export const RootLayout = (props: {
+	children?: JSX.Element;
 	examples: Array<string | undefined>;
 	pathname: string;
 }) => {

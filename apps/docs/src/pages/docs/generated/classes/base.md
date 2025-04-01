@@ -29,17 +29,17 @@ Each element can have multiple `trigger`s, but will only have one `content`.
 
 ## Constructors
 
-<a id="constructors"></a>
+<a id="constructor"></a>
 
-### new Base()
+### Constructor
 
-> **new Base**(): [`Base`](/elements/base/)
+> **new Base**(): `Base`
 
 Defined in: [base/index.ts:31](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L31)
 
 #### Returns
 
-[`Base`](/elements/base/)
+`Base`
 
 #### Overrides
 
@@ -169,7 +169,9 @@ Defined in: [base/index.ts:74](https://github.com/rossrobino/components/blob/mai
 
 #### Type Parameters
 
-• **T** _extends_ `HTMLElement` = `HTMLElement`
+##### T
+
+`T` _extends_ `HTMLElement` = `HTMLElement`
 
 #### Parameters
 
@@ -204,7 +206,9 @@ Defined in: [base/index.ts:61](https://github.com/rossrobino/components/blob/mai
 
 #### Type Parameters
 
-• **T** _extends_ `HTMLElement` = `HTMLElement`
+##### T
+
+`T` _extends_ `HTMLElement` = `HTMLElement`
 
 #### Returns
 
@@ -251,9 +255,13 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Type Parameters
 
-• **K** _extends_ keyof `DocumentEventMap`
+##### K
 
-• **T** _extends_ `HTMLElement` \| `Document` \| `Window` = `HTMLElement`
+`K` _extends_ keyof `DocumentEventMap`
+
+##### T
+
+`T` _extends_ `HTMLElement` \| `Document` \| `Window` = `HTMLElement`
 
 #### Parameters
 
@@ -315,9 +323,13 @@ Defined in: [base/index.ts:153](https://github.com/rossrobino/components/blob/ma
 
 #### Type Parameters
 
-• **T** _extends_ `HTMLElement`
+##### T
 
-• **K** _extends_ keyof `HTMLElementEventMap`
+`T` _extends_ `HTMLElement`
+
+##### K
+
+`K` _extends_ keyof `HTMLElementEventMap`
 
 #### Parameters
 

@@ -33,9 +33,9 @@
 		"prettier": "^3.5.3",
 		"prettier-plugin-tailwindcss": "^0.6.11",
 		"turbo": "^2.4.4",
-		"typedoc": "^0.27.9",
-		"typedoc-plugin-markdown": "^4.4.2",
+		"typedoc": "^0.28.1",
+		"typedoc-plugin-markdown": "^4.6.0",
 		"typescript": "^5.8.2",
-		"vitest": "^3.0.8"
+		"vitest": "^3.1.1"
 	}
 }

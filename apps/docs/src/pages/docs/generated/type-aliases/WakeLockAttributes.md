@@ -1,4 +1,4 @@
-> **WakeLockAttributes**: [`BaseAttributes`](/PUBLIC_PATH/type-aliases/BaseAttributes.md) & `object`
+> **WakeLockAttributes** = [`BaseAttributes`](/PUBLIC_PATH/type-aliases/BaseAttributes.md) & `object`
 
 Defined in: [wakelock/index.ts:3](https://github.com/rossrobino/components/blob/main/packages/drab/src/wakelock/index.ts#L3)
 

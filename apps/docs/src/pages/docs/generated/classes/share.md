@@ -8,17 +8,17 @@ Uses the [Navigator API](https://developer.mozilla.org/en-US/docs/Web/API/Naviga
 
 ## Constructors
 
-<a id="constructors"></a>
+<a id="constructor"></a>
 
-### new Share()
+### Constructor
 
-> **new Share**(): [`Share`](/elements/share/)
+> **new Share**(): `Share`
 
 Defined in: [share/index.ts:9](https://github.com/rossrobino/components/blob/main/packages/drab/src/share/index.ts#L9)
 
 #### Returns
 
-[`Share`](/elements/share/)
+`Share`
 
 #### Overrides
 
@@ -72,7 +72,7 @@ keyof `HTMLElementEventMap`
 
 ---
 
-<a id="value-1"></a>
+<a id="value"></a>
 
 ### value
 
@@ -240,7 +240,9 @@ Defined in: [base/index.ts:74](https://github.com/rossrobino/components/blob/mai
 
 #### Type Parameters
 
-• **T** _extends_ `HTMLElement` = `HTMLElement`
+##### T
+
+`T` _extends_ `HTMLElement` = `HTMLElement`
 
 #### Parameters
 
@@ -279,7 +281,9 @@ Defined in: [base/index.ts:61](https://github.com/rossrobino/components/blob/mai
 
 #### Type Parameters
 
-• **T** _extends_ `HTMLElement` = `HTMLElement`
+##### T
+
+`T` _extends_ `HTMLElement` = `HTMLElement`
 
 #### Returns
 
@@ -334,9 +338,13 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 #### Type Parameters
 
-• **K** _extends_ keyof `DocumentEventMap`
+##### K
 
-• **T** _extends_ `HTMLElement` \| `Document` \| `Window` = `HTMLElement`
+`K` _extends_ keyof `DocumentEventMap`
+
+##### T
+
+`T` _extends_ `HTMLElement` \| `Document` \| `Window` = `HTMLElement`
 
 #### Parameters
 
@@ -366,7 +374,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 ---
 
-<a id="share-1"></a>
+<a id="share"></a>
 
 ### share()
 
@@ -433,9 +441,13 @@ Defined in: [base/index.ts:153](https://github.com/rossrobino/components/blob/ma
 
 #### Type Parameters
 
-• **T** _extends_ `HTMLElement`
+##### T
 
-• **K** _extends_ keyof `HTMLElementEventMap`
+`T` _extends_ `HTMLElement`
+
+##### K
+
+`K` _extends_ keyof `HTMLElementEventMap`
 
 #### Parameters
 
