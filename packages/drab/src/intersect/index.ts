@@ -69,9 +69,7 @@ export class Intersect extends Base {
 					}
 				}
 			},
-			{
-				threshold: this.#threshold,
-			},
+			{ threshold: this.#threshold },
 		);
 
 		for (const trigger of this.getTrigger()) {

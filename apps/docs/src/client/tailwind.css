@@ -5,8 +5,6 @@
 @import "tailwindcss/utilities.css" layer(utilities);
 
 @theme {
-	/* https://tailwindcss.com/docs/colors#default-color-palette-reference */
-	--color-*: initial;
 	--color-background: var(--background);
 	--color-foreground: var(--foreground);
 	--color-heading-foreground: var(--heading-foreground);

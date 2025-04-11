@@ -8,9 +8,7 @@ import { defineConfig } from "vite";
 export default defineConfig({
 	plugins: [
 		tailwindcss(),
-		domco({
-			adapter: adapter({ trailingSlash: true }),
-		}),
+		domco({ adapter: adapter({ trailingSlash: true }) }),
 		md(options),
 	],
 });

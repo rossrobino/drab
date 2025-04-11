@@ -26,27 +26,14 @@ type DocumentRule = {
 	eagerness?: "immediate" | "moderate" | "eager" | "conservative";
 } & Rule;
 
-type ListRule = {
-	source: "list";
-	urls: string[];
-} & Rule;
+type ListRule = { source: "list"; urls: string[] } & Rule;
 
 type WhereCondition =
-	| {
-			href_matches: string;
-	  }
-	| {
-			selector_matches: string;
-	  }
-	| {
-			and: WhereCondition[];
-	  }
-	| {
-			not: WhereCondition;
-	  }
-	| {
-			or: WhereCondition[];
-	  };
+	| { href_matches: string }
+	| { selector_matches: string }
+	| { and: WhereCondition[] }
+	| { not: WhereCondition }
+	| { or: WhereCondition[] };
 
 /**
  * The `Prefetch` element can prefetch a url, or enhance the `HTMLAnchorElement` by loading the HTML for a page before it is navigated to. This element speeds up the navigation for multi-page applications (MPAs).
@@ -129,12 +116,7 @@ export class Prefetch extends Base {
 					// Currently, adding `prefetch` is required to fallback if `prerender` fails.
 					// Possibly will be automatic in the future, in which case it can be removed.
 					// https://github.com/WICG/nav-speculation/issues/162#issuecomment-1977818473
-					prefetch: [
-						{
-							source: "list",
-							urls: [url],
-						},
-					],
+					prefetch: [{ source: "list", urls: [url] }],
 				};
 
 				if (prerender) {

@@ -174,10 +174,6 @@ onMounted(async () => {
 ```js
 // nuxt.config.ts
 export default defineNuxtConfig({
-	vue: {
-		compilerOptions: {
-			isCustomElement: (tag) => tag.includes("-"),
-		},
-	},
+	vue: { compilerOptions: { isCustomElement: (tag) => tag.includes("-") } },
 });
 ```
