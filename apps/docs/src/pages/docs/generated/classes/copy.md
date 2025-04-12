@@ -409,7 +409,7 @@ default: `800`
 
 ### triggerListener()
 
-> **triggerListener**\<`T`, `K`\>(`listener`, `type`, `options`?): `void`
+> **triggerListener**\<`T`, `K`\>(`listener`, `type`, `options?`): `void`
 
 Defined in: [base/index.ts:153](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L153)
 

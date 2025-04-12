@@ -1,4 +1,4 @@
-Defined in: [prefetch/index.ts:79](https://github.com/rossrobino/components/blob/main/packages/drab/src/prefetch/index.ts#L79)
+Defined in: [prefetch/index.ts:66](https://github.com/rossrobino/components/blob/main/packages/drab/src/prefetch/index.ts#L66)
 
 The `Prefetch` element can prefetch a url, or enhance the `HTMLAnchorElement` by loading the HTML for a page before it is navigated to. This element speeds up the navigation for multi-page applications (MPAs).
 
@@ -39,7 +39,7 @@ This element can be deprecated once the Speculation Rules API is supported acros
 
 > **new Prefetch**(): `Prefetch`
 
-Defined in: [prefetch/index.ts:82](https://github.com/rossrobino/components/blob/main/packages/drab/src/prefetch/index.ts#L82)
+Defined in: [prefetch/index.ts:69](https://github.com/rossrobino/components/blob/main/packages/drab/src/prefetch/index.ts#L69)
 
 #### Returns
 
@@ -129,7 +129,7 @@ message to announce to screen readers
 
 > **appendTag**(`options`): `void`
 
-Defined in: [prefetch/index.ts:106](https://github.com/rossrobino/components/blob/main/packages/drab/src/prefetch/index.ts#L106)
+Defined in: [prefetch/index.ts:93](https://github.com/rossrobino/components/blob/main/packages/drab/src/prefetch/index.ts#L93)
 
 Appends `<link rel="prefetch">` or `<script type="speculationrules">` to the head of the document.
 
@@ -296,7 +296,7 @@ this.querySelectorAll("[data-trigger]");
 
 > **mount**(): `void`
 
-Defined in: [prefetch/index.ts:241](https://github.com/rossrobino/components/blob/main/packages/drab/src/prefetch/index.ts#L241)
+Defined in: [prefetch/index.ts:223](https://github.com/rossrobino/components/blob/main/packages/drab/src/prefetch/index.ts#L223)
 
 Passed into `queueMicrotask` in `connectedCallback`. It is overridden in each component that needs to run `connectedCallback`.
 
@@ -318,7 +318,7 @@ The reason for this is to make these elements work better with frameworks like S
 
 > **prefetch**(`options`): `void`
 
-Defined in: [prefetch/index.ts:165](https://github.com/rossrobino/components/blob/main/packages/drab/src/prefetch/index.ts#L165)
+Defined in: [prefetch/index.ts:147](https://github.com/rossrobino/components/blob/main/packages/drab/src/prefetch/index.ts#L147)
 
 Use to prefetch/prerender HTML.
 
@@ -443,7 +443,7 @@ default: `800`
 
 ### triggerListener()
 
-> **triggerListener**\<`T`, `K`\>(`listener`, `type`, `options`?): `void`
+> **triggerListener**\<`T`, `K`\>(`listener`, `type`, `options?`): `void`
 
 Defined in: [base/index.ts:153](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L153)
 

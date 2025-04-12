@@ -40,7 +40,7 @@ Other features:
 
 > **new Editor**(): `Editor`
 
-Defined in: [editor/index.ts:68](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L68)
+Defined in: [editor/index.ts:71](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L71)
 
 #### Returns
 
@@ -58,9 +58,9 @@ Defined in: [editor/index.ts:68](https://github.com/rossrobino/components/blob/m
 
 > **keyPairs**: `object`
 
-Defined in: [editor/index.ts:59](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L59)
+Defined in: [editor/index.ts:62](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L62)
 
-The characters that will be automatically closed when typed.
+Characters that will be automatically closed when typed.
 
 #### Index Signature
 
@@ -122,7 +122,7 @@ keyof `HTMLElementEventMap`
 
 > **get** **text**(): `string`
 
-Defined in: [editor/index.ts:85](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L85)
+Defined in: [editor/index.ts:86](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L86)
 
 The current `value` of the `textarea`.
 
@@ -134,7 +134,7 @@ The current `value` of the `textarea`.
 
 > **set** **text**(`value`): `void`
 
-Defined in: [editor/index.ts:89](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L89)
+Defined in: [editor/index.ts:90](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L90)
 
 ##### Parameters
 
@@ -156,7 +156,7 @@ Defined in: [editor/index.ts:89](https://github.com/rossrobino/components/blob/m
 
 > **get** **textArea**(): `HTMLTextAreaElement`
 
-Defined in: [editor/index.ts:80](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L80)
+Defined in: [editor/index.ts:81](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L81)
 
 The `content`, expects an `HTMLTextAreaElement`.
 
@@ -331,7 +331,7 @@ this.querySelectorAll("[data-trigger]");
 
 > **mount**(): `void`
 
-Defined in: [editor/index.ts:343](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L343)
+Defined in: [editor/index.ts:284](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L284)
 
 Passed into `queueMicrotask` in `connectedCallback`. It is overridden in each component that needs to run `connectedCallback`.
 
@@ -430,7 +430,7 @@ default: `800`
 
 ### triggerListener()
 
-> **triggerListener**\<`T`, `K`\>(`listener`, `type`, `options`?): `void`
+> **triggerListener**\<`T`, `K`\>(`listener`, `type`, `options?`): `void`
 
 Defined in: [base/index.ts:153](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L153)
 
