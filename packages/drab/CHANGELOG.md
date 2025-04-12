@@ -1,5 +1,13 @@
 # drab
 
+## 6.1.1
+
+### Patch Changes
+
+- 136e024: fix: `Editor` - ordered list increment bug
+
+  Other clean up reduces size of minified packages by about 0.8kb.
+
 ## 6.1.0
 
 ### Minor Changes
