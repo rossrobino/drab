@@ -360,43 +360,37 @@ export class Editor extends Base {
 						this.#setSelection(newPos);
 					}
 				}
-			} else {
-				if ((e.ctrlKey || e.metaKey) && e.key) {
-					if (notHighlighted) {
-						// no selection
-						if (e.key === "c" || e.key === "x") {
-							// copy or cut entire line
-							e.preventDefault();
-							const { line, lines, lineNumber, columnNumber } =
-								this.#lineMeta();
-							navigator.clipboard.writeText(line);
+			} else if ((e.ctrlKey || e.metaKey) && e.key) {
+				if (notHighlighted && (e.key === "c" || e.key === "x")) {
+					// copy or cut entire line
+					e.preventDefault();
+					const { line, lines, lineNumber, columnNumber } = this.#lineMeta();
+					navigator.clipboard.writeText(line);
 
-							if (e.key === "x") {
-								const newPos = this.#selStart - columnNumber;
-								lines.splice(lineNumber, 1);
-								this.text = lines.join("\n");
-								this.#setSelection(newPos, newPos);
-							}
-						}
+					if (e.key === "x") {
+						const newPos = this.#selStart - columnNumber;
+						lines.splice(lineNumber, 1);
+						this.text = lines.join("\n");
+						this.#setSelection(newPos, newPos);
 					}
-
-					const shortcut = this.#contentElements.find((el) => el.key === e.key);
-					if (shortcut) this.#addContent(shortcut);
-				} else if (
-					Object.values(this.keyPairs).includes(nextChar) &&
-					(nextChar === e.key || e.key === "ArrowRight") &&
-					this.#openChars.length &&
-					notHighlighted
-				) {
-					// type over the next character instead of inserting
-					e.preventDefault();
-					this.#setSelection(this.#selStart + 1, this.#selEnd + 1);
-					this.#openChars.pop();
-				} else if (e.key in this.keyPairs) {
-					e.preventDefault();
-					this.#addContent({ type: "wrap", value: e.key });
-					this.#openChars.push(e.key);
 				}
+
+				const shortcut = this.#contentElements.find((el) => el.key === e.key);
+				if (shortcut) this.#addContent(shortcut);
+			} else if (
+				this.#openChars.length &&
+				notHighlighted &&
+				(nextChar === e.key || e.key === "ArrowRight") &&
+				Object.values(this.keyPairs).includes(nextChar)
+			) {
+				// type over the next character instead of inserting
+				e.preventDefault();
+				this.#setSelection(this.#selStart + 1, this.#selEnd + 1);
+				this.#openChars.pop();
+			} else if (e.key in this.keyPairs) {
+				e.preventDefault();
+				this.#addContent({ type: "wrap", value: e.key });
+				this.#openChars.push(e.key);
 			}
 		});
 
