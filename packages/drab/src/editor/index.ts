@@ -372,10 +372,6 @@ export class Editor extends Base {
 					}
 				}
 			} else {
-				const nextCharIsClosing = Object.values(this.keyPairs).includes(
-					nextChar,
-				);
-
 				if ((e.ctrlKey || e.metaKey) && e.key) {
 					if (notHighlighted) {
 						// no selection
@@ -395,13 +391,10 @@ export class Editor extends Base {
 						}
 					}
 
-					// keyboard shortcut
-					const matchedEl = this.#contentElements.find(
-						(el) => el.key === e.key,
-					);
-					if (matchedEl) await this.#addContent(matchedEl);
+					const shortcut = this.#contentElements.find((el) => el.key === e.key);
+					if (shortcut) await this.#addContent(shortcut);
 				} else if (
-					nextCharIsClosing &&
+					Object.values(this.keyPairs).includes(nextChar) &&
 					(nextChar === e.key || e.key === "ArrowRight") &&
 					this.#openChars.length &&
 					notHighlighted
@@ -434,9 +427,9 @@ export class Editor extends Base {
 		this.textArea.addEventListener("click", () => (this.#openChars = []));
 
 		for (const trigger of this.getTrigger()) {
-			trigger.addEventListener(this.event, () => {
-				this.#addContent(trigger.dataset as ContentElement);
-			});
+			trigger.addEventListener(this.event, () =>
+				this.#addContent(trigger.dataset as ContentElement),
+			);
 		}
 	}
 }
