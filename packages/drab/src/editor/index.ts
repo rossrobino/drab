@@ -129,19 +129,17 @@ export class Editor extends Base {
 	}
 
 	/** Sets the current cursor selection in the `textarea` */
-	async #setSelection(start: number, end = start) {
-		await Promise.resolve();
+	#setSelection(start: number, end = start) {
 		this.textArea.setSelectionRange(start, end);
 		this.textArea.focus();
 	}
 
 	/**
-	 * - Inserts the text and then sets the caret position
-	 * based on the `ContentElement` selected.
+	 * Inserts text and sets selection based on the `ContentElement` selected.
 	 *
-	 * @param content selected content element
+	 * @param content
 	 */
-	async #addContent({ value, type }: ContentElement) {
+	#addContent({ value, type }: ContentElement) {
 		let start = this.#selStart;
 
 		if (type === "inline") {
@@ -152,16 +150,16 @@ export class Editor extends Base {
 
 			if (match?.index != null) {
 				start += match.index;
-				await this.#setSelection(start, start + match[0].length);
+				this.#setSelection(start, start + match[0].length);
 			} else {
-				await this.#setSelection(start + value.length);
+				this.#setSelection(start + value.length);
 			}
 		} else if (type === "wrap") {
 			const end = this.#selEnd + value.length;
 
 			this.#insertStr(value, start);
 			this.#insertStr(this.keyPairs[value]!, end);
-			await this.#setSelection(start + value.length, end);
+			this.#setSelection(start + value.length, end);
 
 			// if single char, add to opened
 			if (value.length === 1) this.#openChars.push(value);
@@ -179,7 +177,7 @@ export class Editor extends Base {
 			lines[lineNumber] = value + lines[lineNumber];
 			this.text = lines.join("\n");
 
-			await this.#setSelection(start + value.length);
+			this.#setSelection(start + value.length);
 		}
 	}
 
@@ -201,7 +199,7 @@ export class Editor extends Base {
 
 	/**
 	 * @param line
-	 * @returns the number, if the line starts with a number and a period
+	 * @returns The number, if the line starts with a number and a period.
 	 */
 	#startsWithNumberAndPeriod(line: string) {
 		const match = line.match(/^(\d+)\./);
@@ -210,12 +208,6 @@ export class Editor extends Base {
 
 	/**
 	 * @returns Metadata describing the current position of the selection.
-	 *
-	 * @example
-	 *
-	 * ```js
-	 * const { line, lines, lineNumber, columnNumber } = getLineInfo();
-	 * ```
 	 */
 	#lineMeta() {
 		const lines = this.text.split("\n");
@@ -243,20 +235,17 @@ export class Editor extends Base {
 	/**
 	 * Increments/decrements the start of following lines if they are numbers.
 	 *
-	 * Prevents this:
+	 * @param decrement if following lines should be decremented instead of incremented
+	 *
+	 * @example
+	 *
+	 * ```md
+	 * Prevents this, instead fixes the following lines.
 	 *
 	 * 1. presses enter here when two items in list
 	 * 2.
 	 * 2. (repeat of 2)
-	 *
-	 *
-	 * Instead:
-	 *
-	 * 1.
-	 * 2.
-	 * 3.
-	 *
-	 * @param decrement if following lines should be decremented instead of incremented
+	 * ```
 	 */
 	#correctFollowing(decrement = false) {
 		let { lines, lineNumber } = this.#lineMeta();
@@ -293,7 +282,7 @@ export class Editor extends Base {
 	}
 
 	override mount() {
-		this.textArea.addEventListener("keydown", async (e) => {
+		this.textArea.addEventListener("keydown", (e) => {
 			const nextChar = this.text[this.#selEnd] ?? "";
 			const notHighlighted = this.#selStart === this.#selEnd;
 
@@ -315,7 +304,7 @@ export class Editor extends Base {
 
 					this.#removeStr(start);
 					this.#removeStr(end);
-					await this.#setSelection(start, end);
+					this.#setSelection(start, end);
 
 					this.#openChars.pop();
 				} else if (prevChar === "\n" && this.#selStart === this.#selEnd) {
@@ -325,7 +314,7 @@ export class Editor extends Base {
 
 					this.#correctFollowing(true);
 					this.#removeStr(newPos);
-					await this.#setSelection(newPos, newPos);
+					this.#setSelection(newPos, newPos);
 				}
 			} else if (e.key === "Tab") {
 				const blocks = this.text.split("```");
@@ -338,7 +327,7 @@ export class Editor extends Base {
 						if (i % 2) {
 							// if caret is inside of a codeblock, indent
 							e.preventDefault();
-							await this.#addContent({ type: "inline", value: "\t" });
+							this.#addContent({ type: "inline", value: "\t" });
 						}
 
 						break;
@@ -360,7 +349,7 @@ export class Editor extends Base {
 
 					if (repeat.length < columnNumber) {
 						// repeat same on next line
-						await this.#addContent({ type: "inline", value: "\n" + repeat });
+						this.#addContent({ type: "inline", value: "\n" + repeat });
 						this.#correctFollowing();
 					} else {
 						// remove repeat from current line
@@ -368,7 +357,7 @@ export class Editor extends Base {
 						const newPos = end - repeat.length;
 
 						this.#removeStr(newPos, end);
-						await this.#setSelection(newPos);
+						this.#setSelection(newPos);
 					}
 				}
 			} else {
@@ -380,19 +369,19 @@ export class Editor extends Base {
 							e.preventDefault();
 							const { line, lines, lineNumber, columnNumber } =
 								this.#lineMeta();
-							await navigator.clipboard.writeText(line);
+							navigator.clipboard.writeText(line);
 
 							if (e.key === "x") {
 								const newPos = this.#selStart - columnNumber;
 								lines.splice(lineNumber, 1);
 								this.text = lines.join("\n");
-								await this.#setSelection(newPos, newPos);
+								this.#setSelection(newPos, newPos);
 							}
 						}
 					}
 
 					const shortcut = this.#contentElements.find((el) => el.key === e.key);
-					if (shortcut) await this.#addContent(shortcut);
+					if (shortcut) this.#addContent(shortcut);
 				} else if (
 					Object.values(this.keyPairs).includes(nextChar) &&
 					(nextChar === e.key || e.key === "ArrowRight") &&
@@ -405,7 +394,7 @@ export class Editor extends Base {
 					this.#openChars.pop();
 				} else if (e.key in this.keyPairs) {
 					e.preventDefault();
-					await this.#addContent({ type: "wrap", value: e.key });
+					this.#addContent({ type: "wrap", value: e.key });
 					this.#openChars.push(e.key);
 				}
 			}
