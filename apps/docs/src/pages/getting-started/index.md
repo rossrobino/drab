@@ -22,14 +22,6 @@ Or, import the `drab/{element}/define` module where it's defined for you, in thi
 import "drab/dialog/define";
 ```
 
-## Script tag
-
-Alternatively, add a script tag to your HTML that imports the immediately invoked function expression (IIFE) module to avoid naming conflicts. Each element will be named `drab-{element}`.
-
-```html
-<script type="module" src="https://esm.run/drab@__VERSION__/define"></script>
-```
-
 ## Styling
 
 Elements without styles can appear rather drab. You have the freedom to bring your own styles to these elements. Since drab doesn't use the shadow DOM, you can style any content inside these elements as you normally would. Using unstyled elements allows you to selectively choose what you need and avoid being tied to any specific library.
