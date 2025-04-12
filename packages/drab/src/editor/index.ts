@@ -55,9 +55,10 @@ export class Editor extends Base {
 	/** Array of `keyPair` characters that have been opened. */
 	#openChars: string[] = [];
 
+	/** Keys that will reset the type over for keyPairs */
 	#resetKeys = new Set(["ArrowUp", "ArrowDown", "Delete"]);
 
-	/** The characters that will be automatically closed when typed. */
+	/** Characters that will be automatically closed when typed. */
 	keyPairs: { [key: string]: string } = {
 		"(": ")",
 		"{": "}",
@@ -90,7 +91,7 @@ export class Editor extends Base {
 		this.textArea.value = value;
 	}
 
-	/** An array of `ContentElement`s derived from each `trigger`'s data attributes. */
+	/** Array of `ContentElement`s derived from each `trigger`'s data attributes. */
 	get #contentElements() {
 		const contentElements: ContentElement[] = [];
 
@@ -114,7 +115,6 @@ export class Editor extends Base {
 	/**
 	 * @param str string to insert into `text`
 	 * @param index where to insert the string
-	 * @returns the new string
 	 */
 	#insertStr(str: string, index: number) {
 		this.text = this.text.slice(0, index) + str + this.text.slice(index);
@@ -122,9 +122,9 @@ export class Editor extends Base {
 
 	/**
 	 * @param start Starting index for removal.
-	 * @param end Optional ending index.
+	 * @param end Optional ending index - defaults to start + 1 to remove 1 character.
 	 */
-	#removeChar(start: number, end = start + 1) {
+	#removeStr(start: number, end = start + 1) {
 		this.text = this.text.slice(0, start) + this.text.slice(end);
 	}
 
@@ -295,9 +295,9 @@ export class Editor extends Base {
 	override mount() {
 		this.textArea.addEventListener("keydown", async (e) => {
 			const nextChar = this.text[this.#selEnd] ?? "";
+			const notHighlighted = this.#selStart === this.#selEnd;
 
 			if (this.#resetKeys.has(e.key)) {
-				// these keys will reset the type over for characters like "
 				this.#openChars = [];
 			} else if (e.key === "Backspace") {
 				const prevChar = this.text[this.#selStart - 1];
@@ -313,8 +313,8 @@ export class Editor extends Base {
 					const start = this.#selStart - 1;
 					const end = this.#selEnd - 1;
 
-					this.#removeChar(start);
-					this.#removeChar(end);
+					this.#removeStr(start);
+					this.#removeStr(end);
 					await this.#setSelection(start, end);
 
 					this.#openChars.pop();
@@ -324,7 +324,7 @@ export class Editor extends Base {
 					const newPos = this.#selStart - 1;
 
 					this.#correctFollowing(true);
-					this.#removeChar(newPos);
+					this.#removeStr(newPos);
 					await this.#setSelection(newPos, newPos);
 				}
 			} else if (e.key === "Tab") {
@@ -345,7 +345,7 @@ export class Editor extends Base {
 					}
 				}
 				// TODO add shift tab backwards
-			} else if (e.key === "Enter") {
+			} else if (e.key === "Enter" && notHighlighted) {
 				// autocomplete start of next line if block or number
 				const { line, columnNumber } = this.#lineMeta();
 
@@ -367,7 +367,7 @@ export class Editor extends Base {
 						const end = this.#selEnd;
 						const newPos = end - repeat.length;
 
-						this.#removeChar(newPos, end);
+						this.#removeStr(newPos, end);
 						await this.#setSelection(newPos);
 					}
 				}
@@ -375,7 +375,6 @@ export class Editor extends Base {
 				const nextCharIsClosing = Object.values(this.keyPairs).includes(
 					nextChar,
 				);
-				const notHighlighted = this.#selStart === this.#selEnd;
 
 				if ((e.ctrlKey || e.metaKey) && e.key) {
 					if (notHighlighted) {
