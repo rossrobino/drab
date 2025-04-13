@@ -1,5 +1,11 @@
 # drab
 
+## 6.1.3
+
+### Patch Changes
+
+- d43f320: `Editor` - dispatch `input` event
+
 ## 6.1.2
 
 ### Patch Changes
