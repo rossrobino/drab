@@ -191,7 +191,7 @@ export class Editor extends Base {
 		for (const blockString of this.#contentElements
 			.filter((el) => el.type === "block")
 			.map((el) => el.value)) {
-			if (line.startsWith(blockString.trim())) return blockString;
+			if (line.startsWith(blockString)) return blockString;
 		}
 
 		return null;
