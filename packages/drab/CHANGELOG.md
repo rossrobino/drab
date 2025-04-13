@@ -1,5 +1,11 @@
 # drab
 
+## 6.1.2
+
+### Patch Changes
+
+- 4d5c449: fix: stop checking for trimmed block element to repeat only full should repeat to next line
+
 ## 6.1.1
 
 ### Patch Changes
