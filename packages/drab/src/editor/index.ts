@@ -58,6 +58,8 @@ export class Editor extends Base {
 	/** Keys that will reset the type over for keyPairs */
 	#resetKeys = new Set(["ArrowUp", "ArrowDown", "Delete"]);
 
+	#inputEvent = new Event("input", { bubbles: true, cancelable: true });
+
 	/** Characters that will be automatically closed when typed. */
 	keyPairs: { [key: string]: string } = {
 		"(": ")",
@@ -89,6 +91,7 @@ export class Editor extends Base {
 
 	set text(value) {
 		this.textArea.value = value;
+		this.textArea.dispatchEvent(this.#inputEvent);
 	}
 
 	/** Array of `ContentElement`s derived from each `trigger`'s data attributes. */
