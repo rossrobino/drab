@@ -96,7 +96,7 @@ export class Base extends HTMLElement {
 
 		if (swap) {
 			/** A copy of the content currently in `this.getContent()`. */
-			const currentContent = Array.from(this.getContent().childNodes);
+			const currentContent = this.getContent().childNodes;
 
 			/**
 			 * The contents of the swap element, set based on whether the
@@ -143,7 +143,7 @@ export class Base extends HTMLElement {
 		options: AddEventListenerOptions = {},
 	) {
 		options.signal = this.#listenerController.signal;
-		//@ts-ignore - inferred listener type not working...?
+		// @ts-expect-error - inferred listener type not working...?
 		element.addEventListener(type, listener, options);
 	}
 
