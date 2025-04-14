@@ -393,7 +393,6 @@ export class Editor extends Base {
 			} else if (e.key in this.keyPairs) {
 				e.preventDefault();
 				this.#addContent({ type: "wrap", value: e.key });
-				this.#openChars.push(e.key);
 			}
 		});
 
