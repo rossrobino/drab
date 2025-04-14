@@ -335,9 +335,9 @@ export class Editor extends Base {
 
 								if (line.startsWith("\t")) {
 									// dedent
-									const pos = this.#selStart;
-									this.#removeStr(pos - columnNumber);
-									this.#setSelection(pos - 1);
+									const start = this.#selStart;
+									this.#removeStr(start - columnNumber);
+									this.#setSelection(start - 1);
 								}
 							} else {
 								// indent
