@@ -412,10 +412,8 @@ export class Editor extends Base {
 		// reset #openChars on click since the cursor has changed position
 		this.textArea.addEventListener("click", () => (this.#openChars = []));
 
-		for (const trigger of this.getTrigger()) {
-			trigger.addEventListener(this.event, () =>
-				this.#addContent(trigger.dataset as ContentElement),
-			);
-		}
+		this.triggerListener((e) =>
+			this.#addContent((e.target as HTMLElement).dataset as ContentElement),
+		);
 	}
 }
