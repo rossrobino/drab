@@ -61,7 +61,7 @@ export class Editor extends Base {
 	#inputEvent = new Event("input", { bubbles: true, cancelable: true });
 
 	/** Characters that will be automatically closed when typed. */
-	keyPairs: { [key: string]: string } = {
+	keyPairs: Record<string, string> = {
 		"(": ")",
 		"{": "}",
 		"[": "]",
