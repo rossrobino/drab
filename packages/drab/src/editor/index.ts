@@ -48,7 +48,7 @@ export type ContentElement = {
  * - Automatically increments/decrements ordered lists.
  * - Adds the starting character to the next line for `block` content.
  * - On double click, highlight is corrected to only highlight the current word without space around it.
- * - `tab` key will indent and not change focus if the selection is within a code block (three backticks).
+ * - `tab` key will indent or dedent (+shift) instead of focus change if the selection is within a code block (three backticks).
  * - When text is highlighted and a `wrap` character `keyPair` is typed, the highlighted text will be wrapped with the character instead of removing it. For example, if a word is highlighted and the `"` character is typed, the work will be surrounded by `"`s.
  */
 export class Editor extends Base {
@@ -326,17 +326,28 @@ export class Editor extends Base {
 				for (const [i, block] of blocks.entries()) {
 					totalChars += block.length + 3;
 					if (totalChars > this.#selStart) {
-						// found
 						if (i % 2) {
-							// if caret is inside of a codeblock, indent
+							// caret is inside of a codeblock
 							e.preventDefault();
-							this.#addContent({ type: "inline", value: "\t" });
+
+							if (e.shiftKey) {
+								const { line, columnNumber } = this.#lineMeta();
+
+								if (line.startsWith("\t")) {
+									// dedent
+									const pos = this.#selStart;
+									this.#removeStr(pos - columnNumber);
+									this.#setSelection(pos - 1);
+								}
+							} else {
+								// indent
+								this.#addContent({ type: "inline", value: "\t" });
+							}
 						}
 
 						break;
 					}
 				}
-				// TODO add shift tab backwards
 			} else if (e.key === "Enter" && notHighlighted) {
 				// autocomplete start of next line if block or number
 				const { line, columnNumber } = this.#lineMeta();
