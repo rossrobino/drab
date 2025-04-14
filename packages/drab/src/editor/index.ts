@@ -272,7 +272,7 @@ export class Editor extends Base {
 						newNum = num + 1;
 					}
 
-					lines[lineNumber] = String(newNum) + line.slice(String(num).length);
+					lines[lineNumber] = newNum + line.slice(String(num).length);
 				} else {
 					break;
 				}
