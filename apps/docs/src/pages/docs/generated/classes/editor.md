@@ -25,7 +25,7 @@ Other features:
 - Automatically increments/decrements ordered lists.
 - Adds the starting character to the next line for `block` content.
 - On double click, highlight is corrected to only highlight the current word without space around it.
-- `tab` key will indent and not change focus if the selection is within a code block (three backticks).
+- `tab` key will indent or dedent (+shift) instead of focus change if the selection is within a code block (three backticks).
 - When text is highlighted and a `wrap` character `keyPair` is typed, the highlighted text will be wrapped with the character instead of removing it. For example, if a word is highlighted and the `"` character is typed, the work will be surrounded by `"`s.
 
 ## Extends
@@ -40,7 +40,7 @@ Other features:
 
 > **new Editor**(): `Editor`
 
-Defined in: [editor/index.ts:71](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L71)
+Defined in: [editor/index.ts:73](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L73)
 
 #### Returns
 
@@ -56,15 +56,11 @@ Defined in: [editor/index.ts:71](https://github.com/rossrobino/components/blob/m
 
 ### keyPairs
 
-> **keyPairs**: `object`
+> **keyPairs**: `Record`\<`string`, `string`\>
 
-Defined in: [editor/index.ts:62](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L62)
+Defined in: [editor/index.ts:64](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L64)
 
 Characters that will be automatically closed when typed.
-
-#### Index Signature
-
-\[`key`: `string`\]: `string`
 
 ## Accessors
 
@@ -122,7 +118,7 @@ keyof `HTMLElementEventMap`
 
 > **get** **text**(): `string`
 
-Defined in: [editor/index.ts:86](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L86)
+Defined in: [editor/index.ts:88](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L88)
 
 The current `value` of the `textarea`.
 
@@ -134,7 +130,7 @@ The current `value` of the `textarea`.
 
 > **set** **text**(`value`): `void`
 
-Defined in: [editor/index.ts:90](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L90)
+Defined in: [editor/index.ts:92](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L92)
 
 ##### Parameters
 
@@ -156,7 +152,7 @@ Defined in: [editor/index.ts:90](https://github.com/rossrobino/components/blob/m
 
 > **get** **textArea**(): `HTMLTextAreaElement`
 
-Defined in: [editor/index.ts:81](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L81)
+Defined in: [editor/index.ts:83](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L83)
 
 The `content`, expects an `HTMLTextAreaElement`.
 
@@ -331,7 +327,7 @@ this.querySelectorAll("[data-trigger]");
 
 > **mount**(): `void`
 
-Defined in: [editor/index.ts:284](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L284)
+Defined in: [editor/index.ts:287](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L287)
 
 Passed into `queueMicrotask` in `connectedCallback`. It is overridden in each component that needs to run `connectedCallback`.
 
