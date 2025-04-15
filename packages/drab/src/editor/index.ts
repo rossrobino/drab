@@ -423,7 +423,9 @@ export class Editor extends Base {
 		this.textArea.addEventListener("click", () => (this.#openChars = []));
 
 		this.triggerListener((e) =>
-			this.#addContent((e.target as HTMLElement).dataset as ContentElement),
+			this.#addContent(
+				(e.currentTarget as HTMLElement).dataset as ContentElement,
+			),
 		);
 	}
 }
