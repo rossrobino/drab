@@ -194,7 +194,7 @@ message to announce to screen readers
 
 > **connectedCallback**(): `void`
 
-Defined in: [base/index.ts:171](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L171)
+Defined in: [base/index.ts:188](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L188)
 
 Called when custom element is added to the page.
 
@@ -214,7 +214,7 @@ Called when custom element is added to the page.
 
 > **destroy**(): `void`
 
-Defined in: [base/index.ts:178](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L178)
+Defined in: [base/index.ts:195](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L195)
 
 Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallback` as well. It is overridden in each element that needs to run `disconnectedCallback`.
 
@@ -234,7 +234,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 > **disconnectedCallback**(): `void`
 
-Defined in: [base/index.ts:181](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L181)
+Defined in: [base/index.ts:198](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L198)
 
 Called when custom element is removed from the page.
 
@@ -254,7 +254,7 @@ Called when custom element is removed from the page.
 
 > **getContent**\<`T`\>(`instance`): `T`
 
-Defined in: [base/index.ts:74](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L74)
+Defined in: [base/index.ts:75](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L75)
 
 #### Type Parameters
 
@@ -347,46 +347,144 @@ The reason for this is to make these elements work better with frameworks like S
 
 ### safeListener()
 
-> **safeListener**\<`K`, `T`\>(`type`, `listener`, `element`, `options`): `void`
+#### Call Signature
 
-Defined in: [base/index.ts:136](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L136)
+> **safeListener**\<`T`\>(`type`, `listener`, `element?`, `options?`): `void`
 
-Wrapper around `document.body.addEventListener` that ensures when the
-element is removed from the DOM, these event listeners are cleaned up.
+Defined in: [base/index.ts:139](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L139)
 
-#### Type Parameters
+Wrapper around `addEventListener` that ensures when the element is
+removed from the DOM, these event listeners are cleaned up.
 
-##### K
+##### Type Parameters
 
-`K` _extends_ keyof `DocumentEventMap`
+###### T
 
-##### T
+`T` _extends_ keyof `HTMLElementEventMap`
 
-`T` _extends_ `HTMLElement` \| `Document` \| `Window` = `HTMLElement`
+##### Parameters
 
-#### Parameters
+###### type
 
-##### type
+`T`
 
-`K`
+Event listener type - ex: `"keydown"`
 
-##### listener
+###### listener
 
-(`this`, `ev`) => `any`
+(`this`, `event`) => `any`
 
-##### element
+Listener to add to the target.
 
-`T` = `...`
+###### element?
 
-##### options
+`HTMLElement`
 
-`AddEventListenerOptions` = `{}`
+###### options?
 
-#### Returns
+`AddEventListenerOptions`
+
+Other options sans `signal`.
+
+##### Returns
 
 `void`
 
-#### Inherited from
+##### Inherited from
+
+[`Base`](/elements/base/).[`safeListener`](/elements/base/#safelistener)
+
+#### Call Signature
+
+> **safeListener**\<`T`\>(`type`, `listener`, `document`, `options?`): `void`
+
+Defined in: [base/index.ts:145](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L145)
+
+Wrapper around `addEventListener` that ensures when the element is
+removed from the DOM, these event listeners are cleaned up.
+
+##### Type Parameters
+
+###### T
+
+`T` _extends_ keyof `DocumentEventMap`
+
+##### Parameters
+
+###### type
+
+`T`
+
+Event listener type - ex: `"keydown"`
+
+###### listener
+
+(`this`, `event`) => `any`
+
+Listener to add to the target.
+
+###### document
+
+`Document`
+
+###### options?
+
+`AddEventListenerOptions`
+
+Other options sans `signal`.
+
+##### Returns
+
+`void`
+
+##### Inherited from
+
+[`Base`](/elements/base/).[`safeListener`](/elements/base/#safelistener)
+
+#### Call Signature
+
+> **safeListener**\<`T`\>(`type`, `listener`, `window`, `options?`): `void`
+
+Defined in: [base/index.ts:151](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L151)
+
+Wrapper around `addEventListener` that ensures when the element is
+removed from the DOM, these event listeners are cleaned up.
+
+##### Type Parameters
+
+###### T
+
+`T` _extends_ keyof `WindowEventMap`
+
+##### Parameters
+
+###### type
+
+`T`
+
+Event listener type - ex: `"keydown"`
+
+###### listener
+
+(`this`, `event`) => `any`
+
+Listener to add to the target.
+
+###### window
+
+`Window`
+
+###### options?
+
+`AddEventListenerOptions`
+
+Other options sans `signal`.
+
+##### Returns
+
+`void`
+
+##### Inherited from
 
 [`Base`](/elements/base/).[`safeListener`](/elements/base/#safelistener)
 
@@ -398,7 +496,7 @@ element is removed from the DOM, these event listeners are cleaned up.
 
 > **swapContent**(`revert`): `void`
 
-Defined in: [base/index.ts:93](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L93)
+Defined in: [base/index.ts:94](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L94)
 
 Finds the `HTMLElement | HTMLTemplateElement` via the `swap` selector and
 swaps `this.content()` with the content of the element found.
@@ -428,7 +526,7 @@ default: `800`
 
 > **triggerListener**\<`T`, `K`\>(`listener`, `type`, `options?`): `void`
 
-Defined in: [base/index.ts:153](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L153)
+Defined in: [base/index.ts:170](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L170)
 
 #### Type Parameters
 

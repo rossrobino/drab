@@ -62,6 +62,7 @@ export class Base extends HTMLElement {
 		const triggers = this.querySelectorAll<T>(
 			this.getAttribute("trigger") ?? "[data-trigger]",
 		);
+
 		return triggers;
 	}
 
@@ -127,24 +128,40 @@ export class Base extends HTMLElement {
 	}
 
 	/**
-	 * Wrapper around `document.body.addEventListener` that ensures when the
-	 * element is removed from the DOM, these event listeners are cleaned up.
-	 * @param type
-	 * @param listener
-	 * @param options
+	 * Wrapper around `addEventListener` that ensures when the element is
+	 * removed from the DOM, these event listeners are cleaned up.
+	 *
+	 * @param type Event listener type - ex: `"keydown"`
+	 * @param listener Listener to add to the target.
+	 * @param target Event target to add the listener to - defaults to `document.body`.
+	 * @param options Other options sans `signal`.
 	 */
-	safeListener<
-		K extends keyof DocumentEventMap,
-		T extends HTMLElement | Window | Document = HTMLElement,
-	>(
-		type: K,
-		listener: (this: T, ev: DocumentEventMap[K]) => any,
-		element: T = document.body as T,
+	safeListener<T extends keyof HTMLElementEventMap>(
+		type: T,
+		listener: (this: HTMLElement, event: HTMLElementEventMap[T]) => any,
+		element?: HTMLElement,
+		options?: AddEventListenerOptions,
+	): void;
+	safeListener<T extends keyof DocumentEventMap>(
+		type: T,
+		listener: (this: Document, event: DocumentEventMap[T]) => any,
+		document: Document,
+		options?: AddEventListenerOptions,
+	): void;
+	safeListener<T extends keyof WindowEventMap>(
+		type: T,
+		listener: (this: Window, event: WindowEventMap[T]) => any,
+		window: Window,
+		options?: AddEventListenerOptions,
+	): void;
+	safeListener(
+		type: string,
+		listener: EventListenerOrEventListenerObject,
+		target: EventTarget = document.body,
 		options: AddEventListenerOptions = {},
 	) {
 		options.signal = this.#listenerController.signal;
-		// @ts-expect-error - inferred listener type not working...?
-		element.addEventListener(type, listener, options);
+		target.addEventListener(type, listener, options);
 	}
 
 	/**
