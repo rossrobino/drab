@@ -1,5 +1,11 @@
 # drab
 
+## 6.2.1
+
+### Patch Changes
+
+- fc2cef0: fix: `Editor` - should trigger currentTarget
+
 ## 6.2.0
 
 ### Minor Changes
