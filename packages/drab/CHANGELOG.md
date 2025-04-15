@@ -1,5 +1,16 @@
 # drab
 
+## 6.2.0
+
+### Minor Changes
+
+- 3b627e5: feat: `Editor` - `tab + shift` will dedent tab when inside of a codeblock
+
+### Patch Changes
+
+- 7dcb159: `Base` - better type inference for `safeListener`
+- 9d858db: fix: `Editor` - remove double push to open chars on key pair type
+
 ## 6.1.3
 
 ### Patch Changes
