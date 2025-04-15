@@ -35,6 +35,8 @@
 	--font-antique:
 		Superclarendon, "Bookman Old Style", "URW Bookman", "URW Bookman L",
 		"Georgia Pro", Georgia, serif;
+	--font-old-style:
+		"Iowan Old Style", "Palatino Linotype", "URW Palladio L", P052, serif;
 
 	--text-xs: var(--font-size-1);
 	--text-xs--line-height: var(--line-height-1);
