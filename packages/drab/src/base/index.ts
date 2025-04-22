@@ -39,8 +39,8 @@ export class Base extends HTMLElement {
 	 *
 	 * @default "click"
 	 */
-	get event() {
-		return (this.getAttribute("event") ?? "click") as keyof HTMLElementEventMap;
+	get event(): keyof HTMLElementEventMap {
+		return (this.getAttribute("event") as keyof HTMLElementEventMap) ?? "click";
 	}
 
 	set event(value) {
@@ -59,11 +59,9 @@ export class Base extends HTMLElement {
 	 * @default this.querySelectorAll("[data-trigger]")
 	 */
 	getTrigger<T extends HTMLElement = HTMLElement>() {
-		const triggers = this.querySelectorAll<T>(
+		return this.querySelectorAll<T>(
 			this.getAttribute("trigger") ?? "[data-trigger]",
 		);
-
-		return triggers;
 	}
 
 	/**
@@ -74,7 +72,7 @@ export class Base extends HTMLElement {
 	 */
 	getContent<T extends HTMLElement = HTMLElement>(
 		instance: { new (): T } = HTMLElement as { new (): T },
-	) {
+	): T {
 		const content = this.querySelector(
 			this.getAttribute("content") ?? "[data-content]",
 		);

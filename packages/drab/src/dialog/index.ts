@@ -49,19 +49,19 @@ export class Dialog extends Base {
 	}
 
 	/** `HTMLDialogElement.showModal()` with animation. */
-	async show() {
+	show() {
 		this.dialog.showModal();
 		this.#toggleBodyScroll(true);
 	}
 
 	/** `HTMLDialogElement.close()` with animation. */
-	async close() {
+	close() {
 		this.#toggleBodyScroll(false);
 		this.dialog.close();
 	}
 
 	/** `show` or `close` depending on the dialog's `open` attribute. */
-	async toggle() {
+	toggle() {
 		if (this.dialog.open) this.close();
 		else this.show();
 	}

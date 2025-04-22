@@ -19,7 +19,7 @@ export class ContextMenu extends Base {
 		this.getContent().style.top = `${value.y}px`;
 	}
 
-	async show(e: MouseEvent | TouchEvent) {
+	show(e: MouseEvent | TouchEvent) {
 		// find coordinates of the click
 		const scrollY = window.scrollY;
 		const scrollX = window.scrollX;
@@ -51,7 +51,7 @@ export class ContextMenu extends Base {
 		this.#coordinates = { x, y };
 	}
 
-	async hide() {
+	hide() {
 		this.getContent().removeAttribute("data-open");
 	}
 
@@ -81,9 +81,7 @@ export class ContextMenu extends Base {
 
 		// keyboard
 		this.safeListener("keydown", (e) => {
-			if (e.key === "Escape") {
-				this.hide();
-			}
+			if (e.key === "Escape") this.hide();
 		});
 	}
 }

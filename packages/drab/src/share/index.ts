@@ -1,11 +1,12 @@
-import { BaseCopy, type BaseCopyAttributes } from "../base/copy/index.js";
+import { Copy, type CopyAttributes } from "../copy/index.js";
 
-export type ShareAttributes = BaseCopyAttributes;
+export type ShareAttributes = CopyAttributes;
 
 /**
- * Uses the [Navigator API](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share) to share a url. If `share` is not supported, falls back to copy the text instead.
+ * Uses the [Navigator API](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share)
+ * to share a url. If `share` is not supported, falls back to copy the text instead.
  */
-export class Share extends BaseCopy {
+export class Share extends Copy {
 	constructor() {
 		super();
 	}
@@ -13,25 +14,17 @@ export class Share extends BaseCopy {
 	/**
 	 * Shares or copies the `value`.
 	 * @param url The `url` to share, defaults to `this.value`
-	 * @returns An object containing a `result` - whether the `url` was copied or shared
-	 * depending on browser support.
 	 */
-	async share(url: string = this.value) {
+	share(url: string = this.value) {
 		if (navigator.canShare && navigator.canShare({ url })) {
-			try {
-				await navigator.share({ url });
-			} catch (error: any) {
-				if (error?.name !== "AbortError") {
-					console.error(error);
-				}
-			}
+			return navigator.share({ url });
 		} else {
 			// progressively enhance, copy the link
-			this.copy();
+			return this.copy();
 		}
 	}
 
 	override mount() {
-		this.triggerListener(async () => await this.share());
+		this.triggerListener(() => this.share());
 	}
 }
