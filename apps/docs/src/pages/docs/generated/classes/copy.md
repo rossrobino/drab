@@ -5,7 +5,11 @@ to copy text.
 
 ## Extends
 
-- `BaseCopy`
+- [`Base`](/elements/base/)
+
+## Extended by
+
+- [`Share`](/elements/share/)
 
 ## Constructors
 
@@ -23,7 +27,7 @@ Defined in: [copy/index.ts:10](https://github.com/rossrobino/components/blob/mai
 
 #### Overrides
 
-`BaseCopy.constructor`
+[`Base`](/elements/base/).[`constructor`](/elements/base/#constructor)
 
 ## Accessors
 
@@ -69,7 +73,7 @@ keyof `HTMLElementEventMap`
 
 #### Inherited from
 
-`BaseCopy.event`
+[`Base`](/elements/base/).[`event`](/elements/base/#event)
 
 ---
 
@@ -81,14 +85,14 @@ keyof `HTMLElementEventMap`
 
 > **get** **value**(): `string`
 
-Defined in: [base/copy/index.ts:15](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/copy/index.ts#L15)
+Defined in: [copy/index.ts:19](https://github.com/rossrobino/components/blob/main/packages/drab/src/copy/index.ts#L19)
 
-The value to copy or share.
+The value to copy.
 
 ##### Default
 
 ```ts
-"" the empty string
+("");
 ```
 
 ##### Returns
@@ -99,7 +103,7 @@ The value to copy or share.
 
 > **set** **value**(`value`): `void`
 
-Defined in: [base/copy/index.ts:19](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/copy/index.ts#L19)
+Defined in: [copy/index.ts:23](https://github.com/rossrobino/components/blob/main/packages/drab/src/copy/index.ts#L23)
 
 ##### Parameters
 
@@ -110,10 +114,6 @@ Defined in: [base/copy/index.ts:19](https://github.com/rossrobino/components/blo
 ##### Returns
 
 `void`
-
-#### Inherited from
-
-`BaseCopy.value`
 
 ## Methods
 
@@ -139,7 +139,7 @@ message to announce to screen readers
 
 #### Inherited from
 
-`BaseCopy.announce`
+[`Base`](/elements/base/).[`announce`](/elements/base/#announce)
 
 ---
 
@@ -149,7 +149,7 @@ message to announce to screen readers
 
 > **connectedCallback**(): `void`
 
-Defined in: [base/index.ts:188](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L188)
+Defined in: [base/index.ts:186](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L186)
 
 Called when custom element is added to the page.
 
@@ -159,7 +159,7 @@ Called when custom element is added to the page.
 
 #### Inherited from
 
-`BaseCopy.connectedCallback`
+[`Base`](/elements/base/).[`connectedCallback`](/elements/base/#connectedcallback)
 
 ---
 
@@ -167,27 +167,21 @@ Called when custom element is added to the page.
 
 ### copy()
 
-> **copy**(`text`): `Promise`\<`void`\>
+> **copy**(`value`): `Promise`\<`void`\>
 
-Defined in: [base/copy/index.ts:27](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/copy/index.ts#L27)
-
-Copies the `text`.
+Defined in: [copy/index.ts:30](https://github.com/rossrobino/components/blob/main/packages/drab/src/copy/index.ts#L30)
 
 #### Parameters
 
-##### text
+##### value
 
 `string` = `...`
 
-The `text` to share
+The `value` to copy
 
 #### Returns
 
 `Promise`\<`void`\>
-
-#### Inherited from
-
-`BaseCopy.copy`
 
 ---
 
@@ -197,7 +191,7 @@ The `text` to share
 
 > **destroy**(): `void`
 
-Defined in: [base/index.ts:195](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L195)
+Defined in: [base/index.ts:193](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L193)
 
 Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallback` as well. It is overridden in each element that needs to run `disconnectedCallback`.
 
@@ -207,7 +201,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 #### Inherited from
 
-`BaseCopy.destroy`
+[`Base`](/elements/base/).[`destroy`](/elements/base/#destroy)
 
 ---
 
@@ -217,7 +211,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 > **disconnectedCallback**(): `void`
 
-Defined in: [base/index.ts:198](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L198)
+Defined in: [base/index.ts:196](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L196)
 
 Called when custom element is removed from the page.
 
@@ -227,7 +221,7 @@ Called when custom element is removed from the page.
 
 #### Inherited from
 
-`BaseCopy.disconnectedCallback`
+[`Base`](/elements/base/).[`disconnectedCallback`](/elements/base/#disconnectedcallback)
 
 ---
 
@@ -237,7 +231,7 @@ Called when custom element is removed from the page.
 
 > **getContent**\<`T`\>(`instance`): `T`
 
-Defined in: [base/index.ts:75](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L75)
+Defined in: [base/index.ts:73](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L73)
 
 #### Type Parameters
 
@@ -268,7 +262,7 @@ this.querySelector("[data-content]");
 
 #### Inherited from
 
-`BaseCopy.getContent`
+[`Base`](/elements/base/).[`getContent`](/elements/base/#getcontent)
 
 ---
 
@@ -300,7 +294,7 @@ this.querySelectorAll("[data-trigger]");
 
 #### Inherited from
 
-`BaseCopy.getTrigger`
+[`Base`](/elements/base/).[`getTrigger`](/elements/base/#gettrigger)
 
 ---
 
@@ -310,7 +304,7 @@ this.querySelectorAll("[data-trigger]");
 
 > **mount**(): `void`
 
-Defined in: [copy/index.ts:14](https://github.com/rossrobino/components/blob/main/packages/drab/src/copy/index.ts#L14)
+Defined in: [copy/index.ts:37](https://github.com/rossrobino/components/blob/main/packages/drab/src/copy/index.ts#L37)
 
 Passed into `queueMicrotask` in `connectedCallback`. It is overridden in each component that needs to run `connectedCallback`.
 
@@ -322,7 +316,7 @@ The reason for this is to make these elements work better with frameworks like S
 
 #### Overrides
 
-`BaseCopy.mount`
+[`Base`](/elements/base/).[`mount`](/elements/base/#mount)
 
 ---
 
@@ -334,7 +328,7 @@ The reason for this is to make these elements work better with frameworks like S
 
 > **safeListener**\<`T`\>(`type`, `listener`, `element?`, `options?`): `void`
 
-Defined in: [base/index.ts:139](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L139)
+Defined in: [base/index.ts:137](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L137)
 
 Wrapper around `addEventListener` that ensures when the element is
 removed from the DOM, these event listeners are cleaned up.
@@ -375,13 +369,13 @@ Other options sans `signal`.
 
 ##### Inherited from
 
-`BaseCopy.safeListener`
+[`Base`](/elements/base/).[`safeListener`](/elements/base/#safelistener)
 
 #### Call Signature
 
 > **safeListener**\<`T`\>(`type`, `listener`, `document`, `options?`): `void`
 
-Defined in: [base/index.ts:145](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L145)
+Defined in: [base/index.ts:143](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L143)
 
 Wrapper around `addEventListener` that ensures when the element is
 removed from the DOM, these event listeners are cleaned up.
@@ -422,13 +416,13 @@ Other options sans `signal`.
 
 ##### Inherited from
 
-`BaseCopy.safeListener`
+[`Base`](/elements/base/).[`safeListener`](/elements/base/#safelistener)
 
 #### Call Signature
 
 > **safeListener**\<`T`\>(`type`, `listener`, `window`, `options?`): `void`
 
-Defined in: [base/index.ts:151](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L151)
+Defined in: [base/index.ts:149](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L149)
 
 Wrapper around `addEventListener` that ensures when the element is
 removed from the DOM, these event listeners are cleaned up.
@@ -469,7 +463,7 @@ Other options sans `signal`.
 
 ##### Inherited from
 
-`BaseCopy.safeListener`
+[`Base`](/elements/base/).[`safeListener`](/elements/base/#safelistener)
 
 ---
 
@@ -479,7 +473,7 @@ Other options sans `signal`.
 
 > **swapContent**(`revert`): `void`
 
-Defined in: [base/index.ts:94](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L94)
+Defined in: [base/index.ts:92](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L92)
 
 Finds the `HTMLElement | HTMLTemplateElement` via the `swap` selector and
 swaps `this.content()` with the content of the element found.
@@ -499,7 +493,7 @@ default: `800`
 
 #### Inherited from
 
-`BaseCopy.swapContent`
+[`Base`](/elements/base/).[`swapContent`](/elements/base/#swapcontent)
 
 ---
 
@@ -509,7 +503,7 @@ default: `800`
 
 > **triggerListener**\<`T`, `K`\>(`listener`, `type`, `options?`): `void`
 
-Defined in: [base/index.ts:170](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L170)
+Defined in: [base/index.ts:168](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L168)
 
 #### Type Parameters
 
@@ -543,4 +537,4 @@ Listener to attach to all of the `trigger` elements.
 
 #### Inherited from
 
-`BaseCopy.triggerListener`
+[`Base`](/elements/base/).[`triggerListener`](/elements/base/#triggerlistener)

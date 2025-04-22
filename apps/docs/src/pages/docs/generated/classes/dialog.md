@@ -130,7 +130,7 @@ message to announce to screen readers
 
 ### close()
 
-> **close**(): `Promise`\<`void`\>
+> **close**(): `void`
 
 Defined in: [dialog/index.ts:58](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L58)
 
@@ -138,7 +138,7 @@ Defined in: [dialog/index.ts:58](https://github.com/rossrobino/components/blob/m
 
 #### Returns
 
-`Promise`\<`void`\>
+`void`
 
 ---
 
@@ -148,7 +148,7 @@ Defined in: [dialog/index.ts:58](https://github.com/rossrobino/components/blob/m
 
 > **connectedCallback**(): `void`
 
-Defined in: [base/index.ts:188](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L188)
+Defined in: [base/index.ts:186](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L186)
 
 Called when custom element is added to the page.
 
@@ -168,7 +168,7 @@ Called when custom element is added to the page.
 
 > **destroy**(): `void`
 
-Defined in: [base/index.ts:195](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L195)
+Defined in: [base/index.ts:193](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L193)
 
 Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallback` as well. It is overridden in each element that needs to run `disconnectedCallback`.
 
@@ -188,7 +188,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 > **disconnectedCallback**(): `void`
 
-Defined in: [base/index.ts:198](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L198)
+Defined in: [base/index.ts:196](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L196)
 
 Called when custom element is removed from the page.
 
@@ -208,7 +208,7 @@ Called when custom element is removed from the page.
 
 > **getContent**\<`T`\>(`instance`): `T`
 
-Defined in: [base/index.ts:75](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L75)
+Defined in: [base/index.ts:73](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L73)
 
 #### Type Parameters
 
@@ -305,7 +305,7 @@ The reason for this is to make these elements work better with frameworks like S
 
 > **safeListener**\<`T`\>(`type`, `listener`, `element?`, `options?`): `void`
 
-Defined in: [base/index.ts:139](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L139)
+Defined in: [base/index.ts:137](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L137)
 
 Wrapper around `addEventListener` that ensures when the element is
 removed from the DOM, these event listeners are cleaned up.
@@ -352,7 +352,7 @@ Other options sans `signal`.
 
 > **safeListener**\<`T`\>(`type`, `listener`, `document`, `options?`): `void`
 
-Defined in: [base/index.ts:145](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L145)
+Defined in: [base/index.ts:143](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L143)
 
 Wrapper around `addEventListener` that ensures when the element is
 removed from the DOM, these event listeners are cleaned up.
@@ -399,7 +399,7 @@ Other options sans `signal`.
 
 > **safeListener**\<`T`\>(`type`, `listener`, `window`, `options?`): `void`
 
-Defined in: [base/index.ts:151](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L151)
+Defined in: [base/index.ts:149](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L149)
 
 Wrapper around `addEventListener` that ensures when the element is
 removed from the DOM, these event listeners are cleaned up.
@@ -448,7 +448,7 @@ Other options sans `signal`.
 
 ### show()
 
-> **show**(): `Promise`\<`void`\>
+> **show**(): `void`
 
 Defined in: [dialog/index.ts:52](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L52)
 
@@ -456,7 +456,7 @@ Defined in: [dialog/index.ts:52](https://github.com/rossrobino/components/blob/m
 
 #### Returns
 
-`Promise`\<`void`\>
+`void`
 
 ---
 
@@ -466,7 +466,7 @@ Defined in: [dialog/index.ts:52](https://github.com/rossrobino/components/blob/m
 
 > **swapContent**(`revert`): `void`
 
-Defined in: [base/index.ts:94](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L94)
+Defined in: [base/index.ts:92](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L92)
 
 Finds the `HTMLElement | HTMLTemplateElement` via the `swap` selector and
 swaps `this.content()` with the content of the element found.
@@ -494,7 +494,7 @@ default: `800`
 
 ### toggle()
 
-> **toggle**(): `Promise`\<`void`\>
+> **toggle**(): `void`
 
 Defined in: [dialog/index.ts:64](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L64)
 
@@ -502,7 +502,7 @@ Defined in: [dialog/index.ts:64](https://github.com/rossrobino/components/blob/m
 
 #### Returns
 
-`Promise`\<`void`\>
+`void`
 
 ---
 
@@ -512,7 +512,7 @@ Defined in: [dialog/index.ts:64](https://github.com/rossrobino/components/blob/m
 
 > **triggerListener**\<`T`, `K`\>(`listener`, `type`, `options?`): `void`
 
-Defined in: [base/index.ts:170](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L170)
+Defined in: [base/index.ts:168](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L168)
 
 #### Type Parameters
 
