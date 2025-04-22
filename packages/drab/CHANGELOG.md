@@ -1,5 +1,14 @@
 # drab
 
+## 6.2.2
+
+### Patch Changes
+
+- 62bf211: patch: clean up
+
+  - Removes private class `BaseCopy`, now `Share` just extends `Copy`
+  - Cleans up various async methods that should have been synchronous
+
 ## 6.2.1
 
 ### Patch Changes
