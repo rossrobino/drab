@@ -2,7 +2,7 @@
 
 drab is a JavaScript library of interactive custom elements that can be used on any website.
 
-### Write JavaScript, or don't
+## Write JavaScript, or don't
 
 - The library can be [installed](http://drab.robino.dev/getting-started/#install) as a package (recommended), or utilized without writing any JavaScript by adding a `<script>` tag to your document.
 - You provide the HTML, these elements can take advantage of what templating frameworks excel at---creating reusable markup that can be server side rendered.
@@ -14,13 +14,13 @@ drab is a JavaScript library of interactive custom elements that can be used on 
 </drab-fullscreen>
 ```
 
-### Built on the web platform
+## Built on the web platform
 
 - Each element is a [custom element](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements). So you can use them [with a framework](/getting-started/#frameworks), without one, or directly in a markdown file. These components will work [regardless of your project's architecture](https://jakelazaroff.com/words/web-components-will-outlive-your-javascript-framework/).
 - drab does _not_ use the [shadow DOM](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM), so you can style content within these elements as usual with CSS.
 - Each element can be imported, extended, named, and used however you see fit.
 
-### Minimal bundle size
+## Minimal bundle size
 
 - drab is [small](https://bundlephobia.com/package/drab), has zero dependencies, and is not built on top of web component framework.
 
