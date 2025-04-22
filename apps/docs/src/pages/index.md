@@ -1,13 +1,11 @@
 # Interactivity for You
 
-## Overview
-
 drab is a JavaScript library of interactive custom elements that can be used on any website.
 
 ### Write JavaScript, or don't
 
 - The library can be [installed](http://drab.robino.dev/getting-started/#install) as a package (recommended), or utilized without writing any JavaScript by adding a `<script>` tag to your document.
-- Since you provide the HTML, these elements can take advantage of what templating frameworks excel at---creating reusable markup that can be server side rendered.
+- You provide the HTML, these elements can take advantage of what templating frameworks excel at---creating reusable markup that can be server side rendered.
 - Each element can be configured using HTML attributes, making it possible to use an alternative language for your backend. Here's an example of a button that toggles the Fullscreen API.
 
 ```html
