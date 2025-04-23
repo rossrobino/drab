@@ -10,7 +10,7 @@ export type TabAttributes = BaseAttributes & {
  * `HTMLAnchorElement` with the `href` attribute set to the `id` of the
  * corresponding tab panel.
  *
- * > Tip: Set the `height` of the element the panels are contained in with
+ * > Tip: Set the `height` of the element the `panel`s are contained in with
  * > CSS to prevent layout shift when JS is loaded.
  *
  * This element is based on
