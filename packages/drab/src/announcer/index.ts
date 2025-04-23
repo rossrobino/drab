@@ -75,9 +75,10 @@ export class Announcer extends HTMLElement {
 	 * @returns the created or existing `Announcer` element
 	 */
 	static init(): Announcer {
-		define("drab-announcer", this);
-
 		const name = "drab-announcer";
+
+		define(name, this);
+
 		let announcer: Announcer | null = document.querySelector<Announcer>(name);
 
 		if (!announcer) {

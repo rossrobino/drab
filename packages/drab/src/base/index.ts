@@ -183,9 +183,14 @@ export class Base extends HTMLElement {
 	}
 
 	/**
-	 * Passed into `queueMicrotask` in `connectedCallback`. It is overridden in each component that needs to run `connectedCallback`.
+	 * Passed into `queueMicrotask` in `connectedCallback`.
+	 * It is overridden in each component that needs to run `connectedCallback`.
 	 *
-	 * The reason for this is to make these elements work better with frameworks like Svelte. For SSR this isn't necessary, but when client side rendering, the HTML within the custom element isn't available before `connectedCallback` is called. By waiting until the next microtask, the HTML content is available---then for example, listeners can be attached to elements inside.
+	 * The reason for this is to make these elements work better with frameworks like Svelte.
+	 * For SSR this isn't necessary, but when client side rendering, the HTML within the
+	 * custom element isn't available before `connectedCallback` is called. By waiting until
+	 * the next microtask, the HTML content is available---then for example, listeners can
+	 * be attached to elements inside.
 	 */
 	mount() {}
 
