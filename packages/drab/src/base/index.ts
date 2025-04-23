@@ -1,4 +1,5 @@
 import { Announcer } from "../announcer/index.js";
+import { validate } from "../util/validate.js";
 
 export type BaseAttributes = {
 	trigger?: string;
@@ -6,25 +7,10 @@ export type BaseAttributes = {
 	swap?: string;
 };
 
-type Constructor<T> = new (...args: any[]) => T;
+export type Constructor<T> = new (...args: any[]) => T;
 
-/**
- * @param actual Element to validate.
- * @param expected Constructor of the expected element.
- * @returns If valid returns `actual` otherwise throws `TypeError`.
- */
-const validate = <T extends HTMLElement>(
-	actual: unknown,
-	expected: Constructor<T>,
-) => {
-	if (!(actual instanceof expected))
-		throw new TypeError(`${actual} is not an instance of ${expected.name}.`);
-
-	return actual;
-};
-
-const Trigger = <T extends Constructor<HTMLElement>>(Super: T) =>
-	class extends Super {
+export const Trigger = <T extends Constructor<HTMLElement>>(Super: T) =>
+	class Trigger extends Super {
 		constructor(...args: any[]) {
 			super(args);
 		}
@@ -78,8 +64,8 @@ const Trigger = <T extends Constructor<HTMLElement>>(Super: T) =>
 		}
 	};
 
-const Content = <T extends Constructor<HTMLElement>>(Super: T) =>
-	class extends Super {
+export const Content = <T extends Constructor<HTMLElement>>(Super: T) =>
+	class Content extends Super {
 		constructor(...args: any[]) {
 			super(args);
 		}
@@ -145,8 +131,8 @@ const Content = <T extends Constructor<HTMLElement>>(Super: T) =>
 		}
 	};
 
-const Lifecycle = <T extends Constructor<HTMLElement>>(Super: T) =>
-	class extends Super {
+export const Lifecycle = <T extends Constructor<HTMLElement>>(Super: T) =>
+	class Lifecycle extends Super {
 		/** To clean up event listeners added to `document` when the element is removed. */
 		#listenerController = new AbortController();
 
@@ -220,6 +206,26 @@ const Lifecycle = <T extends Constructor<HTMLElement>>(Super: T) =>
 		}
 	};
 
+export const Announce = <T extends Constructor<HTMLElement>>(Super: T) =>
+	class Announce extends Super {
+		/**
+		 * A single `Announcer` element to share between all drab elements to announce
+		 * interactive changes.
+		 */
+		static #announcer = Announcer.init();
+
+		constructor(...args: any[]) {
+			super(args);
+		}
+
+		/**
+		 * @param message message to announce to screen readers
+		 */
+		announce(message: string) {
+			Announce.#announcer.announce(message);
+		}
+	};
+
 /**
  * Each element in the library extends the `Base` class. It provides methods
  * for selecting elements via HTML attributes along with other helpers.
@@ -232,21 +238,8 @@ const Lifecycle = <T extends Constructor<HTMLElement>>(Super: T) =>
  *
  * Each element can have multiple `trigger`s, but will only have one `content`.
  */
-export class Base extends Trigger(Content(Lifecycle(HTMLElement))) {
-	/**
-	 * A single `Announcer` element to share between all drab elements to announce
-	 * interactive changes.
-	 */
-	static #announcer = Announcer.init();
-
+export class Base extends Trigger(Content(Lifecycle(Announce(HTMLElement)))) {
 	constructor() {
 		super();
-	}
-
-	/**
-	 * @param message message to announce to screen readers
-	 */
-	announce(message: string) {
-		Base.#announcer.announce(message);
 	}
 }

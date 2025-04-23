@@ -66,7 +66,7 @@ Defined in: [packages/drab/src/wakelock/index.ts:34](https://github.com/rossrobi
 
 > **get** **event**(): keyof `HTMLElementEventMap`
 
-Defined in: [packages/drab/src/base/index.ts:39](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L39)
+Defined in: [packages/drab/src/base/index.ts:25](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L25)
 
 Event for the `trigger` to execute.
 
@@ -86,7 +86,7 @@ keyof `HTMLElementEventMap`
 
 > **set** **event**(`value`): `void`
 
-Defined in: [packages/drab/src/base/index.ts:45](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L45)
+Defined in: [packages/drab/src/base/index.ts:31](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L31)
 
 ##### Parameters
 
@@ -110,7 +110,7 @@ keyof `HTMLElementEventMap`
 
 > **announce**(`message`): `void`
 
-Defined in: [packages/drab/src/base/index.ts:249](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L249)
+Defined in: [packages/drab/src/base/index.ts:224](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L224)
 
 #### Parameters
 
@@ -136,7 +136,7 @@ message to announce to screen readers
 
 > **connectedCallback**(): `void`
 
-Defined in: [packages/drab/src/base/index.ts:207](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L207)
+Defined in: [packages/drab/src/base/index.ts:193](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L193)
 
 Called when custom element is added to the page.
 
@@ -176,7 +176,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 > **disconnectedCallback**(): `void`
 
-Defined in: [packages/drab/src/base/index.ts:217](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L217)
+Defined in: [packages/drab/src/base/index.ts:203](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L203)
 
 Called when custom element is removed from the page.
 
@@ -198,7 +198,7 @@ Called when custom element is removed from the page.
 
 > **getContent**\<`T`\>(`instance`): `T`
 
-Defined in: [packages/drab/src/base/index.ts:93](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L93)
+Defined in: [packages/drab/src/base/index.ts:79](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L79)
 
 ##### Type Parameters
 
@@ -235,7 +235,7 @@ this.querySelector("[data-content]");
 
 > **getContent**(): `HTMLElement`
 
-Defined in: [packages/drab/src/base/index.ts:94](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L94)
+Defined in: [packages/drab/src/base/index.ts:80](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L80)
 
 ##### Returns
 
@@ -263,7 +263,7 @@ this.querySelector("[data-content]");
 
 > **getTrigger**\<`T`\>(`instance`): `NodeListOf`\<`T`\>
 
-Defined in: [packages/drab/src/base/index.ts:55](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L55)
+Defined in: [packages/drab/src/base/index.ts:41](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L41)
 
 ##### Type Parameters
 
@@ -300,7 +300,7 @@ this.querySelectorAll("[data-trigger]");
 
 > **getTrigger**(): `NodeListOf`\<`HTMLElement`\>
 
-Defined in: [packages/drab/src/base/index.ts:56](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L56)
+Defined in: [packages/drab/src/base/index.ts:42](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L42)
 
 ##### Returns
 
@@ -387,7 +387,7 @@ Requests WakeLock on the current page.
 
 > **safeListener**\<`T`\>(`type`, `listener`, `element?`, `options?`): `void`
 
-Defined in: [packages/drab/src/base/index.ts:166](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L166)
+Defined in: [packages/drab/src/base/index.ts:152](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L152)
 
 Wrapper around `addEventListener` that ensures when the element is
 removed from the DOM, these event listeners are cleaned up.
@@ -434,7 +434,7 @@ Other options sans `signal`.
 
 > **safeListener**\<`T`\>(`type`, `listener`, `document`, `options?`): `void`
 
-Defined in: [packages/drab/src/base/index.ts:172](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L172)
+Defined in: [packages/drab/src/base/index.ts:158](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L158)
 
 Wrapper around `addEventListener` that ensures when the element is
 removed from the DOM, these event listeners are cleaned up.
@@ -481,7 +481,7 @@ Other options sans `signal`.
 
 > **safeListener**\<`T`\>(`type`, `listener`, `window`, `options?`): `void`
 
-Defined in: [packages/drab/src/base/index.ts:178](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L178)
+Defined in: [packages/drab/src/base/index.ts:164](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L164)
 
 Wrapper around `addEventListener` that ensures when the element is
 removed from the DOM, these event listeners are cleaned up.
@@ -532,7 +532,7 @@ Other options sans `signal`.
 
 > **swapContent**(`revert`): `void`
 
-Defined in: [packages/drab/src/base/index.ts:109](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L109)
+Defined in: [packages/drab/src/base/index.ts:95](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L95)
 
 Finds the `HTMLElement | HTMLTemplateElement` via the `swap` selector and
 swaps `this.content()` with the content of the element found.
@@ -562,7 +562,7 @@ default: `800`
 
 > **triggerListener**\<`T`, `K`\>(`listener`, `type`, `options?`): `void`
 
-Defined in: [packages/drab/src/base/index.ts:70](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L70)
+Defined in: [packages/drab/src/base/index.ts:56](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L56)
 
 #### Type Parameters
 
