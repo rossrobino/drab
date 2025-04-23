@@ -1,5 +1,12 @@
 # drab
 
+## 6.3.0
+
+### Minor Changes
+
+- 31f3bb4: feat: Adds `Tabs` element [see documentation](https://drab.robino.dev/elements/tabs/).
+- 31f3bb4: feat: `getTrigger` now optionally validates triggers are the expected elements by passing in the expected element's constructor.
+
 ## 6.2.2
 
 ### Patch Changes
