@@ -23,7 +23,7 @@ const validate = <T extends HTMLElement>(
 	return actual;
 };
 
-export const Trigger = <T extends Constructor<HTMLElement>>(Super: T) =>
+const Trigger = <T extends Constructor<HTMLElement>>(Super: T) =>
 	class extends Super {
 		constructor(...args: any[]) {
 			super(args);
@@ -78,7 +78,7 @@ export const Trigger = <T extends Constructor<HTMLElement>>(Super: T) =>
 		}
 	};
 
-export const Content = <T extends Constructor<HTMLElement>>(Super: T) =>
+const Content = <T extends Constructor<HTMLElement>>(Super: T) =>
 	class extends Super {
 		constructor(...args: any[]) {
 			super(args);
@@ -145,7 +145,7 @@ export const Content = <T extends Constructor<HTMLElement>>(Super: T) =>
 		}
 	};
 
-export const Lifecycle = <T extends Constructor<HTMLElement>>(Super: T) =>
+const Lifecycle = <T extends Constructor<HTMLElement>>(Super: T) =>
 	class extends Super {
 		/** To clean up event listeners added to `document` when the element is removed. */
 		#listenerController = new AbortController();

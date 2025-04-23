@@ -1,6 +1,6 @@
 > **EditorTriggerAttributes** = `object`
 
-Defined in: [editor/index.ts:5](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L5)
+Defined in: [packages/drab/src/editor/index.ts:5](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L5)
 
 ## Properties
 
@@ -10,7 +10,7 @@ Defined in: [editor/index.ts:5](https://github.com/rossrobino/components/blob/ma
 
 > **data-key**: `string`
 
-Defined in: [editor/index.ts:7](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L7)
+Defined in: [packages/drab/src/editor/index.ts:7](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L7)
 
 ---
 
@@ -20,7 +20,7 @@ Defined in: [editor/index.ts:7](https://github.com/rossrobino/components/blob/ma
 
 > **data-type**: `"block"` \| `"wrap"` \| `"inline"`
 
-Defined in: [editor/index.ts:8](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L8)
+Defined in: [packages/drab/src/editor/index.ts:8](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L8)
 
 ---
 
@@ -30,4 +30,4 @@ Defined in: [editor/index.ts:8](https://github.com/rossrobino/components/blob/ma
 
 > **data-value**: `string`
 
-Defined in: [editor/index.ts:6](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L6)
+Defined in: [packages/drab/src/editor/index.ts:6](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L6)

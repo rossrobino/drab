@@ -1,6 +1,6 @@
 > **BaseAttributes** = `object`
 
-Defined in: [base/index.ts:3](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L3)
+Defined in: [packages/drab/src/base/index.ts:3](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L3)
 
 ## Properties
 
@@ -10,7 +10,7 @@ Defined in: [base/index.ts:3](https://github.com/rossrobino/components/blob/main
 
 > `optional` **content**: `string`
 
-Defined in: [base/index.ts:5](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L5)
+Defined in: [packages/drab/src/base/index.ts:5](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L5)
 
 ---
 
@@ -20,7 +20,7 @@ Defined in: [base/index.ts:5](https://github.com/rossrobino/components/blob/main
 
 > `optional` **swap**: `string`
 
-Defined in: [base/index.ts:6](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L6)
+Defined in: [packages/drab/src/base/index.ts:6](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L6)
 
 ---
 
@@ -30,4 +30,4 @@ Defined in: [base/index.ts:6](https://github.com/rossrobino/components/blob/main
 
 > `optional` **trigger**: `string`
 
-Defined in: [base/index.ts:4](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L4)
+Defined in: [packages/drab/src/base/index.ts:4](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L4)
