@@ -40,6 +40,8 @@ type WhereCondition =
  *
  * If you are using a framework that already has a prefetch feature or uses a client side router, it is best to use the framework's feature instead of this element to ensure prefetching is working in accordance with the router.
  *
+ * ### Attributes
+ *
  * `strategy`
  *
  * Set the `strategy` attribute to specify the when the prefetch will take place.
@@ -159,7 +161,7 @@ export class Prefetch extends Base {
 			 */
 			strategy?: "hover" | "load" | "visible";
 		} = {
-			anchors: this.getTrigger<HTMLAnchorElement>(),
+			anchors: this.getTrigger(HTMLAnchorElement),
 			prerender: this.#prerender,
 			strategy: this.#strategy,
 		},
@@ -167,7 +169,7 @@ export class Prefetch extends Base {
 	) {
 		// defaults if partially defined
 		const {
-			anchors = this.getTrigger<HTMLAnchorElement>(),
+			anchors = this.getTrigger(HTMLAnchorElement),
 			prerender = this.#prerender,
 			strategy = this.#strategy,
 		} = options;

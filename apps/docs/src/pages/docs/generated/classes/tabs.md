@@ -1,28 +1,31 @@
-Defined in: [wakelock/index.ts:33](https://github.com/rossrobino/components/blob/main/packages/drab/src/wakelock/index.ts#L33)
+Defined in: tabs/index.ts:35
 
-`WakeLock` uses the
-[WakeLock API](https://developer.mozilla.org/en-US/docs/Web/API/Screen_Wake_Lock_API)
-to ensure the screen does not turn off when viewing the page on supported devices.
-Use your best judgement for when this is necessary, for example, if you have a timer
-that needs to stay on, or you are displaying a QR code.
+Progressively enhance a list of links and content to be tabs by
+wrapping with the `Tabs` element. Each `trigger` should be an
+`HTMLAnchorElement` with the `href` attribute set to the `id` of the
+corresponding tab panel.
 
-- Use `content` and `swap` elements to adjust the UI based on the current state.
-- `request` and `release` methods are provided to set the WakeLock with JavaScript.
-- `trigger` is disabled if not supported.
-- WakeLock is released when the element is removed from the DOM.
+> Tip: Set the `height` of the element the panels are contained in with
+> CSS to prevent layout shift when JS is loaded.
+
+This element is based on
+[Chris Ferdinandi's Toggle Tabs](https://gomakethings.com/a-web-component-ui-library-for-people-who-love-html/#toggle-tabs)
+design.
+
+[ARIA Reference](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/)
+
+- Sets the correct ARIA attributes on each element.
+- Supports keyboard navigation based on the `orientation` attribute.
+- First tab is selected by default if no `aria-selected="true"` attribute is
+  found on another tab.
+- `tablist` is calculated based on the deepest common parent of the tabs,
+  throws an error if not found.
 
 ### Attributes
 
-`auto-lock`
+`orientation`
 
-By default, the WakeLock will be released when the tab is not active. Use the
-`auto-lock` attribute to automatically request the WakeLock when the user views
-the tab again.
-
-`locked`
-
-WakeLock can be toggled with a `trigger`, or will be requested if the element has
-a `locked` attribute when connected.
+Set `orientation="vertical"` if the `tablist` element is displayed vertically.
 
 ## Extends
 
@@ -34,27 +37,17 @@ a `locked` attribute when connected.
 
 ### Constructor
 
-> **new WakeLock**(): `WakeLock`
+> **new Tabs**(): `Tabs`
 
-Defined in: [wakelock/index.ts:36](https://github.com/rossrobino/components/blob/main/packages/drab/src/wakelock/index.ts#L36)
+Defined in: tabs/index.ts:42
 
 #### Returns
 
-`WakeLock`
+`Tabs`
 
 #### Overrides
 
 [`Base`](/elements/base/).[`constructor`](/elements/base/#constructor)
-
-## Properties
-
-<a id="wakelock"></a>
-
-### wakeLock
-
-> **wakeLock**: `null` \| `WakeLockSentinel` = `null`
-
-Defined in: [wakelock/index.ts:34](https://github.com/rossrobino/components/blob/main/packages/drab/src/wakelock/index.ts#L34)
 
 ## Accessors
 
@@ -156,7 +149,7 @@ Called when custom element is added to the page.
 
 > **destroy**(): `void`
 
-Defined in: [wakelock/index.ts:118](https://github.com/rossrobino/components/blob/main/packages/drab/src/wakelock/index.ts#L118)
+Defined in: [base/index.ts:200](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L200)
 
 Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallback` as well. It is overridden in each element that needs to run `disconnectedCallback`.
 
@@ -164,7 +157,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 `void`
 
-#### Overrides
+#### Inherited from
 
 [`Base`](/elements/base/).[`destroy`](/elements/base/#destroy)
 
@@ -326,7 +319,7 @@ this.querySelectorAll("[data-trigger]");
 
 > **mount**(): `void`
 
-Defined in: [wakelock/index.ts:80](https://github.com/rossrobino/components/blob/main/packages/drab/src/wakelock/index.ts#L80)
+Defined in: tabs/index.ts:85
 
 Passed into `queueMicrotask` in `connectedCallback`. It is overridden in each component that needs to run `connectedCallback`.
 
@@ -339,38 +332,6 @@ The reason for this is to make these elements work better with frameworks like S
 #### Overrides
 
 [`Base`](/elements/base/).[`mount`](/elements/base/#mount)
-
----
-
-<a id="release"></a>
-
-### release()
-
-> **release**(): `Promise`\<`void`\>
-
-Defined in: [wakelock/index.ts:75](https://github.com/rossrobino/components/blob/main/packages/drab/src/wakelock/index.ts#L75)
-
-Releases the WakeLock, sets `this.wakeLock` to null.
-
-#### Returns
-
-`Promise`\<`void`\>
-
----
-
-<a id="request"></a>
-
-### request()
-
-> **request**(): `Promise`\<`void`\>
-
-Defined in: [wakelock/index.ts:53](https://github.com/rossrobino/components/blob/main/packages/drab/src/wakelock/index.ts#L53)
-
-Requests WakeLock on the current page.
-
-#### Returns
-
-`Promise`\<`void`\>
 
 ---
 

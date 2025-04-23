@@ -6,19 +6,29 @@ export type WakeLockAttributes = BaseAttributes & {
 };
 
 /**
- * `WakeLock` uses the [WakeLock API](https://developer.mozilla.org/en-US/docs/Web/API/Screen_Wake_Lock_API) to ensure the screen does not turn off when viewing the page on supported devices. Use your best judgement for when this is necessary, for example, if you have a timer that needs to stay on, or you are displaying a QR code.
+ * `WakeLock` uses the
+ * [WakeLock API](https://developer.mozilla.org/en-US/docs/Web/API/Screen_Wake_Lock_API)
+ * to ensure the screen does not turn off when viewing the page on supported devices.
+ * Use your best judgement for when this is necessary, for example, if you have a timer
+ * that needs to stay on, or you are displaying a QR code.
  *
- * - WakeLock can be toggled with a `trigger`, or will be requested if the element has a `locked` attribute when connected.
  * - Use `content` and `swap` elements to adjust the UI based on the current state.
  * - `request` and `release` methods are provided to set the WakeLock with JavaScript.
  * - `trigger` is disabled if not supported.
  * - WakeLock is released when the element is removed from the DOM.
  *
+ * ### Attributes
+ *
  * `auto-lock`
  *
- * - By default, the WakeLock will be released when the tab is not active. Use the `auto-lock` attribute to automatically request the WakeLock when the user views the tab again.
+ * By default, the WakeLock will be released when the tab is not active. Use the
+ * `auto-lock` attribute to automatically request the WakeLock when the user views
+ * the tab again.
  *
+ * `locked`
  *
+ * WakeLock can be toggled with a `trigger`, or will be requested if the element has
+ * a `locked` attribute when connected.
  */
 export class WakeLock extends Base {
 	wakeLock: WakeLockSentinel | null = null;

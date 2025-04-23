@@ -3,8 +3,15 @@ import { Base, type BaseAttributes } from "../base/index.js";
 export type CopyAttributes = BaseAttributes & { value: string };
 
 /**
- * Uses the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText)
+ * Uses the
+ * [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText)
  * to copy text.
+ *
+ * ### Attributes
+ *
+ * `value`
+ *
+ * Text to copy.
  */
 export class Copy extends Base {
 	constructor() {

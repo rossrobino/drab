@@ -25,6 +25,23 @@ export type ContentElement = {
 /**
  * Enhances the `textarea` element with controls to add content and keyboard shortcuts. Compared to other WYSIWYG editors, the `text` value is just a `string`, so you can easily store it in a database or manipulate it without learning a separate API.
  *
+ * - Automatically adds closing characters for `keyPairs`. For example, when
+ * typing `(`, `)` will be inserted and typed over when reached. All content
+ * with `data-type="wrap"` is also added to `keyPairs`.
+ * - Highlights the first word of the text inserted if it contains letters.
+ * - Automatically increments/decrements ordered lists.
+ * - Adds the starting character to the next line for `block` content.
+ * - On double click, highlight is corrected to only highlight the current word
+ * without space around it.
+ * - `tab` key will indent or dedent (+shift) instead of focus change if the
+ * selection is within a code block (three backticks).
+ * - When text is highlighted and a `wrap` character `keyPair` is typed, the
+ * highlighted text will be wrapped with the character instead of removing it.
+ * For example, if a word is highlighted and the `"` character is typed, the
+ * work will be surrounded by `"`s.
+ *
+ * ### Trigger attributes
+ *
  * `data-value`
  *
  * Set the value of the text to be inserted using the `data-value` attribute on the `trigger`.
@@ -41,15 +58,6 @@ export type ContentElement = {
  *
  * Add a `ctrl`/`meta` keyboard shortcut for the content based on the `data-key` attribute.
  *
- * Other features:
- *
- * - Automatically adds closing characters for `keyPairs`. For example, when typing `(`, `)` will be inserted and typed over when reached. All content with `data-type="wrap"` is also added to `keyPairs`.
- * - Highlights the first word of the text inserted if it contains letters.
- * - Automatically increments/decrements ordered lists.
- * - Adds the starting character to the next line for `block` content.
- * - On double click, highlight is corrected to only highlight the current word without space around it.
- * - `tab` key will indent or dedent (+shift) instead of focus change if the selection is within a code block (three backticks).
- * - When text is highlighted and a `wrap` character `keyPair` is typed, the highlighted text will be wrapped with the character instead of removing it. For example, if a word is highlighted and the `"` character is typed, the work will be surrounded by `"`s.
  */
 export class Editor extends Base {
 	/** Array of `keyPair` characters that have been opened. */

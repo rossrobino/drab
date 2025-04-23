@@ -6,6 +6,8 @@ export type BaseAttributes = {
 	swap?: string;
 };
 
+type Constructor<T> = new (...args: any[]) => T;
+
 /**
  * Each element in the library extends the `Base` class. It provides methods
  * for selecting elements via HTML attributes along with other helpers.
@@ -55,13 +57,21 @@ export class Base extends HTMLElement {
 	}
 
 	/**
+	 * @param instance The instance of the desired element to validate against,
+	 * ex: `HTMLButtonElement`. Defaults to `HTMLElement`.
 	 * @returns All of the elements that match the `trigger` selector.
 	 * @default this.querySelectorAll("[data-trigger]")
 	 */
-	getTrigger<T extends HTMLElement = HTMLElement>() {
-		return this.querySelectorAll<T>(
+	getTrigger<T extends HTMLElement>(instance: Constructor<T>): NodeListOf<T>;
+	getTrigger(): NodeListOf<HTMLElement>;
+	getTrigger(instance = HTMLElement) {
+		const triggers = this.querySelectorAll(
 			this.getAttribute("trigger") ?? "[data-trigger]",
 		);
+
+		for (const trigger of triggers) this.#validate(trigger, instance);
+
+		return triggers;
 	}
 
 	/**
@@ -70,16 +80,13 @@ export class Base extends HTMLElement {
 	 * @returns The element that matches the `content` selector.
 	 * @default this.querySelector("[data-content]")
 	 */
-	getContent<T extends HTMLElement = HTMLElement>(
-		instance: { new (): T } = HTMLElement as { new (): T },
-	): T {
-		const content = this.querySelector(
-			this.getAttribute("content") ?? "[data-content]",
+	getContent<T extends HTMLElement>(instance: Constructor<T>): T;
+	getContent(): HTMLElement;
+	getContent(instance = HTMLElement) {
+		return this.#validate(
+			this.querySelector(this.getAttribute("content") ?? "[data-content]"),
+			instance,
 		);
-
-		if (content instanceof instance) return content;
-
-		throw new Error("Content not found");
 	}
 
 	/**
@@ -196,5 +203,17 @@ export class Base extends HTMLElement {
 	disconnectedCallback() {
 		this.destroy();
 		this.#listenerController.abort();
+	}
+
+	/**
+	 * @param actual Element to validate.
+	 * @param expected Constructor of the expected element.
+	 * @returns If valid returns `actual` otherwise throws `TypeError`.
+	 */
+	#validate<T extends HTMLElement>(actual: unknown, expected: Constructor<T>) {
+		if (!(actual instanceof expected))
+			throw new TypeError(`${actual} is not an instance of ${expected.name}.`);
+
+		return actual;
 	}
 }

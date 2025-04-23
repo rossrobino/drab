@@ -1,4 +1,4 @@
-Defined in: [announcer/index.ts:36](https://github.com/rossrobino/components/blob/main/packages/drab/src/announcer/index.ts#L36)
+Defined in: [announcer/index.ts:38](https://github.com/rossrobino/components/blob/main/packages/drab/src/announcer/index.ts#L38)
 
 Use the `Announcer` element to create a visually hidden ARIA live region
 that announces content changes to screen readers. Use this element when you
@@ -10,6 +10,8 @@ It's recommended to create this element with JavaScript using the `Announcer.ini
 then you can reuse the same announcer throughout the application to
 [avoid duplicate regions](https://www.sarasoueidan.com/blog/accessible-notifications-with-aria-live-regions-part-2/#limit-the-number-of-live-regions-on-the-page)
 (see below).
+
+### Attributes
 
 `aria-live`
 
@@ -44,7 +46,7 @@ announcer.announce("message");
 
 > **new Announcer**(): `Announcer`
 
-Defined in: [announcer/index.ts:37](https://github.com/rossrobino/components/blob/main/packages/drab/src/announcer/index.ts#L37)
+Defined in: [announcer/index.ts:39](https://github.com/rossrobino/components/blob/main/packages/drab/src/announcer/index.ts#L39)
 
 #### Returns
 
@@ -62,7 +64,7 @@ Defined in: [announcer/index.ts:37](https://github.com/rossrobino/components/blo
 
 > **announce**(`message`): `void`
 
-Defined in: [announcer/index.ts:58](https://github.com/rossrobino/components/blob/main/packages/drab/src/announcer/index.ts#L58)
+Defined in: [announcer/index.ts:60](https://github.com/rossrobino/components/blob/main/packages/drab/src/announcer/index.ts#L60)
 
 #### Parameters
 
@@ -84,7 +86,7 @@ message to announce to screen readers
 
 > **connectedCallback**(): `void`
 
-Defined in: [announcer/index.ts:41](https://github.com/rossrobino/components/blob/main/packages/drab/src/announcer/index.ts#L41)
+Defined in: [announcer/index.ts:43](https://github.com/rossrobino/components/blob/main/packages/drab/src/announcer/index.ts#L43)
 
 #### Returns
 
@@ -98,7 +100,7 @@ Defined in: [announcer/index.ts:41](https://github.com/rossrobino/components/blo
 
 > `static` **init**(): `Announcer`
 
-Defined in: [announcer/index.ts:75](https://github.com/rossrobino/components/blob/main/packages/drab/src/announcer/index.ts#L75)
+Defined in: [announcer/index.ts:77](https://github.com/rossrobino/components/blob/main/packages/drab/src/announcer/index.ts#L77)
 
 Helper method to create a new `Announcer` element named `drab-announcer`
 and append the element to the `<body>` tag. If an announcer already exists

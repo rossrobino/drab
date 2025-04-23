@@ -9,6 +9,8 @@ type IntersectCallback = () => any;
  *
  * Use `onIntersect` and `onExit` to customize further with JavaScript.
  *
+ * ### Attributes
+ *
  * `threshold`
  *
  * Specify a `threshold` between `0` and `1` to determine how much of the `trigger` should be visible for the intersection to occur.

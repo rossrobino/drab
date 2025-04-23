@@ -69,7 +69,7 @@
 	--radius-4xl: calc(var(--border-radius) * 5.33);
 }
 
-@layer theme {
+@layer base {
 	:root {
 		--base: #6b7280;
 
@@ -86,10 +86,10 @@
 		--shiki-token-punctuation: var(--color-base-300);
 		--shiki-token-link: var(--color-base-300);
 	}
-}
 
-@layer base {
 	* {
+		border-color: light-dark(var(--base-300), var(--base-700));
+
 		scroll-padding-block-start: calc(var(--spacing) * 20);
 		@media (min-width: 1024px) {
 			scroll-padding-block-start: calc(var(--spacing) * 4);

@@ -1,6 +1,23 @@
-Defined in: [editor/index.ts:54](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L54)
+Defined in: [editor/index.ts:62](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L62)
 
 Enhances the `textarea` element with controls to add content and keyboard shortcuts. Compared to other WYSIWYG editors, the `text` value is just a `string`, so you can easily store it in a database or manipulate it without learning a separate API.
+
+- Automatically adds closing characters for `keyPairs`. For example, when
+  typing `(`, `)` will be inserted and typed over when reached. All content
+  with `data-type="wrap"` is also added to `keyPairs`.
+- Highlights the first word of the text inserted if it contains letters.
+- Automatically increments/decrements ordered lists.
+- Adds the starting character to the next line for `block` content.
+- On double click, highlight is corrected to only highlight the current word
+  without space around it.
+- `tab` key will indent or dedent (+shift) instead of focus change if the
+  selection is within a code block (three backticks).
+- When text is highlighted and a `wrap` character `keyPair` is typed, the
+  highlighted text will be wrapped with the character instead of removing it.
+  For example, if a word is highlighted and the `"` character is typed, the
+  work will be surrounded by `"`s.
+
+### Trigger attributes
 
 `data-value`
 
@@ -18,16 +35,6 @@ Set the `data-type` attribute of the `trigger` to specify how the content should
 
 Add a `ctrl`/`meta` keyboard shortcut for the content based on the `data-key` attribute.
 
-Other features:
-
-- Automatically adds closing characters for `keyPairs`. For example, when typing `(`, `)` will be inserted and typed over when reached. All content with `data-type="wrap"` is also added to `keyPairs`.
-- Highlights the first word of the text inserted if it contains letters.
-- Automatically increments/decrements ordered lists.
-- Adds the starting character to the next line for `block` content.
-- On double click, highlight is corrected to only highlight the current word without space around it.
-- `tab` key will indent or dedent (+shift) instead of focus change if the selection is within a code block (three backticks).
-- When text is highlighted and a `wrap` character `keyPair` is typed, the highlighted text will be wrapped with the character instead of removing it. For example, if a word is highlighted and the `"` character is typed, the work will be surrounded by `"`s.
-
 ## Extends
 
 - [`Base`](/elements/base/)
@@ -40,7 +47,7 @@ Other features:
 
 > **new Editor**(): `Editor`
 
-Defined in: [editor/index.ts:73](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L73)
+Defined in: [editor/index.ts:81](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L81)
 
 #### Returns
 
@@ -58,7 +65,7 @@ Defined in: [editor/index.ts:73](https://github.com/rossrobino/components/blob/m
 
 > **keyPairs**: `Record`\<`string`, `string`\>
 
-Defined in: [editor/index.ts:64](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L64)
+Defined in: [editor/index.ts:72](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L72)
 
 Characters that will be automatically closed when typed.
 
@@ -72,7 +79,7 @@ Characters that will be automatically closed when typed.
 
 > **get** **event**(): keyof `HTMLElementEventMap`
 
-Defined in: [base/index.ts:42](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L42)
+Defined in: [base/index.ts:44](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L44)
 
 Event for the `trigger` to execute.
 
@@ -92,7 +99,7 @@ keyof `HTMLElementEventMap`
 
 > **set** **event**(`value`): `void`
 
-Defined in: [base/index.ts:46](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L46)
+Defined in: [base/index.ts:48](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L48)
 
 ##### Parameters
 
@@ -118,7 +125,7 @@ keyof `HTMLElementEventMap`
 
 > **get** **text**(): `string`
 
-Defined in: [editor/index.ts:88](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L88)
+Defined in: [editor/index.ts:96](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L96)
 
 The current `value` of the `textarea`.
 
@@ -130,7 +137,7 @@ The current `value` of the `textarea`.
 
 > **set** **text**(`value`): `void`
 
-Defined in: [editor/index.ts:92](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L92)
+Defined in: [editor/index.ts:100](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L100)
 
 ##### Parameters
 
@@ -152,7 +159,7 @@ Defined in: [editor/index.ts:92](https://github.com/rossrobino/components/blob/m
 
 > **get** **textArea**(): `HTMLTextAreaElement`
 
-Defined in: [editor/index.ts:83](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L83)
+Defined in: [editor/index.ts:91](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L91)
 
 The `content`, expects an `HTMLTextAreaElement`.
 
@@ -168,7 +175,7 @@ The `content`, expects an `HTMLTextAreaElement`.
 
 > **announce**(`message`): `void`
 
-Defined in: [base/index.ts:53](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L53)
+Defined in: [base/index.ts:55](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L55)
 
 #### Parameters
 
@@ -194,7 +201,7 @@ message to announce to screen readers
 
 > **connectedCallback**(): `void`
 
-Defined in: [base/index.ts:186](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L186)
+Defined in: [base/index.ts:193](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L193)
 
 Called when custom element is added to the page.
 
@@ -214,7 +221,7 @@ Called when custom element is added to the page.
 
 > **destroy**(): `void`
 
-Defined in: [base/index.ts:193](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L193)
+Defined in: [base/index.ts:200](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L200)
 
 Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallback` as well. It is overridden in each element that needs to run `disconnectedCallback`.
 
@@ -234,7 +241,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 > **disconnectedCallback**(): `void`
 
-Defined in: [base/index.ts:196](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L196)
+Defined in: [base/index.ts:203](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L203)
 
 Called when custom element is removed from the page.
 
@@ -252,38 +259,62 @@ Called when custom element is removed from the page.
 
 ### getContent()
 
+#### Call Signature
+
 > **getContent**\<`T`\>(`instance`): `T`
 
-Defined in: [base/index.ts:73](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L73)
+Defined in: [base/index.ts:83](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L83)
 
-#### Type Parameters
+##### Type Parameters
 
-##### T
+###### T
 
-`T` _extends_ `HTMLElement` = `HTMLElement`
+`T` _extends_ `HTMLElement`
 
-#### Parameters
+##### Parameters
 
-##### instance
+###### instance
 
-() => `T`
+`Constructor`\<`T`\>
 
 The instance of the desired element to validate against,
 ex: `HTMLDialogElement`. Defaults to `HTMLElement`.
 
-#### Returns
+##### Returns
 
 `T`
 
 The element that matches the `content` selector.
 
-#### Default
+##### Default
 
 ```ts
 this.querySelector("[data-content]");
 ```
 
-#### Inherited from
+##### Inherited from
+
+[`Base`](/elements/base/).[`getContent`](/elements/base/#getcontent)
+
+#### Call Signature
+
+> **getContent**(): `HTMLElement`
+
+Defined in: [base/index.ts:84](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L84)
+
+##### Returns
+
+`HTMLElement`
+
+The element that matches the `content` selector.
+
+##### Default
+
+```ts
+this.querySelector("[data-content]");
+```
+
+##### Inherited from
 
 [`Base`](/elements/base/).[`getContent`](/elements/base/#getcontent)
 
@@ -293,29 +324,62 @@ this.querySelector("[data-content]");
 
 ### getTrigger()
 
-> **getTrigger**\<`T`\>(): `NodeListOf`\<`T`\>
+#### Call Signature
 
-Defined in: [base/index.ts:61](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L61)
+> **getTrigger**\<`T`\>(`instance`): `NodeListOf`\<`T`\>
 
-#### Type Parameters
+Defined in: [base/index.ts:65](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L65)
 
-##### T
+##### Type Parameters
 
-`T` _extends_ `HTMLElement` = `HTMLElement`
+###### T
 
-#### Returns
+`T` _extends_ `HTMLElement`
+
+##### Parameters
+
+###### instance
+
+`Constructor`\<`T`\>
+
+The instance of the desired element to validate against,
+ex: `HTMLButtonElement`. Defaults to `HTMLElement`.
+
+##### Returns
 
 `NodeListOf`\<`T`\>
 
 All of the elements that match the `trigger` selector.
 
-#### Default
+##### Default
 
 ```ts
 this.querySelectorAll("[data-trigger]");
 ```
 
-#### Inherited from
+##### Inherited from
+
+[`Base`](/elements/base/).[`getTrigger`](/elements/base/#gettrigger)
+
+#### Call Signature
+
+> **getTrigger**(): `NodeListOf`\<`HTMLElement`\>
+
+Defined in: [base/index.ts:66](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L66)
+
+##### Returns
+
+`NodeListOf`\<`HTMLElement`\>
+
+All of the elements that match the `trigger` selector.
+
+##### Default
+
+```ts
+this.querySelectorAll("[data-trigger]");
+```
+
+##### Inherited from
 
 [`Base`](/elements/base/).[`getTrigger`](/elements/base/#gettrigger)
 
@@ -327,7 +391,7 @@ this.querySelectorAll("[data-trigger]");
 
 > **mount**(): `void`
 
-Defined in: [editor/index.ts:287](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L287)
+Defined in: [editor/index.ts:295](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L295)
 
 Passed into `queueMicrotask` in `connectedCallback`. It is overridden in each component that needs to run `connectedCallback`.
 
@@ -351,7 +415,7 @@ The reason for this is to make these elements work better with frameworks like S
 
 > **safeListener**\<`T`\>(`type`, `listener`, `element?`, `options?`): `void`
 
-Defined in: [base/index.ts:137](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L137)
+Defined in: [base/index.ts:144](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L144)
 
 Wrapper around `addEventListener` that ensures when the element is
 removed from the DOM, these event listeners are cleaned up.
@@ -398,7 +462,7 @@ Other options sans `signal`.
 
 > **safeListener**\<`T`\>(`type`, `listener`, `document`, `options?`): `void`
 
-Defined in: [base/index.ts:143](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L143)
+Defined in: [base/index.ts:150](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L150)
 
 Wrapper around `addEventListener` that ensures when the element is
 removed from the DOM, these event listeners are cleaned up.
@@ -445,7 +509,7 @@ Other options sans `signal`.
 
 > **safeListener**\<`T`\>(`type`, `listener`, `window`, `options?`): `void`
 
-Defined in: [base/index.ts:149](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L149)
+Defined in: [base/index.ts:156](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L156)
 
 Wrapper around `addEventListener` that ensures when the element is
 removed from the DOM, these event listeners are cleaned up.
@@ -496,7 +560,7 @@ Other options sans `signal`.
 
 > **swapContent**(`revert`): `void`
 
-Defined in: [base/index.ts:92](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L92)
+Defined in: [base/index.ts:99](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L99)
 
 Finds the `HTMLElement | HTMLTemplateElement` via the `swap` selector and
 swaps `this.content()` with the content of the element found.
@@ -526,7 +590,7 @@ default: `800`
 
 > **triggerListener**\<`T`, `K`\>(`listener`, `type`, `options?`): `void`
 
-Defined in: [base/index.ts:168](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L168)
+Defined in: [base/index.ts:175](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L175)
 
 #### Type Parameters
 

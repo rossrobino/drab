@@ -13,6 +13,8 @@ export type DialogAttributes = BaseAttributes & {
  * By default, the `HTMLDialogElement` doesn't close if the user clicks outside of it.
  * Add a `click-outside-close` attribute to close when the user clicks outside.
  *
+ * ### Attributes
+ *
  * `remove-body-scroll`
  *
  * Add the `remove-body-scroll` attribute to remove the scroll from `document.body` when the dialog

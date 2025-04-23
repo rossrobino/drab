@@ -25,6 +25,10 @@ export class TableSort extends Base {
 		super();
 	}
 
+	get #th() {
+		return this.getTrigger(HTMLTableCellElement);
+	}
+
 	/**
 	 * Removes `data-asc` or `data-desc` from other triggers then sets the correct attribute on the selected trigger.
 	 *
@@ -35,7 +39,7 @@ export class TableSort extends Base {
 		const asc = "data-asc";
 		const desc = "data-desc";
 
-		for (const t of this.getTrigger()) {
+		for (const t of this.getTrigger(HTMLTableCellElement)) {
 			if (t !== trigger) {
 				t.removeAttribute(asc);
 				t.removeAttribute(desc);
@@ -57,7 +61,7 @@ export class TableSort extends Base {
 	override mount() {
 		const tbody = this.getContent(HTMLTableSectionElement);
 
-		for (const trigger of this.getTrigger()) {
+		for (const trigger of this.#th) {
 			trigger.tabIndex = 0;
 			trigger.role = "button";
 

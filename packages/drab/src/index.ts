@@ -9,5 +9,6 @@ export * from "./intersect/index.js";
 export * from "./prefetch/index.js";
 export * from "./share/index.js";
 export * from "./tablesort/index.js";
+export * from "./tabs/index.js";
 export * from "./wakelock/index.js";
 export * from "./youtube/index.js";

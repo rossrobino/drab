@@ -11,6 +11,7 @@
 - [Prefetch](/PUBLIC_PATH/classes/Prefetch.md)
 - [Share](/PUBLIC_PATH/classes/Share.md)
 - [TableSort](/PUBLIC_PATH/classes/TableSort.md)
+- [Tabs](/PUBLIC_PATH/classes/Tabs.md)
 - [WakeLock](/PUBLIC_PATH/classes/WakeLock.md)
 - [YouTube](/PUBLIC_PATH/classes/YouTube.md)
 
@@ -27,6 +28,7 @@
 - [IntersectAttributes](/PUBLIC_PATH/type-aliases/IntersectAttributes.md)
 - [PrefetchAttributes](/PUBLIC_PATH/type-aliases/PrefetchAttributes.md)
 - [ShareAttributes](/PUBLIC_PATH/type-aliases/ShareAttributes.md)
+- [TabAttributes](/PUBLIC_PATH/type-aliases/TabAttributes.md)
 - [TableSortAttributes](/PUBLIC_PATH/type-aliases/TableSortAttributes.md)
 - [TableSortTriggerAttributes](/PUBLIC_PATH/type-aliases/TableSortTriggerAttributes.md)
 - [WakeLockAttributes](/PUBLIC_PATH/type-aliases/WakeLockAttributes.md)

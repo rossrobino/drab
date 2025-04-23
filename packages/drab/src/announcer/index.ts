@@ -12,6 +12,8 @@ import { define } from "../util/define.js";
  * [avoid duplicate regions](https://www.sarasoueidan.com/blog/accessible-notifications-with-aria-live-regions-part-2/#limit-the-number-of-live-regions-on-the-page)
  * (see below).
  *
+ * ### Attributes
+ *
  * `aria-live`
  *
  * By default, the announcer is created with the
