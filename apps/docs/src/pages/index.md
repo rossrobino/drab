@@ -1,12 +1,10 @@
 # Interactivity for You
 
-drab is a JavaScript library of interactive custom elements that can be used on any website.
+drab is a JavaScript library of interactive custom elements designed to work on any website.
 
 ## Write JavaScript, or don't
 
-- The library can be [installed](http://drab.robino.dev/getting-started/#install) as a package (recommended), or utilized without writing any JavaScript by adding a `<script>` tag to your document.
-- You provide the HTML, these elements can take advantage of what templating frameworks excel at---creating reusable markup that can be server side rendered.
-- Each element can be configured using HTML attributes, making it possible to use an alternative language for your backend. Here's an example of a button that toggles the Fullscreen API.
+drab adds interactivity by enhancing your markup with JavaScript. Each element is configured using HTML attributes, making it compatible with any backend or templating system. For example, this button toggles fullscreen mode:
 
 ```html
 <drab-fullscreen>
@@ -14,15 +12,13 @@ drab is a JavaScript library of interactive custom elements that can be used on 
 </drab-fullscreen>
 ```
 
-## Built on the web platform
+## Features
 
 - Each element is a [custom element](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements). So you can use them [with a framework](/getting-started/#frameworks), without one, or directly in a markdown file. These components will work [regardless of your project's architecture](https://jakelazaroff.com/words/web-components-will-outlive-your-javascript-framework/).
-- drab does _not_ use the [shadow DOM](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM), so you can style content within these elements as usual with CSS.
-- Each element can be imported, extended, named, and used however you see fit.
-
-## Minimal bundle size
-
-- drab is [small](https://bundlephobia.com/package/drab), has zero dependencies, and is not built on top of web component framework.
+- drab does **_not_** use the [shadow DOM](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM), so you can style content within these elements as usual with CSS.
+- If you are writing JavaScript, each element can be imported, extended, named, and used however you see fit.
+- The library is [small](https://bundlephobia.com/package/drab), with zero dependencies.
+- drab is not built on top of a web component framework.
 
 ---
 
@@ -30,7 +26,7 @@ drab is a JavaScript library of interactive custom elements that can be used on 
 
 Find an bug or have an idea? Create an issue on [GitHub](https://github.com/rossrobino/drab).
 
-Since this is a headless library, simple elements like a badge that can be easily created with HTML and CSS are included in the JavaScript library, there are references to CSS only elements in the styles section. Elements such as a select, or a date picker are also not included in favor of the native HTML elements.
+Since this is a headless library, simple elements like a badge that can be easily created with HTML and CSS are included in the JavaScript library, there are references to [CSS only elements](/styles/details/) in the styles section. Elements such as a select, or a date picker are also not included in favor of the native HTML elements.
 
 ### Local Development
 

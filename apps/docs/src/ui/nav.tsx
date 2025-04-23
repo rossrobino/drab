@@ -50,7 +50,7 @@ export const Nav = (props: {
 					</button>
 					<dialog
 						data-content
-						class="bg-background backdrop:bg-muted/50 my-0 mr-auto ml-0 h-full max-h-screen w-full max-w-96 p-6 scheme-dark backdrop:opacity-0 backdrop:backdrop-blur backdrop:transition-opacity open:backdrop:opacity-100"
+						class="bg-background backdrop:bg-muted/50 my-0 mr-auto ml-0 h-full max-h-screen w-full max-w-96 p-6 backdrop:opacity-0 backdrop:backdrop-blur backdrop:transition-opacity open:backdrop:opacity-100"
 					>
 						<div class="mb-4 flex items-center justify-between">
 							<HomeLink />
@@ -75,7 +75,9 @@ export const Nav = (props: {
 
 	return (
 		<nav>
-			<HomeLink />
+			<div class="mb-2">
+				<HomeLink />
+			</div>
 			<NavLinks elements={elements} styles={styles} pathname={pathname} />
 		</nav>
 	);
@@ -89,14 +91,9 @@ export const NavLinks = (props: {
 	const { elements, styles, pathname } = props;
 
 	return (
-		<div class="flex h-[94%] flex-col gap-4">
+		<div class="flex flex-col gap-4">
 			<div>
 				<ul class="mt-2">
-					<li>
-						<NavLink href="/" pathname={pathname}>
-							Home
-						</NavLink>
-					</li>
 					<li>
 						<NavLink href="/getting-started/" pathname={pathname}>
 							Getting started

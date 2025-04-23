@@ -6,7 +6,10 @@ customElements.define(
 		connectedCallback() {
 			const h2 = document.createElement("h2");
 			h2.classList.add("mt-0", "text-lg", "mb-2");
-			h2.textContent = "On this page";
+			const top = document.createElement("a");
+			top.href = "#";
+			top.textContent = "On this page";
+			h2.append(top);
 
 			const ul = document.createElement("ul");
 			ul.classList.add("pl-0");

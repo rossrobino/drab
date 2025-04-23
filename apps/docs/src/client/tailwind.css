@@ -32,9 +32,6 @@
 
 	--font-sans: var(--font-family-sans);
 	--font-mono: var(--font-family-mono);
-	--font-antique:
-		Superclarendon, "Bookman Old Style", "URW Bookman", "URW Bookman L",
-		"Georgia Pro", Georgia, serif;
 	--font-old-style:
 		"Iowan Old Style", "Palatino Linotype", "URW Palladio L", P052, serif;
 
@@ -71,6 +68,7 @@
 
 @layer base {
 	:root {
+		--light-end: 0.1;
 		--base: #6b7280;
 
 		/* syntax highlighting */
@@ -89,11 +87,27 @@
 
 	* {
 		border-color: light-dark(var(--base-300), var(--base-700));
-
 		scroll-padding-block-start: calc(var(--spacing) * 20);
+		scrollbar-color: light-dark(var(--color-base-200), var(--color-base-800))
+			var(--color-background);
+
 		@media (min-width: 1024px) {
 			scroll-padding-block-start: calc(var(--spacing) * 4);
 		}
+	}
+
+	p code,
+	li code {
+		@apply border-base-200 dark:border-base-800 border shadow-xs;
+	}
+
+	.button,
+	button {
+		@apply shadow transition-transform active:scale-97 active:shadow-none dark:shadow-black/75;
+	}
+
+	.ghost {
+		@apply shadow-none;
 	}
 
 	h1,
@@ -102,13 +116,14 @@
 	h4,
 	h5,
 	h6 {
-		font-family: var(--font-antique);
+		@apply text-shadow-xs;
 	}
 
 	pre {
 		margin-inline: -1.5rem;
 		border-radius: 0;
 		padding-inline: 0;
+		@apply shadow-sm;
 
 		@media (min-width: 640px) {
 			margin-inline: 0;

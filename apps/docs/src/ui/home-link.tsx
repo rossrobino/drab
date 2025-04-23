@@ -1,5 +1,5 @@
 export const HomeLink = () => (
-	<a href="/" class="font-antique text-lg font-bold no-underline">
+	<a href="/" class="text-xl font-bold no-underline text-shadow-xs">
 		drab
 	</a>
 );

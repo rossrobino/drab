@@ -2,7 +2,7 @@
 
 ## Install
 
-You can install drab from [npm](https://www.npmjs.com/package/drab) and import the custom elements from the package.
+You can install drab from [npm](https://www.npmjs.com/package/drab) and import the custom elements from the package, or add a `<script>` tag that points to your preferred CDN.
 
 ```bash
 npm i drab

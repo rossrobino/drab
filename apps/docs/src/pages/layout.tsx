@@ -18,7 +18,7 @@ export const RootLayout = (props: {
 
 			<main class="lg:flex">
 				<div>
-					<div class="bg-background sticky top-0 z-10 hidden h-screen min-w-52 overflow-y-auto p-6 scheme-dark lg:block">
+					<div class="bg-background sticky top-0 z-10 hidden h-screen min-w-52 overflow-y-auto p-6 lg:block">
 						<Nav examples={examples} pathname={pathname} />
 					</div>
 				</div>
