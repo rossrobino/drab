@@ -101,6 +101,8 @@ const app = new Router({
 		c.redirect(c.url, 308);
 	});
 
+app.get("/styles/details/", (c) => c.redirect("/styles/accordion/", 301));
+
 app.prerender = ["/", "/getting-started/", ...exampleSubPaths];
 
 export default app;
