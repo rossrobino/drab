@@ -11,7 +11,7 @@
 	},
 	"devDependencies": {
 		"@domcojs/vercel": "^2.0.1",
-		"@robino/md": "^3.2.5",
+		"@robino/md": "^3.2.6",
 		"@tailwindcss/vite": "^4.1.4",
 		"domco": "^4.1.1",
 		"tailwindcss": "^4.1.4",

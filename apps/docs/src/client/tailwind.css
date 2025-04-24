@@ -88,8 +88,8 @@
 	* {
 		border-color: light-dark(var(--base-300), var(--base-700));
 		scroll-padding-block-start: calc(var(--spacing) * 20);
-		scrollbar-color: light-dark(var(--color-base-200), var(--color-base-800))
-			var(--color-background);
+		scrollbar-color: light-dark(var(--color-base-300), var(--color-base-700))
+			var(--color-muted);
 
 		@media (min-width: 1024px) {
 			scroll-padding-block-start: calc(var(--spacing) * 4);
@@ -115,32 +115,6 @@
 	}
 
 	pre {
-		margin-inline: -1.5rem;
-		border-radius: 0;
-		padding-inline: 0;
-		@apply shadow-sm;
-
-		@media (min-width: 640px) {
-			margin-inline: 0;
-			border-radius: var(--radius-md);
-		}
-
-		& > code {
-			/* wrapping codeblock */
-			display: flex;
-			flex-direction: column;
-			width: fit-content;
-			min-width: 100%;
-		}
-
-		& .line,
-		& p {
-			padding-inline: calc(var(--spacing) * 6);
-			height: 2.5ch;
-
-			&.highlighted {
-				background-color: var(--color-base-800);
-			}
-		}
+		margin: 0 !important;
 	}
 }

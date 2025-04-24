@@ -25,7 +25,7 @@ export const Docs = async (props: { name: string; demo: string }) => {
 	const install = elementMd
 		? (
 				await processor.process(
-					`\`\`\`ts\nimport "drab/${name}/define";\n\`\`\``,
+					`\`\`\`js\nimport "drab/${name}/define";\n\`\`\``,
 				)
 			).html
 		: "";

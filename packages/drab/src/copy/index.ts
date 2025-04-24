@@ -35,7 +35,7 @@ export class Copy extends Base {
 	 * @param value The `value` to copy
 	 */
 	copy(value = this.value) {
-		this.announce(`copied ${value} to clipboard`);
+		this.announce("copied text to clipboard");
 		this.swapContent();
 
 		return navigator.clipboard.writeText(value);

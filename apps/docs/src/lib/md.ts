@@ -1,3 +1,4 @@
+import { codeControls } from "./code-controls";
 import { Processor, type Options } from "@robino/md";
 import langAstro from "shiki/langs/astro.mjs";
 import langBash from "shiki/langs/bash.mjs";
@@ -19,6 +20,7 @@ export const options: Options = {
 			langAstro,
 		],
 	},
+	plugins: [codeControls],
 };
 
 export const processor = new Processor(options);

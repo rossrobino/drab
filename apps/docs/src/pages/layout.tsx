@@ -23,7 +23,7 @@ export const RootLayout = (props: {
 					</div>
 				</div>
 				<div class="w-full justify-center lg:flex">
-					<article id="content" class="max-w-[80ch] p-5">
+					<article id="content" class="m-6 max-w-[80ch]">
 						{children}
 						<hr class="my-8" />
 					</article>
