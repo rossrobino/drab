@@ -40,10 +40,10 @@ const Copy = (value: string) =>
 		aria-label="copy code to clipboard"
 	>
 		<span data-content>
-			<div class="icon-[lucide--clipboard-copy]"></div>
+			<span class="icon-[lucide--clipboard-copy]"></span>
 		</span>
 		<template data-swap>
-			<div class="icon-[lucide--clipboard-check]"></div>
+			<span class="icon-[lucide--clipboard-check]"></span>
 		</template>
 	</button>
 </drab-copy>
