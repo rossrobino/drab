@@ -21,6 +21,10 @@ export type DialogAttributes = BaseAttributes & {
  * is open.
  */
 export class Dialog extends Base {
+	#initialBodyMarginRight = parseInt(
+		getComputedStyle(document.body).marginRight,
+	);
+
 	constructor() {
 		super();
 	}
@@ -33,17 +37,13 @@ export class Dialog extends Base {
 	/** Remove scroll from the body when open with the `remove-body-scroll` attribute. */
 	#toggleBodyScroll(show: boolean) {
 		if (this.hasAttribute("remove-body-scroll")) {
-			const initialBodyMarginRight = parseInt(
-				getComputedStyle(document.body).marginRight,
-			);
-
 			document.body.style.marginRight = `${
 				show
-					? initialBodyMarginRight +
+					? this.#initialBodyMarginRight +
 						// scrollbar width
 						window.innerWidth -
 						document.documentElement.clientWidth
-					: initialBodyMarginRight
+					: this.#initialBodyMarginRight
 			}px`;
 			document.body.style.overflow = show ? "hidden" : "";
 		}

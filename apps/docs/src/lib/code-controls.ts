@@ -17,12 +17,10 @@ export const codeControls: PluginSimple = (md: MarkdownIt) => {
 		const escaped = escape(token.content, true);
 
 		return /* html */ `
-<div class="bg-base-900 rounded-none sm:rounded-md my-6 -mx-6 sm:mx-0">
-	<div class="flex justify-between items-center pt-px px-2 border-b border-base-800 gap-2">
+<div class="bg-base-800 rounded-none sm:rounded-md my-6 -mx-6 sm:mx-0">
+	<div class="flex justify-between items-center pt-px px-4 sm:px-2 border-b border-base-700 gap-2">
 		<div class="font-mono px-2 text-base-100 text-sm">${lang}</div>
-		<div class="flex gap-2">
-			${Copy(escaped)}
-		</div>
+		${Copy(escaped)}
 	</div>
 	${code}
 </div>
@@ -36,7 +34,7 @@ const Copy = (value: string) =>
 	<button
 		data-trigger
 		type="button"
-		class="icon ghost bg-base-900 text-base-100"
+		class="icon ghost bg-base-800 text-base-100"
 		aria-label="copy code to clipboard"
 	>
 		<span data-content class="contents">

@@ -149,7 +149,7 @@ const NavLink = (props: JSX.IntrinsicElements["a"] & { pathname: string }) => {
 	return (
 		<a
 			href={href}
-			class={`${className} ${pathname === href ? "secondary" : "ghost"} button my-1 justify-start`}
+			class={`${className} ${pathname === href ? "secondary font-bold" : "ghost"} button my-1 justify-start`}
 			{...rest}
 		>
 			{children}
