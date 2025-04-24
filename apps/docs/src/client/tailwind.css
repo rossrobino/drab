@@ -118,7 +118,7 @@
 @layer components {
 	pre {
 		margin: 0;
-		@apply px-6 sm:px-4;
+		@apply rounded-none px-6 sm:rounded-b-sm sm:px-4;
 	}
 
 	blockquote {
