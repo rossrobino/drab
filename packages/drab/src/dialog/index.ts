@@ -21,11 +21,6 @@ export type DialogAttributes = BaseAttributes & {
  * is open.
  */
 export class Dialog extends Base {
-	/** The initial margin-right value of the body element. */
-	#initialBodyMarginRight = parseInt(
-		getComputedStyle(document.body).marginRight,
-	);
-
 	constructor() {
 		super();
 	}
@@ -38,25 +33,29 @@ export class Dialog extends Base {
 	/** Remove scroll from the body when open with the `remove-body-scroll` attribute. */
 	#toggleBodyScroll(show: boolean) {
 		if (this.hasAttribute("remove-body-scroll")) {
+			const initialBodyMarginRight = parseInt(
+				getComputedStyle(document.body).marginRight,
+			);
+
 			document.body.style.marginRight = `${
 				show
-					? this.#initialBodyMarginRight +
+					? initialBodyMarginRight +
 						// scrollbar width
 						window.innerWidth -
 						document.documentElement.clientWidth
-					: this.#initialBodyMarginRight
+					: initialBodyMarginRight
 			}px`;
 			document.body.style.overflow = show ? "hidden" : "";
 		}
 	}
 
-	/** `HTMLDialogElement.showModal()` with animation. */
+	/** Wraps `HTMLDialogElement.showModal()`. */
 	show() {
 		this.dialog.showModal();
 		this.#toggleBodyScroll(true);
 	}
 
-	/** `HTMLDialogElement.close()` with animation. */
+	/** Wraps `HTMLDialogElement.close()`. */
 	close() {
 		this.#toggleBodyScroll(false);
 		this.dialog.close();
@@ -73,7 +72,6 @@ export class Dialog extends Base {
 
 		this.safeListener("keydown", (e) => {
 			if (e.key === "Escape" && this.dialog.open) {
-				// to execute animation
 				e.preventDefault();
 				this.close();
 			}

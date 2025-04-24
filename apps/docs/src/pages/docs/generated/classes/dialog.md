@@ -26,7 +26,7 @@ is open.
 
 > **new Dialog**(): `Dialog`
 
-Defined in: [packages/drab/src/dialog/index.ts:29](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L29)
+Defined in: [packages/drab/src/dialog/index.ts:24](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L24)
 
 #### Returns
 
@@ -46,7 +46,7 @@ Defined in: [packages/drab/src/dialog/index.ts:29](https://github.com/rossrobino
 
 > **get** **dialog**(): `HTMLDialogElement`
 
-Defined in: [packages/drab/src/dialog/index.ts:34](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L34)
+Defined in: [packages/drab/src/dialog/index.ts:29](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L29)
 
 The `HTMLDialogElement` within the element.
 
@@ -134,9 +134,9 @@ message to announce to screen readers
 
 > **close**(): `void`
 
-Defined in: [packages/drab/src/dialog/index.ts:60](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L60)
+Defined in: [packages/drab/src/dialog/index.ts:59](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L59)
 
-`HTMLDialogElement.close()` with animation.
+Wraps `HTMLDialogElement.close()`.
 
 #### Returns
 
@@ -340,7 +340,7 @@ this.querySelectorAll("[data-trigger]");
 
 > **mount**(): `void`
 
-Defined in: [packages/drab/src/dialog/index.ts:71](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L71)
+Defined in: [packages/drab/src/dialog/index.ts:70](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L70)
 
 Passed into `queueMicrotask` in `connectedCallback`.
 It is overridden in each component that needs to run `connectedCallback`.
@@ -514,9 +514,9 @@ Other options sans `signal`.
 
 > **show**(): `void`
 
-Defined in: [packages/drab/src/dialog/index.ts:54](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L54)
+Defined in: [packages/drab/src/dialog/index.ts:53](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L53)
 
-`HTMLDialogElement.showModal()` with animation.
+Wraps `HTMLDialogElement.showModal()`.
 
 #### Returns
 
@@ -560,7 +560,7 @@ default: `800`
 
 > **toggle**(): `void`
 
-Defined in: [packages/drab/src/dialog/index.ts:66](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L66)
+Defined in: [packages/drab/src/dialog/index.ts:65](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L65)
 
 `show` or `close` depending on the dialog's `open` attribute.
 
