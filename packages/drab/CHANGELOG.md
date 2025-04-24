@@ -1,5 +1,11 @@
 # drab
 
+## 6.4.1
+
+### Patch Changes
+
+- 4899b76: fix: dialog regression body margin bug
+
 ## 6.4.0
 
 ### Minor Changes
