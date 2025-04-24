@@ -30,7 +30,9 @@ The examples in this documentation are styled with Tailwind and [uico](https://u
 
 ## Frameworks
 
-drab can be utilized in [any framework that supports custom elements](https://custom-elements-everywhere.com/). If you are using a server-side rendering (SSR) framework and are installing the elements instead of using a CDN/script tag, you will need to ensure the element's code only runs on the client. Here are a few examples on how to do this in popular JavaScript frameworks with functions like `onMount` or `useEffect`. If you aren't using a SSR framework, you can omit these wrappers since the code will only run on the client.
+drab can be utilized in [any framework that supports custom elements](https://custom-elements-everywhere.com/). If you are using a server-side rendering (SSR) framework, you will need to ensure the element's code only runs on the client.
+
+Here are a few examples on how to do this in popular JavaScript frameworks with functions like `onMount` or `useEffect`. If you aren't using a SSR framework, you can omit these wrappers since the code will only run on the client.
 
 _\*If you see a better way to write any of these examples or a framework that is missing, please [create an issue or pull request](https://github.com/rossrobino/drab/issues)!_
 
