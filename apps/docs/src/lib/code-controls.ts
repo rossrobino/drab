@@ -39,7 +39,7 @@ const Copy = (value: string) =>
 		class="icon ghost bg-base-900 text-base-100"
 		aria-label="copy code to clipboard"
 	>
-		<span data-content>
+		<span data-content class="contents">
 			<span class="icon-[lucide--clipboard-copy]"></span>
 		</span>
 		<template data-swap>
