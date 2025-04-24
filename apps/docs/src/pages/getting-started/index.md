@@ -90,10 +90,14 @@ export default function Dialog() {
 ```ts
 // add a .d.ts file
 import type { DialogAttributes } from "drab";
+import type { ReactNode, HTMLAttributes } from "react";
 
-declare namespace JSX {
-	interface IntrinsicElements {
-		"drab-dialog": DialogAttributes & { children: ReactNode };
+declare module "react" {
+	namespace JSX {
+		interface IntrinsicElements {
+			"drab-dialog": DialogAttributes &
+				HTMLAttributes<HTMLElement> & { children?: ReactNode };
+		}
 	}
 }
 ```
@@ -105,8 +109,8 @@ declare namespace JSX {
 import { onMount } from "solid-js";
 
 export default function Dialog() {
-	onMount(async () => {
-		await import("drab/dialog/define");
+	onMount(() => {
+		import("drab/dialog/define");
 	});
 
 	return <drab-dialog>...</drab-dialog>;
@@ -117,7 +121,6 @@ export default function Dialog() {
 // global.d.ts
 /// <reference types="@solidjs/start/env" />
 import type { DialogAttributes } from "drab";
-import "solid-js";
 
 declare module "solid-js" {
 	namespace JSX {
@@ -136,8 +139,8 @@ declare module "solid-js" {
 	import { onMount } from "svelte";
 	import type { DialogAttributes } from "drab/dialog";
 
-	onMount(async () => {
-		await import("drab/dialog/define");
+	onMount(() => {
+		import("drab/dialog/define");
 	});
 
 	const dialogProps: DialogAttributes = {
@@ -153,8 +156,8 @@ declare module "solid-js" {
 ```vue
 <!-- dialog.vue -->
 <script setup>
-onMounted(async () => {
-	await import("drab/dialog/define");
+onMounted(() => {
+	import("drab/dialog/define");
 });
 </script>
 
