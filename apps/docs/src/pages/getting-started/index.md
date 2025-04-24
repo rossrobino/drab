@@ -85,7 +85,7 @@ export default function Dialog() {
 		import("drab/dialog/define");
 	}, []);
 
-	return <drab-dialog {...attributes}>...</drab-dialog>;
+	return <drab-dialog>...</drab-dialog>;
 }
 ```
 
