@@ -113,8 +113,14 @@
 	h1 {
 		@apply text-shadow-xs;
 	}
+}
 
+@layer components {
 	pre {
-		margin: 0 !important;
+		margin: 0;
+	}
+
+	blockquote {
+		padding: 0;
 	}
 }
