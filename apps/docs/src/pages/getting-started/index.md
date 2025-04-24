@@ -90,7 +90,7 @@ export default function Dialog() {
 ```
 
 ```ts
-// add a .d.ts file
+// elements.d.ts (somewhere within tsconfig.include)
 import type { DialogAttributes } from "drab";
 import type { ReactNode, HTMLAttributes } from "react";
 
