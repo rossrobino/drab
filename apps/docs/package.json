@@ -11,6 +11,8 @@
 	},
 	"devDependencies": {
 		"@domcojs/vercel": "^2.0.1",
+		"@iconify-json/lucide": "^1.2.39",
+		"@iconify/tailwind4": "^1.0.6",
 		"@robino/md": "^3.2.6",
 		"@tailwindcss/vite": "^4.1.4",
 		"domco": "^4.1.1",
@@ -20,6 +22,6 @@
 	"dependencies": {
 		"drab": "*",
 		"ovr": "^1.2.3",
-		"uico": "^0.9.1"
+		"uico": "^0.10.1"
 	}
 }

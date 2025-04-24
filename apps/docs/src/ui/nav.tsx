@@ -31,22 +31,10 @@ export const Nav = (props: {
 					<button
 						data-trigger
 						type="button"
-						class="ghost"
+						class="ghost icon"
 						aria-label="open navigation dialog"
 					>
-						{/* bars-3 */}
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							viewBox="0 0 20 20"
-							fill="currentColor"
-							class="size-5"
-						>
-							<path
-								fill-rule="evenodd"
-								d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75ZM2 10a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 10Zm0 5.25a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z"
-								clip-rule="evenodd"
-							/>
-						</svg>
+						<span class="icon-[lucide--align-justify]"></span>
 					</button>
 					<dialog
 						data-content
@@ -54,16 +42,8 @@ export const Nav = (props: {
 					>
 						<div class="mb-4 flex items-center justify-between">
 							<HomeLink />
-							<button data-trigger class="ghost" aria-label="close">
-								{/* x-mark */}
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 20 20"
-									fill="currentColor"
-									class="size-5"
-								>
-									<path d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" />
-								</svg>
+							<button data-trigger class="ghost icon" aria-label="close">
+								<span class="icon-[lucide--x]"></span>
 							</button>
 						</div>
 						<NavLinks elements={elements} styles={styles} pathname={pathname} />
@@ -133,22 +113,7 @@ export const NavLinks = (props: {
 					aria-label="GitHub repository"
 					class="button icon ghost"
 				>
-					{/* github */}
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						width="20"
-						height="20"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						class="lucide lucide-github"
-					>
-						<path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-						<path d="M9 18c-4.51 2-5-2-7-2" />
-					</svg>
+					<span class="icon-[lucide--github]"></span>
 				</a>
 				<a
 					href="https://www.npmjs.com/package/drab"
