@@ -36,7 +36,7 @@ const Copy = (value: string) =>
 	<button
 		data-trigger
 		type="button"
-		class="icon bg-base-900"
+		class="icon ghost bg-base-900 text-base-100"
 		aria-label="copy code to clipboard"
 	>
 	<span data-content>

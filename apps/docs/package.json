@@ -15,11 +15,11 @@
 		"@tailwindcss/vite": "^4.1.4",
 		"domco": "^4.1.1",
 		"tailwindcss": "^4.1.4",
-		"vite": "^6.3.2"
+		"vite": "^6.3.3"
 	},
 	"dependencies": {
 		"drab": "*",
 		"ovr": "^1.2.3",
-		"uico": "^0.7.0"
+		"uico": "^0.9.0"
 	}
 }

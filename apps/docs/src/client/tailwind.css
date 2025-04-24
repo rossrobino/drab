@@ -68,28 +68,24 @@
 
 @layer base {
 	:root {
-		--light-end: 0.1;
 		--base: #6b7280;
 
-		/* syntax highlighting */
-		--shiki-foreground: var(--color-base-200);
-		--shiki-background: var(--color-base-900);
-		--shiki-token-constant: var(--color-base-50);
-		--shiki-token-string: oklch(0.901 0.058 230.902);
-		--shiki-token-comment: var(--color-base-400);
-		--shiki-token-keyword: oklch(0.855 0.138 181.071);
-		--shiki-token-parameter: var(--color-base-300);
-		--shiki-token-function: oklch(0.811 0.111 293.571);
-		--shiki-token-string-expression: oklch(0.901 0.058 230.902);
-		--shiki-token-punctuation: var(--color-base-300);
-		--shiki-token-link: var(--color-base-300);
+		--shiki-foreground: var(--base-100);
+		--shiki-background: var(--base-900);
+		--shiki-token-constant: var(--base-50);
+		--shiki-token-string: var(--base-300);
+		--shiki-token-comment: var(--base-400);
+		--shiki-token-keyword: var(--base-400);
+		--shiki-token-parameter: var(--base-300);
+		--shiki-token-function: var(--base-300);
+		--shiki-token-string-expression: var(--base-200);
+		--shiki-token-punctuation: var(--base-500);
+		--shiki-token-link: var(--base-300);
 	}
 
 	* {
 		border-color: light-dark(var(--base-300), var(--base-700));
 		scroll-padding-block-start: calc(var(--spacing) * 20);
-		scrollbar-color: light-dark(var(--color-base-300), var(--color-base-700))
-			var(--color-muted);
 
 		@media (min-width: 1024px) {
 			scroll-padding-block-start: calc(var(--spacing) * 4);
@@ -103,7 +99,7 @@
 
 	.button,
 	button {
-		@apply shadow transition-transform active:scale-97 active:shadow-none dark:shadow-black/75;
+		@apply shadow-xs transition-transform active:scale-99 active:shadow-none dark:shadow-black/75;
 	}
 
 	.ghost {
