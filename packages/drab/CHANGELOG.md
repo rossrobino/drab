@@ -1,5 +1,11 @@
 # drab
 
+## 6.5.1
+
+### Patch Changes
+
+- cd3477c: fix: add drab/tabs entry point
+
 ## 6.5.0
 
 ### Minor Changes
