@@ -34,6 +34,8 @@ drab can be utilized in [any framework that supports custom elements](https://cu
 
 Here are a few examples on how to do this in popular JavaScript frameworks with functions like `onMount` or `useEffect`. If you aren't using a SSR framework, you can omit these wrappers since the code will only run on the client.
 
+If you are using TypeScript, you can add a `d.ts` file within your `tsconfig.include` paths to extend the types of your framework's intrinsic elements to get autocomplete for attributes.
+
 _\*If you see a better way to write any of these examples or a framework that is missing, please [create an issue or pull request](https://github.com/rossrobino/drab/issues)!_
 
 ### Astro
@@ -90,7 +92,7 @@ export default function Dialog() {
 ```
 
 ```ts
-// elements.d.ts (somewhere within tsconfig.include)
+// drab.d.ts
 import type { DialogAttributes } from "drab";
 import type { ReactNode, HTMLAttributes } from "react";
 
@@ -139,18 +141,26 @@ declare module "solid-js" {
 <!-- dialog.svelte -->
 <script lang="ts">
 	import { onMount } from "svelte";
-	import type { DialogAttributes } from "drab/dialog";
 
 	onMount(() => {
 		import("drab/dialog/define");
 	});
-
-	const dialogProps: DialogAttributes = {
-		// ...
-	};
 </script>
 
-<drab-dialog {...dialogProps}>...</drab-dialog>
+<drab-dialog>...</drab-dialog>
+```
+
+```ts
+// drab.d.ts
+import { type DialogAttributes } from "drab";
+
+declare module "svelte/elements" {
+	export interface SvelteHTMLElements {
+		"drab-dialog": DialogAttributes & HTMLAttributes<HTMLElement>;
+	}
+}
+
+export {};
 ```
 
 ### Vue
