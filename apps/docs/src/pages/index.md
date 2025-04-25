@@ -1,10 +1,10 @@
 # Interactivity for You
 
-drab is a JavaScript library of interactive custom element primitives designed to work on any website.
+drab is a JavaScript library of interactive primitives designed to work on any website.
 
 ## Write JavaScript, or don't
 
-drab adds interactivity by enhancing your markup with JavaScript. Each element is configured using HTML attributes, making it compatible with any backend or templating system. For example, this button toggles fullscreen mode:
+drab adds interactivity by enhancing your markup with custom elements. Each element is configured using HTML attributes, making it compatible with any backend or templating system. For example, this button toggles fullscreen mode:
 
 ```html
 <drab-fullscreen>
