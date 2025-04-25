@@ -113,11 +113,6 @@
 	h1 {
 		@apply text-shadow-xs;
 	}
-
-	&::scroll-button(right) {
-		position-area: inline-end center;
-		content: "Next";
-	}
 }
 
 @layer components {
