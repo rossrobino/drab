@@ -8,12 +8,16 @@ export type DialogAttributes = BaseAttributes & {
 /**
  * Provides triggers for the `HTMLDialogElement`.
  *
+ * ### Attributes
+ *
  * `click-outside-close`
  *
  * By default, the `HTMLDialogElement` doesn't close if the user clicks outside of it.
  * Add a `click-outside-close` attribute to close when the user clicks outside.
  *
- * ### Attributes
+ * If the dialog covers the full viewport and this attribute is present, the first child
+ * of the dialog will be assumed to be the content of the dialog and the dialog will close
+ * if there is a click outside of the first child element.
  *
  * `remove-body-scroll`
  *
@@ -37,13 +41,14 @@ export class Dialog extends Base {
 	/** Remove scroll from the body when open with the `remove-body-scroll` attribute. */
 	#toggleBodyScroll(show: boolean) {
 		if (this.hasAttribute("remove-body-scroll")) {
-			document.body.style.marginRight = `${show
-				? this.#initialBodyMarginRight +
-				// scrollbar width
-				window.innerWidth -
-				document.documentElement.clientWidth
-				: this.#initialBodyMarginRight
-				}px`;
+			document.body.style.marginRight = `${
+				show
+					? this.#initialBodyMarginRight +
+						// scrollbar width
+						window.innerWidth -
+						document.documentElement.clientWidth
+					: this.#initialBodyMarginRight
+			}px`;
 			document.body.style.overflow = show ? "hidden" : "";
 		}
 	}
@@ -82,15 +87,13 @@ export class Dialog extends Base {
 				let rect = this.dialog.getBoundingClientRect();
 
 				// If dialog covers full viewport (with a small tolerance), use first child element for hit testing
-				const tolerance = 5; // 5px tolerance for rounding issues
+				// Example: https://picocss.com/docs/modal
 				if (
-					Math.abs(rect.width - window.innerWidth) <= tolerance &&
-					Math.abs(rect.height - window.innerHeight) <= tolerance
+					rect.width - window.innerWidth <= 5 && // 5px tolerance for rounding issues
+					rect.height - window.innerHeight <= 5 &&
+					this.dialog.firstElementChild
 				) {
-					const firstChild = this.dialog.firstElementChild;
-					if (firstChild) {
-						rect = firstChild.getBoundingClientRect();
-					}
+					rect = this.dialog.firstElementChild.getBoundingClientRect();
 				}
 
 				if (

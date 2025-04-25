@@ -1,5 +1,5 @@
-<div class="mb-4">
-	<drab-dialog click-outside-close class="contents">
+<div class="grid gap-4">
+	<drab-dialog click-outside-close>
 		<button data-trigger type="button">Right</button>
 		<dialog
 			data-content
@@ -20,26 +20,51 @@
 			</p>
 		</dialog>
 	</drab-dialog>
-</div>
 
-<drab-dialog remove-body-scroll class="contents">
-	<button data-trigger type="button">Center</button>
-	<dialog
-		data-content
-		class="bg-background backdrop:bg-muted/75 m-auto rounded-md border p-6 opacity-0 transition-[display,opacity] transition-discrete duration-500 backdrop:opacity-0 backdrop:backdrop-blur-lg backdrop:transition-[display,opacity] backdrop:transition-discrete backdrop:duration-500 open:opacity-100 open:backdrop:opacity-100 sm:max-w-96 starting:open:opacity-0 starting:open:backdrop:opacity-0"
-	>
-		<div class="mb-4 flex items-center justify-between">
-			<h2 class="my-0">Dialog</h2>
-			<button data-trigger class="ghost icon" aria-label="Close">
-				<span class="icon-[lucide--x]"></span>
-			</button>
-		</div>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-			veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-			commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-			velit esse cillum dolore eu fugiat nulla pariatur.
-		</p>
-	</dialog>
-</drab-dialog>
+	<drab-dialog remove-body-scroll>
+		<button data-trigger type="button">Center</button>
+		<dialog
+			data-content
+			class="bg-background backdrop:bg-muted/75 m-auto rounded-md border p-6 opacity-0 transition-[display,opacity] transition-discrete duration-500 backdrop:opacity-0 backdrop:backdrop-blur-lg backdrop:transition-[display,opacity] backdrop:transition-discrete backdrop:duration-500 open:opacity-100 open:backdrop:opacity-100 sm:max-w-96 starting:open:opacity-0 starting:open:backdrop:opacity-0"
+		>
+			<div class="mb-4 flex items-center justify-between">
+				<h2 class="my-0">Dialog</h2>
+				<button data-trigger class="ghost icon" aria-label="Close">
+					<span class="icon-[lucide--x]"></span>
+				</button>
+			</div>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+				veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+				commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+				velit esse cillum dolore eu fugiat nulla pariatur.
+			</p>
+		</dialog>
+	</drab-dialog>
+
+	<drab-dialog remove-body-scroll click-outside-close>
+		<button data-trigger type="button">Cover</button>
+		<dialog
+			data-content
+			class="bg-muted/75 h-full min-h-full w-full min-w-full p-6 backdrop-blur-lg"
+		>
+			<article class="bg-background h-full w-full rounded border p-6">
+				<div class="mb-4 flex items-center justify-between">
+					<h2 class="my-0">Dialog</h2>
+					<button data-trigger class="ghost icon" aria-label="Close">
+						<span class="icon-[lucide--x]"></span>
+					</button>
+				</div>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+					eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+					minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+					aliquip ex ea commodo consequat. Duis aute irure dolor in
+					reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+					pariatur.
+				</p>
+			</article>
+		</dialog>
+	</drab-dialog>
+</div>

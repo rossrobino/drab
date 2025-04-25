@@ -1,13 +1,17 @@
-Defined in: [packages/drab/src/dialog/index.ts:23](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L23)
+Defined in: [packages/drab/src/dialog/index.ts:27](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L27)
 
 Provides triggers for the `HTMLDialogElement`.
+
+### Attributes
 
 `click-outside-close`
 
 By default, the `HTMLDialogElement` doesn't close if the user clicks outside of it.
 Add a `click-outside-close` attribute to close when the user clicks outside.
 
-### Attributes
+If the dialog covers the full viewport and this attribute is present, the first child
+of the dialog will be assumed to be the content of the dialog and the dialog will close
+if there is a click outside of the first child element.
 
 `remove-body-scroll`
 
@@ -26,7 +30,7 @@ is open.
 
 > **new Dialog**(): `Dialog`
 
-Defined in: [packages/drab/src/dialog/index.ts:24](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L24)
+Defined in: [packages/drab/src/dialog/index.ts:32](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L32)
 
 #### Returns
 
@@ -46,7 +50,7 @@ Defined in: [packages/drab/src/dialog/index.ts:24](https://github.com/rossrobino
 
 > **get** **dialog**(): `HTMLDialogElement`
 
-Defined in: [packages/drab/src/dialog/index.ts:29](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L29)
+Defined in: [packages/drab/src/dialog/index.ts:37](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L37)
 
 The `HTMLDialogElement` within the element.
 
@@ -134,7 +138,7 @@ message to announce to screen readers
 
 > **close**(): `void`
 
-Defined in: [packages/drab/src/dialog/index.ts:59](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L59)
+Defined in: [packages/drab/src/dialog/index.ts:63](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L63)
 
 Wraps `HTMLDialogElement.close()`.
 
@@ -340,7 +344,7 @@ this.querySelectorAll("[data-trigger]");
 
 > **mount**(): `void`
 
-Defined in: [packages/drab/src/dialog/index.ts:70](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L70)
+Defined in: [packages/drab/src/dialog/index.ts:74](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L74)
 
 Passed into `queueMicrotask` in `connectedCallback`.
 It is overridden in each component that needs to run `connectedCallback`.
@@ -514,7 +518,7 @@ Other options sans `signal`.
 
 > **show**(): `void`
 
-Defined in: [packages/drab/src/dialog/index.ts:53](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L53)
+Defined in: [packages/drab/src/dialog/index.ts:57](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L57)
 
 Wraps `HTMLDialogElement.showModal()`.
 
@@ -560,7 +564,7 @@ default: `800`
 
 > **toggle**(): `void`
 
-Defined in: [packages/drab/src/dialog/index.ts:65](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L65)
+Defined in: [packages/drab/src/dialog/index.ts:69](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L69)
 
 `show` or `close` depending on the dialog's `open` attribute.
 
