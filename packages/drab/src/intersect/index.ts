@@ -1,4 +1,9 @@
-import { Base, type BaseAttributes } from "../base/index.js";
+import {
+	Content,
+	Lifecycle,
+	Trigger,
+	type BaseAttributes,
+} from "../base/index.js";
 
 export type IntersectAttributes = BaseAttributes & { threshold?: number };
 
@@ -15,7 +20,7 @@ type IntersectCallback = () => any;
  *
  * Specify a `threshold` between `0` and `1` to determine how much of the `trigger` should be visible for the intersection to occur.
  */
-export class Intersect extends Base {
+export class Intersect extends Lifecycle(Trigger(Content())) {
 	/** Functions to run when the `trigger` intersects. */
 	#intersectCallbacks: Array<IntersectCallback> = [];
 

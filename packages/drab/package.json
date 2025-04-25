@@ -55,10 +55,6 @@
 			"types": "./dist/base/index.d.ts",
 			"default": "./dist/base/index.js"
 		},
-		"./base/define": {
-			"types": "./dist/base/define.d.ts",
-			"default": "./dist/base/define.js"
-		},
 		"./breakpoint": {
 			"types": "./dist/breakpoint/index.d.ts",
 			"default": "./dist/breakpoint/index.js"

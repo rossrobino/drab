@@ -1,4 +1,10 @@
-import { Base, type BaseAttributes } from "../base/index.js";
+import {
+	Announce,
+	Content,
+	Lifecycle,
+	Trigger,
+	type BaseAttributes,
+} from "../base/index.js";
 
 export type TableSortAttributes = BaseAttributes;
 
@@ -20,7 +26,7 @@ export type TableSortTriggerAttributes = {
  * datatype `number` or `boolean`, set `data-type="number"` on the corresponding
  * `th`/`trigger` element. The data will be converted to the specified type before sorting.
  */
-export class TableSort extends Base {
+export class TableSort extends Lifecycle(Trigger(Content(Announce()))) {
 	constructor() {
 		super();
 	}

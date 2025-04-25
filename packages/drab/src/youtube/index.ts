@@ -1,4 +1,4 @@
-import { Base, type BaseAttributes } from "../base/index.js";
+import { Content, Lifecycle, type BaseAttributes } from "../base/index.js";
 
 export type YouTubeAttributes = BaseAttributes & {
 	autoplay?: boolean;
@@ -9,7 +9,7 @@ export type YouTubeAttributes = BaseAttributes & {
 /**
  * Embeds a YouTube video iframe into a website with the video uid, using www.youtube-nocookie.com.
  */
-export class YouTube extends Base {
+export class YouTube extends Lifecycle(Content()) {
 	static observedAttributes = ["autoplay", "start", "uid"] as const;
 
 	constructor() {

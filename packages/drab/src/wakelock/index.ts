@@ -1,4 +1,10 @@
-import { Base, type BaseAttributes } from "../base/index.js";
+import {
+	Announce,
+	Content,
+	Lifecycle,
+	Trigger,
+	type BaseAttributes,
+} from "../base/index.js";
 
 export type WakeLockAttributes = BaseAttributes & {
 	"auto-lock"?: boolean;
@@ -30,7 +36,7 @@ export type WakeLockAttributes = BaseAttributes & {
  * WakeLock can be toggled with a `trigger`, or will be requested if the element has
  * a `locked` attribute when connected.
  */
-export class WakeLock extends Base {
+export class WakeLock extends Lifecycle(Trigger(Content(Announce()))) {
 	wakeLock: WakeLockSentinel | null = null;
 
 	constructor() {

@@ -1,3 +1,10 @@
+/**
+ * @module
+ *
+ * Each element in the library extends one or more of these mixins.
+ * The mixins provides methods for selecting elements via HTML attributes
+ * along with other helpers.
+ */
 import { Announcer } from "../announcer/index.js";
 import { validate } from "../util/validate.js";
 
@@ -9,6 +16,14 @@ export type BaseAttributes = {
 
 export type Constructor<T> = new (...args: any[]) => T;
 
+/**
+ * By default, `trigger`s are selected via the `data-trigger` attribute.
+ * Alternatively, you can set the `trigger` attribute to a CSS selector to
+ * change the default selector from `[data-trigger]` to a selector of your
+ * choosing. This can be useful if you have multiple elements within one another.
+ *
+ * Each element can have multiple `trigger`s.
+ */
 export const Trigger = <T extends Constructor<HTMLElement>>(
 	Super = HTMLElement as T,
 ) =>
@@ -66,6 +81,14 @@ export const Trigger = <T extends Constructor<HTMLElement>>(
 		}
 	};
 
+/**
+ * By default, `content` is selected via the `data-content` attribute.
+ * Alternatively, you can set the `trigger` to a CSS selector to change
+ * the default selector from `[data-trigger]` to a selector of your choosing.
+ * This can be useful if you have multiple elements within one another.
+ *
+ * Each element can only have one `content`.
+ */
 export const Content = <T extends Constructor<HTMLElement>>(
 	Super = HTMLElement as T,
 ) =>
@@ -233,21 +256,3 @@ export const Announce = <T extends Constructor<HTMLElement>>(
 			Announce.#announcer.announce(message);
 		}
 	};
-
-/**
- * Each element in the library extends the `Base` class. It provides methods
- * for selecting elements via HTML attributes along with other helpers.
- *
- * By default, `trigger`s and `content` will be selected via the `data-trigger` and
- * `data-content` attributes. Alternatively, you can set the `trigger` or
- * `content` attribute to a CSS selector to change the default selector from
- * `[data-trigger]` or `[data-content]` to a selector of your choosing.
- * This can be useful if you have multiple elements within one another.
- *
- * Each element can have multiple `trigger`s, but will only have one `content`.
- */
-export class Base extends Trigger(Content(Lifecycle(Announce()))) {
-	constructor() {
-		super();
-	}
-}

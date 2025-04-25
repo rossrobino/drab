@@ -1,4 +1,9 @@
-import { Base, type BaseAttributes } from "../base/index.js";
+import {
+	Content,
+	Lifecycle,
+	Trigger,
+	type BaseAttributes,
+} from "../base/index.js";
 
 export type EditorAttributes = BaseAttributes;
 
@@ -59,7 +64,7 @@ export type ContentElement = {
  * Add a `ctrl`/`meta` keyboard shortcut for the content based on the `data-key` attribute.
  *
  */
-export class Editor extends Base {
+export class Editor extends Lifecycle(Trigger(Content())) {
 	/** Array of `keyPair` characters that have been opened. */
 	#openChars: string[] = [];
 

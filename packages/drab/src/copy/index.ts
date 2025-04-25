@@ -1,4 +1,10 @@
-import { Base, type BaseAttributes } from "../base/index.js";
+import {
+	Announce,
+	Content,
+	Lifecycle,
+	Trigger,
+	type BaseAttributes,
+} from "../base/index.js";
 
 export type CopyAttributes = BaseAttributes & { value: string };
 
@@ -13,7 +19,7 @@ export type CopyAttributes = BaseAttributes & { value: string };
  *
  * Text to copy.
  */
-export class Copy extends Base {
+export class Copy extends Lifecycle(Trigger(Content(Announce()))) {
 	constructor() {
 		super();
 	}

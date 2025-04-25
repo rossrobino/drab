@@ -1,4 +1,9 @@
-import { Base, type BaseAttributes } from "../base/index.js";
+import {
+	Content,
+	Lifecycle,
+	Trigger,
+	type BaseAttributes,
+} from "../base/index.js";
 
 export type DialogAttributes = BaseAttributes & {
 	"click-outside-close"?: boolean;
@@ -24,7 +29,7 @@ export type DialogAttributes = BaseAttributes & {
  * Add the `remove-body-scroll` attribute to remove the scroll from `document.body` when the dialog
  * is open.
  */
-export class Dialog extends Base {
+export class Dialog extends Lifecycle(Trigger(Content())) {
 	#initialBodyMarginRight = parseInt(
 		getComputedStyle(document.body).marginRight,
 	);

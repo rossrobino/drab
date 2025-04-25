@@ -1,4 +1,9 @@
-import { Base, type BaseAttributes } from "../base/index.js";
+import {
+	Content,
+	Lifecycle,
+	Trigger,
+	type BaseAttributes,
+} from "../base/index.js";
 
 export type FullscreenAttributes = BaseAttributes;
 
@@ -7,7 +12,7 @@ export type FullscreenAttributes = BaseAttributes;
  *
  * Disables the `trigger` if fullscreen is not supported.
  */
-export class Fullscreen extends Base {
+export class Fullscreen extends Lifecycle(Trigger(Content())) {
 	constructor() {
 		super();
 	}

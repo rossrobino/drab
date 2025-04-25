@@ -1,4 +1,4 @@
-import { Base, type BaseAttributes } from "../base/index.js";
+import { Lifecycle, Trigger, type BaseAttributes } from "../base/index.js";
 
 export type TabAttributes = BaseAttributes & {
 	orientation?: "horizontal" | "vertical";
@@ -32,7 +32,7 @@ export type TabAttributes = BaseAttributes & {
  *
  * Set `orientation="vertical"` if the `tablist` element is displayed vertically.
  */
-export class Tabs extends Base {
+export class Tabs extends Lifecycle(Trigger()) {
 	/** Supported keys for keyboard navigation. */
 	#keys = ["ArrowRight", "ArrowDown", "ArrowLeft", "ArrowUp", "Home", "End"];
 

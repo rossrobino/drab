@@ -1,4 +1,9 @@
-import { Base, type BaseAttributes } from "../base/index.js";
+import {
+	Content,
+	Lifecycle,
+	Trigger,
+	type BaseAttributes,
+} from "../base/index.js";
 
 type Strategy = "hover" | "load" | "visible";
 
@@ -65,7 +70,7 @@ type WhereCondition =
  *
  * This element can be deprecated once the Speculation Rules API is supported across browsers. The API will be able to prefetch assets in a similar way with the `source: "document"` and `eagerness` features, and will work without JavaScript.
  */
-export class Prefetch extends Base {
+export class Prefetch extends Lifecycle(Trigger()) {
 	#prefetchedUrls: string[] = [];
 
 	constructor() {

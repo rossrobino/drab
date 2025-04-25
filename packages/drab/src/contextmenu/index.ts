@@ -1,11 +1,16 @@
-import { Base, type BaseAttributes } from "../base/index.js";
+import {
+	Content,
+	Lifecycle,
+	Trigger,
+	type BaseAttributes,
+} from "../base/index.js";
 
 export type ContextMenuAttributes = BaseAttributes;
 
 /**
  * Displays content when the `trigger` element is right clicked, or long pressed on mobile.
  */
-export class ContextMenu extends Base {
+export class ContextMenu extends Lifecycle(Trigger(Content())) {
 	/** Tracks the long press duration on mobile. */
 	#touchTimer: NodeJS.Timeout | undefined;
 
