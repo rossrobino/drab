@@ -5,11 +5,46 @@
 		placeholder="Write something"
 	></textarea>
 	<div class="flex gap-2">
-		<button data-value="&#8226; " data-type="block">Bullet</button>
-		<button data-value="# " data-type="block">Heading</button>
-		<button data-value="_" data-type="wrap" class="italic">Italic</button>
-		<button data-value="[text](href)" data-type="inline" data-key="[">
-			Anchor
+		<button
+			data-value="# "
+			data-type="block"
+			class="icon secondary text-base"
+			aria-label="heading"
+		>
+			H
+		</button>
+		<button
+			data-value="**"
+			data-type="wrap"
+			class="icon secondary text-base font-bold"
+			aria-label="bold"
+		>
+			B
+		</button>
+		<button
+			data-value="_"
+			data-type="wrap"
+			class="icon secondary text-base italic"
+			aria-label="italic"
+		>
+			I
+		</button>
+		<button
+			data-value="&#8226; "
+			data-type="block"
+			class="icon secondary"
+			aria-label="bullet"
+		>
+			<span class="icon-[lucide--list]"></span>
+		</button>
+		<button
+			data-value="[text](href)"
+			data-type="inline"
+			data-key="["
+			class="icon secondary"
+			aria-label="link"
+		>
+			<span class="icon-[lucide--link]"></span>
 		</button>
 	</div>
 </drab-editor>
