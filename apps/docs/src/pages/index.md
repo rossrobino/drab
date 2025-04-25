@@ -1,6 +1,6 @@
 # Interactivity for You
 
-drab is a JavaScript library of interactive custom elements designed to work on any website.
+drab is a JavaScript library of interactive custom element primitives designed to work on any website.
 
 ## Write JavaScript, or don't
 
