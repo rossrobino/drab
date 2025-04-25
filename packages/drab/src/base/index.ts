@@ -9,7 +9,9 @@ export type BaseAttributes = {
 
 export type Constructor<T> = new (...args: any[]) => T;
 
-export const Trigger = <T extends Constructor<HTMLElement>>(Super: T) =>
+export const Trigger = <T extends Constructor<HTMLElement>>(
+	Super = HTMLElement as T,
+) =>
 	class Trigger extends Super {
 		constructor(...args: any[]) {
 			super(args);
@@ -64,7 +66,9 @@ export const Trigger = <T extends Constructor<HTMLElement>>(Super: T) =>
 		}
 	};
 
-export const Content = <T extends Constructor<HTMLElement>>(Super: T) =>
+export const Content = <T extends Constructor<HTMLElement>>(
+	Super = HTMLElement as T,
+) =>
 	class Content extends Super {
 		constructor(...args: any[]) {
 			super(args);
@@ -131,7 +135,9 @@ export const Content = <T extends Constructor<HTMLElement>>(Super: T) =>
 		}
 	};
 
-export const Lifecycle = <T extends Constructor<HTMLElement>>(Super: T) =>
+export const Lifecycle = <T extends Constructor<HTMLElement>>(
+	Super = HTMLElement as T,
+) =>
 	class Lifecycle extends Super {
 		/** To clean up event listeners added to `document` when the element is removed. */
 		#listenerController = new AbortController();
@@ -206,7 +212,9 @@ export const Lifecycle = <T extends Constructor<HTMLElement>>(Super: T) =>
 		}
 	};
 
-export const Announce = <T extends Constructor<HTMLElement>>(Super: T) =>
+export const Announce = <T extends Constructor<HTMLElement>>(
+	Super = HTMLElement as T,
+) =>
 	class Announce extends Super {
 		/**
 		 * A single `Announcer` element to share between all drab elements to announce
@@ -238,7 +246,7 @@ export const Announce = <T extends Constructor<HTMLElement>>(Super: T) =>
  *
  * Each element can have multiple `trigger`s, but will only have one `content`.
  */
-export class Base extends Trigger(Content(Lifecycle(Announce(HTMLElement)))) {
+export class Base extends Trigger(Content(Lifecycle(Announce()))) {
 	constructor() {
 		super();
 	}
