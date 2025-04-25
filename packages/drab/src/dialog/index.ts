@@ -37,14 +37,13 @@ export class Dialog extends Base {
 	/** Remove scroll from the body when open with the `remove-body-scroll` attribute. */
 	#toggleBodyScroll(show: boolean) {
 		if (this.hasAttribute("remove-body-scroll")) {
-			document.body.style.marginRight = `${
-				show
-					? this.#initialBodyMarginRight +
-						// scrollbar width
-						window.innerWidth -
-						document.documentElement.clientWidth
-					: this.#initialBodyMarginRight
-			}px`;
+			document.body.style.marginRight = `${show
+				? this.#initialBodyMarginRight +
+				// scrollbar width
+				window.innerWidth -
+				document.documentElement.clientWidth
+				: this.#initialBodyMarginRight
+				}px`;
 			document.body.style.overflow = show ? "hidden" : "";
 		}
 	}
@@ -80,7 +79,19 @@ export class Dialog extends Base {
 		if (this.hasAttribute("click-outside-close")) {
 			// https://blog.webdevsimplified.com/2023-04/html-dialog/#close-on-outside-click
 			this.dialog.addEventListener("click", (e) => {
-				const rect = this.dialog.getBoundingClientRect();
+				let rect = this.dialog.getBoundingClientRect();
+
+				// If dialog covers full viewport (with a small tolerance), use first child element for hit testing
+				const tolerance = 5; // 5px tolerance for rounding issues
+				if (
+					Math.abs(rect.width - window.innerWidth) <= tolerance &&
+					Math.abs(rect.height - window.innerHeight) <= tolerance
+				) {
+					const firstChild = this.dialog.firstElementChild;
+					if (firstChild) {
+						rect = firstChild.getBoundingClientRect();
+					}
+				}
 
 				if (
 					e.clientX < rect.left ||
