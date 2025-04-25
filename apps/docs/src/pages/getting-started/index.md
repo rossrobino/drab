@@ -152,7 +152,7 @@ declare module "solid-js" {
 
 ```ts
 // drab.d.ts
-import { type DialogAttributes } from "drab";
+import type { DialogAttributes } from "drab";
 
 declare module "svelte/elements" {
 	export interface SvelteHTMLElements {
