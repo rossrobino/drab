@@ -121,8 +121,7 @@ export default function Dialog() {
 ```
 
 ```ts
-// global.d.ts
-/// <reference types="@solidjs/start/env" />
+// drab.d.ts
 import type { DialogAttributes } from "drab";
 
 declare module "solid-js" {
