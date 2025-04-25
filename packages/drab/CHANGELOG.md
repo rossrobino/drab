@@ -1,5 +1,11 @@
 # drab
 
+## 6.5.0
+
+### Minor Changes
+
+- d99f996: feat: allow close on outside click when dialog cover full viewport
+
 ## 6.4.1
 
 ### Patch Changes
