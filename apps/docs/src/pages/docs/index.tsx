@@ -35,19 +35,19 @@ export const Docs = async (props: { name: string; demo: string }) => {
 		: "";
 
 	return (
-		<>
-			<h1 class="mb-8">{name}</h1>
+		<div class="prose">
+			<h1>{name}</h1>
 			<div
 				aria-label="Element demo"
 				class="flex justify-center overflow-x-auto rounded-md border border-dashed p-8"
 			>
 				<div class="w-full">{demo}</div>
 			</div>
-			<div class="prose">
+			<div>
 				{install}
 				{demoHtml}
 				{docs}
 			</div>
-		</>
+		</div>
 	);
 };
