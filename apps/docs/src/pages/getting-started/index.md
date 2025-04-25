@@ -99,8 +99,7 @@ import type { ReactNode, HTMLAttributes } from "react";
 declare module "react" {
 	namespace JSX {
 		interface IntrinsicElements {
-			"drab-dialog": DialogAttributes &
-				HTMLAttributes<HTMLElement> & { children?: ReactNode };
+			"drab-dialog": DialogAttributes & HTMLAttributes<HTMLElement>;
 		}
 	}
 }
