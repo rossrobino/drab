@@ -20,6 +20,7 @@
 		"prefetch",
 		"share",
 		"tablesort",
+		"tabs",
 		"wakelock",
 		"youtube"
 	],
@@ -137,6 +138,14 @@
 		"./tablesort/define": {
 			"types": "./dist/tablesort/define.d.ts",
 			"default": "./dist/tablesort/define.js"
+		},
+		"./tabs": {
+			"types": "./dist/tabs/index.d.ts",
+			"default": "./dist/tabs/index.js"
+		},
+		"./tabs/define": {
+			"types": "./dist/tabs/define.d.ts",
+			"default": "./dist/tabs/define.js"
 		},
 		"./wakelock": {
 			"types": "./dist/wakelock/index.d.ts",
