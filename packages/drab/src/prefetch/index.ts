@@ -1,9 +1,4 @@
-import {
-	Content,
-	Lifecycle,
-	Trigger,
-	type BaseAttributes,
-} from "../base/index.js";
+import { Lifecycle, Trigger, type BaseAttributes } from "../base/index.js";
 
 type Strategy = "hover" | "load" | "visible";
 
