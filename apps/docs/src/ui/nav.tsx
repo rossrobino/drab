@@ -40,7 +40,7 @@ export const Nav = (props: {
 						data-content
 						class="bg-background backdrop:bg-muted/50 my-0 mr-auto ml-0 h-full max-h-screen w-full max-w-96 p-6 backdrop:opacity-0 backdrop:backdrop-blur backdrop:transition-opacity open:backdrop:opacity-100"
 					>
-						<div class="mb-4 flex items-center justify-between">
+						<div class="mb-2 flex items-center justify-between">
 							<HomeLink />
 							<button data-trigger class="ghost icon" aria-label="close">
 								<span class="icon-[lucide--x]"></span>
@@ -80,6 +80,7 @@ export const NavLinks = (props: {
 						</NavLink>
 					</li>
 				</ul>
+
 				<NavHeading>Elements</NavHeading>
 				<ul>
 					{elements.map((element) => {
@@ -145,11 +146,12 @@ const NavHeading = (props: JSX.IntrinsicElements["h2"]) => {
 };
 const NavLink = (props: JSX.IntrinsicElements["a"] & { pathname: string }) => {
 	const { class: className, children, pathname, href, ...rest } = props;
+	const current = pathname === href;
 
 	return (
 		<a
 			href={href}
-			class={`${className} ${pathname === href ? "secondary font-bold" : "ghost"} button my-1 justify-start`}
+			class={`${className} ${current ? "secondary font-bold" : "ghost"} button my-1 justify-start`}
 			{...rest}
 		>
 			{children}

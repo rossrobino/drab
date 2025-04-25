@@ -12,7 +12,7 @@ export const RootLayout = (props: {
 	return (
 		<drab-prefetch class="contents" prerender trigger="a[href^='/']">
 			<SkipLink />
-			<header class="bg-background/50 sticky top-0 z-10 flex items-center gap-5 p-5 backdrop-blur-xs lg:hidden">
+			<header class="bg-background/50 sticky top-0 z-10 flex items-center gap-5 px-3 py-2 backdrop-blur-xs lg:hidden">
 				<Nav examples={examples} pathname={pathname} dialog />
 			</header>
 

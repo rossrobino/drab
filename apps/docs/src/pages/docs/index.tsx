@@ -18,8 +18,12 @@ export const Docs = async (props: { name: string; demo: string }) => {
 	const elementMd = elementDoc[`./generated/classes/${name}.md`];
 	const styleMd = styleDoc[`./styles/${name}/index.md`];
 
-	const { html } = await processor.process(
-		`\`\`\`html\n${demo}\`\`\`\n\n## Overview\n\n${elementMd ? elementMd : styleMd}`,
+	const { html: demoHtml } = await processor.process(
+		`\`\`\`html\n${demo}\`\`\``,
+	);
+
+	const { html: docs } = await processor.process(
+		`## Overview\n\n${elementMd ? elementMd : styleMd}`,
 	);
 
 	const install = elementMd
@@ -41,7 +45,8 @@ export const Docs = async (props: { name: string; demo: string }) => {
 			</div>
 			<div class="prose">
 				{install}
-				{html}
+				{demoHtml}
+				{docs}
 			</div>
 		</>
 	);
