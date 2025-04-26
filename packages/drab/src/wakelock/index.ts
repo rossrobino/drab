@@ -3,13 +3,19 @@ import {
 	Content,
 	Lifecycle,
 	Trigger,
-	type BaseAttributes,
+	type TriggerAttributes,
+	type ContentAttributes,
 } from "../base/index.js";
 
-export type WakeLockAttributes = BaseAttributes & {
+export interface WakeLockAttributes
+	extends TriggerAttributes,
+		ContentAttributes {
+	/** Auto request wakelock when user returns to inactive tab. */
 	"auto-lock"?: boolean;
+
+	/** Set to request wakelock immediately when the element has connected. */
 	locked?: boolean;
-};
+}
 
 /**
  * `WakeLock` uses the

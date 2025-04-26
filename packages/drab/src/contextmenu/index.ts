@@ -2,10 +2,13 @@ import {
 	Content,
 	Lifecycle,
 	Trigger,
-	type BaseAttributes,
+	type TriggerAttributes,
+	type ContentAttributes,
 } from "../base/index.js";
 
-export type ContextMenuAttributes = BaseAttributes;
+export interface ContextMenuAttributes
+	extends TriggerAttributes,
+		ContentAttributes {}
 
 /**
  * Displays content when the `trigger` element is right clicked, or long pressed on mobile.

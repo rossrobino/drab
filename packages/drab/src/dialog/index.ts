@@ -2,13 +2,17 @@ import {
 	Content,
 	Lifecycle,
 	Trigger,
-	type BaseAttributes,
+	type TriggerAttributes,
+	type ContentAttributes,
 } from "../base/index.js";
 
-export type DialogAttributes = BaseAttributes & {
+export interface DialogAttributes extends TriggerAttributes, ContentAttributes {
+	/** Close the dialog when clicked outside. */
 	"click-outside-close"?: boolean;
+
+	/** Remove scroll from the body when dialog is open. */
 	"remove-body-scroll"?: boolean;
-};
+}
 
 /**
  * Provides triggers for the `HTMLDialogElement`.

@@ -1,8 +1,9 @@
-import { Lifecycle, Trigger, type BaseAttributes } from "../base/index.js";
+import { Lifecycle, Trigger, type TriggerAttributes } from "../base/index.js";
 
-export type TabAttributes = BaseAttributes & {
+export interface TabsAttributes extends TriggerAttributes {
+	/** Set to `"vertical"` if tabs are displayed vertically. */
 	orientation?: "horizontal" | "vertical";
-};
+}
 
 /**
  * Progressively enhance a list of links and content to be tabs by

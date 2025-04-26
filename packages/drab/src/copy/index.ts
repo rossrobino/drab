@@ -3,10 +3,13 @@ import {
 	Content,
 	Lifecycle,
 	Trigger,
-	type BaseAttributes,
+	type TriggerAttributes,
+	type ContentAttributes,
 } from "../base/index.js";
 
-export type CopyAttributes = BaseAttributes & { value: string };
+export interface CopyAttributes extends TriggerAttributes, ContentAttributes {
+	value: string;
+}
 
 /**
  * Uses the

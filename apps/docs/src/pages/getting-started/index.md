@@ -93,14 +93,12 @@ export default function Dialog() {
 
 ```ts
 // drab.d.ts
-import type { DialogAttributes } from "drab";
-import type { ReactNode, HTMLAttributes } from "react";
+import type { Elements } from "drab/types";
+import type { HTMLAttributes } from "react";
 
 declare module "react" {
 	namespace JSX {
-		interface IntrinsicElements {
-			"drab-dialog": DialogAttributes & HTMLAttributes<HTMLElement>;
-		}
+		interface IntrinsicElements extends Elements<HTMLAttributes<HTMLElement>> {}
 	}
 }
 ```
@@ -122,13 +120,13 @@ export default function Dialog() {
 
 ```ts
 // drab.d.ts
-import type { DialogAttributes } from "drab";
+import type { Elements } from "drab/types";
+import "solid-js";
 
 declare module "solid-js" {
 	namespace JSX {
-		interface IntrinsicElements {
-			"drab-dialog": DialogAttributes & JSX.HTMLAttributes<HTMLElement>;
-		}
+		interface IntrinsicElements
+			extends Elements<JSX.HTMLAttributes<HTMLElement>> {}
 	}
 }
 ```
@@ -150,12 +148,11 @@ declare module "solid-js" {
 
 ```ts
 // drab.d.ts
-import type { DialogAttributes } from "drab";
+import type { Elements } from "drab/types";
 
 declare module "svelte/elements" {
-	export interface SvelteHTMLElements {
-		"drab-dialog": DialogAttributes & HTMLAttributes<HTMLElement>;
-	}
+	export interface SvelteHTMLElements
+		extends Elements<HTMLAttributes<HTMLElement>> {}
 }
 
 export {};

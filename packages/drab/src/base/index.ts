@@ -8,11 +8,14 @@
 import { Announcer } from "../announcer/index.js";
 import { validate } from "../util/validate.js";
 
-export type BaseAttributes = {
+export interface TriggerAttributes {
 	trigger?: string;
+}
+
+export interface ContentAttributes {
 	content?: string;
 	swap?: string;
-};
+}
 
 export type Constructor<T> = new (...args: any[]) => T;
 

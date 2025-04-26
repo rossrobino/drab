@@ -1,5 +1,7 @@
 import { define } from "../util/define.js";
 
+export interface AnnouncerAttributes {}
+
 /**
  * Use the `Announcer` element to create a visually hidden ARIA live region
  * that announces content changes to screen readers. Use this element when you

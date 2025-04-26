@@ -1,12 +1,17 @@
-import { Lifecycle, Trigger, type BaseAttributes } from "../base/index.js";
+import { Lifecycle, Trigger, type TriggerAttributes } from "../base/index.js";
 
 type Strategy = "hover" | "load" | "visible";
 
-export type PrefetchAttributes = BaseAttributes & {
+export interface PrefetchAttributes extends TriggerAttributes {
+	/** When to prefetch the url. */
 	strategy?: Strategy;
+
+	/** Prerender on the client with the Speculation Rules API. */
 	prerender?: boolean;
+
+	/** URL to prefetch. */
 	url?: string;
-};
+}
 
 // https://developer.chrome.com/blog/speculation-rules-improvements
 type SpeculationRules = {

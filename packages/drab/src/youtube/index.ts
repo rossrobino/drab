@@ -1,10 +1,15 @@
-import { Content, Lifecycle, type BaseAttributes } from "../base/index.js";
+import { Content, Lifecycle, type ContentAttributes } from "../base/index.js";
 
-export type YouTubeAttributes = BaseAttributes & {
+export interface YouTubeAttributes extends ContentAttributes {
+	/** Start playing the video automatically. */
 	autoplay?: boolean;
+
+	/** The start time of the video (seconds). */
 	start?: number;
+
+	/** YouTube video ID. */
 	uid: string;
-};
+}
 
 /**
  * Embeds a YouTube video iframe into a website with the video uid, using www.youtube-nocookie.com.

@@ -3,15 +3,18 @@ import {
 	Content,
 	Lifecycle,
 	Trigger,
-	type BaseAttributes,
+	type TriggerAttributes,
+	type ContentAttributes,
 } from "../base/index.js";
 
-export type TableSortAttributes = BaseAttributes;
+export interface TableSortAttributes
+	extends TriggerAttributes,
+		ContentAttributes {}
 
-export type TableSortTriggerAttributes = {
+export interface TableSortTriggerAttributes {
 	"data-type": "string" | "boolean" | "number";
 	"data-value": string;
-};
+}
 
 /**
  * Wrap a `HTMLTableElement` in the `TableSort` element to have sortable column

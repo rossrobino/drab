@@ -2,16 +2,19 @@ import {
 	Content,
 	Lifecycle,
 	Trigger,
-	type BaseAttributes,
+	type TriggerAttributes,
+	type ContentAttributes,
 } from "../base/index.js";
 
-export type EditorAttributes = BaseAttributes;
+export interface EditorAttributes
+	extends TriggerAttributes,
+		ContentAttributes {}
 
-export type EditorTriggerAttributes = {
+export interface EditorTriggerAttributes {
 	"data-value": string;
 	"data-key": string;
 	"data-type": "block" | "wrap" | "inline";
-};
+}
 
 /**
  * A piece of content to insert into the `textarea`.

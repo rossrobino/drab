@@ -1,6 +1,6 @@
 import { Copy, type CopyAttributes } from "../copy/index.js";
 
-export type ShareAttributes = CopyAttributes;
+export interface ShareAttributes extends CopyAttributes {}
 
 /**
  * Uses the

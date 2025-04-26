@@ -2,10 +2,16 @@ import {
 	Content,
 	Lifecycle,
 	Trigger,
-	type BaseAttributes,
+	type TriggerAttributes,
+	type ContentAttributes,
 } from "../base/index.js";
 
-export type IntersectAttributes = BaseAttributes & { threshold?: number };
+export interface IntersectAttributes
+	extends TriggerAttributes,
+		ContentAttributes {
+	/** Number between 0 and 1 representing the visible portion of the `trigger`. */
+	threshold?: number;
+}
 
 type IntersectCallback = () => any;
 

@@ -1,5 +1,4 @@
 export * from "./announcer/index.js";
-export { type BaseAttributes } from "./base/index.js";
 export * from "./contextmenu/index.js";
 export * from "./copy/index.js";
 export * from "./dialog/index.js";

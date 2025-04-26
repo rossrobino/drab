@@ -2,10 +2,13 @@ import {
 	Content,
 	Lifecycle,
 	Trigger,
-	type BaseAttributes,
+	type TriggerAttributes,
+	type ContentAttributes,
 } from "../base/index.js";
 
-export type FullscreenAttributes = BaseAttributes;
+export interface FullscreenAttributes
+	extends TriggerAttributes,
+		ContentAttributes {}
 
 /**
  * Toggles the `documentElement` or `content` element to fullscreen mode.

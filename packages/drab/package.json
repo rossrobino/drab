@@ -143,6 +143,9 @@
 			"types": "./dist/tabs/define.d.ts",
 			"default": "./dist/tabs/define.js"
 		},
+		"./types": {
+			"types": "./dist/types/index.d.ts"
+		},
 		"./wakelock": {
 			"types": "./dist/wakelock/index.d.ts",
 			"default": "./dist/wakelock/index.js"
