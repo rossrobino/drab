@@ -1,7 +1,6 @@
 ## Classes
 
 - [Announcer](/PUBLIC_PATH/classes/Announcer.md)
-- [Base](/PUBLIC_PATH/classes/Base.md)
 - [ContextMenu](/PUBLIC_PATH/classes/ContextMenu.md)
 - [Copy](/PUBLIC_PATH/classes/Copy.md)
 - [Dialog](/PUBLIC_PATH/classes/Dialog.md)
@@ -15,21 +14,24 @@
 - [WakeLock](/PUBLIC_PATH/classes/WakeLock.md)
 - [YouTube](/PUBLIC_PATH/classes/YouTube.md)
 
+## Interfaces
+
+- [AnnouncerAttributes](/PUBLIC_PATH/interfaces/AnnouncerAttributes.md)
+- [ContextMenuAttributes](/PUBLIC_PATH/interfaces/ContextMenuAttributes.md)
+- [CopyAttributes](/PUBLIC_PATH/interfaces/CopyAttributes.md)
+- [DialogAttributes](/PUBLIC_PATH/interfaces/DialogAttributes.md)
+- [EditorAttributes](/PUBLIC_PATH/interfaces/EditorAttributes.md)
+- [EditorTriggerAttributes](/PUBLIC_PATH/interfaces/EditorTriggerAttributes.md)
+- [FullscreenAttributes](/PUBLIC_PATH/interfaces/FullscreenAttributes.md)
+- [IntersectAttributes](/PUBLIC_PATH/interfaces/IntersectAttributes.md)
+- [PrefetchAttributes](/PUBLIC_PATH/interfaces/PrefetchAttributes.md)
+- [ShareAttributes](/PUBLIC_PATH/interfaces/ShareAttributes.md)
+- [TableSortAttributes](/PUBLIC_PATH/interfaces/TableSortAttributes.md)
+- [TableSortTriggerAttributes](/PUBLIC_PATH/interfaces/TableSortTriggerAttributes.md)
+- [TabsAttributes](/PUBLIC_PATH/interfaces/TabsAttributes.md)
+- [WakeLockAttributes](/PUBLIC_PATH/interfaces/WakeLockAttributes.md)
+- [YouTubeAttributes](/PUBLIC_PATH/interfaces/YouTubeAttributes.md)
+
 ## Type Aliases
 
-- [BaseAttributes](/PUBLIC_PATH/type-aliases/BaseAttributes.md)
 - [ContentElement](/PUBLIC_PATH/type-aliases/ContentElement.md)
-- [ContextMenuAttributes](/PUBLIC_PATH/type-aliases/ContextMenuAttributes.md)
-- [CopyAttributes](/PUBLIC_PATH/type-aliases/CopyAttributes.md)
-- [DialogAttributes](/PUBLIC_PATH/type-aliases/DialogAttributes.md)
-- [EditorAttributes](/PUBLIC_PATH/type-aliases/EditorAttributes.md)
-- [EditorTriggerAttributes](/PUBLIC_PATH/type-aliases/EditorTriggerAttributes.md)
-- [FullscreenAttributes](/PUBLIC_PATH/type-aliases/FullscreenAttributes.md)
-- [IntersectAttributes](/PUBLIC_PATH/type-aliases/IntersectAttributes.md)
-- [PrefetchAttributes](/PUBLIC_PATH/type-aliases/PrefetchAttributes.md)
-- [ShareAttributes](/PUBLIC_PATH/type-aliases/ShareAttributes.md)
-- [TabAttributes](/PUBLIC_PATH/type-aliases/TabAttributes.md)
-- [TableSortAttributes](/PUBLIC_PATH/type-aliases/TableSortAttributes.md)
-- [TableSortTriggerAttributes](/PUBLIC_PATH/type-aliases/TableSortTriggerAttributes.md)
-- [WakeLockAttributes](/PUBLIC_PATH/type-aliases/WakeLockAttributes.md)
-- [YouTubeAttributes](/PUBLIC_PATH/type-aliases/YouTubeAttributes.md)

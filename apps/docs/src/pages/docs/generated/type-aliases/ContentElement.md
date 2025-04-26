@@ -1,6 +1,6 @@
 > **ContentElement** = `object`
 
-Defined in: [packages/drab/src/editor/index.ts:14](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L14)
+Defined in: [editor/index.ts:22](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L22)
 
 A piece of content to insert into the `textarea`.
 
@@ -12,7 +12,7 @@ A piece of content to insert into the `textarea`.
 
 > `optional` **key**: `string`
 
-Defined in: [packages/drab/src/editor/index.ts:22](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L22)
+Defined in: [editor/index.ts:30](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L30)
 
 An optional keyboard shortcut.
 
@@ -24,7 +24,7 @@ An optional keyboard shortcut.
 
 > **type**: `"block"` \| `"inline"` \| `"wrap"`
 
-Defined in: [packages/drab/src/editor/index.ts:16](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L16)
+Defined in: [editor/index.ts:24](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L24)
 
 How to insert the content.
 
@@ -36,6 +36,6 @@ How to insert the content.
 
 > **value**: `string`
 
-Defined in: [packages/drab/src/editor/index.ts:19](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L19)
+Defined in: [editor/index.ts:27](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L27)
 
 The value to insert.
