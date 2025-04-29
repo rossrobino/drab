@@ -6,7 +6,18 @@ YouTube
 
 The `YouTube` element has been removed. This element is better handled with a templating framework than client-side JS, the browser will be able to see the url sooner if it is server rendered so it will load faster.
 
-An [example](http://drab.robino.dev/styles/youtube/) has been added to styles section for reference.
+Here's the generated `<iframe>` element and the [supported parameters](https://developers.google.com/youtube/player_parameters#Parameters) for reference:
+
+```html
+<iframe
+	loading="lazy"
+	title="Renegade - Kevin Olusola"
+	class="bg-base-900 aspect-video w-full rounded"
+	src="https://www.youtube-nocookie.com/embed/gouiY85kD2o"
+	allowfullscreen
+	allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+></iframe>
+```
 
 For a more optimized client-side js version see [`paulirish/lite-youtube-embed`](https://github.com/paulirish/lite-youtube-embed).
 

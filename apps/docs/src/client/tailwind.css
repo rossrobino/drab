@@ -85,6 +85,8 @@
 		--shiki-token-string-expression: var(--base-200);
 		--shiki-token-punctuation: var(--base-500);
 		--shiki-token-link: var(--base-300);
+
+		scrollbar-gutter: stable;
 	}
 
 	* {
