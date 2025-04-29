@@ -35,7 +35,7 @@ export const Docs = async (props: { name: string; demo: string }) => {
 		: "";
 
 	return (
-		<div class="prose">
+		<>
 			<h1>{name}</h1>
 			<div
 				aria-label="Element demo"
@@ -48,6 +48,6 @@ export const Docs = async (props: { name: string; demo: string }) => {
 				{demoHtml}
 				{docs}
 			</div>
-		</div>
+		</>
 	);
 };

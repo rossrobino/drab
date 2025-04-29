@@ -1,10 +1,22 @@
-import { Home } from "@/pages";
-import { Docs } from "@/pages/docs";
-import { GettingStarted } from "@/pages/getting-started";
-import { RootLayout } from "@/pages/layout";
+import type { FrontmatterSchema } from "@/lib/md";
+import { Docs } from "@/pages/docs/docs";
+import { Layout } from "@/server/layout";
+import type { Result } from "@robino/md";
 import { html } from "client:page";
-import { description } from "drab/package.json";
 import { Router } from "ovr";
+
+const pages = import.meta.glob<Result<typeof FrontmatterSchema>>(
+	`@/pages/*.md`,
+	{ eager: true },
+);
+
+const pagePaths = Object.keys(pages)
+	.map((p) => {
+		let pathname = p.split("/").at(2)?.split(".").at(0);
+		if (pathname === "index") pathname = "";
+		return pathname ? pathname : "";
+	})
+	.sort((a) => (a === "getting-started" ? -1 : 0));
 
 const examples = import.meta.glob<string>(`@/pages/**/*.html`, {
 	query: "?raw",
@@ -26,44 +38,46 @@ const app = new Router({
 	start(c) {
 		c.base = html;
 		c.notFound = (c) => {
-			c.head(<title>drab - Not Found</title>);
+			c.head(<title>Not Found</title>);
 			c.page(
-				<RootLayout examples={exampleSubPaths} pathname={c.url.pathname}>
+				<Layout
+					examples={exampleSubPaths}
+					pages={pagePaths}
+					pathname={c.url.pathname}
+				>
 					<h1>Not found</h1>
-				</RootLayout>,
+					<p>
+						No content found at <code>{c.url.href}</code>.
+					</p>
+					<p>
+						<a href="/">Return home</a>
+					</p>
+				</Layout>,
 			);
 		};
 	},
 })
-	.get("/", (c) => {
+	.get(["/", "/:slug/"], (c) => {
+		const result =
+			pages[`/pages/${"slug" in c.params ? c.params.slug : "index"}.md`];
+
+		if (!result?.html) return;
+
 		c.head(
 			<>
-				<title>drab</title>
-				<meta name="description" content={description} />
+				<title>{result.frontmatter.title}</title>
+				<meta name="description" content={result.frontmatter.description} />
 			</>,
 		);
 
 		c.page(
-			<RootLayout examples={exampleSubPaths} pathname={c.url.pathname}>
-				<Home />
-			</RootLayout>,
-		);
-	})
-	.get("/getting-started/", (c) => {
-		c.head(
-			<>
-				<title>drab - Getting Started</title>
-				<meta
-					name="description"
-					content="How to start using drab custom elements."
-				/>
-			</>,
-		);
-
-		c.page(
-			<RootLayout examples={exampleSubPaths} pathname={c.url.pathname}>
-				<GettingStarted />
-			</RootLayout>,
+			<Layout
+				examples={exampleSubPaths}
+				pages={pagePaths}
+				pathname={c.url.pathname}
+			>
+				{result.html}
+			</Layout>,
 		);
 	})
 	.get(["/elements/:name/", "/styles/:name/"], (c) => {
@@ -82,9 +96,13 @@ const app = new Router({
 			);
 
 			c.page(
-				<RootLayout examples={exampleSubPaths} pathname={c.url.pathname}>
+				<Layout
+					examples={exampleSubPaths}
+					pages={pagePaths}
+					pathname={c.url.pathname}
+				>
 					<Docs name={name} demo={example} />
-				</RootLayout>,
+				</Layout>,
 			);
 		}
 	})
@@ -99,9 +117,8 @@ const app = new Router({
 		c.url.search = "";
 
 		c.redirect(c.url, 308);
-	});
-
-app.get("/styles/details/", (c) => c.redirect("/styles/accordion/", 301));
+	})
+	.get("/styles/details/", (c) => c.redirect("/styles/accordion/", 301));
 
 app.prerender = ["/", "/getting-started/", ...exampleSubPaths];
 

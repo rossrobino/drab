@@ -1,34 +1,9 @@
-# Getting Started
+---
+title: Frameworks
+description: How to use drab with a JavaScript Framework
+---
 
-## Install
-
-You can install drab from [npm](https://www.npmjs.com/package/drab) and import the custom elements from the package, or add a `<script>` tag that points to your preferred CDN.
-
-```bash
-npm i drab
-```
-
-In a client-side JavaScript module, import the element and define with with a name. Each element's class is exported from `drab/{element}`.
-
-```js
-import { Dialog } from "drab/dialog";
-
-customElements.define("drab-dialog", Dialog);
-```
-
-Or, import the `drab/{element}/define` module where it's defined for you, in this case the element will be named `drab-{element}`
-
-```js
-import "drab/dialog/define";
-```
-
-## Styling
-
-Elements without styles can appear rather drab. You have the freedom to bring your own styles to these elements. Since drab doesn't use the shadow DOM, you can style any content inside these elements as you normally would. Using unstyled elements allows you to selectively choose what you need and avoid being tied to any specific library.
-
-The examples in this documentation are styled with Tailwind and [uico](https://uico.robino.dev). Tailwind does **not** have to be used with this library.
-
-## Frameworks
+# How to use Custom Elements with a Framework
 
 drab can be utilized in [any framework that supports custom elements](https://custom-elements-everywhere.com/). If you are using a server-side rendering (SSR) framework, you will need to ensure the element's code only runs on the client.
 
@@ -38,7 +13,7 @@ If you are using TypeScript, you can add a `d.ts` file within your `tsconfig.inc
 
 _\*If you see a better way to write any of these examples or a framework that is missing, please [create an issue or pull request](https://github.com/rossrobino/drab/issues)!_
 
-### Astro
+## Astro
 
 ```astro
 ---
@@ -57,7 +32,7 @@ const attributes: DialogAttributes = {
 <drab-dialog {...attributes}>...</drab-dialog>
 ```
 
-### Enhance
+## Enhance
 
 ```js
 // app/elements/my-dialog.mjs
@@ -74,7 +49,7 @@ export default function MyDialog({ html }) {
 import "drab/dialog/define";
 ```
 
-### React
+## React
 
 ```tsx
 "use client";
@@ -103,7 +78,7 @@ declare module "react" {
 }
 ```
 
-### Solid
+## Solid
 
 ```tsx
 // dialog.tsx
@@ -131,7 +106,7 @@ declare module "solid-js" {
 }
 ```
 
-### Svelte
+## Svelte
 
 ```svelte
 <!-- dialog.svelte -->
@@ -158,7 +133,7 @@ declare module "svelte/elements" {
 export {};
 ```
 
-### Vue
+## Vue
 
 ```vue
 <!-- dialog.vue -->
