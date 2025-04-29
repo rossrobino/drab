@@ -69,24 +69,16 @@ export class Intersect extends Lifecycle(Trigger(Content())) {
 				for (const entry of entries) {
 					if (entry.isIntersecting) {
 						this.getContent().setAttribute(attr, "");
-
-						for (const callback of this.#intersectCallbacks) {
-							callback();
-						}
+						for (const callback of this.#intersectCallbacks) callback();
 					} else {
 						this.getContent().removeAttribute(attr);
-
-						for (const callback of this.#exitCallbacks) {
-							callback();
-						}
+						for (const callback of this.#exitCallbacks) callback();
 					}
 				}
 			},
 			{ threshold: this.#threshold },
 		);
 
-		for (const trigger of this.getTrigger()) {
-			observer.observe(trigger);
-		}
+		for (const trigger of this.getTrigger()) observer.observe(trigger);
 	}
 }

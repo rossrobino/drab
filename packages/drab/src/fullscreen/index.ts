@@ -31,7 +31,7 @@ export class Fullscreen extends Lifecycle(Trigger(Content())) {
 	 * @returns `true` if fullscreen is supported.
 	 */
 	#fullscreenSupported() {
-		return Boolean(document.documentElement.requestFullscreen);
+		return "requestFullscreen" in document.documentElement;
 	}
 
 	/** Enables or disables fullscreen mode based on the current state. */
