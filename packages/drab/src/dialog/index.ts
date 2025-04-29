@@ -34,10 +34,6 @@ export interface DialogAttributes extends TriggerAttributes, ContentAttributes {
  * is open.
  */
 export class Dialog extends Lifecycle(Trigger(Content())) {
-	#initialBodyMarginRight = parseInt(
-		getComputedStyle(document.body).marginRight,
-	);
-
 	constructor() {
 		super();
 	}
@@ -47,17 +43,18 @@ export class Dialog extends Lifecycle(Trigger(Content())) {
 		return this.getContent(HTMLDialogElement);
 	}
 
+	get #removeBodyScroll() {
+		return this.hasAttribute("remove-body-scroll");
+	}
+
+	get #clickOutsideClose() {
+		return this.hasAttribute("click-outside-close");
+	}
+
 	/** Remove scroll from the body when open with the `remove-body-scroll` attribute. */
 	#toggleBodyScroll(show: boolean) {
-		if (this.hasAttribute("remove-body-scroll")) {
-			document.body.style.marginRight = `${
-				show
-					? this.#initialBodyMarginRight +
-						// scrollbar width
-						window.innerWidth -
-						document.documentElement.clientWidth
-					: this.#initialBodyMarginRight
-			}px`;
+		if (this.#removeBodyScroll) {
+			document.documentElement.style.scrollbarGutter = "stable";
 			document.body.style.overflow = show ? "hidden" : "";
 		}
 	}
@@ -90,7 +87,7 @@ export class Dialog extends Lifecycle(Trigger(Content())) {
 			}
 		});
 
-		if (this.hasAttribute("click-outside-close")) {
+		if (this.#clickOutsideClose) {
 			// https://blog.webdevsimplified.com/2023-04/html-dialog/#close-on-outside-click
 			this.dialog.addEventListener("click", (e) => {
 				let rect = this.dialog.getBoundingClientRect();
