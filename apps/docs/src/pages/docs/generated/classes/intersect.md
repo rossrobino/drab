@@ -1,4 +1,4 @@
-Defined in: [intersect/index.ts:31](https://github.com/rossrobino/components/blob/main/packages/drab/src/intersect/index.ts#L31)
+Defined in: [intersect/index.ts:38](https://github.com/rossrobino/components/blob/main/packages/drab/src/intersect/index.ts#L38)
 
 Uses the
 [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)
@@ -6,13 +6,20 @@ to add a `data-intersect` attribute to `content` when the `trigger` is intersect
 
 ### Events
 
-- `intersect`: Fired when the `trigger` enters the viewport.
-- `exit`: Fired when the `trigger` exits the viewport.
+`intersect`
+
+Fired when the `trigger` enters the viewport.
+
+`exit`
+
+Fired when the `trigger` exits the viewport.
 
 ### Attributes
 
-- `threshold`: Specify a `threshold` between `0` and `1` to determine how much of the
-  `trigger` should be visible for the intersection to occur.
+`threshold`
+
+Specify a `threshold` between `0` and `1` to determine how much of the
+`trigger` should be visible for the intersection to occur.
 
 ## Extends
 
@@ -26,7 +33,7 @@ to add a `data-intersect` attribute to `content` when the `trigger` is intersect
 
 > **new Intersect**(): `Intersect`
 
-Defined in: [intersect/index.ts:32](https://github.com/rossrobino/components/blob/main/packages/drab/src/intersect/index.ts#L32)
+Defined in: [intersect/index.ts:39](https://github.com/rossrobino/components/blob/main/packages/drab/src/intersect/index.ts#L39)
 
 #### Returns
 
@@ -280,7 +287,7 @@ this.querySelectorAll("[data-trigger]");
 
 > **mount**(): `void`
 
-Defined in: [intersect/index.ts:47](https://github.com/rossrobino/components/blob/main/packages/drab/src/intersect/index.ts#L47)
+Defined in: [intersect/index.ts:54](https://github.com/rossrobino/components/blob/main/packages/drab/src/intersect/index.ts#L54)
 
 Passed into `queueMicrotask` in `connectedCallback`.
 It is overridden in each component that needs to run `connectedCallback`.

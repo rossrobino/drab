@@ -20,12 +20,19 @@ export interface IntersectAttributes
  *
  * ### Events
  *
- * - `intersect`: Fired when the `trigger` enters the viewport.
- * - `exit`: Fired when the `trigger` exits the viewport.
+ * `intersect`
+ *
+ * Fired when the `trigger` enters the viewport.
+ *
+ * `exit`
+ *
+ * Fired when the `trigger` exits the viewport.
  *
  * ### Attributes
  *
- * - `threshold`: Specify a `threshold` between `0` and `1` to determine how much of the
+ * `threshold`
+ *
+ * Specify a `threshold` between `0` and `1` to determine how much of the
  * `trigger` should be visible for the intersection to occur.
  */
 export class Intersect extends Lifecycle(Trigger(Content())) {
