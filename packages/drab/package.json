@@ -21,8 +21,7 @@
 		"share",
 		"tablesort",
 		"tabs",
-		"wakelock",
-		"youtube"
+		"wakelock"
 	],
 	"repository": {
 		"type": "git",
@@ -153,14 +152,6 @@
 		"./wakelock/define": {
 			"types": "./dist/wakelock/define.d.ts",
 			"default": "./dist/wakelock/define.js"
-		},
-		"./youtube": {
-			"types": "./dist/youtube/index.d.ts",
-			"default": "./dist/youtube/index.js"
-		},
-		"./youtube/define": {
-			"types": "./dist/youtube/define.d.ts",
-			"default": "./dist/youtube/define.js"
 		}
 	},
 	"files": [

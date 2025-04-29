@@ -12,7 +12,6 @@
 - [TableSort](/PUBLIC_PATH/classes/TableSort.md)
 - [Tabs](/PUBLIC_PATH/classes/Tabs.md)
 - [WakeLock](/PUBLIC_PATH/classes/WakeLock.md)
-- [YouTube](/PUBLIC_PATH/classes/YouTube.md)
 
 ## Interfaces
 
@@ -30,7 +29,6 @@
 - [TableSortTriggerAttributes](/PUBLIC_PATH/interfaces/TableSortTriggerAttributes.md)
 - [TabsAttributes](/PUBLIC_PATH/interfaces/TabsAttributes.md)
 - [WakeLockAttributes](/PUBLIC_PATH/interfaces/WakeLockAttributes.md)
-- [YouTubeAttributes](/PUBLIC_PATH/interfaces/YouTubeAttributes.md)
 
 ## Type Aliases
 

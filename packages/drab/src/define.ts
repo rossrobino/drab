@@ -10,4 +10,3 @@ import "./share/define.js";
 import "./tablesort/define.js";
 import "./tabs/define.js";
 import "./wakelock/define.js";
-import "./youtube/define.js";

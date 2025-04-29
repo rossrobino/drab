@@ -10,7 +10,6 @@ import type { ShareAttributes } from "../share/index.js";
 import type { TableSortAttributes } from "../tablesort/index.js";
 import type { TabsAttributes } from "../tabs/index.js";
 import type { WakeLockAttributes } from "../wakelock/index.js";
-import type { YouTubeAttributes } from "../youtube/index.js";
 
 export interface Attributes {
 	announcer: AnnouncerAttributes;
@@ -25,7 +24,6 @@ export interface Attributes {
 	tablesort: TableSortAttributes;
 	tabs: TabsAttributes;
 	wakelock: WakeLockAttributes;
-	youtube: YouTubeAttributes;
 }
 
 type Prefixed<
