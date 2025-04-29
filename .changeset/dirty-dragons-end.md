@@ -12,7 +12,6 @@ Here's the generated `<iframe>` element and the [supported parameters](https://d
 <iframe
 	loading="lazy"
 	title="Renegade - Kevin Olusola"
-	class="bg-base-900 aspect-video w-full rounded"
 	src="https://www.youtube-nocookie.com/embed/gouiY85kD2o"
 	allowfullscreen
 	allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
