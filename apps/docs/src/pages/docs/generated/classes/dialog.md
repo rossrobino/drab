@@ -1,4 +1,4 @@
-Defined in: [dialog/index.ts:44](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L44)
+Defined in: [dialog/index.ts:36](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L36)
 
 Provides triggers for the `HTMLDialogElement`.
 
@@ -18,14 +18,6 @@ if there is a click outside of the first child element.
 Add the `remove-body-scroll` attribute to remove the scroll from `document.body` when the dialog
 is open.
 
-Use the CSS `scrollbar-gutter: stable` to eliminate layout shift when removing the body scroll.
-
-```css
-:root {
-  scrollbar-gutter: stable;
-}
-```
-
 ## Extends
 
 - `Lifecycle`\<\{(...`args`): `Trigger`\<\{(...`args`): `Content`\<`Constructor`\<`HTMLElement`\>\>; `prototype`: `Content`\<`any`\>; \} & `Constructor`\<`HTMLElement`\>\>; `prototype`: `Trigger`\<`any`\>; \} & \{(...`args`): `Content`\<`Constructor`\<`HTMLElement`\>\>; `prototype`: `Content`\<`any`\>; \} & `Constructor`\<`HTMLElement`\>, `this`\> & `Trigger`\<\{(...`args`): `Content`\<`Constructor`\<`HTMLElement`\>\>; `prototype`: `Content`\<`any`\>; \} & `Constructor`\<`HTMLElement`\>, `this`\> & `Content`\<`Constructor`\<`HTMLElement`\>, `this`\> & `HTMLElement`\<`this`\>
@@ -38,7 +30,7 @@ Use the CSS `scrollbar-gutter: stable` to eliminate layout shift when removing t
 
 > **new Dialog**(): `Dialog`
 
-Defined in: [dialog/index.ts:45](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L45)
+Defined in: [dialog/index.ts:37](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L37)
 
 #### Returns
 
@@ -58,7 +50,7 @@ Defined in: [dialog/index.ts:45](https://github.com/rossrobino/components/blob/m
 
 > **get** **dialog**(): `HTMLDialogElement`
 
-Defined in: [dialog/index.ts:50](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L50)
+Defined in: [dialog/index.ts:42](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L42)
 
 The `HTMLDialogElement` within the element.
 
@@ -120,7 +112,7 @@ keyof `HTMLElementEventMap`
 
 > **close**(): `void`
 
-Defined in: [dialog/index.ts:68](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L68)
+Defined in: [dialog/index.ts:69](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L69)
 
 Wraps `HTMLDialogElement.close()`.
 
@@ -326,7 +318,7 @@ this.querySelectorAll("[data-trigger]");
 
 > **mount**(): `void`
 
-Defined in: [dialog/index.ts:79](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L79)
+Defined in: [dialog/index.ts:80](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L80)
 
 Passed into `queueMicrotask` in `connectedCallback`.
 It is overridden in each component that needs to run `connectedCallback`.
@@ -500,7 +492,7 @@ Other options sans `signal`.
 
 > **show**(): `void`
 
-Defined in: [dialog/index.ts:62](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L62)
+Defined in: [dialog/index.ts:63](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L63)
 
 Wraps `HTMLDialogElement.showModal()`.
 
@@ -546,7 +538,7 @@ default: `800`
 
 > **toggle**(): `void`
 
-Defined in: [dialog/index.ts:74](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L74)
+Defined in: [dialog/index.ts:75](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L75)
 
 `show` or `close` depending on the dialog's `open` attribute.
 
