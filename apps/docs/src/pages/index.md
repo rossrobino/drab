@@ -24,5 +24,3 @@ drab adds interactivity by enhancing your markup with custom elements. Each elem
 - If you are writing JavaScript, each element can be extended or renamed to be used however you see fit.
 - The library is [small](https://bundlephobia.com/package/drab), with zero dependencies.
 - drab is not built on top of a web component framework.
-
-<a class="button" href="/getting-started/">Get Started</a>
