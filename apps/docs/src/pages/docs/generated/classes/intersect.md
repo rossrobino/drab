@@ -1,14 +1,18 @@
-Defined in: [intersect/index.ts:29](https://github.com/rossrobino/components/blob/main/packages/drab/src/intersect/index.ts#L29)
+Defined in: [intersect/index.ts:31](https://github.com/rossrobino/components/blob/main/packages/drab/src/intersect/index.ts#L31)
 
-Uses the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) to add a `data-intersect` attribute to `content` when the `trigger` is intersecting.
+Uses the
+[Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)
+to add a `data-intersect` attribute to `content` when the `trigger` is intersecting.
 
-Use `onIntersect` and `onExit` to customize further with JavaScript.
+### Events
+
+- `intersect`: Fired when the `trigger` enters the viewport.
+- `exit`: Fired when the `trigger` exits the viewport.
 
 ### Attributes
 
-`threshold`
-
-Specify a `threshold` between `0` and `1` to determine how much of the `trigger` should be visible for the intersection to occur.
+- `threshold`: Specify a `threshold` between `0` and `1` to determine how much of the
+  `trigger` should be visible for the intersection to occur.
 
 ## Extends
 
@@ -22,7 +26,7 @@ Specify a `threshold` between `0` and `1` to determine how much of the `trigger`
 
 > **new Intersect**(): `Intersect`
 
-Defined in: [intersect/index.ts:36](https://github.com/rossrobino/components/blob/main/packages/drab/src/intersect/index.ts#L36)
+Defined in: [intersect/index.ts:32](https://github.com/rossrobino/components/blob/main/packages/drab/src/intersect/index.ts#L32)
 
 #### Returns
 
@@ -276,7 +280,7 @@ this.querySelectorAll("[data-trigger]");
 
 > **mount**(): `void`
 
-Defined in: [intersect/index.ts:63](https://github.com/rossrobino/components/blob/main/packages/drab/src/intersect/index.ts#L63)
+Defined in: [intersect/index.ts:47](https://github.com/rossrobino/components/blob/main/packages/drab/src/intersect/index.ts#L47)
 
 Passed into `queueMicrotask` in `connectedCallback`.
 It is overridden in each component that needs to run `connectedCallback`.
@@ -294,50 +298,6 @@ be attached to elements inside.
 #### Overrides
 
 `Lifecycle(Trigger(Content())).mount`
-
----
-
-<a id="onexit"></a>
-
-### onExit()
-
-> **onExit**(`callback`): `void`
-
-Defined in: [intersect/index.ts:59](https://github.com/rossrobino/components/blob/main/packages/drab/src/intersect/index.ts#L59)
-
-#### Parameters
-
-##### callback
-
-`IntersectCallback`
-
-Runs when `trigger` exits.
-
-#### Returns
-
-`void`
-
----
-
-<a id="onintersect"></a>
-
-### onIntersect()
-
-> **onIntersect**(`callback`): `void`
-
-Defined in: [intersect/index.ts:52](https://github.com/rossrobino/components/blob/main/packages/drab/src/intersect/index.ts#L52)
-
-#### Parameters
-
-##### callback
-
-`IntersectCallback`
-
-Runs when `trigger` intersects.
-
-#### Returns
-
-`void`
 
 ---
 
