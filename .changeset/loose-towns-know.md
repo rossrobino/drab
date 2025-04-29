@@ -21,6 +21,7 @@ class Base extends Lifecycle(Trigger(Content(Announce()))) {
 }
 
 // for example, if only the lifecycle and trigger features are needed
+// just extends the mixins that are required
 class LifecycleAndTriggerOnly extends Lifecycle(Trigger()) {
 	// ...
 }

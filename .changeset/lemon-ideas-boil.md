@@ -2,4 +2,6 @@
 "drab": patch
 ---
 
-default to HTMLElement for super argument for mixins
+Mixins
+
+- Default to `HTMLElement` for `super` argument for each mixin.
