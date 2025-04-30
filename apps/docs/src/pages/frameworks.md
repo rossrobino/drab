@@ -5,15 +5,21 @@ description: How to use drab with a JavaScript Framework
 
 # How to use Custom Elements with a Framework
 
-drab can be utilized in [any framework that supports custom elements](https://custom-elements-everywhere.com/). If you are using a server-side rendering (SSR) framework, you will need to ensure the element's code only runs on the client.
+drab can be utilized in [any framework that supports custom elements](https://custom-elements-everywhere.com/).
 
-Here are a few examples on how to do this in popular JavaScript frameworks with functions like `onMount` or `useEffect`. If you aren't using a SSR framework, you can omit these wrappers since the code will only run on the client.
+## TypeScript support
 
-If you are using TypeScript, you can add a `d.ts` file within your `tsconfig.include` paths to extend the types of your framework's intrinsic elements to get autocomplete for attributes.
+If you are using TypeScript, drab includes types for each attribute of each element so you can get autocomplete and type safety just like you would from a framework component. Add a `d.ts` file within your `tsconfig.include` paths to extend the types of your framework's intrinsic elements (examples below).
+
+## Server rendering
+
+drab is built to be compatible with server-side rendering (SSR). If you are using SSR, you will need to ensure the element's code only runs on the client. Below are examples on how to do this in popular JavaScript frameworks with functions like `onMount` or `useEffect`. If you aren't using SSR, you can omit these wrappers since the code will only run on the client.
+
+## Examples
 
 _\*If you see a better way to write any of these examples or a framework that is missing, please [create an issue or pull request](https://github.com/rossrobino/drab/issues)!_
 
-## Astro
+### Astro
 
 ```astro
 ---
@@ -32,7 +38,7 @@ const attributes: DialogAttributes = {
 <drab-dialog {...attributes}>...</drab-dialog>
 ```
 
-## Enhance
+### Enhance
 
 ```js
 // app/elements/my-dialog.mjs
@@ -49,7 +55,7 @@ export default function MyDialog({ html }) {
 import "drab/dialog/define";
 ```
 
-## React
+### React
 
 ```tsx
 "use client";
@@ -78,7 +84,7 @@ declare module "react" {
 }
 ```
 
-## Solid
+### Solid
 
 ```tsx
 // dialog.tsx
@@ -106,7 +112,7 @@ declare module "solid-js" {
 }
 ```
 
-## Svelte
+### Svelte
 
 ```svelte
 <!-- dialog.svelte -->
@@ -133,7 +139,7 @@ declare module "svelte/elements" {
 export {};
 ```
 
-## Vue
+### Vue
 
 ```vue
 <!-- dialog.vue -->

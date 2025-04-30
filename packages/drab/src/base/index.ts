@@ -1,10 +1,3 @@
-/**
- * @module
- *
- * Each element in the library extends one or more of these mixins.
- * The mixins provides methods for selecting elements via HTML attributes
- * along with other helpers.
- */
 import { Announcer } from "../announcer/index.js";
 import { validate } from "../util/validate.js";
 

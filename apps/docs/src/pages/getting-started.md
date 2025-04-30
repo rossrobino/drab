@@ -31,4 +31,50 @@ import "drab/dialog/define";
 
 Elements without styles can appear rather drab. You have the freedom to bring your own styles to these elements. Since drab doesn't use the shadow DOM, you can style any content inside these elements as you normally would. Using unstyled elements allows you to selectively choose what you need and avoid being tied to any specific library.
 
-The examples in this documentation are styled with Tailwind and [uico](https://uico.robino.dev). Tailwind does **not** have to be used with this library.
+The examples in this documentation are styled with Tailwind and [uico](https://uico.robino.dev). These do **not** have to be used with this library, any styling solution will work.
+
+## Fundamentals
+
+Each element extends one or more of the [mixins from `drab/base`](/custom/). Each element can contain **trigger** elements, which the user can interact with, and **content** that gets updated during the interaction.
+
+### Trigger
+
+Each element can have one or multiple trigger elements. By default, drab will look for any elements with with the `data-trigger` attribute within the element.
+
+```html
+<drab-prefetch>
+	<a data-trigger href="/">Home</a>
+	<a data-trigger href="/about">About</a>
+
+	<!-- not prefetched (no data-trigger attribute) -->
+	<a href="/expensive">Expensive</a>
+</drab-prefetch>
+```
+
+Alternatively, you can add a `trigger` attribute to the element to customize the selector. The value is passed directly into `querySelectorAll` to identify the trigger elements instead.
+
+```html
+<drab-prefetch trigger="a[href^='/']">
+	<!-- now all <a> tags with a href that start with '/' are triggers -->
+	<a href="/">Home</a>
+	<a href="/about">About</a>
+</drab-prefetch>
+```
+
+### Content
+
+The content element is identified in a similar manner. By default, the first element with the `data-content` attribute will be selected.
+
+```html
+<drab-dialog>
+	<dialog data-content>...</dialog>
+</drab-dialog>
+```
+
+This can also be customized by adding the `content` attribute, the value will be passed into `querySelector` to identify the content element instead.
+
+```html
+<drab-dialog content="dialog">
+	<dialog>...</dialog>
+</drab-dialog>
+```

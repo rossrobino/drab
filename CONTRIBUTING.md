@@ -1,1 +1,1 @@
-[Contributing guide](https://drab.robino.dev/#contributing)
+[Contributing guide](https://drab.robino.dev/contributing)

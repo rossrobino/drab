@@ -5,13 +5,15 @@ description: How to contribute to drab.
 
 # Contributing
 
-Find an bug or have an idea? Create an issue on [GitHub](https://github.com/rossrobino/drab). drab is licensed under the MIT License.
+Find an bug or have an idea? Create an issue on [GitHub](https://github.com/rossrobino/drab).
 
-Since this is a headless library, simple elements like a badge that can be easily created with HTML and CSS are included in the JavaScript library, there are references to [CSS only elements](/styles/details/) in the styles section. Elements such as a select, or a date picker are also not included in favor of the native HTML elements.
+drab is licensed under the [MIT License](https://github.com/rossrobino/drab/blob/main/LICENSE.md).
+
+Since this is a headless library, simple elements like a badge that can be easily created with HTML and CSS are not included in the JavaScript library, there are references to [CSS only elements](/styles/details/) in the styles section. Elements such as a select, or a date picker are also not included in favor of the native HTML elements.
 
 ## Local development
 
-This library is built with [TypeScript](https://www.typescriptlang.org/), this site is built with [domco](https://domco.robino.dev) and [uico](https://uico.robino.dev). The package contents are located in `packages/drab/`.
+This library is built with TypeScript, this documentation site is built with Vite. The package contents are located in `packages/drab/`.
 
 1. Clone the [repository](https://github.com/rossrobino/drab)
 2. Install dependencies with npm
