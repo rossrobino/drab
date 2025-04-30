@@ -45,12 +45,12 @@ export class Copy extends Lifecycle(Trigger(Content(Announce()))) {
 	 */
 	copy(value = this.value) {
 		this.announce("copied text to clipboard");
-		this.swapContent();
+		this.swap();
 
 		return navigator.clipboard.writeText(value);
 	}
 
 	override mount() {
-		this.triggerListener(() => this.copy());
+		this.listener(() => this.copy());
 	}
 }

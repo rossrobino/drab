@@ -1,4 +1,4 @@
-Defined in: [wakelock/index.ts:45](https://github.com/rossrobino/components/blob/main/packages/drab/src/wakelock/index.ts#L45)
+Defined in: [wakelock/index.ts:44](https://github.com/rossrobino/components/blob/main/packages/drab/src/wakelock/index.ts#L44)
 
 `WakeLock` uses the
 [WakeLock API](https://developer.mozilla.org/en-US/docs/Web/API/Screen_Wake_Lock_API)
@@ -7,7 +7,6 @@ Use your best judgement for when this is necessary, for example, if you have a t
 that needs to stay on, or you are displaying a QR code.
 
 - Use `content` and `swap` elements to adjust the UI based on the current state.
-- `request` and `release` methods are provided to set the WakeLock with JavaScript.
 - `trigger` is disabled if not supported.
 - WakeLock is released when the element is removed from the DOM.
 
@@ -36,7 +35,7 @@ a `locked` attribute when connected.
 
 > **new WakeLock**(): `WakeLock`
 
-Defined in: [wakelock/index.ts:48](https://github.com/rossrobino/components/blob/main/packages/drab/src/wakelock/index.ts#L48)
+Defined in: [wakelock/index.ts:47](https://github.com/rossrobino/components/blob/main/packages/drab/src/wakelock/index.ts#L47)
 
 #### Returns
 
@@ -45,16 +44,6 @@ Defined in: [wakelock/index.ts:48](https://github.com/rossrobino/components/blob
 #### Overrides
 
 `Lifecycle(Trigger(Content(Announce()))).constructor`
-
-## Properties
-
-<a id="wakelock"></a>
-
-### wakeLock
-
-> **wakeLock**: `null` \| `WakeLockSentinel` = `null`
-
-Defined in: [wakelock/index.ts:46](https://github.com/rossrobino/components/blob/main/packages/drab/src/wakelock/index.ts#L46)
 
 ## Accessors
 
@@ -150,6 +139,71 @@ Called when custom element is added to the page.
 
 ---
 
+<a id="content"></a>
+
+### content()
+
+#### Call Signature
+
+> **content**\<`T`\>(`instance`): `T`
+
+Defined in: [base/index.ts:109](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L109)
+
+##### Type Parameters
+
+###### T
+
+`T` _extends_ `HTMLElement`
+
+##### Parameters
+
+###### instance
+
+`Constructor`\<`T`\>
+
+The instance of the desired element to validate against,
+ex: `HTMLDialogElement`. Defaults to `HTMLElement`.
+
+##### Returns
+
+`T`
+
+The element that matches the `content` selector.
+
+##### Default
+
+```ts
+this.querySelector("[data-content]");
+```
+
+##### Inherited from
+
+`Lifecycle(Trigger(Content(Announce()))).content`
+
+#### Call Signature
+
+> **content**(): `HTMLElement`
+
+Defined in: [base/index.ts:110](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L110)
+
+##### Returns
+
+`HTMLElement`
+
+The element that matches the `content` selector.
+
+##### Default
+
+```ts
+this.querySelector("[data-content]");
+```
+
+##### Inherited from
+
+`Lifecycle(Trigger(Content(Announce()))).content`
+
+---
+
 <a id="destroy"></a>
 
 ### destroy()
@@ -190,133 +244,47 @@ Called when custom element is removed from the page.
 
 ---
 
-<a id="getcontent"></a>
+<a id="listener"></a>
 
-### getContent()
+### listener()
 
-#### Call Signature
+> **listener**\<`T`, `K`\>(`listener`, `type`, `options?`): `void`
 
-> **getContent**\<`T`\>(`instance`): `T`
+Defined in: [base/index.ts:76](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L76)
 
-Defined in: [base/index.ts:109](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L109)
+#### Type Parameters
 
-##### Type Parameters
-
-###### T
+##### T
 
 `T` _extends_ `HTMLElement`
 
-##### Parameters
+##### K
 
-###### instance
+`K` _extends_ keyof `HTMLElementEventMap`
 
-`Constructor`\<`T`\>
+#### Parameters
 
-The instance of the desired element to validate against,
-ex: `HTMLDialogElement`. Defaults to `HTMLElement`.
+##### listener
 
-##### Returns
+(`this`, `e`) => `any`
 
-`T`
+Listener to attach to all of the `trigger` elements.
 
-The element that matches the `content` selector.
+##### type
 
-##### Default
+`K` = `...`
 
-```ts
-this.querySelector("[data-content]");
-```
+##### options?
 
-##### Inherited from
+`AddEventListenerOptions`
 
-`Lifecycle(Trigger(Content(Announce()))).getContent`
+#### Returns
 
-#### Call Signature
+`void`
 
-> **getContent**(): `HTMLElement`
+#### Inherited from
 
-Defined in: [base/index.ts:110](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L110)
-
-##### Returns
-
-`HTMLElement`
-
-The element that matches the `content` selector.
-
-##### Default
-
-```ts
-this.querySelector("[data-content]");
-```
-
-##### Inherited from
-
-`Lifecycle(Trigger(Content(Announce()))).getContent`
-
----
-
-<a id="gettrigger"></a>
-
-### getTrigger()
-
-#### Call Signature
-
-> **getTrigger**\<`T`\>(`instance`): `NodeListOf`\<`T`\>
-
-Defined in: [base/index.ts:61](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L61)
-
-##### Type Parameters
-
-###### T
-
-`T` _extends_ `HTMLElement`
-
-##### Parameters
-
-###### instance
-
-`Constructor`\<`T`\>
-
-The instance of the desired element to validate against,
-ex: `HTMLButtonElement`. Defaults to `HTMLElement`.
-
-##### Returns
-
-`NodeListOf`\<`T`\>
-
-All of the elements that match the `trigger` selector.
-
-##### Default
-
-```ts
-this.querySelectorAll("[data-trigger]");
-```
-
-##### Inherited from
-
-`Lifecycle(Trigger(Content(Announce()))).getTrigger`
-
-#### Call Signature
-
-> **getTrigger**(): `NodeListOf`\<`HTMLElement`\>
-
-Defined in: [base/index.ts:62](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L62)
-
-##### Returns
-
-`NodeListOf`\<`HTMLElement`\>
-
-All of the elements that match the `trigger` selector.
-
-##### Default
-
-```ts
-this.querySelectorAll("[data-trigger]");
-```
-
-##### Inherited from
-
-`Lifecycle(Trigger(Content(Announce()))).getTrigger`
+`Lifecycle(Trigger(Content(Announce()))).listener`
 
 ---
 
@@ -526,11 +494,11 @@ Other options sans `signal`.
 
 ---
 
-<a id="swapcontent"></a>
+<a id="swap"></a>
 
-### swapContent()
+### swap()
 
-> **swapContent**(`revert`): `void`
+> **swap**(`revert`): `void`
 
 Defined in: [base/index.ts:125](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L125)
 
@@ -552,48 +520,69 @@ default: `800`
 
 #### Inherited from
 
-`Lifecycle(Trigger(Content(Announce()))).swapContent`
+`Lifecycle(Trigger(Content(Announce()))).swap`
 
 ---
 
-<a id="triggerlistener"></a>
+<a id="triggers"></a>
 
-### triggerListener()
+### triggers()
 
-> **triggerListener**\<`T`, `K`\>(`listener`, `type`, `options?`): `void`
+#### Call Signature
 
-Defined in: [base/index.ts:76](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L76)
+> **triggers**\<`T`\>(`instance`): `NodeListOf`\<`T`\>
 
-#### Type Parameters
+Defined in: [base/index.ts:61](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L61)
 
-##### T
+##### Type Parameters
+
+###### T
 
 `T` _extends_ `HTMLElement`
 
-##### K
+##### Parameters
 
-`K` _extends_ keyof `HTMLElementEventMap`
+###### instance
 
-#### Parameters
+`Constructor`\<`T`\>
 
-##### listener
+The instance of the desired element to validate against,
+ex: `HTMLButtonElement`. Defaults to `HTMLElement`.
 
-(`this`, `e`) => `any`
+##### Returns
 
-Listener to attach to all of the `trigger` elements.
+`NodeListOf`\<`T`\>
 
-##### type
+All of the elements that match the `trigger` selector.
 
-`K` = `...`
+##### Default
 
-##### options?
+```ts
+this.querySelectorAll("[data-trigger]");
+```
 
-`AddEventListenerOptions`
+##### Inherited from
 
-#### Returns
+`Lifecycle(Trigger(Content(Announce()))).triggers`
 
-`void`
+#### Call Signature
 
-#### Inherited from
+> **triggers**(): `NodeListOf`\<`HTMLElement`\>
 
-`Lifecycle(Trigger(Content(Announce()))).triggerListener`
+Defined in: [base/index.ts:62](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L62)
+
+##### Returns
+
+`NodeListOf`\<`HTMLElement`\>
+
+All of the elements that match the `trigger` selector.
+
+##### Default
+
+```ts
+this.querySelectorAll("[data-trigger]");
+```
+
+##### Inherited from
+
+`Lifecycle(Trigger(Content(Announce()))).triggers`

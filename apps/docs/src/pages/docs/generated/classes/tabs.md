@@ -157,68 +157,47 @@ Called when custom element is removed from the page.
 
 ---
 
-<a id="gettrigger"></a>
+<a id="listener"></a>
 
-### getTrigger()
+### listener()
 
-#### Call Signature
+> **listener**\<`T`, `K`\>(`listener`, `type`, `options?`): `void`
 
-> **getTrigger**\<`T`\>(`instance`): `NodeListOf`\<`T`\>
+Defined in: [base/index.ts:76](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L76)
 
-Defined in: [base/index.ts:61](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L61)
+#### Type Parameters
 
-##### Type Parameters
-
-###### T
+##### T
 
 `T` _extends_ `HTMLElement`
 
-##### Parameters
+##### K
 
-###### instance
+`K` _extends_ keyof `HTMLElementEventMap`
 
-`Constructor`\<`T`\>
+#### Parameters
 
-The instance of the desired element to validate against,
-ex: `HTMLButtonElement`. Defaults to `HTMLElement`.
+##### listener
 
-##### Returns
+(`this`, `e`) => `any`
 
-`NodeListOf`\<`T`\>
+Listener to attach to all of the `trigger` elements.
 
-All of the elements that match the `trigger` selector.
+##### type
 
-##### Default
+`K` = `...`
 
-```ts
-this.querySelectorAll("[data-trigger]");
-```
+##### options?
 
-##### Inherited from
+`AddEventListenerOptions`
 
-`Lifecycle(Trigger()).getTrigger`
+#### Returns
 
-#### Call Signature
+`void`
 
-> **getTrigger**(): `NodeListOf`\<`HTMLElement`\>
+#### Inherited from
 
-Defined in: [base/index.ts:62](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L62)
-
-##### Returns
-
-`NodeListOf`\<`HTMLElement`\>
-
-All of the elements that match the `trigger` selector.
-
-##### Default
-
-```ts
-this.querySelectorAll("[data-trigger]");
-```
-
-##### Inherited from
-
-`Lifecycle(Trigger()).getTrigger`
+`Lifecycle(Trigger()).listener`
 
 ---
 
@@ -396,44 +375,65 @@ Other options sans `signal`.
 
 ---
 
-<a id="triggerlistener"></a>
+<a id="triggers"></a>
 
-### triggerListener()
+### triggers()
 
-> **triggerListener**\<`T`, `K`\>(`listener`, `type`, `options?`): `void`
+#### Call Signature
 
-Defined in: [base/index.ts:76](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L76)
+> **triggers**\<`T`\>(`instance`): `NodeListOf`\<`T`\>
 
-#### Type Parameters
+Defined in: [base/index.ts:61](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L61)
 
-##### T
+##### Type Parameters
+
+###### T
 
 `T` _extends_ `HTMLElement`
 
-##### K
+##### Parameters
 
-`K` _extends_ keyof `HTMLElementEventMap`
+###### instance
 
-#### Parameters
+`Constructor`\<`T`\>
 
-##### listener
+The instance of the desired element to validate against,
+ex: `HTMLButtonElement`. Defaults to `HTMLElement`.
 
-(`this`, `e`) => `any`
+##### Returns
 
-Listener to attach to all of the `trigger` elements.
+`NodeListOf`\<`T`\>
 
-##### type
+All of the elements that match the `trigger` selector.
 
-`K` = `...`
+##### Default
 
-##### options?
+```ts
+this.querySelectorAll("[data-trigger]");
+```
 
-`AddEventListenerOptions`
+##### Inherited from
 
-#### Returns
+`Lifecycle(Trigger()).triggers`
 
-`void`
+#### Call Signature
 
-#### Inherited from
+> **triggers**(): `NodeListOf`\<`HTMLElement`\>
 
-`Lifecycle(Trigger()).triggerListener`
+Defined in: [base/index.ts:62](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L62)
+
+##### Returns
+
+`NodeListOf`\<`HTMLElement`\>
+
+All of the elements that match the `trigger` selector.
+
+##### Default
+
+```ts
+this.querySelectorAll("[data-trigger]");
+```
+
+##### Inherited from
+
+`Lifecycle(Trigger()).triggers`

@@ -1,7 +1,20 @@
 ---
-"drab": patch
+"drab": major
 ---
 
-Dialog
+Private fields
 
-- Use `scrollbar-gutter: stable` css property to prevent layout shift instead adding/removing margin from the body.
+The following elements have fields that are now private (can't be accessed via JS). This allows the library to minify smaller and have less breaking changes in the future.
+
+- Dialog
+  - `dialog`
+- Editor
+  - `text`
+  - `textArea`
+  - `keyPairs`
+- Fullscreen
+  - `isFullscreen`
+- Prefetch
+  - `appendTag`
+- Wakelock
+  - `wakeLock`

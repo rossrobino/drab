@@ -25,7 +25,6 @@ export interface WakeLockAttributes
  * that needs to stay on, or you are displaying a QR code.
  *
  * - Use `content` and `swap` elements to adjust the UI based on the current state.
- * - `request` and `release` methods are provided to set the WakeLock with JavaScript.
  * - `trigger` is disabled if not supported.
  * - WakeLock is released when the element is removed from the DOM.
  *
@@ -43,7 +42,7 @@ export interface WakeLockAttributes
  * a `locked` attribute when connected.
  */
 export class WakeLock extends Lifecycle(Trigger(Content(Announce()))) {
-	wakeLock: WakeLockSentinel | null = null;
+	#wakeLock: WakeLockSentinel | null = null;
 
 	constructor() {
 		super();
@@ -55,7 +54,8 @@ export class WakeLock extends Lifecycle(Trigger(Content(Announce()))) {
 	}
 
 	/**
-	 * the `auto-lock` attribute controls whether an active WakeLock should be restored when navigating back to the page.
+	 * the `auto-lock` attribute controls whether an active WakeLock should be restored when navigating back to
+	 *  the page.
 	 */
 	get #autoLock() {
 		return this.hasAttribute("auto-lock");
@@ -64,20 +64,20 @@ export class WakeLock extends Lifecycle(Trigger(Content(Announce()))) {
 	/** Requests WakeLock on the current page. */
 	async request() {
 		if (this.#wakeLockSupported() && document.visibilityState === "visible") {
-			this.wakeLock = await navigator.wakeLock.request("screen");
+			this.#wakeLock = await navigator.wakeLock.request("screen");
 			this.setAttribute("locked", "");
 			this.announce("screen wake lock activated");
-			this.swapContent(false);
+			this.swap(false);
 
-			this.wakeLock.addEventListener("release", () => {
+			this.#wakeLock.addEventListener("release", () => {
 				this.removeAttribute("locked");
 				this.announce("screen wake lock deactivated");
-				this.swapContent(false);
+				this.swap(false);
 
 				if (!this.#autoLock) {
 					// set to null is required, used to determine if screen should be
 					// locked again, see visibilitychange listener
-					this.wakeLock = null;
+					this.#wakeLock = null;
 				}
 			});
 		}
@@ -85,8 +85,8 @@ export class WakeLock extends Lifecycle(Trigger(Content(Announce()))) {
 
 	/** Releases the WakeLock, sets `this.wakeLock` to null. */
 	async release() {
-		await this.wakeLock?.release();
-		this.wakeLock = null;
+		await this.#wakeLock?.release();
+		this.#wakeLock = null;
 	}
 
 	override mount() {
@@ -95,16 +95,16 @@ export class WakeLock extends Lifecycle(Trigger(Content(Announce()))) {
 			this.request();
 		}
 
-		this.triggerListener(() => {
+		this.listener(() => {
 			// toggle
-			if (this.wakeLock) {
+			if (this.#wakeLock) {
 				this.release();
 			} else {
 				this.request();
 			}
 		});
 
-		for (const trigger of this.getTrigger()) {
+		for (const trigger of this.triggers()) {
 			if (!this.#wakeLockSupported() && "disabled" in trigger) {
 				// disable `trigger` if not supported
 				trigger.disabled = true;
@@ -118,7 +118,7 @@ export class WakeLock extends Lifecycle(Trigger(Content(Announce()))) {
 					// When the tab is not visible, the wakeLock is automatically released.
 					// This requests it back if it exists, if it is `null`, that
 					// means it was removed. In which case, it shouldn't be requested again.
-					if (this.wakeLock) {
+					if (this.#wakeLock) {
 						this.request();
 					}
 				},

@@ -23,8 +23,8 @@ export class ContextMenu extends Lifecycle(Trigger(Content())) {
 
 	/** Sets the context menu's `style.left` and `style.top` position. */
 	set #coordinates(value: { x: number; y: number }) {
-		this.getContent().style.left = `${value.x}px`;
-		this.getContent().style.top = `${value.y}px`;
+		this.content().style.left = `${value.x}px`;
+		this.content().style.top = `${value.y}px`;
 	}
 
 	show(e: MouseEvent | TouchEvent) {
@@ -40,11 +40,11 @@ export class ContextMenu extends Lifecycle(Trigger(Content())) {
 		let x = clientX + scrollX;
 		let y = clientY + scrollY;
 
-		this.getContent().style.position = "absolute";
-		this.getContent().setAttribute("data-open", "");
+		this.content().style.position = "absolute";
+		this.content().setAttribute("data-open", "");
 
-		const offsetWidth = this.getContent().offsetWidth + 24;
-		const offsetHeight = this.getContent().offsetHeight + 6;
+		const offsetWidth = this.content().offsetWidth + 24;
+		const offsetHeight = this.content().offsetHeight + 6;
 		const innerWidth = window.innerWidth;
 		const innerHeight = window.innerHeight;
 
@@ -60,12 +60,12 @@ export class ContextMenu extends Lifecycle(Trigger(Content())) {
 	}
 
 	hide() {
-		this.getContent().removeAttribute("data-open");
+		this.content().removeAttribute("data-open");
 	}
 
 	override mount() {
 		// mouse
-		this.triggerListener((e) => {
+		this.listener((e) => {
 			e.preventDefault();
 			this.show(e);
 		}, "contextmenu");
@@ -73,7 +73,7 @@ export class ContextMenu extends Lifecycle(Trigger(Content())) {
 		this.safeListener("click", () => this.hide());
 
 		// touch
-		this.triggerListener(
+		this.listener(
 			(e) => {
 				this.#touchTimer = setTimeout(() => {
 					this.show(e);
@@ -84,8 +84,8 @@ export class ContextMenu extends Lifecycle(Trigger(Content())) {
 		);
 
 		const resetTimer = () => clearTimeout(this.#touchTimer);
-		this.triggerListener(resetTimer, "touchend", { passive: true });
-		this.triggerListener(resetTimer, "touchcancel", { passive: true });
+		this.listener(resetTimer, "touchend", { passive: true });
+		this.listener(resetTimer, "touchcancel", { passive: true });
 
 		// keyboard
 		this.safeListener("keydown", (e) => {

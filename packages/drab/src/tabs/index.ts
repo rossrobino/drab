@@ -50,7 +50,7 @@ export class Tabs extends Lifecycle(Trigger()) {
 	}
 
 	get #tabs() {
-		return this.getTrigger(HTMLAnchorElement);
+		return this.triggers(HTMLAnchorElement);
 	}
 
 	/**

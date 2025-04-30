@@ -35,7 +35,7 @@ export class TableSort extends Lifecycle(Trigger(Content(Announce()))) {
 	}
 
 	get #th() {
-		return this.getTrigger(HTMLTableCellElement);
+		return this.triggers(HTMLTableCellElement);
 	}
 
 	/**
@@ -48,7 +48,7 @@ export class TableSort extends Lifecycle(Trigger(Content(Announce()))) {
 		const asc = "data-asc";
 		const desc = "data-desc";
 
-		for (const t of this.getTrigger(HTMLTableCellElement)) {
+		for (const t of this.triggers(HTMLTableCellElement)) {
 			if (t !== trigger) {
 				t.removeAttribute(asc);
 				t.removeAttribute(desc);
@@ -68,7 +68,7 @@ export class TableSort extends Lifecycle(Trigger(Content(Announce()))) {
 	}
 
 	override mount() {
-		const tbody = this.getContent(HTMLTableSectionElement);
+		const tbody = this.content(HTMLTableSectionElement);
 
 		for (const trigger of this.#th) {
 			trigger.tabIndex = 0;

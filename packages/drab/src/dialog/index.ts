@@ -39,8 +39,8 @@ export class Dialog extends Lifecycle(Trigger(Content())) {
 	}
 
 	/** The `HTMLDialogElement` within the element. */
-	get dialog() {
-		return this.getContent(HTMLDialogElement);
+	get #dialog() {
+		return this.content(HTMLDialogElement);
 	}
 
 	get #removeBodyScroll() {
@@ -61,27 +61,27 @@ export class Dialog extends Lifecycle(Trigger(Content())) {
 
 	/** Wraps `HTMLDialogElement.showModal()`. */
 	show() {
-		this.dialog.showModal();
+		this.#dialog.showModal();
 		this.#toggleBodyScroll(true);
 	}
 
 	/** Wraps `HTMLDialogElement.close()`. */
 	close() {
 		this.#toggleBodyScroll(false);
-		this.dialog.close();
+		this.#dialog.close();
 	}
 
 	/** `show` or `close` depending on the dialog's `open` attribute. */
 	toggle() {
-		if (this.dialog.open) this.close();
+		if (this.#dialog.open) this.close();
 		else this.show();
 	}
 
 	override mount() {
-		this.triggerListener(() => this.toggle());
+		this.listener(() => this.toggle());
 
 		this.safeListener("keydown", (e) => {
-			if (e.key === "Escape" && this.dialog.open) {
+			if (e.key === "Escape" && this.#dialog.open) {
 				e.preventDefault();
 				this.close();
 			}
@@ -89,17 +89,17 @@ export class Dialog extends Lifecycle(Trigger(Content())) {
 
 		if (this.#clickOutsideClose) {
 			// https://blog.webdevsimplified.com/2023-04/html-dialog/#close-on-outside-click
-			this.dialog.addEventListener("click", (e) => {
-				let rect = this.dialog.getBoundingClientRect();
+			this.#dialog.addEventListener("click", (e) => {
+				let rect = this.#dialog.getBoundingClientRect();
 
 				// If dialog covers full viewport (with a small tolerance), use first child element for hit testing
 				// Example: https://picocss.com/docs/modal
 				if (
 					rect.width - window.innerWidth <= 5 && // 5px tolerance for rounding issues
 					rect.height - window.innerHeight <= 5 &&
-					this.dialog.firstElementChild
+					this.#dialog.firstElementChild
 				) {
-					rect = this.dialog.firstElementChild.getBoundingClientRect();
+					rect = this.#dialog.firstElementChild.getBoundingClientRect();
 				}
 
 				if (

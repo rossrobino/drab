@@ -59,9 +59,9 @@ export class Intersect extends Lifecycle(Trigger(Content())) {
 
 				for (const entry of entries) {
 					if (entry.isIntersecting) {
-						this.getContent().setAttribute(attr, "");
+						this.content().setAttribute(attr, "");
 					} else {
-						this.getContent().removeAttribute(attr);
+						this.content().removeAttribute(attr);
 					}
 
 					this.dispatchEvent(
@@ -74,6 +74,6 @@ export class Intersect extends Lifecycle(Trigger(Content())) {
 			{ threshold: this.#threshold },
 		);
 
-		for (const trigger of this.getTrigger()) observer.observe(trigger);
+		for (const trigger of this.triggers()) observer.observe(trigger);
 	}
 }

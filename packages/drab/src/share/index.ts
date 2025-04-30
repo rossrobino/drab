@@ -32,6 +32,6 @@ export class Share extends Copy {
 	}
 
 	override mount() {
-		this.triggerListener(() => this.share());
+		this.listener(() => this.share());
 	}
 }

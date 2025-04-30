@@ -81,7 +81,7 @@ export class Announcer extends HTMLElement {
 
 		define(name, this);
 
-		let announcer: Announcer | null = document.querySelector<Announcer>(name);
+		let announcer = document.querySelector<Announcer>(name);
 
 		if (!announcer) {
 			announcer = document.createElement(name) as Announcer;

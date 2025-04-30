@@ -58,9 +58,9 @@ export const Trigger = <T extends Constructor<HTMLElement>>(
 		 * @returns All of the elements that match the `trigger` selector.
 		 * @default this.querySelectorAll("[data-trigger]")
 		 */
-		getTrigger<T extends HTMLElement>(instance: Constructor<T>): NodeListOf<T>;
-		getTrigger(): NodeListOf<HTMLElement>;
-		getTrigger(instance = HTMLElement) {
+		triggers<T extends HTMLElement>(instance: Constructor<T>): NodeListOf<T>;
+		triggers(): NodeListOf<HTMLElement>;
+		triggers(instance = HTMLElement) {
 			const triggers = this.querySelectorAll(
 				this.getAttribute("trigger") ?? "[data-trigger]",
 			);
@@ -73,12 +73,12 @@ export const Trigger = <T extends Constructor<HTMLElement>>(
 		/**
 		 * @param listener Listener to attach to all of the `trigger` elements.
 		 */
-		triggerListener<T extends HTMLElement, K extends keyof HTMLElementEventMap>(
+		listener<T extends HTMLElement, K extends keyof HTMLElementEventMap>(
 			listener: (this: T, e: HTMLElementEventMap[K]) => any,
 			type: K = this.event as K,
 			options?: AddEventListenerOptions,
 		) {
-			for (const trigger of this.getTrigger()) {
+			for (const trigger of this.triggers()) {
 				trigger.addEventListener(type, listener as EventListener, options);
 			}
 		}
@@ -106,9 +106,9 @@ export const Content = <T extends Constructor<HTMLElement>>(
 		 * @returns The element that matches the `content` selector.
 		 * @default this.querySelector("[data-content]")
 		 */
-		getContent<T extends HTMLElement>(instance: Constructor<T>): T;
-		getContent(): HTMLElement;
-		getContent(instance = HTMLElement) {
+		content<T extends HTMLElement>(instance: Constructor<T>): T;
+		content(): HTMLElement;
+		content(instance = HTMLElement) {
 			return validate(
 				this.querySelector(this.getAttribute("content") ?? "[data-content]"),
 				instance,
@@ -122,15 +122,15 @@ export const Content = <T extends Constructor<HTMLElement>>(
 		 * @param revert Wait time (ms) before swapping back, set to `false` to not revert.
 		 * default: `800`
 		 */
-		swapContent(revert: number | false = 800) {
+		swap(revert: number | false = 800) {
 			/** The swap element, used to hold the replacement contents. */
-			const swap = this.querySelector(
+			const swapTarget = this.querySelector(
 				this.getAttribute("swap") ?? "[data-swap]",
 			);
 
-			if (swap) {
+			if (swapTarget) {
 				/** A copy of the content currently in `this.getContent()`. */
-				const currentContent = this.getContent().childNodes;
+				const currentContent = this.content().childNodes;
 
 				/**
 				 * The contents of the swap element, set based on whether the
@@ -140,22 +140,22 @@ export const Content = <T extends Constructor<HTMLElement>>(
 
 				// Set the placeholder with the `swap` content, then replace the
 				// swap content with the `currentContent`
-				if (swap instanceof HTMLTemplateElement) {
+				if (swapTarget instanceof HTMLTemplateElement) {
 					// use `content` since it's a `template` element
-					placeholder.push(swap.content.cloneNode(true));
-					swap.content.replaceChildren(...currentContent);
+					placeholder.push(swapTarget.content.cloneNode(true));
+					swapTarget.content.replaceChildren(...currentContent);
 				} else {
 					// not a `template`, replace children directly
-					placeholder.push(...swap.childNodes);
-					swap.replaceChildren(...currentContent);
+					placeholder.push(...swapTarget.childNodes);
+					swapTarget.replaceChildren(...currentContent);
 				}
 
 				// finally, set the content to the contents of the placeholder
-				this.getContent().replaceChildren(...placeholder);
+				this.content().replaceChildren(...placeholder);
 
 				if (revert) {
 					// wait and then run again to swap back
-					setTimeout(() => this.swapContent(0), revert);
+					setTimeout(() => this.swap(0), revert);
 				}
 			}
 		}

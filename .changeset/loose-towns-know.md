@@ -2,7 +2,9 @@
 "drab": major
 ---
 
-Composability with mixins
+Base
+
+### Mixins
 
 drab now uses mixins to construct each element instead of a singular `Base` class. This ensures each element only includes the base features that it needs.
 
@@ -39,3 +41,12 @@ class PrefetchWithContent extends Content(Prefetch) {
 	// ...
 }
 ```
+
+### Renaming
+
+The following methods were renamed within the corresponding mixins of the `Base` class.
+
+- `getTrigger` => `triggers`
+- `triggerListener` => `listener`
+- `getContent` => `content`
+- `swapContent` => `swap`

@@ -23,7 +23,7 @@ export class Fullscreen extends Lifecycle(Trigger(Content())) {
 	/**
 	 * @returns `true` if fullscreen is currently enabled.
 	 */
-	isFullscreen() {
+	#isFullscreen() {
 		return document.fullscreenElement !== null;
 	}
 
@@ -36,11 +36,11 @@ export class Fullscreen extends Lifecycle(Trigger(Content())) {
 
 	/** Enables or disables fullscreen mode based on the current state. */
 	toggle() {
-		if (this.isFullscreen()) {
+		if (this.#isFullscreen()) {
 			document.exitFullscreen();
 		} else {
 			try {
-				this.getContent(HTMLElement).requestFullscreen();
+				this.content(HTMLElement).requestFullscreen();
 			} catch {
 				document.documentElement.requestFullscreen();
 			}
@@ -48,9 +48,9 @@ export class Fullscreen extends Lifecycle(Trigger(Content())) {
 	}
 
 	override mount() {
-		this.triggerListener(() => this.toggle());
+		this.listener(() => this.toggle());
 
-		for (const trigger of this.getTrigger()) {
+		for (const trigger of this.triggers()) {
 			if (!this.#fullscreenSupported() && "disabled" in trigger) {
 				trigger.disabled = true;
 			}
