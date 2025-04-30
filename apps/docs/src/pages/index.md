@@ -7,7 +7,7 @@ description: Interactivity for You
 
 drab is a JavaScript library of interactive primitives designed to work on any website.
 
-## Write JavaScript, or don't
+## Write JavaScript... or not
 
 drab adds interactivity by enhancing your markup with [custom elements](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements). Each element is configured using HTML attributes, making it compatible with any backend or templating system.
 
