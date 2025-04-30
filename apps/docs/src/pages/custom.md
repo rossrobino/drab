@@ -20,6 +20,8 @@ class MyElement extends Lifecycle(Trigger()) {
 }
 ```
 
+---
+
 Each base mixin is outlined in more detail below.
 
 ## Lifecycle
