@@ -42,7 +42,7 @@ Defined in: [share/index.ts:17](https://github.com/rossrobino/components/blob/ma
 
 > **get** **event**(): keyof `HTMLElementEventMap`
 
-Defined in: [base/index.ts:45](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L45)
+Defined in: [base/index.ts:50](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L50)
 
 Event for the `trigger` to execute.
 
@@ -62,7 +62,7 @@ keyof `HTMLElementEventMap`
 
 > **set** **event**(`value`): `void`
 
-Defined in: [base/index.ts:51](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L51)
+Defined in: [base/index.ts:56](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L56)
 
 ##### Parameters
 
@@ -130,7 +130,7 @@ Defined in: [copy/index.ts:39](https://github.com/rossrobino/components/blob/mai
 
 > **announce**(`message`): `void`
 
-Defined in: [base/index.ts:258](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L258)
+Defined in: [base/index.ts:294](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L294)
 
 #### Parameters
 
@@ -156,7 +156,7 @@ message to announce to screen readers
 
 > **connectedCallback**(): `void`
 
-Defined in: [base/index.ts:225](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L225)
+Defined in: [base/index.ts:261](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L261)
 
 Called when custom element is added to the page.
 
@@ -178,7 +178,7 @@ Called when custom element is added to the page.
 
 > **content**\<`T`\>(`instance`): `T`
 
-Defined in: [base/index.ts:109](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L109)
+Defined in: [base/index.ts:145](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L145)
 
 ##### Type Parameters
 
@@ -215,7 +215,7 @@ this.querySelector("[data-content]");
 
 > **content**(): `HTMLElement`
 
-Defined in: [base/index.ts:110](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L110)
+Defined in: [base/index.ts:146](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L146)
 
 ##### Returns
 
@@ -267,7 +267,7 @@ The `value` to copy
 
 > **destroy**(): `void`
 
-Defined in: [base/index.ts:232](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L232)
+Defined in: [base/index.ts:268](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L268)
 
 Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallback` as well. It is overridden in each element that needs to run `disconnectedCallback`.
 
@@ -287,7 +287,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 > **disconnectedCallback**(): `void`
 
-Defined in: [base/index.ts:235](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L235)
+Defined in: [base/index.ts:271](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L271)
 
 Called when custom element is removed from the page.
 
@@ -305,41 +305,73 @@ Called when custom element is removed from the page.
 
 ### listener()
 
-> **listener**\<`T`, `K`\>(`listener`, `type`, `options?`): `void`
+#### Call Signature
 
-Defined in: [base/index.ts:76](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L76)
+> **listener**\<`T`\>(`listener`, `options?`): `void`
 
-#### Type Parameters
+Defined in: [base/index.ts:82](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L82)
 
-##### T
+##### Type Parameters
 
-`T` _extends_ `HTMLElement`
+###### T
 
-##### K
+`T` _extends_ keyof `HTMLElementEventMap`
 
-`K` _extends_ keyof `HTMLElementEventMap`
+##### Parameters
 
-#### Parameters
+###### listener
 
-##### listener
-
-(`this`, `e`) => `any`
+`Listener`\<`T`\>
 
 Listener to attach to all of the `trigger` elements.
 
-##### type
-
-`K` = `...`
-
-##### options?
+###### options?
 
 `AddEventListenerOptions`
 
-#### Returns
+##### Returns
 
 `void`
 
-#### Inherited from
+##### Inherited from
+
+[`Copy`](/elements/copy/).[`listener`](/elements/copy/#listener)
+
+#### Call Signature
+
+> **listener**\<`T`\>(`type`, `listener`, `options?`): `void`
+
+Defined in: [base/index.ts:91](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L91)
+
+##### Type Parameters
+
+###### T
+
+`T` _extends_ keyof `HTMLElementEventMap`
+
+##### Parameters
+
+###### type
+
+`T`
+
+Event type.
+
+###### listener
+
+`Listener`\<`T`\>
+
+Listener to attach to all of the `trigger` elements.
+
+###### options?
+
+`AddEventListenerOptions`
+
+##### Returns
+
+`void`
+
+##### Inherited from
 
 [`Copy`](/elements/copy/).[`listener`](/elements/copy/#listener)
 
@@ -380,7 +412,7 @@ be attached to elements inside.
 
 > **safeListener**\<`T`\>(`type`, `listener`, `element?`, `options?`): `void`
 
-Defined in: [base/index.ts:184](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L184)
+Defined in: [base/index.ts:220](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L220)
 
 Wrapper around `addEventListener` that ensures when the element is
 removed from the DOM, these event listeners are cleaned up.
@@ -427,7 +459,7 @@ Other options sans `signal`.
 
 > **safeListener**\<`T`\>(`type`, `listener`, `document`, `options?`): `void`
 
-Defined in: [base/index.ts:190](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L190)
+Defined in: [base/index.ts:226](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L226)
 
 Wrapper around `addEventListener` that ensures when the element is
 removed from the DOM, these event listeners are cleaned up.
@@ -474,7 +506,7 @@ Other options sans `signal`.
 
 > **safeListener**\<`T`\>(`type`, `listener`, `window`, `options?`): `void`
 
-Defined in: [base/index.ts:196](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L196)
+Defined in: [base/index.ts:232](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L232)
 
 Wrapper around `addEventListener` that ensures when the element is
 removed from the DOM, these event listeners are cleaned up.
@@ -549,7 +581,7 @@ The `url` to share, defaults to `this.value`
 
 > **swap**(`revert`): `void`
 
-Defined in: [base/index.ts:125](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L125)
+Defined in: [base/index.ts:161](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L161)
 
 Finds the `HTMLElement | HTMLTemplateElement` via the `swap` selector and
 swaps `this.content()` with the content of the element found.
@@ -581,7 +613,7 @@ default: `800`
 
 > **triggers**\<`T`\>(`instance`): `NodeListOf`\<`T`\>
 
-Defined in: [base/index.ts:61](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L61)
+Defined in: [base/index.ts:66](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L66)
 
 ##### Type Parameters
 
@@ -618,7 +650,7 @@ this.querySelectorAll("[data-trigger]");
 
 > **triggers**(): `NodeListOf`\<`HTMLElement`\>
 
-Defined in: [base/index.ts:62](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L62)
+Defined in: [base/index.ts:67](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L67)
 
 ##### Returns
 

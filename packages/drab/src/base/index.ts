@@ -19,6 +19,11 @@ export interface ContentAttributes {
 
 export type Constructor<T> = new (...args: any[]) => T;
 
+type Listener<T extends keyof HTMLElementEventMap> = (
+	this: HTMLElement,
+	e: HTMLElementEventMap[T],
+) => void;
+
 /**
  * By default, `trigger`s are selected via the `data-trigger` attribute.
  * Alternatively, you can set the `trigger` attribute to a CSS selector to
@@ -72,14 +77,45 @@ export const Trigger = <T extends Constructor<HTMLElement>>(
 
 		/**
 		 * @param listener Listener to attach to all of the `trigger` elements.
+		 * @param options
 		 */
-		listener<T extends HTMLElement, K extends keyof HTMLElementEventMap>(
-			listener: (this: T, e: HTMLElementEventMap[K]) => any,
-			type: K = this.event as K,
+		listener<T extends keyof HTMLElementEventMap>(
+			listener: Listener<T>,
 			options?: AddEventListenerOptions,
-		) {
+		): void;
+		/**
+		 * @param type Event type.
+		 * @param listener Listener to attach to all of the `trigger` elements.
+		 * @param options
+		 */
+		listener<T extends keyof HTMLElementEventMap>(
+			type: T,
+			listener: Listener<T>,
+			options?: AddEventListenerOptions,
+		): void;
+		listener<T extends keyof HTMLElementEventMap>(
+			typeOrListener: T | Listener<T>,
+			listenerOrOptions?: Listener<T> | AddEventListenerOptions,
+			optionsMaybe?: AddEventListenerOptions,
+		): void {
+			let type: keyof HTMLElementEventMap;
+			let listener: Listener<any>;
+			let options: AddEventListenerOptions | undefined;
+
+			if (typeof typeOrListener === "function") {
+				// (listener, options?)
+				type = this.event;
+				listener = typeOrListener;
+				options = listenerOrOptions as AddEventListenerOptions;
+			} else {
+				// (type, listener, options?)
+				type = typeOrListener;
+				listener = listenerOrOptions as Listener<T>;
+				options = optionsMaybe;
+			}
+
 			for (const trigger of this.triggers()) {
-				trigger.addEventListener(type, listener as EventListener, options);
+				trigger.addEventListener(type, listener, options);
 			}
 		}
 	};

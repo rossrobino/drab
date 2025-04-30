@@ -65,27 +65,27 @@ export class ContextMenu extends Lifecycle(Trigger(Content())) {
 
 	override mount() {
 		// mouse
-		this.listener((e) => {
+		this.listener("contextmenu", (e) => {
 			e.preventDefault();
 			this.show(e);
-		}, "contextmenu");
+		});
 
 		this.safeListener("click", () => this.hide());
 
 		// touch
 		this.listener(
+			"touchstart",
 			(e) => {
 				this.#touchTimer = setTimeout(() => {
 					this.show(e);
 				}, 800);
 			},
-			"touchstart",
 			{ passive: true },
 		);
 
 		const resetTimer = () => clearTimeout(this.#touchTimer);
-		this.listener(resetTimer, "touchend", { passive: true });
-		this.listener(resetTimer, "touchcancel", { passive: true });
+		this.listener("touchend", resetTimer, { passive: true });
+		this.listener("touchcancel", resetTimer, { passive: true });
 
 		// keyboard
 		this.safeListener("keydown", (e) => {

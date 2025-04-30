@@ -50,3 +50,14 @@ The following methods were renamed within the corresponding mixins of the `Base`
 - `triggerListener` => `listener`
 - `getContent` => `content`
 - `swapContent` => `swap`
+
+### listener argument order
+
+In addition to the name change, `listener` has been updated to use overloads so the `type` can be passed in as the first argument instead of the second be more consistent with `addEventListener`.
+
+```diff
+- el.triggerListener(() => console.log("hello"), "click", options);
++ el.listener("click", () => console.log("hello"), options);
+```
+
+Using without a `type` will still default to `this.event`.
