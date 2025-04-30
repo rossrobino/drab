@@ -4,11 +4,11 @@
 
 Base
 
+If you are only using drab via HTML none of these changes to `Base` will affect the functionality of any elements. Please read other sections for possible breaking changes as some elements have been merged or removed.
+
 ### Mixins
 
 drab now uses mixins to construct each element instead of a singular `Base` class. This ensures each element only includes the base features that it needs.
-
-If you are not using the elements via JavaScript (HTML only), there are no breaking changes to the elements. Enjoy a slightly smaller bundle size for most elements.
 
 The main breaking change is the `Base` class has been removed along with the `drab/base/define` entry point.
 

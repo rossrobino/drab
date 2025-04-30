@@ -1,8 +1,8 @@
-Defined in: [share/index.ts:3](https://github.com/rossrobino/components/blob/main/packages/drab/src/share/index.ts#L3)
+Defined in: [share/index.ts:10](https://github.com/rossrobino/components/blob/main/packages/drab/src/share/index.ts#L10)
 
 ## Extends
 
-- [`CopyAttributes`](/PUBLIC_PATH/interfaces/CopyAttributes.md)
+- `TriggerAttributes`.`ContentAttributes`
 
 ## Properties
 
@@ -12,11 +12,11 @@ Defined in: [share/index.ts:3](https://github.com/rossrobino/components/blob/mai
 
 > `optional` **content**: `string`
 
-Defined in: [base/index.ts:16](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L16)
+Defined in: [base/index.ts:9](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L9)
 
 #### Inherited from
 
-[`CopyAttributes`](/PUBLIC_PATH/interfaces/CopyAttributes.md).[`content`](/PUBLIC_PATH/interfaces/CopyAttributes.md#content)
+`ContentAttributes.content`
 
 ---
 
@@ -26,11 +26,11 @@ Defined in: [base/index.ts:16](https://github.com/rossrobino/components/blob/mai
 
 > `optional` **swap**: `string`
 
-Defined in: [base/index.ts:17](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L17)
+Defined in: [base/index.ts:10](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L10)
 
 #### Inherited from
 
-[`CopyAttributes`](/PUBLIC_PATH/interfaces/CopyAttributes.md).[`swap`](/PUBLIC_PATH/interfaces/CopyAttributes.md#swap)
+`ContentAttributes.swap`
 
 ---
 
@@ -40,11 +40,11 @@ Defined in: [base/index.ts:17](https://github.com/rossrobino/components/blob/mai
 
 > `optional` **trigger**: `string`
 
-Defined in: [base/index.ts:12](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L12)
+Defined in: [base/index.ts:5](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L5)
 
 #### Inherited from
 
-[`CopyAttributes`](/PUBLIC_PATH/interfaces/CopyAttributes.md).[`trigger`](/PUBLIC_PATH/interfaces/CopyAttributes.md#trigger)
+`TriggerAttributes.trigger`
 
 ---
 
@@ -54,8 +54,4 @@ Defined in: [base/index.ts:12](https://github.com/rossrobino/components/blob/mai
 
 > **value**: `string`
 
-Defined in: [copy/index.ts:11](https://github.com/rossrobino/components/blob/main/packages/drab/src/copy/index.ts#L11)
-
-#### Inherited from
-
-[`CopyAttributes`](/PUBLIC_PATH/interfaces/CopyAttributes.md).[`value`](/PUBLIC_PATH/interfaces/CopyAttributes.md#value)
+Defined in: [share/index.ts:11](https://github.com/rossrobino/components/blob/main/packages/drab/src/share/index.ts#L11)

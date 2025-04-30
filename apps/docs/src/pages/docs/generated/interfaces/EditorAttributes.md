@@ -12,7 +12,7 @@ Defined in: [editor/index.ts:9](https://github.com/rossrobino/components/blob/ma
 
 > `optional` **content**: `string`
 
-Defined in: [base/index.ts:16](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L16)
+Defined in: [base/index.ts:9](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L9)
 
 #### Inherited from
 
@@ -26,7 +26,7 @@ Defined in: [base/index.ts:16](https://github.com/rossrobino/components/blob/mai
 
 > `optional` **swap**: `string`
 
-Defined in: [base/index.ts:17](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L17)
+Defined in: [base/index.ts:10](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L10)
 
 #### Inherited from
 
@@ -40,7 +40,7 @@ Defined in: [base/index.ts:17](https://github.com/rossrobino/components/blob/mai
 
 > `optional` **trigger**: `string`
 
-Defined in: [base/index.ts:12](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L12)
+Defined in: [base/index.ts:5](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L5)
 
 #### Inherited from
 

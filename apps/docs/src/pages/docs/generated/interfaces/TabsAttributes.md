@@ -24,7 +24,7 @@ Set to `"vertical"` if tabs are displayed vertically.
 
 > `optional` **trigger**: `string`
 
-Defined in: [base/index.ts:12](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L12)
+Defined in: [base/index.ts:5](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L5)
 
 #### Inherited from
 

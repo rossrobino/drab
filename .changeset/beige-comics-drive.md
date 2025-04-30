@@ -16,5 +16,7 @@ The following elements have members that are now private (can't be accessed via 
   - `isFullscreen`
 - Prefetch
   - `appendTag`
+- Share
+  - `value`
 - Wakelock
   - `wakeLock`

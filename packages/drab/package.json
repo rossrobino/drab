@@ -12,7 +12,6 @@
 		"web components",
 		"custom elements",
 		"contextmenu",
-		"copy",
 		"dialog",
 		"editor",
 		"fullscreen",
@@ -69,14 +68,6 @@
 		"./contextmenu/define": {
 			"types": "./dist/contextmenu/define.d.ts",
 			"default": "./dist/contextmenu/define.js"
-		},
-		"./copy": {
-			"types": "./dist/copy/index.d.ts",
-			"default": "./dist/copy/index.js"
-		},
-		"./copy/define": {
-			"types": "./dist/copy/define.d.ts",
-			"default": "./dist/copy/define.js"
 		},
 		"./dialog": {
 			"types": "./dist/dialog/index.d.ts",

@@ -1,11 +1,23 @@
-import { Copy, type CopyAttributes } from "../copy/index.js";
+import {
+	Announce,
+	Content,
+	Lifecycle,
+	Trigger,
+	type TriggerAttributes,
+	type ContentAttributes,
+} from "../base/index.js";
 
-export interface ShareAttributes extends CopyAttributes {}
+export interface ShareAttributes extends TriggerAttributes, ContentAttributes {
+	value: string;
+}
 
 /**
  * Uses the
  * [Navigator API](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share)
- * to share a url. If `share` is not supported, falls back to copy the text instead.
+ * to share a the value if it starts with `"http"` and `navigator.share` is supported.
+ * Otherwise uses the
+ * [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText)
+ * to copy the value.
  *
  * ### Attributes
  *
@@ -13,22 +25,35 @@ export interface ShareAttributes extends CopyAttributes {}
  *
  * Text to share.
  */
-export class Share extends Copy {
+export class Share extends Lifecycle(Trigger(Content(Announce()))) {
 	constructor() {
 		super();
+	}
+	/**
+	 * The value to copy.
+	 *
+	 * @default ""
+	 */
+	get #value() {
+		return this.getAttribute("value") ?? "";
 	}
 
 	/**
 	 * Shares or copies the `value`.
-	 * @param url The `url` to share, defaults to `this.value`
 	 */
-	share(url = this.value) {
-		if (navigator.canShare && navigator.canShare({ url })) {
-			return navigator.share({ url });
-		} else {
-			// progressively enhance, copy the link
-			return this.copy();
+	share(value = this.#value) {
+		if (
+			value.startsWith("http") &&
+			navigator.canShare &&
+			navigator.canShare({ url: value })
+		) {
+			return navigator.share({ url: value });
 		}
+
+		// fallback to copy
+		this.announce("copied text to clipboard");
+		this.swap();
+		return navigator.clipboard.writeText(value);
 	}
 
 	override mount() {

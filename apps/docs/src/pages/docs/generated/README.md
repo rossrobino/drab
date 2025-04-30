@@ -2,7 +2,6 @@
 
 - [Announcer](/PUBLIC_PATH/classes/Announcer.md)
 - [ContextMenu](/PUBLIC_PATH/classes/ContextMenu.md)
-- [Copy](/PUBLIC_PATH/classes/Copy.md)
 - [Dialog](/PUBLIC_PATH/classes/Dialog.md)
 - [Editor](/PUBLIC_PATH/classes/Editor.md)
 - [Fullscreen](/PUBLIC_PATH/classes/Fullscreen.md)
@@ -17,7 +16,6 @@
 
 - [AnnouncerAttributes](/PUBLIC_PATH/interfaces/AnnouncerAttributes.md)
 - [ContextMenuAttributes](/PUBLIC_PATH/interfaces/ContextMenuAttributes.md)
-- [CopyAttributes](/PUBLIC_PATH/interfaces/CopyAttributes.md)
 - [DialogAttributes](/PUBLIC_PATH/interfaces/DialogAttributes.md)
 - [EditorAttributes](/PUBLIC_PATH/interfaces/EditorAttributes.md)
 - [EditorTriggerAttributes](/PUBLIC_PATH/interfaces/EditorTriggerAttributes.md)

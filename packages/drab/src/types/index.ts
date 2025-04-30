@@ -1,6 +1,5 @@
 import type { AnnouncerAttributes } from "../announcer/index.js";
 import type { ContextMenuAttributes } from "../contextmenu/index.js";
-import type { CopyAttributes } from "../copy/index.js";
 import type { DialogAttributes } from "../dialog/index.js";
 import type { EditorAttributes } from "../editor/index.js";
 import type { FullscreenAttributes } from "../fullscreen/index.js";
@@ -14,7 +13,6 @@ import type { WakeLockAttributes } from "../wakelock/index.js";
 export interface Attributes {
 	announcer: AnnouncerAttributes;
 	contextmenu: ContextMenuAttributes;
-	copy: CopyAttributes;
 	dialog: DialogAttributes;
 	editor: EditorAttributes;
 	fullscreen: FullscreenAttributes;

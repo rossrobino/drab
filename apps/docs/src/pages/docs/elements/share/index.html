@@ -1,11 +1,30 @@
-<drab-share value="https://drab.robino.dev">
-	<button data-trigger type="button" class="gap-2">
-		Share
-		<span data-content class="contents">
-			<span data-content class="icon-[lucide--share]"></span>
-		</span>
-		<template data-swap>
-			<span class="icon-[lucide--clipboard-check]"></span>
-		</template>
-	</button>
-</drab-share>
+<div class="grid gap-4">
+	<drab-share value="https://drab.robino.dev">
+		<button data-trigger type="button" class="gap-2" aria-label="share url">
+			Share
+			<span data-content class="contents">
+				<span data-content class="icon-[lucide--share]"></span>
+			</span>
+			<template data-swap>
+				<span class="icon-[lucide--clipboard-check]"></span>
+			</template>
+		</button>
+	</drab-share>
+
+	<drab-share value="text">
+		<button
+			data-trigger
+			type="button"
+			class="gap-2"
+			aria-label="copy text to clipboard"
+		>
+			<span>Copy</span>
+			<span data-content class="contents">
+				<span data-content class="icon-[lucide--clipboard-copy]"></span>
+			</span>
+			<template data-swap>
+				<span class="icon-[lucide--clipboard-check]"></span>
+			</template>
+		</button>
+	</drab-share>
+</div>

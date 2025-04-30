@@ -1,6 +1,5 @@
 export * from "./announcer/index.js";
 export * from "./contextmenu/index.js";
-export * from "./copy/index.js";
 export * from "./dialog/index.js";
 export * from "./editor/index.js";
 export * from "./fullscreen/index.js";
