@@ -22,7 +22,6 @@
 - [FullscreenAttributes](/PUBLIC_PATH/interfaces/FullscreenAttributes.md)
 - [IntersectAttributes](/PUBLIC_PATH/interfaces/IntersectAttributes.md)
 - [PrefetchAttributes](/PUBLIC_PATH/interfaces/PrefetchAttributes.md)
-- [ShareAttributes](/PUBLIC_PATH/interfaces/ShareAttributes.md)
 - [TableSortAttributes](/PUBLIC_PATH/interfaces/TableSortAttributes.md)
 - [TableSortTriggerAttributes](/PUBLIC_PATH/interfaces/TableSortTriggerAttributes.md)
 - [TabsAttributes](/PUBLIC_PATH/interfaces/TabsAttributes.md)
@@ -31,3 +30,4 @@
 ## Type Aliases
 
 - [ContentElement](/PUBLIC_PATH/type-aliases/ContentElement.md)
+- [ShareAttributes](/PUBLIC_PATH/type-aliases/ShareAttributes.md)

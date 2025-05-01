@@ -1,17 +1,26 @@
-Defined in: [share/index.ts:28](https://github.com/rossrobino/components/blob/main/packages/drab/src/share/index.ts#L28)
+Defined in: [share/index.ts:52](https://github.com/rossrobino/components/blob/main/packages/drab/src/share/index.ts#L52)
 
 Uses the
 [Navigator API](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share)
-to share a the value if it starts with `"http"` and `navigator.share` is supported.
+to share the `url` if `navigator.share` is supported.
+
 Otherwise uses the
 [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText)
-to copy the value.
+to copy the `url` or `text` provided.
 
 ### Attributes
 
-`value`
+`url`
 
-Text to share.
+URL to share.
+
+`text`
+
+Text to copy, or the `ShareData` text if `url` is set (only supported on some targets).
+
+`share-title`
+
+`ShareData` title (only supported on some targets).
 
 ## Extends
 
@@ -25,7 +34,7 @@ Text to share.
 
 > **new Share**(): `Share`
 
-Defined in: [share/index.ts:29](https://github.com/rossrobino/components/blob/main/packages/drab/src/share/index.ts#L29)
+Defined in: [share/index.ts:53](https://github.com/rossrobino/components/blob/main/packages/drab/src/share/index.ts#L53)
 
 #### Returns
 
@@ -316,7 +325,7 @@ Listener to attach to all of the `trigger` elements.
 
 > **mount**(): `void`
 
-Defined in: [share/index.ts:59](https://github.com/rossrobino/components/blob/main/packages/drab/src/share/index.ts#L59)
+Defined in: [share/index.ts:74](https://github.com/rossrobino/components/blob/main/packages/drab/src/share/index.ts#L74)
 
 Passed into `queueMicrotask` in `connectedCallback`.
 It is overridden in each component that needs to run `connectedCallback`.
@@ -481,28 +490,6 @@ Other options sans `signal`.
 ##### Inherited from
 
 `Lifecycle(Trigger(Content(Announce()))).safeListener`
-
----
-
-<a id="share"></a>
-
-### share()
-
-> **share**(`value`): `Promise`\<`void`\>
-
-Defined in: [share/index.ts:44](https://github.com/rossrobino/components/blob/main/packages/drab/src/share/index.ts#L44)
-
-Shares or copies the `value`.
-
-#### Parameters
-
-##### value
-
-`string` = `...`
-
-#### Returns
-
-`Promise`\<`void`\>
 
 ---
 
