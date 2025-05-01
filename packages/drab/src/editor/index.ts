@@ -1,12 +1,20 @@
-import { Base, type BaseAttributes } from "../base/index.js";
+import {
+	Content,
+	Lifecycle,
+	Trigger,
+	type TriggerAttributes,
+	type ContentAttributes,
+} from "../base/index.js";
 
-export type EditorAttributes = BaseAttributes;
+export interface EditorAttributes
+	extends TriggerAttributes,
+		ContentAttributes {}
 
-export type EditorTriggerAttributes = {
+export interface EditorTriggerAttributes {
 	"data-value": string;
 	"data-key": string;
 	"data-type": "block" | "wrap" | "inline";
-};
+}
 
 /**
  * A piece of content to insert into the `textarea`.
@@ -59,7 +67,7 @@ export type ContentElement = {
  * Add a `ctrl`/`meta` keyboard shortcut for the content based on the `data-key` attribute.
  *
  */
-export class Editor extends Base {
+export class Editor extends Lifecycle(Trigger(Content())) {
 	/** Array of `keyPair` characters that have been opened. */
 	#openChars: string[] = [];
 
@@ -69,7 +77,7 @@ export class Editor extends Base {
 	#inputEvent = new Event("input", { bubbles: true, cancelable: true });
 
 	/** Characters that will be automatically closed when typed. */
-	keyPairs: Record<string, string> = {
+	#keyPairs: Record<string, string> = {
 		"(": ")",
 		"{": "}",
 		"[": "]",
@@ -83,30 +91,31 @@ export class Editor extends Base {
 
 		// add any `type: "wrap"` values from `contentElements` to `keyPairs`
 		for (const element of this.#contentElements) {
-			if (element.type === "wrap") this.keyPairs[element.value] = element.value;
+			if (element.type === "wrap")
+				this.#keyPairs[element.value] = element.value;
 		}
 	}
 
 	/** The `content`, expects an `HTMLTextAreaElement`. */
-	get textArea() {
-		return this.getContent(HTMLTextAreaElement);
+	get #textArea() {
+		return this.content(HTMLTextAreaElement);
 	}
 
 	/** The current `value` of the `textarea`. */
-	get text() {
-		return this.textArea.value;
+	get #text() {
+		return this.#textArea.value;
 	}
 
-	set text(value) {
-		this.textArea.value = value;
-		this.textArea.dispatchEvent(this.#inputEvent);
+	set #text(value) {
+		this.#textArea.value = value;
+		this.#textArea.dispatchEvent(this.#inputEvent);
 	}
 
 	/** Array of `ContentElement`s derived from each `trigger`'s data attributes. */
 	get #contentElements() {
 		const contentElements: ContentElement[] = [];
 
-		for (const trigger of this.getTrigger()) {
+		for (const trigger of this.triggers()) {
 			contentElements.push(trigger.dataset as ContentElement);
 		}
 
@@ -115,12 +124,12 @@ export class Editor extends Base {
 
 	/** Gets the end position of the selection */
 	get #selEnd() {
-		return this.textArea.selectionEnd;
+		return this.#textArea.selectionEnd;
 	}
 
 	/** Gets the start position of the selection. */
 	get #selStart() {
-		return this.textArea.selectionStart;
+		return this.#textArea.selectionStart;
 	}
 
 	/**
@@ -128,7 +137,7 @@ export class Editor extends Base {
 	 * @param index where to insert the string
 	 */
 	#insertStr(str: string, index: number) {
-		this.text = this.text.slice(0, index) + str + this.text.slice(index);
+		this.#text = this.#text.slice(0, index) + str + this.#text.slice(index);
 	}
 
 	/**
@@ -136,13 +145,13 @@ export class Editor extends Base {
 	 * @param end Optional ending index - defaults to start + 1 to remove 1 character.
 	 */
 	#removeStr(start: number, end = start + 1) {
-		this.text = this.text.slice(0, start) + this.text.slice(end);
+		this.#text = this.#text.slice(0, start) + this.#text.slice(end);
 	}
 
 	/** Sets the current cursor selection in the `textarea` */
 	#setSelection(start: number, end = start) {
-		this.textArea.setSelectionRange(start, end);
-		this.textArea.focus();
+		this.#textArea.setSelectionRange(start, end);
+		this.#textArea.focus();
 	}
 
 	/**
@@ -169,7 +178,7 @@ export class Editor extends Base {
 			const end = this.#selEnd + value.length;
 
 			this.#insertStr(value, start);
-			this.#insertStr(this.keyPairs[value]!, end);
+			this.#insertStr(this.#keyPairs[value]!, end);
 			this.#setSelection(start + value.length, end);
 
 			// if single char, add to opened
@@ -186,7 +195,7 @@ export class Editor extends Base {
 
 			// add the string to the beginning of the line
 			lines[lineNumber] = value + lines[lineNumber];
-			this.text = lines.join("\n");
+			this.#text = lines.join("\n");
 
 			this.#setSelection(start + value.length);
 		}
@@ -221,7 +230,7 @@ export class Editor extends Base {
 	 * @returns Metadata describing the current position of the selection.
 	 */
 	#lineMeta() {
-		const lines = this.text.split("\n");
+		const lines = this.#text.split("\n");
 		let charCount = 0;
 
 		for (let lineNumber = 0; lineNumber < lines.length; lineNumber++) {
@@ -288,24 +297,24 @@ export class Editor extends Base {
 		}
 
 		const start = this.#selStart;
-		this.text = lines.join("\n");
+		this.#text = lines.join("\n");
 		this.#setSelection(start);
 	}
 
 	override mount() {
-		this.textArea.addEventListener("keydown", (e) => {
-			const nextChar = this.text[this.#selEnd] ?? "";
+		this.#textArea.addEventListener("keydown", (e) => {
+			const nextChar = this.#text[this.#selEnd] ?? "";
 			const notHighlighted = this.#selStart === this.#selEnd;
 
 			if (this.#resetKeys.has(e.key)) {
 				this.#openChars = [];
 			} else if (e.key === "Backspace") {
-				const prevChar = this.text[this.#selStart - 1];
+				const prevChar = this.#text[this.#selStart - 1];
 
 				if (
 					prevChar &&
-					prevChar in this.keyPairs &&
-					nextChar === this.keyPairs[prevChar]
+					prevChar in this.#keyPairs &&
+					nextChar === this.#keyPairs[prevChar]
 				) {
 					// remove both characters if the next one is the match of the prev
 					e.preventDefault();
@@ -328,7 +337,7 @@ export class Editor extends Base {
 					this.#setSelection(newPos, newPos);
 				}
 			} else if (e.key === "Tab") {
-				const blocks = this.text.split("```");
+				const blocks = this.#text.split("```");
 				let totalChars = 0;
 
 				for (const [i, block] of blocks.entries()) {
@@ -392,7 +401,7 @@ export class Editor extends Base {
 					if (e.key === "x") {
 						const newPos = this.#selStart - columnNumber;
 						lines.splice(lineNumber, 1);
-						this.text = lines.join("\n");
+						this.#text = lines.join("\n");
 						this.#setSelection(newPos, newPos);
 					}
 				}
@@ -403,34 +412,34 @@ export class Editor extends Base {
 				this.#openChars.length &&
 				notHighlighted &&
 				(nextChar === e.key || e.key === "ArrowRight") &&
-				Object.values(this.keyPairs).includes(nextChar)
+				Object.values(this.#keyPairs).includes(nextChar)
 			) {
 				// type over the next character instead of inserting
 				e.preventDefault();
 				this.#setSelection(this.#selStart + 1, this.#selEnd + 1);
 				this.#openChars.pop();
-			} else if (e.key in this.keyPairs) {
+			} else if (e.key in this.#keyPairs) {
 				e.preventDefault();
 				this.#addContent({ type: "wrap", value: e.key });
 			}
 		});
 
 		// trims the selection if there is an extra space around it
-		this.textArea.addEventListener("dblclick", () => {
+		this.#textArea.addEventListener("dblclick", () => {
 			if (this.#selStart !== this.#selEnd) {
-				if (this.text[this.#selStart] === " ") {
+				if (this.#text[this.#selStart] === " ") {
 					this.#setSelection(this.#selStart + 1, this.#selEnd);
 				}
-				if (this.text[this.#selEnd - 1] === " ") {
+				if (this.#text[this.#selEnd - 1] === " ") {
 					this.#setSelection(this.#selStart, this.#selEnd - 1);
 				}
 			}
 		});
 
 		// reset #openChars on click since the cursor has changed position
-		this.textArea.addEventListener("click", () => (this.#openChars = []));
+		this.#textArea.addEventListener("click", () => (this.#openChars = []));
 
-		this.triggerListener((e) =>
+		this.listener((e) =>
 			this.#addContent(
 				(e.currentTarget as HTMLElement).dataset as ContentElement,
 			),

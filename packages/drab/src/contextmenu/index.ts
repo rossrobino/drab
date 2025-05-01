@@ -1,11 +1,19 @@
-import { Base, type BaseAttributes } from "../base/index.js";
+import {
+	Content,
+	Lifecycle,
+	Trigger,
+	type TriggerAttributes,
+	type ContentAttributes,
+} from "../base/index.js";
 
-export type ContextMenuAttributes = BaseAttributes;
+export interface ContextMenuAttributes
+	extends TriggerAttributes,
+		ContentAttributes {}
 
 /**
  * Displays content when the `trigger` element is right clicked, or long pressed on mobile.
  */
-export class ContextMenu extends Base {
+export class ContextMenu extends Lifecycle(Trigger(Content())) {
 	/** Tracks the long press duration on mobile. */
 	#touchTimer: NodeJS.Timeout | undefined;
 
@@ -15,8 +23,8 @@ export class ContextMenu extends Base {
 
 	/** Sets the context menu's `style.left` and `style.top` position. */
 	set #coordinates(value: { x: number; y: number }) {
-		this.getContent().style.left = `${value.x}px`;
-		this.getContent().style.top = `${value.y}px`;
+		this.content().style.left = `${value.x}px`;
+		this.content().style.top = `${value.y}px`;
 	}
 
 	show(e: MouseEvent | TouchEvent) {
@@ -32,11 +40,11 @@ export class ContextMenu extends Base {
 		let x = clientX + scrollX;
 		let y = clientY + scrollY;
 
-		this.getContent().style.position = "absolute";
-		this.getContent().setAttribute("data-open", "");
+		this.content().style.position = "absolute";
+		this.content().setAttribute("data-open", "");
 
-		const offsetWidth = this.getContent().offsetWidth + 24;
-		const offsetHeight = this.getContent().offsetHeight + 6;
+		const offsetWidth = this.content().offsetWidth + 24;
+		const offsetHeight = this.content().offsetHeight + 6;
 		const innerWidth = window.innerWidth;
 		const innerHeight = window.innerHeight;
 
@@ -52,32 +60,32 @@ export class ContextMenu extends Base {
 	}
 
 	hide() {
-		this.getContent().removeAttribute("data-open");
+		this.content().removeAttribute("data-open");
 	}
 
 	override mount() {
 		// mouse
-		this.triggerListener((e) => {
+		this.listener("contextmenu", (e) => {
 			e.preventDefault();
 			this.show(e);
-		}, "contextmenu");
+		});
 
 		this.safeListener("click", () => this.hide());
 
 		// touch
-		this.triggerListener(
+		this.listener(
+			"touchstart",
 			(e) => {
 				this.#touchTimer = setTimeout(() => {
 					this.show(e);
 				}, 800);
 			},
-			"touchstart",
 			{ passive: true },
 		);
 
 		const resetTimer = () => clearTimeout(this.#touchTimer);
-		this.triggerListener(resetTimer, "touchend", { passive: true });
-		this.triggerListener(resetTimer, "touchcancel", { passive: true });
+		this.listener("touchend", resetTimer, { passive: true });
+		this.listener("touchcancel", resetTimer, { passive: true });
 
 		// keyboard
 		this.safeListener("keydown", (e) => {

@@ -1,11 +1,20 @@
-import { Base, type BaseAttributes } from "../base/index.js";
+import {
+	Announce,
+	Content,
+	Lifecycle,
+	Trigger,
+	type TriggerAttributes,
+	type ContentAttributes,
+} from "../base/index.js";
 
-export type TableSortAttributes = BaseAttributes;
+export interface TableSortAttributes
+	extends TriggerAttributes,
+		ContentAttributes {}
 
-export type TableSortTriggerAttributes = {
+export interface TableSortTriggerAttributes {
 	"data-type": "string" | "boolean" | "number";
 	"data-value": string;
-};
+}
 
 /**
  * Wrap a `HTMLTableElement` in the `TableSort` element to have sortable column
@@ -20,13 +29,13 @@ export type TableSortTriggerAttributes = {
  * datatype `number` or `boolean`, set `data-type="number"` on the corresponding
  * `th`/`trigger` element. The data will be converted to the specified type before sorting.
  */
-export class TableSort extends Base {
+export class TableSort extends Lifecycle(Trigger(Content(Announce()))) {
 	constructor() {
 		super();
 	}
 
 	get #th() {
-		return this.getTrigger(HTMLTableCellElement);
+		return this.triggers(HTMLTableCellElement);
 	}
 
 	/**
@@ -39,7 +48,7 @@ export class TableSort extends Base {
 		const asc = "data-asc";
 		const desc = "data-desc";
 
-		for (const t of this.getTrigger(HTMLTableCellElement)) {
+		for (const t of this.triggers(HTMLTableCellElement)) {
 			if (t !== trigger) {
 				t.removeAttribute(asc);
 				t.removeAttribute(desc);
@@ -59,7 +68,7 @@ export class TableSort extends Base {
 	}
 
 	override mount() {
-		const tbody = this.getContent(HTMLTableSectionElement);
+		const tbody = this.content(HTMLTableSectionElement);
 
 		for (const trigger of this.#th) {
 			trigger.tabIndex = 0;

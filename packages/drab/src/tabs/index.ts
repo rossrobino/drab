@@ -1,8 +1,9 @@
-import { Base, type BaseAttributes } from "../base/index.js";
+import { Lifecycle, Trigger, type TriggerAttributes } from "../base/index.js";
 
-export type TabAttributes = BaseAttributes & {
+export interface TabsAttributes extends TriggerAttributes {
+	/** Set to `"vertical"` if tabs are displayed vertically. */
 	orientation?: "horizontal" | "vertical";
-};
+}
 
 /**
  * Progressively enhance a list of links and content to be tabs by
@@ -32,7 +33,7 @@ export type TabAttributes = BaseAttributes & {
  *
  * Set `orientation="vertical"` if the `tablist` element is displayed vertically.
  */
-export class Tabs extends Base {
+export class Tabs extends Lifecycle(Trigger()) {
 	/** Supported keys for keyboard navigation. */
 	#keys = ["ArrowRight", "ArrowDown", "ArrowLeft", "ArrowUp", "Home", "End"];
 
@@ -49,7 +50,7 @@ export class Tabs extends Base {
 	}
 
 	get #tabs() {
-		return this.getTrigger(HTMLAnchorElement);
+		return this.triggers(HTMLAnchorElement);
 	}
 
 	/**

@@ -12,7 +12,6 @@
 		"web components",
 		"custom elements",
 		"contextmenu",
-		"copy",
 		"dialog",
 		"editor",
 		"fullscreen",
@@ -21,8 +20,7 @@
 		"share",
 		"tablesort",
 		"tabs",
-		"wakelock",
-		"youtube"
+		"wakelock"
 	],
 	"repository": {
 		"type": "git",
@@ -55,10 +53,6 @@
 			"types": "./dist/base/index.d.ts",
 			"default": "./dist/base/index.js"
 		},
-		"./base/define": {
-			"types": "./dist/base/define.d.ts",
-			"default": "./dist/base/define.js"
-		},
 		"./breakpoint": {
 			"types": "./dist/breakpoint/index.d.ts",
 			"default": "./dist/breakpoint/index.js"
@@ -74,14 +68,6 @@
 		"./contextmenu/define": {
 			"types": "./dist/contextmenu/define.d.ts",
 			"default": "./dist/contextmenu/define.js"
-		},
-		"./copy": {
-			"types": "./dist/copy/index.d.ts",
-			"default": "./dist/copy/index.js"
-		},
-		"./copy/define": {
-			"types": "./dist/copy/define.d.ts",
-			"default": "./dist/copy/define.js"
 		},
 		"./dialog": {
 			"types": "./dist/dialog/index.d.ts",
@@ -147,6 +133,9 @@
 			"types": "./dist/tabs/define.d.ts",
 			"default": "./dist/tabs/define.js"
 		},
+		"./types": {
+			"types": "./dist/types/index.d.ts"
+		},
 		"./wakelock": {
 			"types": "./dist/wakelock/index.d.ts",
 			"default": "./dist/wakelock/index.js"
@@ -154,14 +143,6 @@
 		"./wakelock/define": {
 			"types": "./dist/wakelock/define.d.ts",
 			"default": "./dist/wakelock/define.js"
-		},
-		"./youtube": {
-			"types": "./dist/youtube/index.d.ts",
-			"default": "./dist/youtube/index.js"
-		},
-		"./youtube/define": {
-			"types": "./dist/youtube/define.d.ts",
-			"default": "./dist/youtube/define.js"
 		}
 	},
 	"files": [

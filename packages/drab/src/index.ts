@@ -1,7 +1,5 @@
 export * from "./announcer/index.js";
-export { Base, type BaseAttributes } from "./base/index.js";
 export * from "./contextmenu/index.js";
-export * from "./copy/index.js";
 export * from "./dialog/index.js";
 export * from "./editor/index.js";
 export * from "./fullscreen/index.js";
@@ -11,4 +9,3 @@ export * from "./share/index.js";
 export * from "./tablesort/index.js";
 export * from "./tabs/index.js";
 export * from "./wakelock/index.js";
-export * from "./youtube/index.js";

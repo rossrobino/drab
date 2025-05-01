@@ -1,12 +1,17 @@
-import { Base, type BaseAttributes } from "../base/index.js";
+import { Lifecycle, Trigger, type TriggerAttributes } from "../base/index.js";
 
 type Strategy = "hover" | "load" | "visible";
 
-export type PrefetchAttributes = BaseAttributes & {
+export interface PrefetchAttributes extends TriggerAttributes {
+	/** When to prefetch the url. */
 	strategy?: Strategy;
+
+	/** Prerender on the client with the Speculation Rules API. */
 	prerender?: boolean;
+
+	/** URL to prefetch. */
 	url?: string;
-};
+}
 
 // https://developer.chrome.com/blog/speculation-rules-improvements
 type SpeculationRules = {
@@ -65,8 +70,8 @@ type WhereCondition =
  *
  * This element can be deprecated once the Speculation Rules API is supported across browsers. The API will be able to prefetch assets in a similar way with the `source: "document"` and `eagerness` features, and will work without JavaScript.
  */
-export class Prefetch extends Base {
-	#prefetchedUrls: string[] = [];
+export class Prefetch extends Lifecycle(Trigger()) {
+	#prefetchedUrls = new Set<string>();
 
 	constructor() {
 		super();
@@ -74,7 +79,7 @@ export class Prefetch extends Base {
 
 	/** When to prefetch the url. */
 	get #strategy() {
-		return (this.getAttribute("strategy") ?? "hover") as Strategy;
+		return this.getAttribute("strategy");
 	}
 
 	/** Prerender with the Speculation Rules API. */
@@ -88,11 +93,12 @@ export class Prefetch extends Base {
 	}
 
 	/**
-	 * Appends `<link rel="prefetch">` or `<script type="speculationrules">` to the head of the document.
+	 * Appends `<link rel="prefetch">` or `<script type="speculationrules">`
+	 * to the head of the document.
 	 *
 	 * @param options Configuration options.
 	 */
-	appendTag(options: {
+	prefetch(options: {
 		/** `url` to prefetch. */
 		url: string;
 
@@ -101,14 +107,11 @@ export class Prefetch extends Base {
 		 */
 		prerender?: boolean;
 	}) {
-		const { url, prerender } = options;
+		const { url } = options;
 
 		// if not the current page and not already prefetched
-		if (
-			!(url === window.location.href) &&
-			!this.#prefetchedUrls.includes(url)
-		) {
-			this.#prefetchedUrls.push(url);
+		if (!(url === window.location.href) && !this.#prefetchedUrls.has(url)) {
+			this.#prefetchedUrls.add(url);
 
 			if (
 				HTMLScriptElement.supports &&
@@ -121,9 +124,7 @@ export class Prefetch extends Base {
 					prefetch: [{ source: "list", urls: [url] }],
 				};
 
-				if (prerender) {
-					rules.prerender = rules.prefetch;
-				}
+				if (options.prerender) rules.prerender = rules.prefetch;
 
 				const script = document.createElement("script");
 				script.type = "speculationrules";
@@ -139,53 +140,24 @@ export class Prefetch extends Base {
 		}
 	}
 
-	/**
-	 * Use to prefetch/prerender HTML.
-	 *
-	 * Can be used more than once with different options for different selectors.
-	 *
-	 * @param options Prefetch options.
-	 */
-	prefetch(
-		options: {
-			/** The anchors to prefetch. Defaults to `trigger` elements. */
-			anchors?: NodeListOf<HTMLAnchorElement>;
+	override mount() {
+		// immediately prefetch the `url` attribute if it exists
+		if (this.#url)
+			this.prefetch({ url: this.#url, prerender: this.#prerender });
 
-			/** Uses the Speculation Rules API when supported to prerender on the client. */
-			prerender?: boolean;
-
-			/**
-			 * Determines when the prefetch takes place.
-			 *
-			 * @default "hover"
-			 */
-			strategy?: "hover" | "load" | "visible";
-		} = {
-			anchors: this.getTrigger(HTMLAnchorElement),
-			prerender: this.#prerender,
-			strategy: this.#strategy,
-		},
-		// above is the default if options is undefined
-	) {
-		// defaults if partially defined
-		const {
-			anchors = this.getTrigger(HTMLAnchorElement),
-			prerender = this.#prerender,
-			strategy = this.#strategy,
-		} = options;
+		// prefetch the `trigger` elements
+		const anchors = this.triggers(HTMLAnchorElement);
+		const prerender = this.#prerender;
+		const strategy = this.#strategy;
 
 		let prefetchTimer: NodeJS.Timeout;
 
-		/**
-		 * @param delay ms delay - for `hover`
-		 * @returns the event listener with delay
-		 */
 		const listener =
 			(delay = 200) =>
 			(e: Event) => {
 				const { href } = e.currentTarget as HTMLAnchorElement;
 				prefetchTimer = setTimeout(
-					() => this.appendTag({ url: href, prerender }),
+					() => this.prefetch({ url: href, prerender }),
 					delay,
 				);
 			};
@@ -193,10 +165,10 @@ export class Prefetch extends Base {
 		const reset = () => clearTimeout(prefetchTimer);
 
 		const observer = new IntersectionObserver((entries) => {
-			for (const e of entries) {
-				if (e.isIntersecting) {
-					this.appendTag({
-						url: (e.target as HTMLAnchorElement).href,
+			for (const entry of entries) {
+				if (entry.isIntersecting) {
+					this.prefetch({
+						url: (entry.target as HTMLAnchorElement).href,
 						prerender,
 					});
 				}
@@ -205,7 +177,7 @@ export class Prefetch extends Base {
 
 		for (const anchor of anchors) {
 			if (strategy === "load") {
-				this.appendTag({ url: anchor.href, prerender });
+				this.prefetch({ url: anchor.href, prerender });
 			} else if (strategy === "visible") {
 				observer.observe(anchor);
 			} else {
@@ -214,21 +186,10 @@ export class Prefetch extends Base {
 				anchor.addEventListener("mouseout", reset);
 				anchor.addEventListener("focus", listener());
 				anchor.addEventListener("focusout", reset);
-
 				// immediately append on touchstart, no delay
 				// passive: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#using_passive_listeners
 				anchor.addEventListener("touchstart", listener(0), { passive: true });
 			}
 		}
-	}
-
-	override mount() {
-		// immediately prefetch the `url` attribute if it exists
-		if (this.#url) {
-			this.appendTag({ url: this.#url, prerender: this.#prerender });
-		}
-
-		// prefetch the `trigger` elements
-		this.prefetch();
 	}
 }

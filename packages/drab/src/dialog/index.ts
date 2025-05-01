@@ -1,9 +1,18 @@
-import { Base, type BaseAttributes } from "../base/index.js";
+import {
+	Content,
+	Lifecycle,
+	Trigger,
+	type TriggerAttributes,
+	type ContentAttributes,
+} from "../base/index.js";
 
-export type DialogAttributes = BaseAttributes & {
+export interface DialogAttributes extends TriggerAttributes, ContentAttributes {
+	/** Close the dialog when clicked outside. */
 	"click-outside-close"?: boolean;
+
+	/** Remove scroll from the body when dialog is open. */
 	"remove-body-scroll"?: boolean;
-};
+}
 
 /**
  * Provides triggers for the `HTMLDialogElement`.
@@ -24,76 +33,73 @@ export type DialogAttributes = BaseAttributes & {
  * Add the `remove-body-scroll` attribute to remove the scroll from `document.body` when the dialog
  * is open.
  */
-export class Dialog extends Base {
-	#initialBodyMarginRight = parseInt(
-		getComputedStyle(document.body).marginRight,
-	);
-
+export class Dialog extends Lifecycle(Trigger(Content())) {
 	constructor() {
 		super();
 	}
 
 	/** The `HTMLDialogElement` within the element. */
-	get dialog() {
-		return this.getContent(HTMLDialogElement);
+	get #dialog() {
+		return this.content(HTMLDialogElement);
+	}
+
+	get #removeBodyScroll() {
+		return this.hasAttribute("remove-body-scroll");
+	}
+
+	get #clickOutsideClose() {
+		return this.hasAttribute("click-outside-close");
 	}
 
 	/** Remove scroll from the body when open with the `remove-body-scroll` attribute. */
 	#toggleBodyScroll(show: boolean) {
-		if (this.hasAttribute("remove-body-scroll")) {
-			document.body.style.marginRight = `${
-				show
-					? this.#initialBodyMarginRight +
-						// scrollbar width
-						window.innerWidth -
-						document.documentElement.clientWidth
-					: this.#initialBodyMarginRight
-			}px`;
+		if (this.#removeBodyScroll) {
+			document.documentElement.style.scrollbarGutter = "stable";
 			document.body.style.overflow = show ? "hidden" : "";
 		}
 	}
 
 	/** Wraps `HTMLDialogElement.showModal()`. */
 	show() {
-		this.dialog.showModal();
+		this.#dialog.showModal();
 		this.#toggleBodyScroll(true);
 	}
 
 	/** Wraps `HTMLDialogElement.close()`. */
 	close() {
 		this.#toggleBodyScroll(false);
-		this.dialog.close();
+		this.#dialog.close();
 	}
 
 	/** `show` or `close` depending on the dialog's `open` attribute. */
 	toggle() {
-		if (this.dialog.open) this.close();
+		if (this.#dialog.open) this.close();
 		else this.show();
 	}
 
 	override mount() {
-		this.triggerListener(() => this.toggle());
+		this.listener(() => this.toggle());
 
 		this.safeListener("keydown", (e) => {
-			if (e.key === "Escape" && this.dialog.open) {
+			if (e.key === "Escape" && this.#dialog.open) {
 				e.preventDefault();
 				this.close();
 			}
 		});
 
-		if (this.hasAttribute("click-outside-close")) {
+		if (this.#clickOutsideClose) {
 			// https://blog.webdevsimplified.com/2023-04/html-dialog/#close-on-outside-click
-			this.dialog.addEventListener("click", (e) => {
-				let rect = this.dialog.getBoundingClientRect();
+			this.#dialog.addEventListener("click", (e) => {
+				let rect = this.#dialog.getBoundingClientRect();
 
 				// If dialog covers full viewport (with a small tolerance), use first child element for hit testing
 				// Example: https://picocss.com/docs/modal
 				if (
 					rect.width - window.innerWidth <= 5 && // 5px tolerance for rounding issues
 					rect.height - window.innerHeight <= 5 &&
-					this.dialog.firstElementChild
+					this.#dialog.firstElementChild
 				) {
-					rect = this.dialog.firstElementChild.getBoundingClientRect();
+					rect = this.#dialog.firstElementChild.getBoundingClientRect();
 				}
 
 				if (

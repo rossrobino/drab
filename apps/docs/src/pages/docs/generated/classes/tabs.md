@@ -1,4 +1,4 @@
-Defined in: [packages/drab/src/tabs/index.ts:35](https://github.com/rossrobino/components/blob/main/packages/drab/src/tabs/index.ts#L35)
+Defined in: [tabs/index.ts:36](https://github.com/rossrobino/components/blob/main/packages/drab/src/tabs/index.ts#L36)
 
 Progressively enhance a list of links and content to be tabs by
 wrapping with the `Tabs` element. Each `trigger` should be an
@@ -27,10 +27,6 @@ design.
 
 Set `orientation="vertical"` if the `tablist` element is displayed vertically.
 
-## Extends
-
-- [`Base`](/elements/base/)
-
 ## Constructors
 
 <a id="constructor"></a>
@@ -39,7 +35,7 @@ Set `orientation="vertical"` if the `tablist` element is displayed vertically.
 
 > **new Tabs**(): `Tabs`
 
-Defined in: [packages/drab/src/tabs/index.ts:42](https://github.com/rossrobino/components/blob/main/packages/drab/src/tabs/index.ts#L42)
+Defined in: [tabs/index.ts:43](https://github.com/rossrobino/components/blob/main/packages/drab/src/tabs/index.ts#L43)
 
 #### Returns
 
@@ -47,7 +43,7 @@ Defined in: [packages/drab/src/tabs/index.ts:42](https://github.com/rossrobino/c
 
 #### Overrides
 
-[`Base`](/elements/base/).[`constructor`](/elements/base/#constructor)
+`Lifecycle(Trigger()).constructor`
 
 ## Accessors
 
@@ -59,7 +55,7 @@ Defined in: [packages/drab/src/tabs/index.ts:42](https://github.com/rossrobino/c
 
 > **get** **event**(): keyof `HTMLElementEventMap`
 
-Defined in: [packages/drab/src/base/index.ts:25](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L25)
+Defined in: [base/index.ts:120](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L120)
 
 Event for the `trigger` to execute.
 
@@ -79,7 +75,7 @@ keyof `HTMLElementEventMap`
 
 > **set** **event**(`value`): `void`
 
-Defined in: [packages/drab/src/base/index.ts:31](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L31)
+Defined in: [base/index.ts:126](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L126)
 
 ##### Parameters
 
@@ -93,35 +89,9 @@ keyof `HTMLElementEventMap`
 
 #### Inherited from
 
-[`Base`](/elements/base/).[`event`](/elements/base/#event)
+`Lifecycle(Trigger()).event`
 
 ## Methods
-
-<a id="announce"></a>
-
-### announce()
-
-> **announce**(`message`): `void`
-
-Defined in: [packages/drab/src/base/index.ts:224](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L224)
-
-#### Parameters
-
-##### message
-
-`string`
-
-message to announce to screen readers
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[`Base`](/elements/base/).[`announce`](/elements/base/#announce)
-
----
 
 <a id="connectedcallback"></a>
 
@@ -129,7 +99,7 @@ message to announce to screen readers
 
 > **connectedCallback**(): `void`
 
-Defined in: [packages/drab/src/base/index.ts:193](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L193)
+Defined in: [base/index.ts:76](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L76)
 
 Called when custom element is added to the page.
 
@@ -139,7 +109,7 @@ Called when custom element is added to the page.
 
 #### Inherited from
 
-[`Base`](/elements/base/).[`connectedCallback`](/elements/base/#connectedcallback)
+`Lifecycle(Trigger()).connectedCallback`
 
 ---
 
@@ -149,7 +119,7 @@ Called when custom element is added to the page.
 
 > **destroy**(): `void`
 
-Defined in: [packages/drab/src/base/index.ts:200](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L200)
+Defined in: [base/index.ts:83](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L83)
 
 Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallback` as well. It is overridden in each element that needs to run `disconnectedCallback`.
 
@@ -159,7 +129,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 #### Inherited from
 
-[`Base`](/elements/base/).[`destroy`](/elements/base/#destroy)
+`Lifecycle(Trigger()).destroy`
 
 ---
 
@@ -169,7 +139,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 > **disconnectedCallback**(): `void`
 
-Defined in: [packages/drab/src/base/index.ts:203](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L203)
+Defined in: [base/index.ts:86](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L86)
 
 Called when custom element is removed from the page.
 
@@ -179,137 +149,83 @@ Called when custom element is removed from the page.
 
 #### Inherited from
 
-[`Base`](/elements/base/).[`disconnectedCallback`](/elements/base/#disconnectedcallback)
+`Lifecycle(Trigger()).disconnectedCallback`
 
 ---
 
-<a id="getcontent"></a>
+<a id="listener"></a>
 
-### getContent()
+### listener()
 
 #### Call Signature
 
-> **getContent**\<`T`\>(`instance`): `T`
+> **listener**\<`T`\>(`listener`, `options?`): `void`
 
-Defined in: [packages/drab/src/base/index.ts:79](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L79)
+Defined in: [base/index.ts:152](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L152)
 
 ##### Type Parameters
 
 ###### T
 
-`T` _extends_ `HTMLElement`
+`T` _extends_ keyof `HTMLElementEventMap`
 
 ##### Parameters
 
-###### instance
+###### listener
 
-`Constructor`\<`T`\>
+`Listener`\<`T`\>
 
-The instance of the desired element to validate against,
-ex: `HTMLDialogElement`. Defaults to `HTMLElement`.
+Listener to attach to all of the `trigger` elements.
+
+###### options?
+
+`AddEventListenerOptions`
 
 ##### Returns
+
+`void`
+
+##### Inherited from
+
+`Lifecycle(Trigger()).listener`
+
+#### Call Signature
+
+> **listener**\<`T`\>(`type`, `listener`, `options?`): `void`
+
+Defined in: [base/index.ts:161](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L161)
+
+##### Type Parameters
+
+###### T
+
+`T` _extends_ keyof `HTMLElementEventMap`
+
+##### Parameters
+
+###### type
 
 `T`
 
-The element that matches the `content` selector.
+Event type.
 
-##### Default
+###### listener
 
-```ts
-this.querySelector("[data-content]");
-```
+`Listener`\<`T`\>
 
-##### Inherited from
+Listener to attach to all of the `trigger` elements.
 
-[`Base`](/elements/base/).[`getContent`](/elements/base/#getcontent)
+###### options?
 
-#### Call Signature
-
-> **getContent**(): `HTMLElement`
-
-Defined in: [packages/drab/src/base/index.ts:80](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L80)
+`AddEventListenerOptions`
 
 ##### Returns
 
-`HTMLElement`
-
-The element that matches the `content` selector.
-
-##### Default
-
-```ts
-this.querySelector("[data-content]");
-```
+`void`
 
 ##### Inherited from
 
-[`Base`](/elements/base/).[`getContent`](/elements/base/#getcontent)
-
----
-
-<a id="gettrigger"></a>
-
-### getTrigger()
-
-#### Call Signature
-
-> **getTrigger**\<`T`\>(`instance`): `NodeListOf`\<`T`\>
-
-Defined in: [packages/drab/src/base/index.ts:41](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L41)
-
-##### Type Parameters
-
-###### T
-
-`T` _extends_ `HTMLElement`
-
-##### Parameters
-
-###### instance
-
-`Constructor`\<`T`\>
-
-The instance of the desired element to validate against,
-ex: `HTMLButtonElement`. Defaults to `HTMLElement`.
-
-##### Returns
-
-`NodeListOf`\<`T`\>
-
-All of the elements that match the `trigger` selector.
-
-##### Default
-
-```ts
-this.querySelectorAll("[data-trigger]");
-```
-
-##### Inherited from
-
-[`Base`](/elements/base/).[`getTrigger`](/elements/base/#gettrigger)
-
-#### Call Signature
-
-> **getTrigger**(): `NodeListOf`\<`HTMLElement`\>
-
-Defined in: [packages/drab/src/base/index.ts:42](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L42)
-
-##### Returns
-
-`NodeListOf`\<`HTMLElement`\>
-
-All of the elements that match the `trigger` selector.
-
-##### Default
-
-```ts
-this.querySelectorAll("[data-trigger]");
-```
-
-##### Inherited from
-
-[`Base`](/elements/base/).[`getTrigger`](/elements/base/#gettrigger)
+`Lifecycle(Trigger()).listener`
 
 ---
 
@@ -319,7 +235,7 @@ this.querySelectorAll("[data-trigger]");
 
 > **mount**(): `void`
 
-Defined in: [packages/drab/src/tabs/index.ts:85](https://github.com/rossrobino/components/blob/main/packages/drab/src/tabs/index.ts#L85)
+Defined in: [tabs/index.ts:86](https://github.com/rossrobino/components/blob/main/packages/drab/src/tabs/index.ts#L86)
 
 Passed into `queueMicrotask` in `connectedCallback`.
 It is overridden in each component that needs to run `connectedCallback`.
@@ -336,7 +252,7 @@ be attached to elements inside.
 
 #### Overrides
 
-[`Base`](/elements/base/).[`mount`](/elements/base/#mount)
+`Lifecycle(Trigger()).mount`
 
 ---
 
@@ -348,7 +264,7 @@ be attached to elements inside.
 
 > **safeListener**\<`T`\>(`type`, `listener`, `element?`, `options?`): `void`
 
-Defined in: [packages/drab/src/base/index.ts:152](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L152)
+Defined in: [base/index.ts:35](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L35)
 
 Wrapper around `addEventListener` that ensures when the element is
 removed from the DOM, these event listeners are cleaned up.
@@ -389,13 +305,13 @@ Other options sans `signal`.
 
 ##### Inherited from
 
-[`Base`](/elements/base/).[`safeListener`](/elements/base/#safelistener)
+`Lifecycle(Trigger()).safeListener`
 
 #### Call Signature
 
 > **safeListener**\<`T`\>(`type`, `listener`, `document`, `options?`): `void`
 
-Defined in: [packages/drab/src/base/index.ts:158](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L158)
+Defined in: [base/index.ts:41](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L41)
 
 Wrapper around `addEventListener` that ensures when the element is
 removed from the DOM, these event listeners are cleaned up.
@@ -436,13 +352,13 @@ Other options sans `signal`.
 
 ##### Inherited from
 
-[`Base`](/elements/base/).[`safeListener`](/elements/base/#safelistener)
+`Lifecycle(Trigger()).safeListener`
 
 #### Call Signature
 
 > **safeListener**\<`T`\>(`type`, `listener`, `window`, `options?`): `void`
 
-Defined in: [packages/drab/src/base/index.ts:164](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L164)
+Defined in: [base/index.ts:47](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L47)
 
 Wrapper around `addEventListener` that ensures when the element is
 removed from the DOM, these event listeners are cleaned up.
@@ -483,78 +399,69 @@ Other options sans `signal`.
 
 ##### Inherited from
 
-[`Base`](/elements/base/).[`safeListener`](/elements/base/#safelistener)
+`Lifecycle(Trigger()).safeListener`
 
 ---
 
-<a id="swapcontent"></a>
+<a id="triggers"></a>
 
-### swapContent()
+### triggers()
 
-> **swapContent**(`revert`): `void`
+#### Call Signature
 
-Defined in: [packages/drab/src/base/index.ts:95](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L95)
+> **triggers**\<`T`\>(`instance`): `NodeListOf`\<`T`\>
 
-Finds the `HTMLElement | HTMLTemplateElement` via the `swap` selector and
-swaps `this.content()` with the content of the element found.
+Defined in: [base/index.ts:136](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L136)
 
-#### Parameters
+##### Type Parameters
 
-##### revert
-
-Wait time (ms) before swapping back, set to `false` to not revert.
-default: `800`
-
-`number` | `false`
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[`Base`](/elements/base/).[`swapContent`](/elements/base/#swapcontent)
-
----
-
-<a id="triggerlistener"></a>
-
-### triggerListener()
-
-> **triggerListener**\<`T`, `K`\>(`listener`, `type`, `options?`): `void`
-
-Defined in: [packages/drab/src/base/index.ts:56](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L56)
-
-#### Type Parameters
-
-##### T
+###### T
 
 `T` _extends_ `HTMLElement`
 
-##### K
+##### Parameters
 
-`K` _extends_ keyof `HTMLElementEventMap`
+###### instance
 
-#### Parameters
+`Constructor`\<`T`\>
 
-##### listener
+The instance of the desired element to validate against,
+ex: `HTMLButtonElement`. Defaults to `HTMLElement`.
 
-(`this`, `e`) => `any`
+##### Returns
 
-Listener to attach to all of the `trigger` elements.
+`NodeListOf`\<`T`\>
 
-##### type
+All of the elements that match the `trigger` selector.
 
-`K` = `...`
+##### Default
 
-##### options?
+```ts
+this.querySelectorAll("[data-trigger]");
+```
 
-`AddEventListenerOptions`
+##### Inherited from
 
-#### Returns
+`Lifecycle(Trigger()).triggers`
 
-`void`
+#### Call Signature
 
-#### Inherited from
+> **triggers**(): `NodeListOf`\<`HTMLElement`\>
 
-[`Base`](/elements/base/).[`triggerListener`](/elements/base/#triggerlistener)
+Defined in: [base/index.ts:137](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L137)
+
+##### Returns
+
+`NodeListOf`\<`HTMLElement`\>
+
+All of the elements that match the `trigger` selector.
+
+##### Default
+
+```ts
+this.querySelectorAll("[data-trigger]");
+```
+
+##### Inherited from
+
+`Lifecycle(Trigger()).triggers`

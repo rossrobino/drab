@@ -1,6 +1,11 @@
-import * as elements from "./index.js";
-import { define } from "./util/define.js";
-
-for (const [name, Constructor] of Object.entries(elements)) {
-	define(`drab-${name.toLowerCase()}`, Constructor);
-}
+import "./announcer/define.js";
+import "./contextmenu/define.js";
+import "./dialog/define.js";
+import "./editor/define.js";
+import "./fullscreen/define.js";
+import "./intersect/define.js";
+import "./prefetch/define.js";
+import "./share/define.js";
+import "./tablesort/define.js";
+import "./tabs/define.js";
+import "./wakelock/define.js";

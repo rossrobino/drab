@@ -4,9 +4,10 @@ import type { JSX } from "ovr";
 export const Nav = (props: {
 	examples: Array<string | undefined>;
 	dialog?: boolean;
+	pages: string[];
 	pathname: string;
 }) => {
-	const { examples, dialog, pathname } = props;
+	const { examples, dialog, pathname, pages } = props;
 
 	const elements: string[] = [];
 	const styles: string[] = [];
@@ -46,7 +47,12 @@ export const Nav = (props: {
 								<span class="icon-[lucide--x]"></span>
 							</button>
 						</div>
-						<NavLinks elements={elements} styles={styles} pathname={pathname} />
+						<NavLinks
+							elements={elements}
+							pages={pages}
+							styles={styles}
+							pathname={pathname}
+						/>
 					</dialog>
 				</drab-dialog>
 			</nav>
@@ -58,7 +64,12 @@ export const Nav = (props: {
 			<div class="mb-2">
 				<HomeLink />
 			</div>
-			<NavLinks elements={elements} styles={styles} pathname={pathname} />
+			<NavLinks
+				elements={elements}
+				pages={pages}
+				styles={styles}
+				pathname={pathname}
+			/>
 		</nav>
 	);
 };
@@ -66,19 +77,30 @@ export const Nav = (props: {
 export const NavLinks = (props: {
 	elements: string[];
 	styles: string[];
+	pages: string[];
 	pathname: string;
 }) => {
-	const { elements, styles, pathname } = props;
+	const { elements, styles, pathname, pages } = props;
 
 	return (
 		<div class="flex flex-col gap-4">
 			<div>
 				<ul class="mt-2">
-					<li>
-						<NavLink href="/getting-started/" pathname={pathname}>
-							Getting started
-						</NavLink>
-					</li>
+					{pages.map((p) => {
+						if (p) {
+							return (
+								<li>
+									<NavLink
+										href={`/${p}/`}
+										pathname={pathname}
+										class="capitalize"
+									>
+										{p.split("-").join(" ")}
+									</NavLink>
+								</li>
+							);
+						}
+					})}
 				</ul>
 
 				<NavHeading>Elements</NavHeading>

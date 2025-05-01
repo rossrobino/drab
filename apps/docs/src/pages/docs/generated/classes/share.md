@@ -1,18 +1,26 @@
-Defined in: [packages/drab/src/share/index.ts:16](https://github.com/rossrobino/components/blob/main/packages/drab/src/share/index.ts#L16)
+Defined in: [share/index.ts:52](https://github.com/rossrobino/components/blob/main/packages/drab/src/share/index.ts#L52)
 
 Uses the
 [Navigator API](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share)
-to share a url. If `share` is not supported, falls back to copy the text instead.
+to share the `url` if `navigator.share` is supported.
+
+Otherwise uses the
+[Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText)
+to copy the `url` or `text` provided.
 
 ### Attributes
 
-`value`
+`url`
 
-Text to share.
+URL to share.
 
-## Extends
+`text`
 
-- [`Copy`](/elements/copy/)
+Text to copy, or the `ShareData` text if `url` is set (only supported on some targets).
+
+`share-title`
+
+`ShareData` title (only supported on some targets).
 
 ## Constructors
 
@@ -22,7 +30,7 @@ Text to share.
 
 > **new Share**(): `Share`
 
-Defined in: [packages/drab/src/share/index.ts:17](https://github.com/rossrobino/components/blob/main/packages/drab/src/share/index.ts#L17)
+Defined in: [share/index.ts:53](https://github.com/rossrobino/components/blob/main/packages/drab/src/share/index.ts#L53)
 
 #### Returns
 
@@ -30,7 +38,7 @@ Defined in: [packages/drab/src/share/index.ts:17](https://github.com/rossrobino/
 
 #### Overrides
 
-[`Copy`](/elements/copy/).[`constructor`](/elements/copy/#constructor)
+`Lifecycle(Trigger(Content(Announce()))).constructor`
 
 ## Accessors
 
@@ -42,7 +50,7 @@ Defined in: [packages/drab/src/share/index.ts:17](https://github.com/rossrobino/
 
 > **get** **event**(): keyof `HTMLElementEventMap`
 
-Defined in: [packages/drab/src/base/index.ts:25](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L25)
+Defined in: [base/index.ts:120](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L120)
 
 Event for the `trigger` to execute.
 
@@ -62,7 +70,7 @@ keyof `HTMLElementEventMap`
 
 > **set** **event**(`value`): `void`
 
-Defined in: [packages/drab/src/base/index.ts:31](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L31)
+Defined in: [base/index.ts:126](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L126)
 
 ##### Parameters
 
@@ -76,51 +84,7 @@ keyof `HTMLElementEventMap`
 
 #### Inherited from
 
-[`Copy`](/elements/copy/).[`event`](/elements/copy/#event)
-
----
-
-<a id="value"></a>
-
-### value
-
-#### Get Signature
-
-> **get** **value**(): `string`
-
-Defined in: [packages/drab/src/copy/index.ts:26](https://github.com/rossrobino/components/blob/main/packages/drab/src/copy/index.ts#L26)
-
-The value to copy.
-
-##### Default
-
-```ts
-("");
-```
-
-##### Returns
-
-`string`
-
-#### Set Signature
-
-> **set** **value**(`value`): `void`
-
-Defined in: [packages/drab/src/copy/index.ts:30](https://github.com/rossrobino/components/blob/main/packages/drab/src/copy/index.ts#L30)
-
-##### Parameters
-
-###### value
-
-`string`
-
-##### Returns
-
-`void`
-
-#### Inherited from
-
-[`Copy`](/elements/copy/).[`value`](/elements/copy/#value)
+`Lifecycle(Trigger(Content(Announce()))).event`
 
 ## Methods
 
@@ -130,7 +94,7 @@ Defined in: [packages/drab/src/copy/index.ts:30](https://github.com/rossrobino/c
 
 > **announce**(`message`): `void`
 
-Defined in: [packages/drab/src/base/index.ts:224](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L224)
+Defined in: [base/index.ts:287](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L287)
 
 #### Parameters
 
@@ -146,7 +110,7 @@ message to announce to screen readers
 
 #### Inherited from
 
-[`Copy`](/elements/copy/).[`announce`](/elements/copy/#announce)
+`Lifecycle(Trigger(Content(Announce()))).announce`
 
 ---
 
@@ -156,7 +120,7 @@ message to announce to screen readers
 
 > **connectedCallback**(): `void`
 
-Defined in: [packages/drab/src/base/index.ts:193](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L193)
+Defined in: [base/index.ts:76](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L76)
 
 Called when custom element is added to the page.
 
@@ -166,85 +130,19 @@ Called when custom element is added to the page.
 
 #### Inherited from
 
-[`Copy`](/elements/copy/).[`connectedCallback`](/elements/copy/#connectedcallback)
+`Lifecycle(Trigger(Content(Announce()))).connectedCallback`
 
 ---
 
-<a id="copy"></a>
+<a id="content"></a>
 
-### copy()
-
-> **copy**(`value`): `Promise`\<`void`\>
-
-Defined in: [packages/drab/src/copy/index.ts:37](https://github.com/rossrobino/components/blob/main/packages/drab/src/copy/index.ts#L37)
-
-#### Parameters
-
-##### value
-
-`string` = `...`
-
-The `value` to copy
-
-#### Returns
-
-`Promise`\<`void`\>
-
-#### Inherited from
-
-[`Copy`](/elements/copy/).[`copy`](/elements/copy/#copy)
-
----
-
-<a id="destroy"></a>
-
-### destroy()
-
-> **destroy**(): `void`
-
-Defined in: [packages/drab/src/base/index.ts:200](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L200)
-
-Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallback` as well. It is overridden in each element that needs to run `disconnectedCallback`.
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[`Copy`](/elements/copy/).[`destroy`](/elements/copy/#destroy)
-
----
-
-<a id="disconnectedcallback"></a>
-
-### disconnectedCallback()
-
-> **disconnectedCallback**(): `void`
-
-Defined in: [packages/drab/src/base/index.ts:203](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L203)
-
-Called when custom element is removed from the page.
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[`Copy`](/elements/copy/).[`disconnectedCallback`](/elements/copy/#disconnectedcallback)
-
----
-
-<a id="getcontent"></a>
-
-### getContent()
+### content()
 
 #### Call Signature
 
-> **getContent**\<`T`\>(`instance`): `T`
+> **content**\<`T`\>(`instance`): `T`
 
-Defined in: [packages/drab/src/base/index.ts:79](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L79)
+Defined in: [base/index.ts:215](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L215)
 
 ##### Type Parameters
 
@@ -275,13 +173,13 @@ this.querySelector("[data-content]");
 
 ##### Inherited from
 
-[`Copy`](/elements/copy/).[`getContent`](/elements/copy/#getcontent)
+`Lifecycle(Trigger(Content(Announce()))).content`
 
 #### Call Signature
 
-> **getContent**(): `HTMLElement`
+> **content**(): `HTMLElement`
 
-Defined in: [packages/drab/src/base/index.ts:80](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L80)
+Defined in: [base/index.ts:216](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L216)
 
 ##### Returns
 
@@ -297,72 +195,123 @@ this.querySelector("[data-content]");
 
 ##### Inherited from
 
-[`Copy`](/elements/copy/).[`getContent`](/elements/copy/#getcontent)
+`Lifecycle(Trigger(Content(Announce()))).content`
 
 ---
 
-<a id="gettrigger"></a>
+<a id="destroy"></a>
 
-### getTrigger()
+### destroy()
+
+> **destroy**(): `void`
+
+Defined in: [base/index.ts:83](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L83)
+
+Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallback` as well. It is overridden in each element that needs to run `disconnectedCallback`.
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`Lifecycle(Trigger(Content(Announce()))).destroy`
+
+---
+
+<a id="disconnectedcallback"></a>
+
+### disconnectedCallback()
+
+> **disconnectedCallback**(): `void`
+
+Defined in: [base/index.ts:86](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L86)
+
+Called when custom element is removed from the page.
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`Lifecycle(Trigger(Content(Announce()))).disconnectedCallback`
+
+---
+
+<a id="listener"></a>
+
+### listener()
 
 #### Call Signature
 
-> **getTrigger**\<`T`\>(`instance`): `NodeListOf`\<`T`\>
+> **listener**\<`T`\>(`listener`, `options?`): `void`
 
-Defined in: [packages/drab/src/base/index.ts:41](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L41)
+Defined in: [base/index.ts:152](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L152)
 
 ##### Type Parameters
 
 ###### T
 
-`T` _extends_ `HTMLElement`
+`T` _extends_ keyof `HTMLElementEventMap`
 
 ##### Parameters
 
-###### instance
+###### listener
 
-`Constructor`\<`T`\>
+`Listener`\<`T`\>
 
-The instance of the desired element to validate against,
-ex: `HTMLButtonElement`. Defaults to `HTMLElement`.
+Listener to attach to all of the `trigger` elements.
+
+###### options?
+
+`AddEventListenerOptions`
 
 ##### Returns
 
-`NodeListOf`\<`T`\>
-
-All of the elements that match the `trigger` selector.
-
-##### Default
-
-```ts
-this.querySelectorAll("[data-trigger]");
-```
+`void`
 
 ##### Inherited from
 
-[`Copy`](/elements/copy/).[`getTrigger`](/elements/copy/#gettrigger)
+`Lifecycle(Trigger(Content(Announce()))).listener`
 
 #### Call Signature
 
-> **getTrigger**(): `NodeListOf`\<`HTMLElement`\>
+> **listener**\<`T`\>(`type`, `listener`, `options?`): `void`
 
-Defined in: [packages/drab/src/base/index.ts:42](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L42)
+Defined in: [base/index.ts:161](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L161)
+
+##### Type Parameters
+
+###### T
+
+`T` _extends_ keyof `HTMLElementEventMap`
+
+##### Parameters
+
+###### type
+
+`T`
+
+Event type.
+
+###### listener
+
+`Listener`\<`T`\>
+
+Listener to attach to all of the `trigger` elements.
+
+###### options?
+
+`AddEventListenerOptions`
 
 ##### Returns
 
-`NodeListOf`\<`HTMLElement`\>
-
-All of the elements that match the `trigger` selector.
-
-##### Default
-
-```ts
-this.querySelectorAll("[data-trigger]");
-```
+`void`
 
 ##### Inherited from
 
-[`Copy`](/elements/copy/).[`getTrigger`](/elements/copy/#gettrigger)
+`Lifecycle(Trigger(Content(Announce()))).listener`
 
 ---
 
@@ -372,7 +321,7 @@ this.querySelectorAll("[data-trigger]");
 
 > **mount**(): `void`
 
-Defined in: [packages/drab/src/share/index.ts:34](https://github.com/rossrobino/components/blob/main/packages/drab/src/share/index.ts#L34)
+Defined in: [share/index.ts:74](https://github.com/rossrobino/components/blob/main/packages/drab/src/share/index.ts#L74)
 
 Passed into `queueMicrotask` in `connectedCallback`.
 It is overridden in each component that needs to run `connectedCallback`.
@@ -389,7 +338,7 @@ be attached to elements inside.
 
 #### Overrides
 
-[`Copy`](/elements/copy/).[`mount`](/elements/copy/#mount)
+`Lifecycle(Trigger(Content(Announce()))).mount`
 
 ---
 
@@ -401,7 +350,7 @@ be attached to elements inside.
 
 > **safeListener**\<`T`\>(`type`, `listener`, `element?`, `options?`): `void`
 
-Defined in: [packages/drab/src/base/index.ts:152](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L152)
+Defined in: [base/index.ts:35](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L35)
 
 Wrapper around `addEventListener` that ensures when the element is
 removed from the DOM, these event listeners are cleaned up.
@@ -442,13 +391,13 @@ Other options sans `signal`.
 
 ##### Inherited from
 
-[`Copy`](/elements/copy/).[`safeListener`](/elements/copy/#safelistener)
+`Lifecycle(Trigger(Content(Announce()))).safeListener`
 
 #### Call Signature
 
 > **safeListener**\<`T`\>(`type`, `listener`, `document`, `options?`): `void`
 
-Defined in: [packages/drab/src/base/index.ts:158](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L158)
+Defined in: [base/index.ts:41](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L41)
 
 Wrapper around `addEventListener` that ensures when the element is
 removed from the DOM, these event listeners are cleaned up.
@@ -489,13 +438,13 @@ Other options sans `signal`.
 
 ##### Inherited from
 
-[`Copy`](/elements/copy/).[`safeListener`](/elements/copy/#safelistener)
+`Lifecycle(Trigger(Content(Announce()))).safeListener`
 
 #### Call Signature
 
 > **safeListener**\<`T`\>(`type`, `listener`, `window`, `options?`): `void`
 
-Defined in: [packages/drab/src/base/index.ts:164](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L164)
+Defined in: [base/index.ts:47](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L47)
 
 Wrapper around `addEventListener` that ensures when the element is
 removed from the DOM, these event listeners are cleaned up.
@@ -536,41 +485,17 @@ Other options sans `signal`.
 
 ##### Inherited from
 
-[`Copy`](/elements/copy/).[`safeListener`](/elements/copy/#safelistener)
+`Lifecycle(Trigger(Content(Announce()))).safeListener`
 
 ---
 
-<a id="share"></a>
+<a id="swap"></a>
 
-### share()
+### swap()
 
-> **share**(`url`): `Promise`\<`void`\>
+> **swap**(`revert`): `void`
 
-Defined in: [packages/drab/src/share/index.ts:25](https://github.com/rossrobino/components/blob/main/packages/drab/src/share/index.ts#L25)
-
-Shares or copies the `value`.
-
-#### Parameters
-
-##### url
-
-`string` = `...`
-
-The `url` to share, defaults to `this.value`
-
-#### Returns
-
-`Promise`\<`void`\>
-
----
-
-<a id="swapcontent"></a>
-
-### swapContent()
-
-> **swapContent**(`revert`): `void`
-
-Defined in: [packages/drab/src/base/index.ts:95](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L95)
+Defined in: [base/index.ts:231](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L231)
 
 Finds the `HTMLElement | HTMLTemplateElement` via the `swap` selector and
 swaps `this.content()` with the content of the element found.
@@ -590,48 +515,69 @@ default: `800`
 
 #### Inherited from
 
-[`Copy`](/elements/copy/).[`swapContent`](/elements/copy/#swapcontent)
+`Lifecycle(Trigger(Content(Announce()))).swap`
 
 ---
 
-<a id="triggerlistener"></a>
+<a id="triggers"></a>
 
-### triggerListener()
+### triggers()
 
-> **triggerListener**\<`T`, `K`\>(`listener`, `type`, `options?`): `void`
+#### Call Signature
 
-Defined in: [packages/drab/src/base/index.ts:56](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L56)
+> **triggers**\<`T`\>(`instance`): `NodeListOf`\<`T`\>
 
-#### Type Parameters
+Defined in: [base/index.ts:136](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L136)
 
-##### T
+##### Type Parameters
+
+###### T
 
 `T` _extends_ `HTMLElement`
 
-##### K
+##### Parameters
 
-`K` _extends_ keyof `HTMLElementEventMap`
+###### instance
 
-#### Parameters
+`Constructor`\<`T`\>
 
-##### listener
+The instance of the desired element to validate against,
+ex: `HTMLButtonElement`. Defaults to `HTMLElement`.
 
-(`this`, `e`) => `any`
+##### Returns
 
-Listener to attach to all of the `trigger` elements.
+`NodeListOf`\<`T`\>
 
-##### type
+All of the elements that match the `trigger` selector.
 
-`K` = `...`
+##### Default
 
-##### options?
+```ts
+this.querySelectorAll("[data-trigger]");
+```
 
-`AddEventListenerOptions`
+##### Inherited from
 
-#### Returns
+`Lifecycle(Trigger(Content(Announce()))).triggers`
 
-`void`
+#### Call Signature
 
-#### Inherited from
+> **triggers**(): `NodeListOf`\<`HTMLElement`\>
 
-[`Copy`](/elements/copy/).[`triggerListener`](/elements/copy/#triggerlistener)
+Defined in: [base/index.ts:137](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L137)
+
+##### Returns
+
+`NodeListOf`\<`HTMLElement`\>
+
+All of the elements that match the `trigger` selector.
+
+##### Default
+
+```ts
+this.querySelectorAll("[data-trigger]");
+```
+
+##### Inherited from
+
+`Lifecycle(Trigger(Content(Announce()))).triggers`

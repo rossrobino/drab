@@ -7,6 +7,7 @@ import langSvelte from "shiki/langs/svelte.mjs";
 import langTs from "shiki/langs/ts.mjs";
 import langTsx from "shiki/langs/tsx.mjs";
 import langVue from "shiki/langs/vue.mjs";
+import * as z from "zod";
 
 export const options: Options = {
 	highlighter: {
@@ -24,3 +25,8 @@ export const options: Options = {
 };
 
 export const processor = new Processor(options);
+
+export const FrontmatterSchema = z.object({
+	title: z.string().optional(),
+	description: z.string().optional(),
+});
