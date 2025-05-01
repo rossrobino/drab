@@ -30,7 +30,7 @@ export const Trigger = <T extends Constructor<HTMLElement>>(
 ) =>
 	class Trigger extends Super {
 		constructor(...args: any[]) {
-			super(args);
+			super(...args);
 		}
 
 		/**
@@ -87,7 +87,7 @@ export const Trigger = <T extends Constructor<HTMLElement>>(
 			options?: AddEventListenerOptions,
 		): void;
 		listener<T extends keyof HTMLElementEventMap>(
-			typeOrListener: T | Listener<T>,
+			listenerOrType: Listener<T> | T,
 			listenerOrOptions?: Listener<T> | AddEventListenerOptions,
 			optionsMaybe?: AddEventListenerOptions,
 		): void {
@@ -95,14 +95,14 @@ export const Trigger = <T extends Constructor<HTMLElement>>(
 			let listener: Listener<any>;
 			let options: AddEventListenerOptions | undefined;
 
-			if (typeof typeOrListener === "function") {
+			if (typeof listenerOrType === "function") {
 				// (listener, options?)
 				type = this.event;
-				listener = typeOrListener;
+				listener = listenerOrType;
 				options = listenerOrOptions as AddEventListenerOptions;
 			} else {
 				// (type, listener, options?)
-				type = typeOrListener;
+				type = listenerOrType;
 				listener = listenerOrOptions as Listener<T>;
 				options = optionsMaybe;
 			}
@@ -126,7 +126,7 @@ export const Content = <T extends Constructor<HTMLElement>>(
 ) =>
 	class Content extends Super {
 		constructor(...args: any[]) {
-			super(args);
+			super(...args);
 		}
 
 		/**
@@ -198,7 +198,7 @@ export const Lifecycle = <T extends Constructor<HTMLElement>>(
 		#listenerController = new AbortController();
 
 		constructor(...args: any[]) {
-			super(args);
+			super(...args);
 		}
 
 		/**
@@ -278,7 +278,7 @@ export const Announce = <T extends Constructor<HTMLElement>>(
 		static #announcer = Announcer.init();
 
 		constructor(...args: any[]) {
-			super(args);
+			super(...args);
 		}
 
 		/**
