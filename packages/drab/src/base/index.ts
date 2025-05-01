@@ -15,7 +15,7 @@ export type Constructor<T> = new (...args: any[]) => T;
 type Listener<T extends keyof HTMLElementEventMap> = (
 	this: HTMLElement,
 	e: HTMLElementEventMap[T],
-) => void;
+) => any;
 
 /**
  * By default, `trigger`s are selected via the `data-trigger` attribute.
