@@ -35,10 +35,6 @@ Set the `data-type` attribute of the `trigger` to specify how the content should
 
 Add a `ctrl`/`meta` keyboard shortcut for the content based on the `data-key` attribute.
 
-## Extends
-
-- `Lifecycle`\<\{(...`args`): `Trigger`\<\{(...`args`): `Content`\<`Constructor`\<`HTMLElement`\>\>; `prototype`: `Content`\<`any`\>; \} & `Constructor`\<`HTMLElement`\>\>; `prototype`: `Trigger`\<`any`\>; \} & \{(...`args`): `Content`\<`Constructor`\<`HTMLElement`\>\>; `prototype`: `Content`\<`any`\>; \} & `Constructor`\<`HTMLElement`\>, `this`\> & `Trigger`\<\{(...`args`): `Content`\<`Constructor`\<`HTMLElement`\>\>; `prototype`: `Content`\<`any`\>; \} & `Constructor`\<`HTMLElement`\>, `this`\> & `Content`\<`Constructor`\<`HTMLElement`\>, `this`\> & `HTMLElement`\<`this`\>
-
 ## Constructors
 
 <a id="constructor"></a>

@@ -29,10 +29,6 @@ Add a `url` attribute to immediately prefetch a url without having to provide
 
 This element can be deprecated once the Speculation Rules API is supported across browsers. The API will be able to prefetch assets in a similar way with the `source: "document"` and `eagerness` features, and will work without JavaScript.
 
-## Extends
-
-- `Lifecycle`\<\{(...`args`): `Trigger`\<`Constructor`\<`HTMLElement`\>\>; `prototype`: `Trigger`\<`any`\>; \} & `Constructor`\<`HTMLElement`\>, `this`\> & `Trigger`\<`Constructor`\<`HTMLElement`\>, `this`\> & `HTMLElement`\<`this`\>
-
 ## Constructors
 
 <a id="constructor"></a>

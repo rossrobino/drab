@@ -12,6 +12,7 @@ const doc = async () => {
 		let md = await fs.readFile(filePath, "utf-8");
 
 		md = replaceCamelCaseDocs(md);
+		md = removeExtends(md);
 
 		await fs.writeFile(filePath, md);
 		await fs.rename(filePath, filePath.toLowerCase());
@@ -29,5 +30,11 @@ const replaceCamelCaseDocs = (text) => {
 		return `/elements/${lowercased}/`;
 	});
 };
+
+/**
+ * @param {string} md
+ */
+const removeExtends = (md) =>
+	md.replace(/^##\s+Extends[\s\S]*?(?=^##\s+)/gm, "");
 
 await doc();

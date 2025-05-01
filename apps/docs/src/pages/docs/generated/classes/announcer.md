@@ -34,10 +34,6 @@ announcer.announce("message");
 > that can be accessed through `this.announce`. If you are using one of drab's other
 > elements you can call `announce` directly on the element to announce changes.
 
-## Extends
-
-- `HTMLElement`
-
 ## Constructors
 
 <a id="constructor"></a>

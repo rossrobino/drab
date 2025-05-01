@@ -27,10 +27,6 @@ design.
 
 Set `orientation="vertical"` if the `tablist` element is displayed vertically.
 
-## Extends
-
-- `Lifecycle`\<\{(...`args`): `Trigger`\<`Constructor`\<`HTMLElement`\>\>; `prototype`: `Trigger`\<`any`\>; \} & `Constructor`\<`HTMLElement`\>, `this`\> & `Trigger`\<`Constructor`\<`HTMLElement`\>, `this`\> & `HTMLElement`\<`this`\>
-
 ## Constructors
 
 <a id="constructor"></a>
