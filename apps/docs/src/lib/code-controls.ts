@@ -30,7 +30,7 @@ export const codeControls: PluginSimple = (md: MarkdownIt) => {
 
 const Share = (value: string) =>
 	/* html */ `
-<drab-share value="${value}">
+<drab-share text="${value}">
 	<button
 		data-trigger
 		type="button"
