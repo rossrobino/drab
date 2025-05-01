@@ -1,5 +1,168 @@
 # drab
 
+## 7.0.0
+
+### Major Changes
+
+- 162382e: Private/removed properties
+
+  The following elements have properties that are now private (can't be accessed via JS) or removed. This allows the library to minify smaller and have less breaking changes in the future.
+
+  - Dialog
+    - `dialog`
+  - Editor
+    - `text`
+    - `textArea`
+    - `keyPairs`
+  - Fullscreen
+    - `isFullscreen`
+  - Prefetch
+    - `appendTag`
+  - Share
+    - `value`
+    - `share`
+  - Wakelock
+    - `wakeLock`
+
+- 162382e: Intersect
+
+  Instead of `onIntersect` and `onExit` methods, the `Intersect` element now fires the `intersect` and `exit` custom events instead. If you were using these methods via JavaScript you'll need to update your code to listen for the custom event instead of using the methods. If you aren't using these methods via JavaScript, no changes are needed.
+
+  ```diff
+  - intersect.onIntersect(() => {
+  - 	console.log("intersected");
+  - });
+
+  + intersect.addEventListener("intersect", () => {
+  + 	console.log("intersected");
+  + });
+  ```
+
+- 162382e: YouTube
+
+  The `YouTube` element has been removed. This element is better handled with a templating framework than client-side JS, the browser will be able to see the url sooner if it is server rendered so it will load faster.
+
+  Here's the generated `<iframe>` element and the [supported parameters](https://developers.google.com/youtube/player_parameters#Parameters) for reference:
+
+  ```html
+  <iframe
+  	loading="lazy"
+  	title="Renegade - Kevin Olusola"
+  	src="https://www.youtube-nocookie.com/embed/gouiY85kD2o"
+  	allowfullscreen
+  	allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  ></iframe>
+  ```
+
+  For a more optimized client-side js version see [`paulirish/lite-youtube-embed`](https://github.com/paulirish/lite-youtube-embed).
+
+  Here's an [example](https://github.com/rossrobino/blog/blob/main/src/lib/youtube-it.ts) of how to create a simple Markdown-It plugin to handle this as well.
+
+- 162382e: Base
+
+  If you are only using drab via HTML none of these changes to `Base` will affect the functionality of any elements. Please read other sections for possible breaking changes as some elements have been merged or removed.
+
+  ### Mixins
+
+  drab now uses mixins to construct each element instead of a singular `Base` class. This ensures each element only includes the base features that it needs.
+
+  The main breaking change is the `Base` class has been removed along with the `drab/base/define` entry point.
+
+  If you were extending `Base` and creating your own elements you now can use the mixins to use only the features from `Base` that are required. Or, you can recreate `Base` with all the mixins to have the same class as before.
+
+  ```ts
+  import { Lifecycle, Trigger, Content, Announce } from "drab/base";
+
+  // everything - same as the v6 Base
+  class Base extends Lifecycle(Trigger(Content(Announce()))) {
+  	// ...
+  }
+
+  // for example, if only the lifecycle and trigger features are needed
+  // just extends the mixins that are required
+  class LifecycleAndTriggerOnly extends Lifecycle(Trigger()) {
+  	// ...
+  }
+  ```
+
+  There could be an edge case where you were using a feature of `Base` through another element that doesn't require the feature. Since each element only uses the mixins that it needs now, you'll need to add the mixin with your feature to keep using the feature from `Base`. For example, if you were getting some content via the `Prefetch` element, you'll now need to wrap `Prefetch` with the `Content` mixin to maintain the same functionality as before.
+
+  ```ts
+  import { Content } from "drab/base";
+  import { Prefetch } from "drab/prefetch";
+
+  class PrefetchWithContent extends Content(Prefetch) {
+  	content = this.getContent(); // adds the `getContent` method back in
+
+  	// ...
+  }
+  ```
+
+  ### Renaming
+
+  The following methods were renamed within the corresponding mixins of the `Base` class.
+
+  - `getTrigger` => `triggers`
+  - `triggerListener` => `listener`
+  - `getContent` => `content`
+  - `swapContent` => `swap`
+
+  ### listener argument order
+
+  In addition to the name change, `listener` has been updated to use overloads so the `type` can be passed in as the first argument instead of the second be more consistent with `addEventListener`.
+
+  ```diff
+  - el.triggerListener(() => console.log("hello"), "click", options);
+  + el.listener("click", () => console.log("hello"), options);
+  ```
+
+  Using without a `type` will still default to `this.event`.
+
+- 162382e: Share/Copy
+
+  `Share` now has three attributes:
+
+  - `url`: URL to share.
+  - `text`: Text to copy, or the `ShareData` text if `url` is set (only supported on some targets).
+  - `share-title`: `ShareData` title (only supported on some targets).
+
+  Update the `value` attribute to `url`.
+
+  ```diff
+  - <drab-share value="https://...">...</drab-share>
+  + <drab-share url="https://...">...</drab-share>
+  ```
+
+  The `Copy` element has been merged into `Share`. Replace `drab-copy` with `drab-share` and it will function the same with an enhancement---if a `url` is provided, it will try to share the url before falling back to copy. If `text` it provided without a `url` it will function exactly the same.
+
+  ```diff
+  - <drab-copy value="some text">...</drab-copy>
+  + <drab-share text="some text">...</drab-share>
+  ```
+
+### Minor Changes
+
+- 162382e: feat: `drab/types`
+
+  Easily define all custom elements JSX types + attributes with the new `Elements` type exported from `drab/types`.
+
+  [Framework examples](https://drab.robino.dev/frameworks/)
+
+  For example in React:
+
+  ```ts
+  // drab.d.ts
+  import type { Elements } from "drab/types";
+  import type { HTMLAttributes } from "react";
+
+  declare module "react" {
+  	namespace JSX {
+  		interface IntrinsicElements
+  			extends Elements<HTMLAttributes<HTMLElement>> {}
+  	}
+  }
+  ```
+
 ## 6.5.1
 
 ### Patch Changes
