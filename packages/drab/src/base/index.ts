@@ -12,6 +12,83 @@ export interface ContentAttributes {
 
 export type Constructor<T> = new (...args: any[]) => T;
 
+export const Lifecycle = <T extends Constructor<HTMLElement>>(
+	Super = HTMLElement as T,
+) =>
+	class Lifecycle extends Super {
+		/** To clean up event listeners added to `document` when the element is removed. */
+		#listenerController = new AbortController();
+
+		constructor(...args: any[]) {
+			super(...args);
+		}
+
+		/**
+		 * Wrapper around `addEventListener` that ensures when the element is
+		 * removed from the DOM, these event listeners are cleaned up.
+		 *
+		 * @param type Event listener type - ex: `"keydown"`
+		 * @param listener Listener to add to the target.
+		 * @param target Event target to add the listener to - defaults to `document.body`.
+		 * @param options Other options sans `signal`.
+		 */
+		safeListener<T extends keyof HTMLElementEventMap>(
+			type: T,
+			listener: (this: HTMLElement, event: HTMLElementEventMap[T]) => any,
+			element?: HTMLElement,
+			options?: AddEventListenerOptions,
+		): void;
+		safeListener<T extends keyof DocumentEventMap>(
+			type: T,
+			listener: (this: Document, event: DocumentEventMap[T]) => any,
+			document: Document,
+			options?: AddEventListenerOptions,
+		): void;
+		safeListener<T extends keyof WindowEventMap>(
+			type: T,
+			listener: (this: Window, event: WindowEventMap[T]) => any,
+			window: Window,
+			options?: AddEventListenerOptions,
+		): void;
+		safeListener(
+			type: string,
+			listener: EventListenerOrEventListenerObject,
+			target: EventTarget = document.body,
+			options: AddEventListenerOptions = {},
+		) {
+			options.signal = this.#listenerController.signal;
+			target.addEventListener(type, listener, options);
+		}
+
+		/**
+		 * Passed into `queueMicrotask` in `connectedCallback`.
+		 * It is overridden in each component that needs to run `connectedCallback`.
+		 *
+		 * The reason for this is to make these elements work better with frameworks like Svelte.
+		 * For SSR this isn't necessary, but when client side rendering, the HTML within the
+		 * custom element isn't available before `connectedCallback` is called. By waiting until
+		 * the next microtask, the HTML content is available---then for example, listeners can
+		 * be attached to elements inside.
+		 */
+		mount() {}
+
+		/** Called when custom element is added to the page. */
+		connectedCallback() {
+			queueMicrotask(() => this.mount());
+		}
+
+		/**
+		 * Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallback` as well. It is overridden in each element that needs to run `disconnectedCallback`.
+		 */
+		destroy() {}
+
+		/** Called when custom element is removed from the page. */
+		disconnectedCallback() {
+			this.destroy();
+			this.#listenerController.abort();
+		}
+	};
+
 type Listener<T extends keyof HTMLElementEventMap> = (
 	this: HTMLElement,
 	e: HTMLElementEventMap[T],
@@ -187,83 +264,6 @@ export const Content = <T extends Constructor<HTMLElement>>(
 					setTimeout(() => this.swap(0), revert);
 				}
 			}
-		}
-	};
-
-export const Lifecycle = <T extends Constructor<HTMLElement>>(
-	Super = HTMLElement as T,
-) =>
-	class Lifecycle extends Super {
-		/** To clean up event listeners added to `document` when the element is removed. */
-		#listenerController = new AbortController();
-
-		constructor(...args: any[]) {
-			super(...args);
-		}
-
-		/**
-		 * Wrapper around `addEventListener` that ensures when the element is
-		 * removed from the DOM, these event listeners are cleaned up.
-		 *
-		 * @param type Event listener type - ex: `"keydown"`
-		 * @param listener Listener to add to the target.
-		 * @param target Event target to add the listener to - defaults to `document.body`.
-		 * @param options Other options sans `signal`.
-		 */
-		safeListener<T extends keyof HTMLElementEventMap>(
-			type: T,
-			listener: (this: HTMLElement, event: HTMLElementEventMap[T]) => any,
-			element?: HTMLElement,
-			options?: AddEventListenerOptions,
-		): void;
-		safeListener<T extends keyof DocumentEventMap>(
-			type: T,
-			listener: (this: Document, event: DocumentEventMap[T]) => any,
-			document: Document,
-			options?: AddEventListenerOptions,
-		): void;
-		safeListener<T extends keyof WindowEventMap>(
-			type: T,
-			listener: (this: Window, event: WindowEventMap[T]) => any,
-			window: Window,
-			options?: AddEventListenerOptions,
-		): void;
-		safeListener(
-			type: string,
-			listener: EventListenerOrEventListenerObject,
-			target: EventTarget = document.body,
-			options: AddEventListenerOptions = {},
-		) {
-			options.signal = this.#listenerController.signal;
-			target.addEventListener(type, listener, options);
-		}
-
-		/**
-		 * Passed into `queueMicrotask` in `connectedCallback`.
-		 * It is overridden in each component that needs to run `connectedCallback`.
-		 *
-		 * The reason for this is to make these elements work better with frameworks like Svelte.
-		 * For SSR this isn't necessary, but when client side rendering, the HTML within the
-		 * custom element isn't available before `connectedCallback` is called. By waiting until
-		 * the next microtask, the HTML content is available---then for example, listeners can
-		 * be attached to elements inside.
-		 */
-		mount() {}
-
-		/** Called when custom element is added to the page. */
-		connectedCallback() {
-			queueMicrotask(() => this.mount());
-		}
-
-		/**
-		 * Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallback` as well. It is overridden in each element that needs to run `disconnectedCallback`.
-		 */
-		destroy() {}
-
-		/** Called when custom element is removed from the page. */
-		disconnectedCallback() {
-			this.destroy();
-			this.#listenerController.abort();
 		}
 	};
 
