@@ -72,7 +72,7 @@ export class Share extends Lifecycle(Trigger(Content(Announce()))) {
 	}
 
 	override mount() {
-		this.listener(async () => {
+		this.listener(() => {
 			const data: ShareData = {
 				title: this.#title,
 				text: this.#text,
