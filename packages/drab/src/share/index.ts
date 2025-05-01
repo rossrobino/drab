@@ -41,7 +41,7 @@ export class Share extends Lifecycle(Trigger(Content(Announce()))) {
 	/**
 	 * Shares or copies the `value`.
 	 */
-	share(value = this.#value) {
+	#share(value = this.#value) {
 		if (
 			value.startsWith("http") &&
 			navigator.canShare &&
@@ -57,6 +57,6 @@ export class Share extends Lifecycle(Trigger(Content(Announce()))) {
 	}
 
 	override mount() {
-		this.listener(() => this.share());
+		this.listener(() => this.#share());
 	}
 }

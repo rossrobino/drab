@@ -9,13 +9,13 @@ If you want to create your own HTML web components using drab, you can use the m
 
 [Mixins](https://www.typescriptlang.org/docs/handbook/mixins.html) allow you to enhance your own custom elements with any number of drab's base classes. By using mixins each element only includes the features it needs, keeping the bundle size as small as possible.
 
-Each mixin can be used in combination with any of the other mixins by passing one into the next in any order. For example, you can create your own element that uses the members from the `Lifecycle` and `Trigger` mixins:
+Each mixin can be used in combination with any of the other mixins by passing one into the next in any order. For example, you can create your own element that uses the properties from the `Lifecycle` and `Trigger` mixins:
 
 ```ts
 import { Lifecycle, Trigger } from "drab/base";
 
 class MyElement extends Lifecycle(Trigger()) {
-	// now MyElement has all of the members from the
+	// now MyElement has all of the properties from the
 	// Lifecycle and Trigger mixins
 }
 ```
