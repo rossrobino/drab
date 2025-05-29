@@ -4,7 +4,7 @@
 	"version": "0.0.0",
 	"private": true,
 	"license": "MIT",
-	"packageManager": "npm@11.3.0",
+	"packageManager": "npm@11.4.1",
 	"workspaces": [
 		"apps/*",
 		"packages/*"
@@ -25,13 +25,13 @@
 		"release": "npm run build && changeset publish"
 	},
 	"devDependencies": {
-		"@changesets/cli": "^2.29.2",
+		"@changesets/cli": "^2.29.4",
 		"@robino/prettier": "^2.0.0",
 		"@robino/tsconfig": "^1.0.3",
 		"prettier": "^3.5.3",
 		"prettier-plugin-tailwindcss": "^0.6.11",
-		"turbo": "^2.5.1",
-		"typedoc": "^0.28.3",
+		"turbo": "^2.5.3",
+		"typedoc": "^0.28.5",
 		"typedoc-plugin-markdown": "^4.6.3",
 		"typescript": "^5.8.3"
 	}

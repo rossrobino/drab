@@ -90,7 +90,7 @@ keyof `HTMLElementEventMap`
 
 > **close**(): `void`
 
-Defined in: [dialog/index.ts:69](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L69)
+Defined in: [dialog/index.ts:73](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L73)
 
 Wraps `HTMLDialogElement.close()`.
 
@@ -307,7 +307,7 @@ Listener to attach to all of the `trigger` elements.
 
 > **mount**(): `void`
 
-Defined in: [dialog/index.ts:80](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L80)
+Defined in: [dialog/index.ts:84](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L84)
 
 Passed into `queueMicrotask` in `connectedCallback`.
 It is overridden in each component that needs to run `connectedCallback`.
@@ -481,7 +481,7 @@ Other options sans `signal`.
 
 > **show**(): `void`
 
-Defined in: [dialog/index.ts:63](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L63)
+Defined in: [dialog/index.ts:67](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L67)
 
 Wraps `HTMLDialogElement.showModal()`.
 
@@ -527,7 +527,7 @@ default: `800`
 
 > **toggle**(): `void`
 
-Defined in: [dialog/index.ts:75](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L75)
+Defined in: [dialog/index.ts:79](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L79)
 
 `show` or `close` depending on the dialog's `open` attribute.
 

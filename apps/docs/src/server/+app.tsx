@@ -3,7 +3,7 @@ import { Docs } from "@/pages/docs/docs";
 import { Layout } from "@/server/layout";
 import type { Result } from "@robino/md";
 import { html } from "client:page";
-import { Router } from "ovr";
+import { App } from "ovr";
 
 const pages = import.meta.glob<Result<typeof FrontmatterSchema>>(
 	`@/pages/*.md`,
@@ -33,30 +33,32 @@ const exampleSubPaths = examplePaths.map(
 	(path) => `/${path.split("/").slice(3, 5).join("/")}/`,
 );
 
-const app = new Router({
-	trailingSlash: "always",
-	start(c) {
-		c.base = html;
-		c.notFound = (c) => {
-			c.head(<title>Not Found</title>);
-			c.page(
-				<Layout
-					examples={exampleSubPaths}
-					pages={pagePaths}
-					pathname={c.url.pathname}
-				>
-					<h1>Not found</h1>
-					<p>
-						No content found at <code>{c.url.href}</code>.
-					</p>
-					<p>
-						<a href="/">Return home</a>
-					</p>
-				</Layout>,
-			);
-		};
-	},
-})
+const app = new App();
+
+app.trailingSlash = "always";
+app.base = html;
+app.notFound = (c) => {
+	c.head(<title>Not Found</title>);
+
+	c.page(
+		<Layout
+			examples={exampleSubPaths}
+			pages={pagePaths}
+			pathname={c.url.pathname}
+		>
+			<h1>Not found</h1>
+			<p>
+				No content found at <code>{c.url.href}</code>.
+			</p>
+			<p>
+				<a href="/">Return home</a>
+			</p>
+		</Layout>,
+		404,
+	);
+};
+
+app
 	.get(["/", "/:slug/"], (c) => {
 		const result =
 			pages[`/pages/${"slug" in c.params ? c.params.slug : "index"}.md`];
@@ -70,14 +72,14 @@ const app = new Router({
 			</>,
 		);
 
-		c.page(
+		return (
 			<Layout
 				examples={exampleSubPaths}
 				pages={pagePaths}
 				pathname={c.url.pathname}
 			>
 				{result.html}
-			</Layout>,
+			</Layout>
 		);
 	})
 	.get(["/elements/:name/", "/styles/:name/"], (c) => {
@@ -95,14 +97,14 @@ const app = new Router({
 				</>,
 			);
 
-			c.page(
+			return (
 				<Layout
 					examples={exampleSubPaths}
 					pages={pagePaths}
 					pathname={c.url.pathname}
 				>
 					<Docs name={name} demo={example} />
-				</Layout>,
+				</Layout>
 			);
 		}
 	})

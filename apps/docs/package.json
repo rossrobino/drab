@@ -11,18 +11,18 @@
 	},
 	"devDependencies": {
 		"@domcojs/vercel": "^2.0.1",
-		"@iconify-json/lucide": "^1.2.39",
+		"@iconify-json/lucide": "^1.2.45",
 		"@iconify/tailwind4": "^1.0.6",
 		"@robino/md": "^3.2.6",
-		"@tailwindcss/vite": "^4.1.4",
-		"domco": "^4.1.1",
-		"tailwindcss": "^4.1.4",
-		"vite": "^6.3.3"
+		"@tailwindcss/vite": "^4.1.8",
+		"domco": "^4.1.3",
+		"tailwindcss": "^4.1.8",
+		"vite": "^6.3.5"
 	},
 	"dependencies": {
 		"drab": "*",
-		"ovr": "^1.2.4",
+		"ovr": "^2.0.2",
 		"uico": "^0.10.1",
-		"zod": "^3.24.3"
+		"zod": "^3.25.34"
 	}
 }

@@ -51,6 +51,10 @@ export class Dialog extends Lifecycle(Trigger(Content())) {
 		return this.hasAttribute("click-outside-close");
 	}
 
+	get #scrollbarWidth() {
+		return window.innerWidth - document.documentElement.clientWidth;
+	}
+
 	/** Remove scroll from the body when open with the `remove-body-scroll` attribute. */
 	#toggleBodyScroll(show: boolean) {
 		if (this.#removeBodyScroll) {
@@ -92,11 +96,11 @@ export class Dialog extends Lifecycle(Trigger(Content())) {
 			this.#dialog.addEventListener("click", (e) => {
 				let rect = this.#dialog.getBoundingClientRect();
 
-				// If dialog covers full viewport (with a small tolerance), use first child element for hit testing
+				// If dialog covers full viewport, use first child element for hit testing
 				// Example: https://picocss.com/docs/modal
 				if (
-					rect.width - window.innerWidth <= 5 && // 5px tolerance for rounding issues
-					rect.height - window.innerHeight <= 5 &&
+					Math.abs(rect.width - window.innerWidth) <= this.#scrollbarWidth && // 5px tolerance for rounding issues
+					Math.abs(rect.height - window.innerHeight) <= 0 &&
 					this.#dialog.firstElementChild
 				) {
 					rect = this.#dialog.firstElementChild.getBoundingClientRect();
