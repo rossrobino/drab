@@ -1,4 +1,5 @@
 import { processor } from "@/lib/md";
+import { Chunk } from "ovr";
 
 const elementDoc = import.meta.glob<string>("./generated/classes/*", {
 	query: "?raw",
@@ -41,12 +42,12 @@ export const Docs = async (props: { name: string; demo: string }) => {
 				aria-label="Element demo"
 				class="flex justify-center overflow-x-auto rounded-md border border-dashed p-8"
 			>
-				<div class="w-full">{demo}</div>
+				<div class="w-full">{new Chunk(demo, true)}</div>
 			</div>
 			<div>
-				{install}
-				{demoHtml}
-				{docs}
+				{new Chunk(install, true)}
+				{new Chunk(demoHtml, true)}
+				{new Chunk(docs, true)}
 			</div>
 		</>
 	);

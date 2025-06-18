@@ -1,6 +1,6 @@
 import type { PluginSimple } from "markdown-it";
 import type MarkdownIt from "markdown-it";
-import { escape } from "ovr";
+import { Chunk } from "ovr";
 
 export const codeControls: PluginSimple = (md: MarkdownIt) => {
 	const defaultFence =
@@ -14,7 +14,7 @@ export const codeControls: PluginSimple = (md: MarkdownIt) => {
 
 		const code = defaultFence(tokens, i, opts, env, self);
 		const lang = token.info?.trim().split(/\s+/)[0] ?? "";
-		const escaped = escape(token.content, true);
+		const escaped = Chunk.escape(token.content, true);
 
 		return /* html */ `
 <div class="bg-base-800 rounded-none sm:rounded-md my-6 -mx-6 sm:mx-0 shadow-sm">

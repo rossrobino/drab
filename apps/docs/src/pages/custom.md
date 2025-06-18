@@ -83,7 +83,7 @@ class MyElement extends Lifecycle(Trigger()) {
 The `Content` mixin helps your component identify (and optionally swap) the main content area. You can swap content out with the `swap` method.
 
 ```ts
-import { Lifecycle, Trigger, Content } from "drab/base";
+import { Content, Lifecycle, Trigger } from "drab/base";
 
 class MyElement extends Lifecycle(Trigger(Content())) {
 	constructor() {
@@ -107,7 +107,7 @@ The Announce mixin allows your element to broadcast [ARIA live region](https://w
 This might not be necessary for all elements, be sure to test with a screen reader to see if a custom announcement needed.
 
 ```ts
-import { Lifecycle, Trigger, Content, Announce } from "drab/base";
+import { Announce, Content, Lifecycle, Trigger } from "drab/base";
 
 class MyElement extends Lifecycle(Trigger(Content(Announce()))) {
 	constructor() {

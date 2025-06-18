@@ -1,10 +1,10 @@
 import {
 	Announce,
 	Content,
+	type ContentAttributes,
 	Lifecycle,
 	Trigger,
 	type TriggerAttributes,
-	type ContentAttributes,
 } from "../base/index.js";
 
 export interface TableSortAttributes

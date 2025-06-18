@@ -81,7 +81,7 @@
   If you were extending `Base` and creating your own elements you now can use the mixins to use only the features from `Base` that are required. Or, you can recreate `Base` with all the mixins to have the same class as before.
 
   ```ts
-  import { Lifecycle, Trigger, Content, Announce } from "drab/base";
+  import { Announce, Content, Lifecycle, Trigger } from "drab/base";
 
   // everything - same as the v6 Base
   class Base extends Lifecycle(Trigger(Content(Announce()))) {
@@ -204,7 +204,7 @@
   Now users can create their own custom elements using only the features they need:
 
   ```ts
-  import { Trigger, Lifecycle } from "drab/base";
+  import { Lifecycle, Trigger } from "drab/base";
 
   class MyCustomElement extends Trigger(Lifecycle(HTMLElement)) {
   	constructor() {

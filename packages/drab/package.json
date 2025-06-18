@@ -146,7 +146,9 @@
 		}
 	},
 	"files": [
-		"dist"
+		"dist",
+		"src",
+		"!src/**/*.test.ts"
 	],
 	"scripts": {
 		"check": "tsc --noEmit",

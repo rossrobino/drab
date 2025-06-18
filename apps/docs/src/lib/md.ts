@@ -1,5 +1,5 @@
 import { codeControls } from "./code-controls";
-import { Processor, type Options } from "@robino/md";
+import { type Options, Processor } from "@robino/md";
 import langAstro from "shiki/langs/astro.mjs";
 import langBash from "shiki/langs/bash.mjs";
 import langHtml from "shiki/langs/html.mjs";

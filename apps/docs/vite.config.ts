@@ -1,4 +1,4 @@
-import { options, FrontmatterSchema } from "./src/lib/md";
+import { FrontmatterSchema, options } from "./src/lib/md";
 import { adapter } from "@domcojs/vercel";
 import { md } from "@robino/md";
 import tailwindcss from "@tailwindcss/vite";

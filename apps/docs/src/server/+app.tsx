@@ -3,7 +3,7 @@ import { Docs } from "@/pages/docs/docs";
 import { Layout } from "@/server/layout";
 import type { Result } from "@robino/md";
 import { html } from "client:page";
-import { App } from "ovr";
+import { App, Chunk } from "ovr";
 
 const pages = import.meta.glob<Result<typeof FrontmatterSchema>>(
 	`@/pages/*.md`,
@@ -78,7 +78,7 @@ app
 				pages={pagePaths}
 				pathname={c.url.pathname}
 			>
-				{result.html}
+				{new Chunk(result.html, true)}
 			</Layout>
 		);
 	})
