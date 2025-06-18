@@ -1,5 +1,13 @@
 # drab
 
+## 7.0.2
+
+### Patch Changes
+
+- d4257bf: Publish source and declaration map.
+
+  Now when using TypeScript's `Go to Definition` it will take you directly to the element's `ts` source code.
+
 ## 7.0.1
 
 ### Patch Changes
