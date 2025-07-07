@@ -1,5 +1,11 @@
 # drab
 
+## 7.0.3
+
+### Patch Changes
+
+- 69e0b13: fix: `Dialog` FireFox bug
+
 ## 7.0.2
 
 ### Patch Changes
