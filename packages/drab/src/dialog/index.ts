@@ -99,8 +99,8 @@ export class Dialog extends Lifecycle(Trigger(Content())) {
 				// If dialog covers full viewport, use first child element for hit testing
 				// Example: https://picocss.com/docs/modal
 				if (
-					Math.abs(rect.width - window.innerWidth) <= this.#scrollbarWidth && // 5px tolerance for rounding issues
-					Math.abs(rect.height - window.innerHeight) <= 0 &&
+					window.innerWidth - rect.width <= this.#scrollbarWidth + 3 &&
+					window.innerHeight - rect.height <= 3 &&
 					this.#dialog.firstElementChild
 				) {
 					rect = this.#dialog.firstElementChild.getBoundingClientRect();

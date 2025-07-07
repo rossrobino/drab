@@ -86,13 +86,18 @@ export class Tabs extends Lifecycle(Trigger()) {
 	override mount() {
 		// create tablist
 		const [first, ...rest] = this.#tabs;
+
 		let common = this.#ancestors(first);
+
 		for (let i = 0; i < rest.length; i++) {
 			common = common.intersection(this.#ancestors(rest[i]));
 		}
+
 		const [tablist] = common;
+
 		if (!tablist)
 			throw new Error("Tabs: No common parent element found for triggers.");
+
 		tablist.role = "tablist";
 		tablist.ariaOrientation = this.#orientation;
 
