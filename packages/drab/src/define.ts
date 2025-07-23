@@ -1,6 +1,5 @@
 import "./announcer/define.js";
 import "./contextmenu/define.js";
-import "./dialog/define.js";
 import "./editor/define.js";
 import "./fullscreen/define.js";
 import "./intersect/define.js";

@@ -12,7 +12,6 @@
 		"web components",
 		"custom elements",
 		"contextmenu",
-		"dialog",
 		"editor",
 		"fullscreen",
 		"intersect",
@@ -68,14 +67,6 @@
 		"./contextmenu/define": {
 			"types": "./dist/contextmenu/define.d.ts",
 			"default": "./dist/contextmenu/define.js"
-		},
-		"./dialog": {
-			"types": "./dist/dialog/index.d.ts",
-			"default": "./dist/dialog/index.js"
-		},
-		"./dialog/define": {
-			"types": "./dist/dialog/define.d.ts",
-			"default": "./dist/dialog/define.js"
 		},
 		"./editor": {
 			"types": "./dist/editor/index.d.ts",
