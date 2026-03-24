@@ -8,8 +8,7 @@ import {
 } from "../base/index.js";
 
 export interface TableSortAttributes
-	extends TriggerAttributes,
-		ContentAttributes {}
+	extends TriggerAttributes, ContentAttributes {}
 
 export interface TableSortTriggerAttributes {
 	"data-type": "string" | "boolean" | "number";

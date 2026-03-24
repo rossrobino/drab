@@ -7,15 +7,14 @@ import {
 } from "../base/index.js";
 
 export interface ContextMenuAttributes
-	extends TriggerAttributes,
-		ContentAttributes {}
+	extends TriggerAttributes, ContentAttributes {}
 
 /**
  * Displays content when the `trigger` element is right clicked, or long pressed on mobile.
  */
 export class ContextMenu extends Lifecycle(Trigger(Content())) {
 	/** Tracks the long press duration on mobile. */
-	#touchTimer: NodeJS.Timeout | undefined;
+	#touchTimer: number | undefined;
 
 	constructor() {
 		super();

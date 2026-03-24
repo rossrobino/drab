@@ -8,8 +8,7 @@ import {
 } from "../base/index.js";
 
 export interface WakeLockAttributes
-	extends TriggerAttributes,
-		ContentAttributes {
+	extends TriggerAttributes, ContentAttributes {
 	/** Auto request wakelock when user returns to inactive tab. */
 	"auto-lock"?: boolean;
 

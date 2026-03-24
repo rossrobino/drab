@@ -2,8 +2,7 @@ import type { FrontmatterSchema } from "@/lib/md";
 import { Docs } from "@/pages/docs/docs";
 import { Layout } from "@/server/layout";
 import type { Result } from "@robino/md";
-import { html } from "client:page";
-import { App, Chunk } from "ovr";
+import { App, type Middleware, Render, Route } from "ovr";
 
 const pages = import.meta.glob<Result<typeof FrontmatterSchema>>(
 	`@/pages/*.md`,
@@ -33,82 +32,89 @@ const exampleSubPaths = examplePaths.map(
 	(path) => `/${path.split("/").slice(3, 5).join("/")}/`,
 );
 
-const app = new App();
+const app = new App({ trailingSlash: "always" });
 
-app.trailingSlash = "always";
-app.base = html;
-app.notFound = (c) => {
-	c.head(<title>Not Found</title>);
+const notFound: Middleware = async (c, next) => {
+	await next();
 
-	c.page(
-		<Layout
-			examples={exampleSubPaths}
-			pages={pagePaths}
-			pathname={c.url.pathname}
-		>
-			<h1>Not found</h1>
-			<p>
-				No content found at <code>{c.url.href}</code>.
-			</p>
-			<p>
-				<a href="/">Return home</a>
-			</p>
-		</Layout>,
-		404,
-	);
-};
-
-app
-	.get(["/", "/:slug/"], (c) => {
-		const result =
-			pages[`/pages/${"slug" in c.params ? c.params.slug : "index"}.md`];
-
-		if (!result?.html) return;
-
-		c.head(
-			<>
-				<title>{result.frontmatter.title}</title>
-				<meta name="description" content={result.frontmatter.description} />
-			</>,
-		);
+	if (c.res.body === undefined) {
+		c.res.status = 404;
 
 		return (
 			<Layout
 				examples={exampleSubPaths}
 				pages={pagePaths}
 				pathname={c.url.pathname}
+				head={<title>Not Found</title>}
 			>
-				{new Chunk(result.html, true)}
+				<h1>Not found</h1>
+				<p>
+					No content found at <code>{c.url.href}</code>.
+				</p>
+				<p>
+					<a href="/">Return home</a>
+				</p>
 			</Layout>
 		);
-	})
-	.get(["/elements/:name/", "/styles/:name/"], (c) => {
-		const example = examples[`/pages/docs${c.url.pathname}index.html`];
-		const { name } = c.params;
+	}
+};
 
-		if (example) {
-			c.head(
+const content: Middleware = (c) => {
+	const result =
+		pages[`/pages/${"slug" in c.params ? c.params.slug : "index"}.md`];
+
+	if (!result?.html) return;
+
+	return (
+		<Layout
+			examples={exampleSubPaths}
+			pages={pagePaths}
+			pathname={c.url.pathname}
+			head={
 				<>
-					<title>{`drab - ${name}`}</title>
-					<meta
-						name="description"
-						content={`Learn how to use the ${name} custom element.`}
-					/>
-				</>,
-			);
+					<title>{result.frontmatter.title}</title>
+					<meta name="description" content={result.frontmatter.description} />
+				</>
+			}
+		>
+			{Render.html(result.html)}
+		</Layout>
+	);
+};
 
-			return (
-				<Layout
-					examples={exampleSubPaths}
-					pages={pagePaths}
-					pathname={c.url.pathname}
-				>
-					<Docs name={name} demo={example} />
-				</Layout>
-			);
-		}
-	})
-	.get("/docs/:name/", (c) => {
+const elements: Middleware = (c) => {
+	const example = examples[`/pages/docs${c.url.pathname}index.html`];
+	const { name } = c.params;
+
+	if (example && name) {
+		return (
+			<Layout
+				examples={exampleSubPaths}
+				pages={pagePaths}
+				pathname={c.url.pathname}
+				head={
+					<>
+						<title>{`drab - ${name}`}</title>
+						<meta
+							name="description"
+							content={`Learn how to use the ${name} custom element.`}
+						/>
+					</>
+				}
+			>
+				<Docs name={name} demo={example} />
+			</Layout>
+		);
+	}
+};
+
+app.use(
+	notFound,
+	Route.get("/", content),
+	Route.get("/:slug/", content),
+	Route.get("/elements/:name/", elements),
+	Route.get("/styles/:name/", elements),
+	Route.get("/docs/:name/", (c) => {
 		// redirect from old docs
 		if (c.params.name === "details" || c.params.name === "popover") {
 			c.url.pathname = `/styles/${c.params.name}/`;
@@ -119,9 +125,11 @@ app
 		c.url.search = "";
 
 		c.redirect(c.url, 308);
-	})
-	.get("/styles/details/", (c) => c.redirect("/styles/accordion/", 301));
+	}),
+	Route.get("/styles/details/", (c) => c.redirect("/styles/accordion/", 301)),
+);
 
-app.prerender = ["/", "/getting-started/", ...exampleSubPaths];
-
-export default app;
+export default {
+	fetch: app.fetch,
+	prerender: ["/", "/getting-started/", ...exampleSubPaths],
+};

@@ -7,8 +7,7 @@ import {
 } from "../base/index.js";
 
 export interface IntersectAttributes
-	extends TriggerAttributes,
-		ContentAttributes {
+	extends TriggerAttributes, ContentAttributes {
 	/** Number between 0 and 1 representing the visible portion of the `trigger`. */
 	threshold?: number;
 }

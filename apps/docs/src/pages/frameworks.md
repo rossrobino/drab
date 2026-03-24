@@ -106,8 +106,9 @@ import "solid-js";
 
 declare module "solid-js" {
 	namespace JSX {
-		interface IntrinsicElements
-			extends Elements<JSX.HTMLAttributes<HTMLElement>> {}
+		interface IntrinsicElements extends Elements<
+			JSX.HTMLAttributes<HTMLElement>
+		> {}
 	}
 }
 ```
@@ -132,8 +133,9 @@ declare module "solid-js" {
 import type { Elements } from "drab/types";
 
 declare module "svelte/elements" {
-	export interface SvelteHTMLElements
-		extends Elements<HTMLAttributes<HTMLElement>> {}
+	export interface SvelteHTMLElements extends Elements<
+		HTMLAttributes<HTMLElement>
+	> {}
 }
 
 export {};

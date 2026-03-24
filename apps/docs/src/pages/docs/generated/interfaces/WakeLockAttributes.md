@@ -1,4 +1,4 @@
-Defined in: [wakelock/index.ts:10](https://github.com/rossrobino/components/blob/main/packages/drab/src/wakelock/index.ts#L10)
+Defined in: [wakelock/index.ts:10](https://github.com/rossrobino/drab/blob/main/packages/drab/src/wakelock/index.ts#L10)
 
 ## Extends
 
@@ -10,9 +10,9 @@ Defined in: [wakelock/index.ts:10](https://github.com/rossrobino/components/blob
 
 ### auto-lock?
 
-> `optional` **auto-lock**: `boolean`
+> `optional` **auto-lock?**: `boolean`
 
-Defined in: [wakelock/index.ts:14](https://github.com/rossrobino/components/blob/main/packages/drab/src/wakelock/index.ts#L14)
+Defined in: [wakelock/index.ts:14](https://github.com/rossrobino/drab/blob/main/packages/drab/src/wakelock/index.ts#L14)
 
 Auto request wakelock when user returns to inactive tab.
 
@@ -22,9 +22,9 @@ Auto request wakelock when user returns to inactive tab.
 
 ### content?
 
-> `optional` **content**: `string`
+> `optional` **content?**: `string`
 
-Defined in: [base/index.ts:9](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L9)
+Defined in: [base/index.ts:9](https://github.com/rossrobino/drab/blob/main/packages/drab/src/base/index.ts#L9)
 
 #### Inherited from
 
@@ -36,9 +36,9 @@ Defined in: [base/index.ts:9](https://github.com/rossrobino/components/blob/main
 
 ### locked?
 
-> `optional` **locked**: `boolean`
+> `optional` **locked?**: `boolean`
 
-Defined in: [wakelock/index.ts:17](https://github.com/rossrobino/components/blob/main/packages/drab/src/wakelock/index.ts#L17)
+Defined in: [wakelock/index.ts:17](https://github.com/rossrobino/drab/blob/main/packages/drab/src/wakelock/index.ts#L17)
 
 Set to request wakelock immediately when the element has connected.
 
@@ -48,9 +48,9 @@ Set to request wakelock immediately when the element has connected.
 
 ### swap?
 
-> `optional` **swap**: `string`
+> `optional` **swap?**: `string`
 
-Defined in: [base/index.ts:10](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L10)
+Defined in: [base/index.ts:10](https://github.com/rossrobino/drab/blob/main/packages/drab/src/base/index.ts#L10)
 
 #### Inherited from
 
@@ -62,9 +62,9 @@ Defined in: [base/index.ts:10](https://github.com/rossrobino/components/blob/mai
 
 ### trigger?
 
-> `optional` **trigger**: `string`
+> `optional` **trigger?**: `string`
 
-Defined in: [base/index.ts:5](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L5)
+Defined in: [base/index.ts:5](https://github.com/rossrobino/drab/blob/main/packages/drab/src/base/index.ts#L5)
 
 #### Inherited from
 

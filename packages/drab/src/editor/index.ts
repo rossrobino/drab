@@ -7,8 +7,7 @@ import {
 } from "../base/index.js";
 
 export interface EditorAttributes
-	extends TriggerAttributes,
-		ContentAttributes {}
+	extends TriggerAttributes, ContentAttributes {}
 
 export interface EditorTriggerAttributes {
 	"data-value": string;

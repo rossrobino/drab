@@ -45,7 +45,7 @@
 	--text-sm: var(--font-size-2);
 	--text-sm--line-height: var(--line-height-2);
 	--text-base: var(--font-size-3);
-	--text-base--line-height: ar(--line-height-3);
+	--text-base--line-height: var(--line-height-3);
 	--text-lg: var(--font-size-4);
 	--text-lg--line-height: var(--line-height-4);
 	--text-xl: var(--font-size-5);

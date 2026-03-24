@@ -27,5 +27,3 @@ For example, this button toggles fullscreen mode:
 - The library is [small](https://bundlephobia.com/package/drab), with zero dependencies.
 - drab is not built on top of a web component framework.
 - You can also [build your own](/custom/) custom elements with the base mixin classes.
-
-[Get started](/getting-started/)

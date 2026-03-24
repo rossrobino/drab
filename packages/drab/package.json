@@ -151,8 +151,8 @@
 		"!src/**/*.test.ts"
 	],
 	"scripts": {
-		"check": "tsc --noEmit",
-		"dev": "tsc --watch",
-		"build": "tsc"
+		"check": "tsc",
+		"dev": "tsc --watch -p tsconfig.build.json",
+		"build": "tsc -p tsconfig.build.json"
 	}
 }

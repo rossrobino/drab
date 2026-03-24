@@ -150,7 +150,7 @@ export class Prefetch extends Lifecycle(Trigger()) {
 		const prerender = this.#prerender;
 		const strategy = this.#strategy;
 
-		let prefetchTimer: NodeJS.Timeout;
+		let prefetchTimer: number;
 
 		const listener =
 			(delay = 200) =>

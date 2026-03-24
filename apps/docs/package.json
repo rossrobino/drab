@@ -10,19 +10,18 @@
 		"preview": "vite preview"
 	},
 	"devDependencies": {
-		"@domcojs/vercel": "^3.0.0",
-		"@iconify-json/lucide": "^1.2.56",
-		"@iconify/tailwind4": "^1.0.6",
-		"@robino/md": "^4.0.3",
-		"@tailwindcss/vite": "^4.1.11",
-		"domco": "^4.3.0",
-		"tailwindcss": "^4.1.11",
-		"vite": "^7.0.2"
+		"@domcojs/vercel": "^3.1.3",
+		"@iconify-json/lucide": "^1.2.98",
+		"@iconify/tailwind4": "^1.2.3",
+		"@robino/md": "^5.0.0",
+		"@tailwindcss/vite": "^4.2.2",
+		"domco": "^5.0.2",
+		"tailwindcss": "^4.2.2",
+		"vite": "^8.0.2"
 	},
 	"dependencies": {
 		"drab": "*",
-		"ovr": "^4.2.7",
-		"uico": "^0.10.3",
-		"zod": "^3.25.75"
+		"ovr": "^6.2.3",
+		"uico": "^0.12.0"
 	}
 }

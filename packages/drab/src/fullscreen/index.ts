@@ -7,8 +7,7 @@ import {
 } from "../base/index.js";
 
 export interface FullscreenAttributes
-	extends TriggerAttributes,
-		ContentAttributes {}
+	extends TriggerAttributes, ContentAttributes {}
 
 /**
  * Toggles the `documentElement` or `content` element to fullscreen mode.

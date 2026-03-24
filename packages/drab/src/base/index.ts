@@ -17,7 +17,7 @@ export const Lifecycle = <T extends Constructor<HTMLElement>>(
 ) =>
 	class Lifecycle extends Super {
 		/** To clean up event listeners added to `document` when the element is removed. */
-		#listenerController = new AbortController();
+		controller = new AbortController();
 
 		constructor(...args: any[]) {
 			super(...args);
@@ -56,7 +56,7 @@ export const Lifecycle = <T extends Constructor<HTMLElement>>(
 			target: EventTarget = document.body,
 			options: AddEventListenerOptions = {},
 		) {
-			options.signal = this.#listenerController.signal;
+			options.signal = this.controller.signal;
 			target.addEventListener(type, listener, options);
 		}
 
@@ -85,7 +85,7 @@ export const Lifecycle = <T extends Constructor<HTMLElement>>(
 		/** Called when custom element is removed from the page. */
 		disconnectedCallback() {
 			this.destroy();
-			this.#listenerController.abort();
+			this.controller.abort();
 		}
 	};
 
@@ -275,7 +275,7 @@ export const Announce = <T extends Constructor<HTMLElement>>(
 		 * A single `Announcer` element to share between all drab elements to announce
 		 * interactive changes.
 		 */
-		static #announcer = Announcer.init();
+		static announcer = Announcer.init();
 
 		constructor(...args: any[]) {
 			super(...args);
@@ -285,6 +285,6 @@ export const Announce = <T extends Constructor<HTMLElement>>(
 		 * @param message message to announce to screen readers
 		 */
 		announce(message: string) {
-			Announce.#announcer.announce(message);
+			Announce.announcer.announce(message);
 		}
 	};

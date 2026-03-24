@@ -1,4 +1,4 @@
-Defined in: [tabs/index.ts:3](https://github.com/rossrobino/components/blob/main/packages/drab/src/tabs/index.ts#L3)
+Defined in: [tabs/index.ts:3](https://github.com/rossrobino/drab/blob/main/packages/drab/src/tabs/index.ts#L3)
 
 ## Extends
 
@@ -10,9 +10,9 @@ Defined in: [tabs/index.ts:3](https://github.com/rossrobino/components/blob/main
 
 ### orientation?
 
-> `optional` **orientation**: `"horizontal"` \| `"vertical"`
+> `optional` **orientation?**: `"horizontal"` \| `"vertical"`
 
-Defined in: [tabs/index.ts:5](https://github.com/rossrobino/components/blob/main/packages/drab/src/tabs/index.ts#L5)
+Defined in: [tabs/index.ts:5](https://github.com/rossrobino/drab/blob/main/packages/drab/src/tabs/index.ts#L5)
 
 Set to `"vertical"` if tabs are displayed vertically.
 
@@ -22,9 +22,9 @@ Set to `"vertical"` if tabs are displayed vertically.
 
 ### trigger?
 
-> `optional` **trigger**: `string`
+> `optional` **trigger?**: `string`
 
-Defined in: [base/index.ts:5](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L5)
+Defined in: [base/index.ts:5](https://github.com/rossrobino/drab/blob/main/packages/drab/src/base/index.ts#L5)
 
 #### Inherited from
 

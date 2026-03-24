@@ -178,8 +178,9 @@
 
   declare module "react" {
   	namespace JSX {
-  		interface IntrinsicElements
-  			extends Elements<HTMLAttributes<HTMLElement>> {}
+  		interface IntrinsicElements extends Elements<
+  			HTMLAttributes<HTMLElement>
+  		> {}
   	}
   }
   ```

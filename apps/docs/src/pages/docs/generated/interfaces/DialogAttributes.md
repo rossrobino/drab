@@ -1,4 +1,4 @@
-Defined in: [dialog/index.ts:9](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L9)
+Defined in: [dialog/index.ts:9](https://github.com/rossrobino/drab/blob/main/packages/drab/src/dialog/index.ts#L9)
 
 ## Extends
 
@@ -10,9 +10,9 @@ Defined in: [dialog/index.ts:9](https://github.com/rossrobino/components/blob/ma
 
 ### click-outside-close?
 
-> `optional` **click-outside-close**: `boolean`
+> `optional` **click-outside-close?**: `boolean`
 
-Defined in: [dialog/index.ts:11](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L11)
+Defined in: [dialog/index.ts:11](https://github.com/rossrobino/drab/blob/main/packages/drab/src/dialog/index.ts#L11)
 
 Close the dialog when clicked outside.
 
@@ -22,9 +22,9 @@ Close the dialog when clicked outside.
 
 ### content?
 
-> `optional` **content**: `string`
+> `optional` **content?**: `string`
 
-Defined in: [base/index.ts:9](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L9)
+Defined in: [base/index.ts:9](https://github.com/rossrobino/drab/blob/main/packages/drab/src/base/index.ts#L9)
 
 #### Inherited from
 
@@ -36,9 +36,9 @@ Defined in: [base/index.ts:9](https://github.com/rossrobino/components/blob/main
 
 ### remove-body-scroll?
 
-> `optional` **remove-body-scroll**: `boolean`
+> `optional` **remove-body-scroll?**: `boolean`
 
-Defined in: [dialog/index.ts:14](https://github.com/rossrobino/components/blob/main/packages/drab/src/dialog/index.ts#L14)
+Defined in: [dialog/index.ts:14](https://github.com/rossrobino/drab/blob/main/packages/drab/src/dialog/index.ts#L14)
 
 Remove scroll from the body when dialog is open.
 
@@ -48,9 +48,9 @@ Remove scroll from the body when dialog is open.
 
 ### swap?
 
-> `optional` **swap**: `string`
+> `optional` **swap?**: `string`
 
-Defined in: [base/index.ts:10](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L10)
+Defined in: [base/index.ts:10](https://github.com/rossrobino/drab/blob/main/packages/drab/src/base/index.ts#L10)
 
 #### Inherited from
 
@@ -62,9 +62,9 @@ Defined in: [base/index.ts:10](https://github.com/rossrobino/components/blob/mai
 
 ### trigger?
 
-> `optional` **trigger**: `string`
+> `optional` **trigger?**: `string`
 
-Defined in: [base/index.ts:5](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L5)
+Defined in: [base/index.ts:5](https://github.com/rossrobino/drab/blob/main/packages/drab/src/base/index.ts#L5)
 
 #### Inherited from
 

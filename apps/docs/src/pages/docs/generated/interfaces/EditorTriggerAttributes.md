@@ -1,4 +1,4 @@
-Defined in: [editor/index.ts:13](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L13)
+Defined in: [editor/index.ts:13](https://github.com/rossrobino/drab/blob/main/packages/drab/src/editor/index.ts#L13)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [editor/index.ts:13](https://github.com/rossrobino/components/blob/m
 
 > **data-key**: `string`
 
-Defined in: [editor/index.ts:15](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L15)
+Defined in: [editor/index.ts:15](https://github.com/rossrobino/drab/blob/main/packages/drab/src/editor/index.ts#L15)
 
 ---
 
@@ -18,7 +18,7 @@ Defined in: [editor/index.ts:15](https://github.com/rossrobino/components/blob/m
 
 > **data-type**: `"block"` \| `"wrap"` \| `"inline"`
 
-Defined in: [editor/index.ts:16](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L16)
+Defined in: [editor/index.ts:16](https://github.com/rossrobino/drab/blob/main/packages/drab/src/editor/index.ts#L16)
 
 ---
 
@@ -28,4 +28,4 @@ Defined in: [editor/index.ts:16](https://github.com/rossrobino/components/blob/m
 
 > **data-value**: `string`
 
-Defined in: [editor/index.ts:14](https://github.com/rossrobino/components/blob/main/packages/drab/src/editor/index.ts#L14)
+Defined in: [editor/index.ts:14](https://github.com/rossrobino/drab/blob/main/packages/drab/src/editor/index.ts#L14)

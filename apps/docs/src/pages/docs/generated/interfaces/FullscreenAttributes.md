@@ -1,4 +1,4 @@
-Defined in: [fullscreen/index.ts:9](https://github.com/rossrobino/components/blob/main/packages/drab/src/fullscreen/index.ts#L9)
+Defined in: [fullscreen/index.ts:9](https://github.com/rossrobino/drab/blob/main/packages/drab/src/fullscreen/index.ts#L9)
 
 ## Extends
 
@@ -10,9 +10,9 @@ Defined in: [fullscreen/index.ts:9](https://github.com/rossrobino/components/blo
 
 ### content?
 
-> `optional` **content**: `string`
+> `optional` **content?**: `string`
 
-Defined in: [base/index.ts:9](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L9)
+Defined in: [base/index.ts:9](https://github.com/rossrobino/drab/blob/main/packages/drab/src/base/index.ts#L9)
 
 #### Inherited from
 
@@ -24,9 +24,9 @@ Defined in: [base/index.ts:9](https://github.com/rossrobino/components/blob/main
 
 ### swap?
 
-> `optional` **swap**: `string`
+> `optional` **swap?**: `string`
 
-Defined in: [base/index.ts:10](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L10)
+Defined in: [base/index.ts:10](https://github.com/rossrobino/drab/blob/main/packages/drab/src/base/index.ts#L10)
 
 #### Inherited from
 
@@ -38,9 +38,9 @@ Defined in: [base/index.ts:10](https://github.com/rossrobino/components/blob/mai
 
 ### trigger?
 
-> `optional` **trigger**: `string`
+> `optional` **trigger?**: `string`
 
-Defined in: [base/index.ts:5](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L5)
+Defined in: [base/index.ts:5](https://github.com/rossrobino/drab/blob/main/packages/drab/src/base/index.ts#L5)
 
 #### Inherited from
 

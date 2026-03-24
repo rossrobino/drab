@@ -4,25 +4,28 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
 
-concurrency: ${{ github.workflow }}-${{ github.ref }}
-
+permissions: {}
 jobs:
   release:
+    if: github.repository == 'rossrobino/drab'
+    permissions:
+      id-token: write
+      contents: write
+      pull-requests: write
     name: Release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: 22.x
+          node-version: 24.x
 
       - name: Install Dependencies
-        run: npm i
+        run: npm ci
 
       - name: Create Release Pull Request and Publish to npm
         id: changesets
@@ -31,4 +34,4 @@ jobs:
           publish: npm run release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_PROVENANCE: true

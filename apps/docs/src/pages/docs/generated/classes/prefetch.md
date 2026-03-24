@@ -1,4 +1,4 @@
-Defined in: [prefetch/index.ts:73](https://github.com/rossrobino/components/blob/main/packages/drab/src/prefetch/index.ts#L73)
+Defined in: [prefetch/index.ts:73](https://github.com/rossrobino/drab/blob/main/packages/drab/src/prefetch/index.ts#L73)
 
 The `Prefetch` element can prefetch a url, or enhance the `HTMLAnchorElement` by loading the HTML for a page before it is navigated to. This element speeds up the navigation for multi-page applications (MPAs).
 
@@ -37,7 +37,7 @@ This element can be deprecated once the Speculation Rules API is supported acros
 
 > **new Prefetch**(): `Prefetch`
 
-Defined in: [prefetch/index.ts:76](https://github.com/rossrobino/components/blob/main/packages/drab/src/prefetch/index.ts#L76)
+Defined in: [prefetch/index.ts:76](https://github.com/rossrobino/drab/blob/main/packages/drab/src/prefetch/index.ts#L76)
 
 #### Returns
 
@@ -46,6 +46,22 @@ Defined in: [prefetch/index.ts:76](https://github.com/rossrobino/components/blob
 #### Overrides
 
 `Lifecycle(Trigger()).constructor`
+
+## Properties
+
+<a id="controller"></a>
+
+### controller
+
+> **controller**: `AbortController`
+
+Defined in: [base/index.ts:20](https://github.com/rossrobino/drab/blob/main/packages/drab/src/base/index.ts#L20)
+
+To clean up event listeners added to `document` when the element is removed.
+
+#### Inherited from
+
+`Lifecycle(Trigger()).controller`
 
 ## Accessors
 
@@ -57,7 +73,7 @@ Defined in: [prefetch/index.ts:76](https://github.com/rossrobino/components/blob
 
 > **get** **event**(): keyof `HTMLElementEventMap`
 
-Defined in: [base/index.ts:120](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L120)
+Defined in: [base/index.ts:120](https://github.com/rossrobino/drab/blob/main/packages/drab/src/base/index.ts#L120)
 
 Event for the `trigger` to execute.
 
@@ -77,7 +93,7 @@ keyof `HTMLElementEventMap`
 
 > **set** **event**(`value`): `void`
 
-Defined in: [base/index.ts:126](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L126)
+Defined in: [base/index.ts:126](https://github.com/rossrobino/drab/blob/main/packages/drab/src/base/index.ts#L126)
 
 ##### Parameters
 
@@ -101,7 +117,7 @@ keyof `HTMLElementEventMap`
 
 > **connectedCallback**(): `void`
 
-Defined in: [base/index.ts:76](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L76)
+Defined in: [base/index.ts:76](https://github.com/rossrobino/drab/blob/main/packages/drab/src/base/index.ts#L76)
 
 Called when custom element is added to the page.
 
@@ -121,7 +137,7 @@ Called when custom element is added to the page.
 
 > **destroy**(): `void`
 
-Defined in: [base/index.ts:83](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L83)
+Defined in: [base/index.ts:83](https://github.com/rossrobino/drab/blob/main/packages/drab/src/base/index.ts#L83)
 
 Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallback` as well. It is overridden in each element that needs to run `disconnectedCallback`.
 
@@ -141,7 +157,7 @@ Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallb
 
 > **disconnectedCallback**(): `void`
 
-Defined in: [base/index.ts:86](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L86)
+Defined in: [base/index.ts:86](https://github.com/rossrobino/drab/blob/main/packages/drab/src/base/index.ts#L86)
 
 Called when custom element is removed from the page.
 
@@ -163,7 +179,7 @@ Called when custom element is removed from the page.
 
 > **listener**\<`T`\>(`listener`, `options?`): `void`
 
-Defined in: [base/index.ts:152](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L152)
+Defined in: [base/index.ts:152](https://github.com/rossrobino/drab/blob/main/packages/drab/src/base/index.ts#L152)
 
 ##### Type Parameters
 
@@ -195,7 +211,7 @@ Listener to attach to all of the `trigger` elements.
 
 > **listener**\<`T`\>(`type`, `listener`, `options?`): `void`
 
-Defined in: [base/index.ts:161](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L161)
+Defined in: [base/index.ts:161](https://github.com/rossrobino/drab/blob/main/packages/drab/src/base/index.ts#L161)
 
 ##### Type Parameters
 
@@ -237,7 +253,7 @@ Listener to attach to all of the `trigger` elements.
 
 > **mount**(): `void`
 
-Defined in: [prefetch/index.ts:143](https://github.com/rossrobino/components/blob/main/packages/drab/src/prefetch/index.ts#L143)
+Defined in: [prefetch/index.ts:143](https://github.com/rossrobino/drab/blob/main/packages/drab/src/prefetch/index.ts#L143)
 
 Passed into `queueMicrotask` in `connectedCallback`.
 It is overridden in each component that needs to run `connectedCallback`.
@@ -264,7 +280,7 @@ be attached to elements inside.
 
 > **prefetch**(`options`): `void`
 
-Defined in: [prefetch/index.ts:101](https://github.com/rossrobino/components/blob/main/packages/drab/src/prefetch/index.ts#L101)
+Defined in: [prefetch/index.ts:101](https://github.com/rossrobino/drab/blob/main/packages/drab/src/prefetch/index.ts#L101)
 
 Appends `<link rel="prefetch">` or `<script type="speculationrules">`
 to the head of the document.
@@ -301,7 +317,7 @@ Uses the Speculation Rules API when supported to prerender on the client.
 
 > **safeListener**\<`T`\>(`type`, `listener`, `element?`, `options?`): `void`
 
-Defined in: [base/index.ts:35](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L35)
+Defined in: [base/index.ts:35](https://github.com/rossrobino/drab/blob/main/packages/drab/src/base/index.ts#L35)
 
 Wrapper around `addEventListener` that ensures when the element is
 removed from the DOM, these event listeners are cleaned up.
@@ -348,7 +364,7 @@ Other options sans `signal`.
 
 > **safeListener**\<`T`\>(`type`, `listener`, `document`, `options?`): `void`
 
-Defined in: [base/index.ts:41](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L41)
+Defined in: [base/index.ts:41](https://github.com/rossrobino/drab/blob/main/packages/drab/src/base/index.ts#L41)
 
 Wrapper around `addEventListener` that ensures when the element is
 removed from the DOM, these event listeners are cleaned up.
@@ -395,7 +411,7 @@ Other options sans `signal`.
 
 > **safeListener**\<`T`\>(`type`, `listener`, `window`, `options?`): `void`
 
-Defined in: [base/index.ts:47](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L47)
+Defined in: [base/index.ts:47](https://github.com/rossrobino/drab/blob/main/packages/drab/src/base/index.ts#L47)
 
 Wrapper around `addEventListener` that ensures when the element is
 removed from the DOM, these event listeners are cleaned up.
@@ -448,7 +464,7 @@ Other options sans `signal`.
 
 > **triggers**\<`T`\>(`instance`): `NodeListOf`\<`T`\>
 
-Defined in: [base/index.ts:136](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L136)
+Defined in: [base/index.ts:136](https://github.com/rossrobino/drab/blob/main/packages/drab/src/base/index.ts#L136)
 
 ##### Type Parameters
 
@@ -485,7 +501,7 @@ this.querySelectorAll("[data-trigger]");
 
 > **triggers**(): `NodeListOf`\<`HTMLElement`\>
 
-Defined in: [base/index.ts:137](https://github.com/rossrobino/components/blob/main/packages/drab/src/base/index.ts#L137)
+Defined in: [base/index.ts:137](https://github.com/rossrobino/drab/blob/main/packages/drab/src/base/index.ts#L137)
 
 ##### Returns
 
