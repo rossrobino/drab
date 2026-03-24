@@ -117,9 +117,7 @@ export class WakeLock extends Lifecycle(Trigger(Content(Announce()))) {
 					// When the tab is not visible, the wakeLock is automatically released.
 					// This requests it back if it exists, if it is `null`, that
 					// means it was removed. In which case, it shouldn't be requested again.
-					if (this.#wakeLock) {
-						this.request();
-					}
+					if (this.#wakeLock) this.request();
 				},
 				document,
 			);

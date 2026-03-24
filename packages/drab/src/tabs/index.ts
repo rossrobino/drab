@@ -35,7 +35,14 @@ export interface TabsAttributes extends TriggerAttributes {
  */
 export class Tabs extends Lifecycle(Trigger()) {
 	/** Supported keys for keyboard navigation. */
-	#keys = ["ArrowRight", "ArrowDown", "ArrowLeft", "ArrowUp", "Home", "End"];
+	readonly #keys = [
+		"ArrowRight",
+		"ArrowDown",
+		"ArrowLeft",
+		"ArrowUp",
+		"Home",
+		"End",
+	];
 
 	/** Currently selected tab. */
 	#selected: { tab?: HTMLAnchorElement; index: number } = { index: 0 };
@@ -74,6 +81,7 @@ export class Tabs extends Lifecycle(Trigger()) {
 
 		for (const tab of this.#tabs) {
 			const panel = this.querySelector(tab.hash);
+
 			if (!(panel instanceof HTMLElement))
 				throw new Error(`Tabs: No HTMLElement with ID of ${tab.hash} found.`);
 
@@ -95,8 +103,9 @@ export class Tabs extends Lifecycle(Trigger()) {
 
 		const [tablist] = common;
 
-		if (!tablist)
+		if (!tablist) {
 			throw new Error("Tabs: No common parent element found for triggers.");
+		}
 
 		tablist.role = "tablist";
 		tablist.ariaOrientation = this.#orientation;

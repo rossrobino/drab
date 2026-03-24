@@ -77,7 +77,7 @@ export class TableSort extends Lifecycle(Trigger(Content(Announce()))) {
 				const asc = this.#setAttributes(trigger);
 
 				Array.from(tbody.querySelectorAll("tr"))
-					.sort(comparer(trigger, asc))
+					.sort(TableSort.#comparer(trigger, asc))
 					.forEach((tr) => tbody.appendChild(tr));
 
 				this.announce(
@@ -97,71 +97,73 @@ export class TableSort extends Lifecycle(Trigger(Content(Announce()))) {
 			}
 		}
 	}
-}
 
-// adapted from: https://stackoverflow.com/questions/14267781/sorting-html-table-with-javascript/49041392#49041392
-const comparer = (th: HTMLElement, ascending: boolean) => {
-	// this function is returned and used by `sort`
-	const sorter = (a: HTMLTableRowElement, b: HTMLTableRowElement) => {
-		// find the column to sort by using the index of the `th`
-		const columnIndex = Array.from(th.parentNode?.children ?? []).indexOf(th);
+	// adapted from: https://stackoverflow.com/questions/14267781/sorting-html-table-with-javascript/49041392#49041392
+	static #comparer(th: HTMLElement, ascending: boolean) {
+		// this function is returned and used by `sort`
+		const sorter = (a: HTMLTableRowElement, b: HTMLTableRowElement) => {
+			// find the column to sort by using the index of the `th`
+			const columnIndex = Array.from(th.parentNode?.children ?? []).indexOf(th);
 
-		const compare = (aVal: string, bVal: string) => {
-			// default to `string` sorting
-			const dataType = (th.dataset.type ?? "string") as
-				| "string"
-				| "boolean"
-				| "number";
+			const compare = (aVal: string, bVal: string) => {
+				// default to `string` sorting
+				const dataType = (th.dataset.type ?? "string") as
+					| "string"
+					| "boolean"
+					| "number";
 
-			if (dataType === "string") {
-				const collator = new Intl.Collator();
-				return collator.compare(aVal, bVal);
-			} else if (dataType === "boolean") {
-				return falsyBoolean(aVal) === falsyBoolean(bVal)
-					? 0
-					: falsyBoolean(aVal)
-						? -1
-						: 1;
-			} else {
-				// "number"
-				return Number(aVal) - Number(bVal);
-			}
+				if (dataType === "string") {
+					const collator = new Intl.Collator();
+					return collator.compare(aVal, bVal);
+				} else if (dataType === "boolean") {
+					return TableSort.#falsyBoolean(aVal) === TableSort.#falsyBoolean(bVal)
+						? 0
+						: TableSort.#falsyBoolean(aVal)
+							? -1
+							: 1;
+				} else {
+					// "number"
+					return Number(aVal) - Number(bVal);
+				}
+			};
+
+			return compare(
+				TableSort.#getValue(ascending ? a : b, columnIndex),
+				TableSort.#getValue(ascending ? b : a, columnIndex),
+			);
 		};
 
-		return compare(
-			getValue(ascending ? a : b, columnIndex),
-			getValue(ascending ? b : a, columnIndex),
-		);
-	};
-
-	return sorter;
-};
-
-/**
- * @param tr the row
- * @param i index of the `td` to find
- * @returns a string, the `data-value` attribute, or the `textContent`
- */
-const getValue = (tr: HTMLTableRowElement, i: number) => {
-	const cell = tr.children[i];
-	if (cell instanceof HTMLElement) {
-		// first look for `data-value` attribute, then use `textContent`
-		return cell.dataset.value ?? cell.textContent ?? "";
-	}
-	return "";
-};
-
-/**
- * if value is one of these and type is boolean
- * it should be considered falsy
- * since actually `Boolean("false") === true`
- * @param val string pulled from the textContent or attr
- * @returns a boolean of the provided string
- */
-const falsyBoolean = (val: string) => {
-	if (["0", "false", "null", "undefined"].includes(val)) {
-		return false;
+		return sorter;
 	}
 
-	return Boolean(val);
-};
+	/**
+	 * @param tr the row
+	 * @param i index of the `td` to find
+	 * @returns a string, the `data-value` attribute, or the `textContent`
+	 */
+	static #getValue(tr: HTMLTableRowElement, i: number) {
+		const cell = tr.children[i];
+
+		if (cell instanceof HTMLElement) {
+			// first look for `data-value` attribute, then use `textContent`
+			return cell.dataset.value ?? cell.textContent ?? "";
+		}
+
+		return "";
+	}
+
+	static #falsyStrings = new Set(["0", "false", "null", "undefined"]);
+
+	/**
+	 * if value is one of these and type is boolean
+	 * it should be considered falsy
+	 * since actually `Boolean("false") === true`
+	 * @param val string pulled from the textContent or attr
+	 * @returns a boolean of the provided string
+	 */
+	static #falsyBoolean(val: string) {
+		if (TableSort.#falsyStrings.has(val)) return false;
+
+		return Boolean(val);
+	}
+}

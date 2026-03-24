@@ -77,28 +77,16 @@ export class Prefetch extends Lifecycle(Trigger()) {
 		super();
 	}
 
-	/** When to prefetch the url. */
-	get #strategy() {
-		return this.getAttribute("strategy");
-	}
-
-	/** Prerender with the Speculation Rules API. */
-	get #prerender() {
-		return this.hasAttribute("prerender");
-	}
-
-	/** `url` to prefetch on `mount`.  */
-	get #url() {
-		return this.getAttribute("url");
-	}
-
 	/**
 	 * Appends `<link rel="prefetch">` or `<script type="speculationrules">`
 	 * to the head of the document.
 	 *
 	 * @param options Configuration options.
 	 */
-	prefetch(options: {
+	prefetch({
+		url,
+		prerender,
+	}: {
 		/** `url` to prefetch. */
 		url: string;
 
@@ -107,8 +95,6 @@ export class Prefetch extends Lifecycle(Trigger()) {
 		 */
 		prerender?: boolean;
 	}) {
-		const { url } = options;
-
 		// if not the current page and not already prefetched
 		if (!(url === window.location.href) && !this.#prefetchedUrls.has(url)) {
 			this.#prefetchedUrls.add(url);
@@ -124,7 +110,7 @@ export class Prefetch extends Lifecycle(Trigger()) {
 					prefetch: [{ source: "list", urls: [url] }],
 				};
 
-				if (options.prerender) rules.prerender = rules.prefetch;
+				if (prerender) rules.prerender = rules.prefetch;
 
 				const script = document.createElement("script");
 				script.type = "speculationrules";
@@ -141,14 +127,15 @@ export class Prefetch extends Lifecycle(Trigger()) {
 	}
 
 	override mount() {
+		const prerender = this.hasAttribute("prerender");
+		const url = this.getAttribute("url");
+
 		// immediately prefetch the `url` attribute if it exists
-		if (this.#url)
-			this.prefetch({ url: this.#url, prerender: this.#prerender });
+		if (url) this.prefetch({ url, prerender });
 
 		// prefetch the `trigger` elements
 		const anchors = this.triggers(HTMLAnchorElement);
-		const prerender = this.#prerender;
-		const strategy = this.#strategy;
+		const strategy = this.getAttribute("strategy");
 
 		let prefetchTimer: number;
 
@@ -164,22 +151,20 @@ export class Prefetch extends Lifecycle(Trigger()) {
 
 		const reset = () => clearTimeout(prefetchTimer);
 
-		const observer = new IntersectionObserver((entries) => {
-			for (const entry of entries) {
-				if (entry.isIntersecting) {
-					this.prefetch({
-						url: (entry.target as HTMLAnchorElement).href,
-						prerender,
-					});
-				}
-			}
-		});
-
 		for (const anchor of anchors) {
 			if (strategy === "load") {
 				this.prefetch({ url: anchor.href, prerender });
 			} else if (strategy === "visible") {
-				observer.observe(anchor);
+				new IntersectionObserver((entries) => {
+					for (const entry of entries) {
+						if (entry.isIntersecting) {
+							this.prefetch({
+								url: (entry.target as HTMLAnchorElement).href,
+								prerender,
+							});
+						}
+					}
+				}).observe(anchor);
 			} else {
 				// "hover" - default
 				anchor.addEventListener("mouseover", listener());

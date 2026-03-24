@@ -56,8 +56,10 @@ export const Lifecycle = <T extends Constructor<HTMLElement>>(
 			target: EventTarget = document.body,
 			options: AddEventListenerOptions = {},
 		) {
-			options.signal = this.controller.signal;
-			target.addEventListener(type, listener, options);
+			target.addEventListener(type, listener, {
+				...options,
+				signal: this.controller.signal,
+			});
 		}
 
 		/**
@@ -113,7 +115,8 @@ export const Trigger = <T extends Constructor<HTMLElement>>(
 		/**
 		 * Event for the `trigger` to execute.
 		 *
-		 * For example, set to `"mouseover"` to execute the event when the user hovers the mouse over the `trigger`, instead of when they click it.
+		 * For example, set to `"mouseover"` to execute the event when the user
+		 * hovers the mouse over the `trigger`, instead of when they click it.
 		 *
 		 * @default "click"
 		 */

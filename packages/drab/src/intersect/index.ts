@@ -39,17 +39,6 @@ export class Intersect extends Lifecycle(Trigger(Content())) {
 		super();
 	}
 
-	/**
-	 * How much of the `trigger` should be visible for the intersection to occur.
-	 * For example, given a threshold of `.5`, the intersection would occur when
-	 * the `trigger` is 50% visible.
-	 *
-	 * @default 0
-	 */
-	get #threshold() {
-		return Number(this.getAttribute("threshold") ?? 0);
-	}
-
 	override mount() {
 		const observer = new IntersectionObserver(
 			(entries) => {
@@ -70,7 +59,7 @@ export class Intersect extends Lifecycle(Trigger(Content())) {
 					);
 				}
 			},
-			{ threshold: this.#threshold },
+			{ threshold: Number(this.getAttribute("threshold") ?? 0) },
 		);
 
 		for (const trigger of this.triggers()) observer.observe(trigger);
