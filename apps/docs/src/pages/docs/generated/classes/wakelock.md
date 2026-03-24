@@ -1,4 +1,4 @@
-Defined in: [wakelock/index.ts:44](https://github.com/rossrobino/drab/blob/main/packages/drab/src/wakelock/index.ts#L44)
+Defined in: [wakelock/index.ts:43](https://github.com/rossrobino/drab/blob/main/packages/drab/src/wakelock/index.ts#L43)
 
 `WakeLock` uses the
 [WakeLock API](https://developer.mozilla.org/en-US/docs/Web/API/Screen_Wake_Lock_API)
@@ -31,7 +31,7 @@ a `locked` attribute when connected.
 
 > **new WakeLock**(): `WakeLock`
 
-Defined in: [wakelock/index.ts:47](https://github.com/rossrobino/drab/blob/main/packages/drab/src/wakelock/index.ts#L47)
+Defined in: [wakelock/index.ts:46](https://github.com/rossrobino/drab/blob/main/packages/drab/src/wakelock/index.ts#L46)
 
 #### Returns
 
@@ -239,7 +239,7 @@ this.querySelector("[data-content]");
 
 > **destroy**(): `void`
 
-Defined in: [wakelock/index.ts:130](https://github.com/rossrobino/drab/blob/main/packages/drab/src/wakelock/index.ts#L130)
+Defined in: [wakelock/index.ts:129](https://github.com/rossrobino/drab/blob/main/packages/drab/src/wakelock/index.ts#L129)
 
 Passed into `disconnectedCallback`, since `Base` needs to run `disconnectedCallback` as well. It is overridden in each element that needs to run `disconnectedCallback`.
 
@@ -355,7 +355,7 @@ Listener to attach to all of the `trigger` elements.
 
 > **mount**(): `void`
 
-Defined in: [wakelock/index.ts:92](https://github.com/rossrobino/drab/blob/main/packages/drab/src/wakelock/index.ts#L92)
+Defined in: [wakelock/index.ts:91](https://github.com/rossrobino/drab/blob/main/packages/drab/src/wakelock/index.ts#L91)
 
 Passed into `queueMicrotask` in `connectedCallback`.
 It is overridden in each component that needs to run `connectedCallback`.
@@ -382,7 +382,7 @@ be attached to elements inside.
 
 > **release**(): `Promise`\<`void`\>
 
-Defined in: [wakelock/index.ts:87](https://github.com/rossrobino/drab/blob/main/packages/drab/src/wakelock/index.ts#L87)
+Defined in: [wakelock/index.ts:86](https://github.com/rossrobino/drab/blob/main/packages/drab/src/wakelock/index.ts#L86)
 
 Releases the WakeLock, sets `this.wakeLock` to null.
 
@@ -398,7 +398,7 @@ Releases the WakeLock, sets `this.wakeLock` to null.
 
 > **request**(): `Promise`\<`void`\>
 
-Defined in: [wakelock/index.ts:65](https://github.com/rossrobino/drab/blob/main/packages/drab/src/wakelock/index.ts#L65)
+Defined in: [wakelock/index.ts:64](https://github.com/rossrobino/drab/blob/main/packages/drab/src/wakelock/index.ts#L64)
 
 Requests WakeLock on the current page.
 

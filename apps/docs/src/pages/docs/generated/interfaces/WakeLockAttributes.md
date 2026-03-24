@@ -12,7 +12,7 @@ Defined in: [wakelock/index.ts:10](https://github.com/rossrobino/drab/blob/main/
 
 > `optional` **auto-lock?**: `boolean`
 
-Defined in: [wakelock/index.ts:14](https://github.com/rossrobino/drab/blob/main/packages/drab/src/wakelock/index.ts#L14)
+Defined in: [wakelock/index.ts:13](https://github.com/rossrobino/drab/blob/main/packages/drab/src/wakelock/index.ts#L13)
 
 Auto request wakelock when user returns to inactive tab.
 
@@ -38,7 +38,7 @@ Defined in: [base/index.ts:9](https://github.com/rossrobino/drab/blob/main/packa
 
 > `optional` **locked?**: `boolean`
 
-Defined in: [wakelock/index.ts:17](https://github.com/rossrobino/drab/blob/main/packages/drab/src/wakelock/index.ts#L17)
+Defined in: [wakelock/index.ts:16](https://github.com/rossrobino/drab/blob/main/packages/drab/src/wakelock/index.ts#L16)
 
 Set to request wakelock immediately when the element has connected.
 

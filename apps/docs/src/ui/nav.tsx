@@ -28,33 +28,39 @@ export const Nav = (props: {
 	if (dialog) {
 		return (
 			<nav>
-				<drab-dialog class="contents" click-outside-close remove-body-scroll>
-					<button
-						data-trigger
-						type="button"
-						class="ghost icon"
-						aria-label="open navigation dialog"
-					>
-						<span class="icon-[lucide--align-justify]"></span>
-					</button>
-					<dialog
-						data-content
-						class="bg-background backdrop:bg-muted/50 my-0 mr-auto ml-0 h-full max-h-screen w-full max-w-96 p-6 backdrop:opacity-0 backdrop:backdrop-blur backdrop:transition-opacity open:backdrop:opacity-100"
-					>
-						<div class="mb-2 flex items-center justify-between">
-							<HomeLink />
-							<button data-trigger class="ghost icon" aria-label="close">
-								<span class="icon-[lucide--x]"></span>
-							</button>
-						</div>
-						<NavLinks
-							elements={elements}
-							pages={pages}
-							styles={styles}
-							pathname={pathname}
-						/>
-					</dialog>
-				</drab-dialog>
+				<button
+					commandfor="nav-dialog"
+					command="show-modal"
+					type="button"
+					class="ghost icon"
+					aria-label="open navigation dialog"
+				>
+					<span class="icon-[lucide--align-justify]"></span>
+				</button>
+				<dialog
+					closedby="any"
+					id="nav-dialog"
+					class="bg-background backdrop:bg-muted/50 my-0 mr-auto ml-0 h-full max-h-screen w-full max-w-96 p-6 backdrop:opacity-0 backdrop:backdrop-blur backdrop:transition-opacity open:backdrop:opacity-100"
+				>
+					<div class="mb-2 flex items-center justify-between">
+						<HomeLink />
+						<button
+							type="button"
+							commandfor="nav-dialog"
+							command="close"
+							class="ghost icon"
+							aria-label="close"
+						>
+							<span class="icon-[lucide--x]"></span>
+						</button>
+					</div>
+					<NavLinks
+						elements={elements}
+						pages={pages}
+						styles={styles}
+						pathname={pathname}
+					/>
+				</dialog>
 			</nav>
 		);
 	}

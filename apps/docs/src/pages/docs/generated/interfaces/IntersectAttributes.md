@@ -40,7 +40,7 @@ Defined in: [base/index.ts:10](https://github.com/rossrobino/drab/blob/main/pack
 
 > `optional` **threshold?**: `number`
 
-Defined in: [intersect/index.ts:13](https://github.com/rossrobino/drab/blob/main/packages/drab/src/intersect/index.ts#L13)
+Defined in: [intersect/index.ts:12](https://github.com/rossrobino/drab/blob/main/packages/drab/src/intersect/index.ts#L12)
 
 Number between 0 and 1 representing the visible portion of the `trigger`.
 

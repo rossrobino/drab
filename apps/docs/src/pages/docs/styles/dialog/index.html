@@ -1,0 +1,27 @@
+<button commandfor="dialog" command="show-modal">Show</button>
+
+<dialog
+	id="dialog"
+	closedby="any"
+	class="bg-background backdrop:bg-muted/75 m-auto rounded-md border p-6 backdrop:backdrop-blur-lg sm:max-w-96"
+>
+	<div class="mb-4 flex items-center justify-between">
+		<h2 class="my-0">Dialog</h2>
+		<button
+			commandfor="dialog"
+			command="close"
+			class="ghost icon"
+			aria-label="Close"
+			type="button"
+		>
+			<span class="icon-[lucide--x]"></span>
+		</button>
+	</div>
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur.
+	</p>
+</dialog>

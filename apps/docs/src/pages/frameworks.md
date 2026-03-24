@@ -23,36 +23,36 @@ _\*If you see a better way to write any of these examples or a framework that is
 
 ```astro
 ---
-// dialog.astro
-import type { DialogAttributes } from "drab/dialog";
+// share.astro
+import type { ShareAttributes } from "drab/share";
 
-const attributes: DialogAttributes = {
+const attributes: ShareAttributes = {
 	// ...
 };
 ---
 
 <script>
-	import "drab/dialog/define";
+	import "drab/share/define";
 </script>
 
-<drab-dialog {...attributes}>...</drab-dialog>
+<drab-share {...attributes}>...</drab-share>
 ```
 
 ### Enhance
 
 ```js
-// app/elements/my-dialog.mjs
-export default function MyDialog({ html }) {
+// app/elements/my-share.mjs
+export default function MyShare({ html }) {
 	return html`
-		<drab-dialog>...</drab-dialog>
-		<script src="/_public/browser/drab-dialog.mjs" type="module"></script>
+		<drab-share>...</drab-share>
+		<script src="/_public/browser/drab-share.mjs" type="module"></script>
 	`;
 }
 ```
 
 ```js
-// app/browser/drab-dialog.mjs
-import "drab/dialog/define";
+// app/browser/drab-share.mjs
+import "drab/share/define";
 ```
 
 ### React
@@ -60,15 +60,15 @@ import "drab/dialog/define";
 ```tsx
 "use client";
 
-// dialog.tsx
+// share.tsx
 import { useEffect } from "react";
 
-export default function Dialog() {
+export default function Share() {
 	useEffect(() => {
-		import("drab/dialog/define");
+		import("drab/share/define");
 	}, []);
 
-	return <drab-dialog>...</drab-dialog>;
+	return <drab-share>...</drab-share>;
 }
 ```
 
@@ -87,15 +87,15 @@ declare module "react" {
 ### Solid
 
 ```tsx
-// dialog.tsx
+// share.tsx
 import { onMount } from "solid-js";
 
-export default function Dialog() {
+export default function Share() {
 	onMount(() => {
-		import("drab/dialog/define");
+		import("drab/share/define");
 	});
 
-	return <drab-dialog>...</drab-dialog>;
+	return <drab-share>...</drab-share>;
 }
 ```
 
@@ -116,16 +116,16 @@ declare module "solid-js" {
 ### Svelte
 
 ```svelte
-<!-- dialog.svelte -->
+<!-- share.svelte -->
 <script lang="ts">
 	import { onMount } from "svelte";
 
 	onMount(() => {
-		import("drab/dialog/define");
+		import("drab/share/define");
 	});
 </script>
 
-<drab-dialog>...</drab-dialog>
+<drab-share>...</drab-share>
 ```
 
 ```ts
@@ -144,15 +144,15 @@ export {};
 ### Vue
 
 ```vue
-<!-- dialog.vue -->
+<!-- share.vue -->
 <script setup>
 onMounted(() => {
-	import("drab/dialog/define");
+	import("drab/share/define");
 });
 </script>
 
 <template>
-	<drab-dialog>...</drab-dialog>
+	<drab-share>...</drab-share>
 </template>
 ```
 

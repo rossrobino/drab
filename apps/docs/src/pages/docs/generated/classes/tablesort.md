@@ -1,4 +1,4 @@
-Defined in: [tablesort/index.ts:32](https://github.com/rossrobino/drab/blob/main/packages/drab/src/tablesort/index.ts#L32)
+Defined in: [tablesort/index.ts:31](https://github.com/rossrobino/drab/blob/main/packages/drab/src/tablesort/index.ts#L31)
 
 Wrap a `HTMLTableElement` in the `TableSort` element to have sortable column
 headers. Set each `th` that you want to sort to the `trigger`. Set the `tbody`
@@ -20,7 +20,7 @@ datatype `number` or `boolean`, set `data-type="number"` on the corresponding
 
 > **new TableSort**(): `TableSort`
 
-Defined in: [tablesort/index.ts:33](https://github.com/rossrobino/drab/blob/main/packages/drab/src/tablesort/index.ts#L33)
+Defined in: [tablesort/index.ts:32](https://github.com/rossrobino/drab/blob/main/packages/drab/src/tablesort/index.ts#L32)
 
 #### Returns
 
@@ -344,7 +344,7 @@ Listener to attach to all of the `trigger` elements.
 
 > **mount**(): `void`
 
-Defined in: [tablesort/index.ts:70](https://github.com/rossrobino/drab/blob/main/packages/drab/src/tablesort/index.ts#L70)
+Defined in: [tablesort/index.ts:69](https://github.com/rossrobino/drab/blob/main/packages/drab/src/tablesort/index.ts#L69)
 
 Passed into `queueMicrotask` in `connectedCallback`.
 It is overridden in each component that needs to run `connectedCallback`.

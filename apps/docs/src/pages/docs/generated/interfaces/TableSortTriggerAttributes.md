@@ -1,4 +1,4 @@
-Defined in: [tablesort/index.ts:14](https://github.com/rossrobino/drab/blob/main/packages/drab/src/tablesort/index.ts#L14)
+Defined in: [tablesort/index.ts:13](https://github.com/rossrobino/drab/blob/main/packages/drab/src/tablesort/index.ts#L13)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [tablesort/index.ts:14](https://github.com/rossrobino/drab/blob/main
 
 > **data-type**: `"string"` \| `"number"` \| `"boolean"`
 
-Defined in: [tablesort/index.ts:15](https://github.com/rossrobino/drab/blob/main/packages/drab/src/tablesort/index.ts#L15)
+Defined in: [tablesort/index.ts:14](https://github.com/rossrobino/drab/blob/main/packages/drab/src/tablesort/index.ts#L14)
 
 ---
 
@@ -18,4 +18,4 @@ Defined in: [tablesort/index.ts:15](https://github.com/rossrobino/drab/blob/main
 
 > **data-value**: `string`
 
-Defined in: [tablesort/index.ts:16](https://github.com/rossrobino/drab/blob/main/packages/drab/src/tablesort/index.ts#L16)
+Defined in: [tablesort/index.ts:15](https://github.com/rossrobino/drab/blob/main/packages/drab/src/tablesort/index.ts#L15)

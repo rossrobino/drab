@@ -127,6 +127,7 @@ app.use(
 		c.redirect(c.url, 308);
 	}),
 	Route.get("/styles/details/", (c) => c.redirect("/styles/accordion/", 301)),
+	Route.get("/elements/dialog/", (c) => c.redirect("/styles/dialog/", 301)),
 );
 
 export default {

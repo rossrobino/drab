@@ -1,4 +1,4 @@
-Defined in: [intersect/index.ts:38](https://github.com/rossrobino/drab/blob/main/packages/drab/src/intersect/index.ts#L38)
+Defined in: [intersect/index.ts:37](https://github.com/rossrobino/drab/blob/main/packages/drab/src/intersect/index.ts#L37)
 
 Uses the
 [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)
@@ -29,7 +29,7 @@ Specify a `threshold` between `0` and `1` to determine how much of the
 
 > **new Intersect**(): `Intersect`
 
-Defined in: [intersect/index.ts:39](https://github.com/rossrobino/drab/blob/main/packages/drab/src/intersect/index.ts#L39)
+Defined in: [intersect/index.ts:38](https://github.com/rossrobino/drab/blob/main/packages/drab/src/intersect/index.ts#L38)
 
 #### Returns
 
@@ -310,7 +310,7 @@ Listener to attach to all of the `trigger` elements.
 
 > **mount**(): `void`
 
-Defined in: [intersect/index.ts:54](https://github.com/rossrobino/drab/blob/main/packages/drab/src/intersect/index.ts#L54)
+Defined in: [intersect/index.ts:53](https://github.com/rossrobino/drab/blob/main/packages/drab/src/intersect/index.ts#L53)
 
 Passed into `queueMicrotask` in `connectedCallback`.
 It is overridden in each component that needs to run `connectedCallback`.

@@ -1,4 +1,4 @@
-Defined in: [fullscreen/index.ts:18](https://github.com/rossrobino/drab/blob/main/packages/drab/src/fullscreen/index.ts#L18)
+Defined in: [fullscreen/index.ts:17](https://github.com/rossrobino/drab/blob/main/packages/drab/src/fullscreen/index.ts#L17)
 
 Toggles the `documentElement` or `content` element to fullscreen mode.
 
@@ -12,7 +12,7 @@ Disables the `trigger` if fullscreen is not supported.
 
 > **new Fullscreen**(): `Fullscreen`
 
-Defined in: [fullscreen/index.ts:19](https://github.com/rossrobino/drab/blob/main/packages/drab/src/fullscreen/index.ts#L19)
+Defined in: [fullscreen/index.ts:18](https://github.com/rossrobino/drab/blob/main/packages/drab/src/fullscreen/index.ts#L18)
 
 #### Returns
 
@@ -293,7 +293,7 @@ Listener to attach to all of the `trigger` elements.
 
 > **mount**(): `void`
 
-Defined in: [fullscreen/index.ts:50](https://github.com/rossrobino/drab/blob/main/packages/drab/src/fullscreen/index.ts#L50)
+Defined in: [fullscreen/index.ts:49](https://github.com/rossrobino/drab/blob/main/packages/drab/src/fullscreen/index.ts#L49)
 
 Passed into `queueMicrotask` in `connectedCallback`.
 It is overridden in each component that needs to run `connectedCallback`.
@@ -497,7 +497,7 @@ default: `800`
 
 > **toggle**(): `void`
 
-Defined in: [fullscreen/index.ts:38](https://github.com/rossrobino/drab/blob/main/packages/drab/src/fullscreen/index.ts#L38)
+Defined in: [fullscreen/index.ts:37](https://github.com/rossrobino/drab/blob/main/packages/drab/src/fullscreen/index.ts#L37)
 
 Enables or disables fullscreen mode based on the current state.
 

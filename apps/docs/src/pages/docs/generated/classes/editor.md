@@ -1,4 +1,4 @@
-Defined in: [editor/index.ts:70](https://github.com/rossrobino/drab/blob/main/packages/drab/src/editor/index.ts#L70)
+Defined in: [editor/index.ts:69](https://github.com/rossrobino/drab/blob/main/packages/drab/src/editor/index.ts#L69)
 
 Enhances the `textarea` element with controls to add content and keyboard shortcuts. Compared to other WYSIWYG editors, the `text` value is just a `string`, so you can easily store it in a database or manipulate it without learning a separate API.
 
@@ -43,7 +43,7 @@ Add a `ctrl`/`meta` keyboard shortcut for the content based on the `data-key` at
 
 > **new Editor**(): `Editor`
 
-Defined in: [editor/index.ts:89](https://github.com/rossrobino/drab/blob/main/packages/drab/src/editor/index.ts#L89)
+Defined in: [editor/index.ts:88](https://github.com/rossrobino/drab/blob/main/packages/drab/src/editor/index.ts#L88)
 
 #### Returns
 
@@ -324,7 +324,7 @@ Listener to attach to all of the `trigger` elements.
 
 > **mount**(): `void`
 
-Defined in: [editor/index.ts:304](https://github.com/rossrobino/drab/blob/main/packages/drab/src/editor/index.ts#L304)
+Defined in: [editor/index.ts:303](https://github.com/rossrobino/drab/blob/main/packages/drab/src/editor/index.ts#L303)
 
 Passed into `queueMicrotask` in `connectedCallback`.
 It is overridden in each component that needs to run `connectedCallback`.

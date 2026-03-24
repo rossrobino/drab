@@ -20,15 +20,15 @@ There are two ways to import the elements:
 1. In a client-side JavaScript module, import the element and define with with a name. Each element's class is exported from `drab/{element}`.
 
 ```js
-import { Dialog } from "drab/dialog";
+import { Share } from "drab/share";
 
-customElements.define("drab-dialog", Dialog); // define with any name
+customElements.define("drab-share", Share); // define with any name
 ```
 
 2. Import the `drab/{element}/define` module where it's defined for you, in this case the element will be named `drab-{element}`.
 
 ```js
-import "drab/dialog/define";
+import "drab/share/define";
 ```
 
 ## Template
@@ -36,7 +36,7 @@ import "drab/dialog/define";
 After importing the element and defining it to the registry, you can use the element in your template. See examples in the documentation for copy/paste starter templates.
 
 ```html
-<drab-dialog>...</drab-dialog>
+<drab-share>...</drab-share>
 ```
 
 ## Styling
@@ -78,17 +78,17 @@ Alternatively, you can add a `trigger` attribute to the element to customize the
 The content element is identified in a similar manner. By default, the first element with the `data-content` attribute will be selected.
 
 ```html
-<drab-dialog>
-	<dialog data-content>...</dialog>
-</drab-dialog>
+<drab-share>
+	<share data-content>...</share>
+</drab-share>
 ```
 
 This can also be customized by adding the `content` attribute, the value will be passed into `querySelector` to identify the content element instead.
 
 ```html
-<drab-dialog content="dialog">
-	<dialog>...</dialog>
-</drab-dialog>
+<drab-share content="share">
+	<share>...</share>
+</drab-share>
 ```
 
 ### Swap
@@ -110,4 +110,4 @@ You can also add the `swap` attribute to the element and use a custom selector j
 
 You now have a basic understanding of how the elements function!
 
-To learn how to integrate with your favorite framework, visit the [frameworks](/frameworks/) page, or explore the [individual elements](/elements/dialog/) to see what they can do.
+To learn how to integrate with your favorite framework, visit the [frameworks](/frameworks/) page, or explore the [individual elements](/elements/share/) to see what they can do.
